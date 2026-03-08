@@ -1,0 +1,17 @@
+export const cities = [
+  { slug: "istanbul", name: "İstanbul" },
+  { slug: "ankara", name: "Ankara" },
+  { slug: "izmir", name: "İzmir" },
+  { slug: "bursa", name: "Bursa" },
+  { slug: "kocaeli", name: "Kocaeli" },
+  { slug: "antalya", name: "Antalya" },
+  { slug: "tekirdag", name: "Tekirdağ" },
+  { slug: "sakarya", name: "Sakarya" },
+  { slug: "balikesir", name: "Balıkesir" },
+  { slug: "adana", name: "Adana" },
+  { slug: "konya", name: "Konya" },
+  { slug: "gaziantep", name: "Gaziantep" },
+  { slug: "kayseri", name: "Kayseri" },
+  { slug: "eskisehir", name: "Eskişehir" },
+  { slug: "mersin", name: "Mersin" },
+];
