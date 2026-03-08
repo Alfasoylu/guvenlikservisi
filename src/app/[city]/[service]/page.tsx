@@ -5,6 +5,13 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
+interface PageProps {
+  params: Promise<{
+    city: string;
+    service: string;
+  }>;
+}
+
 export function generateStaticParams() {
   const paths = [];
 
@@ -20,11 +27,13 @@ export function generateStaticParams() {
   return paths;
 }
 
-export default function ServicePage({ params }: any) {
-  const city = cities.find((c) => c.slug === params.city);
-  const service = services.find((s) => s.slug === params.service);
+export default async function ServicePage({ params }: PageProps) {
+  const { city: citySlug, service: serviceSlug } = await params;
 
-  if (!city || !service) return notFound();
+  const city = cities.find((c) => c.slug === citySlug);
+  const service = services.find((s) => s.slug === serviceSlug);
+
+  if (!city || !service) notFound();
 
   return (
     <main style={{ padding: "60px", maxWidth: "900px", margin: "auto" }}>
