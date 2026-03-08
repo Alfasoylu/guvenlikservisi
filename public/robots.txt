@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /teklif/
+
+# *
+User-agent: *
+Disallow: /api/
+
+# Host
+Host: https://guvenlikservisi.com
+
+# Sitemaps
+Sitemap: https://guvenlikservisi.com/sitemap.xml

@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* =============================================
+   MARKA RENKLERİ — Tailwind v4 @theme
+   ============================================= */
+@theme {
+  --color-primary: #0F2B46;
+  --color-accent: #1A73E8;
+  --color-cta: #34A853;
+  --color-cta-hover: #2D8B4E;
+  --color-warning: #E8710A;
+  --color-surface: #F8FAFB;
+  --color-text: #1A1A1A;
+  --color-text-light: #555555;
+
+  --font-family-sans: "Inter", system-ui, sans-serif;
+}
+
+/* =============================================
+   TEMEL STILLER
+   ============================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* =============================================
+   YARDIMCI SINIFLAR
+   ============================================= */
+@layer utilities {
+  .container-custom {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+}
