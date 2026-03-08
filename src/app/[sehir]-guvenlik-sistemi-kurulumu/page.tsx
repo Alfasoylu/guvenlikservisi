@@ -28,11 +28,13 @@ const sehirData: Record<
 > = {
   istanbul: {
     name: "İstanbul",
-    districts: "Kadıköy, Beşiktaş, Şişli, Üsküdar, Maltepe, Pendik, Ümraniye, Bakırköy ve tüm ilçeler",
+    districts:
+      "Kadıköy, Beşiktaş, Şişli, Üsküdar, Maltepe, Pendik, Ümraniye, Bakırköy ve tüm ilçeler",
     projectCount: "250+",
     description:
       "İstanbul'un Avrupa ve Anadolu yakasında güvenlik kamera, alarm ve yangın alarm sistemi kurulumu yapıyoruz. Yoğun nüfus ve ticari yapısı nedeniyle güvenlik sistemleri İstanbul'da özellikle kritik önem taşır.",
-    highlight: "İstanbul'da hem konut hem kurumsal projelerde kapsamlı deneyimimiz bulunmaktadır.",
+    highlight:
+      "İstanbul'da hem konut hem kurumsal projelerde kapsamlı deneyimimiz bulunmaktadır.",
   },
   bursa: {
     name: "Bursa",
@@ -77,23 +79,32 @@ const sehirData: Record<
 };
 
 export async function generateStaticParams() {
-  return siteConfig.cities.map((city) => ({ sehir: city.slug }));
+  return siteConfig.cities.map((city) => ({
+    sehir: `${city.slug}-guvenlik-sistemi-kurulumu`,
+  }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { sehir } = await params;
-  const data = sehirData[sehir];
+  const citySlug = sehir.replace("-guvenlik-sistemi-kurulumu", "");
+  const data = sehirData[citySlug];
+
   if (!data) return {};
+
   return {
     title: `${data.name} Güvenlik Sistemi Kurulumu | Kamera + Alarm Montajı`,
     description: `${data.name} ve çevresinde güvenlik kamera, alarm ve yangın alarm sistemi kurulumu. Ücretsiz keşif, anahtar teslim montaj.`,
-    alternates: { canonical: `https://guvenlikservisi.com/${sehir}-guvenlik-sistemi-kurulumu` },
+    alternates: {
+      canonical: `https://guvenlikservisi.com/${sehir}`,
+    },
   };
 }
 
 export default async function SehirSayfasi({ params }: PageProps) {
   const { sehir } = await params;
-  const data = sehirData[sehir];
+  const citySlug = sehir.replace("-guvenlik-sistemi-kurulumu", "");
+  const data = sehirData[citySlug];
+
   if (!data) notFound();
 
   const faqItems = [
@@ -111,35 +122,45 @@ export default async function SehirSayfasi({ params }: PageProps) {
     },
     {
       question: `${data.name}'de acil servis desteği var mı?`,
-      answer: "Evet, bakım sözleşmesi müşterilerimize 7/24 teknik destek ve öncelikli yerinde müdahale sağlıyoruz.",
+      answer:
+        "Evet, bakım sözleşmesi müşterilerimize 7/24 teknik destek ve öncelikli yerinde müdahale sağlıyoruz.",
     },
   ];
 
   const lbSchema = generateLocalBusinessSchema();
   const breadcrumb = generateBreadcrumbSchema([
     { name: "Ana Sayfa", url: "/" },
-    { name: `${data.name} Güvenlik Sistemi`, url: `/${sehir}-guvenlik-sistemi-kurulumu` },
+    { name: `${data.name} Güvenlik Sistemi`, url: `/${sehir}` },
   ]);
   const faqSchema = generateFAQSchema(faqItems);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(lbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(lbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-      {/* Breadcrumb */}
       <div className="bg-surface border-b border-gray-100 py-3">
         <Container>
           <nav className="flex items-center gap-2 text-sm text-text-light">
-            <Link href="/" className="hover:text-primary">Ana Sayfa</Link>
+            <Link href="/" className="hover:text-primary">
+              Ana Sayfa
+            </Link>
             <span>/</span>
             <span className="text-primary font-medium">{data.name} Güvenlik Sistemi</span>
           </nav>
         </Container>
       </div>
 
-      {/* Hero */}
       <section className="bg-gradient-to-br from-primary to-[#1A3A5C] text-white py-16 md:py-20">
         <Container>
           <div className="max-w-3xl">
@@ -151,7 +172,8 @@ export default async function SehirSayfasi({ params }: PageProps) {
               {data.name} Güvenlik Sistemi Kurulumu — Kamera, Alarm, Yangın
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
-              {data.name} ve çevresinde profesyonel güvenlik sistemi kurulumu. Ücretsiz keşif + anahtar teslim montaj.
+              {data.name} ve çevresinde profesyonel güvenlik sistemi kurulumu. Ücretsiz keşif +
+              anahtar teslim montaj.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -172,7 +194,6 @@ export default async function SehirSayfasi({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Şehre özel tanıtım */}
       <section className="py-16 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -187,6 +208,7 @@ export default async function SehirSayfasi({ params }: PageProps) {
                 <p className="text-text-light text-sm">{data.districts}</p>
               </div>
             </div>
+
             <div className="grid grid-cols-1 gap-4">
               {[
                 { label: `${data.name}'de Tamamlanan Proje`, value: data.projectCount },
@@ -194,7 +216,10 @@ export default async function SehirSayfasi({ params }: PageProps) {
                 { label: "Garanti Süresi", value: "1-3 Yıl" },
                 { label: "Teknik Destek", value: "7/24" },
               ].map((item, i) => (
-                <div key={i} className="flex items-center justify-between bg-surface rounded-lg px-5 py-4">
+                <div
+                  key={i}
+                  className="flex items-center justify-between bg-surface rounded-lg px-5 py-4"
+                >
                   <span className="text-text-light text-sm">{item.label}</span>
                   <span className="font-bold text-primary">{item.value}</span>
                 </div>
@@ -204,7 +229,6 @@ export default async function SehirSayfasi({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Hizmet kartları */}
       <section className="py-16 bg-surface">
         <Container>
           <h2 className="text-2xl font-bold text-primary text-center mb-10">
@@ -248,10 +272,8 @@ export default async function SehirSayfasi({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* FAQ */}
       <FAQSection items={faqItems} title={`${data.name} Hakkında Sık Sorulan Sorular`} />
 
-      {/* CTA */}
       <CTASection
         title={`${data.name}'de Ücretsiz Keşif Alın`}
         subtitle={`${data.name} ve çevresinde aynı gün keşif ayarlayabiliriz.`}
