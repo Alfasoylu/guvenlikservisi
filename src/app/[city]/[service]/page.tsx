@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { notFound } from "next/navigation";
@@ -97,6 +98,39 @@ function getCameraPackageText(cityName: string) {
   ];
 }
 
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { city: citySlug, service: serviceSlug } = await params;
+
+  const city = cities.find((c) => c.slug === citySlug);
+  const service = services.find((s) => s.slug === serviceSlug);
+
+  if (!city || !service) {
+    return {
+      title: "Sayfa Bulunamadı | Güvenlik Servisi",
+    };
+  }
+
+  const title = `${city.name} ${service.name} | Ücretsiz Keşif ve Montaj`;
+  const description = `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. Ücretsiz keşif, anahtar teslim montaj, mobil izleme kurulumu ve hızlı teklif alın.`;
+  const canonical = `${siteConfig.url}/${city.slug}/${service.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: siteConfig.name,
+      locale: "tr_TR",
+      type: "website",
+    },
+  };
+}
+
 export default async function ServicePage({ params }: PageProps) {
   const { city: citySlug, service: serviceSlug } = await params;
 
@@ -113,8 +147,105 @@ export default async function ServicePage({ params }: PageProps) {
 
   const packages = getCameraPackageText(city.name);
 
+  const faqItems = isCameraPage
+    ? [
+        {
+          question: `${city.name} kamera sistemi kurulumu ne kadar sürer?`,
+          answer:
+            "Küçük projelerde aynı gün, orta ve büyük projelerde 1-3 gün arasında tamamlanır.",
+        },
+        {
+          question: "Kaç kamera gerektiğini nasıl belirliyorsunuz?",
+          answer:
+            "Alan büyüklüğü, giriş-çıkış noktaları, kör alanlar ve kayıt beklentisine göre keşifte belirliyoruz.",
+        },
+        {
+          question: "Uzaktan telefondan izleme kuruluyor mu?",
+          answer:
+            "Evet. Mobil uygulama ile canlı izleme ve kayıt erişimi kurulum sırasında aktif edilir.",
+        },
+        {
+          question: "Kayıt cihazı ve hard disk dahil mi?",
+          answer:
+            "Evet. Sistem ihtiyacına göre NVR, hard disk ve gerekiyorsa PoE switch dahil çözüm hazırlanır.",
+        },
+      ]
+    : [
+        {
+          question: `${city.name} ${service.name.toLowerCase()} hizmeti veriyor musunuz?`,
+          answer: `Evet, ${city.name} içinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`,
+        },
+      ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Ana Sayfa",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: city.name,
+        item: `${siteConfig.url}/${city.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.name,
+        item: `${siteConfig.url}/${city.slug}/${service.slug}`,
+      },
+    ],
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: `${city.name} ${service.name} - ${siteConfig.name}`,
+    url: `${siteConfig.url}/${city.slug}/${service.slug}`,
+    telephone: siteConfig.phone,
+    areaServed: city.name,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: siteConfig.city,
+      streetAddress: siteConfig.address,
+      addressCountry: "TR",
+    },
+    description: `${city.name} için ${service.name.toLowerCase()} hizmeti.`,
+  };
+
   return (
     <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "48px 20px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       <section style={{ marginBottom: "40px" }}>
         <div style={{ fontSize: "14px", marginBottom: "12px", color: "#666" }}>
           <Link href="/" style={{ color: "#666", textDecoration: "none" }}>
@@ -316,26 +447,9 @@ export default async function ServicePage({ params }: PageProps) {
             </h2>
 
             <div style={{ display: "grid", gap: "18px" }}>
-              {[
-                {
-                  q: `${city.name} kamera sistemi kurulumu ne kadar sürer?`,
-                  a: "Küçük projelerde aynı gün, orta ve büyük projelerde 1-3 gün arasında tamamlanır.",
-                },
-                {
-                  q: "Kaç kamera gerektiğini nasıl belirliyorsunuz?",
-                  a: "Alan büyüklüğü, giriş-çıkış noktaları, kör alanlar ve kayıt beklentisine göre keşifte belirliyoruz.",
-                },
-                {
-                  q: "Uzaktan telefondan izleme kuruluyor mu?",
-                  a: "Evet. Mobil uygulama ile canlı izleme ve kayıt erişimi kurulum sırasında aktif edilir.",
-                },
-                {
-                  q: "Kayıt cihazı ve hard disk dahil mi?",
-                  a: "Evet. Sistem ihtiyacına göre NVR, hard disk ve gerekiyorsa PoE switch dahil çözüm hazırlanır.",
-                },
-              ].map((faq) => (
+              {faqItems.map((faq) => (
                 <div
-                  key={faq.q}
+                  key={faq.question}
                   style={{
                     border: "1px solid #e5e7eb",
                     borderRadius: "14px",
@@ -344,9 +458,9 @@ export default async function ServicePage({ params }: PageProps) {
                   }}
                 >
                   <h3 style={{ fontSize: "20px", color: "#0F2B46", marginBottom: "10px" }}>
-                    {faq.q}
+                    {faq.question}
                   </h3>
-                  <p style={{ fontSize: "17px", lineHeight: 1.7 }}>{faq.a}</p>
+                  <p style={{ fontSize: "17px", lineHeight: 1.7 }}>{faq.answer}</p>
                 </div>
               ))}
             </div>
