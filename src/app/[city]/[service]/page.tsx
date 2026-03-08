@@ -1,7 +1,7 @@
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { notFound } from "next/navigation";
-
+export const dynamicParams = false;
 export function generateStaticParams() {
   const paths = [];
 
