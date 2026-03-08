@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Güvenlik Servisi",
   url: "https://guvenlikservisi.com",
-  phone: "0850 XXX XX XX",          // KULLANICI DOLDURACAK
-  whatsapp: "905XXXXXXXXX",          // KULLANICI DOLDURACAK
+  phone: "+90 542 593 49 00",          // KULLANICI DOLDURACAK
+  whatsapp: "908503077397",          // KULLANICI DOLDURACAK
   email: "info@guvenlikservisi.com",
-  address: "...",                    // KULLANICI DOLDURACAK
+  address: "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",                    // KULLANICI DOLDURACAK
   city: "İstanbul",
   description:
     "Marmara Bölgesi genelinde profesyonel güvenlik kamera, " +
