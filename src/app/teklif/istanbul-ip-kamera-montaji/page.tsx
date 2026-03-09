@@ -1,15 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import {
-  CheckCircle,
-  Phone,
-  Shield,
-  Camera,
-  MonitorSmartphone,
-  MapPin,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import { CheckCircle, Phone, Shield, Camera, MonitorSmartphone, MapPin, Star } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
 export const metadata = {
@@ -396,6 +386,126 @@ export default function IstanbulIpKameraMontajiPage() {
       </section>
 
       <section className="bg-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/landing/kamera-gece-gorus.webp"
+                alt="IP kamera gece görüşü örneği"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div>
+            <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-900">
+              Net görüntü
+            </span>
+
+            <h2 className="mt-4 text-3xl font-extrabold leading-tight md:text-4xl">
+              Gündüz ve Gece Net Görüntü Alın
+            </h2>
+
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              Kamera sistemi sadece kayıt almak için değil, olay anında yüz,
+              giriş, araç ve hareket detaylarını net görmek için kurulur. Doğru
+              kamera, doğru açı ve doğru kayıt yapısı ile sistem gerçekten işe
+              yarar.
+            </p>
+
+            <div className="mt-6 space-y-3">
+              {[
+                "Gece görüşünde daha net izleme",
+                "Giriş ve kritik alanlarda daha doğru konumlandırma",
+                "Kayıt izlerken detay kaybını azaltan yapı",
+                "Ev, mağaza, ofis ve depo için uygun kamera seçimi",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                  <span className="text-sm text-slate-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-sm font-semibold text-white">
+                Akıllı algılama
+              </span>
+              <h2 className="mt-4 text-3xl font-extrabold leading-tight md:text-4xl">
+                İnsan ve Hareket Algılama Demoları
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                Modern IP kamera sistemleri sadece görüntü kaydetmez. İnsan ve
+                hareket algılama ile yanlış alarmları azaltır, daha anlamlı
+                bildirim üretir ve gerçekten işe yarayan güvenlik sağlar.
+              </p>
+
+              <div className="mt-6 space-y-3">
+                {[
+                  "İnsan algılama ile gereksiz bildirimleri azaltır",
+                  "Akıllı olay senaryoları ile daha verimli izleme sağlar",
+                  "Telefon uygulamasına daha anlamlı anlık uyarılar gönderir",
+                  "İşyeri, mağaza ve depo için daha kullanışlı güvenlik deneyimi sunar",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                    <span className="text-sm text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-6">
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+                <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
+                  Gerçek Kurulum Görüntüsü – İnsan Algılama
+                </div>
+                <video
+                  className="w-full"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                >
+                  <source
+                    src="/videos/insan-algilama-demo-video.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+                <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
+                  Gerçek Kurulum Görüntüsü – Hareket Halinde Plaka Netliği
+                </div>
+                <video
+                  className="w-full"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                >
+                  <source
+                    src="/videos/Hareketli-Arac-plaka-gorus-demosu.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-extrabold md:text-4xl">
@@ -495,6 +605,77 @@ export default function IstanbulIpKameraMontajiPage() {
                   fill
                   className="object-cover"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-extrabold md:text-4xl">
+              Gerçek Uygulama, Gerçek Sonuç
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              Kamera kurulumunda önemli olan sadece ürün değil, mekanın yapısına uygun
+              doğru yerleşim ve sorunsuz teslimdir.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/landing/magaza-kamera-referans.webp"
+                  alt="Mağaza için IP kamera referans kurulumu"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center rounded-3xl border border-slate-200 bg-white p-8">
+              <h3 className="text-2xl font-extrabold">
+                Mağaza, Ofis ve Depo İçin Uygun Yerleşim
+              </h3>
+
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                Giriş alanı, kasa noktası, raf araları, personel alanı ve dış cephe
+                gibi kritik bölgeler doğru planlandığında sistem gerçek güvenlik sağlar.
+              </p>
+
+              <div className="mt-6 space-y-3">
+                {[
+                  "Kritik noktalar için doğru kamera açısı",
+                  "Kablo ve cihaz yerleşiminde düzenli kurulum",
+                  "Uzaktan izleme ve kayıt altyapısının eksiksiz teslimi",
+                  "İstanbul içi keşif ve projeye göre sistem önerisi",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                    <span className="text-sm text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#teklif-formu"
+                  className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-5 py-3 font-bold text-white transition hover:bg-slate-800"
+                >
+                  Teklif Al
+                </a>
+
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-event="whatsapp_click"
+                  className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 font-bold text-white transition hover:bg-emerald-600"
+                >
+                  WhatsApp’tan Yaz
+                </a>
               </div>
             </div>
           </div>
