@@ -1,96 +1,64 @@
 import type { NextConfig } from "next";
-
-const legacyCityRedirects = [
-  "adana",
-  "adiyaman",
-  "afyonkarahisar",
-  "agri",
-  "aksaray",
-  "amasya",
-  "ankara",
-  "antalya",
-  "ardahan",
-  "artvin",
-  "aydin",
-  "balikesir",
-  "bartin",
-  "batman",
-  "bayburt",
-  "bilecik",
-  "bingol",
-  "bitlis",
-  "bolu",
-  "burdur",
-  "bursa",
-  "canakkale",
-  "cankiri",
-  "corum",
-  "denizli",
-  "diyarbakir",
-  "duzce",
-  "edirne",
-  "elazig",
-  "erzincan",
-  "erzurum",
-  "eskisehir",
-  "gaziantep",
-  "giresun",
-  "gumushane",
-  "hakkari",
-  "hatay",
-  "igdir",
-  "isparta",
-  "istanbul",
-  "izmir",
-  "kahramanmaras",
-  "karabuk",
-  "karaman",
-  "kars",
-  "kastamonu",
-  "kayseri",
-  "kirikkale",
-  "kirklareli",
-  "kirsehir",
-  "kilis",
-  "kocaeli",
-  "konya",
-  "kutahya",
-  "malatya",
-  "manisa",
-  "mardin",
-  "mersin",
-  "mugla",
-  "mus",
-  "nevsehir",
-  "nigde",
-  "ordu",
-  "osmaniye",
-  "rize",
-  "sakarya",
-  "samsun",
-  "sanliurfa",
-  "siirt",
-  "sinop",
-  "sivas",
-  "sirnak",
-  "tekirdag",
-  "tokat",
-  "trabzon",
-  "tunceli",
-  "usak",
-  "van",
-  "yalova",
-  "yozgat",
-  "zonguldak",
-] as const;
+import { cities } from "./src/data/cities";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return legacyCityRedirects.map((city) => ({
-      source: `/${city}-guvenlik-sistemi-kurulumu`,
-      destination: `/${city}/kamera-sistemi-kurulumu`,
+
+    // eski şehir url formatı
+    const legacyCityRedirects = cities.map((city) => ({
+      source: `/${city.slug}-guvenlik-sistemi-kurulumu`,
+      destination: `/${city.slug}`,
       permanent: true,
     }));
+
+    // eski hizmet url formatı
+    const legacyServiceRedirects = [
+      {
+        source: "/hizmetler/guvenlik-kamera-kurulumu",
+        destination: "/kamera-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/alarm-sistemi-kurulumu",
+        destination: "/alarm-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/yangin-alarm-sistemi-kurulumu",
+        destination: "/yangin-alarm-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/kartli-gecis-sistemi-kurulumu",
+        destination: "/kartli-gecis-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/apartman-site-guvenlik-sistemi",
+        destination: "/apartman-site-guvenlik-sistemi",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/isyeri-guvenlik-sistemi",
+        destination: "/isyeri-guvenlik-sistemi",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/fabrika-depo-guvenlik-sistemi",
+        destination: "/fabrika-depo-guvenlik-sistemi",
+        permanent: true,
+      },
+      {
+        source: "/hizmetler/bakim-servis-uzaktan-izleme",
+        destination: "/bakim-servis-uzaktan-izleme",
+        permanent: true,
+      },
+    ];
+
+    return [
+      ...legacyCityRedirects,
+      ...legacyServiceRedirects,
+    ];
   },
 };
 
