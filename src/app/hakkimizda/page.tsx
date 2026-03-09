@@ -79,7 +79,7 @@ export default function HakkimizdaSayfasi() {
                 { value: siteConfig.stats.projects, label: "Tamamlanan Proje" },
                 { value: siteConfig.stats.experience, label: "Sektör Deneyimi" },
                 { value: siteConfig.stats.satisfaction, label: "Müşteri Memnuniyeti" },
-                { value: siteConfig.stats.cities, label: "Hizmet Bölgesi" },
+                { value: `${siteConfig.serviceCityCount} Şehir`, label: "Hizmet Bölgesi" },
               ].map((stat, i) => (
                 <div key={i} className="bg-surface rounded-xl p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
