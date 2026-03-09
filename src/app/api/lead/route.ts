@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT || 587),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 export async function POST(req: Request) {
   try {
@@ -33,9 +41,9 @@ export async function POST(req: Request) {
       timeZone: "Europe/Istanbul",
     });
 
-    await resend.emails.send({
-      from: "Güvenlik Servisi <onboarding@resend.dev>",
-      to: ["destek@soyluelektronik.com"],
+    await transporter.sendMail({
+      from: `"Güvenlik Servisi" <${process.env.SMTP_USER}>`,
+      to: "info@guvenlikservisi.com",
       subject: "Yeni IP Kamera Montaj Lead'i",
       html: `
         <h2>Yeni Lead Geldi</h2>
