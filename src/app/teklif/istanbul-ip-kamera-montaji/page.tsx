@@ -94,27 +94,28 @@ const faqs = [
     q: "IP kamera mı analog kamera mı daha mantıklı?",
     a: "Yeni kurulumların büyük bölümünde IP kamera sistemi daha avantajlıdır. IP kameralar analog sistemlere göre daha yüksek çözünürlük (genellikle 2MP, 4MP ve üzeri), daha net gece görüntüsü ve daha gelişmiş akıllı özellikler sunar. İnsan algılama, araç algılama, mobil bildirim ve uzaktan erişim gibi özellikler IP sistemlerde çok daha stabil çalışır. IP kamera sistemleri ağ altyapısı üzerinden çalıştığı için kayıt cihazı, mobil uygulama ve uzaktan izleme entegrasyonu daha güçlüdür. Bu yüzden ilk kurulum maliyeti analog sistemlere göre biraz daha yüksek olabilir. Ancak görüntü kalitesi, uzaktan erişim kolaylığı ve gelecekte sisteme yeni kamera ekleme esnekliği nedeniyle çoğu ev, işyeri ve mağaza için IP kamera sistemi uzun vadede daha mantıklı bir yatırım olur",
   },
-  {
-    q: "Net fiyat nasıl belirleniyor?",
-    a: "Kamera sayısı, kablolama mesafesi, kayıt süresi, çözünürlük ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası verilir.",
-  },
+ {
+  q: "Net fiyat nasıl belirleniyor?",
+  a: "Kamera sayısı, kablolama mesafesi, kayıt süresi, çözünürlük ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası verilir.",
+},
 ];
 
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
+
 const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
   "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum."
-  declare global {
+)}`;
+
+declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
   }
 }
-)}`;
 
 export default function IstanbulIpKameraMontajiPage() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState("");
   const [formError, setFormError] = useState("");
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
