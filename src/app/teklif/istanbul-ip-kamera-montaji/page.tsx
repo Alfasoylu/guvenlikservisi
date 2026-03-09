@@ -1,15 +1,31 @@
-"use client";
 import Image from "next/image";
-import { FormEvent, useState } from "react";
-import { CheckCircle, Phone, Shield, Camera, MonitorSmartphone, MapPin, Star } from "lucide-react";
+import {
+  CheckCircle,
+  Phone,
+  Shield,
+  Camera,
+  MonitorSmartphone,
+  MapPin,
+  Star,
+} from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteForm";
 
 export const metadata = {
   title: "İstanbul IP Kamera Montajı | Hızlı Keşif ve Profesyonel Kurulum",
   description:
     "İstanbul IP kamera montajı hizmeti. Ev, işyeri, mağaza ve depo için profesyonel IP kamera kurulumu, uzaktan izleme ayarı ve hızlı teklif.",
   alternates: {
-    canonical: "/teklif/istanbul-ip-kamera-montaji",
+    canonical: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+  },
+  openGraph: {
+    title: "İstanbul IP Kamera Montajı | Hızlı Keşif ve Profesyonel Kurulum",
+    description:
+      "İstanbul IP kamera montajı hizmeti. Ev, işyeri, mağaza ve depo için profesyonel IP kamera kurulumu, uzaktan izleme ayarı ve hızlı teklif.",
+    url: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+    siteName: "Güvenlik Servisi",
+    locale: "tr_TR",
+    type: "website",
   },
 };
 
@@ -80,11 +96,11 @@ const packages = [
 const faqs = [
   {
     q: "İstanbul IP kamera montajı ne kadar sürer?",
-    a: " 4-5 Kameraya kadarki montajlarda kurulum ve devreye alma çoğu zaman aynı gün tamamlanır. Daha büyük projelerde keşif sonrası net süre verilir.",
+    a: "4-5 kameraya kadarki montajlarda kurulum ve devreye alma çoğu zaman aynı gün tamamlanır. Daha büyük projelerde keşif sonrası net süre verilir.",
   },
   {
     q: "İstanbul’un hangi bölgelerine hizmet veriyorsunuz?",
-    a: "İstanbul’un hem Avrupa hem de Anadolu Yakası genelinde IP kamera montajı ve güvenlik sistemi kurulumu hizmeti veriyoruz. Kadıköy, Üsküdar, Ataşehir, Maltepe, Kartal, Pendik, Şişli, Beşiktaş, Bakırköy, Başakşehir, Beylikdüzü, Avcılar ve çevre ilçelerde düzenli olarak kurulum yapıyoruz. Projenin büyüklüğüne ve konumunuza göre ücretsiz keşif planlanır ve çoğu durumda ertesi gün ekip yönlendirilir. Küçük ölçekli ev ve işyeri kurulumları genellikle aynı gün tamamlanabilir. 8-12 Kameralı sistemlerin montajı 2 gün sürebilmektedir.",
+    a: "İstanbul’un hem Avrupa hem de Anadolu Yakası genelinde IP kamera montajı ve güvenlik sistemi kurulumu hizmeti veriyoruz. Kadıköy, Üsküdar, Ataşehir, Maltepe, Kartal, Pendik, Şişli, Beşiktaş, Bakırköy, Başakşehir, Beylikdüzü, Avcılar ve çevre ilçelerde düzenli olarak kurulum yapıyoruz. Projenin büyüklüğüne ve konumunuza göre ücretsiz keşif planlanır ve çoğu durumda ertesi gün ekip yönlendirilir. Küçük ölçekli ev ve işyeri kurulumları genellikle aynı gün tamamlanabilir. 8-12 kameralı sistemlerin montajı 2 gün sürebilir.",
   },
   {
     q: "Telefondan canlı izleme kuruluyor mu?",
@@ -92,90 +108,45 @@ const faqs = [
   },
   {
     q: "IP kamera mı analog kamera mı daha mantıklı?",
-    a: "Yeni kurulumların büyük bölümünde IP kamera sistemi daha avantajlıdır. IP kameralar analog sistemlere göre daha yüksek çözünürlük (genellikle 2MP, 4MP ve üzeri), daha net gece görüntüsü ve daha gelişmiş akıllı özellikler sunar. İnsan algılama, araç algılama, mobil bildirim ve uzaktan erişim gibi özellikler IP sistemlerde çok daha stabil çalışır. IP kamera sistemleri ağ altyapısı üzerinden çalıştığı için kayıt cihazı, mobil uygulama ve uzaktan izleme entegrasyonu daha güçlüdür. Bu yüzden ilk kurulum maliyeti analog sistemlere göre biraz daha yüksek olabilir. Ancak görüntü kalitesi, uzaktan erişim kolaylığı ve gelecekte sisteme yeni kamera ekleme esnekliği nedeniyle çoğu ev, işyeri ve mağaza için IP kamera sistemi uzun vadede daha mantıklı bir yatırım olur",
+    a: "Yeni kurulumların büyük bölümünde IP kamera sistemi daha avantajlıdır. IP kameralar analog sistemlere göre daha yüksek çözünürlük, daha net gece görüntüsü ve daha gelişmiş akıllı özellikler sunar. İnsan algılama, araç algılama, mobil bildirim ve uzaktan erişim gibi özellikler IP sistemlerde çok daha stabil çalışır. Bu yüzden ilk kurulum maliyeti analog sistemlere göre biraz daha yüksek olabilir. Ancak görüntü kalitesi, uzaktan erişim kolaylığı ve gelecekte sisteme yeni kamera ekleme esnekliği nedeniyle çoğu ev, işyeri ve mağaza için IP kamera sistemi uzun vadede daha mantıklı bir yatırım olur.",
   },
- {
-  q: "Net fiyat nasıl belirleniyor?",
-  a: "Kamera sayısı, kablolama mesafesi, kayıt süresi, çözünürlük ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası verilir.",
-},
+  {
+    q: "Net fiyat nasıl belirleniyor?",
+    a: "Kamera sayısı, kablolama mesafesi, kayıt süresi, çözünürlük ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası verilir.",
+  },
 ];
 
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
-
 const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
   "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum."
 )}`;
 
-declare global {
-  interface Window {
-    dataLayer: Record<string, unknown>[];
-  }
-}
-
 export default function IstanbulIpKameraMontajiPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formSuccess, setFormSuccess] = useState("");
-  const [formError, setFormError] = useState("");
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormSuccess("");
-    setFormError("");
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "İstanbul IP Kamera Montajı",
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Güvenlik Servisi",
+      telephone: siteConfig.phone,
+      areaServed: "İstanbul",
+      url: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "İstanbul",
+    },
+    serviceType: "IP kamera montajı",
+  };
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const payload = {
-      name: String(formData.get("name") || ""),
-      phone: String(formData.get("phone") || ""),
-      district: String(formData.get("district") || ""),
-      placeType: String(formData.get("placeType") || ""),
-      cameraCount: String(formData.get("cameraCount") || ""),
-      message: String(formData.get("message") || ""),
-      page: window.location.href,
-      utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
-      utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || "",
-      utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
-      utm_term: new URLSearchParams(window.location.search).get("utm_term") || "",
-      gclid: new URLSearchParams(window.location.search).get("gclid") || "",
-    };
-
-    if (!payload.name || !payload.phone) {
-      setFormError("Lütfen ad soyad ve telefon alanlarını doldurun.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        throw new Error("Form gönderilemedi");
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "form_submit_success",
-        form_name: "istanbul_ip_kamera_montaji_teklif_formu",
-        page_path: window.location.pathname,
-      });
-
-      setFormSuccess("Talebiniz alındı. En kısa sürede sizi arayacağız.");
-      form.reset();
-    } catch (error) {
-      setFormError("Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
   return (
     <main className="bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 opacity-20">
           <Image
@@ -247,156 +218,7 @@ export default function IstanbulIpKameraMontajiPage() {
             </div>
           </div>
 
-          <div
-            id="teklif-formu"
-            className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl lg:p-8"
-          >
-            <div className="mb-5">
-              <h2 className="text-2xl font-extrabold">
-                Ücretsiz Keşif ve Teklif Alın
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Formu doldurun. Uygun sistem yapısını öğrenip sizi hızlıca arayalım.
-              </p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label className="mb-2 block text-sm font-semibold">
-                    Ad Soyad
-                  </label>
-                 <input
-  type="text"
-  name="name"
-  placeholder="Ad Soyad"
-  required
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-/>
-                </div>
-                <div>
-                  <label className="mb-2 block text-sm font-semibold">
-                    Telefon
-                  </label>
-                  <input
-  type="tel"
-  name="phone"
-  placeholder="05xx xxx xx xx"
-  required
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-/>
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label className="mb-2 block text-sm font-semibold">
-                    İlçe
-                  </label>
-                 <select
-  name="district"
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
->
-                    <option value="">İlçe seçin</option>
-                    {districts.map((district) => (
-                      <option key={district}>{district}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-semibold">
-                    Mekan Türü
-                  </label>
-                 <select
-  name="placeType"
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
->
-                    <option value="">Seçin</option>
-                    <option>Ev / Daire</option>
-                    <option>Ofis</option>
-                    <option>Mağaza</option>
-                    <option>Depo</option>
-                    <option>Site / Apartman</option>
-                    <option>Fabrika / Atölye</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-semibold">
-                  Tahmini Kamera Sayısı
-                </label>
-                <select
-  name="cameraCount"
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
->
-                 <option value="">Seçin</option>
-                  <option>2-4 Kamera</option>
-                  <option>4-8 Kamera</option>
-                  <option>8-16 Kamera</option>
-                  <option>16+ Kamera</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-semibold">
-                  Kısa Açıklama
-                </label>
-               <textarea
-  name="message"
-  rows={4}
-  placeholder="Mekan türü, ses kayıt özelliği gibi ihtiyaç ve beklentinizi kısaca yazınız"
-  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-/>
-              </div>
-
-              <button
-  type="submit"
-  disabled={isSubmitting}
-  className="inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-4 text-base font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
->
-  {isSubmitting ? "Gönderiliyor..." : "Teklif Talebi Gönder"}
-</button>
-                    {formSuccess && (
-                <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
-                  {formSuccess}
-                </p>
-              )}
-
-              {formError && (
-                <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
-                  {formError}
-                </p>
-              )}
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-event="whatsapp_click"
-                  className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 font-bold text-white transition hover:bg-emerald-600"
-                >
-                  WhatsApp’tan Hızlı Fiyat Al
-                </a>
-
-                <a
-                  href={phoneHref}
-                  data-event="phone_click"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-900 transition hover:bg-slate-50"
-                >
-                  <Phone size={18} />
-                  Hemen Ara
-                </a>
-              </div>
-
-              <p className="text-xs leading-5 text-slate-500">
-                Formu göndererek sizinle teklif ve keşif süreci için iletişime
-                geçilmesini kabul etmiş olursunuz.
-              </p>
-            </form>
-          </div>
+          <IstanbulIpCameraQuoteForm districts={districts} />
         </div>
       </section>
 
@@ -567,14 +389,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
                   Gerçek Kurulum Görüntüsü – İnsan Algılama
                 </div>
-                <video
-                  className="w-full"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                >
+                <video className="w-full" muted loop playsInline controls preload="none">
                   <source
                     src="/videos/insan-algilama-demo-video.mp4"
                     type="video/mp4"
@@ -586,14 +401,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
                   Gerçek Kurulum Görüntüsü – Hareket Halinde Plaka Netliği
                 </div>
-                <video
-                  className="w-full"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                >
+                <video className="w-full" muted loop playsInline controls preload="none">
                   <source
                     src="/videos/Hareketli-Arac-plaka-gorus-demosu.mp4"
                     type="video/mp4"
