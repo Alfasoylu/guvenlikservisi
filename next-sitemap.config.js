@@ -1,16 +1,26 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: "https://guvenlikservisi.com",
+
   generateRobotsTxt: true,
+
+  sitemapSize: 5000,
+
+  exclude: [
+    "/teklif/*",
+    "/api/*",
+  ],
+
   robotsTxtOptions: {
     policies: [
-      { userAgent: "*", allow: "/" },
-      { userAgent: "*", disallow: "/teklif/" },
-      { userAgent: "*", disallow: "/api/" },
-    ],
-    additionalSitemaps: [
-      "https://guvenlikservisi.com/sitemap.xml",
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/teklif/",
+          "/api/",
+        ],
+      },
     ],
   },
-  exclude: ["/teklif/*", "/api/*"],
 };
