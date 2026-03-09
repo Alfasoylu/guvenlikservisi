@@ -13,10 +13,26 @@ interface StatsBarProps {
 }
 
 const defaultStats: Stat[] = [
-  { icon: "🏗️", value: siteConfig.stats.projects, label: "Tamamlanan Proje" },
-  { icon: "📅", value: siteConfig.stats.experience, label: "Sektör Deneyimi" },
-  { icon: "😊", value: siteConfig.stats.satisfaction, label: "Müşteri Memnuniyeti" },
-  { icon: "🏙️", value: siteConfig.stats.cities, label: "Hizmet Bölgesi" },
+  {
+    icon: "🏗️",
+    value: siteConfig.stats.projects,
+    label: "Tamamlanan Proje",
+  },
+  {
+    icon: "📅",
+    value: siteConfig.stats.experience,
+    label: "Sektör Deneyimi",
+  },
+  {
+    icon: "😊",
+    value: siteConfig.stats.satisfaction,
+    label: "Müşteri Memnuniyeti",
+  },
+  {
+    icon: "🏙️",
+    value: `${siteConfig.serviceCityCount}+`,
+    label: "Hizmet Verilen Şehir",
+  },
 ];
 
 export default function StatsBar({
@@ -24,18 +40,33 @@ export default function StatsBar({
   bgClass = "bg-accent",
 }: StatsBarProps) {
   return (
-    <div className={`${bgClass} py-8`}>
+    <section className={`${bgClass} py-10`}>
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+
           {stats.map((stat, i) => (
-            <div key={i} className="text-center text-white">
-              {stat.icon && <div className="text-2xl mb-1">{stat.icon}</div>}
-              <div className="text-2xl sm:text-3xl font-bold">{stat.value}</div>
-              <div className="text-white/80 text-xs sm:text-sm mt-1">{stat.label}</div>
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center text-white"
+            >
+              {stat.icon && (
+                <div className="text-3xl mb-2 opacity-90">
+                  {stat.icon}
+                </div>
+              )}
+
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                {stat.value}
+              </div>
+
+              <div className="text-white/80 text-xs sm:text-sm mt-1">
+                {stat.label}
+              </div>
             </div>
           ))}
+
         </div>
       </Container>
-    </div>
+    </section>
   );
 }
