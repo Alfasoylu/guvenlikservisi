@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { CheckCircle, ArrowRight, MapPin, Phone, ShieldCheck, BadgeCheck } from "lucide-react";
+import {
+  CheckCircle,
+  ArrowRight,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  BadgeCheck,
+  Clock3,
+} from "lucide-react";
 import ProcessSection from "@/components/sections/ProcessSection";
 import FAQSection, { FAQItem } from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
@@ -54,6 +62,19 @@ const guvenMaddeleri = [
   "Doğru ürün seçimi ve sistem planlaması",
   "Anahtar teslim montaj ve devreye alma",
   "Mobil izleme ve temel kullanıcı kurulumu",
+];
+
+const avantajlar = [
+  {
+    icon: <Clock3 size={18} className="text-accent" />,
+    title: "Hızlı teklif",
+    text: "Temel ihtiyacınızı öğrendikten sonra en kısa sürede uygun çözüm yapısını çıkarıyoruz.",
+  },
+  {
+    icon: <BadgeCheck size={18} className="text-accent" />,
+    title: "Doğru sistem",
+    text: "Gereksiz ürün satmak yerine alanınıza gerçekten uygun sistem öneriyoruz.",
+  },
 ];
 
 export default function ServicePageTemplate({ data }: ServicePageTemplateProps) {
@@ -148,8 +169,8 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="mb-4 flex items-center gap-2 text-white">
+              <div className="mb-5 rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div className="mb-3 flex items-center gap-2 text-white">
                   <BadgeCheck size={18} className="text-accent" />
                   <span className="font-semibold">Bu hizmette odak noktamız</span>
                 </div>
@@ -157,13 +178,28 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
                 <div className="space-y-4 text-sm leading-7 text-white/80">
                   <p>
                     Doğru sistem seçimi, temiz montaj ve gerçek ihtiyaca göre planlama.
-                    Sadece ürün satmak için değil, çalışan sistem kurmak için ilerliyoruz.
+                    Amacımız ürün satmak değil, çalışan ve sorunsuz kullanılan sistem kurmak.
                   </p>
                   <p>
-                    Kamera açısı, kayıt süresi, uzaktan izleme ve altyapı ihtiyaçlarını
-                    netleştirip size uygun çözüm öneriyoruz.
+                    Kamera açısı, kayıt süresi, uzaktan erişim, altyapı ve kullanıcı kolaylığı
+                    birlikte düşünülerek çözüm üretiyoruz.
                   </p>
                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {avantajlar.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <div className="mb-2 flex items-center gap-2 text-white">
+                      {item.icon}
+                      <span className="font-semibold">{item.title}</span>
+                    </div>
+                    <p className="text-sm leading-6 text-white/75">{item.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -195,20 +231,24 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
             </div>
 
             <div className="rounded-3xl border border-gray-200 bg-surface p-6">
-              <h3 className="mb-4 text-xl font-bold text-primary">
-                Neden Bu Hizmeti Profesyonel Almalısınız?
-              </h3>
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                Neden Profesyonel Kurulum Önemlidir?
+              </h2>
 
               <div className="space-y-4 text-sm leading-7 text-text-light">
                 <p>
-                  Yanlış keşif, eksik kamera kapsaması, kötü kablolama ve uygunsuz cihaz
-                  seçimi yüzünden birçok sistem ilk bakışta çalışıyor gibi görünür ama olay
-                  anında yetersiz kalır.
+                  Yanlış keşif, eksik kapsama, kötü kablolama ve yanlış cihaz seçimi yüzünden
+                  birçok sistem ilk bakışta çalışıyor gibi görünür ama olay anında yetersiz kalır.
                 </p>
 
                 <p>
                   Profesyonel kurulumda amaç sadece cihazı monte etmek değil, alanı gerçekten
                   güvenli hale getirmektir. Bu yüzden planlama, kurulum kadar kritiktir.
+                </p>
+
+                <p>
+                  Kör noktaları azaltan, kayıt süresini doğru planlayan ve mobil izlemeyi düzgün
+                  kuran sistemler uzun vadede çok daha az sorun çıkarır.
                 </p>
               </div>
 
@@ -217,7 +257,7 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
                   Hızlı teklif almak için
                 </div>
                 <p className="text-sm leading-6 text-text-light">
-                  Bize alan tipi, şehir ve temel ihtiyacınızı iletin. En kısa sürede size uygun
+                  Bize şehir, mekan tipi ve temel ihtiyacınızı iletin. En kısa sürede size uygun
                   sistem yapısını netleştirelim.
                 </p>
               </div>
@@ -234,8 +274,8 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
                 Alt Hizmet ve Uygulama Alanları
               </h2>
               <p className="text-sm leading-7 text-text-light">
-                İhtiyaçlar farklı alanlara göre değişir. Aşağıdaki bağlantılardan ilgili kullanım
-                senaryosuna daha net bakabilirsiniz.
+                İhtiyaçlar kullanım alanına göre değişir. Aşağıdaki bağlantılardan ilgili senaryoya
+                daha net bakabilirsiniz.
               </p>
             </div>
 
@@ -271,8 +311,7 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
 
           <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
             Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz.
-            Gerçek operasyon olmayan yerleri yazmak yerine gerçekten hizmet verdiğimiz şehirleri
-            gösteriyoruz.
+            Gerçekten hizmet verdiğimiz şehirleri gösteriyoruz; boş vaat vermiyoruz.
           </p>
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
