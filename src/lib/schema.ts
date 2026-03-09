@@ -1,23 +1,34 @@
+import { cities } from "@/data/cities";
 import { siteConfig } from "@/data/site-config";
+
+const absoluteUrl = (path: string) => {
+  if (!path) return siteConfig.url;
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+};
 
 // ─── 1. LocalBusiness ──────────────────────────────────────────────────────
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}#localbusiness`,
     name: siteConfig.name,
     url: siteConfig.url,
     telephone: siteConfig.phone,
     email: siteConfig.email,
+    image: absoluteUrl(siteConfig.ogImage),
+    priceRange: "₺₺",
+    description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
+      streetAddress: siteConfig.address,
       addressLocality: siteConfig.city,
       addressCountry: "TR",
-      streetAddress: siteConfig.address,
     },
-    areaServed: siteConfig.cities.map((c) => ({
+    areaServed: cities.map((city) => ({
       "@type": "City",
-      name: c.name,
+      name: city.name,
     })),
     openingHoursSpecification: [
       {
@@ -33,9 +44,6 @@ export function generateLocalBusinessSchema() {
         closes: "16:00",
       },
     ],
-    image: `${siteConfig.url}${siteConfig.ogImage}`,
-    priceRange: "₺₺",
-    description: siteConfig.description,
   };
 }
 
@@ -46,21 +54,29 @@ interface ServiceSchemaInput {
   url: string;
 }
 
-export function generateServiceSchema({ name, description, url }: ServiceSchemaInput) {
+export function generateServiceSchema({
+  name,
+  description,
+  url,
+}: ServiceSchemaInput) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
-    url: `${siteConfig.url}${url}`,
+    url: absoluteUrl(url),
+    serviceType: name,
     provider: {
       "@type": "LocalBusiness",
+      "@id": `${siteConfig.url}#localbusiness`,
       name: siteConfig.name,
       url: siteConfig.url,
       telephone: siteConfig.phone,
     },
-    areaServed: siteConfig.cities.map((c) => c.name).join(", "),
-    serviceType: name,
+    areaServed: cities.map((city) => ({
+      "@type": "City",
+      name: city.name,
+    })),
   };
 }
 
@@ -81,9 +97,7 @@ export function generateFAQSchema(items: { question: string; answer: string }[])
 }
 
 // ─── 4. Breadcrumb ──────────────────────────────────────────────────────────
-export function generateBreadcrumbSchema(
-  items: { name: string; url: string }[]
-) {
+export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -91,7 +105,7 @@ export function generateBreadcrumbSchema(
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${siteConfig.url}${item.url}`,
+      item: absoluteUrl(item.url),
     })),
   };
 }
@@ -119,7 +133,7 @@ export function generateArticleSchema({
     "@type": "Article",
     headline: title,
     description,
-    url: `${siteConfig.url}${url}`,
+    url: absoluteUrl(url),
     datePublished: publishedAt,
     dateModified: updatedAt || publishedAt,
     author: {
@@ -133,10 +147,11 @@ export function generateArticleSchema({
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/images/logo.png`,
+        url: absoluteUrl(siteConfig.ogImage),
       },
     },
-    image: image ? `${siteConfig.url}${image}` : `${siteConfig.url}${siteConfig.ogImage}`,
+    image: absoluteUrl(image || siteConfig.ogImage),
+    mainEntityOfPage: absoluteUrl(url),
   };
 }
 
@@ -145,7 +160,9 @@ export function generateAggregateRatingSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}#localbusiness`,
     name: siteConfig.name,
+    url: siteConfig.url,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -156,7 +173,7 @@ export function generateAggregateRatingSchema() {
   };
 }
 
-// ─── Yardımcı: Script tag JSX için ──────────────────────────────────────────
+// ─── Yardımcı ───────────────────────────────────────────────────────────────
 export function schemaToString(schema: object): string {
   return JSON.stringify(schema);
 }
