@@ -9,7 +9,7 @@ export const siteConfig = {
   email: "info@guvenlikservisi.com",
 
   address:
-    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türhkiye",
+    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",
 
   city: "İstanbul",
 
