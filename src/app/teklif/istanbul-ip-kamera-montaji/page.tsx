@@ -26,6 +26,7 @@ export const metadata = {
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
+          images: [{ url: "https://www.guvenlikservisi.com/images/landing/istanbul-ip-kamera-hero.webp", width: 1157, height: 631, alt: "İstanbul IP Kamera Montajı" }],
   },
 };
 
