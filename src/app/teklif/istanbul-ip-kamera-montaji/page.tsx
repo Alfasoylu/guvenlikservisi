@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 import { CheckCircle, Phone, Shield, Camera, MonitorSmartphone, MapPin, Star } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
@@ -101,9 +103,76 @@ const faqs = [
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
 const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
   "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum."
+  declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
 )}`;
 
 export default function IstanbulIpKameraMontajiPage() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSuccess, setFormSuccess] = useState("");
+  const [formError, setFormError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormSuccess("");
+    setFormError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") || ""),
+      phone: String(formData.get("phone") || ""),
+      district: String(formData.get("district") || ""),
+      placeType: String(formData.get("placeType") || ""),
+      cameraCount: String(formData.get("cameraCount") || ""),
+      message: String(formData.get("message") || ""),
+      page: window.location.href,
+      utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
+      utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || "",
+      utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
+      utm_term: new URLSearchParams(window.location.search).get("utm_term") || "",
+      gclid: new URLSearchParams(window.location.search).get("gclid") || "",
+    };
+
+    if (!payload.name || !payload.phone) {
+      setFormError("Lütfen ad soyad ve telefon alanlarını doldurun.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Form gönderilemedi");
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submit_success",
+        form_name: "istanbul_ip_kamera_montaji_teklif_formu",
+        page_path: window.location.pathname,
+      });
+
+      setFormSuccess("Talebiniz alındı. En kısa sürede sizi arayacağız.");
+      form.reset();
+    } catch (error) {
+      setFormError("Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   return (
     <main className="bg-white text-slate-900">
       <section className="relative overflow-hidden bg-slate-950 text-white">
@@ -190,27 +259,31 @@ export default function IstanbulIpKameraMontajiPage() {
               </p>
             </div>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-semibold">
                     Ad Soyad
                   </label>
-                  <input
-                    type="text"
-                    placeholder="Ad Soyad"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-                  />
+                 <input
+  type="text"
+  name="name"
+  placeholder="Ad Soyad"
+  required
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+/>
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-semibold">
                     Telefon
                   </label>
                   <input
-                    type="tel"
-                    placeholder="05xx xxx xx xx"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-                  />
+  type="tel"
+  name="phone"
+  placeholder="05xx xxx xx xx"
+  required
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+/>
                 </div>
               </div>
 
@@ -219,8 +292,11 @@ export default function IstanbulIpKameraMontajiPage() {
                   <label className="mb-2 block text-sm font-semibold">
                     İlçe
                   </label>
-                  <select className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950">
-                    <option>İlçe seçin</option>
+                 <select
+  name="district"
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+>
+                    <option value="">İlçe seçin</option>
                     {districts.map((district) => (
                       <option key={district}>{district}</option>
                     ))}
@@ -231,8 +307,11 @@ export default function IstanbulIpKameraMontajiPage() {
                   <label className="mb-2 block text-sm font-semibold">
                     Mekan Türü
                   </label>
-                  <select className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950">
-                    <option>Seçin</option>
+                 <select
+  name="placeType"
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+>
+                    <option value="">Seçin</option>
                     <option>Ev / Daire</option>
                     <option>Ofis</option>
                     <option>Mağaza</option>
@@ -247,8 +326,11 @@ export default function IstanbulIpKameraMontajiPage() {
                 <label className="mb-2 block text-sm font-semibold">
                   Tahmini Kamera Sayısı
                 </label>
-                <select className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950">
-                  <option>Seçin</option>
+                <select
+  name="cameraCount"
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+>
+                 <option value="">Seçin</option>
                   <option>2-4 Kamera</option>
                   <option>4-8 Kamera</option>
                   <option>8-16 Kamera</option>
@@ -260,19 +342,32 @@ export default function IstanbulIpKameraMontajiPage() {
                 <label className="mb-2 block text-sm font-semibold">
                   Kısa Açıklama
                 </label>
-                <textarea
-                  rows={4}
-                  placeholder="Mekan türü, ses kayıt özelliği gibi ihtiyaç ve beklentinizi kısaca yazınız"
-                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-                />
+               <textarea
+  name="message"
+  rows={4}
+  placeholder="Mekan türü, ses kayıt özelliği gibi ihtiyaç ve beklentinizi kısaca yazınız"
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+/>
               </div>
 
               <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-4 text-base font-bold text-white transition hover:bg-slate-800"
-              >
-                Teklif Talebi Gönder
-              </button>
+  type="submit"
+  disabled={isSubmitting}
+  className="inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-4 text-base font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
+>
+  {isSubmitting ? "Gönderiliyor..." : "Teklif Talebi Gönder"}
+</button>
+                    {formSuccess && (
+                <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
+                  {formSuccess}
+                </p>
+              )}
+
+              {formError && (
+                <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                  {formError}
+                </p>
+              )}
 
               <div className="grid gap-3 sm:grid-cols-2">
                 <a
