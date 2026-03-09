@@ -9,7 +9,7 @@ export const siteConfig = {
   email: "info@guvenlikservisi.com",
 
   address:
-    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",
+    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türhkiye",
 
   city: "İstanbul",
 
@@ -21,8 +21,8 @@ export const siteConfig = {
 
   ogImage: "/images/og-default.jpg",
 
-  googleAnalyticsId: "G-XXXXXXXXXX",
-  gtmId: "GTM-XXXXXXX",
+    googleAnalyticsId: "G-JFWFY99M23",
+    gtmId: "GTM-MPZG39C6",
 
   colors: {
     primary: "#0F2B46",
