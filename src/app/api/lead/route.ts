@@ -11,6 +11,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbzIdSeqPEF2IGNF1LoNaNv65ZUqwnIqE-uEDlzbPEz2vWXol_u-MSDMZMC_CcODd6wUdw/exec";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -41,28 +44,51 @@ export async function POST(req: Request) {
       timeZone: "Europe/Istanbul",
     });
 
-    await transporter.sendMail({
-      from: `"Güvenlik Servisi" <${process.env.SMTP_USER}>`,
-      to: "info@guvenlikservisi.com",
-      subject: "Yeni IP Kamera Montaj Lead'i",
-      html: `
-        <h2>Yeni Lead Geldi</h2>
-        <p><strong>Ad Soyad:</strong> ${name}</p>
-        <p><strong>Telefon:</strong> ${phone}</p>
-        <p><strong>İlçe:</strong> ${district || "-"}</p>
-        <p><strong>Mekan Türü:</strong> ${placeType || "-"}</p>
-        <p><strong>Kamera Sayısı:</strong> ${cameraCount || "-"}</p>
-        <p><strong>Mesaj:</strong> ${message || "-"}</p>
-        <hr />
-        <p><strong>Sayfa:</strong> ${page || "-"}</p>
-        <p><strong>UTM Source:</strong> ${utm_source || "-"}</p>
-        <p><strong>UTM Medium:</strong> ${utm_medium || "-"}</p>
-        <p><strong>UTM Campaign:</strong> ${utm_campaign || "-"}</p>
-        <p><strong>UTM Term:</strong> ${utm_term || "-"}</p>
-        <p><strong>GCLID:</strong> ${gclid || "-"}</p>
-        <p><strong>Tarih:</strong> ${createdAt}</p>
-      `,
-    });
+    await Promise.all([
+      transporter.sendMail({
+        from: `"Güvenlik Servisi" <${process.env.SMTP_USER}>`,
+        to: "info@guvenlikservisi.com",
+        subject: "Yeni IP Kamera Montaj Lead'i",
+        html: `
+          <h2>Yeni Lead Geldi</h2>
+          <p><strong>Ad Soyad:</strong> ${name}</p>
+          <p><strong>Telefon:</strong> ${phone}</p>
+          <p><strong>İlçe:</strong> ${district || "-"}</p>
+          <p><strong>Mekan Türü:</strong> ${placeType || "-"}</p>
+          <p><strong>Kamera Sayısı:</strong> ${cameraCount || "-"}</p>
+          <p><strong>Mesaj:</strong> ${message || "-"}</p>
+          <hr />
+          <p><strong>Sayfa:</strong> ${page || "-"}</p>
+          <p><strong>UTM Source:</strong> ${utm_source || "-"}</p>
+          <p><strong>UTM Medium:</strong> ${utm_medium || "-"}</p>
+          <p><strong>UTM Campaign:</strong> ${utm_campaign || "-"}</p>
+          <p><strong>UTM Term:</strong> ${utm_term || "-"}</p>
+          <p><strong>GCLID:</strong> ${gclid || "-"}</p>
+          <p><strong>Tarih:</strong> ${createdAt}</p>
+        `,
+      }),
+
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          district,
+          placeType,
+          cameraCount,
+          message,
+          page,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          utm_term,
+          gclid,
+        }),
+      }),
+    ]);
 
     return NextResponse.json({ success: true });
   } catch (error) {
