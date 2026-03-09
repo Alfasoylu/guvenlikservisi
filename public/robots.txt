@@ -1,17 +1,15 @@
-# *
+# robots.txt — guvenlikservisi.com
+
 User-agent: *
 Allow: /
 
-# *
-User-agent: *
+# Sistem endpointleri
+Disallow: /api/
 Disallow: /teklif/
 
-# *
-User-agent: *
-Disallow: /api/
+# Next.js internal
+Disallow: /_next/
+Disallow: /admin/
 
-# Host
-Host: https://guvenlikservisi.com
-
-# Sitemaps
+# Sitemap
 Sitemap: https://guvenlikservisi.com/sitemap.xml
