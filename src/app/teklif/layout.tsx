@@ -4,7 +4,7 @@ import { Shield, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: false },
+    robots: { index: true, follow: true },
 };
 
 export default function TeklifLayout({
