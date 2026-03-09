@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Clock, ArrowRight } from "lucide-react";
+import { Clock3, ArrowRight, CalendarDays, BookOpen, ChevronRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import FAQSection from "@/components/sections/FAQSection";
-import { blogPosts, getBlogPostBySlug, getAllBlogSlugs } from "@/data/blog-posts";
+import {
+  blogPosts,
+  getBlogPostBySlug,
+  getAllBlogSlugs,
+  getRelatedBlogPosts,
+} from "@/data/blog-posts";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 
 interface PageProps {
@@ -18,9 +23,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
+
   if (!post) return {};
+
   return {
-    title: `${post.title} | Güvenlik Servisi Blog`,
+    title: `${post.title} | Blog`,
     description: post.excerpt,
     alternates: { canonical: `https://guvenlikservisi.com/blog/${slug}` },
     openGraph: {
@@ -31,34 +38,151 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale: "tr_TR",
       type: "article",
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt || post.publishedAt,
+      images: post.image ? [post.image] : [],
     },
   };
 }
 
 const blogFaqMap: Record<string, { question: string; answer: string }[]> = {
   "guvenlik-kamerasi-montaj-ucreti-2026": [
-    { question: "Kamera montajı fiyatına KDV dahil mi?", answer: "Tekliflerimiz KDV hariç olup fatura düzenlenmektedir." },
-    { question: "En ucuz kamera sistemi kaça kurulur?", answer: "2 kameralı temel sistem montaj dahil yaklaşık 12.000 TL'den başlar." },
-    { question: "Fiyat sonradan değişir mi?", answer: "Keşif sonrası verilen teklif sabittir, ek sürpriz maliyet çıkmaz." },
+    {
+      question: "Kamera montajı fiyatına KDV dahil mi?",
+      answer: "Teklifin kapsamına göre değişebilir. Net fiyat için keşif sonrası yazılı teklif almak en doğrusudur.",
+    },
+    {
+      question: "En düşük maliyetli kamera sistemi ne kadar tutar?",
+      answer: "Temel 2 kameralı sistemler daha düşük bütçelerle başlayabilir ancak doğru fiyat, mekan tipi ve altyapıya göre belirlenir.",
+    },
+    {
+      question: "Keşif sonrası fiyat değişir mi?",
+      answer: "Keşif sonrası net kapsam belirlendiğinde teklif daha sağlıklı ve sürprizsiz olur.",
+    },
   ],
   "isyerine-kac-kamera-lazim": [
-    { question: "Az kamera ile çok alan kapanabilir mi?", answer: "Evet, geniş açılı fish-eye kameralar ile tek kamerayla 180° kapsama mümkündür." },
-    { question: "Kamera sayısını sonradan artırabilir miyim?", answer: "Evet, IP kamera sistemleri kolayca genişletilebilir." },
+    {
+      question: "Az kamera ile çok alan izlenebilir mi?",
+      answer: "Bazı alanlarda geniş açılı kamera ile mümkün olabilir ama detay ihtiyacı varsa daha fazla veya farklı tipte kamera gerekir.",
+    },
+    {
+      question: "Sisteme sonradan kamera eklenebilir mi?",
+      answer: "Uygun kayıt cihazı ve altyapı seçildiyse çoğu sistem büyütülebilir.",
+    },
   ],
   "alarm-sistemi-fiyatlari-2026": [
-    { question: "Alarm sistemi aylık ücret gerektiriyor mu?", answer: "İzleme merkezi kullanılıyorsa aylık abonelik ücretlidir, yoksa sadece tek seferlik kurulum ücreti ödenir." },
-    { question: "Ucuz alarm sistemi işe yarar mı?", answer: "Çok düşük fiyatlı sistemler güvenilir olmayabilir. Marka ve kalite önemlidir." },
+    {
+      question: "Alarm sistemi aylık ücret gerektirir mi?",
+      answer: "İzleme merkezi bağlantısı varsa aylık ücret olabilir. Bağımsız sistemlerde genelde tek seferlik kurulum maliyeti vardır.",
+    },
+    {
+      question: "Kablosuz alarm mı kablolu alarm mı daha mantıklı?",
+      answer: "Hazır yapılarda çoğu zaman kablosuz sistem avantajlıdır. Yeni yapıda ise kablolu sistem daha verimli olabilir.",
+    },
   ],
   "yangin-alarm-sistemi-zorunlu-mu": [
-    { question: "Yangın alarmı olmayan işyeri açılabilir mi?", answer: "Ruhsat aşamasında eksik belgelerle sorun yaşanabilir. Denetim sırasında kapatma kararı verilebilir." },
-    { question: "Ev için yangın alarmı zorunlu mu?", answer: "4 kattan fazla apartmanlar için zorunludur. Müstakil tek katlı evler muaftır." },
-    { question: "Belgeler ne kadar sürede hazırlanır?", answer: "Standart projelerde kurulum sonrası 1 hafta içinde belgeler teslim edilir." },
+    {
+      question: "Yangın alarmı olmayan işyeri risk altında mıdır?",
+      answer: "Evet. Mevzuat, denetim, sigorta ve operasyon açısından ciddi risk doğabilir.",
+    },
+    {
+      question: "Her bina için aynı sistem mi gerekir?",
+      answer: "Hayır. Yapının tipi, büyüklüğü ve kullanım amacı sistem tasarımını değiştirir.",
+    },
+    {
+      question: "Kurulum sonrası belge gerekir mi?",
+      answer: "Projeye göre evet. Özellikle işletmelerde proje, test ve bakım kayıtları kritik olabilir.",
+    },
   ],
 };
+
+function renderInlineFormatting(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-primary">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+
+    return part;
+  });
+}
+
+function renderContent(content: string) {
+  const lines = content.split("\n");
+  const elements: React.ReactNode[] = [];
+  let listItems: string[] = [];
+
+  const flushList = (keyBase: string) => {
+    if (listItems.length > 0) {
+      elements.push(
+        <ul key={`list-${keyBase}`} className="mb-6 ml-5 list-disc space-y-2 text-sm leading-7 text-text-light">
+          {listItems.map((item, idx) => (
+            <li key={`${keyBase}-${idx}`}>{renderInlineFormatting(item)}</li>
+          ))}
+        </ul>
+      );
+      listItems = [];
+    }
+  };
+
+  lines.forEach((line, i) => {
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      flushList(String(i));
+      return;
+    }
+
+    if (trimmed.startsWith("|")) {
+      flushList(String(i));
+      return;
+    }
+
+    if (trimmed.startsWith("- ")) {
+      listItems.push(trimmed.slice(2));
+      return;
+    }
+
+    flushList(String(i));
+
+    if (trimmed.startsWith("## ")) {
+      elements.push(
+        <h2 key={i} className="mt-10 mb-4 text-2xl font-bold text-primary">
+          {trimmed.slice(3)}
+        </h2>
+      );
+      return;
+    }
+
+    if (trimmed.startsWith("### ")) {
+      elements.push(
+        <h3 key={i} className="mt-8 mb-3 text-xl font-bold text-primary">
+          {trimmed.slice(4)}
+        </h3>
+      );
+      return;
+    }
+
+    elements.push(
+      <p key={i} className="mb-4 text-sm leading-7 text-text-light">
+        {renderInlineFormatting(trimmed)}
+      </p>
+    );
+  });
+
+  flushList("final");
+
+  return elements;
+}
 
 export default async function BlogDetaySayfasi({ params }: PageProps) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
+
   if (!post) notFound();
 
   const articleSchema = generateArticleSchema({
@@ -77,97 +201,123 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
   ]);
 
   const faqItems = blogFaqMap[slug] || [];
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
-
-  // İçeriği basit markdown'dan HTML'e çevir
-  const renderContent = (content: string) => {
-    return content
-      .split("\n")
-      .map((line, i) => {
-        if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold text-primary mt-8 mb-3">{line.slice(3)}</h2>;
-        if (line.startsWith("### ")) return <h3 key={i} className="text-lg font-bold text-primary mt-6 mb-2">{line.slice(4)}</h3>;
-        if (line.startsWith("**") && line.endsWith("**")) return <p key={i} className="font-semibold text-primary mb-2">{line.slice(2, -2)}</p>;
-        if (line.startsWith("- ")) return <li key={i} className="ml-4 text-text-light text-sm mb-1">{line.slice(2)}</li>;
-        if (line.startsWith("|")) return null; // tablo satırları atla
-        if (line.trim() === "") return <br key={i} />;
-        return <p key={i} className="text-text-light leading-relaxed mb-3 text-sm">{line}</p>;
-      });
-  };
+  const relatedPosts = getRelatedBlogPosts(slug, 3);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
 
-      {/* Breadcrumb */}
       <div className="bg-surface border-b border-gray-100 py-3">
         <Container>
-          <nav className="flex items-center gap-2 text-sm text-text-light flex-wrap">
-            <Link href="/" className="hover:text-primary">Ana Sayfa</Link>
-            <span>/</span>
-            <Link href="/blog" className="hover:text-primary">Blog</Link>
-            <span>/</span>
-            <span className="text-primary font-medium line-clamp-1">{post.title}</span>
+          <nav className="flex flex-wrap items-center gap-2 text-sm text-text-light">
+            <Link href="/" className="hover:text-primary">
+              Ana Sayfa
+            </Link>
+            <ChevronRight size={14} />
+            <Link href="/blog" className="hover:text-primary">
+              Blog
+            </Link>
+            <ChevronRight size={14} />
+            <span className="line-clamp-1 font-medium text-primary">{post.title}</span>
           </nav>
         </Container>
       </div>
 
-      {/* Makale içeriği */}
-      <article className="py-12 bg-white">
+      <article className="bg-white py-12 md:py-16">
         <Container size="md">
-          {/* Başlık */}
           <div className="mb-8">
-            <div className="flex items-center gap-3 text-sm text-text-light mb-4">
-              <span className="bg-accent/10 text-accent px-3 py-0.5 rounded-full font-medium text-xs">{post.category}</span>
-              <span className="flex items-center gap-1"><Clock size={12} />{post.readTime} dk okuma</span>
-              <span>{new Date(post.publishedAt).toLocaleDateString("tr-TR")}</span>
+            <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-text-light">
+              <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                {post.category}
+              </span>
+
+              <span className="inline-flex items-center gap-1">
+                <Clock3 size={13} />
+                {post.readTime} dk okuma
+              </span>
+
+              <span className="inline-flex items-center gap-1">
+                <CalendarDays size={13} />
+                {new Date(post.publishedAt).toLocaleDateString("tr-TR")}
+              </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-tight mb-4">{post.title}</h1>
-            <p className="text-text-light text-base leading-relaxed border-l-4 border-accent pl-4">{post.excerpt}</p>
+
+            <h1 className="mb-4 text-3xl font-bold leading-tight text-primary md:text-4xl">
+              {post.title}
+            </h1>
+
+            <p className="border-l-4 border-accent pl-4 text-base leading-8 text-text-light">
+              {post.excerpt}
+            </p>
           </div>
 
-          {/* Görsel placeholder */}
-          <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-8 border-2 border-dashed border-accent/30">
-            <div className="text-center text-accent/50">
-              <div className="text-5xl mb-2">📝</div>
-              <p className="text-sm">Blog kapak görseli</p>
+          <div className="mb-8 rounded-3xl border border-gray-200 bg-surface p-6">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-accent">
+              <BookOpen size={14} />
+              Uzman içerik
             </div>
+
+            <p className="text-sm leading-7 text-text-light">
+              Bu içerik karar vermenizi hızlandırmak için hazırlanmıştır. Net teklif, doğru sistem
+              seçimi ve keşif planlaması için içerik sonundaki bağlantıları kullanabilirsiniz.
+            </p>
           </div>
 
-          {/* İçerik */}
-          <div className="prose max-w-none">{renderContent(post.content)}</div>
+          <div className="max-w-none">{renderContent(post.content)}</div>
 
-          {/* CTA bandı */}
-          <div className="mt-10 bg-primary text-white rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <p className="font-bold text-lg mb-1">Bu hizmetten yararlanmak ister misiniz?</p>
-              <p className="text-white/80 text-sm">Ücretsiz keşif ve teklif için bizi arayın.</p>
+          <div className="mt-10 rounded-3xl bg-primary p-6 text-white md:p-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="mb-2 text-xl font-bold">Bu hizmetten yararlanmak ister misiniz?</p>
+                <p className="text-sm leading-7 text-white/80">
+                  İhtiyacınızı netleştirelim, uygun sistemi belirleyelim ve size hızlı teklif
+                  hazırlayalım.
+                </p>
+              </div>
+
+              <Link
+                href="/iletisim"
+                className="inline-flex items-center gap-2 self-start rounded-xl bg-cta px-6 py-3 font-bold text-white transition-colors hover:bg-ctaHover md:self-auto"
+              >
+                Teklif Al
+                <ArrowRight size={16} />
+              </Link>
             </div>
-            <Link
-              href="/iletisim"
-              className="inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-bold px-6 py-3 rounded-xl whitespace-nowrap transition-colors"
-            >
-              Teklif Al <ArrowRight size={16} />
-            </Link>
           </div>
         </Container>
       </article>
 
-      {/* FAQ */}
-      {faqItems.length > 0 && <FAQSection items={faqItems} title="Bu Konuda Sık Sorulan Sorular" />}
+      {faqItems.length > 0 && (
+        <FAQSection items={faqItems} title="Bu Konuda Sık Sorulan Sorular" />
+      )}
 
-      {/* İlgili yazılar */}
-      <section className="py-16 bg-surface">
+      <section className="bg-surface py-16">
         <Container>
-          <h2 className="text-xl font-bold text-primary mb-8">İlgili Yazılar</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedPosts.map((rp) => (
-              <Link key={rp.slug} href={`/blog/${rp.slug}`} className="group bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
-                <span className="text-xs text-accent font-medium">{rp.category}</span>
-                <h3 className="font-bold text-primary mt-2 mb-2 text-sm group-hover:text-accent transition-colors leading-snug">
-                  {rp.title}
+          <h2 className="mb-8 text-2xl font-bold text-primary">İlgili Yazılar</h2>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {relatedPosts.map((relatedPost) => (
+              <Link
+                key={relatedPost.slug}
+                href={`/blog/${relatedPost.slug}`}
+                className="group rounded-2xl border border-gray-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <span className="text-xs font-medium text-accent">{relatedPost.category}</span>
+
+                <h3 className="mt-2 mb-2 text-sm font-bold leading-snug text-primary transition-colors group-hover:text-accent">
+                  {relatedPost.title}
                 </h3>
-                <p className="text-text-light text-xs line-clamp-2">{rp.excerpt}</p>
+
+                <p className="line-clamp-3 text-xs leading-6 text-text-light">
+                  {relatedPost.excerpt}
+                </p>
               </Link>
             ))}
           </div>
