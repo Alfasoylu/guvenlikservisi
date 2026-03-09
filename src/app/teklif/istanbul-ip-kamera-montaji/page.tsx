@@ -394,7 +394,7 @@ export default function IstanbulIpKameraMontajiPage() {
           <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/landing/gunduz-ve-gece-kayit-demo.webp"
+                src="/images/landing/ip-kamera-gece-gorus.png"
                 alt="Gündüz ve gece kamera görüntü kalitesi örneği"
                 fill
                 className="object-cover object-top"
