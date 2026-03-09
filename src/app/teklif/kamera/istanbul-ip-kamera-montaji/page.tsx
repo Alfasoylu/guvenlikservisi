@@ -6,30 +6,30 @@ const data: LandingPageData = {
   hero: {
     title: "İstanbul IP Kamera Montajı",
     subtitle:
-      "Ev, işyeri, mağaza ve depo için profesyonel IP kamera kurulumu. İstanbul genelinde hızlı keşif, montaj ve uzaktan izleme kurulumu.",
-    ctaLabel: "Ücretsiz Keşif ve Teklif Al",
+      "Ev, işyeri, mağaza ve depo için profesyonel IP kamera kurulumu. İstanbul genelinde hızlı keşif, doğru ürün seçimi ve uzaktan izlemeye hazır anahtar teslim montaj.",
+    ctaLabel: "Hemen Teklif Al",
   },
 
   problem: {
-    title: "IP Kamera Kurulumu Yanlış Yapılırsa Sistem İşe Yaramaz",
+    title: "Yanlış Kurulan Kamera Sistemi Para Kaybettirir",
     cards: [
       {
-        icon: "📉",
-        title: "Kör Nokta Riski",
+        icon: "🎯",
+        title: "Kritik Alanlar Görünmez",
         description:
-          "Yanlış kamera açısı ve eksik planlama nedeniyle giriş, kasa, depo veya bina çevresi tam izlenemez.",
+          "Yanlış açı, yanlış lens ve eksik planlama yüzünden giriş, kasa, depo, otopark veya bina çevresi tam izlenemez.",
       },
       {
-        icon: "📱",
-        title: "Telefondan İzleyememe",
+        icon: "📴",
+        title: "Telefondan İzleme Sorunlu Olur",
         description:
-          "Kurulum sonrası uzaktan izleme düzgün yapılandırılmazsa sistem var gibi görünür ama gerçek kullanımda sorun çıkarır.",
+          "Kurulum düzgün yapılmazsa uzaktan izleme, kayıt erişimi ve bildirim sistemi stabil çalışmaz.",
       },
       {
-        icon: "🛠️",
-        title: "Kablo ve Montaj Hataları",
+        icon: "💸",
+        title: "Ucuz Kurulum Sonradan Daha Pahalıya Patlar",
         description:
-          "Düşük kaliteli kablolama, zayıf adaptör seçimi ve hatalı kayıt cihazı kurulumu görüntü ve kayıt problemlerine neden olur.",
+          "Kalitesiz kablolama, hatalı cihaz seçimi ve eksik altyapı nedeniyle tekrar servis ve ek maliyet çıkar.",
       },
     ],
   },
@@ -37,46 +37,46 @@ const data: LandingPageData = {
   solution: {
     title: "İstanbul’da Profesyonel IP Kamera Sistemi Kurulumu",
     description:
-      "İhtiyaca uygun IP kamera sistemi planlanır, keşif yapılır, uygun görüş açıları belirlenir, kayıt cihazı ve uzaktan erişim ayarlanır. Kurulum sonrası sistem telefonunuzdan canlı ve kayıt izlemeye hazır şekilde teslim edilir.",
+      "İhtiyaca göre kamera noktaları belirlenir, kayıt cihazı ve depolama planlanır, kablolama altyapısı hazırlanır ve sistem telefonunuzdan izlemeye hazır şekilde teslim edilir. Amaç sadece kamera takmak değil, çalışan ve güvenilir sistem kurmaktır.",
     features: [
       "2 MP / 4 MP / 5 MP IP kamera seçenekleri",
       "Gece görüşü ve akıllı hareket algılama",
       "NVR kayıt cihazı kurulumu",
-      "Telefondan canlı izleme ve kayıt erişimi",
-      "PoE altyapı ile tek kablo çözümü",
-      "Ev, ofis, mağaza ve depo için proje bazlı kurulum",
+      "Mobil uygulama ile canlı ve kayıt izleme",
+      "PoE altyapı ile düzenli ve stabil kurulum",
+      "Ev, işyeri, mağaza, ofis ve depo çözümleri",
     ],
-    imagePlaceholder: "İstanbul IP Kamera Montajı Görseli",
+    imagePlaceholder: "İstanbul IP Kamera Montaj Hizmeti Görseli",
   },
 
   packages: {
-    title: "İstanbul IP Kamera Sistem Paketleri",
+    title: "İstanbul IP Kamera Kurulum Paketleri",
     items: [
       {
-        name: "Küçük Alan Paketi",
+        name: "Başlangıç Paket",
         price: "12.000 TL'den başlayan",
         features: [
           "2-4 IP Kamera",
-          "NVR Kayıt Cihazı",
-          "Temel montaj dahil",
+          "NVR kayıt cihazı",
+          "Montaj dahil",
           "Mobil uygulama kurulumu",
           "Uzaktan izleme ayarı",
-          "1 Yıl Garanti",
+          "1 yıl garanti",
         ],
       },
       {
-        name: "İşyeri Paketi",
+        name: "İşyeri Paket",
         price: "25.000 TL'den başlayan",
         badge: "En Çok Tercih Edilen",
         highlighted: true,
         features: [
           "4-8 IP Kamera",
-          "NVR Kayıt Cihazı",
+          "NVR kayıt cihazı",
           "Montaj ve devreye alma",
-          "Telefon ve tablet erişimi",
+          "Telefon + tablet erişimi",
           "Kayıt optimizasyonu",
           "1 bakım kontrolü",
-          "2 Yıl Garanti",
+          "2 yıl garanti",
         ],
       },
       {
@@ -84,9 +84,9 @@ const data: LandingPageData = {
         price: "Özel Teklif",
         features: [
           "8+ IP Kamera",
-          "NVR + yüksek kapasiteli depolama",
+          "Yüksek kapasiteli kayıt sistemi",
           "Keşif ve proje planlama",
-          "Montaj + ince ayar",
+          "Profesyonel montaj",
           "Çoklu kullanıcı erişimi",
           "Bakım anlaşması opsiyonu",
           "Kurumsal destek",
@@ -97,19 +97,19 @@ const data: LandingPageData = {
 
   testimonials: [
     {
-      text: "Mağazamıza IP kamera sistemi kuruldu. Görüş açıları doğru planlandı, telefon bağlantısı da sorunsuz çalışıyor.",
+      text: "Mağazamız için IP kamera montajı yaptırdık. Görüş açıları doğru ayarlandı, uzaktan izleme sorunsuz çalışıyor.",
       name: "Murat A.",
       role: "İstanbul / Mağaza Sahibi",
       rating: 5,
     },
     {
-      text: "Ofis için 6 kameralı sistem yaptırdık. Kurulum hızlıydı, uzaktan izleme ve kayıt erişimi eksiksiz teslim edildi.",
+      text: "Ofisimize 6 kameralı sistem kuruldu. İş temizdi, teslim sonrası telefon bağlantısı da eksiksiz yapıldı.",
       name: "Selin T.",
       role: "İstanbul / Ofis Yöneticisi",
       rating: 5,
     },
     {
-      text: "Depo alanı için IP kamera montajı yaptırdık. Giriş-çıkış ve raf koridorları net şekilde izleniyor.",
+      text: "Depo alanı için kurulum yaptırdık. Giriş çıkış ve raf koridorlarını net izleyebiliyoruz.",
       name: "Yusuf K.",
       role: "İstanbul / Depo İşletmecisi",
       rating: 5,
@@ -120,34 +120,34 @@ const data: LandingPageData = {
     {
       question: "İstanbul IP kamera montajı ne kadar sürer?",
       answer:
-        "Küçük alanlarda kurulum genelde aynı gün tamamlanır. İşletme ve depo gibi alanlarda sistem büyüklüğüne göre süre 1-3 güne çıkabilir.",
+        "Küçük alanlarda kurulum çoğu zaman aynı gün tamamlanır. Daha büyük projelerde keşif sonrası net süre verilir.",
     },
     {
-      question: "İstanbul’da hangi bölgelere hizmet veriyorsunuz?",
+      question: "İstanbul’un hangi bölgelerine hizmet veriyorsunuz?",
       answer:
-        "Avrupa ve Anadolu Yakası genelinde proje bazlı hizmet veriyoruz. İlçe ve lokasyona göre keşif planlaması yapılır.",
-    },
-    {
-      question: "IP kamera sistemi mi analog kamera sistemi mi daha iyi?",
-      answer:
-        "Yeni kurulumlarda çoğu durumda IP kamera sistemi daha esnek, daha net görüntülü ve daha gelişmiş uzaktan erişim seçenekleri sunduğu için avantajlıdır.",
+        "Avrupa ve Anadolu Yakası genelinde hizmet veriyoruz. İlçe ve proje yapısına göre keşif planlaması yapıyoruz.",
     },
     {
       question: "Telefondan canlı izleme kuruluyor mu?",
       answer:
-        "Evet. Kurduğumuz IP kamera sistemlerinde telefon üzerinden canlı izleme, kayıt izleme ve bildirim altyapısı ayarlanır.",
+        "Evet. Kurduğumuz IP kamera sistemleri telefon üzerinden canlı izleme, kayıt izleme ve bildirim altyapısıyla teslim edilir.",
+    },
+    {
+      question: "IP kamera mı analog kamera mı daha mantıklı?",
+      answer:
+        "Yeni kurulumlarda çoğu işletme ve konutta IP kamera sistemi görüntü kalitesi, ağ yönetimi ve uzaktan erişim açısından daha avantajlıdır.",
     },
     {
       question: "Net fiyat nasıl belirleniyor?",
       answer:
-        "Kamera sayısı, kablolama mesafesi, kayıt süresi, görüntü kalitesi ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası çıkar.",
+        "Kamera sayısı, kablolama mesafesi, kayıt süresi, çözünürlük ve montaj zorluğuna göre fiyat değişir. En doğru fiyat keşif sonrası verilir.",
     },
   ],
 
   cta: {
-    title: "İstanbul IP Kamera Montajı İçin Teklif Alın",
+    title: "İstanbul IP Kamera Montajı İçin Hemen Teklif Alın",
     subtitle:
-      "Formu doldurun, sistem ihtiyacınızı öğrenip size en uygun kurulum teklifini hazırlayalım.",
+      "Formu doldurun, ihtiyacınıza uygun sistemi belirleyip sizi hızlıca arayalım.",
     defaultService: "kamera",
   },
 };
