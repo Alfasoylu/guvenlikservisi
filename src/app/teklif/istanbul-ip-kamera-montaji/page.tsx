@@ -9,7 +9,7 @@ import {
   Star,
 } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
-import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteFohrm";
+import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteForm";
 
 export const metadata = {
   title: "İstanbul IP Kamera Montajı | Hızlı Keşif ve Profesyonel Kurulum",
