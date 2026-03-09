@@ -397,7 +397,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 src="/images/landing/gunduz-ve-gece-kayit-demo.webp"
                 alt="Gündüz ve gece kamera görüntü kalitesi örneği"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>
