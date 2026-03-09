@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { CheckCircle, AlertCircle, Loader2, ShieldCheck, PhoneCall } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { cities } from "@/data/cities";
 
 interface QuoteFormProps {
   defaultService?: string;
@@ -30,15 +31,89 @@ const initialForm: FormData = {
   note: "",
 };
 
+const serviceOptions = [
+  { value: "kamera", label: "Kamera Sistemi Kurulumu" },
+  { value: "alarm", label: "Alarm Sistemi Kurulumu" },
+  { value: "yangin", label: "Yangın Alarm Sistemi Kurulumu" },
+  { value: "kartli-gecis", label: "Kartlı Geçiş Sistemi Kurulumu" },
+  { value: "apartman-site", label: "Apartman / Site Güvenlik Sistemi" },
+  { value: "isyeri", label: "İşyeri Güvenlik Sistemi" },
+  { value: "fabrika-depo", label: "Fabrika / Depo Güvenlik Sistemi" },
+  { value: "bakim-servis", label: "Bakım / Servis / Uzaktan İzleme" },
+  { value: "komple", label: "Komple Güvenlik Çözümü" },
+];
+
+const locationOptions = [
+  { value: "ev", label: "Ev / Konut" },
+  { value: "villa", label: "Villa / Müstakil Ev" },
+  { value: "isyeri", label: "İşyeri / Ofis" },
+  { value: "magaza", label: "Mağaza / Dükkan" },
+  { value: "apartman-site", label: "Apartman / Site" },
+  { value: "fabrika-depo", label: "Fabrika / Depo / Atölye" },
+  { value: "otopark", label: "Otopark / Açık Alan" },
+  { value: "diger", label: "Diğer" },
+];
+
+function normalizePhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+
+  if (digits.startsWith("90") && digits.length === 12) {
+    return `0${digits.slice(2)}`;
+  }
+
+  if (digits.length === 10 && digits.startsWith("5")) {
+    return `0${digits}`;
+  }
+
+  return digits;
+}
+
+function formatPhone(value: string) {
+  const normalized = normalizePhone(value).slice(0, 11);
+
+  if (normalized.length <= 4) return normalized;
+  if (normalized.length <= 7) return `${normalized.slice(0, 4)} ${normalized.slice(4)}`;
+  if (normalized.length <= 9) {
+    return `${normalized.slice(0, 4)} ${normalized.slice(4, 7)} ${normalized.slice(7)}`;
+  }
+
+  return `${normalized.slice(0, 4)} ${normalized.slice(4, 7)} ${normalized.slice(7, 9)} ${normalized.slice(9, 11)}`;
+}
+
+function isValidPhone(value: string) {
+  const normalized = normalizePhone(value);
+  return /^05\d{9}$/.test(normalized);
+}
+
+function isValidEmail(value: string) {
+  if (!value.trim()) return true;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 export default function QuoteForm({
   defaultService = "",
   compact = false,
   className = "",
 }: QuoteFormProps) {
-  const [form, setForm] = useState<FormData>({ ...initialForm, service_type: defaultService });
+  const [form, setForm] = useState<FormData>({
+    ...initialForm,
+    service_type: defaultService,
+  });
+
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [utmParams, setUtmParams] = useState({ utm_source: "", utm_medium: "", utm_campaign: "" });
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [utmParams, setUtmParams] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+  });
+
+  useEffect(() => {
+    setForm((prev) => ({
+      ...prev,
+      service_type: prev.service_type || defaultService,
+    }));
+  }, [defaultService]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -49,233 +124,341 @@ export default function QuoteForm({
     });
   }, []);
 
+  const selectedServiceLabel = useMemo(() => {
+    return serviceOptions.find((item) => item.value === form.service_type)?.label || "";
+  }, [form.service_type]);
+
   function validate(): boolean {
-    const newErrors: Partial<FormData> = {};
-    if (!form.name.trim()) newErrors.name = "Ad Soyad zorunludur";
-    if (!form.phone.trim()) newErrors.phone = "Telefon numarası zorunludur";
-    else if (!/^(0|\+90)?[5][0-9]{9}$/.test(form.phone.replace(/\s/g, ""))) {
-      newErrors.phone = "Geçerli bir telefon numarası girin (05XX XXX XX XX)";
+    const newErrors: Partial<Record<keyof FormData, string>> = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Ad soyad zorunludur.";
+    } else if (form.name.trim().length < 2) {
+      newErrors.name = "Geçerli bir ad soyad girin.";
     }
-    if (!form.city) newErrors.city = "İl seçiniz";
-    if (!form.service_type) newErrors.service_type = "Hizmet türü seçiniz";
-    if (!form.location_type) newErrors.location_type = "Mekan türü seçiniz";
+
+    if (!form.phone.trim()) {
+      newErrors.phone = "Telefon numarası zorunludur.";
+    } else if (!isValidPhone(form.phone)) {
+      newErrors.phone = "Geçerli bir telefon numarası girin. Örnek: 05XX XXX XX XX";
+    }
+
+    if (form.email.trim() && !isValidEmail(form.email)) {
+      newErrors.email = "Geçerli bir e-posta adresi girin.";
+    }
+
+    if (!form.city) {
+      newErrors.city = "İl seçiniz.";
+    }
+
+    if (!form.service_type) {
+      newErrors.service_type = "Hizmet türü seçiniz.";
+    }
+
+    if (!form.location_type) {
+      newErrors.location_type = "Mekan türü seçiniz.";
+    }
+
+    if (form.note.length > 500) {
+      newErrors.note = "Not alanı 500 karakteri geçemez.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!validate()) return;
-
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          ...utmParams,
-          page_url: window.location.href,
-          timestamp: Date.now(),
-        }),
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        // Google Ads dönüşüm takibi
-        if (typeof window !== "undefined" && (window as unknown as Record<string, unknown>).gtag) {
-          const gtag = (window as unknown as Record<string, unknown>).gtag as (...args: unknown[]) => void;
-          gtag("event", "form_submit", {
-            event_category: "lead",
-            event_label: form.service_type,
-            value: 1,
-          });
-        }
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
   }
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+
+    let nextValue = value;
+
+    if (name === "phone") {
+      nextValue = formatPhone(value);
+    }
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: nextValue,
+    }));
+
     if (errors[name as keyof FormData]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+
+    if (status === "error") {
+      setStatus("idle");
     }
   }
 
-  if (status === "success") {
-    return (
-      <div className={`bg-white rounded-2xl p-8 text-center shadow-lg ${className}`}>
-        <CheckCircle className="mx-auto text-cta mb-4" size={56} />
-        <h3 className="text-2xl font-bold text-primary mb-3">Talebiniz Alındı!</h3>
-        <p className="text-text-light mb-2">
-          En kısa sürede sizi arayacağız.
-        </p>
-        <p className="text-text-light text-sm">
-          Acil durumlarda{" "}
-          <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="text-accent font-semibold">
-            {siteConfig.phone}
-          </a>{" "}
-          numarasını arayabilirsiniz.
-        </p>
-      </div>
-    );
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          phone: normalizePhone(form.phone),
+          ...utmParams,
+          page_url: window.location.href,
+          page_title: document.title,
+          timestamp: Date.now(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("FORM_SUBMIT_FAILED");
+      }
+
+      setStatus("success");
+
+      if (
+        typeof window !== "undefined" &&
+        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+      ) {
+        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
+          event_category: "lead",
+          event_label: form.service_type || "genel-teklif",
+          value: 1,
+        });
+      }
+
+      setForm({
+        ...initialForm,
+        service_type: defaultService,
+      });
+      setErrors({});
+    } catch {
+      setStatus("error");
+    }
   }
 
   const inputClass = (field: keyof FormData) =>
-    `w-full rounded-lg border px-4 py-3 text-sm text-gray-800 outline-none transition-colors focus:ring-2 focus:ring-accent/40 ${
-      errors[field] ? "border-red-400 bg-red-50" : "border-gray-300 bg-white focus:border-accent"
+    `w-full rounded-xl border px-4 py-3 text-sm text-gray-800 outline-none transition-colors focus:ring-2 focus:ring-accent/30 ${
+      errors[field]
+        ? "border-red-400 bg-red-50"
+        : "border-gray-300 bg-white focus:border-accent"
     }`;
 
-  const labelClass = "block text-sm font-semibold text-gray-700 mb-1";
+  const labelClass = "mb-1.5 block text-sm font-semibold text-gray-700";
+
+  if (status === "success") {
+    return (
+      <div className={`rounded-2xl border border-green-200 bg-white p-8 text-center shadow-lg ${className}`}>
+        <CheckCircle className="mx-auto mb-4 text-cta" size={56} />
+        <h3 className="mb-3 text-2xl font-bold text-primary">Talebiniz Alındı</h3>
+        <p className="mb-2 text-text-light">
+          Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak.
+        </p>
+        {selectedServiceLabel && (
+          <p className="mb-4 text-sm text-text-light">
+            Talep edilen hizmet: <span className="font-semibold text-primary">{selectedServiceLabel}</span>
+          </p>
+        )}
+        <div className="rounded-xl bg-surface px-4 py-4 text-sm text-text-light">
+          Acil bir durum varsa{" "}
+          <a
+            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+            className="font-semibold text-accent"
+          >
+            {siteConfig.phone}
+          </a>{" "}
+          numarasını hemen arayabilirsiniz.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form
       onSubmit={handleSubmit}
       noValidate
-      className={`bg-white rounded-2xl p-6 shadow-lg ${className}`}
+      className={`rounded-2xl border border-gray-200 bg-white p-6 shadow-lg ${className}`}
     >
       {!compact && (
         <div className="mb-6">
-          <h3 className="text-xl font-bold text-primary">Ücretsiz Teklif Al</h3>
-          <p className="text-text-light text-sm mt-1">
-            Formu doldurun, sizi arayalım.
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+            <ShieldCheck size={14} />
+            Ücretsiz keşif ve hızlı teklif
+          </div>
+
+          <h3 className="text-xl font-bold text-primary">Size Uygun Sistemi Birlikte Belirleyelim</h3>
+          <p className="mt-1 text-sm text-text-light">
+            Formu doldurun, alanınıza uygun güvenlik sistemi için sizi arayalım.
           </p>
         </div>
       )}
 
       <div className={`grid gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
-        {/* Ad Soyad */}
         <div>
-          <label className={labelClass}>Ad Soyad *</label>
+          <label htmlFor="quote-name" className={labelClass}>
+            Ad Soyad *
+          </label>
           <input
+            id="quote-name"
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
             placeholder="Adınız Soyadınız"
+            autoComplete="name"
             className={inputClass("name")}
           />
-          {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
         </div>
 
-        {/* Telefon */}
         <div>
-          <label className={labelClass}>Telefon *</label>
+          <label htmlFor="quote-phone" className={labelClass}>
+            Telefon *
+          </label>
           <input
+            id="quote-phone"
             type="tel"
             name="phone"
             value={form.phone}
             onChange={handleChange}
             placeholder="05XX XXX XX XX"
+            autoComplete="tel"
+            inputMode="tel"
             className={inputClass("phone")}
           />
-          {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+          {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
         </div>
 
-        {/* E-posta */}
         <div className={compact ? "" : "sm:col-span-2"}>
-          <label className={labelClass}>E-posta <span className="text-gray-400 font-normal">(opsiyonel)</span></label>
+          <label htmlFor="quote-email" className={labelClass}>
+            E-posta <span className="font-normal text-gray-400">(opsiyonel)</span>
+          </label>
           <input
+            id="quote-email"
             type="email"
             name="email"
             value={form.email}
             onChange={handleChange}
             placeholder="ornek@email.com"
+            autoComplete="email"
             className={inputClass("email")}
           />
+          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
         </div>
 
-        {/* İl */}
         <div>
-          <label className={labelClass}>İl *</label>
+          <label htmlFor="quote-city" className={labelClass}>
+            İl *
+          </label>
           <select
+            id="quote-city"
             name="city"
             value={form.city}
             onChange={handleChange}
             className={inputClass("city")}
           >
             <option value="">Seçiniz...</option>
-            {siteConfig.cities.map((c) => (
-              <option key={c.slug} value={c.name}>{c.name}</option>
+            {cities.map((c) => (
+              <option key={c.slug} value={c.name}>
+                {c.name}
+              </option>
             ))}
           </select>
-          {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
+          {errors.city && <p className="mt-1 text-xs text-red-500">{errors.city}</p>}
         </div>
 
-        {/* Hizmet Türü */}
         <div>
-          <label className={labelClass}>Hizmet Türü *</label>
+          <label htmlFor="quote-service" className={labelClass}>
+            Hizmet Türü *
+          </label>
           <select
+            id="quote-service"
             name="service_type"
             value={form.service_type}
             onChange={handleChange}
             className={inputClass("service_type")}
           >
             <option value="">Seçiniz...</option>
-            <option value="kamera">Güvenlik Kamerası</option>
-            <option value="alarm">Alarm Sistemi</option>
-            <option value="yangin">Yangın Alarm Sistemi</option>
-            <option value="kartli-gecis">Kartlı Geçiş Sistemi</option>
-            <option value="hepsi">Hepsi / Komple Güvenlik</option>
+            {serviceOptions.map((service) => (
+              <option key={service.value} value={service.value}>
+                {service.label}
+              </option>
+            ))}
           </select>
-          {errors.service_type && <p className="text-red-500 text-xs mt-1">{errors.service_type}</p>}
+          {errors.service_type && (
+            <p className="mt-1 text-xs text-red-500">{errors.service_type}</p>
+          )}
         </div>
 
-        {/* Mekan Türü */}
         <div className={compact ? "" : "sm:col-span-2"}>
-          <label className={labelClass}>Mekan Türü *</label>
+          <label htmlFor="quote-location" className={labelClass}>
+            Mekan Türü *
+          </label>
           <select
+            id="quote-location"
             name="location_type"
             value={form.location_type}
             onChange={handleChange}
             className={inputClass("location_type")}
           >
             <option value="">Seçiniz...</option>
-            <option value="ev">Ev / Konut</option>
-            <option value="isyeri">İşyeri / Ofis</option>
-            <option value="apartman-site">Apartman / Site</option>
-            <option value="fabrika-depo">Fabrika / Depo</option>
-            <option value="diger">Diğer</option>
+            {locationOptions.map((location) => (
+              <option key={location.value} value={location.value}>
+                {location.label}
+              </option>
+            ))}
           </select>
-          {errors.location_type && <p className="text-red-500 text-xs mt-1">{errors.location_type}</p>}
+          {errors.location_type && (
+            <p className="mt-1 text-xs text-red-500">{errors.location_type}</p>
+          )}
         </div>
 
-        {/* Not */}
         <div className={compact ? "" : "sm:col-span-2"}>
-          <label className={labelClass}>Not <span className="text-gray-400 font-normal">(opsiyonel)</span></label>
+          <label htmlFor="quote-note" className={labelClass}>
+            Proje Notu <span className="font-normal text-gray-400">(opsiyonel)</span>
+          </label>
           <textarea
+            id="quote-note"
             name="note"
             value={form.note}
             onChange={handleChange}
-            placeholder="Ek bilgi veya talebiniz varsa belirtebilirsiniz..."
-            rows={compact ? 2 : 3}
+            placeholder="Örnek: 2 katlı villa, çevre izleme istiyoruz. Telefonla izleme olsun. Yaklaşık 6-8 kamera düşünüyoruz."
+            rows={compact ? 3 : 4}
             maxLength={500}
             className={`${inputClass("note")} resize-none`}
           />
-          <p className="text-gray-400 text-xs mt-1 text-right">{form.note.length}/500</p>
+          <div className="mt-1 flex items-center justify-between">
+            {errors.note ? (
+              <p className="text-xs text-red-500">{errors.note}</p>
+            ) : (
+              <p className="text-xs text-gray-400">
+                Ne kadar net yazarsanız o kadar doğru teklif alırsınız.
+              </p>
+            )}
+            <p className="text-xs text-gray-400">{form.note.length}/500</p>
+          </div>
         </div>
       </div>
 
-      {/* Hata mesajı */}
       {status === "error" && (
-        <div className="flex items-center gap-2 text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3 mt-4 text-sm">
+        <div className="mt-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           <AlertCircle size={16} />
-          Bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın.
+          Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: {siteConfig.phone}
         </div>
       )}
 
-      {/* Submit */}
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full mt-5 flex items-center justify-center gap-2 bg-cta hover:bg-cta-hover disabled:opacity-60 text-white font-bold py-4 rounded-xl text-base transition-colors shadow-lg hover:shadow-xl"
+        className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-cta py-4 text-base font-bold text-white shadow-lg transition-colors hover:bg-ctaHover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "loading" ? (
           <>
@@ -283,12 +466,15 @@ export default function QuoteForm({
             Gönderiliyor...
           </>
         ) : (
-          "Ücretsiz Keşif ve Teklif Al"
+          <>
+            <PhoneCall size={18} />
+            Ücretsiz Keşif ve Teklif Al
+          </>
         )}
       </button>
 
-      <p className="text-center text-xs text-gray-400 mt-3">
-        Bilgileriniz yalnızca sizinle iletişim kurmak için kullanılır.
+      <p className="mt-3 text-center text-xs text-gray-400">
+        Bilgileriniz yalnızca teklif oluşturmak ve sizinle iletişime geçmek için kullanılır.
       </p>
     </form>
   );
