@@ -29,15 +29,16 @@ const districts = [
 const packages = [
   {
     name: "Başlangıç Paket",
-    price: "12.000 TL'den başlayan",
+    price: "15.000 TL'den başlayan",
     featured: false,
     items: [
-      "2-4 IP Kamera",
+      "2-4 Adet 4MP IP Kamera",
       "NVR kayıt cihazı",
       "Montaj dahil",
       "Mobil uygulama kurulumu",
       "Uzaktan izleme ayarı",
-      "1 yıl garanti",
+      "1 yıl birebir değişim garantisi",
+      "İhtiyaca göre ses kayıt eklenebilir",
     ],
   },
   {
@@ -46,13 +47,14 @@ const packages = [
     featured: true,
     badge: "En Çok Tercih Edilen",
     items: [
-      "4-8 IP Kamera",
+      "4-8 Adet 4MP Gece Görüşlü IP Kamera",
       "NVR kayıt cihazı",
       "Montaj ve devreye alma",
       "Telefon + tablet erişimi",
       "Kayıt optimizasyonu",
       "1 bakım kontrolü",
-      "2 yıl garanti",
+      "1 yıl birebir değişim garantisi",
+      "İhtiyaca göre ses kayıt eklenebilir",
     ],
   },
   {
@@ -67,6 +69,8 @@ const packages = [
       "Çoklu kullanıcı erişimi",
       "Bakım anlaşması opsiyonu",
       "Kurumsal destek",
+      "1 yıl birebir değişim garantisi",
+      "İhtiyaca göre ses kayıt eklenebilir",
     ],
   },
 ];
@@ -74,19 +78,21 @@ const packages = [
 const faqs = [
   {
     q: "İstanbul IP kamera montajı ne kadar sürer?",
-    a: "Küçük alanlarda kurulum çoğu zaman aynı gün tamamlanır. Daha büyük projelerde keşif sonrası net süre verilir.",
+    a: " 4-5 Kameraya kadarki montajlarda kurulum ve devreye alma çoğu zaman aynı gün tamamlanır. Daha büyük projelerde keşif sonrası net süre verilir.",
   },
   {
     q: "İstanbul’un hangi bölgelerine hizmet veriyorsunuz?",
-    a: "Avrupa ve Anadolu Yakası genelinde hizmet veriyoruz. İlçe ve proje yapısına göre keşif planlaması yapıyoruz.",
+    a: "İstanbul’un hem Avrupa hem de Anadolu Yakası genelinde IP kamera montajı ve güvenlik sistemi kurulumu hizmeti veriyoruz. Kadıköy, Üsküdar, Ataşehir, Maltepe, Kartal, Pendik, Şişli, Beşiktaş, Bakırköy, Başakşehir, Beylikdüzü, Avcılar ve çevre ilçelerde düzenli olarak kurulum yapıyoruz. Projenin büyüklüğüne ve konumunuza göre ücretsiz keşif planlanır ve çoğu durumda ertesi gün ekip yönlendirilir. Küçük ölçekli ev ve işyeri kurulumları genellikle aynı gün tamamlanabilir. 8-12 Kameralı sistemlerin montajı 2 gün sürebilmektedir.",
   },
   {
     q: "Telefondan canlı izleme kuruluyor mu?",
-    a: "Evet. Kurduğumuz IP kamera sistemleri telefon üzerinden canlı izleme, kayıt izleme ve bildirim altyapısıyla teslim edilir.",
+    a: "Evet. Kurduğumuz kamera sistemlerinde telefon üzerinden canlı izleme, kayıt izleme ve olay bildirimleri aktif edilir. Çoğu projede Hikvision kayıt cihazı ve Hik-Connect mobil uygulaması kullanılarak sistem telefon, tablet ve bilgisayardan erişilebilir şekilde teslim edilir. Kurulum sırasında uygulama kurulumu yapılır, uzaktan bağlantı ayarlanır ve kullanıcıya nasıl kullanılacağı gösterilir.",
   },
   {
     q: "IP kamera mı analog kamera mı daha mantıklı?",
-    a: "Yeni kurulumlarda çoğu işletme ve konutta IP kamera sistemi görüntü kalitesi, ağ yönetimi ve uzaktan erişim açısından daha avantajlıdır.",
+    a: "Yeni kurulumların büyük bölümünde IP kamera sistemi daha avantajlıdır. IP kameralar analog sistemlere göre daha yüksek çözünürlük (genellikle 2MP, 4MP ve üzeri), daha net gece görüntüsü ve daha gelişmiş akıllı özellikler sunar. İnsan algılama, araç algılama, mobil bildirim ve uzaktan erişim gibi özellikler IP sistemlerde çok daha stabil çalışır.
+
+IP kamera sistemleri ağ altyapısı üzerinden çalıştığı için kayıt cihazı, mobil uygulama ve uzaktan izleme entegrasyonu daha güçlüdür. Bu yüzden ilk kurulum maliyeti analog sistemlere göre biraz daha yüksek olabilir. Ancak görüntü kalitesi, uzaktan erişim kolaylığı ve gelecekte sisteme yeni kamera ekleme esnekliği nedeniyle çoğu ev, işyeri ve mağaza için IP kamera sistemi uzun vadede daha mantıklı bir yatırım olur",
   },
   {
     q: "Net fiyat nasıl belirleniyor?",
@@ -258,7 +264,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="Mekan türü, ihtiyaç ve beklentinizi kısa yazın"
+                  placeholder="Mekan türü, ses kayıt özelliği gibi ihtiyaç ve beklentinizi kısaca yazınız"
                   className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
                 />
               </div>
