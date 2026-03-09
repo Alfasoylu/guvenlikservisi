@@ -14,4 +14,7 @@ export const cities = [
   { slug: "kayseri", name: "Kayseri" },
   { slug: "eskisehir", name: "Eskişehir" },
   { slug: "mersin", name: "Mersin" },
+  { slug: "yalova", name: "Yalova" },
+  { slug: "edirne", name: "Edirne" },
+  { slug: "kirklareli", name: "Kırklareli" }
 ];
