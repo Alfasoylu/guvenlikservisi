@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Güvenlik Servisi <onboarding@resend.dev>",
-      to: ["BURAYA_MAIL_ADRESINI_YAZ"],
+      to: ["destek@soyluelektronik.com"],
       subject: "Yeni IP Kamera Montaj Lead'i",
       html: `
         <h2>Yeni Lead Geldi</h2>
