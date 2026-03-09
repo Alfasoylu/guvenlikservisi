@@ -13,7 +13,6 @@ export const siteConfig = {
 
   city: "İstanbul",
 
-  // şehir verisi TEK kaynaktan gelsin
   serviceCityCount: cities.length,
   serviceCities: cities.map((city) => city.name),
 
@@ -25,7 +24,6 @@ export const siteConfig = {
   googleAnalyticsId: "G-XXXXXXXXXX",
   gtmId: "GTM-XXXXXXX",
 
-  // Marka renkleri
   colors: {
     primary: "#0F2B46",
     accent: "#1A73E8",
@@ -37,7 +35,6 @@ export const siteConfig = {
     textLight: "#555555",
   },
 
-  // Güven sinyalleri
   stats: {
     projects: "500+",
     experience: "12 Yıl",
