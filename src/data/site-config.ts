@@ -1,46 +1,46 @@
+import { cities } from "@/data/cities";
+
 export const siteConfig = {
   name: "Güvenlik Servisi",
   url: "https://guvenlikservisi.com",
-  phone: "+90 542 593 49 00",          // KULLANICI DOLDURACAK
-  whatsapp: "908503077397",          // KULLANICI DOLDURACAK
+
+  phone: "+90 542 593 49 00",
+  whatsapp: "908503077397",
   email: "info@guvenlikservisi.com",
-  address: "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",                    // KULLANICI DOLDURACAK
+
+  address:
+    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",
+
   city: "İstanbul",
+
+  // şehir verisi TEK kaynaktan gelsin
+  serviceCityCount: cities.length,
+  serviceCities: cities.map((city) => city.name),
+
   description:
-    "Marmara Bölgesi genelinde profesyonel güvenlik kamera, " +
-    "alarm ve yangın alarm sistemi kurulumu. Anahtar teslim montaj + " +
-    "7/24 uzaktan izleme hizmeti.",
+    "Marmara Bölgesi genelinde profesyonel güvenlik kamera, alarm ve yangın alarm sistemi kurulumu. Anahtar teslim montaj ve uzaktan izleme hizmeti.",
+
   ogImage: "/images/og-default.jpg",
-  googleAnalyticsId: "G-XXXXXXXXXX", // KULLANICI DOLDURACAK
-  gtmId: "GTM-XXXXXXX",             // KULLANICI DOLDURACAK
+
+  googleAnalyticsId: "G-XXXXXXXXXX",
+  gtmId: "GTM-XXXXXXX",
 
   // Marka renkleri
   colors: {
-    primary: "#0F2B46",    // Koyu lacivert
-    accent: "#1A73E8",     // Mavi
-    cta: "#34A853",        // Yeşil (CTA butonları)
+    primary: "#0F2B46",
+    accent: "#1A73E8",
+    cta: "#34A853",
     ctaHover: "#2D8B4E",
-    warning: "#E8710A",    // Turuncu (acil çağrı)
+    warning: "#E8710A",
     bg: "#F8FAFB",
     text: "#1A1A1A",
     textLight: "#555555",
   },
 
-  // Güven sinyalleri - KULLANICI GÜNCELLEYECEK
+  // Güven sinyalleri
   stats: {
     projects: "500+",
     experience: "12 Yıl",
     satisfaction: "%100",
-    cities: "6 Şehir",
   },
-
-  // Hizmet bölgeleri
-  cities: [
-    { slug: "istanbul", name: "İstanbul", districts: "Avrupa + Anadolu Yakası" },
-    { slug: "bursa", name: "Bursa", districts: "Osmangazi, Nilüfer, Yıldırım" },
-    { slug: "kocaeli", name: "Kocaeli", districts: "İzmit, Gebze, Darıca" },
-    { slug: "sakarya", name: "Sakarya", districts: "Serdivan, Adapazarı" },
-    { slug: "tekirdag", name: "Tekirdağ", districts: "Çorlu, Çerkezköy, Süleymanpaşa" },
-    { slug: "yalova", name: "Yalova", districts: "Merkez, Çiftlikköy" },
-  ],
 };
