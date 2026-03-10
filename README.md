@@ -1,4 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Documentation
+
+Project documentation is located in the `/docs` folder.
+
+- docs/BACKLOG.md
+- docs/LEAD_ENGINE.md
+- docs/SEO_STRATEGY.md
+- docs/ARCHITECTURE.md
 
 ## Getting Started
 
