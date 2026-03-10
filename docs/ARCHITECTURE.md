@@ -1,4 +1,6 @@
 # GuvenlikServisi Architecture Notes
+Goal:
+Build the largest security systems lead generation platform in Turkey.
 
 ## Repo Özeti
 
