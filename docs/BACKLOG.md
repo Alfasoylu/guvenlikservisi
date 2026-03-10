@@ -1,166 +1,202 @@
+
 # GuvenlikServisi Master Backlog
 
-Bu backlog tek kişilik hızlı execution için hazırlandı. Mantık şudur:
+Bu backlog **tek kişilik hızlı execution** için tasarlanmıştır.
 
-1. Önce para getiren sistem kurulur.
-2. Sonra reklam trafiği ölçülür ve optimize edilir.
-3. Sonra landing page ağı büyütülür.
-4. Sonra SEO motoru inşa edilir.
-5. En son marketplace modeline geçilir.
+Strateji sırası:
+
+1. Lead Engine kur
+2. Ads çalıştır
+3. Landing page ağı büyüt
+4. SEO motoru kur
+5. Data layer kur
+6. Marketplace modeline geç
 
 Kullanım kuralı:
-- Tamamlanan görevlerin kutusunu işaretle.
-- Her yeni sohbette sadece tamamlanan backlog ID'lerini yaz.
-- Yeni görev eklenirse bu dosyada ekle, sohbet içinde kaybetme.
+
+- Tamamlanan görevlerin kutusunu işaretle
+- Her yeni sohbet başında sadece tamamlanan backlog ID’lerini yaz
+- Yeni görev eklenirse bu dosyaya ekle
 
 ---
 
-## P0 — Lead Engine ve Ads-Ready Altyapı
+# P0 — Lead Engine ve Ads Ready Sistem
 
-### Lead Capture Foundation
+Amaç: Reklam verildiğinde lead kaybedilmemesi
+
+## Lead Capture Foundation
+
 - [x] BL-01 Google Sheets webhook ile form lead kayıt altyapısı
 - [ ] BL-02 Lead kolon standardı ve veri şeması sabitleme
-- [ ] BL-03 Telefon format normalization (örn. 05xx / +90 / 5xx tek formata çekme)
-- [ ] BL-04 Duplicate lead detection (aynı telefon, 24 saat içinde)
-- [ ] BL-05 Spam protection (honeypot + basit rate-limit)
+- [ ] BL-03 Telefon format normalization
+- [ ] BL-04 Duplicate lead detection (24 saat)
+- [ ] BL-05 Spam protection (honeypot + rate limit)
 - [ ] BL-06 Server-side validation güçlendirme
-- [ ] BL-07 Lead source normalization (utm/gclid boşsa fallback source üretme)
+- [ ] BL-07 Lead source normalization
 - [ ] BL-08 Form success / failure logging
-- [ ] BL-09 Webhook hata yakalama ve retry stratejisi
-- [ ] BL-10 Lead status alanlarının standartlaştırılması
-- [ ] BL-11 Sales notes alanı standardı
-- [ ] BL-12 İlk operasyon paneli için sheet görünüm standardı
+- [ ] BL-09 Webhook hata yakalama
+- [ ] BL-10 Lead status alan standardı
+- [ ] BL-11 Sales notes alan standardı
 
-### CRM ve Operasyon Akışı
-- [ ] BL-13 Lead pipeline tasarımı (Yeni / Arandı / Teklif / Kazanıldı / Kaybedildi)
-- [ ] BL-14 Google Sheets içinde operasyon görünümü oluşturma
-- [ ] BL-15 Aranma zamanı / son işlem zamanı sütunları ekleme
-- [ ] BL-16 Teklif tutarı sütunu ekleme
-- [ ] BL-17 Kaybedilme nedeni sütunu ekleme
-- [ ] BL-18 Satış sorumlusu sütunu ekleme
-- [ ] BL-19 Günlük lead takip rutini dokümantasyonu
-- [ ] BL-20 Lead response SLA tanımı (örn. 5 dakika içinde arama)
+## CRM ve Operasyon Akışı
 
-### Tracking ve Attribution
-- [ ] BL-21 GTM event standardı tanımı
-- [ ] BL-22 Form submit success event doğrulama
-- [ ] BL-23 WhatsApp click event tracking
-- [ ] BL-24 Phone click event tracking
-- [ ] BL-25 Scroll depth tracking
-- [ ] BL-26 30 saniye engagement event
-- [ ] BL-27 Thank-you / success mantığı netleştirme
-- [ ] BL-28 Google Ads conversion mapping
-- [ ] BL-29 Offline conversion upload planı
-- [ ] BL-30 Landing page bazlı CPL raporlama şablonu
+- [ ] BL-12 Lead pipeline tasarımı
+- [ ] BL-13 Google Sheets operasyon görünümü
+- [ ] BL-14 Arama zamanı sütunu
+- [ ] BL-15 Teklif tutarı sütunu
+- [ ] BL-16 Kaybedilme nedeni sütunu
+- [ ] BL-17 Satış sorumlusu sütunu
+- [ ] BL-18 Günlük lead takip rutini
+- [ ] BL-19 Lead response SLA (5 dakika)
 
-### Landing Page CRO
-- [ ] BL-31 Hero alanı teklif odaklı revizyon
-- [ ] BL-32 Form üstü value proposition sertleştirme
-- [ ] BL-33 Trust block (proje sayısı, tecrübe, garanti, cihaz kalitesi)
-- [ ] BL-34 Sık sorulan soruların satış itirazlarına göre revizyonu
-- [ ] BL-35 Sticky mobile CTA bar optimizasyonu
-- [ ] BL-36 Floating WhatsApp CTA
-- [ ] BL-37 Click-to-call görünürlüğü artırma
-- [ ] BL-38 Form alan sırası dönüşüm testi
-- [ ] BL-39 Form mikro metinleri dönüşüm odaklı revizyon
-- [ ] BL-40 İlk ekran yüklenme hızı iyileştirme
-- [ ] BL-41 Görsel / script ağırlık analizi
-- [ ] BL-42 Mobil ilk ekran CTA testi
+## Tracking ve Attribution
 
----
+- [ ] BL-20 GTM event standardı
+- [ ] BL-21 Form submit tracking
+- [ ] BL-22 WhatsApp click tracking
+- [ ] BL-23 Phone click tracking
+- [ ] BL-24 Scroll depth tracking
+- [ ] BL-25 30 saniye engagement event
+- [ ] BL-26 Thank you logic
+- [ ] BL-27 Google Ads conversion mapping
+- [ ] BL-28 CPL raporlama şablonu
 
-## P1 — Landing Page Expansion
+## Landing Page CRO
 
-### Şehir Bazlı Ticari Açılış Sayfaları
-- [ ] BL-43 /teklif/ankara-ip-kamera-montaji
-- [ ] BL-44 /teklif/izmir-ip-kamera-montaji
-- [ ] BL-45 /teklif/bursa-ip-kamera-montaji
-- [ ] BL-46 /teklif/kocaeli-ip-kamera-montaji
-- [ ] BL-47 /teklif/tekirdag-ip-kamera-montaji
-
-### Hizmet Bazlı Landing Pages
-- [ ] BL-48 Alarm sistemi landing page
-- [ ] BL-49 Yangın alarm landing page
-- [ ] BL-50 Kartlı geçiş landing page
-- [ ] BL-51 Apartman/site güvenlik landing page
-- [ ] BL-52 Fabrika/depo güvenlik landing page
-- [ ] BL-53 Bakım ve uzaktan izleme landing page
-
-### Segment / Kullanım Senaryosu Landing Pages
-- [ ] BL-54 Apartman için kamera sistemi
-- [ ] BL-55 Site için kamera sistemi
-- [ ] BL-56 Villa için kamera sistemi
-- [ ] BL-57 Depo için kamera sistemi
-- [ ] BL-58 Fabrika için kamera sistemi
-- [ ] BL-59 Mağaza için kamera sistemi
-- [ ] BL-60 Restoran / kafe için kamera sistemi
+- [ ] BL-29 Hero teklif odaklı revizyon
+- [ ] BL-30 Form üstü value proposition
+- [ ] BL-31 Trust block
+- [ ] BL-32 FAQ satış itiraz optimizasyonu
+- [ ] BL-33 Sticky mobile CTA
+- [ ] BL-34 Floating WhatsApp CTA
+- [ ] BL-35 Click to call görünürlüğü
+- [ ] BL-36 Form alan sırası test
+- [ ] BL-37 Mikro metin optimizasyonu
+- [ ] BL-38 İlk ekran hız optimizasyonu
+- [ ] BL-39 Script ağırlık analizi
+- [ ] BL-40 Mobil CTA testi
 
 ---
 
-## P2 — Programmatic SEO Engine
+# P1 — Landing Page Expansion
 
-### Sayfa Altyapısı
-- [ ] BL-61 Şehir verisi standardizasyonu
-- [ ] BL-62 Şehir açıklamaları tüm şehirlerde doldurma
-- [ ] BL-63 İlçe veri katmanı kurma
-- [ ] BL-64 Şehir × hizmet içerik değişkenleri hazırlama
-- [ ] BL-65 İnce içerik riskini azaltacak modüler bloklar tasarlama
-- [ ] BL-66 Service template derinliğini artırma
-- [ ] BL-67 Service page CTA yapısını standardize etme
-- [ ] BL-68 Internal link mantığını güçlendirme
+Amaç: Ads ile ölçeklenebilir lead üretimi
 
-### İlçe ve Uzun Kuyruk Sayfalar
-- [ ] BL-69 /istanbul/kadikoy/kamera-sistemi-kurulumu gibi district page yapısı
-- [ ] BL-70 Öncelikli ilçelerin listesi
-- [ ] BL-71 İlçeye özel meta ve schema
-- [ ] BL-72 İlçe sayfası içerik bileşenleri
+## Şehir Bazlı Landing Pages
 
-### Topical Authority İçerikleri
-- [ ] BL-73 Kamera montajı fiyatı içerik kümesi
-- [ ] BL-74 Kaç gün kayıt yapar içerik kümesi
-- [ ] BL-75 IP kamera internet olmadan çalışır mı
-- [ ] BL-76 PoE vs Wi-Fi kamera karşılaştırma
-- [ ] BL-77 NVR vs DVR karşılaştırma
-- [ ] BL-78 Hikvision vs Dahua karşılaştırma
-- [ ] BL-79 Apartman kamera yasal mı içerik kümesi
-- [ ] BL-80 Yangın alarmı zorunluluk içerikleri
+- [ ] BL-41 /teklif/ankara-ip-kamera-montaji
+- [ ] BL-42 /teklif/izmir-ip-kamera-montaji
+- [ ] BL-43 /teklif/bursa-ip-kamera-montaji
+- [ ] BL-44 /teklif/kocaeli-ip-kamera-montaji
+- [ ] BL-45 /teklif/tekirdag-ip-kamera-montaji
 
-### Teknik SEO
-- [ ] BL-81 Sitemap stratejisini netleştirme
-- [ ] BL-82 /teklif sayfalarının index/noindex kararı
-- [ ] BL-83 Canonical yapısı gözden geçirme
-- [ ] BL-84 FAQ schema standardı
-- [ ] BL-85 LocalBusiness schema standardı
-- [ ] BL-86 Breadcrumb schema standardı
-- [ ] BL-87 Search Console operasyon checklisti
+## Hizmet Bazlı Landing Pages
+
+- [ ] BL-46 Alarm sistemi landing
+- [ ] BL-47 Yangın alarm landing
+- [ ] BL-48 Kartlı geçiş landing
+- [ ] BL-49 Bakım ve uzaktan izleme landing
+
+## Kullanım Senaryosu Landing Pages
+
+- [ ] BL-50 Apartman kamera sistemi
+- [ ] BL-51 Site kamera sistemi
+- [ ] BL-52 Villa kamera sistemi
+- [ ] BL-53 Depo kamera sistemi
+- [ ] BL-54 Fabrika kamera sistemi
+- [ ] BL-55 Mağaza kamera sistemi
+- [ ] BL-56 Restoran kamera sistemi
 
 ---
 
-## P3 — Ölçekleme ve Data Layer
+# P2 — Programmatic SEO Engine
 
-- [ ] BL-88 Sheet'ten Supabase'e geçiş eşiği tanımı
-- [ ] BL-89 Supabase veri modeli tasarımı
-- [ ] BL-90 Admin panel MVP
-- [ ] BL-91 Lead performans dashboard'u
-- [ ] BL-92 Kampanya bazlı ROAS takibi
-- [ ] BL-93 Şehir bazlı kapanış oranı takibi
-- [ ] BL-94 Hizmet bazlı kârlılık takibi
-- [ ] BL-95 Tekliften satışa dönüşüm raporu
+Amaç: 1000 sayfalık SEO ağı
+
+## Page Type Architecture
+
+- [ ] BL-57 Problem page template
+- [ ] BL-58 Service page template
+- [ ] BL-59 City page template
+- [ ] BL-60 District page template
+- [ ] BL-61 Comparison page template
+
+## City Data Layer
+
+- [ ] BL-62 Şehir veri standardı
+- [ ] BL-63 Tüm şehir açıklamaları
+- [ ] BL-64 Şehir meta standardı
+- [ ] BL-65 Şehir schema
+
+## District Engine
+
+- [ ] BL-66 District veri seti
+- [ ] BL-67 District page generator
+- [ ] BL-68 İlçe meta template
+- [ ] BL-69 İlçe içerik blokları
+
+## Problem Pages (trafik motoru)
+
+- [ ] BL-70 Kamera kaç gün kayıt yapar
+- [ ] BL-71 IP kamera internet olmadan çalışır mı
+- [ ] BL-72 WiFi vs PoE kamera
+- [ ] BL-73 Kamera sistemi fiyat hesaplama
+- [ ] BL-74 Kamera sistemi nasıl seçilir
+- [ ] BL-75 Kamera sistemi neden bulanık
+- [ ] BL-76 Kamera görüntüsü telefona nasıl gelir
+- [ ] BL-77 Kamera sistemi kaç kamera olmalı
+- [ ] BL-78 Kamera sistemi elektrik tüketimi
+- [ ] BL-79 Kamera sistemi kurulumu ne kadar sürer
+
+## Comparison Pages
+
+- [ ] BL-80 Hikvision vs Dahua
+- [ ] BL-81 WiFi vs PoE kamera
+- [ ] BL-82 IP vs Analog kamera
+- [ ] BL-83 NVR vs DVR
+- [ ] BL-84 4MP vs 8MP kamera
+
+## Internal Linking Engine
+
+- [ ] BL-85 Problem → Service link
+- [ ] BL-86 Service → City link
+- [ ] BL-87 City → District link
+- [ ] BL-88 SEO anchor standardı
+
+## Technical SEO
+
+- [ ] BL-89 Sitemap stratejisi
+- [ ] BL-90 /teklif index kararı
+- [ ] BL-91 Canonical standardı
+- [ ] BL-92 FAQ schema
+- [ ] BL-93 LocalBusiness schema
+- [ ] BL-94 Breadcrumb schema
+- [ ] BL-95 Search Console checklist
 
 ---
 
-## P4 — Marketplace Geçişi (6 Ay Sonrası)
+# P3 — Data Layer ve Ölçekleme
 
-- [ ] BL-96 Usta / bayi kayıt modeli
-- [ ] BL-97 Lead routing mantığı
-- [ ] BL-98 Lead satış fiyatlandırma modeli
-- [ ] BL-99 Teklif karşılaştırma ekranı
-- [ ] BL-100 Referans / puan sistemi
-- [ ] BL-101 Bakıma dayalı recurring gelir modeli
+Amaç: Lead verisini iş zekasına çevirmek
+
+- [ ] BL-96 Sheet → Supabase geçiş eşiği
+- [ ] BL-97 Supabase veri modeli
+- [ ] BL-98 Admin panel MVP
+- [ ] BL-99 Lead dashboard
+- [ ] BL-100 Kampanya ROAS takibi
+- [ ] BL-101 Şehir bazlı kapanış oranı
+- [ ] BL-102 Hizmet bazlı kârlılık
+- [ ] BL-103 Teklif → satış dönüşüm raporu
 
 ---
 
-## Notlar
-- Öncelik: BL-02 → BL-05 → BL-21 → BL-33 → BL-43 sırası.
-- SEO işlerini Ads verisi gelmeden abartma.
-- Marketplace'e erken geçmek hata olur.
+# P4 — Marketplace Geçişi
+
+Amaç: Lead satış platformu
+
+- [ ] BL-104 Usta kayıt sistemi
+- [ ] BL-105 Lead routing motoru
+- [ ] BL-106 Lead fiyatlandırma modeli
+- [ ] BL-107 Teklif karşılaştırma ekranı
+- [ ] BL-108 Referans ve puan sistemi
+- [ ] BL-109 Bakım aboneliği
