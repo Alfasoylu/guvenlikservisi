@@ -10,9 +10,13 @@ export interface DuplicateCheckResult {
   error?: string;
 }
 
-export async function checkDuplicateLead(phone: string): Promise<DuplicateCheckResult> {
+export async function checkDuplicateLead(
+  phone: string
+): Promise<DuplicateCheckResult> {
   try {
-    const scriptUrl = process.env.GOOGLE_SCRIPT_WEBHOOK_URL;
+    const scriptUrl =
+      process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+      process.env.GOOGLE_SCRIPT_WEBHOOK_URL;
 
     if (!scriptUrl) {
       return {
@@ -31,7 +35,9 @@ export async function checkDuplicateLead(phone: string): Promise<DuplicateCheckR
       };
     }
 
-    const url = `${scriptUrl}?action=check_duplicate&phone=${encodeURIComponent(phone)}`;
+    const url = `${scriptUrl}?action=check_duplicate&phone=${encodeURIComponent(
+      phone
+    )}`;
 
     const response = await fetch(url, {
       method: "GET",
@@ -65,7 +71,10 @@ export async function checkDuplicateLead(phone: string): Promise<DuplicateCheckR
       ok: false,
       found: false,
       duplicate: false,
-      error: error instanceof Error ? error.message : "unknown_duplicate_check_error",
+      error:
+        error instanceof Error
+          ? error.message
+          : "unknown_duplicate_check_error",
     };
   }
 }
