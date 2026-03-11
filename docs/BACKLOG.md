@@ -27,7 +27,7 @@ Amaç: Reklam verildiğinde lead kaybedilmemesi
 ## Lead Capture Foundation
 
 - [x] BL-01 Google Sheets webhook ile form lead kayıt altyapısı
-- [ ] BL-02 Lead kolon standardı ve veri şeması sabitleme
+- [x] BL-02 Lead kolon standardı ve veri şeması sabitleme
 - [ ] BL-03 Telefon format normalization
 - [ ] BL-04 Duplicate lead detection (24 saat)
 - [ ] BL-05 Spam protection (honeypot + rate limit)
