@@ -282,6 +282,47 @@ const faqs = [
     q: "IP kamera mı analog kamera mı daha mantıklı?",
     a: "Yeni kurulumların çoğunda IP sistemler daha net görüntü, daha iyi uzaktan erişim ve daha esnek genişleme sunduğu için avantajlıdır. Uygun çözüm keşif sonrası belirlenir.",
   },
+    {
+    q: "Ücretsiz keşif yapıyor musunuz?",
+    a: "Evet. Projenin büyüklüğüne, lokasyona ve ihtiyaç detayına göre ücretsiz keşif planlaması yapabiliyoruz. Keşif sonrası kamera noktaları, kayıt yapısı ve uygun sistem netleştirilir.",
+  },
+  {
+    q: "IP kamera montajı sonrası telefonuma uygulama kuruyor musunuz?",
+    a: "Evet. Kurulum tamamlandıktan sonra telefon, tablet ve gerekiyorsa bilgisayar bağlantıları yapılır. Canlı izleme ve geçmiş kayıt erişimi kullanıma hazır şekilde teslim edilir.",
+  },
+  {
+    q: "Kamera sisteminde gece görüşü net olur mu?",
+    a: "Doğru kamera ve doğru açı seçildiğinde gece görüş performansı oldukça tatmin edici olur. Giriş kapısı, bina çevresi, araç alanı ve kritik noktalar için uygun gece görüşlü modeller önerilir.",
+  },
+  {
+    q: "IP kamera sistemi internet olmadan kayıt yapar mı?",
+    a: "Evet. İnternet kesilse bile sistem kayıt almaya devam eder. İnternet daha çok uzaktan canlı izleme ve telefon bağlantısı için gerekir.",
+  },
+  {
+    q: "Kurulumdan sonra teknik destek veriyor musunuz?",
+    a: "Evet. Kurulum sonrası temel kullanım desteği sağlanır. İhtiyaca göre bakım, kontrol ve ek destek süreçleri de planlanabilir.",
+  },
+  {
+    q: "Küçük bir işyeri için kaç kamera gerekir?",
+    a: "Bu; giriş sayısı, kasa alanı, koridor yapısı ve görmek istediğiniz kritik noktalara göre değişir. Çoğu küçük işyerinde 2-6 kamera aralığında çözüm oluşturulur.",
+  },
+  {
+    q: "Apartman ve bina girişi için IP kamera sistemi kuruluyor mu?",
+    a: "Evet. Apartman girişleri, merdiven boşlukları, bina çevresi, otopark ve dış kapı alanları için uygun IP kamera sistemleri kurulabilir. Kayıt süresi ve kamera sayısı yapıya göre planlanır.",
+  },
+  {
+    q: "Kablo görüntüsü çok olur mu?",
+    a: "Doğru projelendirme ile kablolama mümkün olduğunca düzenli ve estetik şekilde yapılır. Amaç sadece çalışan sistem kurmak değil, temiz montajla teslim etmektir.",
+  },
+  {
+    q: "Teklif almadan önce yaklaşık fiyat öğrenebilir miyim?",
+    a: "Evet. Kamera adedi, mekan türü ve beklentinize göre yaklaşık başlangıç fiyat aralığı paylaşılabilir. Net fiyat ise keşif veya ihtiyaç analizi sonrası çıkarılır.",
+  },
+  {
+    q: "Neden hazır paket yerine keşif sonrası teklif almak daha mantıklı?",
+    a: "Çünkü her mekanın giriş noktası, kör açısı, kablolama ihtiyacı ve kayıt beklentisi farklıdır. Keşif sonrası teklif almak gereksiz maliyeti azaltır ve gerçekten iş gören sistem kurulmasını sağlar.",
+  },
+
 ];
 
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
