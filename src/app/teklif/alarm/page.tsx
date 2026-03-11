@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AlarmQuoteForm from "@/components/forms/AlarmQuoteForm";
 
 export const metadata: Metadata = {
   title:
@@ -627,110 +628,7 @@ export default function AlarmLandingPage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl">
-              <form className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Ad Soyad
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Adınız ve soyadınız"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Telefon
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="05xx xxx xx xx"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="district"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    İlçe
-                  </label>
-                  <input
-                    id="district"
-                    name="district"
-                    type="text"
-                    placeholder="Örn: Şişli, Kadıköy, Bakırköy"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="placeType"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Mekan Tipi
-                  </label>
-                  <select
-                    id="placeType"
-                    name="placeType"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Seçiniz
-                    </option>
-                    <option value="ev">Ev / Daire</option>
-                    <option value="ofis">Ofis</option>
-                    <option value="dukkan">Dükkan / Mağaza</option>
-                    <option value="depo">Depo</option>
-                    <option value="apartman">Apartman Girişi</option>
-                    <option value="diger">Diğer</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Kısa Bilgi
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Kaç giriş var, kablolu mu kablosuz mu düşünüyorsunuz, aciliyet nedir?"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-red-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-red-700"
-                >
-                  Teklif Talebi Gönder
-                </button>
-
-                <p className="text-xs leading-6 text-slate-500">
-                  Formu doldurduğunuzda ekibimiz sizi arayarak mekanınıza uygun
-                  alarm sistemi için bilgi verir.
-                </p>
-              </form>
-            </div>
+            <AlarmQuoteForm />
           </div>
         </section>
 
