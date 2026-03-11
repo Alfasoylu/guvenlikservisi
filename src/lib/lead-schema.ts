@@ -211,23 +211,29 @@ export function normalizePhone(value: string): string {
 
   if (!digits) return "";
 
-  // +90XXXXXXXXXX → 0XXXXXXXXXX
-  if (digits.startsWith("90") && digits.length === 12) {
-    return `0${digits.slice(2)}`;
+  let phone = digits;
+
+  // 0532xxxxxxx → 90532xxxxxxx
+  if (phone.length === 11 && phone.startsWith("0")) {
+    phone = "90" + phone.slice(1);
   }
 
-  // 5XXXXXXXXX → 05XXXXXXXXX
-  if (digits.length === 10 && digits.startsWith("5")) {
-    return `0${digits}`;
+  // 532xxxxxxx → 90532xxxxxxx
+  if (phone.length === 10 && phone.startsWith("5")) {
+    phone = "90" + phone;
   }
 
-  // 0XXXXXXXXXX zaten TR formatı
-  if (digits.length === 11 && digits.startsWith("0")) {
-    return digits;
+  // 90532xxxxxxx → olduğu gibi bırak
+  if (phone.length === 12 && phone.startsWith("90")) {
+    // ok
   }
 
-  // Diğer her şeyi olduğu gibi rakam formatında bırak
-  return digits;
+  // TR GSM doğrulaması
+  if (!/^905\d{9}$/.test(phone)) {
+    return "";
+  }
+
+  return phone;
 }
 
 export function formatTimestamp(): string {
