@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -375,120 +375,86 @@ export default function IstanbulIpKameraMontajiPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
+<section className="relative overflow-hidden bg-slate-950 text-white">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/landing/istanbul-ip-kamera-hero.webp"
+      alt="İstanbul IP kamera montajı"
+      fill
+      priority
+      className="object-cover opacity-20"
+    />
+  </div>
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_32%),linear-gradient(120deg,rgba(2,6,23,0.98),rgba(15,23,42,0.9),rgba(3,7,18,0.95))]" />
 
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/landing/istanbul-ip-kamera-hero.webp"
-            alt="İstanbul IP kamera montajı"
-            fill
-            priority
-            className="object-cover opacity-20"
-          />
+  <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:py-20">
+    <div>
+      <div className="mb-5 flex flex-wrap gap-2 text-sm font-semibold text-slate-100">
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
+          İstanbul içi hızlı keşif
+        </span>
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
+          Profesyonel montaj
+        </span>
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
+          Mobil izleme kurulumu
+        </span>
+      </div>
+
+      <h1 className="max-w-2xl text-4xl font-black leading-tight md:text-5xl xl:text-[64px] xl:leading-[1.05]">
+        İstanbul IP Kamera Montajı
+      </h1>
+
+      <p className="mt-4 max-w-2xl text-xl font-semibold text-emerald-400 md:text-2xl">
+        Ev, işyeri ve depo için profesyonel kurulum, mobil izleme ve hızlı keşif
+      </p>
+
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200">
+        İstanbul genelinde doğru kamera yerleşimi, net gece görüşü, kayıt altyapısı
+        ve telefondan canlı izleme kurulumu ile sistemi kullanıma hazır teslim ediyoruz.
+      </p>
+
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="#teklif-formu"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-400"
+        >
+          Hemen Teklif Al
+          <ArrowRight className="h-5 w-5" />
+        </a>
+
+        <a
+          href={phoneHref}
+          data-event="phone_click"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-base font-bold text-white transition hover:bg-white/15"
+        >
+          <Phone className="h-5 w-5" />
+          {siteConfig.phone}
+        </a>
+      </div>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+          <div className="text-3xl font-black">500+</div>
+          <div className="mt-1 text-sm text-slate-300">Tamamlanan proje</div>
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_32%),linear-gradient(120deg,rgba(2,6,23,0.98),rgba(15,23,42,0.9),rgba(3,7,18,0.95))]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
-          <div>
-            <div className="mb-5 flex flex-wrap gap-2 text-sm font-semibold text-slate-100">
-              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
-                İstanbul içi hızlı keşif
-              </span>
-              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
-                Profesyonel montaj
-              </span>
-              <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
-                Mobil izleme kurulumu
-              </span>
-            </div>
-
-            <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-5xl xl:text-6xl">
-              İstanbul IP Kamera Montajı ile Mekanınızı Kör Nokta Bırakmadan Koruyun
-            </h1>
-
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200">
-              Ev, mağaza, ofis, depo ve apartmanlar için keşiften kuruluma kadar anahtar teslim
-              IP kamera sistemleri kuruyoruz. Doğru kamera açısı, net gece görüşü ve telefondan
-              canlı izleme ile sistemi kullanıma hazır teslim ediyoruz.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-100 backdrop-blur"
-                >
-                  <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              {quickLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/10"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#teklif-formu"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-400"
-              >
-                Hemen Teklif Al
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href={phoneHref}
-                data-event="phone_click"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-base font-bold text-white transition hover:bg-white/15"
-              >
-                <Phone className="h-5 w-5" />
-                {siteConfig.phone}
-              </a>
-            </div>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">500+</div>
-                <div className="mt-1 text-sm text-slate-300">Tamamlanan proje</div>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">12+ Yıl</div>
-                <div className="mt-1 text-sm text-slate-300">Saha tecrübesi</div>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">7/24</div>
-                <div className="mt-1 text-sm text-slate-300">Uzaktan erişim altyapısı</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -left-4 -top-4 hidden rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-semibold text-emerald-100 backdrop-blur lg:block">
-              Aynı gün keşif için hızlı geri dönüş
-            </div>
-            <IstanbulIpCameraQuoteForm districts={districts} />
-            <div className="mt-4 rounded-3xl border border-slate-200 bg-white/95 p-4 text-sm text-slate-700 shadow-lg">
-              <div className="font-bold text-slate-950">Teklif öncesi netleştirdiğimiz başlıklar</div>
-              <div className="mt-3 grid gap-2">
-                {trustSignals.map((item) => (
-                  <div key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+          <div className="text-3xl font-black">12+ Yıl</div>
+          <div className="mt-1 text-sm text-slate-300">Saha tecrübesi</div>
         </div>
-      </section>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+          <div className="text-3xl font-black">7/24</div>
+          <div className="mt-1 text-sm text-slate-300">Uzaktan erişim altyapısı</div>
+        </div>
+      </div>
+    </div>
+
+    <div className="relative">
+      <IstanbulIpCameraQuoteForm districts={districts} />
+    </div>
+  </div>
+</section>
+
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
