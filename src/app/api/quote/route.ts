@@ -92,10 +92,6 @@ function buildEmailHtml(lead: LeadRecord): string {
 
       <table style="border-collapse:collapse;font-family:Arial,sans-serif;width:100%;max-width:720px;color:#444;">
         <tr>
-          <td style="padding:6px 12px;font-weight:bold;border:1px solid #ddd;">Lead ID</td>
-          <td style="padding:6px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_id)}</td>
-        </tr>
-        <tr>
           <td style="padding:6px 12px;font-weight:bold;border:1px solid #ddd;">Sayfa</td>
           <td style="padding:6px 12px;border:1px solid #ddd;">${valueOrDash(lead.page_url)}</td>
         </tr>
@@ -147,30 +143,22 @@ function createTransporter() {
 }
 
 async function postToGoogleSheets(lead: LeadRecord) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(toSheetPayload(lead)),
+    cache: "no-store",
+  });
 
-  try {
-    const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(toSheetPayload(lead)),
-      signal: controller.signal,
-      cache: "no-store",
-    });
+  const text = await response.text();
 
-    const text = await response.text();
-
-    if (!response.ok) {
-      throw new Error(`Sheets webhook failed: ${response.status} ${text}`);
-    }
-
-    return text;
-  } finally {
-    clearTimeout(timeout);
+  if (!response.ok) {
+    throw new Error(`Sheets webhook failed: ${response.status} ${text}`);
   }
+
+  return text;
 }
 
 export async function POST(req: NextRequest) {
