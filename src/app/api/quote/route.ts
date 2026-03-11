@@ -8,9 +8,9 @@ import {
 } from "@/lib/lead-schema";
 import { checkDuplicateLead } from "@/lib/check-duplicate-lead";
 
-const GOOGLE_SCRIPT_WEBHOOK_URL =
-  process.env.GOOGLE_SCRIPT_WEBHOOK_URL ||
-  "https://script.google.com/macros/s/AKfycbwj7IR_6by0dSuRKc-IZsErBpmbcRvKe23Fhxtkh8aiKav1uV_PHSXH65f2H05-SXu0WQ/exec";
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+  "https://script.google.com/macros/s/AKfycbwj7IR_6byOdSuRKc-lZsErBpmbcRvKe23Fhxthk8aiKav1uV_PHSXH65f2H05-SXuOWQ/exec";
 
 const NOTIFICATION_EMAIL =
   process.env.LEAD_NOTIFICATION_EMAIL || "info@guvenlikservisi.com";
@@ -54,6 +54,7 @@ function getServiceLabel(serviceType: string): string {
 
 function buildSubject(lead: LeadRecord): string {
   const serviceLabel = getServiceLabel(lead.service_type);
+
   const parts = [
     "Yeni Teklif Talebi",
     serviceLabel,
@@ -68,150 +69,71 @@ function buildEmailHtml(lead: LeadRecord): string {
   const serviceLabel = getServiceLabel(lead.service_type);
 
   return `
-    <div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;">
-      <h2 style="margin:0 0 16px;">Yeni Teklif Talebi</h2>
+<div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;">
+<h2>Yeni Teklif Talebi</h2>
 
-      <table style="border-collapse:collapse;width:100%;max-width:760px;margin-bottom:20px;">
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead ID</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_id)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Tarih</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.timestamp)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Ad Soyad</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.name)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Telefon</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.phone)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">E-posta</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.email)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Şehir</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.city)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">İlçe</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.district)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Hizmet Türü</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(serviceLabel)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mekan Türü</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.location_type)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Kamera Sayısı</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.camera_count)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mesaj</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.message)}</td>
-        </tr>
-      </table>
-
-      <table style="border-collapse:collapse;width:100%;max-width:760px;color:#333;">
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Sayfa URL</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.page_url)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Form Kaynağı</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.form_source)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Source</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_source)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Medium</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_medium)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Campaign</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_campaign)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Term</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_term)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">GCLID</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.gclid)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Call Status</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.call_status)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead Status</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_status)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Notlar</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.notes)}</td>
-        </tr>
-      </table>
-    </div>
-  `;
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:760px;">
+<tr><td><b>Lead ID</b></td><td>${valueOrDash(lead.lead_id)}</td></tr>
+<tr><td><b>Tarih</b></td><td>${valueOrDash(lead.timestamp)}</td></tr>
+<tr><td><b>Ad Soyad</b></td><td>${valueOrDash(lead.name)}</td></tr>
+<tr><td><b>Telefon</b></td><td>${valueOrDash(lead.phone)}</td></tr>
+<tr><td><b>E-posta</b></td><td>${valueOrDash(lead.email)}</td></tr>
+<tr><td><b>Şehir</b></td><td>${valueOrDash(lead.city)}</td></tr>
+<tr><td><b>İlçe</b></td><td>${valueOrDash(lead.district)}</td></tr>
+<tr><td><b>Hizmet Türü</b></td><td>${valueOrDash(serviceLabel)}</td></tr>
+<tr><td><b>Mekan Türü</b></td><td>${valueOrDash(lead.location_type)}</td></tr>
+<tr><td><b>Kamera Sayısı</b></td><td>${valueOrDash(lead.camera_count)}</td></tr>
+<tr><td><b>Mesaj</b></td><td>${valueOrDash(lead.message)}</td></tr>
+<tr><td><b>Sayfa</b></td><td>${valueOrDash(lead.page_url)}</td></tr>
+<tr><td><b>Form Kaynağı</b></td><td>${valueOrDash(lead.form_source)}</td></tr>
+<tr><td><b>Notlar</b></td><td>${valueOrDash(lead.notes)}</td></tr>
+</table>
+</div>
+`;
 }
 
 function getRequiredEnv(name: "SMTP_HOST" | "SMTP_USER" | "SMTP_PASS"): string {
   const value = process.env[name];
-  if (!value) {
-    throw new Error(`${name} environment variable is missing.`);
-  }
+  if (!value) throw new Error(`${name} missing`);
   return value;
 }
 
 function createTransporter() {
-  const host = getRequiredEnv("SMTP_HOST");
-  const user = getRequiredEnv("SMTP_USER");
-  const pass = getRequiredEnv("SMTP_PASS");
-  const port = Number(process.env.SMTP_PORT || 587);
-
   return nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
+    host: getRequiredEnv("SMTP_HOST"),
+    port: Number(process.env.SMTP_PORT || 587),
+    secure: false,
+    auth: {
+      user: getRequiredEnv("SMTP_USER"),
+      pass: getRequiredEnv("SMTP_PASS"),
+    },
   });
 }
 
-async function postToGoogleSheets(lead: LeadRecord): Promise<void> {
+async function postToGoogleSheets(lead: LeadRecord) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
   try {
-    const response = await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+    const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(toSheetPayload(lead)),
-      cache: "no-store",
       signal: controller.signal,
     });
 
-    const text = await response.text();
-
     if (!response.ok) {
-      throw new Error(`Sheets webhook failed: ${response.status} ${text}`);
+      const text = await response.text();
+      throw new Error(`Sheets error ${response.status} ${text}`);
     }
   } finally {
     clearTimeout(timer);
   }
 }
 
-async function sendLeadEmail(lead: LeadRecord): Promise<void> {
+async function sendLeadEmail(lead: LeadRecord) {
   const transporter = createTransporter();
 
   await transporter.sendMail({
@@ -223,79 +145,43 @@ async function sendLeadEmail(lead: LeadRecord): Promise<void> {
   });
 }
 
-function extractClientIp(req: NextRequest): string {
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  if (forwardedFor) {
-    return forwardedFor.split(",")[0]?.trim() || "";
-  }
-
+function extractClientIp(req: NextRequest) {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0].trim();
   return req.headers.get("x-real-ip") || "";
 }
 
 export async function POST(req: NextRequest) {
-  let rawBody: unknown = null;
-
   try {
-    rawBody = await req.json();
-  } catch {
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Geçersiz istek verisi.",
-      },
-      { status: 400 }
-    );
-  }
+    const rawBody = await req.json();
 
-  try {
-    const lead = buildLeadRecord(
-      typeof rawBody === "object" && rawBody !== null
-        ? (rawBody as Record<string, unknown>)
-        : {},
-      "quote_form"
-    );
+    const lead = buildLeadRecord(rawBody, "quote_form");
 
     const duplicateCheck = await checkDuplicateLead(lead.phone);
 
     if (duplicateCheck.duplicate) {
-      const duplicateNote = [
+      lead.notes = [
         "duplicate: yes",
-        `type: ${duplicateCheck.duplicate_type || "duplicate"}`,
-        `matched_lead_id: ${duplicateCheck.matched_lead_id || ""}`,
-        `matched_timestamp: ${duplicateCheck.matched_timestamp || ""}`,
-        `matched_form_source: ${duplicateCheck.matched_form_source || ""}`,
-        `matched_page_url: ${duplicateCheck.matched_page_url || ""}`,
+        `type:${duplicateCheck.duplicate_type}`,
+        `lead:${duplicateCheck.matched_lead_id}`,
       ].join(" | ");
-
-      lead.notes = lead.notes
-        ? `${lead.notes} | ${duplicateNote}`
-        : duplicateNote;
     }
 
     const validation = validateLeadRecord(lead);
 
     if (!validation.valid) {
       return NextResponse.json(
-        {
-          success: false,
-          message: validation.errors.join(", "),
-        },
+        { success: false, message: validation.errors.join(", ") },
         { status: 400 }
       );
     }
 
     const clientIp = extractClientIp(req);
-    const userAgent = req.headers.get("user-agent") || "";
 
-    console.log("New quote lead received:", {
+    console.log("lead received", {
       lead_id: lead.lead_id,
-      name: lead.name,
       phone: lead.phone,
-      page_url: lead.page_url,
-      form_source: lead.form_source,
-      client_ip: clientIp,
-      user_agent: userAgent,
-      notes: lead.notes,
+      ip: clientIp,
     });
 
     const [emailResult, sheetsResult] = await Promise.allSettled([
@@ -303,42 +189,23 @@ export async function POST(req: NextRequest) {
       postToGoogleSheets(lead),
     ]);
 
-    if (emailResult.status === "rejected") {
-      console.error("Lead email send failed:", emailResult.reason);
-    }
+    if (emailResult.status === "rejected")
+      console.error(emailResult.reason);
 
-    if (sheetsResult.status === "rejected") {
-      console.error("Lead sheets sync failed:", sheetsResult.reason);
-    }
+    if (sheetsResult.status === "rejected")
+      console.error(sheetsResult.reason);
 
-    if (
-      emailResult.status === "rejected" &&
-      sheetsResult.status === "rejected"
-    ) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Bir hata oluştu. Lütfen bizi doğrudan arayın.",
-        },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Talebiniz alındı. En kısa sürede sizi arayacağız.",
-        lead_id: lead.lead_id,
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      success: true,
+      lead_id: lead.lead_id,
+    });
   } catch (error) {
-    console.error("Quote API fatal error:", error);
+    console.error("lead api error", error);
 
     return NextResponse.json(
       {
         success: false,
-        message: "Bir hata oluştu. Lütfen bizi doğrudan arayın.",
+        message: "Sunucu hatası",
       },
       { status: 500 }
     );
