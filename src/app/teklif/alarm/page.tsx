@@ -2,138 +2,160 @@ import LandingPageTemplate, { LandingPageData } from "@/components/templates/Lan
 
 const data: LandingPageData = {
   hero: {
-    title: "Profesyonel Alarm Sistemi Kurulumu",
+    title: "İstanbul Alarm Sistemi Kurulumu | Ajax ve Hikvision",
     subtitle:
-      "Kablosuz ve kablolu hırsız alarm sistemleri. 7/24 izleme merkezi bağlantısı. Marmara Bölgesi genelinde ücretsiz keşif.",
-    ctaLabel: "Ücretsiz Keşif ve Teklif Al",
+      "İstanbul içi aynı gün alarm montajı. Ajax ve Hikvision marka kablolu ve kablosuz alarm sistemleri, mobil uygulama kontrolü, profesyonel kurulum ve 2 yıl garanti.",
+    ctaLabel: "Hemen Teklif Al",
   },
+
   problem: {
-    title: "Eviniz veya İşyeriniz Korumasız mı?",
+    title: "Geç Kalmadan Alarm Sistemini Kurun",
     cards: [
       {
         icon: "🚨",
-        title: "Hırsızlık Tehdidi",
+        title: "Hırsızlık ve İzinsiz Giriş Riski",
         description:
-          "Alarm sistemi olmayan yapılar, hırsızlara 3 kat daha cazip görünür. Sirenli alarm sistemi dakikalar içinde müdahale sağlar.",
+          "Alarm sistemi olmayan ev, ofis, dükkân ve depo alanları daha kolay hedef haline gelir. Erken uyarı vermeyen mekân, doğrudan zarar yazar.",
       },
       {
         icon: "📱",
-        title: "Anında Bildirim",
+        title: "Anında Telefon Bildirimi",
         description:
-          "İzinsiz giriş anında telefonunuza SMS ve uygulama bildirimi gelir. Siz nerede olursanız olun haberdar olursunuz.",
+          "Kapı açılma, hareket algılama ve alarm tetiklenmesi durumunda sistem sizi anında uygulama üzerinden uyarır. Mekânda olmasanız da kontrol sizde kalır.",
       },
       {
-        icon: "🏛️",
-        title: "Yasal Zorunluluk",
+        icon: "⏱️",
+        title: "Geç Müdahale Daha Büyük Kayıp",
         description:
-          "Bazı iş yeri sigorta poliçeleri alarm sistemi gerektirir. Sistemsiz işyerleri sigorta tazminatında sorun yaşayabilir.",
+          "Olay olduktan sonra fark etmek yerine, olay anında haberdar olmak gerekir. Aynı gün kurulum yaptığımız sistemlerle riski bekletmeden kapatıyoruz.",
       },
     ],
   },
+
   solution: {
-    title: "Akıllı Hırsız Alarm Sistemi",
+    title: "Ajax ve Hikvision Alarm Sistemleri",
     description:
-      "Kablosuz ve kablolu seçeneklerle her mekana uygun alarm sistemi kuruyoruz. Profesyonel izleme merkezi bağlantısı ile 7/24 koruma.",
+      "İstanbul’da ev, ofis, mağaza, depo ve işyerleri için Ajax ve Hikvision marka alarm sistemleri kuruyoruz. Mekâna göre kablolu veya kablosuz çözüm planlıyor, profesyonel montaj sonrası sistemi telefonunuza kurup teslim ediyoruz.",
     features: [
-      "PIR hareket sensörleri",
-      "Manyetik kapı/pencere sensörleri",
-      "Yüksek desibel siren",
-      "GSM + İnternet çift bağlantı",
-      "7/24 izleme merkezi opsiyonu",
-      "Mobil uygulama kontrolü",
+      "Ajax ve Hikvision marka alarm sistemleri",
+      "Kablolu ve kablosuz kurulum seçenekleri",
+      "İstanbul içi aynı gün montaj imkânı",
+      "Mobil uygulama ile uzaktan kontrol",
+      "PIR hareket sensörü desteği",
+      "Kapı ve pencere manyetik kontak desteği",
+      "İç ve dış siren seçenekleri",
+      "Elektrik kesintisine karşı batarya yedekleme",
+      "Ev, ofis, dükkân ve depo için uygun çözümler",
+      "2 yıl ürün ve kurulum garantisi",
     ],
-    imagePlaceholder: "Alarm Kurulum Görseli",
+    imagePlaceholder: "Ajax ve Hikvision Alarm Sistemi Kurulumu",
   },
+
   packages: {
     title: "Alarm Sistemi Paketleri",
     items: [
       {
-        name: "Temel Koruma",
-        price: "8.000 TL'den başlayan",
+        name: "Ev / Küçük Ofis Paketi",
+        price: "Teklif Alın",
         features: [
-          "1 Kontrol Paneli",
-          "3-5 Sensör",
-          "1 Siren",
-          "GSM Modül",
-          "Mobil Uygulama",
-          "1 Yıl Garanti",
-        ],
-      },
-      {
-        name: "Tam Koruma",
-        price: "18.000 TL'den başlayan",
-        badge: "En Çok Tercih Edilen",
-        highlighted: true,
-        features: [
-          "1 Kontrol Paneli",
-          "8-12 Sensör",
-          "İç + Dış Siren",
-          "GSM + İnternet",
-          "İzleme Merkezi (12 ay)",
-          "Yılda 1 Bakım",
+          "Ajax veya Hikvision kontrol paneli",
+          "Temel hareket sensörü paketi",
+          "Kapı / pencere manyetik kontak",
+          "İç siren",
+          "Mobil uygulama kurulumu",
+          "İstanbul içi profesyonel montaj",
           "2 Yıl Garanti",
         ],
       },
       {
-        name: "Kurumsal",
+        name: "Dükkan / Ofis Koruma Paketi",
         price: "Teklif Alın",
+        badge: "En Çok Tercih Edilen",
+        highlighted: true,
         features: [
-          "Çok Bölgeli Panel",
-          "Sınırsız Sensör",
-          "İç + Dış + Flaşör",
-          "Çift Yedekli Bağlantı",
-          "7/24 İzleme Merkezi",
-          "Yılda 2 Bakım",
-          "3 Yıl Garanti",
+          "Ajax veya Hikvision alarm paneli",
+          "Giriş + iç alan sensör planlaması",
+          "Kapı / kepenk / pencere koruması",
+          "İç + dış siren seçenekleri",
+          "Mobil uygulama kontrolü",
+          "Aynı gün montaj imkânı",
+          "2 Yıl Garanti",
+        ],
+      },
+      {
+        name: "Depo / Kurumsal Çözüm",
+        price: "Keşif Sonrası Teklif",
+        features: [
+          "Büyük alanlara özel keşif",
+          "Kablolu veya kablosuz proje çözümü",
+          "Çoklu bölge koruma planı",
+          "Siren ve sensör genişletme imkânı",
+          "Telefon üzerinden uzaktan yönetim",
+          "Profesyonel montaj ve devreye alma",
+          "2 Yıl Garanti",
         ],
       },
     ],
   },
+
   testimonials: [
     {
-      text: "Dükkanıma alarm sistemi kurdurduk, bir ay sonra gerçekten hırsız girmeye çalıştı, sistem anında devreye girdi.",
-      name: "Kemal A.",
-      role: "İstanbul / Esnaf",
+      text: "Dükkânımıza Ajax alarm kuruldu. Aynı gün gelip montaj yaptılar, sistemi telefondan nasıl kullanacağımızı da tek tek gösterdiler.",
+      name: "Mehmet K.",
+      role: "Şişli / İşletme Sahibi",
       rating: 5,
     },
     {
-      text: "Evimize kablosuz alarm sistemi yaptırdık. Kurulum çok temiz, hiç kablo görünmüyor.",
-      name: "Ayşe M.",
-      role: "Bursa / Ev Sahibi",
+      text: "Evimiz için kablosuz alarm sistemi yaptırdık. Kırıp dökmeden temiz kurulum oldu, uygulama üzerinden tüm sistemi rahatça yönetiyoruz.",
+      name: "Zeynep A.",
+      role: "Kadıköy / Ev Sahibi",
       rating: 5,
     },
     {
-      text: "Ofisimize alarm + kamera birlikte kurdular. İzleme merkezi bağlantısı çok güven veriyor.",
-      name: "Hasan T.",
-      role: "Kocaeli / Ofis Sahibi",
+      text: "Ofisimiz için Hikvision alarm sistemi kuruldu. Hızlı dönüş yaptılar, keşif sonrası doğru çözümü önerdiler. Kurulum da gayet profesyoneldi.",
+      name: "Onur T.",
+      role: "Bakırköy / Ofis",
       rating: 5,
     },
   ],
+
   faq: [
     {
-      question: "Alarm sistemi kurulumu ne kadar sürer?",
+      question: "İstanbul’da aynı gün alarm montajı yapıyor musunuz?",
       answer:
-        "Konut için yarım gün ile 1 gün arasında. İşyeri büyüklüğüne göre 1-2 gün sürebilir.",
+        "Evet. İstanbul içindeki birçok bölgede keşif ve yoğunluk durumuna göre aynı gün alarm montajı yapabiliyoruz. Net planlama için form bırakmanız veya bizi aramanız yeterli.",
     },
     {
-      question: "Kablosuz mı kablolu mu tercih etmeliyim?",
+      question: "Hangi markaları kullanıyorsunuz?",
       answer:
-        "Hazır yapılarda kablosuz, inşaat aşamasındaki yapılarda kablolu daha avantajlıdır. Keşifte uzmanımız en uygun çözümü önerir.",
+        "Başlıca Ajax ve Hikvision marka alarm sistemleri kuruyoruz. Mekânın yapısına, kullanım ihtiyacına ve bütçeye göre en uygun sistemi öneriyoruz.",
     },
     {
-      question: "İzleme merkezi zorunlu mu?",
+      question: "Kablolu mu kablosuz mu daha mantıklı?",
       answer:
-        "Zorunlu değil. Sadece mobil bildirim alan sistemler de kurabiliyoruz. İzleme merkezi ek güvenlik katmanı sağlar.",
+        "Hazır kullanımda olan ev ve ofislerde kablosuz sistemler genelde daha hızlı ve temiz çözüm sunar. Yeni yapılan ya da altyapısı uygun alanlarda kablolu sistemler de güçlü bir seçenektir. Doğru tercih keşifte netleşir.",
     },
     {
-      question: "Elektrik kesintisinde ne olur?",
+      question: "Alarm sistemi telefondan kontrol edilir mi?",
       answer:
-        "Tüm sistemlerimiz yedek batarya ile çalışır. Elektrik kesintisinde 8-24 saat bağımsız çalışmaya devam eder.",
+        "Evet. Kurduğumuz sistemlerde mobil uygulama üzerinden alarmı kurup kapatabilir, bildirim alabilir ve sistem durumunu uzaktan takip edebilirsiniz.",
+    },
+    {
+      question: "Elektrik kesilirse alarm çalışmaya devam eder mi?",
+      answer:
+        "Evet. Sistemlerde yedek batarya bulunur. Elektrik kesintisinde alarm sistemi belirli süre çalışmaya devam eder ve koruma sürer.",
+    },
+    {
+      question: "Garanti süreniz ne kadar?",
+      answer:
+        "Kurulumunu yaptığımız alarm sistemlerinde 2 yıl garanti sunuyoruz.",
     },
   ],
+
   cta: {
-    title: "Ücretsiz Alarm Sistemi Teklifi Alın",
-    subtitle: "Formu doldurun, uzman ekibimiz sizi arasın.",
+    title: "İstanbul Alarm Sistemi İçin Hemen Teklif Alın",
+    subtitle:
+      "Ajax ve Hikvision alarm sistemi kurulumu için formu doldurun, ekibimiz sizi arasın.",
     defaultService: "alarm",
   },
 };
