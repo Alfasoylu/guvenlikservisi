@@ -241,10 +241,10 @@ export default function AlarmLandingPage() {
                   Hemen Teklif Al
                 </a>
                 <a
-                  href="tel:+908503077397"
+                  href="tel:+905425934900"
                   className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-4 text-base font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
                 >
-                  0850 307 73 97
+                  0542 593 49 00
                 </a>
               </div>
 
