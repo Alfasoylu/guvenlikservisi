@@ -33,8 +33,7 @@ const serviceLabels: Record<string, string> = {
 };
 
 function buildEmailHtml(lead: LeadRecord): string {
-  const serviceLabel =
-    serviceLabels[lead.service_type] || lead.service_type || "-";
+  const serviceLabel = serviceLabels[lead.service_type] || lead.service_type || "-";
 
   return `
     <h2>Yeni Teklif Talebi</h2>
@@ -42,15 +41,15 @@ function buildEmailHtml(lead: LeadRecord): string {
     <table style="border-collapse:collapse;font-family:sans-serif;">
       <tr>
         <td style="padding:4px 12px;font-weight:bold;">Tarih</td>
-        <td style="padding:4px 12px;">${lead.created_at}</td>
+        <td style="padding:4px 12px;">${lead.timestamp}</td>
       </tr>
       <tr>
         <td style="padding:4px 12px;font-weight:bold;">Ad Soyad</td>
-        <td style="padding:4px 12px;">${lead.customer_name || "-"}</td>
+        <td style="padding:4px 12px;">${lead.name || "-"}</td>
       </tr>
       <tr>
         <td style="padding:4px 12px;font-weight:bold;">Telefon</td>
-        <td style="padding:4px 12px;">${lead.phone_normalized || lead.phone_raw || "-"}</td>
+        <td style="padding:4px 12px;">${lead.phone || "-"}</td>
       </tr>
       <tr>
         <td style="padding:4px 12px;font-weight:bold;">E-posta</td>
@@ -69,6 +68,14 @@ function buildEmailHtml(lead: LeadRecord): string {
         <td style="padding:4px 12px;">${serviceLabel}</td>
       </tr>
       <tr>
+        <td style="padding:4px 12px;font-weight:bold;">Mekan Türü</td>
+        <td style="padding:4px 12px;">${lead.location_type || "-"}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px 12px;font-weight:bold;">Kamera Sayısı</td>
+        <td style="padding:4px 12px;">${lead.camera_count || "-"}</td>
+      </tr>
+      <tr>
         <td style="padding:4px 12px;font-weight:bold;">Mesaj</td>
         <td style="padding:4px 12px;">${lead.message || "-"}</td>
       </tr>
@@ -78,20 +85,12 @@ function buildEmailHtml(lead: LeadRecord): string {
 
     <table style="border-collapse:collapse;font-family:sans-serif;color:#666;">
       <tr>
-        <td style="padding:4px 12px;font-weight:bold;">Lead ID</td>
-        <td style="padding:4px 12px;">${lead.lead_id}</td>
-      </tr>
-      <tr>
         <td style="padding:4px 12px;font-weight:bold;">Sayfa</td>
-        <td style="padding:4px 12px;">${lead.source_page || "-"}</td>
+        <td style="padding:4px 12px;">${lead.page_url || "-"}</td>
       </tr>
       <tr>
-        <td style="padding:4px 12px;font-weight:bold;">Landing Slug</td>
-        <td style="padding:4px 12px;">${lead.landing_slug || "-"}</td>
-      </tr>
-      <tr>
-        <td style="padding:4px 12px;font-weight:bold;">Kaynak</td>
-        <td style="padding:4px 12px;">${lead.source_type || "-"}</td>
+        <td style="padding:4px 12px;font-weight:bold;">Form Kaynağı</td>
+        <td style="padding:4px 12px;">${lead.form_source || "-"}</td>
       </tr>
       <tr>
         <td style="padding:4px 12px;font-weight:bold;">UTM Source</td>
@@ -110,24 +109,8 @@ function buildEmailHtml(lead: LeadRecord): string {
         <td style="padding:4px 12px;">${lead.utm_term || "-"}</td>
       </tr>
       <tr>
-        <td style="padding:4px 12px;font-weight:bold;">UTM Content</td>
-        <td style="padding:4px 12px;">${lead.utm_content || "-"}</td>
-      </tr>
-      <tr>
         <td style="padding:4px 12px;font-weight:bold;">GCLID</td>
         <td style="padding:4px 12px;">${lead.gclid || "-"}</td>
-      </tr>
-      <tr>
-        <td style="padding:4px 12px;font-weight:bold;">FBCLID</td>
-        <td style="padding:4px 12px;">${lead.fbclid || "-"}</td>
-      </tr>
-      <tr>
-        <td style="padding:4px 12px;font-weight:bold;">Cihaz</td>
-        <td style="padding:4px 12px;">${lead.device_type || "-"}</td>
-      </tr>
-      <tr>
-        <td style="padding:4px 12px;font-weight:bold;">Referrer</td>
-        <td style="padding:4px 12px;">${lead.referrer || "-"}</td>
       </tr>
     </table>
   `;
@@ -139,7 +122,7 @@ export async function POST(req: NextRequest) {
 
     const lead = buildLeadRecord(body, "quote_form");
 
-    if (!lead.customer_name || !lead.phone_raw) {
+    if (!lead.name || !lead.phone) {
       return NextResponse.json(
         {
           success: false,
@@ -150,15 +133,13 @@ export async function POST(req: NextRequest) {
     }
 
     const serviceLabel =
-      serviceLabels[lead.service_type] ||
-      lead.service_type ||
-      "Genel Teklif";
+      serviceLabels[lead.service_type] || lead.service_type || "Genel Teklif";
 
     await Promise.all([
       transporter.sendMail({
         from: `"Güvenlik Servisi" <${process.env.SMTP_USER}>`,
         to: "info@guvenlikservisi.com",
-        subject: `Yeni Teklif Talebi: ${serviceLabel} - ${lead.customer_name} - ${lead.city || "-"}`,
+        subject: `Yeni Teklif Talebi: ${serviceLabel} - ${lead.name} - ${lead.city || "-"}`,
         html: buildEmailHtml(lead),
       }),
 
