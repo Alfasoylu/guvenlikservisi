@@ -1,212 +1,442 @@
 /**
- * BL-02: Lead Kolon Standardı ve Veri Şeması
+ * BL-02 — Lead kolon standardı ve veri şeması
  *
  * Bu dosya tüm lead verisi için tek kaynak (single source of truth) görevi görür.
  * Hem /api/lead hem /api/quote bu şemayı kullanır.
  * Google Sheets webhook'a giden veri bu şemaya göre normalize edilir.
  *
- * LEAD_ENGINE.md'deki kolon standardına birebir uyumludur.
+ * GOOGLE SHEETS HEADER STANDARDI:
+ * lead_id
+ * timestamp
+ * form_source
+ * page_url
+ * service_type
+ * city
+ * district
+ * name
+ * phone
+ * email
+ * location_type
+ * camera_count
+ * message
+ * utm_source
+ * utm_medium
+ * utm_campaign
+ * utm_term
+ * gclid
+ * call_status
+ * lead_status
+ * assigned_to
+ * notes
  */
 
-// ─── Lead Status Enum ────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// ENUMS / CONSTANTS
+// ─────────────────────────────────────────────────────────────
+
+export const CALL_STATUSES = [
+  "aranmadi",
+  "arandi",
+  "ulasilamadi",
+  "tekrar_ara",
+  "randevu",
+  "kapandi",
+] as const;
+
+export type CallStatus = (typeof CALL_STATUSES)[number];
+
 export const LEAD_STATUSES = [
-  "Yeni",
-  "Arandı",
-  "Teklif",
-  "Kazanıldı",
-  "Kaybedildi",
+  "yeni",
+  "teklif_verildi",
+  "kazanildi",
+  "kaybedildi",
+  "spam",
 ] as const;
 
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
 
-// ─── Form Source Identifier ──────────────────────────────────
 export const FORM_SOURCES = [
-  "quote_form",           // QuoteForm (genel teklif)
-  "istanbul_ip_kamera",   // IstanbulIpCameraQuoteForm
-  "landing_page",         // /teklif/* landing page formları
-  "whatsapp",             // WhatsApp click (tracking only)
-  "phone_call",           // Phone click (tracking only)
+  "quote_form",
+  "istanbul_ip_kamera",
+  "landing_page",
+  "whatsapp",
+  "phone_call",
+  "manual",
 ] as const;
 
 export type FormSource = (typeof FORM_SOURCES)[number];
 
-// ─── Standart Lead Şeması ────────────────────────────────────
-// Google Sheets'e giden kolon sırası bu interface'i takip eder.
+// ─────────────────────────────────────────────────────────────
+// MAIN LEAD RECORD
+// ─────────────────────────────────────────────────────────────
+
 export interface LeadRecord {
-  // ── Zaman ──
-  timestamp: string;           // ISO 8601 — Europe/Istanbul
+  lead_id: string;
+  timestamp: string;
 
-  // ── Müşteri Bilgisi ──
-  name: string;                // müşteri adı
-  phone: string;               // normalize edilmiş: 05XX XXX XX XX
-  email: string;               // opsiyonel
+  form_source: FormSource;
+  page_url: string;
 
-  // ── Konum ──
-  city: string;                // il adı
-  district: string;            // ilçe adı
+  service_type: string;
+  city: string;
+  district: string;
 
-  // ── Hizmet Detayı ──
-  service_type: string;        // kamera | alarm | yangin | kartli-gecis | komple | ...
-  location_type: string;       // ev | villa | isyeri | magaza | apartman-site | fabrika-depo | ...
-  camera_count: string;        // 2-4 | 4-8 | 8-16 | 16+
-  message: string;             // serbest metin / proje notu
+  name: string;
+  phone: string;
+  email: string;
 
-  // ── Tracking / Attribution ──
-  page_url: string;            // lead geldiği URL
-  form_source: FormSource;     // formu tanımlayan sabit
+  location_type: string;
+  camera_count: string;
+  message: string;
+
   utm_source: string;
   utm_medium: string;
   utm_campaign: string;
   utm_term: string;
   gclid: string;
 
-  // ── CRM Alanları (Sheet'te manuel doldurulur) ──
+  call_status: CallStatus;
   lead_status: LeadStatus;
   assigned_to: string;
-  offer_amount: string;
-  lost_reason: string;
   notes: string;
 }
 
-// ─── Google Sheets Kolon Sırası ──────────────────────────────
-// Webhook'a gönderirken bu sıra korunmalıdır.
-// Sheet'in ilk satırı bu header'ları içermelidir.
+// ─────────────────────────────────────────────────────────────
+// SHEET COLUMN ORDER
+// Google Sheets header row ile birebir aynı olmalı
+// ─────────────────────────────────────────────────────────────
+
 export const SHEET_COLUMNS: (keyof LeadRecord)[] = [
+  "lead_id",
   "timestamp",
+  "form_source",
+  "page_url",
+  "service_type",
+  "city",
+  "district",
   "name",
   "phone",
   "email",
-  "city",
-  "district",
-  "service_type",
   "location_type",
   "camera_count",
   "message",
-  "page_url",
-  "form_source",
   "utm_source",
   "utm_medium",
   "utm_campaign",
   "utm_term",
   "gclid",
+  "call_status",
   "lead_status",
   "assigned_to",
-  "offer_amount",
-  "lost_reason",
   "notes",
 ];
 
-// ─── Normalize Helper ────────────────────────────────────────
-// Farklı form payload'larını standart LeadRecord'a çevirir.
+// ─────────────────────────────────────────────────────────────
+// RAW INPUT TYPE
+// Farklı formlardan gelen alan isimlerini burada topluyoruz
+// ─────────────────────────────────────────────────────────────
 
-export function normalizePhone(value: string): string {
-  const digits = value.replace(/\D/g, "");
-
-  // +90 5XX → 05XX
-  if (digits.startsWith("90") && digits.length === 12) {
-    return `0${digits.slice(2)}`;
-  }
-
-  // 5XX (başında 0 yok) → 05XX
-  if (digits.length === 10 && digits.startsWith("5")) {
-    return `0${digits}`;
-  }
-
-  return digits;
-}
-
-export function formatTimestamp(): string {
-  return new Date().toLocaleString("tr-TR", {
-    timeZone: "Europe/Istanbul",
-  });
-}
-
-interface RawLeadInput {
-  // Müşteri
+export interface RawLeadInput {
+  // müşteri
   name?: string;
-  phone?: string;
-  email?: string;
+  full_name?: string;
+  customer_name?: string;
 
-  // Konum
+  phone?: string;
+  gsm?: string;
+  mobile?: string;
+  telephone?: string;
+
+  email?: string;
+  mail?: string;
+
+  // konum
   city?: string;
   district?: string;
+  il?: string;
+  ilce?: string;
 
-  // Hizmet
+  // hizmet
   service_type?: string;
-  location_type?: string;
-  camera_count?: string;
-  cameraCount?: string;       // eski form uyumu
-  message?: string;
-  note?: string;              // QuoteForm uyumu
-  placeType?: string;         // eski form uyumu
+  service?: string;
+  hizmet?: string;
 
-  // Tracking
-  page?: string;
+  location_type?: string;
+  placeType?: string;
+  mekan_tipi?: string;
+  property_type?: string;
+
+  camera_count?: string;
+  cameraCount?: string;
+  kamera_sayisi?: string;
+
+  message?: string;
+  note?: string;
+  notes?: string;
+  aciklama?: string;
+
+  // tracking
   page_url?: string;
+  page?: string;
+  url?: string;
+
   form_source?: FormSource;
+
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
   utm_term?: string;
+  utm_content?: string; // şu an sheet'te yok, ama ileride lazım olabilir
   gclid?: string;
+
+  // opsiyonel sistem alanları
+  lead_id?: string;
+  timestamp?: string;
 }
 
-/**
- * Ham form verisini standart LeadRecord'a dönüştürür.
- * Tüm alanlar string olarak normalize edilir.
- * CRM alanları default değerlerle doldurulur.
- */
+// ─────────────────────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────────────────────
+
+function cleanString(value: unknown): string {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function safeLower(value: unknown): string {
+  return cleanString(value).toLowerCase();
+}
+
+export function normalizePhone(value: string): string {
+  const digits = String(value || "").replace(/\D/g, "");
+
+  if (!digits) return "";
+
+  // +90XXXXXXXXXX → 0XXXXXXXXXX
+  if (digits.startsWith("90") && digits.length === 12) {
+    return `0${digits.slice(2)}`;
+  }
+
+  // 5XXXXXXXXX → 05XXXXXXXXX
+  if (digits.length === 10 && digits.startsWith("5")) {
+    return `0${digits}`;
+  }
+
+  // 0XXXXXXXXXX zaten TR formatı
+  if (digits.length === 11 && digits.startsWith("0")) {
+    return digits;
+  }
+
+  // Diğer her şeyi olduğu gibi rakam formatında bırak
+  return digits;
+}
+
+export function formatTimestamp(): string {
+  return new Intl.DateTimeFormat("tr-TR", {
+    timeZone: "Europe/Istanbul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+}
+
+export function createLeadId(): string {
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  const rand = Math.random().toString(36).slice(2, 7).toUpperCase();
+
+  return `LD-${yyyy}${mm}${dd}-${hh}${mi}${ss}-${rand}`;
+}
+
+function normalizeServiceType(value: string): string {
+  const v = safeLower(value);
+
+  if (!v) return "";
+
+  if (
+    v.includes("kamera") ||
+    v.includes("ip kamera") ||
+    v.includes("güvenlik kamerası") ||
+    v.includes("guvenlik kamerasi")
+  ) {
+    return "kamera";
+  }
+
+  if (v.includes("alarm") && !v.includes("yang")) {
+    return "alarm";
+  }
+
+  if (v.includes("yangın") || v.includes("yangin")) {
+    return "yangin";
+  }
+
+  if (
+    v.includes("kartlı geçiş") ||
+    v.includes("kartli gecis") ||
+    v.includes("kartli-gecis")
+  ) {
+    return "kartli-gecis";
+  }
+
+  if (
+    v.includes("apartman") ||
+    v.includes("site")
+  ) {
+    return "apartman-site";
+  }
+
+  if (v.includes("işyeri") || v.includes("isyeri") || v.includes("ofis")) {
+    return "isyeri";
+  }
+
+  if (v.includes("fabrika") || v.includes("depo")) {
+    return "fabrika-depo";
+  }
+
+  if (v.includes("bakım") || v.includes("bakim") || v.includes("servis")) {
+    return "bakim-servis";
+  }
+
+  if (v.includes("komple") || v.includes("hepsi")) {
+    return "komple";
+  }
+
+  return cleanString(value);
+}
+
+function normalizeLocationType(value: string): string {
+  const v = safeLower(value);
+
+  if (!v) return "";
+
+  if (v.includes("ev") || v.includes("daire")) return "ev / daire";
+  if (v.includes("villa")) return "villa";
+  if (v.includes("apartman") || v.includes("site")) return "apartman / site";
+  if (v.includes("ofis")) return "ofis";
+  if (v.includes("işyeri") || v.includes("isyeri")) return "isyeri";
+  if (v.includes("mağaza") || v.includes("magaza")) return "magaza";
+  if (v.includes("fabrika")) return "fabrika";
+  if (v.includes("depo")) return "depo";
+
+  return cleanString(value);
+}
+
+function normalizeCameraCount(value: string): string {
+  const v = cleanString(value);
+
+  if (!v) return "";
+
+  return v
+    .replace(/\s+/g, "")
+    .replace(/adet/gi, "")
+    .replace(/kamera/gi, "")
+    .trim();
+}
+
+// ─────────────────────────────────────────────────────────────
+// MAIN BUILDER
+// ─────────────────────────────────────────────────────────────
+
 export function buildLeadRecord(
   raw: RawLeadInput,
   source: FormSource
 ): LeadRecord {
+  const name = cleanString(raw.name || raw.full_name || raw.customer_name);
+  const phone = normalizePhone(raw.phone || raw.gsm || raw.mobile || raw.telephone || "");
+  const email = cleanString(raw.email || raw.mail);
+
+  const city = cleanString(raw.city || raw.il);
+  const district = cleanString(raw.district || raw.ilce);
+
+  const service_type = normalizeServiceType(
+    raw.service_type || raw.service || raw.hizmet || ""
+  );
+
+  const location_type = normalizeLocationType(
+    raw.location_type || raw.placeType || raw.mekan_tipi || raw.property_type || ""
+  );
+
+  const camera_count = normalizeCameraCount(
+    raw.camera_count || raw.cameraCount || raw.kamera_sayisi || ""
+  );
+
+  const message = cleanString(
+    raw.message || raw.note || raw.notes || raw.aciklama
+  );
+
+  const page_url = cleanString(raw.page_url || raw.page || raw.url);
+
   return {
-    // Zaman
-    timestamp: formatTimestamp(),
+    lead_id: cleanString(raw.lead_id) || createLeadId(),
+    timestamp: cleanString(raw.timestamp) || formatTimestamp(),
 
-    // Müşteri
-    name: (raw.name || "").trim(),
-    phone: normalizePhone(raw.phone || ""),
-    email: (raw.email || "").trim(),
-
-    // Konum
-    city: (raw.city || "").trim(),
-    district: (raw.district || "").trim(),
-
-    // Hizmet
-    service_type: (raw.service_type || "").trim(),
-    location_type: (raw.location_type || raw.placeType || "").trim(),
-    camera_count: (raw.camera_count || raw.cameraCount || "").trim(),
-    message: (raw.message || raw.note || "").trim(),
-
-    // Tracking
-    page_url: (raw.page_url || raw.page || "").trim(),
     form_source: source,
-    utm_source: (raw.utm_source || "").trim(),
-    utm_medium: (raw.utm_medium || "").trim(),
-    utm_campaign: (raw.utm_campaign || "").trim(),
-    utm_term: (raw.utm_term || "").trim(),
-    gclid: (raw.gclid || "").trim(),
+    page_url,
 
-    // CRM — varsayılan
-    lead_status: "Yeni",
+    service_type,
+    city,
+    district,
+
+    name,
+    phone,
+    email,
+
+    location_type,
+    camera_count,
+    message,
+
+    utm_source: cleanString(raw.utm_source),
+    utm_medium: cleanString(raw.utm_medium),
+    utm_campaign: cleanString(raw.utm_campaign),
+    utm_term: cleanString(raw.utm_term),
+    gclid: cleanString(raw.gclid),
+
+    call_status: "aranmadi",
+    lead_status: "yeni",
     assigned_to: "",
-    offer_amount: "",
-    lost_reason: "",
     notes: "",
   };
 }
 
-/**
- * LeadRecord'u Sheet webhook'a gönderilecek düz objeye çevirir.
- * Kolon sırası SHEET_COLUMNS'u takip eder.
- */
-export function toSheetPayload(
-  lead: LeadRecord
-): Record<string, string> {
+// ─────────────────────────────────────────────────────────────
+// SHEET PAYLOAD
+// Header-name bazlı çalışan Apps Script ile birebir uyumlu
+// ─────────────────────────────────────────────────────────────
+
+export function toSheetPayload(lead: LeadRecord): Record<string, string> {
   const payload: Record<string, string> = {};
-  for (const col of SHEET_COLUMNS) {
-    payload[col] = lead[col] || "";
+
+  for (const column of SHEET_COLUMNS) {
+    payload[column] = String(lead[column] ?? "");
   }
+
   return payload;
+}
+
+// ─────────────────────────────────────────────────────────────
+// OPTIONAL VALIDATION
+// Route içinde kullanmak istersen hazır dursun
+// ─────────────────────────────────────────────────────────────
+
+export function validateLeadRecord(lead: LeadRecord): {
+  valid: boolean;
+  errors: string[];
+} {
+  const errors: string[] = [];
+
+  if (!lead.name) errors.push("name zorunlu");
+  if (!lead.phone) errors.push("phone zorunlu");
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
 }
