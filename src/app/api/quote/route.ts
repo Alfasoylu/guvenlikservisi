@@ -6,10 +6,11 @@ import {
   validateLeadRecord,
   type LeadRecord,
 } from "@/lib/lead-schema";
+import { checkDuplicateLead } from "@/lib/check-duplicate-lead";
 
-const GOOGLE_SHEETS_WEBHOOK_URL =
-  process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
-  "https://script.google.com/macros/s/AKfycbzPkLPYKrFWNoojFflh0M8q9S77GSYBAdGzfl2wBs6ANBZ0cg50VI9LQ1BTTskxQKaJ-Q/exec";
+const GOOGLE_SCRIPT_WEBHOOK_URL =
+  process.env.GOOGLE_SCRIPT_WEBHOOK_URL ||
+  "https://script.google.com/macros/s/AKfycbwj7IR_6by0dSuRKc-IZsErBpmbcRvKe23Fhxtkh8aiKav1uV_PHSXH65f2H05-SXu0WQ/exec";
 
 const NOTIFICATION_EMAIL =
   process.env.LEAD_NOTIFICATION_EMAIL || "info@guvenlikservisi.com";
@@ -154,6 +155,10 @@ function buildEmailHtml(lead: LeadRecord): string {
           <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead Status</td>
           <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_status)}</td>
         </tr>
+        <tr>
+          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Notlar</td>
+          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.notes)}</td>
+        </tr>
       </table>
     </div>
   `;
@@ -186,7 +191,7 @@ async function postToGoogleSheets(lead: LeadRecord): Promise<void> {
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
   try {
-    const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    const response = await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -250,6 +255,23 @@ export async function POST(req: NextRequest) {
       "quote_form"
     );
 
+    const duplicateCheck = await checkDuplicateLead(lead.phone);
+
+    if (duplicateCheck.duplicate) {
+      const duplicateNote = [
+        "duplicate: yes",
+        `type: ${duplicateCheck.duplicate_type || "duplicate"}`,
+        `matched_lead_id: ${duplicateCheck.matched_lead_id || ""}`,
+        `matched_timestamp: ${duplicateCheck.matched_timestamp || ""}`,
+        `matched_form_source: ${duplicateCheck.matched_form_source || ""}`,
+        `matched_page_url: ${duplicateCheck.matched_page_url || ""}`,
+      ].join(" | ");
+
+      lead.notes = lead.notes
+        ? `${lead.notes} | ${duplicateNote}`
+        : duplicateNote;
+    }
+
     const validation = validateLeadRecord(lead);
 
     if (!validation.valid) {
@@ -273,6 +295,7 @@ export async function POST(req: NextRequest) {
       form_source: lead.form_source,
       client_ip: clientIp,
       user_agent: userAgent,
+      notes: lead.notes,
     });
 
     const [emailResult, sheetsResult] = await Promise.allSettled([
