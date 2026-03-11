@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbzIdSeqPEF2IGNF1LoNaNv65ZUqwnIqE-uEDlzbPEz2vWXol_u-MSDMZMC_CcODd6wUdw/exec";
+  "https://script.google.com/macros/s/AKfycbzPkLPYKrFWNoojFflh0M8q9S77GSYBAdGzfl2wBs6ANBZ0cg50VI9LQ1BTTskxQKaJ-Q/exec";
 
 const serviceLabels: Record<string, string> = {
   kamera: "Güvenlik Kamerası",
