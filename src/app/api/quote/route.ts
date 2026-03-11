@@ -1,72 +1,90 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import {
+  buildLeadRecord,
+  toSheetPayload,
+  type LeadRecord,
+} from "@/lib/lead-schema";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbzIdSeqPEF2IGNF1LoNaNv65ZUqwnIqE-uEDlzbPEz2vWXol_u-MSDMZMC_CcODd6wUdw/exec";
+
+const serviceLabels: Record<string, string> = {
+  kamera: "Güvenlik Kamerası",
+  alarm: "Alarm Sistemi",
+  yangin: "Yangın Alarm Sistemi",
+  "kartli-gecis": "Kartlı Geçiş Sistemi",
+  "apartman-site": "Apartman / Site Güvenlik",
+  isyeri: "İşyeri Güvenlik Sistemi",
+  "fabrika-depo": "Fabrika / Depo Güvenlik",
+  "bakim-servis": "Bakım / Servis / Uzaktan İzleme",
+  komple: "Komple Güvenlik Çözümü",
+  hepsi: "Hepsi / Komple Güvenlik",
+};
+
+function buildEmailText(lead: LeadRecord): string {
+  const serviceLabel = serviceLabels[lead.service_type] || lead.service_type || "-";
+
+  return `YENİ TEKLİF TALEBİ
+===================
+Tarih        : ${lead.timestamp}
+Ad Soyad     : ${lead.name}
+Telefon      : ${lead.phone}
+E-posta      : ${lead.email || "-"}
+Şehir        : ${lead.city || "-"}
+İlçe         : ${lead.district || "-"}
+Hizmet Türü  : ${serviceLabel}
+Mekan Türü   : ${lead.location_type || "-"}
+Kamera Sayısı: ${lead.camera_count || "-"}
+Not          : ${lead.message || "-"}
+
+TRACKING BİLGİSİ
+-----------------
+Sayfa        : ${lead.page_url || "-"}
+Form Kaynağı : ${lead.form_source}
+Kaynak       : ${lead.utm_source || "-"}
+Araç         : ${lead.utm_medium || "-"}
+Kampanya     : ${lead.utm_campaign || "-"}
+Terim        : ${lead.utm_term || "-"}
+GCLID        : ${lead.gclid || "-"}
+`;
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const data = await req.json();
+    const body = await req.json();
 
-    const {
-      name,
-      phone,
-      email,
-      city,
-      service_type,
-      location_type,
-      note,
-      utm_source,
-      utm_medium,
-      utm_campaign,
-      page_url,
-      timestamp,
-    } = data;
+    // Standart lead kaydı oluştur
+    const lead = buildLeadRecord(body, "quote_form");
 
-    if (!name?.trim() || !phone?.trim()) {
+    // Temel validasyon
+    if (!lead.name || !lead.phone) {
       return NextResponse.json(
         { success: false, message: "Ad Soyad ve Telefon zorunludur." },
         { status: 400 }
       );
     }
 
-    const formattedTime = timestamp
-      ? new Date(timestamp).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })
-      : new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" });
+    const serviceLabel = serviceLabels[lead.service_type] || lead.service_type || "Genel Teklif";
 
-    const serviceLabels: Record<string, string> = {
-      kamera: "Güvenlik Kamerası",
-      alarm: "Alarm Sistemi",
-      yangin: "Yangın Alarm Sistemi",
-      "kartli-gecis": "Kartlı Geçiş Sistemi",
-      hepsi: "Hepsi / Komple Güvenlik",
-    };
+    // E-posta + Google Sheets paralel gönderim
+    await Promise.all([
+      resend.emails.send({
+        from: "Güvenlik Servisi <noreply@guvenlikservisi.com>",
+        to: "info@guvenlikservisi.com",
+        replyTo: lead.email || undefined,
+        subject: `Yeni Teklif Talebi: ${serviceLabel} - ${lead.name} - ${lead.city || "-"}`,
+        text: buildEmailText(lead),
+      }),
 
-    const serviceLabel = serviceLabels[service_type] || service_type || "-";
-
-    await resend.emails.send({
-      from: "Güvenlik Servisi <noreply@guvenlikservisi.com>",
-      to: "info@guvenlikservisi.com",
-      replyTo: email || undefined,
-      subject: `Yeni Teklif Talebi: ${serviceLabel} - ${name} - ${city || "-"}`,
-      text: `YENİ TEKLİF TALEBİ
-===================
-Ad Soyad     : ${name}
-Telefon      : ${phone}
-E-posta      : ${email || "-"}
-Şehir        : ${city || "-"}
-Hizmet Türü  : ${serviceLabel}
-Mekan Türü   : ${location_type || "-"}
-Not          : ${note || "-"}
-
-TRACKING BİLGİSİ
------------------
-Kaynak       : ${utm_source || "-"}
-Araç         : ${utm_medium || "-"}
-Kampanya     : ${utm_campaign || "-"}
-Sayfa        : ${page_url || "-"}
-Zaman        : ${formattedTime}
-`,
-    });
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(toSheetPayload(lead)),
+      }),
+    ]);
 
     return NextResponse.json({
       success: true,
