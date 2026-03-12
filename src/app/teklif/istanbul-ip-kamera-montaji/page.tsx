@@ -259,9 +259,9 @@ const packages = [
 ];
 
 const buyingReasons = [
-  "Fiyat, süreç ve kurulum kapsamı tek sayfada net verildiği için reklam tıklaması sonrası kullanıcı aradığını daha hızlı bulur.",
-  "Telefon, WhatsApp ve form seçenekleri aynı sayfada yer aldığı için dönüşüm yolu kısalır.",
-  "İstanbul, IP kamera montajı, fiyat ve keşif gibi ticari niyet kelimeleri başlık ve içerikte doğal biçimde güçlenir.",
+  "Fiyat, kurulum süreci ve kapsam tek sayfada net biçimde sunulduğundan ihtiyacınıza uygun çözümü hızlıca bulabilirsiniz.",
+  "Telefon, WhatsApp ve form seçeneklerinin tamamı bu sayfada yer almaktadır; dilediğiniz yöntemle bize kolayca ulaşabilirsiniz.",
+  "Kurulum öncesi tüm sorularınızı uzmanlarımızla görüşerek projenize en uygun sistemi birlikte belirleyebilirsiniz.",
 ];
 
 const faqs = [

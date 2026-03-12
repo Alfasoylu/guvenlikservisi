@@ -97,7 +97,7 @@ export function getCityPageVisuals(citySlug: string): PageVisualItem[] {
     {
       id: "city-process",
       title: `${cityName} saha uygulama detayı`,
-      description: `Kurulum, kablolama, kayıt altyapısı ve teslim aşaması tek akışta yönetilir. Böylece şehir bazlı landing sayfası sadece metin değil, gerçek uygulama bağlamı da taşır.`,
+      description: `Kurulum, kablolama, kayıt altyapısı ve teslim aşamaları tek bir süreçte planlı biçimde yönetilir; ekibimiz projeyi başından sonuna kadar takip eder.`,
       image: imageGroup.process,
       alt: `${cityName} güvenlik sistemi montaj ve devreye alma süreci görseli`,
     },
@@ -120,21 +120,21 @@ export function getCityServicePageVisuals(citySlug: string, serviceSlug: string)
     {
       id: "service-hero",
       title: `${cityName} içinde ${serviceName}`,
-      description: `${cityName} odaklı bu hizmet sayfasında, keşif sonrası uygulanacak sistem yerleşimi ve örnek kurulum bağlamı görsel olarak desteklenir.`,
+      description: `${cityName} bölgesinde gerçekleştirilen kurulumlardan kesitler; sistem yerleşimi ve ekipman konumlandırmasının pratikte nasıl yapıldığını göstermektedir.`,
       image: imageGroup.hero,
       alt: `${cityName} için ${serviceName} görseli`,
     },
     {
       id: "service-context",
       title: `${serviceName} saha uygulaması`,
-      description: `Kablolama, ekipman konumlandırma ve mobil erişim gibi kararlar hizmet tipine göre değişir. Bu blok sayfayı daha anlaşılır ve daha taranabilir hale getirir.`,
+      description: `Kablolama düzeni, ekipman konumlandırması ve mobil erişim altyapısı hizmet türüne ve sahaya göre şekillenir. Uzmanlarımız en uygun yerleşimi keşif sonrasında belirler.`,
       image: imageGroup.context,
       alt: `${cityName} ${serviceName} örnek uygulama görseli`,
     },
     {
       id: "service-diagram",
       title: `${serviceName} sistem şeması`,
-      description: `${serviceName} hizmetinde kullanılan temel cihaz akışını gösteren sade şema. Özellikle teknik niyeti yüksek ziyaretçiler için ek bağlam sağlar.`,
+      description: `${serviceName} hizmetinde kullanılan temel bileşenleri ve bunların birbirine nasıl bağlandığını gösteren sistem şeması.`,
       image: imageGroup.diagram,
       alt: `${cityName} ${serviceName} sistem bağlantı şeması`,
     },

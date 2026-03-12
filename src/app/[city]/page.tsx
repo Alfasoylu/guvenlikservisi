@@ -327,13 +327,13 @@ export default async function CityPage({ params }: PageProps) {
 
       <ServiceVisualSection
         title={`${city.name} için kurulum görselleri ve sistem akışı`}
-        description={`${city.name} sayfasında kullanılan bu görseller, keşif süreci, montaj bağlamı ve sistem bileşen akışını birlikte gösterir. Böylece sayfa sadece bağlantı kümesi değil, daha güçlü bir ticari açıklama alanı haline gelir.`}
+        description={`${city.name} bölgesindeki kurulum çalışmalarından görseller; keşif süreci, montaj uygulaması ve sistem bileşen akışını birlikte aktarmaktadır.`}
         items={cityVisuals}
       />
 
       <InternalLinkSection
         title={`${city.name} için hizmet sayfaları`}
-        description={`${city.name} içinde en fazla talep gören hizmet kombinasyonlarını aşağıda bir araya getirdik. Her bağlantı ilgili ${city.name} + hizmet intent'ine giden gerçek route'a açılır.`}
+        description={`${city.name} bölgesinde en çok tercih edilen güvenlik sistemi hizmetlerini aşağıda bulabilirsiniz. İlgili hizmet sayfasına giderek detayları inceleyebilirsiniz.`}
         links={cityServiceLinks}
       />
 

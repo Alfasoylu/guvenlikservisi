@@ -375,7 +375,7 @@ export default async function ServicePage({ params }: PageProps) {
 
       <ServiceVisualSection
         title={`${city.name} ${service.name} için uygulama görselleri`}
-        description={`${city.name} ve ${service.name.toLowerCase()} intentini destekleyen bu blok; örnek kurulum, saha bağlamı ve sistem şeması ile sayfayı daha açıklayıcı hale getirir.`}
+        description={`${city.name} bölgesinde gerçekleştirilen ${service.name.toLowerCase()} projelerinden örnekler, saha uygulamaları ve sistem şeması bu bölümde sunulmaktadır.`}
         items={serviceVisuals}
       />
 
@@ -389,7 +389,7 @@ export default async function ServicePage({ params }: PageProps) {
         }}
       >
         <div style={{ fontSize: "14px", fontWeight: 700, color: "#1D4ED8", marginBottom: "10px" }}>
-          Şehir hub bağlantısı
+          Şehir genel sayfası
         </div>
         <Link
           href={cityPath}
@@ -554,7 +554,7 @@ export default async function ServicePage({ params }: PageProps) {
 
           <InternalLinkSection
             title={`${service.name} hizmetinin diğer şehir sayfaları`}
-            description={`${service.name} hizmetinin diğer şehirlerdeki karşılık sayfalarını aşağıda listeledik. Bu blok aynı hizmet kümesindeki city/service sayfaları arasında yatay crawl yolu açar.`}
+            description={`${service.name} hizmetini İstanbul ve çevre illerde de sunmaktayız. Hizmet verdiğimiz şehirleri aşağıdan inceleyebilirsiniz.`}
             links={sameServiceOtherCities}
           />
 
@@ -637,7 +637,7 @@ export default async function ServicePage({ params }: PageProps) {
 
           <InternalLinkSection
             title={`${service.name} hizmetinin diğer şehir sayfaları`}
-            description={`${service.name} için oluşturulan diğer city/service sayfalarını aşağıdaki listeden inceleyebilirsiniz.`}
+            description={`${service.name} hizmetini sunduğumuz diğer şehirlere aşağıdan ulaşabilirsiniz.`}
             links={sameServiceOtherCities}
           />
         </>
