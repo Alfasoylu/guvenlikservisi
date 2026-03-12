@@ -8,6 +8,7 @@ import ServiceDistricts from "@/components/service-page/ServiceDistricts";
 import ServiceFAQ from "@/components/service-page/ServiceFAQ";
 import ServiceHero from "@/components/service-page/ServiceHero";
 import ServicePackages from "@/components/service-page/ServicePackages";
+import ServiceSEOContent from "@/components/service-page/ServiceSEOContent";
 import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
@@ -181,6 +182,8 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.stats.description}
         items={pageContent.stats.items}
       />
+
+      <ServiceSEOContent blocks={pageContent.seoContent.blocks} />
 
       <ServiceVisualSection
         title={pageContent.visuals.title}

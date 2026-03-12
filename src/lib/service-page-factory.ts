@@ -19,6 +19,12 @@ export interface ServicePageMeta {
   description: string;
 }
 
+export interface ServiceSEOContentBlock {
+  title: string;
+  paragraphs: string[];
+  items?: string[];
+}
+
 export interface ServicePageFactoryResult {
   meta: ServicePageMeta;
   hero: {
@@ -36,6 +42,9 @@ export interface ServicePageFactoryResult {
     title: string;
     description: string;
     items: ServiceStatItem[];
+  };
+  seoContent: {
+    blocks: ServiceSEOContentBlock[];
   };
   useCases: {
     title: string;
@@ -92,6 +101,88 @@ function formatNaturalList(items: string[]) {
 function getSortedDistricts(citySlug: string) {
   const turkishCollator = new Intl.Collator("tr");
   return [...(cityContent[citySlug]?.districts || [])].sort((a, b) => turkishCollator.compare(a, b));
+}
+
+function getSEOContentBlocks(city: CityRecord): ServiceSEOContentBlock[] {
+  return [
+    {
+      title: "Güvenlik Kamera Sistemi Kurulumu Nedir?",
+      paragraphs: [
+        `${city.name} içinde güvenlik kamera sistemi kurulumu, ev, işyeri, depo, mağaza ve fabrika gibi alanların 7/24 izlenmesini sağlayan profesyonel güvenlik çözümüdür.`,
+        "Modern IP kamera sistemleri sayesinde görüntüler kayıt cihazına kaydedilir ve aynı zamanda telefon, tablet veya bilgisayardan uzaktan izlenebilir.",
+        "İşletmeler için ip kamera kurulumu ve güvenlik kamerası montajı süreci, kesintisiz takip ile uzaktan izleme kamera sistemi ihtiyacını aynı yapıda karşılar.",
+        "Günümüzde en çok kullanılan sistemler:",
+        "Bu sistemler işletmelerde güvenliği artırırken aynı zamanda caydırıcı bir etki yaratır. Kablosuz güvenlik kamerası seçenekleri de belirli alanlarda esnek kurulum avantajı sunar.",
+      ],
+      items: [
+        "IP kamera sistemleri",
+        "PoE kamera sistemleri",
+        "NVR kayıt cihazı kullanılan sistemler",
+        "Kablosuz WiFi kamera sistemleri",
+      ],
+    },
+    {
+      title: "Kamera Sistemi Kurulumu Nerelerde Kullanılır?",
+      paragraphs: [
+        `${city.name} içinde profesyonel kamera sistemleri birçok farklı alanda kullanılır:`,
+        "Bu alanlarda kullanılan sistemler gece görüşü, hareket algılama ve uzaktan izleme gibi özellikler içerir. Apartman kamera sistemi, mağaza kamera sistemi ve otopark kamera sistemi projelerinde farklı görüş açıları ve kayıt senaryoları planlanır.",
+      ],
+      items: [
+        "işyeri kamera sistemi kurulumu",
+        "depo güvenlik kamera sistemi",
+        "mağaza kamera sistemi kurulumu",
+        "apartman kamera sistemi kurulumu",
+        "site güvenlik kamera sistemi",
+        "fabrika kamera sistemi kurulumu",
+        "otopark kamera sistemi",
+      ],
+    },
+    {
+      title: "Kamera Sistemi Kurulumu Fiyatını Etkileyen Faktörler",
+      paragraphs: [
+        "Kamera sistemi kurulumu fiyatı aşağıdaki faktörlere göre değişir:",
+        `${city.name} içinde kamera sistemi kurulumu fiyatı değerlendirilirken keşif, cihaz seçimi ve montaj senaryosu birlikte ele alınır. Profesyonel keşif yapılmadan net fiyat vermek doğru değildir.`,
+      ],
+      items: [
+        "kamera sayısı",
+        "kamera çözünürlüğü (2MP / 4MP / 8MP)",
+        "kayıt cihazı kapasitesi",
+        "kablolama mesafesi",
+        "gece görüş özellikleri",
+        "montaj yapılacak alanın büyüklüğü",
+      ],
+    },
+    {
+      title: "IP Kamera Sistemi Nasıl Çalışır?",
+      paragraphs: [
+        "IP kamera sistemleri internet protokolü üzerinden çalışan modern güvenlik sistemleridir.",
+        "Bu sistemlerde kameralar görüntüyü NVR kayıt cihazına gönderir.",
+        "Kayıt cihazı görüntüleri depolar ve aynı zamanda mobil uygulama üzerinden izlenmesini sağlar.",
+        `${city.name} projelerinde tercih edilen güvenlik kamera sistemi kurulumu çözümleri, özellikle depo kamera sistemi ve fabrika kamera sistemi ihtiyaçlarında yüksek çözünürlük ile merkezi yönetim avantajı sağlar.`,
+        "IP kamera sistemlerinin avantajları:",
+      ],
+      items: [
+        "yüksek çözünürlük",
+        "uzaktan izleme",
+        "hareket algılama",
+        "uzun kayıt süresi",
+        "kolay genişletilebilir yapı",
+      ],
+    },
+    {
+      title: "Kamera Sistemi Kaç Gün Kayıt Yapar?",
+      paragraphs: [
+        "Kamera sistemlerinde kayıt süresi aşağıdaki faktörlere bağlıdır:",
+        "Örneğin 2 TB harddisk kullanılan 4 kameralı bir sistem ortalama 20-30 gün kayıt yapabilir.",
+      ],
+      items: [
+        "harddisk kapasitesi",
+        "kamera sayısı",
+        "kayıt çözünürlüğü",
+        "sürekli kayıt veya hareket kayıt modu",
+      ],
+    },
+  ];
 }
 
 export function getServicePageFactoryData(
@@ -175,6 +266,9 @@ export function getServicePageFactoryData(
       title: fillTemplate(serviceDetails?.statsTitle || "Kurulum yaklaşımımız", city, service),
       description: fillTemplate(serviceDetails?.statsDescription || "", city, service),
       items: stats,
+    },
+    seoContent: {
+      blocks: getSEOContentBlocks(city),
     },
     useCases: {
       title: fillTemplate(serviceUseCases?.title || service.name, city, service),
