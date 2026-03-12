@@ -2,10 +2,10 @@ import type { InternalLinkItem } from "@/components/InternalLinkSection";
 import type { ServiceFAQItem } from "@/components/service-page/ServiceFAQ";
 import type { ServiceStatItem } from "@/components/service-page/ServiceStats";
 import { cityContent } from "@/data/city-content";
-import { serviceContent } from "@/data/service-content";
-import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
+import { serviceContent } from "@/data/service-content";
 import { services } from "@/data/services";
+import { siteConfig } from "@/data/site-config";
 import { getCityServicePath } from "@/lib/routes";
 
 type CityRecord = (typeof cities)[number];
@@ -54,11 +54,14 @@ export function getServicePageFactoryData(
 ): ServicePageFactoryResult {
   const cityDetails = cityContent[city.slug];
   const serviceDetails = serviceContent[service.slug];
+  const turkishCollator = new Intl.Collator("tr");
 
   const cityDescription =
     cityDetails?.shortDescription ||
     `${city.name} bölgesinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
-  const districts = cityDetails?.districts || [];
+  const districts = [...(cityDetails?.districts || [])].sort((a, b) =>
+    turkishCollator.compare(a, b)
+  );
 
   const intro = serviceDetails
     ? fillTemplate(serviceDetails.intro, city, service)
