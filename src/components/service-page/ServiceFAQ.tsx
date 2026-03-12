@@ -13,13 +13,14 @@ export interface ServiceFAQItem {
 }
 
 interface ServiceFAQProps {
+  title?: string;
   items: ServiceFAQItem[];
 }
 
-export default function ServiceFAQ({ items }: ServiceFAQProps) {
+export default function ServiceFAQ({ title = "Sık Sorulan Sorular", items }: ServiceFAQProps) {
   return (
     <section className={sectionClass}>
-      <h2 className={sectionTitleClass}>Sık Sorulan Sorular</h2>
+      <h2 className={sectionTitleClass}>{title}</h2>
 
       <div className={faqGridClass}>
         {items.map((item) => (
