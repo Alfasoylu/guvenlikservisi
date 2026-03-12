@@ -53,10 +53,10 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 - [x] Şehir × servis route yapısı mevcut
 - [x] Repo içindeki tüm route’ların tam envanterini çıkar
 - [x] Tüm mevcut landing page URL listesini oluştur
-- [ ] Tüm mevcut metadata mantığını tek dosyada haritala
-- [ ] Tüm schema üreten util’leri haritala
-- [ ] `robots`, `sitemap`, canonical, noindex kontrol tablosu oluştur
-- [ ] Hangi sayfalar para getirir, hangileri sadece trafik getirir ayrımını yap
+- [x] Tüm mevcut metadata mantığını tek dosyada haritala
+- [x] Tüm schema üreten util’leri haritala
+- [x] `robots`, `sitemap`, canonical, noindex kontrol tablosu oluştur
+- [x] Hangi sayfalar para getirir, hangileri sadece trafik getirir ayrımını yap
 
 ## P0.2 İş Modeli Netliği
 - [ ] Öncelikli para sayfalarını listele
@@ -345,8 +345,8 @@ Her sayfa için:
 # P5 — Programmatic Internal Linking Engine
 
 ## P5.1 Temel İç Link Katmanları
-- [ ] şehir sayfasından ana servis sayfalarına link
-- [ ] servis sayfasından şehir sayfalarına link
+- [x] şehir sayfasından ana servis sayfalarına link
+- [x] servis sayfasından şehir sayfalarına link
 - [ ] şehir sayfasından ilçe sayfalarına link
 - [ ] ilçe sayfasından komşu ilçe sayfalarına link
 - [ ] bakım sayfasından teknik servis sayfalarına link
@@ -355,9 +355,9 @@ Her sayfa için:
 - [ ] footer’da kör link spamı yapma
 
 ## P5.2 Contextual Link Sistemi
-- [ ] “benzer hizmetler”
+- [x] “benzer hizmetler”
 - [ ] “yakın ilçelerde hizmet”
-- [ ] “aynı şehirde diğer çözümler”
+- [x] “aynı şehirde diğer çözümler”
 - [ ] “site yönetimleri için ilgili hizmetler”
 - [ ] “fabrikalar için ilgili hizmetler”
 - [ ] “sık görülen arızalar”
@@ -772,7 +772,7 @@ Her yeni sayfada:
 - [ ] İstanbul tüm ilçeler
 - [ ] Ankara / İzmir tüm ilçeler
 - [ ] Bursa / Kocaeli / Antalya tüm ilçeler
-- [ ] internal linking engine aktif et
+- [x] internal linking engine aktif et
 - [ ] district sitemap oluştur
 
 ## Sprint 4 — Arıza ve Rehber Katmanı
@@ -824,6 +824,6 @@ Her yeni sayfada:
 - [ ] ilk para sayfası cluster’ı olarak bakım sözleşmesi sayfalarını aç
 - [ ] İstanbul + Ankara + İzmir + Bursa + Kocaeli + Antalya öncelikli yayın planını çıkar
 - [ ] thin content üretmeyecek content variation sistemini kur
-- [ ] internal linking engine’i devreye al
+- [x] internal linking engine’i devreye al
 - [ ] Search Console + GA4 + lead dashboard ile performans izlemeyi başlat
 - [ ] sadece trafik değil, lead ve sözleşme getiren cluster’ları ölçekle

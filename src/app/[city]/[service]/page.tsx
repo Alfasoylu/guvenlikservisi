@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import InternalLinkSection from "@/components/InternalLinkSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 
 export const dynamic = "force-static";
@@ -146,6 +147,21 @@ export default async function ServicePage({ params }: PageProps) {
     `${city.name} bölgesinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
 
   const packages = getCameraPackageText(city.name);
+  const sameCityOtherServices = services
+    .filter((item) => item.slug !== service.slug)
+    .map((item) => ({
+      href: `/${city.slug}/${item.slug}`,
+      label: `${city.name} ${item.name}`,
+      description: `${city.name} içinde ${item.name.toLowerCase()} sayfasını da inceleyin.`,
+    }));
+  const sameServiceOtherCities = cities
+    .filter((item) => item.slug !== city.slug)
+    .slice(0, 12)
+    .map((item) => ({
+      href: `/${item.slug}/${service.slug}`,
+      label: `${item.name} ${service.name}`,
+      description: `${service.name} hizmetinin ${item.name} sayfasına geçin.`,
+    }));
 
   const faqItems = isCameraPage
     ? [
@@ -328,6 +344,41 @@ export default async function ServicePage({ params }: PageProps) {
         ))}
       </section>
 
+      <section
+        style={{
+          marginBottom: "32px",
+          padding: "22px",
+          borderRadius: "16px",
+          background: "#EFF6FF",
+          border: "1px solid #BFDBFE",
+        }}
+      >
+        <div style={{ fontSize: "14px", fontWeight: 700, color: "#1D4ED8", marginBottom: "10px" }}>
+          Şehir hub bağlantısı
+        </div>
+        <Link
+          href={`/${city.slug}`}
+          style={{
+            fontSize: "20px",
+            fontWeight: 700,
+            color: "#0F2B46",
+            textDecoration: "none",
+          }}
+        >
+          {city.name} güvenlik sistemleri sayfasına dön
+        </Link>
+        <p style={{ marginTop: "10px", marginBottom: 0, fontSize: "15px", lineHeight: 1.7, color: "#374151" }}>
+          {city.name} hub sayfasında bu şehirdeki tüm hizmet kombinasyonlarına, diğer servis sayfalarına ve
+          keşif odaklı bağlantılara geri dönebilirsiniz.
+        </p>
+      </section>
+
+      <InternalLinkSection
+        title={`${city.name} içinde ilgili diğer hizmetler`}
+        description={`${city.name} içinde aynı üst niyete hitap eden diğer hizmet sayfalarına geçerek aynı şehirdeki servis ağını keşfedebilirsiniz.`}
+        links={sameCityOtherServices}
+      />
+
       {isCameraPage ? (
         <>
           <section style={{ marginBottom: "48px" }}>
@@ -466,6 +517,12 @@ export default async function ServicePage({ params }: PageProps) {
             </div>
           </section>
 
+          <InternalLinkSection
+            title={`${service.name} hizmetinin diğer şehir sayfaları`}
+            description={`${service.name} hizmetinin diğer şehirlerdeki karşılık sayfalarını aşağıda listeledik. Bu blok aynı hizmet kümesindeki city/service sayfaları arasında yatay crawl yolu açar.`}
+            links={sameServiceOtherCities}
+          />
+
           <section
             id="teklif"
             style={{
@@ -517,30 +574,38 @@ export default async function ServicePage({ params }: PageProps) {
           </section>
         </>
       ) : (
-        <section style={{ marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "28px", color: "#0F2B46", marginBottom: "18px" }}>
-            {city.name} {service.name} Hizmeti
-          </h2>
+        <>
+          <section style={{ marginBottom: "40px" }}>
+            <h2 style={{ fontSize: "28px", color: "#0F2B46", marginBottom: "18px" }}>
+              {city.name} {service.name} Hizmeti
+            </h2>
 
-          <p style={{ fontSize: "18px", lineHeight: 1.8, marginBottom: "18px" }}>
-            {city.name} içinde profesyonel {service.name.toLowerCase()} hizmeti sunuyoruz.
-            Ücretsiz keşif, montaj ve devreye alma ile güvenlik sistemlerinizi kuruyoruz.
-          </p>
+            <p style={{ fontSize: "18px", lineHeight: 1.8, marginBottom: "18px" }}>
+              {city.name} içinde profesyonel {service.name.toLowerCase()} hizmeti sunuyoruz.
+              Ücretsiz keşif, montaj ve devreye alma ile güvenlik sistemlerinizi kuruyoruz.
+            </p>
 
-          <a
-            href="/iletisim"
-            style={{
-              background: "#34A853",
-              color: "#fff",
-              padding: "14px 22px",
-              borderRadius: "12px",
-              textDecoration: "none",
-              fontWeight: 700,
-            }}
-          >
-            Teklif Al
-          </a>
-        </section>
+            <a
+              href="/iletisim"
+              style={{
+                background: "#34A853",
+                color: "#fff",
+                padding: "14px 22px",
+                borderRadius: "12px",
+                textDecoration: "none",
+                fontWeight: 700,
+              }}
+            >
+              Teklif Al
+            </a>
+          </section>
+
+          <InternalLinkSection
+            title={`${service.name} hizmetinin diğer şehir sayfaları`}
+            description={`${service.name} için oluşturulan diğer city/service sayfalarını aşağıdaki listeden inceleyebilirsiniz.`}
+            links={sameServiceOtherCities}
+          />
+        </>
       )}
     </main>
   );

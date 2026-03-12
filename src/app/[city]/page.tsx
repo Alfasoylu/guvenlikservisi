@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import InternalLinkSection from "@/components/InternalLinkSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
@@ -130,6 +131,11 @@ export default async function CityPage({ params }: PageProps) {
   ];
 
   const faqItems = faqByCity(city.name);
+  const cityServiceLinks = services.map((service) => ({
+    href: `/${city.slug}/${service.slug}`,
+    label: `${city.name} ${service.name}`,
+    description: `${city.name} içinde ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
+  }));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -293,37 +299,11 @@ export default async function CityPage({ params }: PageProps) {
         ))}
       </section>
 
-      <section style={{ marginBottom: "50px" }}>
-        <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>
-          {city.name} İçin En Çok Talep Edilen Hizmetler
-        </h2>
-
-        <p style={{ fontSize: "18px", lineHeight: 1.75, marginBottom: "24px", color: "#374151" }}>
-          Aşağıdaki hizmet sayfaları bu şehirde satış getirecek ana giriş noktaların. Dağınık trafik
-          değil, niyetli trafik toplarsın. Bu yüzden city sayfasından hepsine güçlü iç link veriyoruz.
-        </p>
-
-        <div style={{ display: "grid", gap: "14px" }}>
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/${city.slug}/${service.slug}`}
-              style={{
-                padding: "18px",
-                border: "1px solid #e5e7eb",
-                borderRadius: "12px",
-                textDecoration: "none",
-                color: "#0F2B46",
-                background: "#F8FAFB",
-                fontWeight: 700,
-                fontSize: "18px",
-              }}
-            >
-              {city.name} {service.name} →
-            </Link>
-          ))}
-        </div>
-      </section>
+      <InternalLinkSection
+        title={`${city.name} için hizmet sayfaları`}
+        description={`${city.name} içinde en fazla talep gören hizmet kombinasyonlarını aşağıda bir araya getirdik. Her bağlantı ilgili ${city.name} + hizmet intent'ine giden gerçek route'a açılır.`}
+        links={cityServiceLinks}
+      />
 
       <section style={{ marginBottom: "50px" }}>
         <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>
