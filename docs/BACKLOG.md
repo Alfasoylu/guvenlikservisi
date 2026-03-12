@@ -51,8 +51,8 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 - [x] `next-sitemap` build zincirine bağlı
 - [x] `docs/` klasörü mevcut
 - [x] Şehir × servis route yapısı mevcut
-- [ ] Repo içindeki tüm route’ların tam envanterini çıkar
-- [ ] Tüm mevcut landing page URL listesini oluştur
+- [x] Repo içindeki tüm route’ların tam envanterini çıkar
+- [x] Tüm mevcut landing page URL listesini oluştur
 - [ ] Tüm mevcut metadata mantığını tek dosyada haritala
 - [ ] Tüm schema üreten util’leri haritala
 - [ ] `robots`, `sitemap`, canonical, noindex kontrol tablosu oluştur
