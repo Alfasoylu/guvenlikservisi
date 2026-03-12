@@ -738,21 +738,18 @@ export default function BakimServisUzaktanIzlemePage() {
                 Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
                 model sözleşmeli hizmettir.
               </p>
-<label htmlFor="company">
-<input id="company">
+<ul className="mt-8 space-y-4 text-slate-200">
+  <li>✓ Aylık 2.000 TL’den başlayan bakım sözleşmeleri</li>
+  <li>✓ Site yönetimleri, fabrikalar ve büyük tesisler için kurumsal hizmet</li>
+  <li>✓ 18 ilde saha ekipleri ve hızlı müdahale yapısı</li>
+  <li>✓ Kamera, alarm ve kayıt sistemleri için periyodik bakım</li>
+  <li>✓ Uzaktan bağlantı ile hızlı arıza tespiti</li>
+  <li>✓ Sözleşmeli müşterilere öncelikli servis</li>
+</ul>
 
-<label htmlFor="name">
-<input id="name">
+</div>
 
-<label htmlFor="phone">
-<input id="phone">
-
-<label htmlFor="city">
-<input id="city">
-
-<select id="facilityType">
-
-<textarea id="message">
+<MaintenanceQuoteForm />
 
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
