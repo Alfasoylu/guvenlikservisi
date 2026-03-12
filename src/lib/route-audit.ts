@@ -2,11 +2,13 @@ import type { MetadataRoute } from "next";
 import {
   getAllCityPaths,
   getAllCityServicePaths,
+  getAllKnownAppPaths,
   isKnownAppPath,
   isValidCityPath,
   isValidCityServicePath,
   normalizeRoutePath,
 } from "@/lib/routes";
+import { resolveCanonicalPath } from "@/lib/canonical";
 import { buildSitemapEntries } from "@/lib/sitemap";
 
 export interface RouteValidationAudit {
@@ -15,6 +17,7 @@ export interface RouteValidationAudit {
   invalidCityServiceRoutes: string[];
   invalidInternalLinks: string[];
   invalidSitemapUrls: string[];
+  invalidCanonicalTargets: string[];
 }
 
 function toPathname(urlOrPath: string) {
@@ -31,6 +34,13 @@ function collectInvalidSitemapUrls(entries: MetadataRoute.Sitemap) {
     .filter((path) => !isKnownAppPath(path));
 }
 
+function collectInvalidCanonicalTargets(paths: readonly string[]) {
+  return paths.filter((path) => {
+    const canonicalPath = resolveCanonicalPath(path);
+    return canonicalPath === null || !isKnownAppPath(canonicalPath);
+  });
+}
+
 export function createRouteValidationAudit(internalLinks: readonly string[] = []): RouteValidationAudit {
   const invalidCityRoutes = getAllCityPaths().filter((path) => !isValidCityPath(path));
   const invalidCityServiceRoutes = getAllCityServicePaths().filter(
@@ -40,17 +50,20 @@ export function createRouteValidationAudit(internalLinks: readonly string[] = []
     .map((href) => toPathname(href))
     .filter((path) => !isKnownAppPath(path));
   const invalidSitemapUrls = collectInvalidSitemapUrls(buildSitemapEntries());
+  const invalidCanonicalTargets = collectInvalidCanonicalTargets(getAllKnownAppPaths());
 
   return {
     valid:
       invalidCityRoutes.length === 0 &&
       invalidCityServiceRoutes.length === 0 &&
       invalidInternalLinks.length === 0 &&
-      invalidSitemapUrls.length === 0,
+      invalidSitemapUrls.length === 0 &&
+      invalidCanonicalTargets.length === 0,
     invalidCityRoutes,
     invalidCityServiceRoutes,
     invalidInternalLinks,
     invalidSitemapUrls,
+    invalidCanonicalTargets,
   };
 }
 

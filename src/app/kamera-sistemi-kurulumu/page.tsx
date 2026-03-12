@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/kamera-sistemi-kurulumu");
 
 export const metadata: Metadata = {
   title: "Güvenlik Kamera Kurulumu | IP Kamera Montaj Hizmeti",
   description:
     "İşyeri ve konut için profesyonel IP kamera sistemi kurulumu. Ücretsiz keşif, anahtar teslim montaj, 7/24 uzaktan izleme.",
-  alternates: { canonical: "https://guvenlikservisi.com/kamera-sistemi-kurulumu" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Güvenlik Kamera Kurulumu | IP Kamera Montaj Hizmeti",
     description: "Profesyonel IP kamera sistemi kurulumu. Ücretsiz keşif, anahtar teslim montaj.",
-    url: "https://guvenlikservisi.com/kamera-sistemi-kurulumu",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",

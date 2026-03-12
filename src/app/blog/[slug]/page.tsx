@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Clock3, ArrowRight, CalendarDays, BookOpen, ChevronRight } from "lucide-react";
@@ -16,6 +17,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const getCanonicalBlogUrl = (slug: string) => getCanonicalUrlForKnownPath(`/blog/${slug}`);
+
 export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
@@ -26,15 +29,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return {};
 
+  const canonicalUrl = getCanonicalBlogUrl(slug);
+
   return {
     title: `${post.title} | Blog`,
     description: post.excerpt,
-    alternates: { canonical: `https://guvenlikservisi.com/blog/${slug}` },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://guvenlikservisi.com/blog/${slug}`,
-      siteName: "Güvenlik Servisi",
+      url: canonicalUrl,
+      siteName: "Guvenlik Servisi",
       locale: "tr_TR",
       type: "article",
       publishedTime: post.publishedAt,

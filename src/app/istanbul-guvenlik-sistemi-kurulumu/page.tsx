@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath, resolveCanonicalPath } from "@/lib/canonical";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
@@ -36,6 +37,8 @@ const sehirData: Record<
   },
 };
 
+const canonicalUrl = getCanonicalUrlForKnownPath(`/${sehir}-guvenlik-sistemi-kurulumu`);
+
 export async function generateMetadata(): Promise<Metadata> {
   const data = sehirData[sehir];
 
@@ -43,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `${data.name} Güvenlik Sistemi Kurulumu | Kamera + Alarm Montajı`,
     description: `${data.name} ve çevresinde güvenlik kamera, alarm ve yangın alarm sistemi kurulumu. Ücretsiz keşif, anahtar teslim montaj.`,
     alternates: {
-      canonical: `https://guvenlikservisi.com/${sehir}-guvenlik-sistemi-kurulumu`,
+      canonical: canonicalUrl,
     },
   };
 }
@@ -78,7 +81,7 @@ export default function IstanbulSehirSayfasi() {
     { name: "Ana Sayfa", url: "/" },
     {
       name: `${data.name} Güvenlik Sistemi`,
-      url: `/${sehir}-guvenlik-sistemi-kurulumu`,
+      url: resolveCanonicalPath(`/${sehir}-guvenlik-sistemi-kurulumu`) ?? `/${sehir}`,
     },
   ]);
   const faqSchema = generateFAQSchema(faqItems);

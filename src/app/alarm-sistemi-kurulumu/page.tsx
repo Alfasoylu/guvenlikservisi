@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/alarm-sistemi-kurulumu");
 
 export const metadata: Metadata = {
   title: "Alarm Sistemi Kurulumu | Hırsız Alarm Montajı",
   description:
     "Ev ve işyeri için hırsız alarm sistemi kurulumu. Kablosuz ve kablolu seçenekler, 7/24 izleme merkezi bağlantısı.",
-  alternates: { canonical: "https://guvenlikservisi.com/alarm-sistemi-kurulumu" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Alarm Sistemi Kurulumu | Hırsız Alarm Montajı",
     description: "Hırsız alarm sistemi kurulumu. Kablosuz ve kablolu seçenekler, 7/24 izleme merkezi.",
-    url: "https://guvenlikservisi.com/alarm-sistemi-kurulumu",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",

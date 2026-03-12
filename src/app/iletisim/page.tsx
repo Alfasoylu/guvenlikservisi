@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, MessageCircle, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -6,11 +7,13 @@ import QuoteForm from "@/components/forms/QuoteForm";
 import { siteConfig } from "@/data/site-config";
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/iletisim");
+
 export const metadata: Metadata = {
   title: "İletişim | Güvenlik Servisi",
   description:
     "Ücretsiz keşif ve hızlı teklif için Güvenlik Servisi ile iletişime geçin. Telefon, WhatsApp, e-posta ve adres bilgilerimiz burada.",
-  alternates: { canonical: "https://guvenlikservisi.com/iletisim" },
+  alternates: { canonical: canonicalUrl },
 };
 
 export default function IletisimSayfasi() {

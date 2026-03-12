@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/apartman-site-guvenlik-sistemi");
 
 export const metadata: Metadata = {
   title: "Apartman ve Site Güvenlik Sistemi | Kamera + Geçiş Kontrol",
   description:
     "Site ve apartman yönetimleri için komple güvenlik: kamera, kartlı geçiş, interkom, bariyer. Anahtar teslim kurulum.",
-  alternates: { canonical: "https://guvenlikservisi.com/apartman-site-guvenlik-sistemi" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Apartman ve Site Güvenlik Sistemi | Kamera + Geçiş Kontrol",
     description: "Site yönetimleri için komple güvenlik: kamera, kartlı geçiş, interkom, bariyer.",
-    url: "https://guvenlikservisi.com/apartman-site-guvenlik-sistemi",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",

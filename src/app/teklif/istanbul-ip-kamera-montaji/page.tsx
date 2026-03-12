@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -21,6 +22,8 @@ import {
 import { siteConfig } from "@/data/site-config";
 import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteForm";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/istanbul-ip-kamera-montaji");
+
 export const metadata: Metadata = {
   title: "İstanbul IP Kamera Montajı | Aynı Gün Keşif ve Profesyonel Kurulum",
   description:
@@ -37,19 +40,19 @@ export const metadata: Metadata = {
     "güvenlik kamera sistemi istanbul",
   ],
   alternates: {
-    canonical: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+    canonical: canonicalUrl,
   },
   openGraph: {
     title: "İstanbul IP Kamera Montajı | Aynı Gün Keşif ve Profesyonel Kurulum",
     description:
       "İstanbul genelinde IP kamera kurulumu, mobil izleme ayarı, gece görüşlü sistemler ve hızlı teklif.",
-    url: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
     images: [
       {
-        url: "https://www.guvenlikservisi.com/images/landing/istanbul-ip-kamera-hero.webp",
+        url: canonicalUrl,
         width: 1157,
         height: 631,
         alt: "İstanbul IP Kamera Montajı",
@@ -344,7 +347,7 @@ export default function IstanbulIpKameraMontajiPage() {
       "@type": "LocalBusiness",
       name: "Güvenlik Servisi",
       telephone: siteConfig.phone,
-      url: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+      url: canonicalUrl,
       areaServed: "İstanbul",
     },
   };

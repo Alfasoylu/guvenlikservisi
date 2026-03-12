@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import { Clock3, ArrowRight, CalendarDays, BookOpen } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { blogPosts, getFeaturedBlogPosts } from "@/data/blog-posts";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/blog");
+
 export const metadata: Metadata = {
   title: "Blog | Güvenlik Sistemi Rehberleri",
   description:
     "Güvenlik kamerası, alarm sistemi, yangın alarmı, fiyatlar ve kurulum süreçleri hakkında uzman rehberleri ve pratik bilgiler.",
-  alternates: { canonical: "https://guvenlikservisi.com/blog" },
+  alternates: { canonical: canonicalUrl },
 };
 
 export default function BlogListeSayfasi() {

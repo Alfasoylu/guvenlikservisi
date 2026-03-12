@@ -1,7 +1,10 @@
 import MaintenanceQuoteForm from "@/components/forms/MaintenanceQuoteForm";
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/bakim-servis-uzaktan-izleme");
 
 export const metadata: Metadata = {
   title:
@@ -26,20 +29,20 @@ export const metadata: Metadata = {
     "bakım servis uzaktan izleme",
   ],
   alternates: {
-    canonical: "https://www.guvenlikservisi.com/bakim-servis-uzaktan-izleme",
+    canonical: canonicalUrl,
   },
   openGraph: {
     title:
       "Güvenlik Sistemi Bakım, Servis ve Uzaktan İzleme | Aylık Bakım Sözleşmesi",
     description:
       "18 ilde site, fabrika, depo ve işletmeler için periyodik bakım, hızlı servis ve uzaktan izleme hizmeti. Aylık 2.000 TL'den başlayan bakım sözleşmeleri.",
-    url: "https://www.guvenlikservisi.com/bakim-servis-uzaktan-izleme",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
     images: [
       {
-        url: "https://www.guvenlikservisi.com/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+        url: canonicalUrl,
         width: 1600,
         height: 1000,
         alt: "Güvenlik sistemi bakım ekibi saha çalışması",

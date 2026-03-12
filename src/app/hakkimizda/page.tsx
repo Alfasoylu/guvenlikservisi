@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import { Shield, CheckCircle, BadgeCheck, Clock3, Wrench, PhoneCall } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -7,11 +8,13 @@ import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/hakkimizda");
+
 export const metadata: Metadata = {
   title: "Hakkımızda | Güvenlik Servisi",
   description:
     "Güvenlik kamera sistemleri, alarm sistemleri ve geçiş kontrol çözümlerinde profesyonel keşif, doğru ürün seçimi ve anahtar teslim kurulum hizmeti sunuyoruz.",
-  alternates: { canonical: "https://guvenlikservisi.com/hakkimizda" },
+  alternates: { canonical: canonicalUrl },
 };
 
 const guvenKartlari = [

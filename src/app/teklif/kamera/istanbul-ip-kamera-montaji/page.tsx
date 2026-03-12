@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import LandingPageTemplate, {
   LandingPageData,
 } from "@/components/templates/LandingPageTemplate";
@@ -149,6 +151,22 @@ const data: LandingPageData = {
     subtitle:
       "Formu doldurun, ihtiyacınıza uygun sistemi belirleyip sizi hızlıca arayalım.",
     defaultService: "kamera",
+  },
+};
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/kamera/istanbul-ip-kamera-montaji");
+
+export const metadata: Metadata = {
+  title: data.hero.title,
+  description: data.hero.subtitle,
+  alternates: { canonical: canonicalUrl },
+  openGraph: {
+    title: data.hero.title,
+    description: data.hero.subtitle,
+    url: canonicalUrl,
+    siteName: "Guvenlik Servisi",
+    locale: "tr_TR",
+    type: "website",
   },
 };
 
