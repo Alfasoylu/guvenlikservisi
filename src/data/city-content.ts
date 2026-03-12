@@ -1,5 +1,6 @@
 export interface CityContent {
   shortDescription: string;
+  metadataDistrictCoverage?: string;
   districts: string[];
 }
 
@@ -7,7 +8,49 @@ export const cityContent: Record<string, CityContent> = {
   istanbul: {
     shortDescription:
       "İstanbul'da apartman, site, işyeri, mağaza ve depo projeleri için profesyonel güvenlik sistemleri kurulumu yapıyoruz.",
-    districts: ["Kadıköy", "Beşiktaş", "Şişli", "Üsküdar", "Pendik", "Bakırköy"],
+    metadataDistrictCoverage:
+      "Adalar'dan Zeytinburnu'na kadar İstanbul genelinde ilçe bazlı keşif ve kurulum desteği sunuyoruz.",
+    districts: [
+      "Adalar",
+      "Arnavutköy",
+      "Ataşehir",
+      "Avcılar",
+      "Bağcılar",
+      "Bahçelievler",
+      "Bakırköy",
+      "Başakşehir",
+      "Bayrampaşa",
+      "Beşiktaş",
+      "Beykoz",
+      "Beylikdüzü",
+      "Beyoğlu",
+      "Büyükçekmece",
+      "Çatalca",
+      "Çekmeköy",
+      "Esenler",
+      "Esenyurt",
+      "Eyüpsultan",
+      "Fatih",
+      "Gaziosmanpaşa",
+      "Güngören",
+      "Kadıköy",
+      "Kağıthane",
+      "Kartal",
+      "Küçükçekmece",
+      "Maltepe",
+      "Pendik",
+      "Sancaktepe",
+      "Sarıyer",
+      "Silivri",
+      "Sultanbeyli",
+      "Sultangazi",
+      "Şile",
+      "Şişli",
+      "Tuzla",
+      "Ümraniye",
+      "Üsküdar",
+      "Zeytinburnu",
+    ],
   },
   ankara: {
     shortDescription:
@@ -37,7 +80,21 @@ export const cityContent: Record<string, CityContent> = {
   tekirdag: {
     shortDescription:
       "Tekirdağ'da sanayi bölgeleri, işyerleri ve apartmanlar için profesyonel güvenlik sistemi kurulumu gerçekleştiriyoruz.",
-    districts: ["Çorlu", "Çerkezköy", "Süleymanpaşa", "Ergene", "Malkara", "Kapaklı"],
+    metadataDistrictCoverage:
+      "Çerkezköy'den Şarköy'e kadar Tekirdağ genelinde ilçe bazlı keşif ve kurulum planlaması yapıyoruz.",
+    districts: [
+      "Çerkezköy",
+      "Çorlu",
+      "Ergene",
+      "Hayrabolu",
+      "Kapaklı",
+      "Malkara",
+      "Marmaraereğlisi",
+      "Muratlı",
+      "Saray",
+      "Süleymanpaşa",
+      "Şarköy",
+    ],
   },
   sakarya: {
     shortDescription:
@@ -87,11 +144,34 @@ export const cityContent: Record<string, CityContent> = {
   edirne: {
     shortDescription:
       "Edirne'de konut ve ticari projeler için kamera, alarm ve geçiş kontrol sistemleri kurulumu sunuyoruz.",
-    districts: ["Merkez", "Keşan", "Uzunköprü", "İpsala", "Havsa", "Lalapaşa"],
+    metadataDistrictCoverage:
+      "Enez'den Uzunköprü'ye kadar Edirne genelinde ilçe bazlı güvenlik sistemi hizmeti veriyoruz.",
+    districts: [
+      "Enez",
+      "Havsa",
+      "İpsala",
+      "Keşan",
+      "Lalapaşa",
+      "Meriç",
+      "Merkez",
+      "Süloğlu",
+      "Uzunköprü",
+    ],
   },
   kirklareli: {
     shortDescription:
       "Kırklareli'nde işyeri, depo, apartman ve açık alan güvenliği için profesyonel montaj hizmeti sağlıyoruz.",
-    districts: ["Merkez", "Lüleburgaz", "Babaeski", "Vize", "Pınarhisar", "Demirköy"],
+    metadataDistrictCoverage:
+      "Babaeski'den Vize'ye kadar Kırklareli genelinde ilçe bazlı keşif ve montaj desteği sunuyoruz.",
+    districts: [
+      "Babaeski",
+      "Demirköy",
+      "Kofçaz",
+      "Lüleburgaz",
+      "Merkez",
+      "Pehlivanköy",
+      "Pınarhisar",
+      "Vize",
+    ],
   },
 };

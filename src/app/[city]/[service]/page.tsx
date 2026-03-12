@@ -11,6 +11,7 @@ import ServicePackages from "@/components/service-page/ServicePackages";
 import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellStyle } from "@/components/service-page/styles";
+import { cityContent } from "@/data/city-content";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
@@ -50,7 +51,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = `${city.name} ${service.name} | Ücretsiz Keşif ve Montaj`;
-  const description = `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. Ücretsiz keşif, anahtar teslim montaj, mobil izleme kurulumu ve hızlı teklif alın.`;
+  const districtCoverage = cityContent[city.slug]?.metadataDistrictCoverage;
+  const description = districtCoverage
+    ? `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. ${districtCoverage} Ücretsiz keşif, anahtar teslim montaj ve hızlı teklif alın.`
+    : `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. Ücretsiz keşif, anahtar teslim montaj, mobil izleme kurulumu ve hızlı teklif alın.`;
   const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
 
   if (!canonical) {
