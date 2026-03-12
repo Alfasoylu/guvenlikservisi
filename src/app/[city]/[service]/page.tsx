@@ -5,6 +5,13 @@ import InternalLinkSection from "@/components/InternalLinkSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
+import {
+  getCityCanonicalUrl,
+  getCityPath,
+  getCityServiceCanonicalUrl,
+  getCityServicePath,
+  getCityServiceStaticParams,
+} from "@/lib/routes";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -17,18 +24,7 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  const paths = [];
-
-  for (const city of cities) {
-    for (const service of services) {
-      paths.push({
-        city: city.slug,
-        service: service.slug,
-      });
-    }
-  }
-
-  return paths;
+  return getCityServiceStaticParams();
 }
 
 const cityDistricts: Record<string, string[]> = {
@@ -113,7 +109,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${city.name} ${service.name} | Ücretsiz Keşif ve Montaj`;
   const description = `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. Ücretsiz keşif, anahtar teslim montaj, mobil izleme kurulumu ve hızlı teklif alın.`;
-  const canonical = `${siteConfig.url}/${city.slug}/${service.slug}`;
+  const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
+
+  if (!canonical) {
+    return {
+      title: "Sayfa Bulunamadi | Guvenlik Servisi",
+    };
+  }
 
   return {
     title,
@@ -140,28 +142,52 @@ export default async function ServicePage({ params }: PageProps) {
 
   if (!city || !service) notFound();
 
+  const cityPath = getCityPath(city.slug);
+  const cityCanonical = getCityCanonicalUrl(city.slug);
+    const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
+
+  if (!cityPath || !cityCanonical || !canonical) notFound();
+
   const isCameraPage = service.slug === "kamera-sistemi-kurulumu";
   const districts = cityDistricts[city.slug] || [];
   const cityDescription =
     cityDescriptions[city.slug] ||
-    `${city.name} bölgesinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
+    `${city.name} bolgesinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
 
   const packages = getCameraPackageText(city.name);
-  const sameCityOtherServices = services
-    .filter((item) => item.slug !== service.slug)
-    .map((item) => ({
-      href: `/${city.slug}/${item.slug}`,
+  const sameCityOtherServices = services.flatMap((item) => {
+    if (item.slug === service.slug) {
+      return [];
+    }
+
+    const href = getCityServicePath(city.slug, item.slug);
+
+    if (!href) {
+      return [];
+    }
+
+    return {
+      href,
       label: `${city.name} ${item.name}`,
-      description: `${city.name} içinde ${item.name.toLowerCase()} sayfasını da inceleyin.`,
-    }));
+      description: `${city.name} icindeki ${item.name.toLowerCase()} sayfasini da inceleyin.`,
+    };
+  });
   const sameServiceOtherCities = cities
     .filter((item) => item.slug !== city.slug)
     .slice(0, 12)
-    .map((item) => ({
-      href: `/${item.slug}/${service.slug}`,
-      label: `${item.name} ${service.name}`,
-      description: `${service.name} hizmetinin ${item.name} sayfasına geçin.`,
-    }));
+    .flatMap((item) => {
+      const href = getCityServicePath(item.slug, service.slug);
+
+      if (!href) {
+        return [];
+      }
+
+      return {
+        href,
+        label: `${item.name} ${service.name}`,
+        description: `${service.name} hizmetinin ${item.name} sayfasina gecin.`,
+      };
+    });
 
   const faqItems = isCameraPage
     ? [
@@ -220,13 +246,13 @@ export default async function ServicePage({ params }: PageProps) {
         "@type": "ListItem",
         position: 2,
         name: city.name,
-        item: `${siteConfig.url}/${city.slug}`,
+        item: cityCanonical,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: service.name,
-        item: `${siteConfig.url}/${city.slug}/${service.slug}`,
+        item: canonical,
       },
     ],
   };
@@ -235,7 +261,7 @@ export default async function ServicePage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `${city.name} ${service.name} - ${siteConfig.name}`,
-    url: `${siteConfig.url}/${city.slug}/${service.slug}`,
+    url: canonical,
     telephone: siteConfig.phone,
     areaServed: city.name,
     address: {
@@ -357,7 +383,7 @@ export default async function ServicePage({ params }: PageProps) {
           Şehir hub bağlantısı
         </div>
         <Link
-          href={`/${city.slug}`}
+          href={cityPath}
           style={{
             fontSize: "20px",
             fontWeight: 700,

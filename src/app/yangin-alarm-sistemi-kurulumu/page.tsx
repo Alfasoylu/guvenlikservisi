@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/yangin-alarm-sistemi-kurulumu");
 
 export const metadata: Metadata = {
   title: "Yangın Alarm Sistemi Kurulumu | Yangın Algılama Montajı",
   description:
     "Yasal zorunluluklara uygun yangın alarm sistemi kurulumu. Duman dedektörü, ihbar butonu, siren. Proje + montaj dahil.",
-  alternates: { canonical: "https://guvenlikservisi.com/yangin-alarm-sistemi-kurulumu" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Yangın Alarm Sistemi Kurulumu | Yangın Algılama Montajı",
     description: "Yasal uyumlu yangın alarm sistemi. Duman dedektörü, ihbar butonu, siren. Proje dahil.",
-    url: "https://guvenlikservisi.com/yangin-alarm-sistemi-kurulumu",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",

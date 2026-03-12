@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import { CheckCircle, BadgeCheck, Info } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -6,11 +7,13 @@ import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/paketler-ve-fiyatlandirma");
+
 export const metadata: Metadata = {
   title: "Güvenlik Sistemi Paketleri ve Fiyatlandırma",
   description:
     "Kamera sistemi, alarm sistemi ve güvenlik çözümleri için başlangıç, standart ve premium paket seçenekleri. Ücretsiz keşif sonrası net teklif alın.",
-  alternates: { canonical: "https://guvenlikservisi.com/paketler-ve-fiyatlandirma" },
+  alternates: { canonical: canonicalUrl },
 };
 
 const paketler = [

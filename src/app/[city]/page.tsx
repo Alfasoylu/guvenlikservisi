@@ -5,6 +5,12 @@ import InternalLinkSection from "@/components/InternalLinkSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
+import {
+  getCityCanonicalUrl,
+  getCityPath,
+  getCityServicePath,
+  getCityStaticParams,
+} from "@/lib/routes";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -75,9 +81,7 @@ const faqByCity = (cityName: string) => [
 ];
 
 export function generateStaticParams() {
-  return cities.map((city) => ({
-    city: city.slug,
-  }));
+  return getCityStaticParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -92,7 +96,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${city.name} Güvenlik Sistemleri | Kamera, Alarm, Montaj ve Teklif`;
   const description = `${city.name} içinde kamera sistemi kurulumu, alarm sistemi kurulumu, kartlı geçiş ve bakım hizmetleri için hızlı teklif alın. Profesyonel montaj ve keşif desteği.`;
-  const canonical = `${siteConfig.url}/${city.slug}`;
+  const canonical = getCityCanonicalUrl(city.slug);
+
+  if (!canonical) {
+    return {
+      title: "Sayfa Bulunamadi | Guvenlik Servisi",
+    };
+  }
 
   return {
     title,
@@ -130,12 +140,25 @@ export default async function CityPage({ params }: PageProps) {
     "Mağazalar",
   ];
 
+  const cityPath = getCityPath(city.slug);
+  const canonical = getCityCanonicalUrl(city.slug);
+
+  if (!cityPath || !canonical) notFound();
+
   const faqItems = faqByCity(city.name);
-  const cityServiceLinks = services.map((service) => ({
-    href: `/${city.slug}/${service.slug}`,
-    label: `${city.name} ${service.name}`,
-    description: `${city.name} içinde ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
-  }));
+  const cityServiceLinks = services.flatMap((service) => {
+    const href = getCityServicePath(city.slug, service.slug);
+
+    if (!href) {
+      return [];
+    }
+
+    return {
+      href,
+      label: `${city.name} ${service.name}`,
+      description: `${city.name} icindeki ${service.name.toLowerCase()} sayfasina gidin ve hizmet detaylarini inceleyin.`,
+    };
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -151,7 +174,7 @@ export default async function CityPage({ params }: PageProps) {
         "@type": "ListItem",
         position: 2,
         name: `${city.name} Güvenlik Sistemleri`,
-        item: `${siteConfig.url}/${city.slug}`,
+        item: canonical,
       },
     ],
   };
@@ -173,7 +196,7 @@ export default async function CityPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `${city.name} Güvenlik Sistemleri - ${siteConfig.name}`,
-    url: `${siteConfig.url}/${city.slug}`,
+    url: canonical,
     telephone: siteConfig.phone,
     areaServed: city.name,
     address: {

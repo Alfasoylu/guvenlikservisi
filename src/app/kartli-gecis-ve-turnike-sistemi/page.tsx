@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/kartli-gecis-ve-turnike-sistemi");
 
 export const metadata: Metadata = {
   title: "Kartlı Geçiş Sistemi Kurulumu | Turnike Montajı",
   description:
     "İşyeri ve site girişi için kartlı geçiş ve turnike sistemi kurulumu. RFID, parmak izi, yüz tanıma seçenekleri.",
-  alternates: { canonical: "https://guvenlikservisi.com/kartli-gecis-ve-turnike-sistemi" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Kartlı Geçiş Sistemi Kurulumu | Turnike Montajı",
     description: "RFID, parmak izi, yüz tanıma seçenekleriyle kartlı geçiş ve turnike kurulumu.",
-    url: "https://guvenlikservisi.com/kartli-gecis-ve-turnike-sistemi",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",

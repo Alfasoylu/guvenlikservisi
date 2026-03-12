@@ -228,7 +228,8 @@ Her ilçe için:
 - [ ] URL’leri kısa tut
 - [ ] Türkçe karakter normalize et
 - [ ] tire standardı belirle
-- [ ] canonical mantığını netleştir
+- [x] canonical mantigini netlestir
+- [x] programmatic route guardrails ve valid route source utility kur
 - [ ] district page canonical kuralları yaz
 - [ ] benzer intent’li sayfalar için unique primary URL belirle
 - [ ] duplicate URL varyasyonlarını 301 ile topla

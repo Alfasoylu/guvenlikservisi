@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
 import AlarmQuoteForm from "@/components/forms/AlarmQuoteForm";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/alarm");
 
 export const metadata: Metadata = {
   title:
@@ -23,19 +26,19 @@ export const metadata: Metadata = {
     "aynı gün alarm montajı",
   ],
   alternates: {
-    canonical: "https://www.guvenlikservisi.com/teklif/alarm",
+    canonical: canonicalUrl,
   },
   openGraph: {
     title: "İstanbul Alarm Sistemi Kurulumu | Ajax ve Hikvision",
     description:
       "İstanbul içi aynı gün alarm montajı. Ajax ve Hikvision marka kablolu ve kablosuz alarm sistemleri, mobil uygulama kontrolü ve 2 yıl garanti.",
-    url: "https://www.guvenlikservisi.com/teklif/alarm",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
     images: [
       {
-        url: "https://www.guvenlikservisi.com/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png",
+        url: canonicalUrl,
         width: 2307,
         height: 1536,
         alt: "İstanbul alarm sistemi kurulumu yapan teknisyen",

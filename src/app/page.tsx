@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import {
   Shield,
@@ -20,6 +21,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
+import { getCityPath } from "@/lib/routes";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import {
@@ -27,17 +29,19 @@ import {
   generateAggregateRatingSchema,
 } from "@/lib/schema";
 
+const canonicalUrl = getCanonicalUrlForKnownPath("/");
+
 export const metadata: Metadata = {
   title: "Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın ve Geçiş Sistemleri",
   description:
     "Profesyonel güvenlik kamera sistemi kurulumu, alarm sistemi kurulumu, yangın alarm ve kartlı geçiş çözümleri. Ücretsiz keşif, hızlı teklif ve anahtar teslim montaj.",
-  alternates: { canonical: "https://guvenlikservisi.com" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title:
       "Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın ve Geçiş Sistemleri",
     description:
       "Kamera sistemi, alarm sistemi, yangın alarmı ve kartlı geçiş kurulumu için profesyonel keşif ve anahtar teslim montaj hizmeti.",
-    url: "https://guvenlikservisi.com",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
@@ -353,18 +357,26 @@ export default function AnaSayfa() {
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {cities.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/${city.slug}`}
-                className="flex flex-col items-center gap-2 p-4 bg-surface rounded-xl hover:bg-accent/10 hover:text-accent transition-colors text-center group border border-transparent hover:border-accent/20"
-              >
-                <MapPin size={20} className="text-accent" />
-                <span className="font-semibold text-primary text-sm group-hover:text-accent">
-                  {city.name}
-                </span>
-              </Link>
-            ))}
+            {cities.flatMap((city) => {
+              const href = getCityPath(city.slug);
+
+              if (!href) {
+                return [];
+              }
+
+              return (
+                <Link
+                  key={city.slug}
+                  href={href}
+                  className="flex flex-col items-center gap-2 p-4 bg-surface rounded-xl hover:bg-accent/10 hover:text-accent transition-colors text-center group border border-transparent hover:border-accent/20"
+                >
+                  <MapPin size={20} className="text-accent" />
+                  <span className="font-semibold text-primary text-sm group-hover:text-accent">
+                    {city.name}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </Container>
       </section>

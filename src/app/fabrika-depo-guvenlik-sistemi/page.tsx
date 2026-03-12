@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, { ServicePageData } from "@/components/templates/ServicePageTemplate";
+
+const canonicalUrl = getCanonicalUrlForKnownPath("/fabrika-depo-guvenlik-sistemi");
 
 export const metadata: Metadata = {
   title: "Fabrika ve Depo Güvenlik Sistemi | Endüstriyel Çözümler",
   description:
     "Fabrika, depo ve sanayi tesisleri için büyük ölçekli güvenlik sistemi kurulumu. SLA garantili bakım sözleşmesi.",
-  alternates: { canonical: "https://guvenlikservisi.com/fabrika-depo-guvenlik-sistemi" },
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "Fabrika ve Depo Güvenlik Sistemi | Endüstriyel Çözümler",
     description: "Fabrika ve sanayi tesisleri için büyük ölçekli güvenlik sistemi. SLA garantili.",
-    url: "https://guvenlikservisi.com/fabrika-depo-guvenlik-sistemi",
+    url: canonicalUrl,
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
