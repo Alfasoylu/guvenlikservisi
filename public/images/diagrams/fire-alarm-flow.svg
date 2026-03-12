@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Yangin alarm akisi</title>
+  <desc id="desc">Yangin alarm paneli, dedektor, buton ve siren baglantisi semasi</desc>
+  <rect width="1600" height="900" rx="48" fill="#FFF7ED"/>
+  <path d="M800 280v120M800 500H460M800 500h340M800 500v150" stroke="#7C2D12" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <rect x="640" y="120" width="320" height="160" rx="28" fill="#B91C1C"/>
+  <rect x="650" y="420" width="300" height="160" rx="28" fill="#7C2D12"/>
+  <rect x="300" y="420" width="260" height="160" rx="28" fill="#EA580C"/>
+  <rect x="1040" y="420" width="260" height="160" rx="28" fill="#DC2626"/>
+  <rect x="700" y="650" width="200" height="120" rx="24" fill="#F97316"/>
+  <text x="800" y="210" font-family="Arial, sans-serif" font-size="44" fill="#fff" text-anchor="middle">Dedektor</text>
+  <text x="800" y="515" font-family="Arial, sans-serif" font-size="44" fill="#fff" text-anchor="middle">Yangin Paneli</text>
+  <text x="430" y="515" font-family="Arial, sans-serif" font-size="38" fill="#fff" text-anchor="middle">Buton</text>
+  <text x="1170" y="515" font-family="Arial, sans-serif" font-size="44" fill="#fff" text-anchor="middle">Siren</text>
+  <text x="800" y="722" font-family="Arial, sans-serif" font-size="34" fill="#fff" text-anchor="middle">Modul</text>
+</svg>

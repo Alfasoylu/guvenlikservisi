@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
+import { getCommercialPageVisuals } from "@/lib/page-images";
 import AlarmQuoteForm from "@/components/forms/AlarmQuoteForm";
+import ServiceVisualSection from "@/components/ServiceVisualSection";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/alarm");
 
@@ -88,6 +90,8 @@ const faqItems = [
       "Kurulumunu yaptığımız alarm sistemlerinde 2 yıl ürün ve kurulum garantisi sunuyoruz.",
   },
 ];
+
+const visualItems = getCommercialPageVisuals("teklif/alarm", "?stanbul alarm sistemi kurulumu");
 
 const packageItems = [
   {
@@ -281,6 +285,12 @@ export default function AlarmLandingPage() {
             </div>
           </div>
         </section>
+
+        <ServiceVisualSection
+          title="?stanbul alarm sistemi uygulama g?rselleri"
+          description="Bu blok, alarm teklif sayfas?nda ?rnek kurulum, kullan?m senaryosu, montaj s?reci ve ba?lant? ?emas?n? tek yerde g?sterir."
+          items={visualItems}
+        />
 
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import InternalLinkSection from "@/components/InternalLinkSection";
+import ServiceVisualSection from "@/components/ServiceVisualSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
@@ -11,6 +12,7 @@ import {
   getCityServicePath,
   getCityStaticParams,
 } from "@/lib/routes";
+import { getCityPageVisuals } from "@/lib/page-images";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -146,6 +148,7 @@ export default async function CityPage({ params }: PageProps) {
   if (!cityPath || !canonical) notFound();
 
   const faqItems = faqByCity(city.name);
+  const cityVisuals = getCityPageVisuals(city.slug);
   const cityServiceLinks = services.flatMap((service) => {
     const href = getCityServicePath(city.slug, service.slug);
 
@@ -321,6 +324,12 @@ export default async function CityPage({ params }: PageProps) {
           </div>
         ))}
       </section>
+
+      <ServiceVisualSection
+        title={`${city.name} için kurulum görselleri ve sistem akışı`}
+        description={`${city.name} sayfasında kullanılan bu görseller, keşif süreci, montaj bağlamı ve sistem bileşen akışını birlikte gösterir. Böylece sayfa sadece bağlantı kümesi değil, daha güçlü bir ticari açıklama alanı haline gelir.`}
+        items={cityVisuals}
+      />
 
       <InternalLinkSection
         title={`${city.name} için hizmet sayfaları`}
