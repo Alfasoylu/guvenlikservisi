@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { filterValidInternalLinks } from "@/lib/routes";
 
 export interface InternalLinkItem {
   href: string;
@@ -17,7 +18,9 @@ export default function InternalLinkSection({
   description,
   links,
 }: InternalLinkSectionProps) {
-  if (links.length === 0) {
+  const validLinks = filterValidInternalLinks(links);
+
+  if (validLinks.length === 0) {
     return null;
   }
 
@@ -40,7 +43,7 @@ export default function InternalLinkSection({
           gap: "14px",
         }}
       >
-        {links.map((link) => (
+        {validLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
