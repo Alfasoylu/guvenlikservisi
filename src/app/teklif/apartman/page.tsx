@@ -132,6 +132,11 @@ const data: LandingPageData = {
         "Evet, tüm sistemlere yönetici paneli dahildir. Kart ekleme/silme, raporlama ve erişim yönetimi yazılımla yapılır.",
     },
   ],
+  visuals: {
+    pageKey: "teklif/apartman",
+    title: "Apartman ve site güvenlik sistemi için saha görselleri",
+    description: "Site yönetimleri ve apartman projeleri için kullanılan bu blok; giriş kontrolü, çevre izleme, montaj süreci ve sistem şemasını tek yerde toplar.",
+  },
   cta: {
     title: "Site ve Apartman Güvenlik Teklifi Alın",
     subtitle: "Sitenizin ihtiyacına özel çözüm için bizi arayın.",

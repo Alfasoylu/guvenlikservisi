@@ -1,3 +1,4 @@
+import ServiceVisualSection from "@/components/ServiceVisualSection";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -6,6 +7,7 @@ import PackagesSection from "@/components/sections/PackagesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection, { FAQItem } from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
+import { getCommercialPageVisuals } from "@/lib/page-images";
 
 interface ProblemCard {
   icon: string;
@@ -27,6 +29,13 @@ interface Testimonial {
   name: string;
   role: string;
   rating?: number;
+}
+
+interface LandingPageVisuals {
+  pageKey: string;
+  title?: string;
+  description?: string;
+  pageTitle?: string;
 }
 
 export interface LandingPageData {
@@ -56,6 +65,7 @@ export interface LandingPageData {
     subtitle?: string;
     defaultService?: string;
   };
+  visuals?: LandingPageVisuals;
 }
 
 interface LandingPageTemplateProps {
@@ -63,6 +73,10 @@ interface LandingPageTemplateProps {
 }
 
 export default function LandingPageTemplate({ data }: LandingPageTemplateProps) {
+  const visualItems = data.visuals
+    ? getCommercialPageVisuals(data.visuals.pageKey, data.visuals.pageTitle || data.hero.title)
+    : [];
+
   return (
     <>
       <HeroSection
@@ -80,6 +94,16 @@ export default function LandingPageTemplate({ data }: LandingPageTemplateProps) 
         features={data.solution.features}
         imagePlaceholder={data.solution.imagePlaceholder}
       />
+      {data.visuals ? (
+        <ServiceVisualSection
+          title={data.visuals.title || `${data.hero.title} için uygulama görselleri`}
+          description={
+            data.visuals.description ||
+            `${data.hero.title} sayfasında teklif odaklı dönüşümü güçlendirmek için örnek kurulum, kullanım senaryosu, montaj süreci ve sistem şeması birlikte gösterilir.`
+          }
+          items={visualItems}
+        />
+      ) : null}
       <ProcessSection />
       <PackagesSection
         title={data.packages.title}

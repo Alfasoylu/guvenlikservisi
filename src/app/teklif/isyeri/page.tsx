@@ -130,6 +130,11 @@ const data: LandingPageData = {
         "Zorunlu değil, ancak öneriyoruz. Yıllık bakım ile sistem performansı korunur ve arızalar ücretsiz giderilir.",
     },
   ],
+  visuals: {
+    pageKey: "teklif/isyeri",
+    title: "İş yeri güvenlik kurulumu görselleri",
+    description: "Ticari alanlar için keşif, uygulama, montaj ve sistem bileşenlerini görsel olarak destekleyen teklif odaklı blok.",
+  },
   cta: {
     title: "İşyeriniz İçin Ücretsiz Teklif Alın",
     subtitle: "Formu doldurun, işyerinize özel çözüm sunalım.",

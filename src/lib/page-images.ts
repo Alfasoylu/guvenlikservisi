@@ -2,6 +2,7 @@ import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import {
   cityImageGroups,
+  commercialPageImageGroups,
   fallbackImageGroup,
   serviceImageGroups,
   type ImageAsset,
@@ -82,6 +83,10 @@ export function getServiceImageGroup(serviceSlug: string): ImageGroup {
   return mergeImageGroup(fallbackImageGroup, serviceImageGroups[serviceSlug]);
 }
 
+export function getCommercialPageImageGroup(pageKey: string): ImageGroup {
+  return mergeImageGroup(fallbackImageGroup, commercialPageImageGroups[pageKey]);
+}
+
 export function getCityPageVisuals(citySlug: string): PageVisualItem[] {
   const cityName = getCityName(citySlug);
   const imageGroup = getCityImageGroup(citySlug);
@@ -137,6 +142,41 @@ export function getCityServicePageVisuals(citySlug: string, serviceSlug: string)
       description: `${serviceName} hizmetinde kullanılan temel cihaz akışını gösteren sade şema. Özellikle teknik niyeti yüksek ziyaretçiler için ek bağlam sağlar.`,
       image: imageGroup.diagram,
       alt: `${cityName} ${serviceName} sistem bağlantı şeması`,
+    },
+  ];
+}
+
+export function getCommercialPageVisuals(pageKey: string, pageTitle: string): PageVisualItem[] {
+  const imageGroup = getCommercialPageImageGroup(pageKey);
+
+  return [
+    {
+      id: `${pageKey}-hero`,
+      title: `${pageTitle} için örnek kurulum görseli`,
+      description: `Bu görsel blok, teklif odaklı sayfada ziyaretçiye kurulumun gerçek bağlamını ve sahadaki uygulama standardını gösterir.`,
+      image: imageGroup.hero,
+      alt: `${pageTitle} örnek kurulum görseli`,
+    },
+    {
+      id: `${pageKey}-context`,
+      title: `${pageTitle} kullanım alanı`,
+      description: `Hizmetin konut, iş yeri, site veya depo gibi gerçek kullanım senaryolarında nasıl konumlandığını destekler.`,
+      image: imageGroup.context,
+      alt: `${pageTitle} uygulama ve ekipman yerleşimi görseli`,
+    },
+    {
+      id: `${pageKey}-process`,
+      title: `${pageTitle} montaj süreci`,
+      description: `Keşif, montaj, devreye alma ve uzaktan erişim hazırlığı gibi ticari dönüşümü güçlendiren süreç adımlarını görsel olarak tamamlar.`,
+      image: imageGroup.process,
+      alt: `${pageTitle} montaj ve devreye alma süreci görseli`,
+    },
+    {
+      id: `${pageKey}-diagram`,
+      title: `${pageTitle} sistem şeması`,
+      description: `Teknik niyet taşıyan ziyaretçi için cihaz akışı, kayıt altyapısı veya alarm bağlantı mantığını sade biçimde gösterir.`,
+      image: imageGroup.diagram,
+      alt: `${pageTitle} sistem bağlantı şeması`,
     },
   ];
 }
