@@ -1,3 +1,12 @@
+import Link from "next/link";
+import {
+  actionRowCompactClass,
+  ctaSectionClass,
+  ctaTextClass,
+  ctaTitleClass,
+  inverseButtonClass,
+  primaryButtonClass,
+} from "@/components/service-page/styles";
 import { siteConfig } from "@/data/site-config";
 
 interface ServiceCTAProps {
@@ -14,50 +23,19 @@ export default function ServiceCTA({
   secondaryLabel,
 }: ServiceCTAProps) {
   return (
-    <section
-      id="teklif"
-      style={{
-        background: "#0F2B46",
-        color: "#fff",
-        padding: "36px",
-        borderRadius: "18px",
-        marginBottom: "40px",
-      }}
-    >
-      <h2 style={{ fontSize: "32px", marginBottom: "14px" }}>{title}</h2>
+    <section id="teklif" className={ctaSectionClass}>
+      <h2 className={ctaTitleClass}>{title}</h2>
 
-      <p style={{ fontSize: "18px", lineHeight: 1.7, maxWidth: "850px", marginBottom: "22px" }}>
-        {description}
-      </p>
+      <p className={ctaTextClass}>{description}</p>
 
-      <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-        <a
-          href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-          style={{
-            background: "#34A853",
-            color: "#fff",
-            padding: "16px 24px",
-            borderRadius: "12px",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
+      <div className={actionRowCompactClass}>
+        <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className={primaryButtonClass}>
           {primaryLabel}: {siteConfig.phone}
         </a>
 
-        <a
-          href="/iletisim"
-          style={{
-            background: "#fff",
-            color: "#0F2B46",
-            padding: "16px 24px",
-            borderRadius: "12px",
-            textDecoration: "none",
-            fontWeight: 700,
-          }}
-        >
+        <Link href="/iletisim" className={inverseButtonClass}>
           {secondaryLabel}
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ import ServiceHero from "@/components/service-page/ServiceHero";
 import ServicePackages from "@/components/service-page/ServicePackages";
 import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
-import { pageShellStyle } from "@/components/service-page/styles";
+import { pageShellClass } from "@/components/service-page/styles";
 import { cityContent } from "@/data/city-content";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
@@ -172,7 +172,7 @@ export default async function ServicePage({ params }: PageProps) {
   };
 
   return (
-    <main style={pageShellStyle}>
+    <main className={pageShellClass}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

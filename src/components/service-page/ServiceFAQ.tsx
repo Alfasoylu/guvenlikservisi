@@ -1,4 +1,11 @@
-import { bodyStyle, cardStyle, headingStyle, sectionStyle } from "@/components/service-page/styles";
+import {
+  bodyTextClass,
+  compactCardClass,
+  faqGridClass,
+  h3CompactClass,
+  sectionClass,
+  sectionTitleClass,
+} from "@/components/service-page/styles";
 
 export interface ServiceFAQItem {
   question: string;
@@ -11,14 +18,14 @@ interface ServiceFAQProps {
 
 export default function ServiceFAQ({ items }: ServiceFAQProps) {
   return (
-    <section style={sectionStyle}>
-      <h2 style={headingStyle}>Sık Sorulan Sorular</h2>
+    <section className={sectionClass}>
+      <h2 className={sectionTitleClass}>Sık Sorulan Sorular</h2>
 
-      <div style={{ display: "grid", gap: "18px" }}>
+      <div className={faqGridClass}>
         {items.map((item) => (
-          <div key={item.question} style={{ ...cardStyle, padding: "20px" }}>
-            <h3 style={{ fontSize: "20px", color: "#0F2B46", marginBottom: "10px" }}>{item.question}</h3>
-            <p style={bodyStyle}>{item.answer}</p>
+          <div key={item.question} className={compactCardClass}>
+            <h3 className={h3CompactClass}>{item.question}</h3>
+            <p className={bodyTextClass}>{item.answer}</p>
           </div>
         ))}
       </div>

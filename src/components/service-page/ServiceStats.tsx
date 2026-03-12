@@ -1,4 +1,10 @@
-import { cardStyle, gridStyle, sectionStyle } from "@/components/service-page/styles";
+import {
+  gridClass,
+  mutedCardClass,
+  sectionClass,
+  statLabelClass,
+  statValueClass,
+} from "@/components/service-page/styles";
 
 export interface ServiceStatItem {
   label: string;
@@ -11,13 +17,11 @@ interface ServiceStatsProps {
 
 export default function ServiceStats({ items }: ServiceStatsProps) {
   return (
-    <section style={{ ...sectionStyle, ...gridStyle }}>
+    <section className={`${sectionClass} ${gridClass}`}>
       {items.map((item) => (
-        <div key={item.label} style={{ ...cardStyle, background: "#F8FAFB" }}>
-          <div style={{ fontSize: "30px", fontWeight: 800, color: "#0F2B46", marginBottom: "6px" }}>
-            {item.value}
-          </div>
-          <div style={{ color: "#555" }}>{item.label}</div>
+        <div key={item.label} className={mutedCardClass}>
+          <div className={statValueClass}>{item.value}</div>
+          <div className={statLabelClass}>{item.label}</div>
         </div>
       ))}
     </section>
