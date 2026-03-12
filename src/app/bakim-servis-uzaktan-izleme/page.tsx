@@ -720,36 +720,38 @@ export default function BakimServisUzaktanIzlemePage() {
           </div>
         </section>
 
-        <section
-          id="teklif"
-          className="border-b border-slate-200 bg-slate-950 text-white scroll-mt-24"
-        >
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
-                Hemen Teklif Al
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Site veya Fabrikanız İçin Bakım Sözleşmesi Teklifi İsteyin
-              </h2>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri için
-                bakım, servis ve uzaktan izleme teklifinizi hazırlayalım.
-                Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
-                model sözleşmeli hizmettir.
-              </p>
-<ul className="mt-8 space-y-4 text-slate-200">
-  <li>✓ Aylık 2.000 TL’den başlayan bakım sözleşmeleri</li>
-  <li>✓ Site yönetimleri, fabrikalar ve büyük tesisler için kurumsal hizmet</li>
-  <li>✓ 18 ilde saha ekipleri ve hızlı müdahale yapısı</li>
-  <li>✓ Kamera, alarm ve kayıt sistemleri için periyodik bakım</li>
-  <li>✓ Uzaktan bağlantı ile hızlı arıza tespiti</li>
-  <li>✓ Sözleşmeli müşterilere öncelikli servis</li>
-</ul>
+       <section
+  id="teklif"
+  className="border-b border-slate-200 bg-slate-950 text-white scroll-mt-24"
+>
+  <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
+    <div>
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
+        Hemen Teklif Al
+      </p>
+      <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+        Site veya Fabrikanız İçin Bakım Sözleşmesi Teklifi İsteyin
+      </h2>
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+        Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri için
+        bakım, servis ve uzaktan izleme teklifinizi hazırlayalım.
+        Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
+        model sözleşmeli hizmettir.
+      </p>
 
-</div>
+      <ul className="mt-8 space-y-4 text-slate-200">
+        <li>✓ Aylık 2.000 TL’den başlayan bakım sözleşmeleri</li>
+        <li>✓ Site yönetimleri, fabrikalar ve büyük tesisler için kurumsal hizmet</li>
+        <li>✓ 18 ilde saha ekipleri ve hızlı müdahale yapısı</li>
+        <li>✓ Kamera, alarm ve kayıt sistemleri için periyodik bakım</li>
+        <li>✓ Uzaktan bağlantı ile hızlı arıza tespiti</li>
+        <li>✓ Sözleşmeli müşterilere öncelikli servis</li>
+      </ul>
+    </div>
 
-<MaintenanceQuoteForm />
+    <MaintenanceQuoteForm />
+  </div>
+</section>
 
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
