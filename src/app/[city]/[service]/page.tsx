@@ -354,7 +354,7 @@ export default async function ServicePage({ params }: PageProps) {
         }}
       >
         <div style={{ fontSize: "14px", fontWeight: 700, color: "#1D4ED8", marginBottom: "10px" }}>
-          �zehir hub bağlantısı
+          Şehir hub bağlantısı
         </div>
         <Link
           href={`/${city.slug}`}

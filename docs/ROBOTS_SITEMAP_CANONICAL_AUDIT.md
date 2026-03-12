@@ -208,7 +208,7 @@ Root layout'ta:
 - `metadataBase = new URL(siteConfig.url)`
 - `alternates.canonical = "/"`
 
-Bu, yerel canonical tanimi olmayan tum sayfalara ana sayfa canonical'inin s�zmasi riskini doguruyor.
+Bu, yerel canonical tanimi olmayan tum sayfalara ana sayfa canonical'inin sızması riskini doguruyor.
 
 ### Canonical hangi sayfalarda var?
 
