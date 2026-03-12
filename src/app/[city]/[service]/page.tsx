@@ -175,6 +175,7 @@ export default async function ServicePage({ params }: PageProps) {
         localContext={pageContent.hero.localContext}
         benefits={pageContent.hero.benefits}
         process={pageContent.hero.process}
+        image={pageContent.images.hero}
       />
 
       <ServiceStats
@@ -200,6 +201,7 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.useCases.description}
         localContext={pageContent.useCases.localContext}
         items={pageContent.useCases.items}
+        images={pageContent.images.useCases}
       />
 
       <ServicePackages
@@ -218,6 +220,7 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.cta.description}
         primaryLabel={pageContent.cta.primaryLabel}
         secondaryLabel={pageContent.cta.secondaryLabel}
+        image={pageContent.images.cta}
       />
     </main>
   );
