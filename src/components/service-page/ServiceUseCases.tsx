@@ -1,4 +1,11 @@
-import { cardStyle, bodyStyle, gridStyle, headingStyle, sectionStyle } from "@/components/service-page/styles";
+import {
+  gridClass,
+  sectionClass,
+  sectionIntroClass,
+  sectionTitleClass,
+  softCardClass,
+  useCaseTextClass,
+} from "@/components/service-page/styles";
 
 interface ServiceUseCasesProps {
   title: string;
@@ -8,14 +15,14 @@ interface ServiceUseCasesProps {
 
 export default function ServiceUseCases({ title, description, items }: ServiceUseCasesProps) {
   return (
-    <section style={sectionStyle}>
-      <h2 style={headingStyle}>{title}</h2>
-      <p style={{ ...bodyStyle, marginBottom: "20px", maxWidth: "860px" }}>{description}</p>
+    <section className={sectionClass}>
+      <h2 className={sectionTitleClass}>{title}</h2>
+      <p className={sectionIntroClass}>{description}</p>
 
-      <div style={gridStyle}>
+      <div className={gridClass}>
         {items.map((item) => (
-          <div key={item} style={{ ...cardStyle, background: "#F8FAFB", padding: "18px" }}>
-            <div style={{ fontSize: "17px", color: "#111827" }}>{item}</div>
+          <div key={item} className={softCardClass}>
+            <div className={useCaseTextClass}>{item}</div>
           </div>
         ))}
       </div>

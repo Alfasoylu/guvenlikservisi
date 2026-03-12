@@ -1,4 +1,9 @@
-import { headingStyle, sectionStyle } from "@/components/service-page/styles";
+import {
+  chipClass,
+  chipWrapClass,
+  sectionClass,
+  sectionTitleClass,
+} from "@/components/service-page/styles";
 
 interface ServiceDistrictsProps {
   cityName: string;
@@ -11,21 +16,12 @@ export default function ServiceDistricts({ cityName, districts }: ServiceDistric
   }
 
   return (
-    <section style={sectionStyle}>
-      <h2 style={headingStyle}>{cityName} içinde hizmet verdiğimiz ilçeler</h2>
+    <section className={sectionClass}>
+      <h2 className={sectionTitleClass}>{cityName} içinde hizmet verdiğimiz ilçeler</h2>
 
-      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+      <div className={chipWrapClass}>
         {districts.map((district) => (
-          <span
-            key={district}
-            style={{
-              padding: "10px 14px",
-              background: "#EEF4FF",
-              color: "#0F2B46",
-              borderRadius: "999px",
-              fontWeight: 600,
-            }}
-          >
+          <span key={district} className={chipClass}>
             {district}
           </span>
         ))}
