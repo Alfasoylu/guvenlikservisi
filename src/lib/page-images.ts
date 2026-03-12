@@ -88,23 +88,26 @@ export function getCityPageVisuals(citySlug: string): PageVisualItem[] {
 
   return [
     {
+      // imagePrompt: "Professional security technicians conducting a pre-installation survey at a Turkish residential or commercial building, reviewing camera placement, daytime, realistic photo"
       id: "city-hero",
       title: `${cityName} için keşif ve kurulum planlaması`,
-      description: `${cityName} içindeki konut, iş yeri ve ticari alanlar için proje öncesi keşif, kapsama planı ve cihaz yerleşimi hazırlanır.`,
+      description: `${cityName} içindeki konut, iş yeri ve ticari alanlar için proje öncesi keşif yapılır; kapsam belirlenir ve cihaz yerleşimi planlanır. Sistemi kurmadan önce sahayı tanıyoruz.`,
       image: imageGroup.hero,
       alt: `${cityName} güvenlik sistemi kurulum planlama görseli`,
     },
     {
+      // imagePrompt: "Security system technicians installing IP cameras and structured cabling in a building corridor, professional tools visible, realistic installation photo"
       id: "city-process",
       title: `${cityName} saha uygulama detayı`,
-      description: `Kurulum, kablolama, kayıt altyapısı ve teslim aşaması tek akışta yönetilir. Böylece şehir bazlı landing sayfası sadece metin değil, gerçek uygulama bağlamı da taşır.`,
+      description: `Kurulum, kablolama, kayıt altyapısı ve teslim aşamaları tek bir süreçte planlı biçimde yönetilir; ekibimiz projeyi başından sonuna kadar takip eder.`,
       image: imageGroup.process,
       alt: `${cityName} güvenlik sistemi montaj ve devreye alma süreci görseli`,
     },
     {
+      // imagePrompt: "Clean technical diagram: IP cameras connected to NVR recorder, network switch, router, and smartphone for mobile monitoring, simple labeled layout on white background"
       id: "city-diagram",
       title: `${cityName} için sistem bileşen akışı`,
-      description: `Kamera, alarm, geçiş kontrol ve mobil izleme bileşenlerinin birlikte nasıl çalıştığını özetleyen şema.`,
+      description: `Kamera, alarm, geçiş kontrol ve mobil izleme bileşenlerinin birlikte nasıl çalıştığını gösteren sade sistem şeması. Her bileşenin rolünü ve birbirine nasıl bağlandığını açıkça aktarır.`,
       image: imageGroup.diagram,
       alt: `${cityName} güvenlik sistemi altyapı akış şeması`,
     },
@@ -118,23 +121,26 @@ export function getCityServicePageVisuals(citySlug: string, serviceSlug: string)
 
   return [
     {
+      // imagePrompt: "Professional security technician mounting a surveillance camera on a wall bracket in a Turkish commercial or residential building, realistic installation photo"
       id: "service-hero",
       title: `${cityName} içinde ${serviceName}`,
-      description: `${cityName} odaklı bu hizmet sayfasında, keşif sonrası uygulanacak sistem yerleşimi ve örnek kurulum bağlamı görsel olarak desteklenir.`,
+      description: `${cityName} bölgesinde gerçekleştirilen kurulumlardan kesitler; sistem yerleşimi ve ekipman konumlandırmasının pratikte nasıl yapıldığını göstermektedir.`,
       image: imageGroup.hero,
       alt: `${cityName} için ${serviceName} görseli`,
     },
     {
+      // imagePrompt: "Detail shot of structured cabling and security equipment: clean cable runs, NVR unit with connected camera ports, labeled connections, professional close-up installation"
       id: "service-context",
       title: `${serviceName} saha uygulaması`,
-      description: `Kablolama, ekipman konumlandırma ve mobil erişim gibi kararlar hizmet tipine göre değişir. Bu blok sayfayı daha anlaşılır ve daha taranabilir hale getirir.`,
+      description: `Kablolama düzeni, ekipman konumlandırması ve mobil erişim altyapısı hizmet türüne ve sahaya göre şekillenir. Uzmanlarımız en uygun yerleşimi keşif sonrasında belirler.`,
       image: imageGroup.context,
       alt: `${cityName} ${serviceName} örnek uygulama görseli`,
     },
     {
+      // imagePrompt: "Simple technical diagram: cameras to NVR recorder to network router to smartphone live monitoring, clean white background, labeled arrows showing data flow"
       id: "service-diagram",
       title: `${serviceName} sistem şeması`,
-      description: `${serviceName} hizmetinde kullanılan temel cihaz akışını gösteren sade şema. Özellikle teknik niyeti yüksek ziyaretçiler için ek bağlam sağlar.`,
+      description: `${serviceName} hizmetinde kullanılan temel bileşenleri ve bunların birbirine nasıl bağlandığını gösteren sistem şeması. Kamera, kayıt cihazı, ağ bağlantısı ve mobil erişimin bir arada nasıl çalıştığını sade biçimde aktarır.`,
       image: imageGroup.diagram,
       alt: `${cityName} ${serviceName} sistem bağlantı şeması`,
     },

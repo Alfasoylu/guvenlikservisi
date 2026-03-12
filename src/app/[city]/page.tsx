@@ -159,7 +159,7 @@ export default async function CityPage({ params }: PageProps) {
     return {
       href,
       label: `${city.name} ${service.name}`,
-      description: `${city.name} icindeki ${service.name.toLowerCase()} sayfasina gidin ve hizmet detaylarini inceleyin.`,
+      description: `${city.name} içindeki ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
     };
   });
 
@@ -327,13 +327,13 @@ export default async function CityPage({ params }: PageProps) {
 
       <ServiceVisualSection
         title={`${city.name} için kurulum görselleri ve sistem akışı`}
-        description={`${city.name} sayfasında kullanılan bu görseller, keşif süreci, montaj bağlamı ve sistem bileşen akışını birlikte gösterir. Böylece sayfa sadece bağlantı kümesi değil, daha güçlü bir ticari açıklama alanı haline gelir.`}
+        description={`${city.name} bölgesindeki kurulum çalışmalarından görseller; keşif süreci, montaj uygulaması ve sistem bileşen akışını birlikte aktarmaktadır.`}
         items={cityVisuals}
       />
 
       <InternalLinkSection
         title={`${city.name} için hizmet sayfaları`}
-        description={`${city.name} içinde en fazla talep gören hizmet kombinasyonlarını aşağıda bir araya getirdik. Her bağlantı ilgili ${city.name} + hizmet intent'ine giden gerçek route'a açılır.`}
+        description={`${city.name} bölgesinde en çok tercih edilen güvenlik sistemi hizmetlerini aşağıda bulabilirsiniz. İlgili hizmet sayfasına giderek detayları inceleyebilirsiniz.`}
         links={cityServiceLinks}
       />
 
@@ -380,8 +380,8 @@ export default async function CityPage({ params }: PageProps) {
 
         <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#374151" }}>
           Biz keşif aşamasında giriş-çıkış noktalarını, izlenecek kritik alanları, kayıt beklentisini
-          ve uzaktan erişim ihtiyacını netleştirip ona göre sistem öneriyoruz. Bu yaklaşım satış da
-          getirir çünkü kullanıcıyı ürünle değil çözümle ikna eder.
+          ve uzaktan erişim ihtiyacını netleştirip ona göre sistem öneriyoruz. Bu sayede kurulum
+          sonrasında sistem gerçekten işe yarar; kör nokta kalmaz, kayıt süresi yeterli olur.
         </p>
       </section>
 
