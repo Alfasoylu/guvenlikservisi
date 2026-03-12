@@ -20,9 +20,7 @@ import {
   Wifi,
 } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
-import { getCommercialPageVisuals } from "@/lib/page-images";
 import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteForm";
-import ServiceVisualSection from "@/components/ServiceVisualSection";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/istanbul-ip-kamera-montaji");
 
@@ -113,8 +111,6 @@ const districts = [
   "Üsküdar",
   "Zeytinburnu",
 ];
-
-const visualItems = getCommercialPageVisuals("teklif/istanbul-ip-kamera-montaji", "?stanbul IP kamera montaj?");
 
 const highlights = [
   "Aynı gün keşif planlaması",

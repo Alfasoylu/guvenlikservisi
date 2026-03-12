@@ -83,24 +83,3 @@ export const serviceImageGroups: Record<string, Partial<ImageGroup>> = {
     diagram: widescreen("/images/diagrams/security-network-flow.svg"),
   },
 };
-
-export const commercialPageImageGroups: Record<string, Partial<ImageGroup>> = {
-  "teklif/kamera": serviceImageGroups["kamera-sistemi-kurulumu"],
-  "teklif/kamera/istanbul-ip-kamera-montaji": {
-    hero: widescreen("/images/landing/istanbul-ip-kamera-hero.webp"),
-    context: widescreen("/images/landing/ip-kamera-kurulum-detay.webp"),
-    process: widescreen("/images/landing/gunduz-ve-gece-kayit-demo.webp"),
-    diagram: widescreen("/images/diagrams/camera-system-flow.svg"),
-  },
-  "teklif/istanbul-ip-kamera-montaji": {
-    hero: widescreen("/images/landing/istanbul-ip-kamera-hero.webp"),
-    context: widescreen("/images/landing/ip-kamera-kurulum-detay.webp"),
-    process: widescreen("/images/landing/gunduz-ve-gece-kayit-demo.webp"),
-    diagram: widescreen("/images/diagrams/camera-system-flow.svg"),
-  },
-  "teklif/alarm": serviceImageGroups["alarm-sistemi-kurulumu"],
-  "teklif/yangin": serviceImageGroups["yangin-alarm-sistemi-kurulumu"],
-  "teklif/apartman": serviceImageGroups["apartman-site-guvenlik-sistemi"],
-  "teklif/isyeri": serviceImageGroups["isyeri-guvenlik-sistemi"],
-  "bakim-servis-uzaktan-izleme": serviceImageGroups["bakim-servis-uzaktan-izleme"],
-};

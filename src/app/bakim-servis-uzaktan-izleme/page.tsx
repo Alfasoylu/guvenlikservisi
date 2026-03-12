@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
-import { getCommercialPageVisuals } from "@/lib/page-images";
-import ServiceVisualSection from "@/components/ServiceVisualSection";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/bakim-servis-uzaktan-izleme");
 
@@ -62,8 +60,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const visualItems = getCommercialPageVisuals("bakim-servis-uzaktan-izleme", "G?venlik sistemi bak?m ve uzaktan izleme hizmeti");
 
 const provinces = [
   "İstanbul",
@@ -293,12 +289,6 @@ export default function BakimServisUzaktanIzlemePage() {
             </div>
           </div>
         </section>
-
-        <ServiceVisualSection
-          title="Bak?m, servis ve uzaktan izleme g?rselleri"
-          description="Recurring gelir odakl? bu sayfada saha bak?m ?rnekleri, izleme merkezi ba?lam?, servis s?reci ve sistem ak??? birlikte g?sterilir."
-          items={visualItems}
-        />
 
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
