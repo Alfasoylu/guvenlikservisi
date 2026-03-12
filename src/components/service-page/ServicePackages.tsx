@@ -16,10 +16,16 @@ interface ServicePackageItem {
 interface ServicePackagesProps {
   title: string;
   description: string;
+  localContext?: string;
   items: ServicePackageItem[];
 }
 
-export default function ServicePackages({ title, description, items }: ServicePackagesProps) {
+export default function ServicePackages({
+  title,
+  description,
+  localContext,
+  items,
+}: ServicePackagesProps) {
   if (items.length === 0) {
     return null;
   }
@@ -28,6 +34,7 @@ export default function ServicePackages({ title, description, items }: ServicePa
     <section className={sectionClass}>
       <h2 className={sectionTitleClass}>{title}</h2>
       <p className={sectionIntroClass}>{description}</p>
+      {localContext ? <p className={sectionIntroClass}>{localContext}</p> : null}
 
       <div className={wideGridClass}>
         {items.map((item) => (

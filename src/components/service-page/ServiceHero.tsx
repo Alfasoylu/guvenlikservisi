@@ -23,11 +23,9 @@ interface ServiceHeroProps {
   serviceName: string;
   cityDescription: string;
   intro: string;
-  trustBullets: string[];
-  processSummary: {
-    title: string;
-    body: string;
-  };
+  localContext: string;
+  benefits: string[];
+  process: string[];
 }
 
 export default function ServiceHero({
@@ -35,8 +33,9 @@ export default function ServiceHero({
   serviceName,
   cityDescription,
   intro,
-  trustBullets,
-  processSummary,
+  localContext,
+  benefits,
+  process,
 }: ServiceHeroProps) {
   return (
     <section className={`${sectionClass} ${heroGridClass}`}>
@@ -56,8 +55,8 @@ export default function ServiceHero({
         </h1>
 
         <p className={heroIntroClass}>{cityDescription}</p>
-
         <p className={bodyTextLeadClass}>{intro}</p>
+        {localContext ? <p className={`${bodyTextClass} mb-7`}>{localContext}</p> : null}
 
         <div className={actionRowClass}>
           <a href="#teklif" className={primaryButtonClass}>
@@ -71,18 +70,29 @@ export default function ServiceHero({
       </div>
 
       <aside className={`${cardClass} bg-[#F8FAFB]`}>
-        <div className={heroEyebrowClass}>Kurulum yaklaşımımız</div>
+        <div className={heroEyebrowClass}>Neden tercih ediliyoruz?</div>
 
-        <h2 className="mb-3 text-[24px] text-[#0F2B46]">{processSummary.title}</h2>
-        <p className={`${bodyTextClass} mb-[18px]`}>{processSummary.body}</p>
-
-        <div className={trustGridClass}>
-          {trustBullets.map((item) => (
+        <h2 className="mb-3 text-[24px] text-[#0F2B46]">Öne çıkan faydalar</h2>
+        <div className={`${trustGridClass} mb-[18px]`}>
+          {benefits.map((item) => (
             <div key={item} className={trustCardClass}>
               {item}
             </div>
           ))}
         </div>
+
+        {process.length > 0 ? (
+          <>
+            <h3 className="mb-3 text-[20px] text-[#0F2B46]">Kurulum süreci</h3>
+            <div className={trustGridClass}>
+              {process.map((item, index) => (
+                <div key={item} className={trustCardClass}>
+                  {index + 1}. {item}
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
       </aside>
     </section>
   );

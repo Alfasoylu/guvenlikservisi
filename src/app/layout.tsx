@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/data/site-config";
@@ -7,11 +6,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PhoneButton from "@/components/PhoneButton";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -110,7 +104,7 @@ export default function RootLayout({
           </Script>
         )}
       </head>
-      <body className={`${inter.className} antialiased bg-white text-text`}>
+      <body className="bg-white text-text antialiased [font-family:Inter,ui-sans-serif,system-ui,sans-serif]">
         {GTM_ID && (
           <noscript>
             <iframe

@@ -11,7 +11,6 @@ import ServicePackages from "@/components/service-page/ServicePackages";
 import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
-import { cityContent } from "@/data/city-content";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
@@ -50,11 +49,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const title = `${city.name} ${service.name} | Ücretsiz Keşif ve Montaj`;
-  const districtCoverage = cityContent[city.slug]?.metadataDistrictCoverage;
-  const description = districtCoverage
-    ? `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. ${districtCoverage} Ücretsiz keşif, anahtar teslim montaj ve hızlı teklif alın.`
-    : `${city.name} için profesyonel ${service.name.toLowerCase()} hizmeti. Ücretsiz keşif, anahtar teslim montaj, mobil izleme kurulumu ve hızlı teklif alın.`;
   const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
 
   if (!canonical) {
@@ -63,15 +57,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const pageContent = getServicePageFactoryData(city, service);
+
   return {
-    title,
-    description,
+    title: pageContent.meta.title,
+    description: pageContent.meta.description,
     alternates: {
       canonical,
     },
     openGraph: {
-      title,
-      description,
+      title: pageContent.meta.title,
+      description: pageContent.meta.description,
       url: canonical,
       siteName: siteConfig.name,
       locale: "tr_TR",
@@ -98,29 +94,13 @@ export default async function ServicePage({ params }: PageProps) {
     notFound();
   }
 
+  const pageContent = getServicePageFactoryData(city, service);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
-  const {
-    cityDescription,
-    intro,
-    trustBullets,
-    processSummary,
-    useCaseTitle,
-    useCaseDescription,
-    useCases,
-    packageTitle,
-    packageDescription,
-    packages,
-    faqItems,
-    cta,
-    districts,
-    stats,
-    sameCityOtherServices,
-  } = getServicePageFactoryData(city, service);
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: pageContent.faq.items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -168,7 +148,7 @@ export default async function ServicePage({ params }: PageProps) {
       streetAddress: siteConfig.address,
       addressCountry: "TR",
     },
-    description: `${city.name} için ${service.name.toLowerCase()} hizmeti.`,
+    description: pageContent.meta.description,
   };
 
   return (
@@ -189,45 +169,52 @@ export default async function ServicePage({ params }: PageProps) {
       <ServiceHero
         cityName={city.name}
         serviceName={service.name}
-        cityDescription={cityDescription}
-        intro={intro}
-        trustBullets={trustBullets}
-        processSummary={processSummary}
+        cityDescription={pageContent.hero.cityDescription}
+        intro={pageContent.hero.intro}
+        localContext={pageContent.hero.localContext}
+        benefits={pageContent.hero.benefits}
+        process={pageContent.hero.process}
       />
 
-      <ServiceStats items={stats} />
+      <ServiceStats
+        title={pageContent.stats.title}
+        description={pageContent.stats.description}
+        items={pageContent.stats.items}
+      />
 
       <ServiceVisualSection
-        title={`${city.name} ${service.name} için uygulama görselleri`}
-        description={`${city.name} bölgesinde gerçekleştirilen ${service.name.toLowerCase()} projelerinden örnekler, saha uygulamaları ve sistem şeması bu bölümde sunulmaktadır.`}
+        title={pageContent.visuals.title}
+        description={pageContent.visuals.description}
         items={serviceVisuals}
       />
 
       <CityHubSection cityName={city.name} cityPath={cityPath} />
 
-      <RelatedServicesSection cityName={city.name} links={sameCityOtherServices} />
+      <RelatedServicesSection cityName={city.name} links={pageContent.relatedServices} />
 
       <ServiceUseCases
-        title={useCaseTitle}
-        description={useCaseDescription}
-        items={useCases}
+        title={pageContent.useCases.title}
+        description={pageContent.useCases.description}
+        localContext={pageContent.useCases.localContext}
+        items={pageContent.useCases.items}
       />
 
       <ServicePackages
-        title={packageTitle}
-        description={packageDescription}
-        items={packages}
+        title={pageContent.packages.title}
+        description={pageContent.packages.description}
+        localContext={pageContent.packages.localContext}
+        items={pageContent.packages.items}
       />
 
-      <ServiceDistricts cityName={city.name} districts={districts} />
+      <ServiceDistricts cityName={city.name} districts={pageContent.districts} />
 
-      <ServiceFAQ items={faqItems} />
+      <ServiceFAQ title={pageContent.faq.title} items={pageContent.faq.items} />
 
       <ServiceCTA
-        title={cta.title}
-        description={cta.description}
-        primaryLabel={cta.primaryLabel}
-        secondaryLabel={cta.secondaryLabel}
+        title={pageContent.cta.title}
+        description={pageContent.cta.description}
+        primaryLabel={pageContent.cta.primaryLabel}
+        secondaryLabel={pageContent.cta.secondaryLabel}
       />
     </main>
   );
