@@ -159,7 +159,7 @@ export default async function CityPage({ params }: PageProps) {
     return {
       href,
       label: `${city.name} ${service.name}`,
-      description: `${city.name} icindeki ${service.name.toLowerCase()} sayfasina gidin ve hizmet detaylarini inceleyin.`,
+      description: `${city.name} içindeki ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
     };
   });
 
@@ -380,8 +380,8 @@ export default async function CityPage({ params }: PageProps) {
 
         <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#374151" }}>
           Biz keşif aşamasında giriş-çıkış noktalarını, izlenecek kritik alanları, kayıt beklentisini
-          ve uzaktan erişim ihtiyacını netleştirip ona göre sistem öneriyoruz. Bu yaklaşım satış da
-          getirir çünkü kullanıcıyı ürünle değil çözümle ikna eder.
+          ve uzaktan erişim ihtiyacını netleştirip ona göre sistem öneriyoruz. Bu sayede kurulum
+          sonrasında sistem gerçekten işe yarar; kör nokta kalmaz, kayıt süresi yeterli olur.
         </p>
       </section>
 
