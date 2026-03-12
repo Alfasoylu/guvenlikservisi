@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import CityHubSection from "@/components/service-page/CityHubSection";
-import OtherCitiesSection from "@/components/service-page/OtherCitiesSection";
 import RelatedServicesSection from "@/components/service-page/RelatedServicesSection";
 import ServiceCTA from "@/components/service-page/ServiceCTA";
 import ServiceDistricts from "@/components/service-page/ServiceDistricts";
@@ -112,7 +111,6 @@ export default async function ServicePage({ params }: PageProps) {
     districts,
     stats,
     sameCityOtherServices,
-    sameServiceOtherCities,
   } = getServicePageFactoryData(city, service);
 
   const faqSchema = {
@@ -220,8 +218,6 @@ export default async function ServicePage({ params }: PageProps) {
       <ServiceDistricts cityName={city.name} districts={districts} />
 
       <ServiceFAQ items={faqItems} />
-
-      <OtherCitiesSection serviceName={service.name} links={sameServiceOtherCities} />
 
       <ServiceCTA
         title={cta.title}
