@@ -146,11 +146,6 @@ const data: LandingPageData = {
     },
   ],
 
-  visuals: {
-    pageKey: "teklif/kamera/istanbul-ip-kamera-montaji",
-    title: "İstanbul IP kamera montajı görselleri",
-    description: "İstanbul odaklı bu teklif sayfasında örnek kurulum, ekipman yerleşimi, montaj akışı ve sistem şeması birlikte sunulur.",
-  },
   cta: {
     title: "İstanbul IP Kamera Montajı İçin Hemen Teklif Alın",
     subtitle:

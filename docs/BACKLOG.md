@@ -828,3 +828,6 @@ Her yeni sayfada:
 - [x] internal linking engine’i devreye al
 - [ ] Search Console + GA4 + lead dashboard ile performans izlemeyi başlat
 - [ ] sadece trafik değil, lead ve sözleşme getiren cluster’ları ölçekle
+
+- [x] programmatic image system / visual section / local asset mapping
+- [x] High-value commercial page visual expansion

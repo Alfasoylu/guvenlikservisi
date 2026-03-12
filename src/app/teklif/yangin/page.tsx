@@ -133,11 +133,6 @@ const data: LandingPageData = {
         "Yasal olarak yıllık bakım ve test raporu tutulması gerekir. Bakım sözleşmesi ile bu yükümlülüğü üstleniyoruz.",
     },
   ],
-  visuals: {
-    pageKey: "teklif/yangin",
-    title: "Yangın alarm sistemi uygulama görselleri",
-    description: "Yangın alarm teklif sayfasında cihaz yerleşimi, saha uygulaması, montaj süreci ve bağlantı şeması bir arada gösterilir.",
-  },
   cta: {
     title: "Ücretsiz Yangın Alarm Teklifi Alın",
     subtitle: "Yasal uyum ve güvenlik için hemen teklif alın.",

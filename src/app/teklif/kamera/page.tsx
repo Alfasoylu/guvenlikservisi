@@ -135,11 +135,6 @@ const data: LandingPageData = {
         "Evet, kurduğumuz tüm sistemler iOS ve Android'den canlı izleme, kayıt izleme ve bildirim alma özelliği sunar.",
     },
   ],
-  visuals: {
-    pageKey: "teklif/kamera",
-    title: "Kamera sistemi kurulumu görselleri",
-    description: "Kamera kurulumu teklif sayfasında örnek saha uygulaması, kayıt altyapısı ve cihaz akışı birlikte gösterilir.",
-  },
   cta: {
     title: "Ücretsiz Kamera Kurulum Teklifi Alın",
     subtitle:
