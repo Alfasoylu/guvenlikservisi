@@ -738,137 +738,21 @@ export default function BakimServisUzaktanIzlemePage() {
                 Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
                 model sözleşmeli hizmettir.
               </p>
+<label htmlFor="company">
+<input id="company">
 
-              <ul className="mt-8 space-y-4 text-slate-200">
-                <li>✓ Aylık 2.000 TL’den başlayan planlar</li>
-                <li>✓ 18 ilde hizmet yapısı</li>
-                <li>✓ Site, fabrika, depo ve büyük işletme odaklı</li>
-                <li>✓ Bakım + servis + uzaktan izleme paketi</li>
-              </ul>
-            </div>
+<label htmlFor="name">
+<input id="name">
 
-           <MaintenanceQuoteForm />
-                  <label
-                    htmlFor="company"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Firma / Site / Tesis Adı
-                  </label>
-                  <input
-                    id="company"
-                    name="company"
-                    type="text"
-                    placeholder="Örn: X Residence Yönetimi / ABC Fabrika"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
+<label htmlFor="phone">
+<input id="phone">
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="mb-2 block text-sm font-semibold"
-                    >
-                      Yetkili Kişi
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Ad Soyad"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="mb-2 block text-sm font-semibold"
-                    >
-                      Telefon
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="05xx xxx xx xx"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                    />
-                  </div>
-                </div>
+<label htmlFor="city">
+<input id="city">
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="city"
-                      className="mb-2 block text-sm font-semibold"
-                    >
-                      İl
-                    </label>
-                    <input
-                      id="city"
-                      name="city"
-                      type="text"
-                      placeholder="Örn: İstanbul"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="facilityType"
-                      className="mb-2 block text-sm font-semibold"
-                    >
-                      Tesis Tipi
-                    </label>
-                    <select
-                      id="facilityType"
-                      name="facilityType"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Seçiniz
-                      </option>
-                      <option value="site">Site / Rezidans</option>
-                      <option value="fabrika">Fabrika / Üretim Tesisi</option>
-                      <option value="depo">Depo / Lojistik Alanı</option>
-                      <option value="plaza">Plaza / Ofis Binası</option>
-                      <option value="magaza">Mağaza / Zincir Şube</option>
-                      <option value="diger">Diğer</option>
-                    </select>
-                  </div>
-                </div>
+<select id="facilityType">
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-2 block text-sm font-semibold"
-                  >
-                    Kısa Bilgi
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Kamera sayısı, alarm sistemi var mı, kaç blok / kaç bina, mevcut sorunlar ve bakım beklentinizi yazın."
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-red-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-red-700"
-                >
-                  Bakım Sözleşmesi İçin Talep Gönder
-                </button>
-
-                <p className="text-xs leading-6 text-slate-500">
-                  Daha hızlı dönüş için sistem kapsamını mümkün olduğunca net yazın.
-                  Büyük tesis işlerinde doğru teklif, doğru ön analizle çıkar.
-                </p>
-              </form>
-            </div>
-          </div>
-        </section>
+<textarea id="message">
 
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
