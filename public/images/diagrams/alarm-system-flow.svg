@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Alarm sistemi akisi</title>
+  <desc id="desc">Alarm paneli, siren ve dedektorler arasindaki temel baglanti semasi</desc>
+  <rect width="1600" height="900" rx="48" fill="#F8FAFB"/>
+  <path d="M800 260v140M800 500v160M800 500H480M800 500h320" stroke="#0F2B46" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <rect x="650" y="120" width="300" height="160" rx="28" fill="#0F2B46"/>
+  <rect x="660" y="420" width="280" height="160" rx="28" fill="#EF4444"/>
+  <rect x="320" y="420" width="240" height="160" rx="28" fill="#F59E0B"/>
+  <rect x="1040" y="420" width="240" height="160" rx="28" fill="#1D4ED8"/>
+  <text x="800" y="210" font-family="Arial, sans-serif" font-size="52" fill="#fff" text-anchor="middle">Siren</text>
+  <text x="800" y="515" font-family="Arial, sans-serif" font-size="52" fill="#fff" text-anchor="middle">Alarm Paneli</text>
+  <text x="440" y="515" font-family="Arial, sans-serif" font-size="40" fill="#fff" text-anchor="middle">PIR</text>
+  <text x="440" y="560" font-family="Arial, sans-serif" font-size="30" fill="#fff" text-anchor="middle">Dedektor</text>
+  <text x="1160" y="510" font-family="Arial, sans-serif" font-size="34" fill="#fff" text-anchor="middle">Manyetik</text>
+  <text x="1160" y="552" font-family="Arial, sans-serif" font-size="34" fill="#fff" text-anchor="middle">Kontak</text>
+</svg>

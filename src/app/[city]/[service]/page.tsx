@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import InternalLinkSection from "@/components/InternalLinkSection";
+import ServiceVisualSection from "@/components/ServiceVisualSection";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
@@ -12,6 +13,7 @@ import {
   getCityServicePath,
   getCityServiceStaticParams,
 } from "@/lib/routes";
+import { getCityServicePageVisuals } from "@/lib/page-images";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -144,7 +146,7 @@ export default async function ServicePage({ params }: PageProps) {
 
   const cityPath = getCityPath(city.slug);
   const cityCanonical = getCityCanonicalUrl(city.slug);
-    const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
+  const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
 
   if (!cityPath || !cityCanonical || !canonical) notFound();
 
@@ -155,6 +157,7 @@ export default async function ServicePage({ params }: PageProps) {
     `${city.name} bolgesinde profesyonel ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
 
   const packages = getCameraPackageText(city.name);
+  const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
   const sameCityOtherServices = services.flatMap((item) => {
     if (item.slug === service.slug) {
       return [];
@@ -369,6 +372,12 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         ))}
       </section>
+
+      <ServiceVisualSection
+        title={`${city.name} ${service.name} için uygulama görselleri`}
+        description={`${city.name} ve ${service.name.toLowerCase()} intentini destekleyen bu blok; örnek kurulum, saha bağlamı ve sistem şeması ile sayfayı daha açıklayıcı hale getirir.`}
+        items={serviceVisuals}
+      />
 
       <section
         style={{

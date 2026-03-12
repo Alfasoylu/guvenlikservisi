@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kamera sistemi akisi</title>
+  <desc id="desc">Kamera, PoE switch, NVR, modem ve telefon baglanti semasi</desc>
+  <rect width="1600" height="900" rx="48" fill="#F8FAFB"/>
+  <g font-family="Arial, sans-serif">
+    <path d="M320 450h180M680 450h180M1040 450h160" stroke="#0F2B46" stroke-width="20" stroke-linecap="round"/>
+    <path d="M1210 450h70l60-120" stroke="#34A853" stroke-width="20" stroke-linecap="round" fill="none"/>
+    <rect x="120" y="320" width="200" height="260" rx="28" fill="#0F2B46"/>
+    <rect x="480" y="320" width="200" height="260" rx="28" fill="#1D4ED8"/>
+    <rect x="840" y="320" width="200" height="260" rx="28" fill="#334155"/>
+    <rect x="1200" y="320" width="200" height="260" rx="28" fill="#34A853"/>
+    <rect x="1300" y="120" width="160" height="140" rx="24" fill="#111827"/>
+    <text x="220" y="420" font-size="54" fill="#fff" text-anchor="middle">Kamera</text>
+    <text x="220" y="490" font-size="30" fill="#D1D5DB" text-anchor="middle">IP goruntu</text>
+    <text x="580" y="420" font-size="42" fill="#fff" text-anchor="middle">PoE</text>
+    <text x="580" y="480" font-size="42" fill="#fff" text-anchor="middle">Switch</text>
+    <text x="940" y="420" font-size="54" fill="#fff" text-anchor="middle">NVR</text>
+    <text x="940" y="490" font-size="30" fill="#D1D5DB" text-anchor="middle">Kayit cihazi</text>
+    <text x="1300" y="420" font-size="46" fill="#fff" text-anchor="middle">Modem</text>
+    <text x="1380" y="205" font-size="34" fill="#fff" text-anchor="middle">Telefon</text>
+  </g>
+</svg>

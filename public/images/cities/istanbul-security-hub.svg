@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Istanbul security hub</title>
+  <desc id="desc">Istanbul icin guvenlik sistemi kurulumu genel gorseli</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102A43"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M180 710c180-220 330-220 510 0" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="26" stroke-linecap="round"/>
+  <path d="M760 710c180-220 330-220 510 0" fill="none" stroke="#34A853" stroke-opacity="0.35" stroke-width="26" stroke-linecap="round"/>
+  <rect x="210" y="190" width="1180" height="460" rx="40" fill="#ffffff" opacity="0.08"/>
+  <rect x="280" y="260" width="440" height="320" rx="30" fill="#ffffff" opacity="0.12"/>
+  <rect x="790" y="260" width="530" height="100" rx="24" fill="#ffffff" opacity="0.14"/>
+  <rect x="790" y="400" width="240" height="180" rx="24" fill="#34A853" opacity="0.25"/>
+  <rect x="1080" y="400" width="240" height="180" rx="24" fill="#7DD3FC" opacity="0.22"/>
+  <circle cx="500" cy="420" r="110" fill="#34A853" opacity="0.85"/>
+  <path d="M500 360v120M440 420h120" stroke="#102A43" stroke-width="26" stroke-linecap="round"/>
+</svg>
