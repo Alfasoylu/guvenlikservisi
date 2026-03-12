@@ -42,6 +42,14 @@ export const h3CompactClass = "mb-[10px] text-[20px] text-[#0F2B46]";
 export const statValueClass = "mb-1.5 text-[30px] font-extrabold text-[#0F2B46]";
 export const statLabelClass = "text-[#555]";
 export const useCaseTextClass = "text-[17px] text-[#111827]";
+export const imageCardClass =
+  "overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white shadow-[0_10px_30px_rgba(15,43,70,0.06)]";
+export const imageFrameClass = "relative w-full overflow-hidden bg-[#F8FAFB]";
+export const imageTitleClass = "mb-2 text-[21px] text-[#0F2B46]";
+export const imageCaptionClass = "m-0 text-[15px] leading-[1.7] text-[#4B5563]";
+export const imageContentClass = "p-5";
+export const imageGridCompactClass =
+  "grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]";
 
 export const ctaSectionClass = "mb-10 rounded-[18px] bg-[#0F2B46] p-9 text-white";
 export const ctaTitleClass = "mb-[14px] text-[32px]";

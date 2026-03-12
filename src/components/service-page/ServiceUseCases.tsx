@@ -1,3 +1,4 @@
+import ServiceImageGrid from "@/components/service-page/ServiceImageGrid";
 import {
   gridClass,
   sectionClass,
@@ -6,12 +7,14 @@ import {
   softCardClass,
   useCaseTextClass,
 } from "@/components/service-page/styles";
+import type { ServicePageImage } from "@/lib/service-page-factory";
 
 interface ServiceUseCasesProps {
   title: string;
   description: string;
   localContext?: string;
   items: string[];
+  images?: ServicePageImage[];
 }
 
 export default function ServiceUseCases({
@@ -19,6 +22,7 @@ export default function ServiceUseCases({
   description,
   localContext,
   items,
+  images = [],
 }: ServiceUseCasesProps) {
   return (
     <section className={sectionClass}>
@@ -33,6 +37,12 @@ export default function ServiceUseCases({
           </div>
         ))}
       </div>
+
+      {images.length > 0 ? (
+        <div className="mt-6">
+          <ServiceImageGrid images={images.slice(0, 2)} />
+        </div>
+      ) : null}
     </section>
   );
 }

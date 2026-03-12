@@ -3,6 +3,13 @@ import type { ServiceFAQItem } from "@/components/service-page/ServiceFAQ";
 import type { ServiceStatItem } from "@/components/service-page/ServiceStats";
 import { cityContent } from "@/data/seo-content/cities";
 import { faqContent } from "@/data/seo-content/faq";
+import {
+  fallbackServiceImages,
+  serviceImages,
+  type ServiceImageAspect,
+  type ServiceImageRegistryEntry,
+  type ServiceImageSource,
+} from "@/data/seo-content/images";
 import { packagesContent } from "@/data/seo-content/packages";
 import { serviceContent } from "@/data/seo-content/services";
 import { useCaseContent } from "@/data/seo-content/usecases";
@@ -23,6 +30,14 @@ export interface ServiceSEOContentBlock {
   title: string;
   paragraphs: string[];
   items?: string[];
+}
+
+export interface ServicePageImage {
+  src: string;
+  alt: string;
+  title?: string;
+  caption?: string;
+  aspect: ServiceImageAspect;
 }
 
 export interface ServicePageFactoryResult {
@@ -71,6 +86,12 @@ export interface ServicePageFactoryResult {
     primaryLabel: string;
     secondaryLabel: string;
   };
+  images: {
+    hero: ServicePageImage | null;
+    support: ServicePageImage[];
+    useCases: ServicePageImage[];
+    cta: ServicePageImage | null;
+  };
   districts: string[];
   relatedServices: InternalLinkItem[];
 }
@@ -101,6 +122,45 @@ function formatNaturalList(items: string[]) {
 function getSortedDistricts(citySlug: string) {
   const turkishCollator = new Intl.Collator("tr");
   return [...(cityContent[citySlug]?.districts || [])].sort((a, b) => turkishCollator.compare(a, b));
+}
+
+function getServiceImageEntry(serviceSlug: string): ServiceImageRegistryEntry {
+  return {
+    hero: serviceImages[serviceSlug]?.hero || fallbackServiceImages.hero,
+    support: serviceImages[serviceSlug]?.support || fallbackServiceImages.support || [],
+    useCases: serviceImages[serviceSlug]?.useCases || fallbackServiceImages.useCases || [],
+    cta: serviceImages[serviceSlug]?.cta || fallbackServiceImages.cta,
+  };
+}
+
+function buildImageAltText(
+  city: CityRecord,
+  service: ServiceRecord,
+  source: ServiceImageSource
+) {
+  return `${city.name} ${service.name.toLowerCase()} için ${source.subject}`;
+}
+
+function mapServiceImage(
+  city: CityRecord,
+  service: ServiceRecord,
+  source?: ServiceImageSource
+): ServicePageImage | null {
+  if (!source) {
+    return null;
+  }
+
+  return {
+    src: source.src,
+    alt: buildImageAltText(city, service, source),
+    title: source.title,
+    caption: source.caption,
+    aspect: source.aspect || "landscape",
+  };
+}
+
+function isServicePageImage(value: ServicePageImage | null): value is ServicePageImage {
+  return value !== null;
 }
 
 function getSEOContentBlocks(city: CityRecord): ServiceSEOContentBlock[] {
@@ -194,6 +254,7 @@ export function getServicePageFactoryData(
   const serviceFaq = faqContent[service.slug];
   const servicePackages = packagesContent[service.slug];
   const serviceUseCases = useCaseContent[service.slug];
+  const imageEntry = getServiceImageEntry(service.slug);
 
   const districts = getSortedDistricts(city.slug);
   const benefits = serviceDetails?.benefits.map((item) => fillTemplate(item, city, service)) || [];
@@ -210,6 +271,12 @@ export function getServicePageFactoryData(
       title: fillTemplate(item.title, city, service),
       description: fillTemplate(item.description, city, service),
     })) || [];
+  const heroImage = mapServiceImage(city, service, imageEntry.hero);
+  const supportImages =
+    imageEntry.support?.map((item) => mapServiceImage(city, service, item)).filter(isServicePageImage) || [];
+  const useCaseImages =
+    imageEntry.useCases?.map((item) => mapServiceImage(city, service, item)).filter(isServicePageImage) || [];
+  const ctaImage = mapServiceImage(city, service, imageEntry.cta);
 
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
   const metadataTargetText = formatNaturalList(metadataTargets);
@@ -295,6 +362,12 @@ export function getServicePageFactoryData(
       ),
       primaryLabel: "Hemen Ara",
       secondaryLabel: "İletişim Formuna Git",
+    },
+    images: {
+      hero: heroImage,
+      support: supportImages,
+      useCases: useCaseImages.length > 0 ? useCaseImages : supportImages.slice(0, 2),
+      cta: ctaImage,
     },
     districts,
     relatedServices,

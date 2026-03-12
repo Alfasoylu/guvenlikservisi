@@ -1,5 +1,7 @@
 import Link from "next/link";
+import ServiceImageBlock from "@/components/service-page/ServiceImageBlock";
 import { siteConfig } from "@/data/site-config";
+import type { ServicePageImage } from "@/lib/service-page-factory";
 import {
   actionRowClass,
   breadcrumbClass,
@@ -26,6 +28,7 @@ interface ServiceHeroProps {
   localContext: string;
   benefits: string[];
   process: string[];
+  image?: ServicePageImage | null;
 }
 
 export default function ServiceHero({
@@ -36,6 +39,7 @@ export default function ServiceHero({
   localContext,
   benefits,
   process,
+  image,
 }: ServiceHeroProps) {
   return (
     <section className={`${sectionClass} ${heroGridClass}`}>
@@ -70,6 +74,17 @@ export default function ServiceHero({
       </div>
 
       <aside className={`${cardClass} bg-[#F8FAFB]`}>
+        {image ? (
+          <div className="mb-5">
+            <ServiceImageBlock
+              src={image.src}
+              alt={image.alt}
+              aspect="hero"
+              priority
+            />
+          </div>
+        ) : null}
+
         <div className={heroEyebrowClass}>Neden tercih ediliyoruz?</div>
 
         <h2 className="mb-3 text-[24px] text-[#0F2B46]">Öne çıkan faydalar</h2>
