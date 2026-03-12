@@ -1,3 +1,4 @@
+import MaintenanceQuoteForm from "@/components/forms/MaintenanceQuoteForm";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -746,9 +747,7 @@ export default function BakimServisUzaktanIzlemePage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl">
-              <form action="/iletisim#teklif-formu" className="space-y-5">
-                <div>
+           <MaintenanceQuoteForm />
                   <label
                     htmlFor="company"
                     className="mb-2 block text-sm font-semibold"
