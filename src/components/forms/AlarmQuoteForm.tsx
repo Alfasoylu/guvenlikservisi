@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
+import {
+  formatTurkishPhoneInput,
+  getTurkishPhoneValidationMessage,
+  normalizeTurkishPhone,
+} from "@/lib/phone";
 
 type FormState = {
   name: string;
@@ -11,6 +16,7 @@ type FormState = {
   district: string;
   location_type: string;
   message: string;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -21,6 +27,7 @@ const initialState: FormState = {
   district: "",
   location_type: "",
   message: "",
+  website: "",
 };
 
 export default function AlarmQuoteForm() {
@@ -37,6 +44,13 @@ export default function AlarmQuoteForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const phoneError = getTurkishPhoneValidationMessage(form.phone);
+
+    if (phoneError) {
+      setErrorMessage(phoneError);
+      return;
+    }
+
     setLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
@@ -44,7 +58,7 @@ export default function AlarmQuoteForm() {
     try {
       const payload = {
         name: form.name.trim(),
-        phone: form.phone.trim(),
+        phone: normalizeTurkishPhone(form.phone),
         email: form.email.trim(),
         city: form.city.trim() || "İstanbul",
         district: form.district.trim(),
@@ -52,14 +66,20 @@ export default function AlarmQuoteForm() {
         location_type: form.location_type.trim(),
         camera_count: "",
         message: form.message.trim(),
+        website: form.website,
         page_url: attribution.page_url || "https://guvenlikservisi.com/teklif/alarm",
+        page_type: attribution.page_type || "landing_page",
         form_source: "alarm_landing_page",
         utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
         utm_campaign: attribution.utm_campaign,
         utm_term: attribution.utm_term,
         utm_content: attribution.utm_content,
         referrer: attribution.referrer,
         timestamp: attribution.timestamp,
+        gclid: attribution.gclid,
+        fbclid: attribution.fbclid,
+        msclkid: attribution.msclkid,
         notes: "alarm sayfası formu",
       };
 
@@ -78,13 +98,15 @@ export default function AlarmQuoteForm() {
       }
 
       setSuccessMessage(
-        "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek."
+        result.message || "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek."
       );
       setForm(initialState);
     } catch (error) {
       console.error("alarm form submit error", error);
       setErrorMessage(
-        "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın."
+        error instanceof Error && error.message
+          ? error.message
+          : "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın."
       );
     } finally {
       setLoading(false);
@@ -99,12 +121,32 @@ export default function AlarmQuoteForm() {
         <input type="hidden" name="camera_count" value="" />
         <input type="hidden" name="notes" value="alarm sayfası formu" />
         <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
         <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
         <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
         <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
         <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
         <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
         <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+        <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
+        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
+        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
+        <div
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-5000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+        >
+          <label htmlFor="alarm-website">Website</label>
+          <input
+            id="alarm-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) => updateField("website", e.target.value)}
+          />
+        </div>
 
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-semibold">
@@ -132,7 +174,7 @@ export default function AlarmQuoteForm() {
             type="tel"
             required
             value={form.phone}
-            onChange={(e) => updateField("phone", e.target.value)}
+            onChange={(e) => updateField("phone", formatTurkishPhoneInput(e.target.value))}
             placeholder="05xx xxx xx xx"
             className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
           />

@@ -1,40 +1,13 @@
 /**
  * BL-02 — Lead kolon standardı ve veri şeması
  *
- * Bu dosya tüm lead verisi için tek kaynak (single source of truth) görevi görür.
+ * Bu dosya tüm lead verisi için tek kaynak görevi görür.
  * Hem /api/lead hem /api/quote bu şemayı kullanır.
  * Google Sheets webhook'a giden veri bu şemaya göre normalize edilir.
- *
- * GOOGLE SHEETS HEADER STANDARDI:
- * lead_id
- * timestamp
- * form_source
- * page_url
- * service_type
- * city
- * district
- * name
- * phone
- * email
- * location_type
- * camera_count
- * message
- * utm_source
- * utm_medium
- * utm_campaign
- * utm_term
- * utm_content
- * referrer
- * gclid
- * call_status
- * lead_status
- * assigned_to
- * notes
  */
 
-// ─────────────────────────────────────────────────────────────
-// ENUMS / CONSTANTS
-// ─────────────────────────────────────────────────────────────
+import { getPageType } from "@/lib/lead-security";
+import { isValidTurkishPhone, normalizeTurkishPhone } from "@/lib/phone";
 
 export const CALL_STATUSES = [
   "aranmadi",
@@ -68,45 +41,30 @@ export const FORM_SOURCES = [
 
 export type FormSource = (typeof FORM_SOURCES)[number];
 
-// ─────────────────────────────────────────────────────────────
-// MAIN LEAD RECORD
-// ─────────────────────────────────────────────────────────────
-
 export interface LeadRecord {
   lead_id: string;
   timestamp: string;
-
   form_source: FormSource;
   page_url: string;
-
   service_type: string;
   city: string;
   district: string;
-
   name: string;
   phone: string;
   email: string;
-
   location_type: string;
   camera_count: string;
   message: string;
-
   utm_source: string;
   utm_medium: string;
   utm_campaign: string;
   utm_term: string;
   gclid: string;
-
   call_status: CallStatus;
   lead_status: LeadStatus;
   assigned_to: string;
   notes: string;
 }
-
-// ─────────────────────────────────────────────────────────────
-// SHEET COLUMN ORDER
-// Google Sheets header row ile birebir aynı olmalı
-// ─────────────────────────────────────────────────────────────
 
 export const SHEET_COLUMNS: (keyof LeadRecord)[] = [
   "lead_id",
@@ -133,13 +91,7 @@ export const SHEET_COLUMNS: (keyof LeadRecord)[] = [
   "notes",
 ];
 
-// ─────────────────────────────────────────────────────────────
-// RAW INPUT TYPE
-// Farklı formlardan gelen alan isimlerini burada topluyoruz
-// ─────────────────────────────────────────────────────────────
-
 export interface RawLeadInput {
-  // müşteri
   name?: string;
   full_name?: string;
   customer_name?: string;
@@ -152,13 +104,11 @@ export interface RawLeadInput {
   email?: string;
   mail?: string;
 
-  // konum
   city?: string;
   district?: string;
   il?: string;
   ilce?: string;
 
-  // hizmet
   service_type?: string;
   service?: string;
   hizmet?: string;
@@ -177,67 +127,41 @@ export interface RawLeadInput {
   notes?: string;
   aciklama?: string;
 
-  // tracking
   page_url?: string;
   page?: string;
   url?: string;
+  page_type?: string;
 
-  form_source?: FormSource;
+  form_source?: string;
 
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
   utm_term?: string;
-  utm_content?: string; // şu an sheet'te yok, ama ileride lazım olabilir
+  utm_content?: string;
   referrer?: string;
   page_title?: string;
   gclid?: string;
+  fbclid?: string;
+  msclkid?: string;
 
-  // opsiyonel sistem alanları
+  website?: string;
+  company_website?: string;
+
   lead_id?: string;
   timestamp?: string;
 }
-
-// ─────────────────────────────────────────────────────────────
-// HELPERS
-// ─────────────────────────────────────────────────────────────
 
 function cleanString(value: unknown): string {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
 function safeLower(value: unknown): string {
-  return cleanString(value).toLowerCase();
+  return cleanString(value).toLocaleLowerCase("tr-TR");
 }
 
 export function normalizePhone(value: string): string {
-  const digits = String(value || "").replace(/\D/g, "");
-
-  if (!digits) return "";
-
-  let phone = digits;
-
-  // 0532xxxxxxx → 90532xxxxxxx
-  if (phone.length === 11 && phone.startsWith("0")) {
-    phone = "90" + phone.slice(1);
-  }
-
-  // 532xxxxxxx → 90532xxxxxxx
-  if (phone.length === 10 && phone.startsWith("5")) {
-    phone = "90" + phone;
-  }
-
-  // 90532xxxxxxx → olduğu gibi bırak
-  if (phone.length === 12 && phone.startsWith("90")) {
-    // ok
-  }
-
-  // TR GSM doğrulaması
-  if (!/^905\d{9}$/.test(phone)) {
-    return "";
-  }
-
-  return phone;
+  return normalizeTurkishPhone(value);
 }
 
 export function formatTimestamp(): string {
@@ -296,10 +220,7 @@ function normalizeServiceType(value: string): string {
     return "kartli-gecis";
   }
 
-  if (
-    v.includes("apartman") ||
-    v.includes("site")
-  ) {
+  if (v.includes("apartman") || v.includes("site")) {
     return "apartman-site";
   }
 
@@ -351,41 +272,40 @@ function normalizeCameraCount(value: string): string {
     .trim();
 }
 
-// ─────────────────────────────────────────────────────────────
-// MAIN BUILDER
-// ─────────────────────────────────────────────────────────────
+function normalizeFormSource(rawSource: unknown, pageUrl: string, fallbackSource: FormSource): FormSource {
+  const value = safeLower(rawSource);
 
-export function buildLeadRecord(
-  raw: RawLeadInput,
-  source: FormSource
-): LeadRecord {
-  const name = cleanString(raw.name || raw.full_name || raw.customer_name);
-  const phone = normalizePhone(raw.phone || raw.gsm || raw.mobile || raw.telephone || "");
-  const email = cleanString(raw.email || raw.mail);
+  if (value.includes("whatsapp")) return "whatsapp";
+  if (value.includes("phone")) return "phone_call";
+  if (value.includes("manual")) return "manual";
+  if (value.includes("istanbul") && value.includes("kamera")) return "istanbul_ip_kamera";
+  if (value.includes("landing")) return "landing_page";
+  if (value.includes("quote")) return "quote_form";
+  if (pageUrl.includes("/teklif/")) return "landing_page";
 
-  const city = cleanString(raw.city || raw.il);
-  const district = cleanString(raw.district || raw.ilce);
+  return fallbackSource;
+}
 
-  const service_type = normalizeServiceType(
-    raw.service_type || raw.service || raw.hizmet || ""
-  );
+function isValidEmail(value: string) {
+  if (!value) return true;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
-  const location_type = normalizeLocationType(
-    raw.location_type || raw.placeType || raw.mekan_tipi || raw.property_type || ""
-  );
-
-  const camera_count = normalizeCameraCount(
-    raw.camera_count || raw.cameraCount || raw.kamera_sayisi || ""
-  );
-
-  const message = cleanString(raw.message || raw.note || raw.aciklama);
-
+export function buildLeadRecord(raw: RawLeadInput, source: FormSource): LeadRecord {
   const page_url = cleanString(raw.page_url || raw.page || raw.url);
+  const normalizedSource = normalizeFormSource(raw.form_source, page_url, source);
+  const pageType = getPageType(page_url, raw.page_type);
+  const normalizedPhone = normalizePhone(raw.phone || raw.gsm || raw.mobile || raw.telephone || "");
+
   const notes = [
     cleanString(raw.notes),
+    cleanString(raw.form_source) ? `form_source_raw:${cleanString(raw.form_source)}` : "",
+    pageType ? `page_type:${pageType}` : "",
     cleanString(raw.utm_content) ? `utm_content:${cleanString(raw.utm_content)}` : "",
     cleanString(raw.referrer) ? `referrer:${cleanString(raw.referrer)}` : "",
     cleanString(raw.page_title) ? `page_title:${cleanString(raw.page_title)}` : "",
+    cleanString(raw.fbclid) ? `fbclid:${cleanString(raw.fbclid)}` : "",
+    cleanString(raw.msclkid) ? `msclkid:${cleanString(raw.msclkid)}` : "",
   ]
     .filter(Boolean)
     .join(" | ");
@@ -393,39 +313,32 @@ export function buildLeadRecord(
   return {
     lead_id: cleanString(raw.lead_id) || createLeadId(),
     timestamp: cleanString(raw.timestamp) || formatTimestamp(),
-
-    form_source: source,
+    form_source: normalizedSource,
     page_url,
-
-    service_type,
-    city,
-    district,
-
-    name,
-    phone,
-    email,
-
-    location_type,
-    camera_count,
-    message,
-
+    service_type: normalizeServiceType(raw.service_type || raw.service || raw.hizmet || ""),
+    city: cleanString(raw.city || raw.il),
+    district: cleanString(raw.district || raw.ilce),
+    name: cleanString(raw.name || raw.full_name || raw.customer_name),
+    phone: normalizedPhone,
+    email: cleanString(raw.email || raw.mail),
+    location_type: normalizeLocationType(
+      raw.location_type || raw.placeType || raw.mekan_tipi || raw.property_type || ""
+    ),
+    camera_count: normalizeCameraCount(
+      raw.camera_count || raw.cameraCount || raw.kamera_sayisi || ""
+    ),
+    message: cleanString(raw.message || raw.note || raw.aciklama),
     utm_source: cleanString(raw.utm_source),
     utm_medium: cleanString(raw.utm_medium),
     utm_campaign: cleanString(raw.utm_campaign),
     utm_term: cleanString(raw.utm_term),
     gclid: cleanString(raw.gclid),
-
     call_status: "aranmadi",
     lead_status: "yeni",
     assigned_to: "",
     notes,
   };
 }
-
-// ─────────────────────────────────────────────────────────────
-// SHEET PAYLOAD
-// Header-name bazlı çalışan Apps Script ile birebir uyumlu
-// ─────────────────────────────────────────────────────────────
 
 export function toSheetPayload(lead: LeadRecord): Record<string, string> {
   const payload: Record<string, string> = {};
@@ -437,19 +350,31 @@ export function toSheetPayload(lead: LeadRecord): Record<string, string> {
   return payload;
 }
 
-// ─────────────────────────────────────────────────────────────
-// OPTIONAL VALIDATION
-// Route içinde kullanmak istersen hazır dursun
-// ─────────────────────────────────────────────────────────────
-
-export function validateLeadRecord(lead: LeadRecord): {
+export function validateLeadRecord(
+  lead: LeadRecord,
+  raw?: RawLeadInput
+): {
   valid: boolean;
   errors: string[];
 } {
   const errors: string[] = [];
+  const rawName = cleanString(raw?.name || raw?.full_name || raw?.customer_name);
+  const rawPhone = cleanString(raw?.phone || raw?.gsm || raw?.mobile || raw?.telephone);
+  const rawEmail = cleanString(raw?.email || raw?.mail);
 
-  if (!lead.name) errors.push("name zorunlu");
-  if (!lead.phone) errors.push("phone zorunlu");
+  if (!lead.name) {
+    errors.push(rawName ? "Geçerli bir ad soyad girin." : "Ad soyad zorunludur.");
+  }
+
+  if (!rawPhone) {
+    errors.push("Telefon numarası zorunludur.");
+  } else if (!lead.phone || !isValidTurkishPhone(rawPhone)) {
+    errors.push("Geçerli bir telefon numarası girin. Örnek: 05XX XXX XX XX");
+  }
+
+  if (rawEmail && !isValidEmail(rawEmail)) {
+    errors.push("Geçerli bir e-posta adresi girin.");
+  }
 
   return {
     valid: errors.length === 0,

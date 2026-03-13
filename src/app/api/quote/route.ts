@@ -5,8 +5,17 @@ import {
   toSheetPayload,
   validateLeadRecord,
   type LeadRecord,
+  type RawLeadInput,
 } from "@/lib/lead-schema";
 import { checkDuplicateLead } from "@/lib/check-duplicate-lead";
+import { buildLeadLogContext, logLeadError, logLeadWarning } from "@/lib/lead-logging";
+import {
+  checkSubmissionThrottle,
+  findRecentDuplicateLead,
+  getClientFingerprint,
+  getHoneypotValue,
+  registerRecentLeadSubmission,
+} from "@/lib/lead-security";
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
@@ -55,14 +64,10 @@ function getServiceLabel(serviceType: string): string {
 function buildSubject(lead: LeadRecord): string {
   const serviceLabel = getServiceLabel(lead.service_type);
 
-  const parts = [
-    "Yeni Teklif Talebi",
-    serviceLabel,
-    lead.name || "İsimsiz",
-    lead.city || "Şehir yok",
-  ];
-
-  return truncate(parts.join(" - "), 180);
+  return truncate(
+    ["Yeni Teklif Talebi", serviceLabel, lead.name || "İsimsiz", lead.city || "Şehir yok"].join(" - "),
+    180
+  );
 }
 
 function buildEmailHtml(lead: LeadRecord): string {
@@ -71,7 +76,6 @@ function buildEmailHtml(lead: LeadRecord): string {
   return `
 <div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;">
 <h2>Yeni Teklif Talebi</h2>
-
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:760px;">
 <tr><td><b>Lead ID</b></td><td>${valueOrDash(lead.lead_id)}</td></tr>
 <tr><td><b>Tarih</b></td><td>${valueOrDash(lead.timestamp)}</td></tr>
@@ -102,7 +106,7 @@ function createTransporter() {
   return nodemailer.createTransport({
     host: getRequiredEnv("SMTP_HOST"),
     port: Number(process.env.SMTP_PORT || 587),
-    secure: false,
+    secure: Number(process.env.SMTP_PORT || 587) === 465,
     auth: {
       user: getRequiredEnv("SMTP_USER"),
       pass: getRequiredEnv("SMTP_PASS"),
@@ -121,6 +125,7 @@ async function postToGoogleSheets(lead: LeadRecord) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(toSheetPayload(lead)),
+      cache: "no-store",
       signal: controller.signal,
     });
 
@@ -145,69 +150,160 @@ async function sendLeadEmail(lead: LeadRecord) {
   });
 }
 
-function extractClientIp(req: NextRequest) {
-  const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  return req.headers.get("x-real-ip") || "";
+function createQuietSuccessResponse(message = "Talebiniz alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.") {
+  return NextResponse.json(
+    {
+      success: true,
+      ignored: true,
+      message,
+    },
+    { status: 200 }
+  );
 }
 
 export async function POST(req: NextRequest) {
+  let rawBody: RawLeadInput;
+
   try {
-    const rawBody = await req.json();
+    rawBody = (await req.json()) as RawLeadInput;
+  } catch {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Geçersiz istek verisi.",
+      },
+      { status: 400 }
+    );
+  }
 
-    const lead = buildLeadRecord(rawBody, "quote_form");
-
-    const duplicateCheck = await checkDuplicateLead(lead.phone);
-
-    if (duplicateCheck.duplicate) {
-      lead.notes = [
-        "duplicate: yes",
-        `type:${duplicateCheck.duplicate_type}`,
-        `lead:${duplicateCheck.matched_lead_id}`,
-      ].join(" | ");
-    }
-
-    const validation = validateLeadRecord(lead);
-
-    if (!validation.valid) {
-      return NextResponse.json(
-        { success: false, message: validation.errors.join(", ") },
-        { status: 400 }
-      );
-    }
-
-    const clientIp = extractClientIp(req);
-
-    console.log("lead received", {
-      lead_id: lead.lead_id,
-      phone: lead.phone,
-      ip: clientIp,
+  if (getHoneypotValue(rawBody as Record<string, unknown>)) {
+    logLeadWarning("honeypot_blocked", {
+      page_url: rawBody.page_url || rawBody.page || "",
+      form_source: rawBody.form_source || "quote_form",
     });
 
-    const [emailResult, sheetsResult] = await Promise.allSettled([
-      sendLeadEmail(lead),
-      postToGoogleSheets(lead),
-    ]);
+    return createQuietSuccessResponse();
+  }
 
-    if (emailResult.status === "rejected")
-      console.error(emailResult.reason);
+  const lead = buildLeadRecord(rawBody, "quote_form");
+  const clientFingerprint = getClientFingerprint(req, lead.phone);
+  const throttle = checkSubmissionThrottle({
+    clientKey: clientFingerprint.clientKey,
+    phone: lead.phone,
+    pageUrl: lead.page_url,
+  });
 
-    if (sheetsResult.status === "rejected")
-      console.error(sheetsResult.reason);
-
-    return NextResponse.json({
-      success: true,
-      lead_id: lead.lead_id,
-    });
-  } catch (error) {
-    console.error("lead api error", error);
+  if (!throttle.allowed) {
+    logLeadWarning("submission_throttled", buildLeadLogContext(lead, {
+      reason: throttle.reason,
+      retry_after_seconds: throttle.retryAfterSeconds,
+      client_ip: clientFingerprint.clientIp,
+    }));
 
     return NextResponse.json(
       {
         success: false,
-        message: "Sunucu hatası",
+        message:
+          "Çok hızlı tekrar gönderim algılandı. Lütfen kısa bir süre bekleyip tekrar deneyin.",
+      },
+      { status: 429 }
+    );
+  }
+
+  const validation = validateLeadRecord(lead, rawBody);
+
+  if (!validation.valid) {
+    logLeadWarning("validation_failed", buildLeadLogContext(lead, {
+      errors: validation.errors,
+    }));
+
+    return NextResponse.json(
+      { success: false, message: validation.errors[0] },
+      { status: 400 }
+    );
+  }
+
+  const localDuplicate = findRecentDuplicateLead({
+    phone: lead.phone,
+    serviceType: lead.service_type,
+    pageUrl: lead.page_url,
+    message: lead.message,
+  });
+
+  if (localDuplicate.duplicate) {
+    logLeadWarning("duplicate_suppressed", buildLeadLogContext(lead, {
+      matched_lead_id: localDuplicate.leadId,
+    }));
+
+    return NextResponse.json(
+      {
+        success: true,
+        duplicate: true,
+        message: "Talebiniz zaten alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.",
+      },
+      { status: 200 }
+    );
+  }
+
+  const duplicateCheck = await checkDuplicateLead(lead.phone);
+
+  if (duplicateCheck.duplicate) {
+    lead.notes = [
+      lead.notes,
+      "duplicate:yes",
+      `type:${duplicateCheck.duplicate_type}`,
+      `lead:${duplicateCheck.matched_lead_id}`,
+    ]
+      .filter(Boolean)
+      .join(" | ");
+  }
+
+  const [emailResult, sheetsResult] = await Promise.allSettled([
+    sendLeadEmail(lead),
+    postToGoogleSheets(lead),
+  ]);
+
+  if (emailResult.status === "rejected") {
+    logLeadError(
+      "email_send_failed",
+      buildLeadLogContext(lead, {
+        client_ip: clientFingerprint.clientIp,
+      }),
+      emailResult.reason
+    );
+  }
+
+  if (sheetsResult.status === "rejected") {
+    logLeadError(
+      "sheets_sync_failed",
+      buildLeadLogContext(lead, {
+        client_ip: clientFingerprint.clientIp,
+      }),
+      sheetsResult.reason
+    );
+  }
+
+  if (emailResult.status === "rejected" && sheetsResult.status === "rejected") {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Talebiniz şu anda işlenemedi. Lütfen kısa süre sonra tekrar deneyin.",
       },
       { status: 500 }
     );
   }
+
+  registerRecentLeadSubmission({
+    leadId: lead.lead_id,
+    phone: lead.phone,
+    serviceType: lead.service_type,
+    pageUrl: lead.page_url,
+    message: lead.message,
+  });
+
+  return NextResponse.json({
+    success: true,
+    lead_id: lead.lead_id,
+    message: "Talebiniz alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.",
+  });
 }

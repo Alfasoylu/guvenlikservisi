@@ -5,6 +5,11 @@ import { CheckCircle, AlertCircle, Loader2, ShieldCheck, PhoneCall } from "lucid
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
+import {
+  formatTurkishPhoneInput,
+  getTurkishPhoneValidationMessage,
+  normalizeTurkishPhone,
+} from "@/lib/phone";
 
 interface QuoteFormProps {
   defaultService?: string;
@@ -20,6 +25,7 @@ interface FormData {
   service_type: string;
   location_type: string;
   note: string;
+  website: string;
 }
 
 const initialForm: FormData = {
@@ -30,6 +36,7 @@ const initialForm: FormData = {
   service_type: "",
   location_type: "",
   note: "",
+  website: "",
 };
 
 const serviceOptions = [
@@ -55,37 +62,6 @@ const locationOptions = [
   { value: "diger", label: "Diğer" },
 ];
 
-function normalizePhone(value: string) {
-  const digits = value.replace(/\D/g, "");
-
-  if (digits.startsWith("90") && digits.length === 12) {
-    return `0${digits.slice(2)}`;
-  }
-
-  if (digits.length === 10 && digits.startsWith("5")) {
-    return `0${digits}`;
-  }
-
-  return digits;
-}
-
-function formatPhone(value: string) {
-  const normalized = normalizePhone(value).slice(0, 11);
-
-  if (normalized.length <= 4) return normalized;
-  if (normalized.length <= 7) return `${normalized.slice(0, 4)} ${normalized.slice(4)}`;
-  if (normalized.length <= 9) {
-    return `${normalized.slice(0, 4)} ${normalized.slice(4, 7)} ${normalized.slice(7)}`;
-  }
-
-  return `${normalized.slice(0, 4)} ${normalized.slice(4, 7)} ${normalized.slice(7, 9)} ${normalized.slice(9, 11)}`;
-}
-
-function isValidPhone(value: string) {
-  const normalized = normalizePhone(value);
-  return /^05\d{9}$/.test(normalized);
-}
-
 function isValidEmail(value: string) {
   if (!value.trim()) return true;
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
@@ -100,8 +76,8 @@ export default function QuoteForm({
     ...initialForm,
     service_type: defaultService,
   });
-
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const attribution = useLandingAttribution();
 
@@ -125,10 +101,10 @@ export default function QuoteForm({
       newErrors.name = "Geçerli bir ad soyad girin.";
     }
 
-    if (!form.phone.trim()) {
-      newErrors.phone = "Telefon numarası zorunludur.";
-    } else if (!isValidPhone(form.phone)) {
-      newErrors.phone = "Geçerli bir telefon numarası girin. Örnek: 05XX XXX XX XX";
+    const phoneError = getTurkishPhoneValidationMessage(form.phone);
+
+    if (phoneError) {
+      newErrors.phone = phoneError;
     }
 
     if (form.email.trim() && !isValidEmail(form.email)) {
@@ -163,7 +139,7 @@ export default function QuoteForm({
     let nextValue = value;
 
     if (name === "phone") {
-      nextValue = formatPhone(value);
+      nextValue = formatTurkishPhoneInput(value);
     }
 
     setForm((prev) => ({
@@ -180,6 +156,7 @@ export default function QuoteForm({
 
     if (status === "error") {
       setStatus("idle");
+      setFeedbackMessage("");
     }
   }
 
@@ -189,6 +166,7 @@ export default function QuoteForm({
     if (!validate()) return;
 
     setStatus("loading");
+    setFeedbackMessage("");
 
     try {
       const response = await fetch("/api/quote", {
@@ -198,17 +176,23 @@ export default function QuoteForm({
         },
         body: JSON.stringify({
           ...form,
-          phone: normalizePhone(form.phone),
+          phone: normalizeTurkishPhone(form.phone),
+          form_source: attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form",
           ...attribution,
           page_title: document.title,
         }),
       });
 
+      const result = (await response.json().catch(() => null)) as
+        | { success?: boolean; message?: string }
+        | null;
+
       if (!response.ok) {
-        throw new Error("FORM_SUBMIT_FAILED");
+        throw new Error(result?.message || "FORM_SUBMIT_FAILED");
       }
 
       setStatus("success");
+      setFeedbackMessage(result?.message || "");
 
       if (
         typeof window !== "undefined" &&
@@ -226,8 +210,13 @@ export default function QuoteForm({
         service_type: defaultService,
       });
       setErrors({});
-    } catch {
+    } catch (error) {
       setStatus("error");
+      setFeedbackMessage(
+        error instanceof Error && error.message !== "FORM_SUBMIT_FAILED"
+          ? error.message
+          : "Form gönderilemedi. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
+      );
     }
   }
 
@@ -246,7 +235,7 @@ export default function QuoteForm({
         <CheckCircle className="mx-auto mb-4 text-cta" size={56} />
         <h3 className="mb-3 text-2xl font-bold text-primary">Talebiniz Alındı</h3>
         <p className="mb-2 text-text-light">
-          Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak.
+          {feedbackMessage || "Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak."}
         </p>
         {selectedServiceLabel && (
           <p className="mb-4 text-sm text-text-light">
@@ -289,12 +278,39 @@ export default function QuoteForm({
 
       <div className={`grid gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
         <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
         <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
         <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
         <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
         <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
         <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
         <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+        <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
+        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
+        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: "-5000px",
+            top: "auto",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
+        >
+          <label htmlFor="quote-website">Website</label>
+          <input
+            id="quote-website"
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={handleChange}
+          />
+        </div>
 
         <div>
           <label htmlFor="quote-name" className={labelClass}>
@@ -445,7 +461,7 @@ export default function QuoteForm({
       {status === "error" && (
         <div className="mt-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           <AlertCircle size={16} />
-          Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: {siteConfig.phone}
+          {feedbackMessage || `Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: ${siteConfig.phone}`}
         </div>
       )}
 
