@@ -79,6 +79,8 @@ export default function ServiceHero({
             <ServiceImageBlock
               src={image.src}
               alt={image.alt}
+              title={image.title}
+              caption={image.caption}
               aspect="hero"
               priority
             />
