@@ -61,7 +61,7 @@ interface ServiceSpecificContent {
   }[];
 }
 
-const serviceSpecificContentMap: Record<string, ServiceSpecificContent> = {
+const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "kamera-sistemi-kurulumu": {
     heroIntro:
       "İşletmeler, apartmanlar, depo ve fabrika alanları ile ev güvenliği ihtiyaçları için keşif, montaj ve mobil izleme odaklı IP kamera çözümleri sunuyoruz.",
@@ -792,11 +792,8 @@ export default async function ServicePage({ params }: PageProps) {
   const pageContent = getServicePageFactoryData(city, service);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
   const serviceSpecificContent =
-    serviceSpecificContentMap[service.slug] ?? serviceSpecificContentMap["kamera-sistemi-kurulumu"];
-  const isIpCameraPage = service.slug === "kamera-sistemi-kurulumu";
-  const heroHeading = isIpCameraPage
-    ? `${city.name} IP Kamera Kurulumu ve Montaj Hizmeti`
-    : `${city.name} ${service.name} ve Montaj Hizmeti`;
+    serviceContentMap[service.slug] ?? serviceContentMap["kamera-sistemi-kurulumu"];
+  const heroHeading = `${city.name} ${service.name} ve Montaj Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
 
   const faqExtraItems = [
@@ -844,7 +841,7 @@ export default async function ServicePage({ params }: PageProps) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: pageContent.faq.items.map((item) => ({
+    mainEntity: mergedFaqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
