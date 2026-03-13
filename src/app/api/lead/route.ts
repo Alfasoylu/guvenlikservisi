@@ -5,8 +5,17 @@ import {
   toSheetPayload,
   validateLeadRecord,
   type LeadRecord,
+  type RawLeadInput,
 } from "@/lib/lead-schema";
 import { checkDuplicateLead } from "@/lib/check-duplicate-lead";
+import { buildLeadLogContext, logLeadError, logLeadWarning } from "@/lib/lead-logging";
+import {
+  checkSubmissionThrottle,
+  findRecentDuplicateLead,
+  getClientFingerprint,
+  getHoneypotValue,
+  registerRecentLeadSubmission,
+} from "@/lib/lead-security";
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
@@ -55,14 +64,10 @@ function getServiceLabel(serviceType: string): string {
 function buildSubject(lead: LeadRecord): string {
   const serviceLabel = getServiceLabel(lead.service_type);
 
-  const parts = [
-    "Yeni Lead",
-    serviceLabel,
-    lead.name || "İsimsiz",
-    lead.city || lead.district || "Konum yok",
-  ];
-
-  return truncate(parts.join(" - "), 180);
+  return truncate(
+    ["Yeni Lead", serviceLabel, lead.name || "İsimsiz", lead.city || lead.district || "Konum yok"].join(" - "),
+    180
+  );
 }
 
 function buildEmailHtml(lead: LeadRecord): string {
@@ -71,95 +76,30 @@ function buildEmailHtml(lead: LeadRecord): string {
   return `
     <div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;">
       <h2 style="margin:0 0 16px;">Yeni Lead Geldi</h2>
-
       <table style="border-collapse:collapse;width:100%;max-width:760px;margin-bottom:20px;">
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead ID</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_id)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Tarih</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.timestamp)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Ad Soyad</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.name)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Telefon</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.phone)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">E-posta</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.email)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Şehir</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.city)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">İlçe</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.district)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Hizmet Türü</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(serviceLabel)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mekan Türü</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.location_type)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Kamera Sayısı</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.camera_count)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mesaj</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.message)}</td>
-        </tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead ID</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_id)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Tarih</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.timestamp)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Ad Soyad</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.name)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Telefon</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.phone)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">E-posta</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.email)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Şehir</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.city)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">İlçe</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.district)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Hizmet Türü</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(serviceLabel)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mekan Türü</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.location_type)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Kamera Sayısı</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.camera_count)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Mesaj</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.message)}</td></tr>
       </table>
-
       <table style="border-collapse:collapse;width:100%;max-width:760px;color:#333;">
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Sayfa URL</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.page_url)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Form Kaynağı</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.form_source)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Source</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_source)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Medium</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_medium)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Campaign</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_campaign)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Term</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_term)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">GCLID</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.gclid)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Call Status</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.call_status)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead Status</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_status)}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Notlar</td>
-          <td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.notes)}</td>
-        </tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Sayfa URL</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.page_url)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Form Kaynağı</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.form_source)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Source</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_source)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Medium</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_medium)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Campaign</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_campaign)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">UTM Term</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.utm_term)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">GCLID</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.gclid)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Call Status</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.call_status)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Lead Status</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.lead_status)}</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid #ddd;font-weight:bold;background:#f7f7f7;">Notlar</td><td style="padding:8px 12px;border:1px solid #ddd;">${valueOrDash(lead.notes)}</td></tr>
       </table>
     </div>
   `;
@@ -224,13 +164,15 @@ async function sendLeadEmail(lead: LeadRecord): Promise<void> {
   });
 }
 
-function extractClientIp(req: NextRequest): string {
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  if (forwardedFor) {
-    return forwardedFor.split(",")[0]?.trim() || "";
-  }
-
-  return req.headers.get("x-real-ip") || "";
+function createQuietSuccessResponse(message = "Talebiniz alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.") {
+  return NextResponse.json(
+    {
+      success: true,
+      ignored: true,
+      message,
+    },
+    { status: 200 }
+  );
 }
 
 export async function POST(req: NextRequest) {
@@ -248,56 +190,99 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const safeRawBody =
+    typeof rawBody === "object" && rawBody !== null ? (rawBody as RawLeadInput) : {};
+
+  if (getHoneypotValue(safeRawBody as Record<string, unknown>)) {
+    logLeadWarning("honeypot_blocked", {
+      page_url: safeRawBody.page_url || safeRawBody.page || "",
+      form_source: safeRawBody.form_source || "istanbul_ip_kamera",
+    });
+
+    return createQuietSuccessResponse();
+  }
+
   try {
-    const lead = buildLeadRecord(
-      typeof rawBody === "object" && rawBody !== null
-        ? (rawBody as Record<string, unknown>)
-        : {},
-      "istanbul_ip_kamera"
-    );
+    const lead = buildLeadRecord(safeRawBody, "istanbul_ip_kamera");
+    const clientFingerprint = getClientFingerprint(req, lead.phone);
+    const throttle = checkSubmissionThrottle({
+      clientKey: clientFingerprint.clientKey,
+      phone: lead.phone,
+      pageUrl: lead.page_url,
+    });
 
-    const duplicateCheck = await checkDuplicateLead(lead.phone);
+    if (!throttle.allowed) {
+      logLeadWarning("submission_throttled", buildLeadLogContext(lead, {
+        reason: throttle.reason,
+        retry_after_seconds: throttle.retryAfterSeconds,
+        client_ip: clientFingerprint.clientIp,
+      }));
 
-    if (duplicateCheck.duplicate) {
-      const duplicateNote = [
-        "duplicate: yes",
-        `type: ${duplicateCheck.duplicate_type || "duplicate"}`,
-        `matched_lead_id: ${duplicateCheck.matched_lead_id || ""}`,
-        `matched_timestamp: ${duplicateCheck.matched_timestamp || ""}`,
-        `matched_form_source: ${duplicateCheck.matched_form_source || ""}`,
-        `matched_page_url: ${duplicateCheck.matched_page_url || ""}`,
-      ].join(" | ");
-
-      lead.notes = lead.notes
-        ? `${lead.notes} | ${duplicateNote}`
-        : duplicateNote;
-    }
-
-    const validation = validateLeadRecord(lead);
-
-    if (!validation.valid) {
       return NextResponse.json(
         {
           success: false,
-          message: validation.errors.join(", "),
+          message:
+            "Çok hızlı tekrar gönderim algılandı. Lütfen kısa bir süre bekleyip tekrar deneyin.",
+        },
+        { status: 429 }
+      );
+    }
+
+    const validation = validateLeadRecord(lead, safeRawBody);
+
+    if (!validation.valid) {
+      logLeadWarning("validation_failed", buildLeadLogContext(lead, {
+        errors: validation.errors,
+      }));
+
+      return NextResponse.json(
+        {
+          success: false,
+          message: validation.errors[0],
         },
         { status: 400 }
       );
     }
 
-    const clientIp = extractClientIp(req);
-    const userAgent = req.headers.get("user-agent") || "";
-
-    console.log("New lead received:", {
-      lead_id: lead.lead_id,
-      name: lead.name,
+    const localDuplicate = findRecentDuplicateLead({
       phone: lead.phone,
-      page_url: lead.page_url,
-      form_source: lead.form_source,
-      client_ip: clientIp,
-      user_agent: userAgent,
-      notes: lead.notes,
+      serviceType: lead.service_type,
+      pageUrl: lead.page_url,
+      message: lead.message,
     });
+
+    if (localDuplicate.duplicate) {
+      logLeadWarning("duplicate_suppressed", buildLeadLogContext(lead, {
+        matched_lead_id: localDuplicate.leadId,
+      }));
+
+      return NextResponse.json(
+        {
+          success: true,
+          duplicate: true,
+          message: "Talebiniz zaten alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.",
+        },
+        { status: 200 }
+      );
+    }
+
+    const duplicateCheck = await checkDuplicateLead(lead.phone);
+
+    if (duplicateCheck.duplicate) {
+      const duplicateNote = [
+        lead.notes,
+        "duplicate:yes",
+        `type:${duplicateCheck.duplicate_type || "duplicate"}`,
+        `matched_lead_id:${duplicateCheck.matched_lead_id || ""}`,
+        `matched_timestamp:${duplicateCheck.matched_timestamp || ""}`,
+        `matched_form_source:${duplicateCheck.matched_form_source || ""}`,
+        `matched_page_url:${duplicateCheck.matched_page_url || ""}`,
+      ]
+        .filter(Boolean)
+        .join(" | ");
+
+      lead.notes = duplicateNote;
+    }
 
     const [emailResult, sheetsResult] = await Promise.allSettled([
       sendLeadEmail(lead),
@@ -305,11 +290,23 @@ export async function POST(req: NextRequest) {
     ]);
 
     if (emailResult.status === "rejected") {
-      console.error("Lead email send failed:", emailResult.reason);
+      logLeadError(
+        "email_send_failed",
+        buildLeadLogContext(lead, {
+          client_ip: clientFingerprint.clientIp,
+        }),
+        emailResult.reason
+      );
     }
 
     if (sheetsResult.status === "rejected") {
-      console.error("Lead sheets sync failed:", sheetsResult.reason);
+      logLeadError(
+        "sheets_sync_failed",
+        buildLeadLogContext(lead, {
+          client_ip: clientFingerprint.clientIp,
+        }),
+        sheetsResult.reason
+      );
     }
 
     if (
@@ -319,11 +316,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: "Sunucu hatası oluştu.",
+          message: "Talebiniz şu anda işlenemedi. Lütfen kısa süre sonra tekrar deneyin.",
         },
         { status: 500 }
       );
     }
+
+    registerRecentLeadSubmission({
+      leadId: lead.lead_id,
+      phone: lead.phone,
+      serviceType: lead.service_type,
+      pageUrl: lead.page_url,
+      message: lead.message,
+    });
 
     return NextResponse.json(
       {
@@ -334,7 +339,10 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Lead API fatal error:", error);
+    logLeadError("lead_api_fatal", {
+      page_url: safeRawBody.page_url || safeRawBody.page || "",
+      form_source: safeRawBody.form_source || "istanbul_ip_kamera",
+    }, error);
 
     return NextResponse.json(
       {

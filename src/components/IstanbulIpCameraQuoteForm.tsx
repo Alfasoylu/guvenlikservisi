@@ -4,6 +4,11 @@ import { FormEvent, useState } from "react";
 import { Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
+import {
+  formatTurkishPhoneInput,
+  getTurkishPhoneValidationMessage,
+  normalizeTurkishPhone,
+} from "@/lib/phone";
 
 declare global {
   interface Window {
@@ -19,6 +24,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState("");
   const [formError, setFormError] = useState("");
+  const [phoneValue, setPhoneValue] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const attribution = useLandingAttribution();
 
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
@@ -35,14 +42,37 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const name = String(formData.get("name") || "");
+    const phone = normalizeTurkishPhone(String(formData.get("phone") || ""));
+
+    if (!name || !phoneValue.trim()) {
+      setFormError("Lütfen ad soyad ve telefon alanlarını doldurun.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const phoneError = getTurkishPhoneValidationMessage(phoneValue);
+
+    if (phoneError) {
+      setFormError(phoneError);
+      setIsSubmitting(false);
+      return;
+    }
+
     const payload = {
-      name: String(formData.get("name") || ""),
-      phone: String(formData.get("phone") || ""),
+      name,
+      phone,
+      city: "İstanbul",
+      service_type: "kamera",
       district: String(formData.get("district") || ""),
       placeType: String(formData.get("placeType") || ""),
+      location_type: String(formData.get("placeType") || ""),
       cameraCount: String(formData.get("cameraCount") || ""),
       message: String(formData.get("message") || ""),
       page: attribution.page_url || window.location.href,
+      page_url: attribution.page_url || window.location.href,
+      page_type: attribution.page_type || "landing_page",
+      form_source: "istanbul_ip_kamera_landing",
       utm_source: attribution.utm_source,
       utm_medium: attribution.utm_medium,
       utm_campaign: attribution.utm_campaign,
@@ -50,14 +80,11 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       utm_content: attribution.utm_content,
       referrer: attribution.referrer,
       timestamp: attribution.timestamp,
-      gclid: new URLSearchParams(window.location.search).get("gclid") || "",
+      gclid: attribution.gclid,
+      fbclid: attribution.fbclid,
+      msclkid: attribution.msclkid,
+      website: honeypot,
     };
-
-    if (!payload.name || !payload.phone) {
-      setFormError("Lütfen ad soyad ve telefon alanlarını doldurun.");
-      setIsSubmitting(false);
-      return;
-    }
 
     try {
       const res = await fetch("/api/lead", {
@@ -68,8 +95,12 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        throw new Error("Form gönderilemedi");
+      const result = (await res.json().catch(() => null)) as
+        | { success?: boolean; message?: string }
+        | null;
+
+      if (!res.ok || !result?.success) {
+        throw new Error(result?.message || "Form gönderilemedi");
       }
 
       window.dataLayer = window.dataLayer || [];
@@ -79,10 +110,16 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         page_path: window.location.pathname,
       });
 
-      setFormSuccess("Talebiniz alındı. En kısa sürede sizi arayacağız.");
+      setFormSuccess(result?.message || "Talebiniz alındı. En kısa sürede sizi arayacağız.");
       form.reset();
-    } catch {
-      setFormError("Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.");
+      setPhoneValue("");
+      setHoneypot("");
+    } catch (error) {
+      setFormError(
+        error instanceof Error && error.message
+          ? error.message
+          : "Gönderim sırasında hata oluştu. Lütfen tekrar deneyin."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -104,12 +141,32 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
         <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
         <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
         <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
         <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
         <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
         <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+        <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
+        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
+        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
+        <div
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-5000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+        >
+          <label htmlFor="istanbul-website">Website</label>
+          <input
+            id="istanbul-website"
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <div>
@@ -134,6 +191,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
               name="phone"
               placeholder="05xx xxx xx xx"
               required
+              value={phoneValue}
+              onChange={(e) => setPhoneValue(formatTurkishPhoneInput(e.target.value))}
               className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
             />
           </div>
