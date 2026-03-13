@@ -37,14 +37,21 @@ interface PageProps {
 
 interface ServiceSpecificContent {
   heroIntro: string;
+  useCases: string[];
+  installationSteps: string[];
   sectionTitle1: string;
   sectionBody1: string;
   sectionTitle2: string;
   sectionBody2: string;
   ctaText: string;
+  trustBlock: string;
   trustTitle: string;
   trustBody: string;
   trustBullets: string[];
+  faqExtras: {
+    question: string;
+    answer: string;
+  }[];
   faqExtraItems: {
     question: string;
     answer: string;
@@ -65,6 +72,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "kamera-sistemi-kurulumu": {
     heroIntro:
       "İşletmeler, apartmanlar, depo ve fabrika alanları ile ev güvenliği ihtiyaçları için keşif, montaj ve mobil izleme odaklı IP kamera çözümleri sunuyoruz.",
+    useCases: [
+      "Apartman ve site girişlerinde ziyaretçi ve araç hareketinin düzenli takibi",
+      "Mağaza ve işyerlerinde kasa, raf ve giriş hattında güvenlik denetimi",
+      "Depo ve fabrika sahalarında yükleme-boşaltma alanlarının kesintisiz izlenmesi",
+      "Otopark, çevre hattı ve ortak alanlarda caydırıcılığı artıran görüntüleme",
+    ],
+    installationSteps: [
+      "Ücretsiz keşif ve riskli noktaların sahada belirlenmesi",
+      "Kamera yerleşim planı ve kayıt mimarisinin projelendirilmesi",
+      "Kablolama, cihaz kurulumu ve ağ yapılandırmasının tamamlanması",
+      "Mobil uygulama, uzaktan erişim ve kullanıcı yetki ayarlarının yapılması",
+      "Saha testleri sonrası performans kontrolü ve kullanıcı teslimi",
+    ],
     sectionTitle1: "IP Kamera Kurulumu Nerelerde Kullanılır?",
     sectionBody1:
       "Doğru kurulum senaryosu kullanım alanına göre değişir. Aşağıdaki başlıklar en sık talep edilen uygulama alanlarını gösterir.",
@@ -73,6 +93,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Süreci adım adım planlayarak hem teknik doğruluğu hem de kullanım kolaylığını birlikte hedefliyoruz.",
     ctaText:
       "IP kamera sistemi kararını hızlandırmak için şehir, mekan tipi ve hedef kayıt süresine göre hızlı keşif planı oluşturuyoruz.",
+    trustBlock:
+      "Kamera sisteminde doğru keşif, doğru açı planı ve doğru kayıt altyapısı birlikte kurulmadığında yatırım kısa sürede verim kaybeder. Bu nedenle projeyi yalnızca montaj değil, sürdürülebilir güvenlik performansı odağıyla kuruyoruz.",
     trustTitle: "Kamera yatırımında doğru keşif ve doğru montaj fark yaratır",
     trustBody:
       "Sadece cihaz takmak yerine görüş açısı, kayıt süresi ve günlük kullanım akışını birlikte planlayarak sistemi uzun vadede sorunsuz çalışacak şekilde kuruyoruz.",
@@ -82,6 +104,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mobil izleme kurulumu ve kullanıcı teslimi",
       "Teslim sonrası destek ve bakım önerisi",
       "Arıza riskini azaltan kurulum yaklaşımı",
+    ],
+    faqExtras: [
+      {
+        question: "IP kamera kurulumu kaç saat sürer?",
+        answer:
+          "Küçük ve orta ölçekli kurulumların çoğu aynı gün içinde tamamlanır. Kamera sayısı, kablolama mesafesi ve mekan yapısına göre net süre keşif sonrası belirlenir.",
+      },
+      {
+        question: "Hangi ilçelerde hizmet veriyorsunuz?",
+        answer:
+          "Şehir genelinde ilçe bazlı hizmet veriyoruz. Proje kapsamına göre ücretsiz keşif planlaması yaparak uygun ekip yönlendirmesi sağlıyoruz.",
+      },
+      {
+        question: "Kamera sistemini telefondan izleyebilir miyim?",
+        answer:
+          "Evet. Kurulum tamamlandıktan sonra telefon ve tablet üzerinden canlı izleme, kayıt erişimi ve temel bildirim ayarları kullanıma hazır şekilde teslim edilir.",
+      },
+      {
+        question: "Kurulumdan sonra bakım gerekiyor mu?",
+        answer:
+          "Periyodik bakım önerilir. Kamera açıları, kayıt cihazı, disk sağlığı ve uzaktan erişim ayarlarının düzenli kontrolü sistemin kesintisiz çalışmasını destekler.",
+      },
     ],
     faqExtraItems: [
       {
@@ -162,6 +206,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "alarm-sistemi-kurulumu": {
     heroIntro:
       "Apartman, işyeri, mağaza ve depolar için alarm sistemi keşif, panel yerleşimi, dedektör konumlandırma ve uzaktan kontrol odaklı kurulum hizmeti sunuyoruz.",
+    useCases: [
+      "Apartman dairelerinde kapı-manyetik ve hareket dedektörü ile gece güvenliği",
+      "Mağaza ve işyerlerinde açılış-kapanış saatleri için kontrollü alarm yönetimi",
+      "Depolarda yetkisiz girişin panel ve siren senaryolarıyla hızlı algılanması",
+      "Karma alanlarda mobil bildirim ile uzaktan kurma-çözme operasyonu",
+    ],
+    installationSteps: [
+      "Sahada risk noktaları ve kullanım alışkanlıklarının analizi",
+      "Panel, dedektör ve siren yerleşim planının oluşturulması",
+      "Kablolu veya kablosuz alarm altyapısının kurulması",
+      "Mobil kontrol ve kullanıcı yetki senaryolarının tanımlanması",
+      "Test, yanlış alarm optimizasyonu ve kullanıcı eğitimi",
+    ],
     sectionTitle1: "Alarm Sistemi Hangi Alanlarda Tercih Edilir?",
     sectionBody1:
       "Doğru alarm tasarımı yanlış alarmı azaltır ve gerçek risk anında hızlı tepki sağlar. Kullanım alanına göre panel ve sensör konfigürasyonu planlıyoruz.",
@@ -170,6 +227,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Kurulumdan önce keşif, kurulum sonrası test ve kullanıcı eğitimi ile sistemi günlük kullanımda güvenilir hale getiriyoruz.",
     ctaText:
       "Alarm sisteminde en kritik adım doğru keşif ve doğru dedektör yerleşimidir. Böylece gereksiz uyarıları azaltıp gerçek güvenlik seviyesini yükseltiyoruz.",
+    trustBlock:
+      "Alarm projelerinde panel, dedektör ve siren kurgusu mekanla uyumlu planlanmadığında sistem ya fazla uyarı verir ya da risk anını geç algılar. Doğru mühendislikle alarmı gerçek güvenlik aracına dönüştürüyoruz.",
     trustTitle: "Alarm sisteminde doğru kurgu yanlış alarmı azaltır",
     trustBody:
       "Panel, dedektör ve siren bileşenlerini mekanın kullanımına göre planladığımızda hem kullanıcı konforu artar hem de gerçek risk anında daha doğru alarm yönetimi sağlanır.",
@@ -179,6 +238,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Uzaktan kontrol için mobil senaryo kurulumu",
       "Kurulum sonrası test ve kullanıcı eğitimi",
       "Bakım planı ile servis riskini azaltma",
+    ],
+    faqExtras: [
+      {
+        question: "Alarm sistemi kurulumu hangi alanlar için uygundur?",
+        answer:
+          "Apartman daireleri, işyeri, mağaza, depo ve küçük üretim alanları için farklı kapsamlarda alarm sistemi kurulumu yapılabilir.",
+      },
+      {
+        question: "Yanlış alarm sorununu nasıl azaltıyorsunuz?",
+        answer:
+          "Dedektör açısı, montaj yüksekliği, giriş-çıkış gecikme ayarları ve kullanıcı alışkanlıklarına uygun panel senaryoları ile yanlış alarm oranı düşürülür.",
+      },
+      {
+        question: "Alarmı telefondan kontrol edebilir miyim?",
+        answer:
+          "Evet. Uygun panel altyapısında mobil uygulama üzerinden kurma, çözme ve temel bildirim takibi yapılabilir.",
+      },
+      {
+        question: "Kurulum sonrası kullanıcı eğitimi veriyor musunuz?",
+        answer:
+          "Evet. Sistem tesliminde panel kullanımı, alarm senaryoları ve temel müdahale adımları kullanıcıya gösterilir.",
+      },
     ],
     faqExtraItems: [
       {
@@ -243,6 +324,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "yangin-alarm-sistemi-kurulumu": {
     heroIntro:
       "İşyeri, depo, apartman ve ticari alanlar için dedektör, buton, siren ve panel bileşenleriyle yangın alarm sistemi planlama ve devreye alma hizmeti veriyoruz.",
+    useCases: [
+      "İşyeri ve ofislerde zon bazlı dedektör planı ile erken algılama",
+      "Depo ve lojistik alanlarda panel-siren uyumlu alarm senaryosu",
+      "Apartman ortak alanlarında tahliye odaklı uyarı altyapısı",
+      "Ticari yapılarda mevzuata uygun yangın alarm sürekliliği",
+    ],
+    installationSteps: [
+      "Yangın riski yüksek noktaların keşif ve zon analizi",
+      "Dedektör, buton, siren ve panel sistem projelendirmesi",
+      "Saha montajı ve alarm hatlarının devreye alınması",
+      "Zon-test, panel doğrulama ve alarm senaryosu kontrolleri",
+      "Teslim sonrası bakım planı ve teknik kullanım bilgilendirmesi",
+    ],
     sectionTitle1: "Yangın Alarm Sistemi Nerelerde Gerekli?",
     sectionBody1:
       "Yangın alarm sisteminde doğru zonlama, dedektör yerleşimi ve panel kurgusu kritik öneme sahiptir. Projeyi alanın kullanım tipine göre planlıyoruz.",
@@ -251,6 +345,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mevzuata uygun planlama, saha montajı, devreye alma testleri ve periyodik bakım önerileri ile sistemi sürdürülebilir hale getiriyoruz.",
     ctaText:
       "Yangın alarm altyapısında doğru planlama hem can güvenliği hem işletme sürekliliği için kritik olduğu için keşif ve test adımlarını detaylı yürütüyoruz.",
+    trustBlock:
+      "Yangın alarm projelerinde en kritik nokta, dedektör-pano-siren bileşenlerinin birlikte ve mevzuata uygun çalışmasıdır. Test odaklı devreye alma ile sistemin kritik anda güven vermesini sağlıyoruz.",
     trustTitle: "Yangın alarm sisteminde mevzuata uyum ve test disiplini esastır",
     trustBody:
       "Dedektör, buton, siren ve panel yerleşimini doğru planlayıp devreye alma testleriyle doğruladığımızda sistemin kritik anda güvenilir çalışmasını sağlıyoruz.",
@@ -260,6 +356,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Devreye alma testlerinin sahada doğrulanması",
       "Teslim sonrası periyodik bakım önerisi",
       "Arıza ve yanlış uyarı riskini azaltan yaklaşım",
+    ],
+    faqExtras: [
+      {
+        question: "Yangın alarm sisteminde hangi ekipmanlar kullanılır?",
+        answer:
+          "Proje kapsamına göre duman/ısı dedektörleri, manuel butonlar, flaşör-sirenler ve kontrol paneli birlikte planlanır.",
+      },
+      {
+        question: "Mevzuata uygun kurulum yapıyor musunuz?",
+        answer:
+          "Evet. Alanın kullanım tipine uygun planlama, uygun ekipman seçimi ve test süreçleriyle kurulum yapılır.",
+      },
+      {
+        question: "Kurulumdan sonra test ve devreye alma yapılıyor mu?",
+        answer:
+          "Evet. Zon bazlı test, alarm senaryosu kontrolü ve panel doğrulaması ile devreye alma tamamlanır.",
+      },
+      {
+        question: "Bakım hizmeti de alabilir miyiz?",
+        answer:
+          "Evet. Sistem sürekliliği için periyodik bakım ve test planı öneriyoruz.",
+      },
     ],
     faqExtraItems: [
       {
@@ -324,6 +442,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "kartli-gecis-sistemi-kurulumu": {
     heroIntro:
       "Ofis, işyeri, apartman ve fabrika yapılarında kapı kontrolü, turnike ve personel yetkilendirme odaklı kartlı geçiş sistemi kurulumu yapıyoruz.",
+    useCases: [
+      "Ofis ve plazalarda kapı bazlı erişim ve personel yetki yönetimi",
+      "İşyeri ve mağazalarda depo-giriş ayrımı ile kontrollü geçiş",
+      "Apartman ve sitelerde ortak kapıların güvenli erişimle yönetilmesi",
+      "Fabrikalarda turnike entegrasyonu ve vardiya giriş takibi",
+    ],
+    installationSteps: [
+      "Geçiş noktalarının ve kullanıcı akışının keşif ile belirlenmesi",
+      "Kart okuyucu, panel ve kilit altyapısının projelendirilmesi",
+      "Kapı/turnike entegrasyonunun kurulup test edilmesi",
+      "Yetki seviyeleri ve kullanıcı rollerinin tanımlanması",
+      "Raporlama kontrolleri ve sistem kullanım teslimi",
+    ],
     sectionTitle1: "Kartlı Geçiş Sistemi Nerelerde Kullanılır?",
     sectionBody1:
       "Giriş-çıkış takibi, yetki seviyeleri ve güvenli erişim ihtiyacı olan yapılarda kartlı geçiş sistemi operasyonel verim sağlar.",
@@ -332,6 +463,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Keşiften sonra kapı noktaları, kullanıcı yetkileri ve raporlama ihtiyacına göre sistemi planlayıp devreye alıyoruz.",
     ctaText:
       "Kartlı geçiş projelerinde doğru okuyucu ve kontrol paneli seçimi, kullanıcı yönetimi ve güvenli erişim için belirleyici faktördür.",
+    trustBlock:
+      "Kartlı geçiş sisteminde kapı donanımı, yetki matrisi ve kullanıcı yönetimi doğru kurgulanmadığında operasyon yavaşlar ve güvenlik zayıflar. Projeyi hem güvenlik hem hız odağında kuruyoruz.",
     trustTitle: "Kartlı geçişte doğru yetkilendirme güvenliği ve operasyonu birlikte güçlendirir",
     trustBody:
       "Kapı kontrolü, turnike ve kullanıcı yetki seviyelerini işletme akışına göre planlayarak hem güvenli erişim hem pratik kullanım sağlayan bir yapı kuruyoruz.",
@@ -341,6 +474,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Yetki seviyeleri ve kullanıcı yönetimi kurulumu",
       "Teslim sonrası kullanım desteği",
       "Bakım ve servis ihtiyacını azaltan doğru altyapı",
+    ],
+    faqExtras: [
+      {
+        question: "Kartlı geçiş sistemi hangi yapılarda uygundur?",
+        answer:
+          "Ofisler, apartmanlar, işyerleri, fabrikalar ve personel geçişi olan tüm kontrollü alanlarda uygulanabilir.",
+      },
+      {
+        question: "Turnike ile entegre çalışır mı?",
+        answer:
+          "Evet. Uygun altyapıda turnike, kapı kilidi ve kart okuyucu birlikte yönetilebilir.",
+      },
+      {
+        question: "Yetki seviyeleri tanımlanabiliyor mu?",
+        answer:
+          "Evet. Kullanıcı veya departman bazında saat, alan ve geçiş tipi yetkilendirmesi yapılabilir.",
+      },
+      {
+        question: "Giriş çıkış kayıtları raporlanıyor mu?",
+        answer:
+          "Evet. Sistem altyapısına göre giriş-çıkış logları raporlanabilir ve takip edilebilir.",
+      },
     ],
     faqExtraItems: [
       {
@@ -405,6 +560,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "apartman-site-guvenlik-sistemi": {
     heroIntro:
       "Apartman ve site yönetimleri için giriş kapısı, çevre izleme, otopark ve ortak alan güvenliğini kapsayan bütüncül güvenlik sistemi kurulumları gerçekleştiriyoruz.",
+    useCases: [
+      "Site giriş kapıları ve araç girişlerinde kontrollü izleme",
+      "Otopark alanlarında gece-gündüz düzenli hareket takibi",
+      "Ortak alanlarda kör nokta azaltan yerleşim planı",
+      "Çevre hattında caydırıcılığı artıran güvenlik düzeni",
+    ],
+    installationSteps: [
+      "Site yapısının keşif ve blok bazlı risk analizinin yapılması",
+      "Giriş, çevre ve ortak alan kamera/erişim planının çıkarılması",
+      "Kurulum, kayıt altyapısı ve mobil izleme sisteminin devreye alınması",
+      "Yönetim yetkileri ve kullanıcı erişim düzeninin oluşturulması",
+      "Saha testleri sonrası yönetim ekibine sistem teslimi",
+    ],
     sectionTitle1: "Apartman ve Site Güvenliğinde Kritik Alanlar",
     sectionBody1:
       "Kör nokta azaltma, giriş kontrolü ve doğru kayıt düzeni; site güvenlik yatırımlarında en çok sonuç üreten başlıklardır.",
@@ -413,6 +581,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Yönetim beklentisi, blok yapısı ve ortak alan kullanımına göre keşif yaparak kamera, alarm ve erişim bileşenlerini birlikte planlıyoruz.",
     ctaText:
       "Site ve apartman güvenliğinde doğru planlama sayesinde giriş-çıkış kontrolü güçlenir, ortak alanlarda görünür caydırıcılık artar.",
+    trustBlock:
+      "Site güvenlik projelerinde kamera, giriş kontrol ve kayıt düzeni tek parça olarak planlanmadığında yönetim tarafında sürekli operasyon yükü oluşur. Planlı kurulumla bu yükü azaltıyoruz.",
     trustTitle: "Site güvenliğinde doğru planlama yönetimin yükünü azaltır",
     trustBody:
       "Giriş kapısı, çevre hattı, otopark ve ortak alanları birlikte değerlendirip kör noktaları azaltan bir kurgu oluşturduğumuzda site yönetimi daha kontrollü bir güvenlik operasyonu yürütür.",
@@ -422,6 +592,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mobil izleme ve kayıt düzeni kurulumu",
       "Teslim sonrası teknik destek",
       "Bakım odaklı kurulumla arıza riskini düşürme",
+    ],
+    faqExtras: [
+      {
+        question: "Site güvenlik sistemi hangi alanları kapsamalı?",
+        answer:
+          "Giriş kapıları, otopark, blok çevresi, ortak yaşam alanları ve kritik geçiş noktaları öncelikli kapsamda olmalıdır.",
+      },
+      {
+        question: "Kör noktalar nasıl azaltılır?",
+        answer:
+          "Keşif sırasında görüş açısı, ışık koşulları ve yaya/araç akışı analiz edilerek kamera noktaları optimize edilir.",
+      },
+      {
+        question: "Uzaktan izleme mümkün mü?",
+        answer:
+          "Evet. Yetkili kullanıcılar mobil uygulama üzerinden canlı izleme ve kayıt erişimi sağlayabilir.",
+      },
+      {
+        question: "Kurulum sonrası bakım almalı mıyız?",
+        answer:
+          "Sistem sürekliliği için periyodik bakım önerilir. Bu sayede kayıt ve görüntü performansı korunur.",
+      },
     ],
     faqExtraItems: [
       {
@@ -486,6 +678,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "isyeri-guvenlik-sistemi": {
     heroIntro:
       "Ofis, mağaza, dükkan ve küçük işletmeler için kamera, alarm ve giriş kontrolünü birlikte planlayan işyeri güvenlik sistemi kurulumu yapıyoruz.",
+    useCases: [
+      "Ofislerde çalışan güvenliği ve giriş hareketlerinin kontrolü",
+      "Mağaza ve dükkanlarda kasa çevresi ve satış alanı takibi",
+      "Küçük işletmelerde alarm + kamera + erişim kombinasyonu",
+      "Arka depo alanlarında yetkisiz girişin önlenmesi",
+    ],
+    installationSteps: [
+      "İşyeri tipine göre keşif ve öncelikli risklerin belirlenmesi",
+      "Kamera, alarm ve giriş kontrol yapısının planlanması",
+      "Kurulum, kablolama ve cihaz konfigürasyonunun tamamlanması",
+      "Mobil erişim, kullanıcı tanımı ve yetki yapılandırması",
+      "Test ve günlük kullanım odaklı teslim süreci",
+    ],
     sectionTitle1: "İşyeri Güvenliğinde Öncelikli Senaryolar",
     sectionBody1:
       "Çalışan ve müşteri güvenliği, kasa ve ürün alanı takibi ile operasyon sürekliliği için işyerine uygun güvenlik mimarisi kuruyoruz.",
@@ -494,6 +699,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mekan tipine göre keşif, cihaz seçimi, kurulum ve kullanıcı eğitimini tek süreçte yöneterek güvenli ve pratik kullanım sağlıyoruz.",
     ctaText:
       "İşyerlerinde güvenlik sistemi yatırımının amacı yalnızca görüntü almak değil, hırsızlık riskini azaltırken günlük operasyonu kontrollü yürütmektir.",
+    trustBlock:
+      "İşyerlerinde sistemin sadece kurulması değil, çalışanlar tarafından doğru kullanılması da kritik değerdir. Bu nedenle kurulum kadar operasyonel kullanım kolaylığına da odaklanıyoruz.",
     trustTitle: "İşyeri güvenliğinde pratik kullanım ve hızlı müdahale kritik",
     trustBody:
       "Ofis, mağaza ve küçük işletmelerde kamera, alarm ve giriş kontrolünü birlikte planlayarak hem çalışan-müşteri güvenliğini hem operasyon takibini güçlendiriyoruz.",
@@ -503,6 +710,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mobil izleme ve günlük kullanım kolaylığı",
       "Teslim sonrası destek ve hızlı servis yönlendirmesi",
       "Doğru montajla bakım kaynaklı sorunları azaltma",
+    ],
+    faqExtras: [
+      {
+        question: "İşyeri için sadece kamera yeterli olur mu?",
+        answer:
+          "Çoğu işyerinde kamera sistemine ek olarak alarm ve temel giriş kontrolü ile daha yüksek güvenlik seviyesi elde edilir.",
+      },
+      {
+        question: "Mağaza ve dükkanlarda hangi noktalar önceliklidir?",
+        answer:
+          "Giriş kapısı, kasa çevresi, raf koridorları ve arka depo geçişleri öncelikli izleme alanlarıdır.",
+      },
+      {
+        question: "Çalışan güvenliği için nasıl bir kurgu öneriyorsunuz?",
+        answer:
+          "İşyeri çalışma düzenine uygun kamera açısı, alarm senaryosu ve yetkili erişim modeli birlikte planlanır.",
+      },
+      {
+        question: "Sistemi telefondan takip edebilir miyim?",
+        answer:
+          "Evet. Yetkili kullanıcılar canlı izleme ve kayıt erişimini mobil uygulama üzerinden kullanabilir.",
+      },
     ],
     faqExtraItems: [
       {
@@ -567,6 +796,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "fabrika-depo-guvenlik-sistemi": {
     heroIntro:
       "Üretim alanı, depo rafları, yükleme noktaları ve çevre güvenliği için geniş alanlara uygun fabrika ve depo güvenlik sistemi kurulumları sağlıyoruz.",
+    useCases: [
+      "Üretim hatlarında operasyon ve güvenlik akışının izlenmesi",
+      "Depo raf koridorlarında stok güvenliğinin kayıt altına alınması",
+      "Yükleme-boşaltma alanlarında araç ve personel hareket kontrolü",
+      "Çevre hattında uzun mesafe ve gece görüş odaklı izleme",
+    ],
+    installationSteps: [
+      "Geniş saha keşfi ve kritik kör noktaların haritalanması",
+      "Kamera ve kayıt altyapısının alan tipine göre projelendirilmesi",
+      "Montaj, ağ ve depolama sistemlerinin devreye alınması",
+      "Gece-gündüz performans testleri ve uzaktan erişim ayarları",
+      "İşletme ekibine teknik kullanım ve bakım planı teslimi",
+    ],
     sectionTitle1: "Fabrika ve Depo Güvenliğinde Kritik Noktalar",
     sectionBody1:
       "Geniş alan planlama, gece görüş performansı ve uzun kayıt süresi; sanayi ve lojistik yapılarında güvenlik yatırımının temelini oluşturur.",
@@ -575,6 +817,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Saha koşulları, operasyon akışı ve riskli bölgeleri analiz ederek kurulum, devreye alma ve bakım önerisini birlikte sunuyoruz.",
     ctaText:
       "Fabrika ve depolarda güvenlik sistemi başarısı, geniş alanı kör nokta bırakmadan planlayıp bakım kaynaklı arıza riskini azaltmakla başlar.",
+    trustBlock:
+      "Sanayi ve depo projelerinde cihaz seçimi kadar saha planı, kayıt mimarisi ve bakım disiplininin birlikte yönetilmesi gerekir. Bu yaklaşım uzun vadede operasyon kayıplarını azaltır.",
     trustTitle: "Geniş alanlarda profesyonel kurulum operasyon kaybını azaltır",
     trustBody:
       "Üretim ve depo alanlarında görüş mesafesi, gece performansı ve kayıt sürekliliği birlikte ele alındığında güvenlik sistemi sadece caydırıcı değil operasyonel olarak da sürdürülebilir olur.",
@@ -584,6 +828,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Uzun kayıt ve mobil erişim kurgusu",
       "Teslim sonrası teknik takip",
       "Bakım ve arıza riskini azaltan altyapı yaklaşımı",
+    ],
+    faqExtras: [
+      {
+        question: "Fabrika ve depo için standart kamera sistemi yeterli mi?",
+        answer:
+          "Çoğu projede geniş alan, düşük ışık ve uzun mesafe nedeniyle standart kurgu yetersiz kalır. Alan tipine özel planlama gerekir.",
+      },
+      {
+        question: "Gece görüş performansı nasıl iyileştirilir?",
+        answer:
+          "Işık koşullarına uygun kamera seçimi, doğru lens ve yerleşim planı ile gece kayıt kalitesi yükseltilir.",
+      },
+      {
+        question: "Uzun kayıt süresi mümkün mü?",
+        answer:
+          "Evet. Kayıt süresi hedefinize göre depolama planı yapılarak uygun NVR ve disk yapısı belirlenir.",
+      },
+      {
+        question: "Kurulum sonrası bakım neden önemli?",
+        answer:
+          "Yoğun çalışma ortamında kir, titreşim ve altyapı etkileri arızayı artırabilir. Periyodik bakım kesintileri azaltır.",
+      },
     ],
     faqExtraItems: [
       {
@@ -648,6 +914,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "bakim-servis-uzaktan-izleme": {
     heroIntro:
       "Mevcut sistemlerin kayıt cihazı, kamera, bağlantı ve görüntü problemlerini tespit edip periyodik bakım ve uzaktan izleme desteğiyle arıza riskini düşürüyoruz.",
+    useCases: [
+      "Kayıt cihazı ve disk sağlığı kaynaklı kayıt kesintilerinin azaltılması",
+      "Kamera görüntü kalitesi ve açı bozulmalarının düzenli kontrolü",
+      "Bağlantı ve uzaktan erişim sorunlarına hızlı teknik müdahale",
+      "Kurumsal yapılarda periyodik bakım planı ile servis sürekliliği",
+    ],
+    installationSteps: [
+      "Mevcut sistem envanterinin çıkarılması ve ilk sağlık kontrolü",
+      "Kritik arıza noktalarının analiz edilip bakım planının hazırlanması",
+      "Periyodik saha bakımının uygulanması ve teknik kontrollerin yapılması",
+      "Uzaktan izleme ile erken problem tespitinin sürdürülmesi",
+      "Aylık raporlama ve iyileştirme önerileriyle sürecin devam ettirilmesi",
+    ],
     sectionTitle1: "Bakım ve Uzaktan İzleme Nerede Fark Yaratır?",
     sectionBody1:
       "Kurulu sistemi olan işletmelerde asıl değer, arıza olduktan sonra değil arıza büyümeden önce müdahale edebilmektir.",
@@ -656,6 +935,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Sistem envanteri, kayıt ve bağlantı kontrolleri, uzaktan teşhis ve sahada müdahale adımlarını düzenli bir bakım planına bağlı yürütüyoruz.",
     ctaText:
       "Periyodik bakım ve uzaktan izleme modeli ile kayıt kaybı, bağlantı kesintisi ve görüntü sorunlarını daha hızlı tespit ederek operasyon sürekliliğini koruyoruz.",
+    trustBlock:
+      "Bakım hizmetinde değer, arıza çıktıktan sonra müdahale etmek değil arızayı önceden yakalayıp sürekliliği korumaktır. Teknik izleme ve periyodik bakım bu yüzden birlikte sunulmalıdır.",
     trustTitle: "Mevcut sistemi güçlü tutan şey düzenli bakım ve hızlı müdahaledir",
     trustBody:
       "Kurulu sistemlerde asıl risk, arıza sonrası geç müdahaledir. Periyodik bakım, uzaktan izleme ve hızlı teknik yönlendirme ile sistemin çalışır kalmasını güvence altına alıyoruz.",
@@ -665,6 +946,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Uzaktan izleme ile erken problem tespiti",
       "Teslim sonrası düzenli destek planı",
       "Arıza riskini düşüren periyodik bakım yaklaşımı",
+    ],
+    faqExtras: [
+      {
+        question: "Bakım hizmeti sadece kendi kurduğunuz sistemlere mi veriliyor?",
+        answer:
+          "Hayır. Farklı firmalar tarafından kurulmuş sistemleri de devralıp bakım kapsamına alabiliyoruz.",
+      },
+      {
+        question: "Hangi sorunlarda uzaktan destek veriyorsunuz?",
+        answer:
+          "Bağlantı, temel görüntü erişimi, kullanıcı ve kayıt ayarı kaynaklı sorunlarda uzaktan teşhis ve müdahale sağlanabilir.",
+      },
+      {
+        question: "Periyodik bakım neleri kapsar?",
+        answer:
+          "Kamera açıları, kayıt cihazı, disk sağlığı, bağlantı durumu ve temel sistem kontrolleri bakım kapsamında değerlendirilir.",
+      },
+      {
+        question: "Bakım sözleşmesi servis hızını etkiler mi?",
+        answer:
+          "Evet. Sözleşmeli müşterilerde arıza geçmişi kayıtlı olduğu için teşhis ve müdahale süreçleri genellikle daha hızlı ilerler.",
+      },
     ],
     faqExtraItems: [
       {
