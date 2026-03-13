@@ -15,6 +15,9 @@ import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
 import { cities } from "@/data/cities";
+import { buildCoverageFaqItem } from "@/data/seo/faq-bank";
+import { getSeoServiceBySlug } from "@/data/seo/services";
+import { trustElementsByIntent } from "@/data/seo/trust-elements";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import { getCityServicePageVisuals } from "@/lib/page-images";
@@ -24,6 +27,15 @@ import {
   getCityServiceCanonicalUrl,
   getCityServiceStaticParams,
 } from "@/lib/routes";
+import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
+import { dedupeFaqItems, getCityLocative } from "@/lib/seo/page-factory";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildLocalBusinessSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+} from "@/lib/seo/schema";
 import { getServicePageFactoryData } from "@/lib/service-page-factory";
 
 export const dynamic = "force-static";
@@ -114,6 +126,8 @@ function buildDefaultServiceSpecificContent(
   service: ServiceRecord,
   pageContent: FactoryPageContent
 ): ServiceSpecificContent {
+  const seoService = getSeoServiceBySlug(service.slug);
+  const trustElement = trustElementsByIntent[seoService?.intentType ?? "installation"];
   const useCases =
     pageContent.useCases.items.length > 0
       ? pageContent.useCases.items
@@ -136,11 +150,7 @@ function buildDefaultServiceSpecificContent(
   const trustBullets =
     pageContent.hero.benefits.length > 0
       ? pageContent.hero.benefits
-      : [
-          "Şehir içi hızlı keşif ve ön değerlendirme",
-          "Mevcut sistem durumuna göre doğru çözüm planlama",
-          "Teslim sonrası bakım ve destek yönlendirmesi",
-        ];
+      : trustElement.bullets;
 
   return {
     heroIntro: pageContent.hero.intro,
@@ -158,10 +168,10 @@ function buildDefaultServiceSpecificContent(
       pageContent.cta.description ||
       `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} için hızlı keşif ve teklif süreci sunuyoruz.`,
     trustBlock: `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} hizmetinde doğru teşhis, doğru planlama ve sürdürülebilir sonuç odaklı çalışıyoruz.`,
-    trustTitle: `${service.name} hizmetinde neden profesyonel ekip gerekir?`,
+    trustTitle: trustElement.title,
     trustBody:
       pageContent.hero.localContext ||
-      `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı, sahaya ve mevcut sisteme göre değiştiği için çözümü standart değil proje bazlı planlıyoruz.`,
+      trustElement.body,
     trustBullets,
     faqExtras: [],
     faqExtraItems: [],
@@ -1786,13 +1796,6 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   },
 };
 
-function getCityLocative(cityName: string) {
-  const normalized = cityName.toLocaleLowerCase("tr-TR");
-  const lastVowel = [...normalized].reverse().find((char) => "aeıioöuü".includes(char));
-  const suffix = lastVowel && "eiöü".includes(lastVowel) ? "de" : "da";
-  return `${cityName}'${suffix}`;
-}
-
 export function generateStaticParams() {
   return getCityServiceStaticParams();
 }
@@ -1804,36 +1807,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = services.find((s) => s.slug === serviceSlug);
 
   if (!city || !service) {
-    return {
-      title: "Sayfa Bulunamadı | Güvenlik Servisi",
-    };
+    return buildNotFoundMetadata();
   }
 
   const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
 
   if (!canonical) {
-    return {
-      title: "Sayfa Bulunamadi | Guvenlik Servisi",
-    };
+    return buildNotFoundMetadata();
   }
 
   const pageContent = getServicePageFactoryData(city, service);
 
-  return {
+  return buildSeoMetadata({
     title: pageContent.meta.title,
     description: pageContent.meta.description,
-    alternates: {
-      canonical,
-    },
-    openGraph: {
-      title: pageContent.meta.title,
-      description: pageContent.meta.description,
-      url: canonical,
-      siteName: siteConfig.name,
-      locale: "tr_TR",
-      type: "website",
-    },
-  };
+    canonical,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {
@@ -1923,22 +1912,10 @@ export default async function ServicePage({ params }: PageProps) {
   const faqExtraItems = [
     ...serviceSpecificContent.faqExtras,
     ...serviceSpecificContent.faqExtraItems,
-    {
-      question: `${city.name} genelinde bu hizmeti hangi ilçelerde veriyorsunuz?`,
-      answer:
-        `${city.name} genelinde ilçe bazlı ekip planlaması yapıyoruz. Keşif sonrası proje kapsamına uygun servis takvimi oluşturuyoruz.`,
-    },
+    buildCoverageFaqItem(city.name),
   ];
 
-  const mergedFaqItems = [
-    ...baseFaqItems,
-    ...faqExtraItems.filter(
-      (candidate) =>
-        !baseFaqItems.some(
-          (existing) => existing.question.toLowerCase() === candidate.question.toLowerCase()
-        )
-    ),
-  ];
+  const mergedFaqItems = dedupeFaqItems(baseFaqItems, faqExtraItems);
 
   const relatedCoreServiceLinks = [
     { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
@@ -1963,77 +1940,30 @@ export default async function ServicePage({ params }: PageProps) {
     })
     .filter((item): item is { href: string; label: string } => item !== null);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: mergedFaqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Ana Sayfa",
-        item: siteConfig.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: city.name,
-        item: cityCanonical,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: service.name,
-        item: canonical,
-      },
-    ],
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${city.name} ${service.name} - ${siteConfig.name}`,
+  const faqSchema = buildFaqSchema(mergedFaqItems);
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Ana Sayfa", url: "/" },
+    { name: city.name, url: cityCanonical },
+    { name: service.name, url: canonical },
+  ]);
+  const localBusinessSchema = buildLocalBusinessSchema({
+    name: `${city.name} ${service.name} - Güvenlik Servisi`,
     url: canonical,
-    telephone: siteConfig.phone,
     areaServed: city.name,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: siteConfig.city,
-      streetAddress: siteConfig.address,
-      addressCountry: "TR",
-    },
     description: pageContent.meta.description,
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
+  });
+  const serviceSchema = buildServiceSchema({
     name: `${city.name} ${service.name}`,
+    description: pageContent.meta.description,
+    url: canonical,
     serviceType: service.name,
-    areaServed: {
-      "@type": "City",
-      name: city.name,
-    },
-    provider: {
-      "@type": "LocalBusiness",
-      name: siteConfig.name,
-      telephone: siteConfig.phone,
-      url: canonical,
-      areaServed: city.name,
-    },
-  };
+    areaServed: city.name,
+  });
+  const webPageSchema = buildWebPageSchema({
+    name: pageContent.meta.title,
+    description: pageContent.meta.description,
+    url: canonical,
+  });
 
   return (
     <main className={pageShellClass}>
@@ -2052,6 +1982,10 @@ export default async function ServicePage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
 
       {isCameraService ? (

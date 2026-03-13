@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import InternalLinkSection from "@/components/InternalLinkSection";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
-import { cities } from "@/data/cities";
+import { buildCityFaqItems } from "@/data/seo/faq-bank";
+import { getSeoCityBySlug } from "@/data/seo/cities";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import {
@@ -13,6 +14,13 @@ import {
   getCityStaticParams,
 } from "@/lib/routes";
 import { getCityPageVisuals } from "@/lib/page-images";
+import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildLocalBusinessSchema,
+  buildWebPageSchema,
+} from "@/lib/seo/schema";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -23,77 +31,16 @@ interface PageProps {
   }>;
 }
 
-const cityIntroMap: Record<string, string> = {
-  istanbul:
-    "İstanbul içinde apartman, site, villa, mağaza, ofis, depo ve fabrika projeleri için profesyonel güvenlik sistemi kurulumu yapıyoruz.",
-  ankara:
-    "Ankara içinde ev, işyeri, apartman ve ticari alanlar için keşif, ürün seçimi, montaj ve devreye alma dahil güvenlik çözümleri sunuyoruz.",
-  izmir:
-    "İzmir içinde iç ve dış mekanlara uygun kamera, alarm ve geçiş kontrol sistemleri kuruyoruz.",
-  bursa:
-    "Bursa içinde fabrika, depo, mağaza, site ve apartman projeleri için profesyonel montaj hizmeti veriyoruz.",
-  kocaeli:
-    "Kocaeli içinde özellikle fabrika, depo ve sanayi tesisleri için güvenlik sistemi çözümleri sunuyoruz.",
-  antalya:
-    "Antalya içinde villa, site, otel çevresi ve ticari alanlar için güvenlik kamera ve alarm sistemleri kuruyoruz.",
-  sakarya:
-    "Sakarya içinde ev, işyeri, depo ve site projelerinde anahtar teslim güvenlik sistemi kurulumu sunuyoruz.",
-  yalova:
-    "Yalova içinde konut, site, villa, işyeri ve küçük işletmeler için profesyonel güvenlik sistemleri kurulumu yapıyoruz.",
-  edirne:
-    "Edirne içinde konut ve ticari projeler için kamera sistemi, alarm sistemi ve kartlı geçiş çözümleri sunuyoruz.",
-  kirklareli:
-    "Kırklareli içinde işyeri, depo, apartman ve açık alan güvenliği için profesyonel montaj hizmeti sağlıyoruz.",
-};
-
-const cityServiceAreasMap: Record<string, string[]> = {
-  istanbul: ["Apartmanlar", "Siteler", "Mağazalar", "Ofisler", "Depolar", "Fabrikalar"],
-  ankara: ["Daireler", "Villalar", "İşyerleri", "Apartman girişleri", "Depolar", "Mağazalar"],
-  izmir: ["Evler", "Siteler", "Dükkanlar", "Ofisler", "Depolar", "Açık alanlar"],
-  bursa: ["Fabrikalar", "Depolar", "Mağazalar", "Apartmanlar", "Siteler", "Atölyeler"],
-  kocaeli: ["Sanayi tesisleri", "Depolar", "Fabrikalar", "Ofisler", "Apartmanlar", "Mağazalar"],
-  antalya: ["Villalar", "Oteller", "Siteler", "Mağazalar", "Restoranlar", "Depolar"],
-  sakarya: ["Evler", "İşyerleri", "Siteler", "Depolar", "Atölyeler", "Mağazalar"],
-  yalova: ["Villalar", "Yazlıklar", "Apartmanlar", "Dükkanlar", "Ofisler", "Siteler"],
-  edirne: ["Konutlar", "İşletmeler", "Apartmanlar", "Depolar", "Mağazalar", "Bahçeli alanlar"],
-  kirklareli: ["Çiftlikler", "Depolar", "Apartmanlar", "İşyerleri", "Açık alanlar", "Mağazalar"],
-};
-
-const faqByCity = (cityName: string) => [
-  {
-    question: `${cityName} güvenlik sistemi kurulumu ne kadar sürer?`,
-    answer:
-      "Küçük projeler genelde aynı gün tamamlanır. Orta ve büyük projelerde keşif sonrası 1-3 gün içinde kurulum bitirilir.",
-  },
-  {
-    question: `${cityName} içinde ücretsiz keşif yapıyor musunuz?`,
-    answer:
-      "Evet. Uygun projelerde ücretsiz keşif ile alanı analiz ediyor, gerekli kamera ve ekipman sayısını belirliyoruz.",
-  },
-  {
-    question: `Telefondan uzaktan izleme kuruluyor mu?`,
-    answer:
-      "Evet. Kurulum sonrası mobil uygulama üzerinden canlı izleme, kayıt izleme ve temel bildirim ayarları yapılır.",
-  },
-  {
-    question: `Kamera, kayıt cihazı ve hard disk dahil sistem kuruluyor mu?`,
-    answer:
-      "Evet. İhtiyaca göre kamera, NVR/DVR, hard disk, PoE switch, adaptör ve kablolama dahil komple sistem hazırlanır.",
-  },
-];
-
 export function generateStaticParams() {
   return getCityStaticParams();
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { city: citySlug } = await params;
-  const city = cities.find((c) => c.slug === citySlug);
+  const city = getSeoCityBySlug(citySlug);
 
   if (!city) {
-    return {
-      title: "Sayfa Bulunamadı | Güvenlik Servisi",
-    };
+    return buildNotFoundMetadata();
   }
 
   const title = `${city.name} Güvenlik Sistemleri | Kamera, Alarm, Montaj ve Teklif`;
@@ -101,53 +48,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonical = getCityCanonicalUrl(city.slug);
 
   if (!canonical) {
-    return {
-      title: "Sayfa Bulunamadi | Guvenlik Servisi",
-    };
+    return buildNotFoundMetadata();
   }
 
-  return {
+  return buildSeoMetadata({
     title,
     description,
-    alternates: {
-      canonical,
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: siteConfig.name,
-      locale: "tr_TR",
-      type: "website",
-    },
-  };
+    canonical,
+  });
 }
 
 export default async function CityPage({ params }: PageProps) {
   const { city: citySlug } = await params;
-  const city = cities.find((c) => c.slug === citySlug);
+  const city = getSeoCityBySlug(citySlug);
 
   if (!city) notFound();
 
-  const intro =
-    cityIntroMap[city.slug] ||
-    `${city.name} içinde kamera sistemi kurulumu, alarm sistemi kurulumu ve diğer güvenlik çözümleri için profesyonel montaj hizmeti sunuyoruz.`;
-
-  const serviceAreas = cityServiceAreasMap[city.slug] || [
-    "Evler",
-    "İşyerleri",
-    "Apartmanlar",
-    "Siteler",
-    "Depolar",
-    "Mağazalar",
-  ];
+  const intro = city.shortIntro;
+  const serviceAreas = city.serviceAreas;
 
   const cityPath = getCityPath(city.slug);
   const canonical = getCityCanonicalUrl(city.slug);
 
   if (!cityPath || !canonical) notFound();
 
-  const faqItems = faqByCity(city.name);
+  const faqItems = buildCityFaqItems(city.name);
   const cityVisuals = getCityPageVisuals(city.slug);
   const cityServiceLinks = services.flatMap((service) => {
     const href = getCityServicePath(city.slug, service.slug);
@@ -163,53 +88,22 @@ export default async function CityPage({ params }: PageProps) {
     };
   });
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Ana Sayfa",
-        item: siteConfig.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: `${city.name} Güvenlik Sistemleri`,
-        item: canonical,
-      },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${city.name} Güvenlik Sistemleri - ${siteConfig.name}`,
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Ana Sayfa", url: "/" },
+    { name: `${city.name} Güvenlik Sistemleri`, url: canonical },
+  ]);
+  const faqSchema = buildFaqSchema(faqItems);
+  const localBusinessSchema = buildLocalBusinessSchema({
+    name: `${city.name} Güvenlik Sistemleri - Güvenlik Servisi`,
     url: canonical,
-    telephone: siteConfig.phone,
-    areaServed: city.name,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: siteConfig.city,
-      streetAddress: siteConfig.address,
-      addressCountry: "TR",
-    },
+    areaServed: city.areaServedLabel,
     description: `${city.name} içinde kamera, alarm ve güvenlik sistemi kurulumu hizmeti.`,
-  };
+  });
+  const webPageSchema = buildWebPageSchema({
+    name: `${city.name} Güvenlik Sistemleri`,
+    description: `${city.name} içinde güvenlik kamera, alarm, geçiş kontrol ve bakım hizmetleri.`,
+    url: canonical,
+  });
 
   return (
     <main style={{ maxWidth: "1180px", margin: "0 auto", padding: "48px 20px 64px" }}>
@@ -224,6 +118,10 @@ export default async function CityPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
 
       <section style={{ marginBottom: "40px" }}>
