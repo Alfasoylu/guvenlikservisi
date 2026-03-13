@@ -201,7 +201,8 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.useCases.description}
         localContext={pageContent.useCases.localContext}
         items={pageContent.useCases.items}
-        images={pageContent.images.useCases}
+        supportImages={pageContent.images.support}
+        useCaseImages={pageContent.images.useCases}
       />
 
       <ServicePackages

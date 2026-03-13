@@ -14,7 +14,8 @@ interface ServiceUseCasesProps {
   description: string;
   localContext?: string;
   items: string[];
-  images?: ServicePageImage[];
+  supportImages?: ServicePageImage[];
+  useCaseImages?: ServicePageImage[];
 }
 
 export default function ServiceUseCases({
@@ -22,13 +23,20 @@ export default function ServiceUseCases({
   description,
   localContext,
   items,
-  images = [],
+  supportImages = [],
+  useCaseImages = [],
 }: ServiceUseCasesProps) {
   return (
     <section className={sectionClass}>
       <h2 className={sectionTitleClass}>{title}</h2>
       <p className={sectionIntroClass}>{description}</p>
       {localContext ? <p className={sectionIntroClass}>{localContext}</p> : null}
+
+      {supportImages.length > 0 ? (
+        <div className="mt-6">
+          <ServiceImageGrid images={supportImages.slice(0, 2)} priorityFirst />
+        </div>
+      ) : null}
 
       <div className={gridClass}>
         {items.map((item) => (
@@ -38,9 +46,9 @@ export default function ServiceUseCases({
         ))}
       </div>
 
-      {images.length > 0 ? (
+      {useCaseImages.length > 0 ? (
         <div className="mt-6">
-          <ServiceImageGrid images={images.slice(0, 2)} />
+          <ServiceImageGrid images={useCaseImages.slice(0, 2)} />
         </div>
       ) : null}
     </section>

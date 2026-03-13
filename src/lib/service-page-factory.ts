@@ -138,7 +138,7 @@ function buildImageAltText(
   service: ServiceRecord,
   source: ServiceImageSource
 ) {
-  return `${city.name} ${service.name.toLowerCase()} için ${source.subject}`;
+  return `${city.name} ${service.name.toLocaleLowerCase("tr")} için ${source.subject}`;
 }
 
 function mapServiceImage(
@@ -366,7 +366,7 @@ export function getServicePageFactoryData(
     images: {
       hero: heroImage,
       support: supportImages,
-      useCases: [...useCaseImages, ...supportImages].slice(0, 2),
+      useCases: useCaseImages,
       cta: ctaImage,
     },
     districts,
