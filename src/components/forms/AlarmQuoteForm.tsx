@@ -53,7 +53,7 @@ export default function AlarmQuoteForm() {
         page_url:
           typeof window !== "undefined"
             ? window.location.href
-            : "https://www.guvenlikservisi.com/teklif/alarm",
+            : "https://guvenlikservisi.com/teklif/alarm",
         form_source: "alarm_landing_page",
         notes: "alarm sayfası formu",
       };

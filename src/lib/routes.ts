@@ -12,7 +12,6 @@ export const staticPagePaths = [
   "/fabrika-depo-guvenlik-sistemi",
   "/hakkimizda",
   "/iletisim",
-  "/istanbul-guvenlik-sistemi-kurulumu",
   "/isyeri-guvenlik-sistemi",
   "/kamera-sistemi-kurulumu",
   "/kartli-gecis-ve-turnike-sistemi",
@@ -26,7 +25,6 @@ export const teklifPaths = [
   "/teklif/istanbul-ip-kamera-montaji",
   "/teklif/isyeri",
   "/teklif/kamera",
-  "/teklif/kamera/istanbul-ip-kamera-montaji",
   "/teklif/yangin",
 ] as const;
 

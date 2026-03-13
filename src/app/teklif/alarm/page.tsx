@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description:
       "İstanbul içi aynı gün alarm montajı. Kablolu ve kablosuz alarm sistemleri, mobil kontrol ve 2 yıl garanti.",
     images: [
-      "https://www.guvenlikservisi.com/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png",
+      "https://guvenlikservisi.com/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png",
     ],
   },
 };
@@ -145,7 +145,7 @@ const jsonLd = {
   provider: {
     "@type": "Organization",
     name: "Güvenlik Servisi",
-    url: "https://www.guvenlikservisi.com",
+    url: "https://guvenlikservisi.com",
   },
   areaServed: {
     "@type": "City",

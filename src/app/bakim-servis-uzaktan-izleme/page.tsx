@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description:
       "Site, fabrika, depo ve işletmeler için aylık bakım, servis ve uzaktan izleme hizmeti.",
     images: [
-      "https://www.guvenlikservisi.com/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+      "https://guvenlikservisi.com/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
     ],
   },
 };
@@ -133,7 +133,7 @@ const jsonLd = {
   provider: {
     "@type": "Organization",
     name: "Güvenlik Servisi",
-    url: "https://www.guvenlikservisi.com",
+    url: "https://guvenlikservisi.com",
   },
   areaServed: provinces.map((province) => ({
     "@type": "City",

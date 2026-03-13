@@ -69,7 +69,7 @@ export default function MaintenanceQuoteForm() {
         page_url:
           typeof window !== "undefined"
             ? window.location.href
-            : "https://www.guvenlikservisi.com/bakim-servis-uzaktan-izleme",
+            : "https://guvenlikservisi.com/bakim-servis-uzaktan-izleme",
         form_source: "maintenance_contract_page",
         notes: [
           "lead_type: kurumsal_bakim",

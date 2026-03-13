@@ -27,9 +27,6 @@ export const metadata: Metadata = {
     "fabrika güvenlik sistemi",
     "kamera montajı",
   ],
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
