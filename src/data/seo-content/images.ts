@@ -15,115 +15,51 @@ export interface ServiceImageRegistryEntry {
   cta?: ServiceImageSource;
 }
 
-const cameraHero: ServiceImageSource = {
-  src: "/images/landing/istanbul-ip-kamera-hero.webp",
-  subject: "IP kamera kurulum sahası",
-  title: "Saha kurulum görünümü",
-  caption: "Kurulum noktaları, cihaz yerleşimi ve izleme altyapısı birlikte planlanır.",
-  aspect: "hero",
-};
-
-const cameraContext: ServiceImageSource = {
-  src: "/images/landing/ip-kamera-kurulum-detay.webp",
-  subject: "kamera sistemi kablolama ve kayıt altyapısı",
-  title: "Kurulum detayı",
-  caption: "Kayıt cihazı, bağlantılar ve görüntü altyapısı profesyonel şekilde devreye alınır.",
-  aspect: "landscape",
-};
-
-const cameraMonitoring: ServiceImageSource = {
-  src: "/images/landing/uzaktan-izleme-mobil.webp",
-  subject: "mobil izleme ekranı",
-  title: "Mobil izleme",
-  caption: "Telefon ve tablet üzerinden canlı görüntü takibi desteklenir.",
-  aspect: "landscape",
-};
-
-const outdoorCamera: ServiceImageSource = {
-  src: "/images/landing/dis-ortam-goruntu-demo.webp",
-  subject: "dış ortam güvenlik kamerası görüntüsü",
-  title: "Dış alan güvenliği",
-  caption: "Açık alanlar, bina çevresi ve giriş noktaları için uygun kamera senaryoları kurgulanır.",
-  aspect: "landscape",
-};
-
-const indoorCamera: ServiceImageSource = {
-  src: "/images/landing/ic-ortam-goruntu-demo.webp",
-  subject: "iç mekan güvenlik kamerası görüntüsü",
-  title: "İç alan takibi",
-  caption: "Ofis, mağaza ve ortak alanlarda net görüntü sağlayan iç mekan çözümleri uygulanır.",
-  aspect: "landscape",
-};
-
-const alarmHero: ServiceImageSource = {
-  src: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png",
-  subject: "alarm sistemi kurulum sahası",
-  title: "Alarm kurulumu",
-  caption: "Panel, sensör ve siren yerleşimi keşif sonrası doğru noktalarda planlanır.",
-  aspect: "hero",
-};
-
-const alarmMobile: ServiceImageSource = {
-  src: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp",
-  subject: "mobil alarm kontrol ekranı",
-  title: "Mobil alarm yönetimi",
-  caption: "Alarm sistemi mobil bildirim ve uzaktan kontrol altyapısıyla desteklenir.",
-  aspect: "landscape",
-};
-
-const alarmPanel: ServiceImageSource = {
-  src: "/images/services/bakim-servis/alarm-panel-sensor-test-bakim.jpg",
-  subject: "alarm paneli ve sensör testi",
-  title: "Panel ve sensör kontrolü",
-  caption: "Alarm paneli, sensörler ve saha bağlantıları test edilerek sistem sürekliliği korunur.",
-  aspect: "landscape",
-};
-
-const businessSecurity: ServiceImageSource = {
-  src: "/images/landing/magazamiz-foto.webp",
-  subject: "işyeri güvenlik uygulama alanı",
-  title: "İşyeri güvenliği",
-  caption: "Mağaza, ofis ve ticari alanlarda güvenlik noktaları işletme akışına göre konumlandırılır.",
-  aspect: "hero",
-};
-
 const maintenanceTeam: ServiceImageSource = {
   src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
-  subject: "saha teknik ekibi çalışması",
+  subject: "güvenlik sistemi bakım teknisyen ekibi",
   title: "Teknik ekip",
-  caption: "Kurulum, bakım ve devreye alma süreçleri deneyimli ekiplerle yönetilir.",
+  caption: "Saha bakım ve kontrol süreçleri deneyimli teknik ekiple yürütülür.",
   aspect: "hero",
 };
 
-const nvrMaintenance: ServiceImageSource = {
-  src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
-  subject: "NVR kayıt cihazı ve disk kontrolü",
-  title: "Kayıt cihazı kontrolü",
-  caption: "Kayıt altyapısı ve depolama kapasitesi proje ihtiyacına göre kontrol edilir.",
+const monitoringCenter: ServiceImageSource = {
+  src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+  subject: "güvenlik kamera sistemi izleme merkezi",
+  title: "İzleme merkezi",
+  caption: "Merkezi izleme ekranları, kayıt ve operasyon takibini tek noktada toplar.",
   aspect: "landscape",
 };
 
-const siteMonitoring: ServiceImageSource = {
-  src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
-  subject: "güvenlik izleme merkezi ekranları",
-  title: "İzleme merkezi",
-  caption: "Site ve toplu yapılarda merkezi izleme ekranları operasyonel güveni artırır.",
+const nvrControl: ServiceImageSource = {
+  src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
+  subject: "NVR kayıt cihazı bakım ve harddisk kontrolü",
+  title: "NVR kontrolü",
+  caption: "Kayıt cihazı ve depolama altyapısı düzenli kontrol ile kesintisiz çalışır.",
+  aspect: "landscape",
+};
+
+const nvrDiskTest: ServiceImageSource = {
+  src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg",
+  subject: "NVR kayıt cihazı harddisk testi",
+  title: "Harddisk testi",
+  caption: "Kayıt süresi ve disk sağlığı proje teslim kalitesi için kritik önemdedir.",
   aspect: "landscape",
 };
 
 const siteMaintenance: ServiceImageSource = {
   src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
-  subject: "site kamera sistemi saha kontrolü",
-  title: "Site sistemi kontrolü",
-  caption: "Apartman ve site projelerinde ortak alan güvenliği düzenli kontrollerle desteklenir.",
+  subject: "site kamera sistemi periyodik bakım sahası",
+  title: "Site bakımı",
+  caption: "Site ve apartman projelerinde ortak alan kamera sistemleri düzenli kontrol edilir.",
   aspect: "landscape",
 };
 
-const factorySecurity: ServiceImageSource = {
-  src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
-  subject: "fabrika güvenlik kamerası saha uygulaması",
-  title: "Fabrika güvenliği",
-  caption: "Fabrika ve depo alanlarında çevre güvenliği ile kayıt sürekliliği birlikte ele alınır.",
+const siteMonitoring: ServiceImageSource = {
+  src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+  subject: "site yönetimi güvenlik merkezi izleme ekranı",
+  title: "Site izleme ekranı",
+  caption: "Toplu yapılarda merkezi izleme ekranları güvenlik operasyonuna görünürlük kazandırır.",
   aspect: "landscape",
 };
 
@@ -131,64 +67,144 @@ const remoteMonitoring: ServiceImageSource = {
   src: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
   subject: "uzaktan izleme merkezi ekranları",
   title: "Uzaktan izleme",
-  caption: "Merkezi izleme ekranları saha ekipleri için hızlı kontrol ve müdahale avantajı sağlar.",
+  caption: "Uzaktan izleme merkezleri kayıt akışı ve sistem durumunu anlık takip etmeyi kolaylaştırır.",
   aspect: "landscape",
+};
+
+const cameraServiceTeam: ServiceImageSource = {
+  src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+  subject: "işyeri kamera montajı yapan teknik servis ekibi",
+  title: "Kamera montaj ekibi",
+  caption: "İşyeri ve ticari alanlarda kamera noktaları saha keşfine göre profesyonelce yerleştirilir.",
+  aspect: "hero",
+};
+
+const cameraPeriodicMaintenance: ServiceImageSource = {
+  src: "/images/services/bakim-servis/kamera-sistemi-periyodik-bakim-servisi.jpg",
+  subject: "kamera sistemi periyodik bakım servisi",
+  title: "Periyodik bakım",
+  caption: "Kamera sistemlerinde görüntü kalitesi ve kayıt sürekliliği için düzenli bakım gerekir.",
+  aspect: "landscape",
+};
+
+const marketCamera: ServiceImageSource = {
+  src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+  subject: "market kamera montajı ve görünmez kablolama uygulaması",
+  title: "Mağaza uygulaması",
+  caption: "Mağaza ve işyeri projelerinde düzenli kablolama, temiz teslimin önemli parçasıdır.",
+  aspect: "landscape",
+};
+
+const factoryCamera: ServiceImageSource = {
+  src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+  subject: "fabrika güvenlik kamera bakım servisi sahası",
+  title: "Fabrika güvenliği",
+  caption: "Fabrika ve depo alanlarında çevre izleme ile kayıt kontrolü birlikte planlanır.",
+  aspect: "landscape",
+};
+
+const accessTurnstile: ServiceImageSource = {
+  src: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
+  subject: "kartlı geçiş sistemi turnike giriş alanı",
+  title: "Turnike girişi",
+  caption: "Kartlı geçiş ve turnike çözümleri giriş çıkış kontrolünü kurumsal standartta yönetir.",
+  aspect: "hero",
+};
+
+const accessMobileLogs: ServiceImageSource = {
+  src: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg",
+  subject: "kartlı geçiş sistemi mobil giriş çıkış kayıtları",
+  title: "Mobil kayıt takibi",
+  caption: "Geçiş kayıtları mobil erişim ve raporlama süreçlerine entegre edilebilir.",
+  aspect: "landscape",
+};
+
+const fireAlarmPanel: ServiceImageSource = {
+  src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+  subject: "yangın alarm paneli kontrol sistemi",
+  title: "Yangın paneli",
+  caption: "Yangın alarm paneli, saha cihazları ve alarm senaryoları test edilerek devreye alınır.",
+  aspect: "hero",
+};
+
+const fireAlarmDetector: ServiceImageSource = {
+  src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+  subject: "yangın alarm dedektörü ve acil butonu",
+  title: "Dedektör ve buton",
+  caption: "Dedektör ve acil buton noktaları yangın algılama senaryosunun temel bileşenleridir.",
+  aspect: "landscape",
+};
+
+const alarmPanelTest: ServiceImageSource = {
+  src: "/images/services/bakim-servis/alarm-panel-sensor-test-bakim.jpg",
+  subject: "alarm paneli sensör test bakımı",
+  title: "Panel testi",
+  caption: "Alarm paneli ve sensörlerin test edilmesi, sistem güvenilirliğini artırır.",
+  aspect: "landscape",
+};
+
+const alarmServicePanel: ServiceImageSource = {
+  src: "/images/services/bakim-servis/alarm-sistemi-panel-test-servis.jpg",
+  subject: "alarm sistemi panel test servisi",
+  title: "Alarm servis paneli",
+  caption: "Alarm paneli, saha cihazları ve servis kontrolleri proje güvenliği için birlikte değerlendirilir.",
+  aspect: "hero",
 };
 
 export const fallbackServiceImages: ServiceImageRegistryEntry = {
   hero: maintenanceTeam,
-  support: [cameraContext, cameraMonitoring],
-  useCases: [indoorCamera, outdoorCamera],
-  cta: siteMonitoring,
+  support: [monitoringCenter, nvrControl],
+  useCases: [siteMaintenance, siteMonitoring],
+  cta: monitoringCenter,
 };
 
 export const serviceImages: Record<string, ServiceImageRegistryEntry> = {
-  "kamera-sistemi-kurulumu": {
-    hero: cameraHero,
-    support: [cameraContext, cameraMonitoring],
-    useCases: [indoorCamera, outdoorCamera],
-    cta: cameraMonitoring,
-  },
-  "alarm-sistemi-kurulumu": {
-    hero: alarmHero,
-    support: [alarmMobile, alarmPanel],
-    useCases: [businessSecurity, alarmMobile],
-    cta: alarmPanel,
-  },
-  "yangin-alarm-sistemi-kurulumu": {
-    hero: alarmPanel,
-    support: [maintenanceTeam, siteMonitoring],
-    useCases: [businessSecurity, siteMonitoring],
-    cta: alarmPanel,
+  "bakim-servis-uzaktan-izleme": {
+    hero: maintenanceTeam,
+    support: [nvrControl, siteMaintenance],
+    useCases: [remoteMonitoring, siteMonitoring],
+    cta: monitoringCenter,
   },
   "kartli-gecis-sistemi-kurulumu": {
-    hero: businessSecurity,
-    support: [siteMonitoring, cameraMonitoring],
-    useCases: [businessSecurity, siteMaintenance],
-    cta: siteMonitoring,
+    hero: accessTurnstile,
+    support: [accessMobileLogs],
+    useCases: [accessTurnstile, accessMobileLogs],
+    cta: accessMobileLogs,
+  },
+  "yangin-alarm-sistemi-kurulumu": {
+    hero: fireAlarmPanel,
+    support: [fireAlarmDetector],
+    useCases: [fireAlarmPanel, fireAlarmDetector],
+    cta: fireAlarmDetector,
+  },
+  "kamera-sistemi-kurulumu": {
+    hero: cameraServiceTeam,
+    support: [cameraPeriodicMaintenance, marketCamera],
+    useCases: [factoryCamera],
+    cta: nvrDiskTest,
+  },
+  "isyeri-guvenlik-sistemi": {
+    hero: cameraServiceTeam,
+    support: [marketCamera, siteMonitoring],
+    useCases: [marketCamera, monitoringCenter],
+    cta: monitoringCenter,
+  },
+  "alarm-sistemi-kurulumu": {
+    hero: alarmServicePanel,
+    support: [alarmPanelTest],
+    useCases: [alarmServicePanel, alarmPanelTest],
+    cta: alarmPanelTest,
   },
   "apartman-site-guvenlik-sistemi": {
     hero: siteMaintenance,
-    support: [siteMonitoring, outdoorCamera],
+    support: [siteMonitoring, monitoringCenter],
     useCases: [siteMaintenance, siteMonitoring],
-    cta: siteMonitoring,
-  },
-  "isyeri-guvenlik-sistemi": {
-    hero: businessSecurity,
-    support: [alarmHero, cameraMonitoring],
-    useCases: [businessSecurity, indoorCamera],
-    cta: alarmHero,
+    cta: monitoringCenter,
   },
   "fabrika-depo-guvenlik-sistemi": {
-    hero: factorySecurity,
-    support: [nvrMaintenance, outdoorCamera],
-    useCases: [factorySecurity, nvrMaintenance],
-    cta: factorySecurity,
-  },
-  "bakim-servis-uzaktan-izleme": {
-    hero: maintenanceTeam,
-    support: [nvrMaintenance, remoteMonitoring, siteMaintenance],
-    useCases: [factorySecurity, siteMonitoring],
-    cta: alarmPanel,
+    hero: factoryCamera,
+    support: [nvrControl, monitoringCenter],
+    useCases: [factoryCamera, nvrDiskTest],
+    cta: nvrDiskTest,
   },
 };
