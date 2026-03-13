@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 
 declare global {
   interface Window {
@@ -18,6 +19,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState("");
   const [formError, setFormError] = useState("");
+  const attribution = useLandingAttribution();
 
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
   const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
@@ -40,11 +42,14 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       placeType: String(formData.get("placeType") || ""),
       cameraCount: String(formData.get("cameraCount") || ""),
       message: String(formData.get("message") || ""),
-      page: window.location.href,
-      utm_source: new URLSearchParams(window.location.search).get("utm_source") || "",
-      utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || "",
-      utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
-      utm_term: new URLSearchParams(window.location.search).get("utm_term") || "",
+      page: attribution.page_url || window.location.href,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_term: attribution.utm_term,
+      utm_content: attribution.utm_content,
+      referrer: attribution.referrer,
+      timestamp: attribution.timestamp,
       gclid: new URLSearchParams(window.location.search).get("gclid") || "",
     };
 
@@ -98,6 +103,14 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
+        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
+        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
+        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
+        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+
         <div className="grid gap-4 md:grid-cols-2">
           <div>
             <label className="mb-2 block text-sm font-semibold">

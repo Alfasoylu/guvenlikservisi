@@ -5,7 +5,6 @@ import {
   getAllCityPaths,
   getAllCityServicePaths,
   staticPagePaths,
-  teklifPaths,
 } from "@/lib/routes";
 
 export function buildSitemapEntries(lastModified = new Date()): MetadataRoute.Sitemap {
@@ -26,15 +25,6 @@ export function buildSitemapEntries(lastModified = new Date()): MetadataRoute.Si
 
   entries.push(
     ...staticPagePaths.map((path) => ({
-      url: getAbsoluteUrl(path),
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    }))
-  );
-
-  entries.push(
-    ...teklifPaths.map((path) => ({
       url: getAbsoluteUrl(path),
       lastModified,
       changeFrequency: "weekly" as const,

@@ -405,42 +405,6 @@ export default function IstanbulIpKameraMontajiPage() {
     })),
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Anasayfa",
-        item: "https://guvenlikservisi.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Teklif",
-        item: "https://guvenlikservisi.com/teklif",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "İstanbul IP Kamera Montajı",
-        item: "https://guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
-      },
-    ],
-  };
-
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "İstanbul IP Kamera Montajı Hizmeti",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "127",
-    },
-  };
-
   return (
     <main className="bg-white text-slate-950">
       <script
@@ -454,14 +418,6 @@ export default function IstanbulIpKameraMontajiPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
 <section className="relative overflow-hidden bg-slate-950 text-white">
   <div className="absolute inset-0">

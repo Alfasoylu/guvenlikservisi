@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 
 type FormState = {
   name: string;
@@ -27,6 +28,7 @@ export default function AlarmQuoteForm() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const attribution = useLandingAttribution();
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -50,11 +52,14 @@ export default function AlarmQuoteForm() {
         location_type: form.location_type.trim(),
         camera_count: "",
         message: form.message.trim(),
-        page_url:
-          typeof window !== "undefined"
-            ? window.location.href
-            : "https://guvenlikservisi.com/teklif/alarm",
+        page_url: attribution.page_url || "https://guvenlikservisi.com/teklif/alarm",
         form_source: "alarm_landing_page",
+        utm_source: attribution.utm_source,
+        utm_campaign: attribution.utm_campaign,
+        utm_term: attribution.utm_term,
+        utm_content: attribution.utm_content,
+        referrer: attribution.referrer,
+        timestamp: attribution.timestamp,
         notes: "alarm sayfası formu",
       };
 
@@ -93,6 +98,13 @@ export default function AlarmQuoteForm() {
         <input type="hidden" name="form_source" value="alarm_landing_page" />
         <input type="hidden" name="camera_count" value="" />
         <input type="hidden" name="notes" value="alarm sayfası formu" />
+        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
+        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
+        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
+        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
+        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
 
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-semibold">
@@ -158,10 +170,7 @@ export default function AlarmQuoteForm() {
         </div>
 
         <div>
-          <label
-            htmlFor="district"
-            className="mb-2 block text-sm font-semibold"
-          >
+          <label htmlFor="district" className="mb-2 block text-sm font-semibold">
             İlçe
           </label>
           <input
@@ -176,10 +185,7 @@ export default function AlarmQuoteForm() {
         </div>
 
         <div>
-          <label
-            htmlFor="location_type"
-            className="mb-2 block text-sm font-semibold"
-          >
+          <label htmlFor="location_type" className="mb-2 block text-sm font-semibold">
             Mekan Türü
           </label>
           <select
@@ -237,8 +243,7 @@ export default function AlarmQuoteForm() {
         ) : null}
 
         <p className="text-xs leading-6 text-slate-500">
-          Formu doldurduğunuzda bilgileriniz teklif değerlendirmesi için ekibimize
-          iletilir.
+          Formu doldurduğunuzda bilgileriniz teklif değerlendirmesi için ekibimize iletilir.
         </p>
       </form>
     </div>

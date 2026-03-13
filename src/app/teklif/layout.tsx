@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site-config";
 
 export const metadata: Metadata = {
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };
@@ -25,9 +25,7 @@ function normalizePhoneForWhatsApp(value: string): string {
 export default function TeklifLayout({ children }: TeklifLayoutProps) {
   const telHref = `tel:${normalizePhoneForTel(siteConfig.phone)}`;
   const whatsappNumber = normalizePhoneForWhatsApp(siteConfig.whatsapp);
-  const whatsappMessage = encodeURIComponent(
-    "Merhaba, teklif almak istiyorum."
-  );
+  const whatsappMessage = encodeURIComponent("Merhaba, teklif almak istiyorum.");
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
@@ -63,6 +61,31 @@ export default function TeklifLayout({ children }: TeklifLayoutProps) {
       </div>
 
       {/* Sticky bar içerik kapatmasın diye boşluk */}
+      <div className="fixed bottom-6 right-6 z-40 hidden flex-col gap-3 md:flex">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-event="whatsapp_click"
+          aria-label="WhatsApp üzerinden yaz"
+          className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-4 text-sm font-bold text-white shadow-lg transition-opacity hover:opacity-90"
+          style={{ backgroundColor: "#25D366" }}
+        >
+          <MessageCircle size={18} />
+          <span>WhatsApp</span>
+        </a>
+
+        <a
+          href={telHref}
+          data-event="phone_click"
+          aria-label="Telefonla hemen ara"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-4 text-sm font-bold text-white shadow-lg transition-opacity hover:opacity-90"
+        >
+          <Phone size={18} />
+          <span>Hemen Ara</span>
+        </a>
+      </div>
+
       <div className="h-20 md:hidden" />
     </>
   );
