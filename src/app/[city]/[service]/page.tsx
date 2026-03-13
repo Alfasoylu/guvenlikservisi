@@ -1106,11 +1106,20 @@ export default async function ServicePage({ params }: PageProps) {
     notFound();
   }
 
+  const isCameraService = service.slug === "kamera-sistemi-kurulumu";
   const cityLocative = getCityLocative(city.name);
   const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
 
+  const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
+  const baseFaqItems = isCameraService
+    ? pageContent.faq.items
+    : pageContent.faq.items.filter(
+        (item) => !cameraTopicPattern.test(`${item.question} ${item.answer}`)
+      );
+
   const faqExtraItems = [
+    ...serviceSpecificContent.faqExtras,
     ...serviceSpecificContent.faqExtraItems,
     {
       question: `${city.name} genelinde bu hizmeti hangi ilçelerde veriyorsunuz?`,
@@ -1120,10 +1129,10 @@ export default async function ServicePage({ params }: PageProps) {
   ];
 
   const mergedFaqItems = [
-    ...pageContent.faq.items,
+    ...baseFaqItems,
     ...faqExtraItems.filter(
       (candidate) =>
-        !pageContent.faq.items.some(
+        !baseFaqItems.some(
           (existing) => existing.question.toLowerCase() === candidate.question.toLowerCase()
         )
     ),
@@ -1243,16 +1252,18 @@ export default async function ServicePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      <ServiceHero
-        cityName={city.name}
-        serviceName={service.name}
-        cityDescription={pageContent.hero.cityDescription}
-        intro={pageContent.hero.intro}
-        localContext={pageContent.hero.localContext}
-        benefits={pageContent.hero.benefits}
-        process={pageContent.hero.process}
-        image={pageContent.images.hero}
-      />
+      {isCameraService ? (
+        <ServiceHero
+          cityName={city.name}
+          serviceName={service.name}
+          cityDescription={pageContent.hero.cityDescription}
+          intro={pageContent.hero.intro}
+          localContext={pageContent.hero.localContext}
+          benefits={pageContent.hero.benefits}
+          process={pageContent.hero.process}
+          image={pageContent.images.hero}
+        />
+      ) : null}
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
@@ -1445,7 +1456,7 @@ export default async function ServicePage({ params }: PageProps) {
         items={pageContent.stats.items}
       />
 
-      <ServiceSEOContent blocks={pageContent.seoContent.blocks} />
+      {isCameraService ? <ServiceSEOContent blocks={pageContent.seoContent.blocks} /> : null}
 
       <ServiceVisualSection
         title={pageContent.visuals.title}
@@ -1457,21 +1468,25 @@ export default async function ServicePage({ params }: PageProps) {
 
       <RelatedServicesSection cityName={city.name} links={pageContent.relatedServices} />
 
-      <ServiceUseCases
-        title={pageContent.useCases.title}
-        description={pageContent.useCases.description}
-        localContext={pageContent.useCases.localContext}
-        items={pageContent.useCases.items}
-        supportImages={pageContent.images.support}
-        useCaseImages={pageContent.images.useCases}
-      />
+      {isCameraService ? (
+        <ServiceUseCases
+          title={pageContent.useCases.title}
+          description={pageContent.useCases.description}
+          localContext={pageContent.useCases.localContext}
+          items={pageContent.useCases.items}
+          supportImages={pageContent.images.support}
+          useCaseImages={pageContent.images.useCases}
+        />
+      ) : null}
 
-      <ServicePackages
-        title={pageContent.packages.title}
-        description={pageContent.packages.description}
-        localContext={pageContent.packages.localContext}
-        items={pageContent.packages.items}
-      />
+      {isCameraService ? (
+        <ServicePackages
+          title={pageContent.packages.title}
+          description={pageContent.packages.description}
+          localContext={pageContent.packages.localContext}
+          items={pageContent.packages.items}
+        />
+      ) : null}
 
       <ServiceDistricts cityName={city.name} districts={pageContent.districts} />
 
