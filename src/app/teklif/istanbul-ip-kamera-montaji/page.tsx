@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import {
@@ -325,6 +326,26 @@ const faqs = [
     q: "Neden hazır paket yerine keşif sonrası teklif almak daha mantıklı?",
     a: "Çünkü her mekanın giriş noktası, kör açısı, kablolama ihtiyacı ve kayıt beklentisi farklıdır. Keşif sonrası teklif almak gereksiz maliyeti azaltır ve gerçekten iş gören sistem kurulmasını sağlar.",
   },
+  {
+    q: "Kamera montajı kaç saat sürer?",
+    a: "Küçük ölçekli projelerde montaj çoğu zaman aynı gün içinde tamamlanır. Kamera sayısı, kablolama altyapısı ve montaj yapılacak alanın yapısına göre net süre keşif sonrası belirlenir.",
+  },
+  {
+    q: "İstanbul’un hangi ilçelerinde hizmet veriyorsunuz?",
+    a: "Avrupa Yakası ve Anadolu Yakası dahil İstanbul genelinde hizmet veriyoruz. İlçe, proje büyüklüğü ve keşif ihtiyacına göre hızlı ekip planlaması yapıyoruz.",
+  },
+  {
+    q: "Kurulumdan sonra telefondan izleyebilir miyim?",
+    a: "Evet. Kurulum tamamlandıktan sonra telefon ve tablet üzerinden canlı izleme ile geçmiş kayıt erişimi kullanıma hazır şekilde teslim edilir.",
+  },
+  {
+    q: "Sistemin bakımı gerekiyor mu?",
+    a: "Her güvenlik sisteminde düzenli kontrol faydalıdır. Kamera açıları, kayıt cihazı, disk sağlığı ve uzaktan erişim ayarlarının belirli aralıklarla kontrol edilmesi sistem sürekliliğini artırır.",
+  },
+  {
+    q: "Ortalama maliyet nedir?",
+    a: "Ortalama maliyet kamera adedi, çözünürlük, kayıt süresi, kablolama yapısı ve uzaktan izleme ihtiyacına göre değişir. En doğru fiyat keşif veya ihtiyaç analizi sonrası belirlenir.",
+  },
 
 ];
 
@@ -349,6 +370,25 @@ export default function IstanbulIpKameraMontajiPage() {
       telephone: siteConfig.phone,
       url: canonicalUrl,
       areaServed: "İstanbul",
+    },
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: siteConfig.name,
+    url: canonicalUrl,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    areaServed: {
+      "@type": "City",
+      name: "İstanbul",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.city,
+      addressCountry: "TR",
     },
   };
 
@@ -409,6 +449,10 @@ export default function IstanbulIpKameraMontajiPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
@@ -458,12 +502,12 @@ export default function IstanbulIpKameraMontajiPage() {
         ve telefondan canlı izleme kurulumu ile sistemi kullanıma hazır teslim ediyoruz.
       </p>
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a
           href="#teklif-formu"
           className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-400"
         >
-          Hemen Teklif Al
+          Teklif Al
           <ArrowRight className="h-5 w-5" />
         </a>
 
@@ -474,6 +518,16 @@ export default function IstanbulIpKameraMontajiPage() {
         >
           <Phone className="h-5 w-5" />
           {siteConfig.phone}
+        </a>
+
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-event="whatsapp_click"
+          className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-4 text-base font-bold text-emerald-700 transition hover:bg-emerald-50"
+        >
+          WhatsApp’tan Yaz
         </a>
       </div>
 
@@ -650,11 +704,13 @@ export default function IstanbulIpKameraMontajiPage() {
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black md:text-4xl">
-              İstanbul IP Kamera Montajı Hizmetine Neler Dahil?
+              IP Kamera Montaj Hizmeti Neleri Kapsar?
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              Reklamdan gelen kullanıcıların en çok aradığı konu kapsam ve fiyat şeffaflığıdır.
-              Bu yüzden teklif sürecinde hangi başlıklarda destek verdiğimizi açıkça gösteriyoruz.
+              İstanbul’da IP kamera montajı yalnızca kamera takılması değildir. Keşif, kör nokta
+              analizi, cihaz seçimi, kayıt altyapısı, montaj, mobil izleme kurulumu ve sistemin
+              kullanıma hazır teslimi birlikte planlanmalıdır. Bu bölümde teklif sürecinde hangi
+              başlıklarda destek verdiğimizi net şekilde görebilirsiniz.
             </p>
           </div>
 
@@ -671,6 +727,46 @@ export default function IstanbulIpKameraMontajiPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 rounded-[2rem] border border-emerald-200 bg-emerald-50 p-6 md:p-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h3 className="text-2xl font-black text-slate-950">
+                  İstanbul’da kamera sistemi kurdurmak için ücretsiz keşif ve fiyat teklifi alın
+                </h3>
+                <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-700">
+                  Kamera sayısını, kayıt beklentinizi ve mekan tipinizi birlikte netleştirip size
+                  uygun sistemi kısa sürede planlayalım.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  href="#teklif-formu"
+                  className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-3 font-bold text-white transition hover:bg-emerald-500"
+                >
+                  Teklif Al
+                </a>
+                <a
+                  href={phoneHref}
+                  data-event="phone_click"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-emerald-300 px-5 py-3 font-bold text-slate-950 transition hover:bg-white"
+                >
+                  <Phone className="h-5 w-5" />
+                  Hemen Ara
+                </a>
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-event="whatsapp_click"
+                  className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 font-bold text-emerald-700 transition hover:bg-emerald-100"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -735,11 +831,13 @@ export default function IstanbulIpKameraMontajiPage() {
               Nasıl ilerliyoruz?
             </span>
             <h2 className="mt-4 text-3xl font-black md:text-4xl">
-              Tekliften Teslime Net ve Hızlı Süreç
+              Kurulum Süreci Nasıl İşler?
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              Kullanılmayacak ürün satmak yerine, mekanınıza uygun sistemi kısa sürede belirleyip
-              uygulanabilir bir planla ilerliyoruz.
+              İstanbul IP kamera kurulumunda önce ihtiyaç analizi yapılır, ardından keşif ve
+              projelendirme netleşir. Sonrasında montaj, kayıt sistemi ayarları, telefon
+              bağlantıları ve kullanım teslimi tamamlanır. Amaç hızlı değil, sorunsuz çalışan ve
+              sonradan masraf çıkarmayan sistem kurmaktır.
             </p>
           </div>
 
@@ -754,6 +852,57 @@ export default function IstanbulIpKameraMontajiPage() {
                 </div>
                 <h3 className="text-xl font-black">{step.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex rounded-full bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
+              Teklif öncesi karar desteği
+            </span>
+            <h2 className="mt-4 text-3xl font-black md:text-4xl">
+              Fiyatı Belirleyen Faktörler
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              İstanbul IP kamera montajında net maliyet; sadece kamera adedine göre değil,
+              kablolama yapısı, kayıt süresi, uzaktan izleme ihtiyacı ve kurulum yapılacak alanın
+              yapısına göre belirlenir. Bu yüzden doğru fiyat için ihtiyaç analizi kritik önemdedir.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              {
+                title: "Kamera sayısı",
+                text: "2 kamera ile 8 kamera aynı kapsamda değildir. Kamera adedi teklifin temel belirleyicilerinden biridir.",
+              },
+              {
+                title: "Kablo altyapısı",
+                text: "Kablo mesafesi, kat geçişleri, dış ortam hatları ve estetik montaj ihtiyacı işçilik maliyetini etkiler.",
+              },
+              {
+                title: "Kayıt süresi",
+                text: "Kaç gün kayıt tutulacağı disk kapasitesi ve kayıt cihazı yapısını değiştirir.",
+              },
+              {
+                title: "Uzaktan izleme ihtiyacı",
+                text: "Telefon ve tablet erişimi, kullanıcı sayısı ve akıllı bildirim senaryoları sistem kapsamını büyütebilir.",
+              },
+              {
+                title: "Kurulum yapılacak alan",
+                text: "Ev, apartman, ofis, mağaza ya da depo gibi alanlar için kamera açısı ve cihaz seçimi farklılaşır.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
+              >
+                <h3 className="text-xl font-black text-slate-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
               </div>
             ))}
           </div>
@@ -829,14 +978,95 @@ export default function IstanbulIpKameraMontajiPage() {
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <span className="inline-flex rounded-full bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
+                Teslim sonrası güven
+              </span>
+              <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
+                Kurulum Sonrası Destek ve Garanti
+              </h2>
+              <p className="mt-4 text-base leading-8 text-slate-600">
+                IP kamera montajı yalnızca cihazların çalışmasıyla bitmez. Sistem eğitimi, mobil
+                uygulama kurulumu, teknik destek ve ihtiyaç halinde bakım hizmeti sistemin uzun
+                vadeli verimini belirler.
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {[
+                  "Sistem eğitimi ve temel kullanım teslimi",
+                  "Telefon ve tablet için mobil uygulama kurulumu",
+                  "Kurulum sonrası teknik destek yönlendirmesi",
+                  "İhtiyaca göre bakım hizmeti planlaması",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700"
+                  >
+                    <CheckCircle2 className="mb-3 h-5 w-5 text-emerald-600" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-8 text-sm leading-7 text-slate-600">
+                Daha geniş hizmet detayları için{" "}
+                <Link
+                  href="/kamera-sistemi-kurulumu"
+                  className="font-bold text-slate-950 underline underline-offset-4"
+                >
+                  kamera sistemi kurulumu
+                </Link>{" "}
+                sayfasını, İstanbul özelinde kurulum yaklaşımı için{" "}
+                <Link
+                  href="/istanbul/kamera-sistemi-kurulumu"
+                  className="font-bold text-slate-950 underline underline-offset-4"
+                >
+                  İstanbul kamera sistemi kurulumu
+                </Link>{" "}
+                sayfasını ve kurulum sonrası destek için{" "}
+                <Link
+                  href="/bakim-servis-uzaktan-izleme"
+                  className="font-bold text-slate-950 underline underline-offset-4"
+                >
+                  bakım, servis ve uzaktan izleme
+                </Link>{" "}
+                sayfasını inceleyebilirsiniz.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl">
+              <h3 className="text-2xl font-black text-slate-950">
+                Kurulumdan sonra da sistemi kullanmaya hazır bırakıyoruz
+              </h3>
+              <div className="mt-6 space-y-4">
+                {[
+                  "Mobil uygulama kurulumu teslim anında tamamlanır.",
+                  "Canlı izleme ve geçmiş kayıt erişimi gösterilir.",
+                  "İhtiyaç halinde bakım ve kontrol planı oluşturulur.",
+                ].map((item) => (
+                  <div key={item} className="flex gap-3 rounded-2xl bg-slate-50 p-4">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                    <span className="text-sm leading-7 text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <span className="inline-flex rounded-full bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
                 İstanbul geneli hizmet
               </span>
               <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
-                Avrupa ve Anadolu Yakası İçin Hızlı Planlama
+                İstanbul’da Kamera Kurulumu Yapılan Yerler
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                İlçe, mekan tipi ve sistem büyüklüğüne göre ekip planlaması yapıyoruz. Uygun projelerde
-                aynı gün keşif ve hızlı teklif süreciyle ilerliyoruz.
+                Ev, apartman, ofis, mağaza, depo ve bina çevresi gibi farklı kullanım alanları için
+                İstanbul genelinde ekip planlaması yapıyoruz. Avrupa ve Anadolu Yakası’nda ilçe,
+                mekan tipi ve sistem büyüklüğüne göre uygun keşif ve montaj akışı oluşturuyoruz.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -978,7 +1208,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 data-event="whatsapp_click"
                 className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-4 font-bold text-emerald-700 transition hover:bg-emerald-50"
               >
-                WhatsApp'tan Yaz
+                WhatsApp&#39;tan Yaz
               </a>
               <a
                 href={phoneHref}
