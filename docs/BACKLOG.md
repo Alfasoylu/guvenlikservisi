@@ -59,7 +59,7 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 - [x] Hangi sayfalar para getirir, hangileri sadece trafik getirir ayrımını yap
 
 ## P0.2 İş Modeli Netliği
-- [ ] Öncelikli para sayfalarını listele
+- [x] Öncelikli para sayfalarını listele
 - [ ] Kurulum vs bakım vs teknik servis vs arıza servis ayrımını netleştir
 - [ ] “SEO trafik” ile “yüksek intent lead” keywordlerini ayır
 - [ ] En yüksek LTV segmentleri belirle:
@@ -68,7 +68,7 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
   - [ ] depolar
   - [ ] AVM / zincir mağaza
   - [ ] plazalar / kurumsal ofisler
-- [ ] Hangi servisler recurring gelir üretir listele
+- [x] Hangi servisler recurring gelir üretir listele
 - [ ] Hangi servisler sadece tek seferlik gelir üretir listele
 
 ## P0.3 Ölümcül Riskler
