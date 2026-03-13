@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import CityHubSection from "@/components/service-page/CityHubSection";
@@ -97,6 +98,73 @@ export default async function ServicePage({ params }: PageProps) {
 
   const pageContent = getServicePageFactoryData(city, service);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
+  const isIpCameraPage = service.slug === "kamera-sistemi-kurulumu";
+  const heroHeading = isIpCameraPage
+    ? `${city.name} IP Kamera Kurulumu ve Montaj Hizmeti`
+    : `${city.name} ${service.name} ve Montaj Hizmeti`;
+  const heroDecisionIntro = isIpCameraPage
+    ? `${city.name} içinde işletmeler, apartmanlar, depo ve fabrika alanları ile ev güvenliği ihtiyaçları için keşif, montaj ve mobil izleme odaklı IP kamera çözümleri sunuyoruz.`
+    : `${city.name} içinde işletmeler, apartmanlar, depo ve fabrika alanları ile ev güvenliği ihtiyaçları için ${service.name.toLowerCase()} hizmeti sunuyoruz.`;
+
+  const faqExtraItems = [
+    {
+      question: "IP kamera kurulumu kaç saat sürer?",
+      answer:
+        "Küçük ve orta ölçekli kurulumların çoğu aynı gün içinde tamamlanır. Kamera sayısı, kablolama mesafesi ve mekan yapısına göre net süre keşif sonrası belirlenir.",
+    },
+    {
+      question: `${city.name}’da hangi ilçelerde hizmet veriyorsunuz?`,
+      answer: `${city.name} genelinde ilçe bazlı hizmet veriyoruz. Proje kapsamına göre ücretsiz keşif planlaması yaparak uygun ekip yönlendirmesi sağlıyoruz.`,
+    },
+    {
+      question: "Kamera sistemini telefondan izleyebilir miyim?",
+      answer:
+        "Evet. Kurulum tamamlandıktan sonra telefon ve tablet üzerinden canlı izleme, kayıt erişimi ve temel bildirim ayarları kullanıma hazır şekilde teslim edilir.",
+    },
+    {
+      question: "Kurulumdan sonra bakım gerekiyor mu?",
+      answer:
+        "Periyodik bakım önerilir. Kamera açıları, kayıt cihazı, disk sağlığı ve uzaktan erişim ayarlarının düzenli kontrolü sistemin kesintisiz çalışmasını destekler.",
+    },
+    {
+      question: "Ortalama kamera sistemi fiyatı nedir?",
+      answer:
+        "Ortalama maliyet kamera adedi, kayıt süresi, kablolama mesafesi, gece görüş veya ses özellikleri ve uzaktan izleme ihtiyacına göre değişir. Net fiyat keşif sonrası belirlenir.",
+    },
+  ];
+
+  const mergedFaqItems = [
+    ...pageContent.faq.items,
+    ...faqExtraItems.filter(
+      (candidate) =>
+        !pageContent.faq.items.some(
+          (existing) => existing.question.toLowerCase() === candidate.question.toLowerCase()
+        )
+    ),
+  ];
+
+  const relatedCoreServiceLinks = [
+    { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
+    { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
+    { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
+    { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+  ];
+
+  const nationwideCityHubLinks = ["istanbul", "ankara", "izmir"]
+    .map((slug) => {
+      const cityItem = cities.find((item) => item.slug === slug);
+      const href = getCityPath(slug);
+
+      if (!cityItem || !href) {
+        return null;
+      }
+
+      return {
+        href,
+        label: cityItem.name,
+      };
+    })
+    .filter((item): item is { href: string; label: string } => item !== null);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -152,6 +220,24 @@ export default async function ServicePage({ params }: PageProps) {
     description: pageContent.meta.description,
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${city.name} ${service.name}`,
+    serviceType: service.name,
+    areaServed: {
+      "@type": "City",
+      name: city.name,
+    },
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      telephone: siteConfig.phone,
+      url: canonical,
+      areaServed: city.name,
+    },
+  };
+
   return (
     <main className={pageShellClass}>
       <script
@@ -166,6 +252,10 @@ export default async function ServicePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
 
       <ServiceHero
         cityName={city.name}
@@ -177,6 +267,186 @@ export default async function ServicePage({ params }: PageProps) {
         process={pageContent.hero.process}
         image={pageContent.images.hero}
       />
+
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+              {heroHeading}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">{heroDecisionIntro}</p>
+          </div>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="#teklif-formu"
+              className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-500"
+            >
+              Teklif Al
+            </a>
+            <a
+              href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+              data-event="phone_click"
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-6 py-4 text-base font-bold text-slate-950 transition hover:bg-slate-50"
+            >
+              Hemen Ara
+            </a>
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
+                `${city.name} ${service.name} için bilgi ve fiyat almak istiyorum.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="whatsapp_click"
+              className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-4 text-base font-bold text-white transition hover:bg-slate-800"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-black text-slate-950 md:text-4xl">
+              {city.name}’de IP Kamera Kurulumu Nerelerde Kullanılır?
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              Doğru kurulum senaryosu, kullanım alanına göre değişir. Aşağıdaki başlıklar en sık
+              talep edilen kullanım alanlarını gösterir.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Apartman ve site güvenliği",
+                items: [
+                  "Bina girişleri ve ortak alanlar",
+                  "Asansör ve merdiven çevresi",
+                  "Site içi dolaşım noktaları",
+                ],
+              },
+              {
+                title: "İşyeri ve mağaza güvenliği",
+                items: [
+                  "Kasa ve satış alanı takibi",
+                  "Giriş-çıkış kontrol noktaları",
+                  "Personel ve müşteri hareket akışı",
+                ],
+              },
+              {
+                title: "Depo ve fabrika izleme",
+                items: [
+                  "Yükleme-boşaltma alanları",
+                  "Üretim ve stok bölgesi gözlemi",
+                  "Kritik giriş noktalarının kaydı",
+                ],
+              },
+              {
+                title: "Otopark ve bina çevresi",
+                items: [
+                  "Araç giriş-çıkış noktaları",
+                  "Çevre hattı izleme",
+                  "Gece görüş odaklı dış alan takibi",
+                ],
+              },
+            ].map((group) => (
+              <div key={group.title} className="rounded-3xl border border-slate-200 bg-white p-6">
+                <h3 className="text-xl font-black text-slate-950">{group.title}</h3>
+                <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-black text-slate-950 md:text-4xl">IP Kamera Kurulum Süreci</h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              Süreci adım adım planlayarak hem teknik doğruluğu hem de kullanım kolaylığını
+              birlikte hedefliyoruz.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              "Ücretsiz keşif",
+              "Kamera noktalarının belirlenmesi",
+              "Kablolama ve cihaz kurulumu",
+              "Mobil uygulama bağlantısı",
+              "Test ve teslim",
+            ].map((step, index) => (
+              <div key={step} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white">
+                  {index + 1}
+                </div>
+                <p className="text-sm font-semibold leading-7 text-slate-800">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-black text-slate-950 md:text-4xl">
+              IP Kamera Kurulumu Fiyatını Etkileyen Faktörler
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              Fiyat, yalnızca kamera adedine göre değil; kayıt ihtiyacı ve saha koşullarıyla
+              birlikte değerlendirilir.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {[
+              "Kamera sayısı",
+              "Kayıt süresi",
+              "Kablolama mesafesi",
+              "Gece görüş / ses özellikleri",
+              "Uzaktan izleme",
+            ].map((item) => (
+              <div key={item} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-base font-black text-slate-950">{item}</h3>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-sm leading-7 text-slate-600">
+            Hizmet detayları için{" "}
+            <Link href="/kamera-sistemi-kurulumu" className="font-bold text-slate-950 underline underline-offset-4">
+              kamera sistemi kurulumu
+            </Link>{" "}
+            sayfasını, bakım desteği için{" "}
+            <Link
+              href="/bakim-servis-uzaktan-izleme"
+              className="font-bold text-slate-950 underline underline-offset-4"
+            >
+              bakım servis uzaktan izleme
+            </Link>{" "}
+            sayfasını ve hızlı teklif için{" "}
+            <Link
+              href="/teklif/istanbul-ip-kamera-montaji"
+              className="font-bold text-slate-950 underline underline-offset-4"
+            >
+              İstanbul IP kamera montajı teklif sayfasını
+            </Link>{" "}
+            inceleyebilirsiniz.
+          </p>
+        </div>
+      </section>
 
       <ServiceStats
         title={pageContent.stats.title}
@@ -214,7 +484,48 @@ export default async function ServicePage({ params }: PageProps) {
 
       <ServiceDistricts cityName={city.name} districts={pageContent.districts} />
 
-      <ServiceFAQ title={pageContent.faq.title} items={pageContent.faq.items} />
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+          <h2 className="text-2xl font-black text-slate-950">İlgili Güvenlik Sistemleri Hizmetleri</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+            Projenizi bütüncül planlamak için aşağıdaki temel hizmet sayfalarını da inceleyebilirsiniz.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {relatedCoreServiceLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ServiceFAQ title={pageContent.faq.title} items={mergedFaqItems} />
+
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+          <h2 className="text-2xl font-black text-slate-950">Türkiye Genelinde Kamera Kurulumu</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+            {service.name} hizmetini İstanbul başta olmak üzere birçok şehirde sunuyoruz. Şehir
+            bazlı hizmet detaylarını aşağıdaki merkez sayfalardan inceleyebilirsiniz.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {nationwideCityHubLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ServiceCTA
         title={pageContent.cta.title}
