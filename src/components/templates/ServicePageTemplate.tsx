@@ -51,6 +51,22 @@ export interface ServicePageData {
   imagePlaceholder?: string;
   ctaTitle?: string;
   ctaSubtitle?: string;
+  authorityBeforeFaq?: {
+    title: string;
+    description?: string;
+    links: {
+      href: string;
+      label: string;
+    }[];
+  };
+  authorityAfterFaq?: {
+    title: string;
+    description?: string;
+    links: {
+      href: string;
+      label: string;
+    }[];
+  };
 }
 
 interface ServicePageTemplateProps {
@@ -385,7 +401,55 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
         </section>
       )}
 
+      {data.authorityBeforeFaq && data.authorityBeforeFaq.links.length > 0 && (
+        <section className="bg-white py-12">
+          <Container>
+            <h2 className="text-2xl font-bold text-primary">{data.authorityBeforeFaq.title}</h2>
+            {data.authorityBeforeFaq.description ? (
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
+                {data.authorityBeforeFaq.description}
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {data.authorityBeforeFaq.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl border border-gray-200 bg-surface px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <FAQSection items={data.faq} />
+
+      {data.authorityAfterFaq && data.authorityAfterFaq.links.length > 0 && (
+        <section className="bg-surface py-12">
+          <Container>
+            <h2 className="text-2xl font-bold text-primary">{data.authorityAfterFaq.title}</h2>
+            {data.authorityAfterFaq.description ? (
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
+                {data.authorityAfterFaq.description}
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {data.authorityAfterFaq.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <CTASection
         title={data.ctaTitle}
