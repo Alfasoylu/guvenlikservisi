@@ -299,6 +299,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Net maliyet için en doğru yöntem, kullanım alışkanlığı ve risk seviyesine göre sahada keşif yapılmasıdır.",
         ],
       },
+      {
+        title: "Alarm Sistemi Avantajları",
+        paragraphs: [
+          "Profesyonel alarm sistemi; izinsiz girişlerde anında uyarı üreterek müdahale süresini kısaltır, caydırıcılık etkisi ile hırsızlık girişimlerini önemli ölçüde azaltır. Alarm aktifken daire veya işyerine yaklaşan kişilerin caydırılması, polis veya güvenlik birimlerine bildirim ve mobil kontrol bir arada çalışır.",
+          "Mobil uygulama entegrasyonu sayesinde işyeri veya evinizden uzaktayken bile sistemi kontrol edebilir, anlık bildirimlerle durumdan haberdar olabilirsiniz. Doğru kurulmuş bir alarm sistemi aynı zamanda sigorta primlerinde avantaj sağlar ve mülk değerini artırır.",
+        ],
+        items: [
+          "Anında sesli ve görsel uyarı ile caydırıcılık",
+          "Mobil kontrol ile uzaktan kurma ve çözme",
+          "Sigorta primlerinde avantaj sağlama",
+          "Gece-gündüz kesintisiz güvenlik",
+          "Çok bölgeli alarm yönetimi esnekliği",
+          "Mesai dışı saatlerde otomatik koruma",
+        ],
+      },
+      {
+        title: "Alarm Sistemi Bakımı ve Teknik Destek",
+        paragraphs: [
+          "Alarm sistemlerinde dedektör hassasiyeti, pil ömrü, panel yazılımı ve siren fonksiyonları periyodik olarak kontrol edilmelidir. Bakım yapılmayan sistemlerde yanlış alarm oranı artar veya gerçek tehlike anında gecikme yaşanır; bu da güvenlik yatırımının değerini düşürür.",
+          "Düzenli teknik kontrol ve uzaktan destek planı ile sistem güvenilirliği korunur ve olası arızalar büyümeden tespit edilir. Bakım sözleşmesi olan müşterilerimizde arıza müdahale süresi belirgin şekilde kısalır.",
+        ],
+      },
     ],
     useCases: [
       "Apartman dairelerinde kapı-manyetik ve hareket dedektörü ile gece güvenliği",
@@ -487,6 +509,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         paragraphs: [
           "Süreç keşif, proje planı, saha uygulaması, test-devreye alma ve bakım önerisi adımlarıyla ilerler.",
           "Mevzuata uygun planlama sayesinde hem denetim sürecinde hem günlük işletmede sürdürülebilir bir güvenlik standardı sağlanır.",
+        ],
+      },
+      {
+        title: "Yangın Alarm Sistemi Avantajları",
+        paragraphs: [
+          "Profesyonel yangın alarm sistemi; duman veya ısı artışını erken evrede tespit ederek can kaybı ve maddi hasar riskini önemli ölçüde azaltır. Erken uyarı sayesinde tahliye için değerli zaman kazanılır ve yangın büyümeden müdahale imkânı doğar.",
+          "Mevzuata uygun kurulum, hem işletme denetimlerinde sorunsuz geçiş sağlar hem de sigorta süreçlerinde avantaj yaratır. Yangın alarm sistemi, işletme sürekliliği ve çalışan güvenliği açısından zorunlu bir yatırımdır.",
+        ],
+        items: [
+          "Erken uyarı ile tahliye süresini uzatma",
+          "Maddi hasar ve iş kaybını minimize etme",
+          "Mevzuat ve denetim uyumluluğu",
+          "Sigorta primlerinde avantaj",
+          "Zon bazlı yönetim ile hızlı lokasyon tespiti",
+          "Çalışan güvenliği ve işletme sürekliliği",
+        ],
+      },
+      {
+        title: "Yangın Alarm Sistemi Bakımı ve Periyodik Test",
+        paragraphs: [
+          "Yangın alarm sistemlerinde dedektör hassasiyeti, panel pil durumu, siren fonksiyonları ve hat testleri belirli aralıklarla yapılmalıdır. Bakım aksattığında sistem kritik anda yanıt veremeyebilir ve bu durum hem can güvenliği hem hukuki sorumluluk açısından ciddi risk oluşturur.",
+          "Periyodik test ve bakım raporu, hem mevzuat gerekliliğini karşılar hem de sistemin güvenilirliğini sürekli tutar. Duman dedektörlerinin kirlenmesi, pil zürelemesi ve kablo bağlantı gevşemesi gibi sorunlar ancak düzenli kontrol ile erken tespit edilir.",
         ],
       },
     ],
@@ -679,6 +723,28 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Teslim aşamasında kullanıcı tanımları, yönetici eğitimi ve temel raporlama senaryoları aktif hale getirilir.",
         ],
       },
+      {
+        title: "Kartlı Geçiş Sistemi Avantajları",
+        paragraphs: [
+          "Kartlı geçiş sistemi; yetkisiz erişimi engeller, personel giriş-çıkış kayıtlarını otomatik tutar ve bölge bazlı güvenlik yönetimini kolaylaştırır. Manuel anahtar yönetiminin risklerini ortadan kaldırarak kayıp anahtar, yetkisiz kopya ve kontrolsüz erişim sorunlarına kalıcı çözüm sunar.",
+          "Personel geçiş kayıtları vardiya takibi, mesai hesaplaması ve iç denetim süreçlerinde doğrudan kullanılabilir veri sağlar. Bu sayede güvenlik ve insan kaynakları yönetimi aynı altyapı üzerinden verimli biçimde yürütülür.",
+        ],
+        items: [
+          "Yetkisiz erişimin tamamen engellenmesi",
+          "Otomatik giriş-çıkış kayıt ve raporlama",
+          "Anahtar kaynaklı güvenlik risklerinin eliminasyonu",
+          "Departman ve saat bazlı esnek yetkilendirme",
+          "Vardiya ve mesai takibinde operasyonel verimlilik",
+          "Ziyaretçi yönetimi ve geçici erişim kontrolü",
+        ],
+      },
+      {
+        title: "Kartlı Geçiş Sistemi Bakımı ve Destek",
+        paragraphs: [
+          "Kartlı geçiş sistemlerinde okuyucu temizliği, yazılım güncellemeleri, yetki listesi revizyonu ve kilit mekanizması kontrolü düzenli yapılmalıdır. Bakım aksattığında kart okuma hataları, kilit arızaları ve yazılım uyuşmazlıkları iş akışını aksatabilir.",
+          "Bakım sözleşmesi olan kurumlarda kart okuyucu arızası, yazılım hatası veya kilit sorunu öncelikli şekilde çözülür ve sistem kesintisi minimuma indirilir. Düzenli yazılım güncellemesi güvenlik açıklarını önler.",
+        ],
+      },
     ],
     useCases: [
       "Ofis ve plazalarda kapı bazlı erişim ve personel yetki yönetimi",
@@ -835,6 +901,53 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "apartman-site-guvenlik-sistemi": {
     heroIntro:
       "Apartman ve site yönetimleri için giriş kapısı, çevre izleme, otopark ve ortak alan güvenliğini kapsayan bütüncül güvenlik sistemi kurulumları gerçekleştiriyoruz.",
+    seoBlocks: [
+      {
+        title: "Apartman ve Site Güvenlik Sistemi Nedir",
+        paragraphs: [
+          "Apartman ve site güvenlik sistemi; bina girişleri, otopark alanları, çevre hattı ve ortak yaşam alanlarını tek bir altyapı üzerinden izlemeye ve kontrol etmeye yarayan bütüncül güvenlik çözümüdür. Kamera, kartlı geçiş, alarm ve uzaktan izleme bileşenlerinin site yapısına uygun planlanmasıyla hem sakinlerin huzuru hem yönetimin operasyonel kontrolü güçlenir.",
+          "Site yönetimlerinde güvenlik yalnızca bir kapı kilidi veya güvenlik görevlisi ile sınırlı kalmamalıdır. Giriş kapılarından otoparka, çocuk oyun alanlarından asansör lobisine kadar tüm ortak alanlar bütüncül bir bakış açısıyla değerlendirilmelidir. Doğru projelendirme yapılmayan sitelerde kör noktalar, yetersiz kayıt süresi ve tanımsız erişim sorunları güvenlik yatırımının etkisini ciddi biçimde azaltır.",
+          "Profesyonel bir site güvenlik projesi; keşif aşamasında blok yapısını, yaya ve araç akışını, aydınlatma koşullarını ve yönetim beklentilerini analiz ederek her bina için özelleştirilmiş çözüm sunar. Bu yaklaşım, standart paket kurulumlardan çok daha yüksek güvenlik performansı sağlar.",
+        ],
+      },
+      {
+        title: "Apartman ve Site Güvenlik Sistemi Nasıl Çalışır",
+        paragraphs: [
+          "Sistem; giriş kapılarındaki kamera ve kartlı geçiş okuyucuları, çevre hattındaki dış mekan kameraları, otopark alanındaki plaka tanıma veya hareket algılama üniteleri ve tüm bileşenleri merkeze bağlayan kayıt altyapısından oluşur. Her bileşen kendi görevini yerine getirirken merkezi yönetim paneli üzerinden koordineli çalışır.",
+          "Site yönetim odasındaki monitör veya yetkili kullanıcıların mobil uygulaması üzerinden canlı izleme ve kayıt erişimi sağlanır. Alarm entegrasyonu olan projelerde şüpheli durumlarda otomatik bildirim devreye girer. Gece görüş kamerları düşük ışık koşullarında bile net görüntü kaydeder.",
+          "Blok sayısı fazla olan sitelerde ağ altyapısı özel olarak planlanmalıdır. Fiber veya PoE switch tabanlı yapılar sayesinde çok sayıda kamera sorunsuz şekilde merkezi kayıt cihazına bağlanır ve veri kaybı yaşanmaz.",
+        ],
+        items: [
+          "Giriş kapısı kamera ve geçiş kontrolü",
+          "Çevre hattı dış mekan izleme",
+          "Yönetim odası merkezi kayıt sistemi",
+          "Mobil uygulama ile uzaktan erişim",
+          "Alarm ve siren entegrasyonu",
+        ],
+      },
+      {
+        title: "Apartman ve Site Güvenlik Sistemi Avantajları",
+        paragraphs: [
+          "Profesyonel bir site güvenlik sistemi, sakinlere görünür güvenlik hissi verirken yönetimin olası olaylarda kanıt kaydına ulaşmasını sağlar. Doğru planlanan sistem zamanla kendini amorti eder; sigorta primlerinde avantaj, hırsızlık ve vandalizmde caydırıcılık ile emlak değerine katkı gibi somut faydalar sunar.",
+          "Kör nokta bırakmayan kamera yerleşimi, kontrollü giriş-çıkış sistemi ve uzaktan izleme altyapısı bir arada çalıştığında sitedeki asayiş sorunları belirgin biçimde azalır. Sakinler güvenli bir yaşam ortamında kendilerini daha rahat hisseder.",
+        ],
+        items: [
+          "Sakinlerin huzur ve güven duygusu",
+          "Olaylarda geriye dönük kayıt erişimi",
+          "Caydırıcılık etkisiyle suç oranında azalma",
+          "Yönetim kurulu için şeffaf güvenlik takibi",
+          "Otopark ve ortak alan sorunlarında hızlı çözüm",
+          "Emlak değerine olumlu katkı",
+        ],
+      },
+      {
+        title: "Site Güvenlik Sistemi Bakımı ve Teknik Destek",
+        paragraphs: [
+          "Kurulum sonrası periyodik bakım; kamera açılarının kontrolü, kayıt cihazı disk sağlığı analizi, yazılım güncellemeleri ve dış mekan ekipmanlarının fiziksel temizliği ile sistemin uzun ömürlü çalışmasını sağlar. Bakım yapılmayan sitelerde zamanla kayıt kaybı, görüntü bozulması ve erişim sorunları ortaya çıkar.",
+          "Bakım sözleşmesi olan sitelerde arıza tespit süresi kısalır ve teknik müdahale öncelikli şekilde planlanır. Uzaktan izleme desteğiyle birçok sorun sahaya çıkmadan çözülür ve yönetimin operasyonel yükü hafifler.",
+        ],
+      },
+    ],
     useCases: [
       "Site giriş kapıları ve araç girişlerinde kontrollü izleme",
       "Otopark alanlarında gece-gündüz düzenli hareket takibi",
@@ -985,6 +1098,52 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "isyeri-guvenlik-sistemi": {
     heroIntro:
       "Ofis, mağaza, dükkan ve küçük işletmeler için kamera, alarm ve giriş kontrolünü birlikte planlayan işyeri güvenlik sistemi kurulumu yapıyoruz.",
+    seoBlocks: [
+      {
+        title: "İşyeri Güvenlik Sistemi Nedir",
+        paragraphs: [
+          "İşyeri güvenlik sistemi; ofis, mağaza, dükkan ve küçük işletmelerde kamera, alarm ve giriş kontrol bileşenlerinin birlikte çalıştığı, çalışan ve müşteri güvenliğini sağlayan entegre güvenlik altyapısıdır. Her işletmenin risk profili farklı olduğu için keşif ve ihtiyaç analizi kurulumun en kritik adımıdır.",
+          "Hırsızlık, iç kayıp ve yetkisiz giriş risklerinin azaltılması yanında günlük operasyonun kayıt altına alınması da işyeri güvenlik sisteminin temel işlevleri arasındadır. Mağazada kasa güvenliği ön plandayken bir ofiste giriş kontrolü ve personel takibi öncelik kazanır.",
+          "Doğru planlanan bir işyeri güvenlik sistemi, sadece hırsızlığa karşı koruma sağlamaz; aynı zamanda çalışan performansının denetimi, müşteri davranış analizi ve işletme içi sorumluluk takibi gibi operasyonel avantajlar da sunar.",
+        ],
+      },
+      {
+        title: "İşyeri Güvenlik Sistemi Nasıl Çalışır",
+        paragraphs: [
+          "Kamera sistemi; satış alanı, kasa çevresi, giriş kapısı ve depo gibi kritik noktaları izleyerek kayıt cihazına aktarır. Kayıtlar belirli gün sayısı boyunca saklanır ve gerektiğinde geriye dönük erişim sağlanır. Geniş açı ve detay kameraların birlikte kullanılmasıyla tam kapsama alanı oluşturulur.",
+          "Alarm sistemi ise mesai dışı saatlerde dedektör ve sirenleriyle izinsiz girişi algılar ve anında mobil bildirim gönderir. Kartlı geçiş veya şifreli kilit entegrasyonu ile personel ve ziyaretçi hareketleri kontrol altına alınır. Tüm bileşenler mobil uygulama üzerinden uzaktan yönetilebilir.",
+        ],
+        items: [
+          "Kamera ile görüntülü izleme ve kayıt",
+          "Alarm paneli ile izinsiz giriş algılama",
+          "Kartlı veya şifreli giriş kontrolü",
+          "Mobil uygulama ile uzaktan yönetim",
+          "Mesai dışı otomatik alarm koruması",
+        ],
+      },
+      {
+        title: "İşyeri Güvenlik Sistemi Avantajları",
+        paragraphs: [
+          "Profesyonel işyeri güvenlik sistemi, yalnızca hırsızlığa karşı koruma değil aynı zamanda operasyonel verimlilik ve sorumluluk takibi de sağlar. Kamera kayıtları sayesinde müşteri şikâyetleri ve iç anlaşmazlıklar somut veriye dayalı çözülür.",
+          "Doğru planlanan sistem, çalışan ve müşteri güvenliğini artırırken sigorta primlerinde avantaj, kanıt kaydı ve caydırıcılık etkisiyle işletme maliyetlerini düşürür. Yatırım kısa sürede kendini geri öder.",
+        ],
+        items: [
+          "Hırsızlık ve iç kayıp riskinde belirgin düşüş",
+          "Çalışan ve müşteri güvenliğinde artış",
+          "Mesai dışı saatlerde alarm koruması",
+          "Sigorta ve denetim süreçlerinde avantaj",
+          "Telefondan anlık bildirim ve uzaktan izleme",
+          "Operasyonel denetim ve sorumluluk takibi",
+        ],
+      },
+      {
+        title: "İşyeri Güvenlik Sistemi Bakımı ve Destek",
+        paragraphs: [
+          "İşyeri güvenlik sistemlerinde düzenli bakım; kamera açılarının kontrolü, kayıt cihazı performansı, alarm dedektör testleri ve yazılım güncellemelerini kapsar. Bakım aksatıldığında kayıt kaybı, yanlış alarm ve erişim sorunları ortaya çıkabilir.",
+          "Bakım planına sahip işletmelerde arıza tespiti hızlanır ve sistem kesintileri minimuma iner. Uzaktan destek ile birçok sorun sahaya gelmeden çözülebilir; bu da hem zaman hem maliyet tasarrufu sağlar.",
+        ],
+      },
+    ],
     useCases: [
       "Ofislerde çalışan güvenliği ve giriş hareketlerinin kontrolü",
       "Mağaza ve dükkanlarda kasa çevresi ve satış alanı takibi",
@@ -1135,6 +1294,53 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "fabrika-depo-guvenlik-sistemi": {
     heroIntro:
       "Üretim alanı, depo rafları, yükleme noktaları ve çevre güvenliği için geniş alanlara uygun fabrika ve depo güvenlik sistemi kurulumları sağlıyoruz.",
+    seoBlocks: [
+      {
+        title: "Fabrika ve Depo Güvenlik Sistemi Nedir",
+        paragraphs: [
+          "Fabrika ve depo güvenlik sistemi; üretim hatları, depo rafları, yükleme-boşaltma alanları ve tesis çevre hattını kapsayan geniş alan güvenlik altyapısıdır. Endüstriyel tesislerde standart güvenlik kurgusu yetersiz kalır; uzun mesafe izleme, gece görüş performansı, toz ve titreşim dayanıklılığı gibi özel gereksinimler projelendirmede belirleyicidir.",
+          "Doğru planlanan bir fabrika güvenlik sistemi, sadece hırsızlık caydırıcılığı değil aynı zamanda üretim süreci takibi, iş güvenliği denetimi ve lojistik kontrol imkânı da sunar. Bu nedenle sanayi tesislerinde güvenlik yatırımı aynı zamanda bir operasyon yönetim aracıdır.",
+          "Tesisin fiziksel büyüklüğü, çalışan sayısı, vardiya düzeni ve depolanan ürünlerin değeri; sistem kapsamını ve bütçesini doğrudan etkileyen faktörlerdir. Keşif aşamasında bu değişkenler analiz edilerek ölçeklenebilir bir altyapı planlanır.",
+        ],
+      },
+      {
+        title: "Fabrika ve Depo Güvenlik Sistemi Nasıl Çalışır",
+        paragraphs: [
+          "Sistem; çevre hattındaki uzun mesafe kameralar, üretim alanındaki geniş açı kameralar, depo koridorlarındaki detay kameralar ve yükleme noktalarındaki hareket algılama üniteleri ile veri toplar. Toplanan görüntüler yüksek kapasiteli merkezi kayıt sunucusuna aktarılır.",
+          "Yetkililer mobil veya masaüstü uygulama üzerinden canlı izleme ve kayıt erişimi yapabilir. Alarm ve geçiş kontrol entegrasyonu ile bütüncül güvenlik sağlanır. Gece vardiyalarında infrared veya starlight teknolojili kameralar düşük ışıkta bile net görüntü kaydeder.",
+          "Büyük tesislerde fiber optik altyapı veya endüstriyel PoE switchler kullanılarak uzun mesafe veri iletimi kayıpsız sağlanır. Kayıt süresi hedefine göre RAID yapılı depolama sistemleri planlanır.",
+        ],
+        items: [
+          "Çevre hattı uzun mesafe izleme",
+          "Üretim alanı geniş açı kayıt",
+          "Depo koridoru detay izleme",
+          "Merkezi kayıt ve mobil erişim",
+          "Endüstriyel ağ altyapısı",
+        ],
+      },
+      {
+        title: "Fabrika ve Depo Güvenlik Sistemi Avantajları",
+        paragraphs: [
+          "Profesyonel bir sanayi güvenlik sistemi; stok kaybını azaltır, operasyonel denetimi güçlendirir ve iş güvenliği standartlarına uyum sağlar. Gece görüş, uzun kayıt süresi ve uzaktan erişim sayesinde tesis boş olduğunda bile güvenlik kontrolü sürer.",
+          "Sigorta ve denetim süreçlerinde kayıt kanıtı önemli avantaj sağlar. Üretim hattındaki iş kazası analizleri ve lojistik süreçlerin izlenmesi de güvenlik kameralarının sağladığı ek operasyonel faydalardır.",
+        ],
+        items: [
+          "Stok kaybı ve iç hırsızlık riskinde azalma",
+          "İş güvenliği ve üretim süreci kontrolü",
+          "7/24 kayıt ile geçmişe dönük kanıt erişimi",
+          "Gece görüş ve dış ortam dayanıklılığı",
+          "Uzaktan izleme ile merkezi yönetim",
+          "Sigorta ve denetim süreçlerinde avantaj",
+        ],
+      },
+      {
+        title: "Fabrika ve Depo Güvenlik Sistemi Bakımı ve Destek",
+        paragraphs: [
+          "Endüstriyel ortamlarda toz, nem, titreşim ve yoğun çalışma koşulları güvenlik ekipmanlarının ömrünü kısaltabilir. Periyodik bakım bu riskleri yöneterek sistemin kesintisiz çalışmasını sağlar ve beklenmedik arıza maliyetlerini önler.",
+          "Bakım kapsamında kamera lens temizliği, kayıt cihazı disk sağlığı, ağ bağlantı kontrolü ve yazılım güncellemeleri yapılır. Uzaktan izleme desteğiyle kritik arızalar erken tespit edilir ve müdahale süresi kısalır.",
+        ],
+      },
+    ],
     useCases: [
       "Üretim hatlarında operasyon ve güvenlik akışının izlenmesi",
       "Depo raf koridorlarında stok güvenliğinin kayıt altına alınması",
@@ -1317,6 +1523,21 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         paragraphs: [
           "Bakım yapılmayan sistemler zamanla kayıt kaybı, görüntü düşüşü ve erişim sorunları üretir. Bu durum güvenlik yatırımının etkisini azaltır.",
           "Düzenli bakım, maliyetli arızaları azaltır ve sistemin kurulduğu günden sonraki performansını korur.",
+        ],
+      },
+      {
+        title: "Bakım ve Uzaktan İzleme Hizmeti Avantajları",
+        paragraphs: [
+          "Periyodik bakım ve uzaktan izleme ile güvenlik sisteminizin ömrü uzar, arıza kaynaklı kesintiler azalır ve kritik anlarda sistemin çalışır durumda olmasından emin olursunuz. Bakım destekli sistemlerde ortalama arıza süresi belirgin biçimde kısalır.",
+          "Uzaktan teşhis sayesinde birçok sorun sahaya teknisyen göndermeden çözülür; bu da hem zamandan hem maliyetten tasarruf sağlar. İşletmeler güvenlik altyapılarını gönül rahatlığıyla kullanmaya devam eder.",
+        ],
+        items: [
+          "Arıza riskinde belirgin düşüş",
+          "Uzaktan teşhis ile hızlı çözüm",
+          "Maliyet tasarrufu ve verimli servis",
+          "Sistemin kritik anda hazır olma güvencesi",
+          "Düzenli raporlama ile şeffaf takip",
+          "Farklı marka sistemlerin devralınabilmesi",
         ],
       },
     ],
@@ -1558,6 +1779,50 @@ export default async function ServicePage({ params }: PageProps) {
     : serviceSpecificContent.seoBlocks ?? [];
   const serviceAuthoritySections = serviceSpecificContent.authoritySections ?? [];
   const serviceConversionBlocks = serviceSpecificContent.conversionBlocks ?? [];
+
+  const serviceImageMap: Record<string, { src: string; alt: string }[]> = {
+    "kamera-sistemi-kurulumu": [
+      { src: "/images/diagrams/camera-system-flow.svg", alt: `${city.name} kamera sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
+      { src: "/images/landing/ip-kamera-kurulum-detay.webp", alt: "IP kamera montaj detay\u0131" },
+      { src: "/images/landing/uzaktan-izleme-mobil.webp", alt: "Mobil uzaktan izleme ekran\u0131" },
+    ],
+    "alarm-sistemi-kurulumu": [
+      { src: "/images/diagrams/alarm-system-flow.svg", alt: `${city.name} alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
+      { src: "/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png", alt: "Kablolu ve kablosuz alarm sistemi kurulumu" },
+      { src: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp", alt: "Mobil alarm kontrol uygulamas\u0131" },
+    ],
+    "yangin-alarm-sistemi-kurulumu": [
+      { src: "/images/diagrams/fire-alarm-flow.svg", alt: `${city.name} yang\u0131n alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
+      { src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg", alt: "Yang\u0131n alarm dedekt\u00f6r\u00fc ve acil buton" },
+      { src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg", alt: "Yang\u0131n alarm paneli kontrol sistemi" },
+    ],
+    "kartli-gecis-sistemi-kurulumu": [
+      { src: "/images/diagrams/access-control-flow.svg", alt: `${city.name} kartl\u0131 ge\u00e7i\u015f sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
+      { src: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg", alt: "Kartl\u0131 ge\u00e7i\u015f turnike giri\u015f sistemi" },
+      { src: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg", alt: "Kartl\u0131 ge\u00e7i\u015f mobil kay\u0131t ekran\u0131" },
+    ],
+    "bakim-servis-uzaktan-izleme": [
+      { src: "/images/diagrams/security-network-flow.svg", alt: `${city.name} g\u00fcvenlik a\u011f yap\u0131s\u0131 \u015femas\u0131` },
+      { src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg", alt: "Bak\u0131m teknisyen ekibi" },
+      { src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg", alt: "NVR kay\u0131t cihaz\u0131 bak\u0131m kontrol\u00fc" },
+    ],
+    "apartman-site-guvenlik-sistemi": [
+      { src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg", alt: "Site y\u00f6netimi g\u00fcvenlik izleme merkezi" },
+      { src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg", alt: "Site kamera sistemi periyodik bak\u0131m" },
+      { src: "/images/diagrams/security-network-flow.svg", alt: "Site g\u00fcvenlik a\u011f yap\u0131s\u0131" },
+    ],
+    "isyeri-guvenlik-sistemi": [
+      { src: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png", alt: "\u0130\u015fyeri alarm ve g\u00fcvenlik sistemi" },
+      { src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg", alt: "\u0130\u015fyeri teknik servis ve kurulum" },
+      { src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg", alt: "Ma\u011faza kamera montaj\u0131 ve kablolama" },
+    ],
+    "fabrika-depo-guvenlik-sistemi": [
+      { src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg", alt: "Fabrika g\u00fcvenlik kamera sistemleri" },
+      { src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg", alt: "NVR kay\u0131t cihaz\u0131 ve harddisk kontrol\u00fc" },
+      { src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg", alt: "G\u00fcvenlik kamera izleme merkezi" },
+    ],
+  };
+  const serviceImages = serviceImageMap[service.slug] ?? [];
 
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraService
@@ -1804,6 +2069,26 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
+      {serviceImages.length > 0 ? (
+        <section className="bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+            <div className="grid gap-6 md:grid-cols-3">
+              {serviceImages.map((img) => (
+                <div key={img.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={800}
+                    height={500}
+                    className="h-48 w-full object-cover md:h-56"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
           <div className="mx-auto max-w-4xl text-center">
@@ -1881,6 +2166,53 @@ export default async function ServicePage({ params }: PageProps) {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-emerald-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-black text-slate-950 md:text-4xl">
+              Neden Bizi Tercih Etmelisiniz?
+            </h2>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              {city.name} genelinde {service.name.toLocaleLowerCase("tr-TR")} hizmeti veren deneyimli
+              ekibimiz, her projeyi keşif, planlama ve teslim süreciyle birlikte yönetir.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+            {[
+              { icon: "\ud83d\udee0\ufe0f", title: "Deneyimli Teknik Ekip", desc: "12 yılı aşkın sektör deneyimi ve sertifikalı teknik kadro" },
+              { icon: "\u26a1", title: "Hızlı Montaj", desc: "Çoğu proje aynı gün veya ertesi gün tamamlanır" },
+              { icon: "\ud83d\udcb0", title: "Uygun Fiyat", desc: "Bütçenize uygun çözüm, ücretsiz keşif ve net teklif" },
+              { icon: "\u2705", title: "Kaliteli Ekipman", desc: "Kanıtlanmış markalar ve garanti kapsamında kurulum" },
+              { icon: "\ud83d\udcde", title: "Satış Sonrası Destek", desc: "Teknik servis, bakım ve uzaktan destek sürekliliği" },
+            ].map((item) => (
+              <div key={item.title} className="rounded-3xl border border-emerald-200 bg-white p-6 text-center shadow-sm">
+                <div className="text-3xl">{item.icon}</div>
+                <h3 className="mt-3 text-base font-black text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
+                `${city.name} ${service.name} i\u00e7in \u00fccretsiz ke\u015fif ve fiyat teklifi istiyorum.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-500"
+            >
+              WhatsApp ile Ücretsiz Keşif
+            </a>
+            <a
+              href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-4 text-base font-bold text-slate-950 transition hover:bg-slate-50"
+            >
+              {siteConfig.phone}
+            </a>
           </div>
         </div>
       </section>
