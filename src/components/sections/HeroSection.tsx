@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Phone, CheckCircle } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 

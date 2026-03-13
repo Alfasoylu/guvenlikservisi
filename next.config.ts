@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import { cities } from "./src/data/cities";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    cpus: 2,
+  },
   async redirects() {
 
     // eski şehir url formatı

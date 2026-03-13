@@ -203,4 +203,124 @@ export const packagesContent: Record<string, SeoPackagesContent> = {
       },
     ],
   },
+  "kamera-sistemi-bakim-sozlesmesi": {
+    title: "Örnek bakım sözleşmesi kapsamları",
+    description:
+      "{city} içindeki mevcut kamera sistemleri için en sık talep edilen periyodik bakım sözleşmesi kapsamları.",
+    localContext:
+      "{city} içinde kamera sayısı, kayıt cihazı yapısı ve saha yoğunluğu bakım sözleşmesinin kapsamını doğrudan etkiler.",
+    items: [
+      {
+        title: "Temel Periyodik Bakım",
+        description:
+          "{city} içinde küçük ve orta ölçekli kamera sistemleri için açı, görüntü, kayıt ve bağlantı kontrollerini kapsar.",
+      },
+      {
+        title: "Kurumsal Kontrol Paketi",
+        description:
+          "{city} bölgesinde çok kameralı işyeri ve site projeleri için detaylı sistem kontrolü ve düzenli servis takibi içerir.",
+      },
+      {
+        title: "Yüksek Süreklilik Paketi",
+        description:
+          "{city} içinde kayıt sürekliliği kritik olan depo ve işletmeler için daha sık bakım ve önleyici kontrol planı sunar.",
+      },
+    ],
+  },
+  "guvenlik-sistemi-teknik-servis": {
+    title: "Örnek teknik servis kapsamları",
+    description:
+      "{city} içindeki mevcut güvenlik sistemleri için en sık talep edilen teknik servis müdahale kapsamları.",
+    localContext:
+      "{city} içinde sistem tipi ve arıza şiddeti arttıkça teknik servis planı da cihaz, saha ve ağ katmanlarında detaylanır.",
+    items: [
+      {
+        title: "Hızlı Arıza Tespiti",
+        description:
+          "{city} içinde çalışan ama sorun çıkaran sistemlerde kök nedenin belirlenmesine odaklanan teknik servis kontrolü.",
+      },
+      {
+        title: "Saha Müdahale Paketi",
+        description:
+          "{city} bölgesinde kamera, alarm ve geçiş kontrol bileşenleri için yerinde müdahale ve test süreci.",
+      },
+      {
+        title: "Kurumsal Teknik Destek",
+        description:
+          "{city} içinde birden fazla güvenlik bileşeni barındıran işletmeler için geniş kapsamlı teknik servis yaklaşımı.",
+      },
+    ],
+  },
+  "kamera-ariza-servisi": {
+    title: "Örnek kamera arıza servis kapsamları",
+    description:
+      "{city} içindeki kamera sistemlerinde sık karşılaşılan arıza tipleri için örnek servis kapsamları.",
+    localContext:
+      "{city} içinde arıza servisinde kamera ucu, kayıt cihazı, disk ve ağ altyapısı birlikte değerlendirilir.",
+    items: [
+      {
+        title: "Görüntü Sorunu Paketi",
+        description:
+          "{city} içinde görüntü gelmeyen veya bozuk görüntü üreten kamera noktaları için arıza tespit ve düzeltme servisi.",
+      },
+      {
+        title: "Kayıt Problemi Paketi",
+        description:
+          "{city} bölgesinde kayıt süresi, disk hatası veya NVR yapılandırma sorunu yaşayan sistemler için müdahale kapsamı.",
+      },
+      {
+        title: "Bağlantı ve Erişim Paketi",
+        description:
+          "{city} içinde mobil izleme ve ağ bağlantısı sorunları yaşayan kamera altyapıları için servis planı.",
+      },
+    ],
+  },
+  "yangin-alarm-bakim-sozlesmesi": {
+    title: "Örnek yangın alarm bakım kapsamları",
+    description:
+      "{city} içindeki kurulu yangın alarm sistemleri için en sık talep edilen bakım sözleşmesi kapsamları.",
+    localContext:
+      "{city} içinde dedektör yoğunluğu, bina tipi ve panel yapısı arttıkça bakım planı daha detaylı hale gelir.",
+    items: [
+      {
+        title: "Temel Panel ve Hat Kontrolü",
+        description:
+          "{city} içinde küçük ve orta ölçekli yapılarda panel, siren ve bağlantı hatlarının kontrolünü kapsar.",
+      },
+      {
+        title: "Dedektör Test Paketi",
+        description:
+          "{city} bölgesinde algılama noktalarının düzenli test edilmesi gereken yapılarda planlı bakım sunar.",
+      },
+      {
+        title: "Kurumsal Bakım Planı",
+        description:
+          "{city} içinde otel, ofis ve depo gibi düzenli test disiplini gerektiren yapılara yönelik bakım sözleşmesi.",
+      },
+    ],
+  },
+  "uzaktan-kamera-izleme": {
+    title: "Örnek uzaktan izleme paketleri",
+    description:
+      "{city} içindeki işletme ve site projeleri için sık tercih edilen uzaktan kamera izleme senaryoları.",
+    localContext:
+      "{city} içinde izlenecek nokta sayısı, kullanıcı adedi ve kayıt beklentisi uzaktan izleme kurgusunu belirler.",
+    items: [
+      {
+        title: "Mobil Erişim Paketi",
+        description:
+          "{city} içinde telefon üzerinden canlı izleme ve kayıt erişimi gereken küçük ve orta ölçekli projeler için yapılandırma sunar.",
+      },
+      {
+        title: "Merkezi İzleme Paketi",
+        description:
+          "{city} bölgesinde ofis, site yönetimi ve güvenlik noktaları için tek ekranda çoklu kamera takibi sağlar.",
+      },
+      {
+        title: "Çok Lokasyonlu İzleme Paketi",
+        description:
+          "{city} içinde birden fazla şubeyi veya alanı aynı izleme akışında toplamak isteyen işletmeler için çözüm sunar.",
+      },
+    ],
+  },
 };

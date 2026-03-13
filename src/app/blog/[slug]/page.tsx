@@ -6,7 +6,6 @@ import { Clock3, ArrowRight, CalendarDays, BookOpen, ChevronRight } from "lucide
 import { Container } from "@/components/ui/Container";
 import FAQSection from "@/components/sections/FAQSection";
 import {
-  blogPosts,
   getBlogPostBySlug,
   getAllBlogSlugs,
   getRelatedBlogPosts,

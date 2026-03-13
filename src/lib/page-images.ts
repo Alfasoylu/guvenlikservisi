@@ -47,6 +47,11 @@ const serviceNameMap: Record<string, string> = {
   "isyeri-guvenlik-sistemi": "iş yeri güvenlik sistemi kurulumu",
   "fabrika-depo-guvenlik-sistemi": "fabrika ve depo güvenlik sistemi kurulumu",
   "bakim-servis-uzaktan-izleme": "güvenlik sistemi bakım ve uzaktan izleme hizmeti",
+  "kamera-sistemi-bakim-sozlesmesi": "kamera sistemi bakım sözleşmesi",
+  "guvenlik-sistemi-teknik-servis": "güvenlik sistemi teknik servis hizmeti",
+  "kamera-ariza-servisi": "kamera arıza servisi",
+  "yangin-alarm-bakim-sozlesmesi": "yangın alarm bakım sözleşmesi",
+  "uzaktan-kamera-izleme": "uzaktan kamera izleme hizmeti",
 };
 
 function getCityName(citySlug: string) {

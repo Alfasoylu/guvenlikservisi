@@ -128,4 +128,79 @@ export const useCaseContent: Record<string, SeoUseCasesContent> = {
       "Eski kurulumların iyileştirilmesi",
     ],
   },
+  "kamera-sistemi-bakim-sozlesmesi": {
+    title: "Kamera bakım sözleşmesi en çok hangi projelerde gerekir?",
+    description:
+      "{city} içinde kayıt sürekliliği kritik olan ve düzenli saha kontrolü gerektiren kamera altyapılarında bakım sözleşmesi öne çıkar.",
+    localContext:
+      "{city} içinde site, işyeri ve depo projelerinde kamera bakım sözleşmesi arıza oluşmadan önce sistem zayıflıklarını görünür hale getirir.",
+    items: [
+      "Apartman ve site kamera sistemleri",
+      "Mağaza ve işyeri güvenlik altyapıları",
+      "Depo ve lojistik alan kayıt sistemleri",
+      "Fabrika çevre kamera sistemleri",
+      "Uzaktan erişim kullanılan çok kameralı projeler",
+      "Kayıt kaybı riski yüksek mevcut kurulumlar",
+    ],
+  },
+  "guvenlik-sistemi-teknik-servis": {
+    title: "Teknik servis en çok hangi güvenlik sorunlarında gerekir?",
+    description:
+      "{city} içinde mevcut kurulum çalışırken hata veren veya tamamen devre dışı kalan güvenlik sistemlerinde teknik servis ihtiyacı oluşur.",
+    localContext:
+      "{city} içinde özellikle mevcut altyapısı farklı ekiplerce kurulmuş projelerde teknik servis, sistemin genel durumunu netleştirmek için kritik rol oynar.",
+    items: [
+      "Görüntü kaybı yaşayan kamera sistemleri",
+      "Arıza veren alarm panelleri",
+      "Çalışmayan kartlı geçiş noktaları",
+      "Bağlantı ve ağ problemi olan kayıt cihazları",
+      "Saha müdahalesi gereken eski kurulumlar",
+      "Birden fazla güvenlik bileşeni içeren işletmeler",
+    ],
+  },
+  "kamera-ariza-servisi": {
+    title: "Kamera arıza servisi en çok hangi durumlarda gerekir?",
+    description:
+      "{city} içinde görüntü, kayıt ve erişim hataları yaşayan kamera sistemlerinde arıza servis ihtiyacı öne çıkar.",
+    localContext:
+      "{city} içinde kamera arızalarında aynı belirti farklı sebeplerden doğabildiği için cihaz, disk ve ağ katmanlarını birlikte değerlendiriyoruz.",
+    items: [
+      "Görüntü gelmeyen kamera noktaları",
+      "Kayıt yapmayan NVR veya DVR sistemleri",
+      "Hard disk hatası veren kayıt altyapıları",
+      "Mobil uygulamada görünmeyen kamera sistemleri",
+      "Kesintili çalışan dış ortam kameraları",
+      "Bozulmuş açı veya netlik problemi yaşayan kurulumlar",
+    ],
+  },
+  "yangin-alarm-bakim-sozlesmesi": {
+    title: "Yangın alarm bakım sözleşmesi en çok hangi yapılarda gerekir?",
+    description:
+      "{city} içinde düzenli test disiplini ve algılama sürekliliği gereken yapılarda yangın alarm bakım sözleşmesi kritik hale gelir.",
+    localContext:
+      "{city} içinde panel, dedektör ve butonların düzenli kontrol edilmediği projelerde görünmeyen arızalar ciddi operasyon riski oluşturabilir.",
+    items: [
+      "Ofis ve yönetim binaları",
+      "Depo ve arşiv alanları",
+      "Otel ve konaklama yapıları",
+      "Apartman ortak alan sistemleri",
+      "Üretim ve teknik hacimler",
+      "Düzenli saha testi gereken ticari yapılar",
+    ],
+  },
+  "uzaktan-kamera-izleme": {
+    title: "Uzaktan kamera izleme en çok hangi senaryolarda kullanılır?",
+    description:
+      "{city} içinde farklı noktaları tek ekrandan takip etmek isteyen işletmeler ve yönetimler için uzaktan kamera izleme çözümü öne çıkar.",
+    localContext:
+      "{city} içinde operasyonun her zaman sahada olmadığı projelerde uzaktan izleme, kullanıcıya sürekli görünürlük ve hızlı kontrol sağlar.",
+    items: [
+      "Site yönetimi ve güvenlik noktaları",
+      "Çok şubeli mağaza ve işletmeler",
+      "Depo ve lojistik operasyonları",
+      "Fabrika çevre ve giriş izleme senaryoları",
+      "Mobil erişim gerektiren işyeri projeleri",
+      "Merkezi ekranla kontrol edilen güvenlik altyapıları",
+    ],
+  },
 };
