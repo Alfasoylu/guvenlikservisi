@@ -90,6 +90,97 @@ interface ServiceSpecificContent {
   }[];
 }
 
+type CityRecord = (typeof cities)[number];
+type ServiceRecord = (typeof services)[number];
+type FactoryPageContent = ReturnType<typeof getServicePageFactoryData>;
+
+function buildSectionCards(items: string[]) {
+  const cards = [];
+
+  for (let index = 0; index < items.length; index += 3) {
+    const chunk = items.slice(index, index + 3);
+
+    cards.push({
+      title: `Hizmet alanı ${Math.floor(index / 3) + 1}`,
+      items: chunk,
+    });
+  }
+
+  return cards;
+}
+
+function buildDefaultServiceSpecificContent(
+  city: CityRecord,
+  service: ServiceRecord,
+  pageContent: FactoryPageContent
+): ServiceSpecificContent {
+  const useCases =
+    pageContent.useCases.items.length > 0
+      ? pageContent.useCases.items
+      : [
+          `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı olan projeler`,
+          `${city.name} içinde mevcut sistemin iyileştirilmesi gereken alanlar`,
+          `${city.name} içinde keşif ve hızlı teklif gerektiren ticari mekanlar`,
+        ];
+
+  const processSteps =
+    pageContent.hero.process.length > 0
+      ? pageContent.hero.process
+      : [
+          "İhtiyacın ve mevcut sistemin analiz edilmesi",
+          "Uygun çözüm ve müdahale planının çıkarılması",
+          "Saha uygulaması veya teknik yapılandırmanın tamamlanması",
+          "Test, teslim ve sonraki adımların netleştirilmesi",
+        ];
+
+  const trustBullets =
+    pageContent.hero.benefits.length > 0
+      ? pageContent.hero.benefits
+      : [
+          "Şehir içi hızlı keşif ve ön değerlendirme",
+          "Mevcut sistem durumuna göre doğru çözüm planlama",
+          "Teslim sonrası bakım ve destek yönlendirmesi",
+        ];
+
+  return {
+    heroIntro: pageContent.hero.intro,
+    useCases,
+    installationSteps: processSteps,
+    sectionTitle1: pageContent.useCases.title || `${service.name} hangi alanlarda tercih edilir?`,
+    sectionBody1:
+      pageContent.useCases.description ||
+      `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı bulunan kullanım senaryolarını aşağıda özetledik.`,
+    sectionTitle2: `${service.name} süreci nasıl ilerler?`,
+    sectionBody2:
+      pageContent.stats.description ||
+      `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} hizmetini keşif, planlama ve teslim adımlarıyla yürütüyoruz.`,
+    ctaText:
+      pageContent.cta.description ||
+      `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} için hızlı keşif ve teklif süreci sunuyoruz.`,
+    trustBlock: `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} hizmetinde doğru teşhis, doğru planlama ve sürdürülebilir sonuç odaklı çalışıyoruz.`,
+    trustTitle: `${service.name} hizmetinde neden profesyonel ekip gerekir?`,
+    trustBody:
+      pageContent.hero.localContext ||
+      `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı, sahaya ve mevcut sisteme göre değiştiği için çözümü standart değil proje bazlı planlıyoruz.`,
+    trustBullets,
+    faqExtras: [],
+    faqExtraItems: [],
+    section1Cards: buildSectionCards(useCases),
+    processSteps,
+    pricingFactors: [
+      "Mevcut sistemin durumu",
+      "Cihaz ve ekipman sayısı",
+      "Saha erişimi ve montaj koşulları",
+      "Kayıt ve uzaktan erişim beklentisi",
+      "Bakım veya teknik servis kapsamı",
+    ],
+    relatedLinks: pageContent.relatedServices.slice(0, 3).map((link) => ({
+      href: link.href,
+      label: link.label,
+    })),
+  };
+}
+
 const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "kamera-sistemi-kurulumu": {
     heroIntro:
@@ -1765,10 +1856,8 @@ export default async function ServicePage({ params }: PageProps) {
 
   const pageContent = getServicePageFactoryData(city, service);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
-  const serviceSpecificContent = serviceContentMap[service.slug];
-  if (!serviceSpecificContent) {
-    notFound();
-  }
+  const serviceSpecificContent =
+    serviceContentMap[service.slug] ?? buildDefaultServiceSpecificContent(city, service, pageContent);
 
   const isCameraService = service.slug === "kamera-sistemi-kurulumu";
   const cityLocative = getCityLocative(city.name);

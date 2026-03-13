@@ -1,4 +1,4 @@
-import { Container, Section } from "@/components/ui/Container";
+import { Container } from "@/components/ui/Container";
 
 interface ProblemCard {
   icon: string;

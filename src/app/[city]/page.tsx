@@ -260,7 +260,7 @@ export default async function CityPage({ params }: PageProps) {
         </p>
 
         <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "18px" }}>
-          <a
+          <Link
             href="/iletisim"
             style={{
               background: "#34A853",
@@ -272,7 +272,7 @@ export default async function CityPage({ params }: PageProps) {
             }}
           >
             Ücretsiz Teklif Al
-          </a>
+          </Link>
 
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
@@ -438,7 +438,7 @@ export default async function CityPage({ params }: PageProps) {
         </p>
 
         <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-          <a
+          <Link
             href="/iletisim"
             style={{
               background: "#34A853",
@@ -450,7 +450,7 @@ export default async function CityPage({ params }: PageProps) {
             }}
           >
             Teklif Formuna Git
-          </a>
+          </Link>
 
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import QuoteForm from "@/components/forms/QuoteForm";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
@@ -84,13 +85,13 @@ export default function CTASection({
                 Hemen Ara: {siteConfig.phone}
               </a>
 
-              <a
+              <Link
                 href="/iletisim"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
               >
                 İletişim Sayfası
                 <ArrowRight size={16} />
-              </a>
+              </Link>
             </div>
 
             <p className="mt-4 text-xs leading-6 text-white/60">

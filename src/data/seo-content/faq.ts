@@ -174,4 +174,104 @@ export const faqContent: Record<string, SeoFaqContent> = {
       },
     ],
   },
+  "kamera-sistemi-bakim-sozlesmesi": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde kamera sistemi bakım sözleşmesi yapıyor musunuz?",
+        answer:
+          "Evet. {city} içinde kurulu kamera sistemleri için periyodik bakım sözleşmesi, kayıt kontrolü ve arıza önleyici bakım desteği sunuyoruz.",
+      },
+      {
+        question: "Bakım sözleşmesinde hangi kontroller yer alır?",
+        answer:
+          "Kamera açıları, görüntü kalitesi, kayıt cihazı, disk sağlığı, bağlantılar ve uzaktan erişim ayarları bakım kapsamına göre düzenli olarak kontrol edilir.",
+      },
+      {
+        question: "Başka firmadan alınmış sistemler için de bakım yapılır mı?",
+        answer:
+          "Birçok durumda evet. Mevcut altyapıyı inceleyip bakım sözleşmesi kapsamına alınabilecek noktaları ön değerlendirme sonrası netleştiriyoruz.",
+      },
+    ],
+  },
+  "guvenlik-sistemi-teknik-servis": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde güvenlik sistemi teknik servis hizmeti veriyor musunuz?",
+        answer:
+          "Evet. {city} içinde kamera, alarm ve geçiş kontrol sistemleri için teknik servis ve saha müdahale desteği sağlıyoruz.",
+      },
+      {
+        question: "Teknik servis hangi arızalara bakar?",
+        answer:
+          "Görüntü kaybı, kayıt cihazı problemi, bağlantı hatası, alarm panel arızası ve geçiş kontrol sorunları gibi birçok teknik başlıkta destek veriyoruz.",
+      },
+      {
+        question: "Önce arıza tespiti mi yapıyorsunuz?",
+        answer:
+          "Evet. Gereksiz parça değişimini önlemek için önce arızanın kaynağını tespit ediyor, sonra uygun müdahale planını uyguluyoruz.",
+      },
+    ],
+  },
+  "kamera-ariza-servisi": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde kamera arıza servisi veriyor musunuz?",
+        answer:
+          "Evet. {city} içinde görüntü gelmeyen, kayıt yapmayan veya uzaktan erişim sorunu yaşayan kamera sistemleri için arıza servis desteği veriyoruz.",
+      },
+      {
+        question: "Kamera arızasında hangi parçaları kontrol ediyorsunuz?",
+        answer:
+          "Kamera, kayıt cihazı, hard disk, bağlantı hatları, switch ve ağ ayarlarını arıza semptomuna göre kontrol ediyoruz.",
+      },
+      {
+        question: "Kayıt cihazı kaynaklı sorunları da çözüyor musunuz?",
+        answer:
+          "Evet. NVR/DVR cihazı, disk sağlığı ve kayıt ayarları kaynaklı sorunları test edip gerekli müdahaleyi yapıyoruz.",
+      },
+    ],
+  },
+  "yangin-alarm-bakim-sozlesmesi": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde yangın alarm bakım sözleşmesi yapıyor musunuz?",
+        answer:
+          "Evet. {city} içinde kurulu yangın alarm sistemleri için periyodik bakım sözleşmesi ve saha test desteği sunuyoruz.",
+      },
+      {
+        question: "Bakım sözleşmesinde hangi cihazlar kontrol edilir?",
+        answer:
+          "Panel, dedektör, buton, siren ve bağlantı noktaları bakım planına göre test edilir ve çalışmayan bileşenler raporlanır.",
+      },
+      {
+        question: "Bakım kayıtları tutuluyor mu?",
+        answer:
+          "Evet. Uygulanan kontrol adımları ve tespit edilen teknik durum bakım sürecinde kayıt altına alınabilir.",
+      },
+    ],
+  },
+  "uzaktan-kamera-izleme": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde uzaktan kamera izleme hizmeti sunuyor musunuz?",
+        answer:
+          "Evet. {city} içinde mevcut veya yeni kurulan kamera sistemleri için uzaktan izleme, mobil erişim ve merkezi görüntüleme altyapısı kuruyoruz.",
+      },
+      {
+        question: "Telefondan ve bilgisayardan aynı anda izleme yapılabilir mi?",
+        answer:
+          "Uygun cihaz ve ağ altyapısında evet. Kullanıcı ihtiyaçlarına göre mobil ve masaüstü erişimleri birlikte yapılandırıyoruz.",
+      },
+      {
+        question: "Birden fazla şube tek ekranda izlenebilir mi?",
+        answer:
+          "Evet. Uygun altyapıda birden fazla lokasyonun kamera akışları tek izleme kurgusunda toplanabilir.",
+      },
+    ],
+  },
 };

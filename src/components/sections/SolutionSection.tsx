@@ -49,7 +49,10 @@ export default function SolutionSection({
 
           {/* Görsel kısmı */}
           <div className="flex-1 w-full">
-            <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-accent/30">
+            <div
+              aria-label={imageAlt}
+              className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-accent/30"
+            >
               <div className="text-center text-accent/60">
                 <div className="text-5xl mb-3">📷</div>
                 <p className="text-sm font-medium">{imagePlaceholder}</p>

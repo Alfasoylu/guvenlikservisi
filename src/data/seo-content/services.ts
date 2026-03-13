@@ -212,4 +212,129 @@ export const serviceContent: Record<string, SeoServiceContent> = {
     metadataIntent: "bakım, servis ve uzaktan izleme desteği",
     metadataTargets: ["kamera sistemi", "alarm sistemi", "mevcut güvenlik altyapısı"],
   },
+  "kamera-sistemi-bakim-sozlesmesi": {
+    heroIntro:
+      "{city} içinde kurulu kamera sistemleri için periyodik bakım sözleşmesi sunuyoruz. Kayıt süresi, disk sağlığı, kamera açıları ve mobil erişim ayarlarını düzenli kontrol ederek sistemin kesintisiz çalışmasını hedefliyoruz.",
+    localContext:
+      "{city} içinde çok kameralı işyeri, apartman, site ve depo projelerinde bakım sözleşmesi arıza çıkmadan önce riskleri görünür hale getirir.",
+    benefits: [
+      "Kayıt kaybı ve kör nokta riskini azaltır.",
+      "Hard disk, bağlantı ve görüntü kalitesi sorunlarını erken tespit eder.",
+      "Acil arıza maliyetini düşüren planlı bakım disiplini sağlar.",
+    ],
+    process: [
+      "Mevcut sistemin ilk kontrolü ve envanter çıkarımı",
+      "Kamera, kayıt cihazı ve disk sağlığı testleri",
+      "Açı, temizlik ve uzaktan erişim kontrolleri",
+      "Periyodik bakım planı ve servis notlarının teslimi",
+    ],
+    statsTitle: "Bakım sözleşmesinde amaç sadece arıza gidermek değildir",
+    statsDescription:
+      "{city} içinde kamera sistemi bakım sözleşmelerinde odağımız, kayıt kaybı yaşanmadan önce sistem zayıflıklarını tespit edip operasyonu kesintisiz sürdürmektir.",
+    ctaTitle: "{city} kamera sistemi bakım sözleşmesi için teklif alın",
+    ctaDescription:
+      "{city} içindeki mevcut kamera altyapınız için bakım periyodunu, kontrol kapsamını ve müdahale yaklaşımını birlikte netleştirelim.",
+    metadataIntent: "kamera sistemi bakım sözleşmesi",
+    metadataTargets: ["site", "işyeri", "depo"],
+  },
+  "guvenlik-sistemi-teknik-servis": {
+    heroIntro:
+      "{city} içinde kamera, alarm ve geçiş kontrol sistemleri için teknik servis desteği veriyoruz. Çalışmayan cihazlar, bağlantı problemleri ve saha kaynaklı arızalar için hızlı müdahale planlıyoruz.",
+    localContext:
+      "{city} içinde mevcut sistemi tamamen değiştirmek yerine önce gerçek arıza kaynağını bulup teknik müdahale ile sistemi ayağa kaldırmaya odaklanıyoruz.",
+    benefits: [
+      "Mevcut kurulumun sorun kaynağını hızlı tespit eder.",
+      "Saha müdahalesi ile duruş süresini azaltır.",
+      "Kamera, alarm ve geçiş kontrol sistemlerini tek servis akışında ele alır.",
+    ],
+    process: [
+      "Arıza belirtilerinin ön değerlendirmesi",
+      "Saha veya uzaktan teknik kontrol",
+      "Cihaz, bağlantı ve konfigürasyon müdahalesi",
+      "Test, doğrulama ve kullanıcı bilgilendirmesi",
+    ],
+    statsTitle: "Teknik serviste doğru teşhis müdahale süresinden daha kritiktir",
+    statsDescription:
+      "{city} içinde teknik servis taleplerinde önce arıza sebebini netleştiriyor, gereksiz parça ve yanlış müdahale riskini azaltıyoruz.",
+    ctaTitle: "{city} güvenlik sistemi teknik servis desteği alın",
+    ctaDescription:
+      "{city} içindeki mevcut sisteminiz için teknik servis kapsamını, acil müdahale ihtiyacını ve sonraki bakım adımlarını birlikte planlayalım.",
+    metadataIntent: "güvenlik sistemi teknik servis",
+    metadataTargets: ["kamera sistemi", "alarm sistemi", "işyeri"],
+  },
+  "kamera-ariza-servisi": {
+    heroIntro:
+      "{city} içinde görüntü vermeyen, kayıt yapmayan veya uzaktan erişim sorunu yaşayan kamera sistemleri için arıza servis desteği sunuyoruz. Önceliğimiz problemi hızlı teşhis edip sistemi yeniden çalışır hale getirmektir.",
+    localContext:
+      "{city} içinde mağaza, apartman, site ve depo projelerinde sık görülen kayıt cihazı, hard disk ve ağ bağlantısı arızalarını saha koşullarına göre ele alıyoruz.",
+    benefits: [
+      "Görüntü ve kayıt sorunlarının kaynağını hızla bulur.",
+      "NVR, hard disk ve ağ kaynaklı arızaları ayrıştırır.",
+      "Sistemin yeniden devreye alınma süresini kısaltır.",
+    ],
+    process: [
+      "Arıza semptomlarının toplanması",
+      "Kamera, kayıt cihazı ve ağ testleri",
+      "Gerekli onarım ve ayar müdahalesi",
+      "Kayıt ve uzaktan erişim doğrulaması",
+    ],
+    statsTitle: "Kamera arızalarında semptom değil kök neden çözülmelidir",
+    statsDescription:
+      "{city} içinde kamera arıza servisi verirken görüntü kaybı, kayıt sorunu ve bağlantı hatalarını tek tek test ederek sorunun kaynağını ayırıyoruz.",
+    ctaTitle: "{city} kamera arıza servisi için hızlı destek alın",
+    ctaDescription:
+      "{city} içindeki kamera sisteminizde yaşadığınız arıza için belirtileri paylaşın; uygun müdahale yolunu birlikte netleştirelim.",
+    metadataIntent: "kamera arıza servisi",
+    metadataTargets: ["işyeri", "apartman", "site"],
+  },
+  "yangin-alarm-bakim-sozlesmesi": {
+    heroIntro:
+      "{city} içinde kurulu yangın alarm sistemleri için bakım sözleşmesi hizmeti sunuyoruz. Dedektör, buton, siren ve panel bileşenlerini periyodik testlerle kontrol ederek algılama sürekliliğini koruyoruz.",
+    localContext:
+      "{city} içinde otel, depo, ofis ve apartman projelerinde yangın alarm bakım planı; mevzuat, işletme güvenliği ve sistem güvenilirliği açısından kritik önem taşır.",
+    benefits: [
+      "Dedektör ve panel arızalarını erken görünür hale getirir.",
+      "Periyodik test disiplini ile yangın alarm sürekliliğini korur.",
+      "Bakım kayıtlarıyla işletme tarafında düzenli kontrol standardı oluşturur.",
+    ],
+    process: [
+      "Mevcut panel ve saha cihazı envanterinin çıkarılması",
+      "Dedektör, buton ve siren testlerinin planlanması",
+      "Arıza ve zayıflıkların raporlanması",
+      "Periyodik bakım takviminin oluşturulması",
+    ],
+    statsTitle: "Yangın alarm bakımında süreklilik kurulum kadar kritiktir",
+    statsDescription:
+      "{city} içinde yangın alarm bakım sözleşmelerinde odağımız, panel ve saha cihazlarının gerçekten çalışır durumda kalmasını doğrulayan düzenli test akışıdır.",
+    ctaTitle: "{city} yangın alarm bakım sözleşmesi için keşif alın",
+    ctaDescription:
+      "{city} içindeki yapınız için yangın alarm bakım kapsamını, kontrol sıklığını ve saha test planını birlikte belirleyelim.",
+    metadataIntent: "yangın alarm bakım sözleşmesi",
+    metadataTargets: ["otel", "ofis", "depo"],
+  },
+  "uzaktan-kamera-izleme": {
+    heroIntro:
+      "{city} içinde mevcut veya yeni kurulan kamera sistemleri için uzaktan izleme hizmeti sunuyoruz. Mobil erişim, merkezi izleme ekranları ve kayıt takibini operasyon ihtiyaçlarına göre planlıyoruz.",
+    localContext:
+      "{city} içinde birden fazla noktayı takip eden işletmeler ve site yönetimleri için uzaktan izleme; sahaya gitmeden durum kontrolü ve olay takibi sağlar.",
+    benefits: [
+      "Canlı izleme ve kayıt takibini merkezi hale getirir.",
+      "Birden fazla lokasyonun tek ekrandan yönetilmesini kolaylaştırır.",
+      "Mobil erişim ile operasyon görünürlüğünü artırır.",
+    ],
+    process: [
+      "Mevcut altyapı ve erişim ihtiyaçlarının analizi",
+      "Kayıt cihazı, ağ ve kullanıcı yetkilerinin yapılandırılması",
+      "Mobil ve masaüstü izleme kurulumunun tamamlanması",
+      "Bildirim ve kullanıcı teslim süreçlerinin yapılması",
+    ],
+    statsTitle: "Uzaktan izleme sadece bağlantı değil operasyon görünürlüğüdür",
+    statsDescription:
+      "{city} içinde uzaktan izleme projelerinde cihaz bağlantısı kadar kullanıcı erişimi, kayıt takibi ve olay yönetimi akışını da birlikte tasarlıyoruz.",
+    ctaTitle: "{city} uzaktan kamera izleme çözümü için teklif alın",
+    ctaDescription:
+      "{city} içindeki tesisiniz veya şubeniz için uzaktan izleme kapsamını, kullanıcı erişimlerini ve kayıt akışını birlikte planlayalım.",
+    metadataIntent: "uzaktan kamera izleme hizmeti",
+    metadataTargets: ["site yönetimi", "işyeri", "çok şubeli işletme"],
+  },
 };
