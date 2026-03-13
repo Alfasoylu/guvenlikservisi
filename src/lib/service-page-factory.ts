@@ -366,7 +366,7 @@ export function getServicePageFactoryData(
     images: {
       hero: heroImage,
       support: supportImages,
-      useCases: useCaseImages.length > 0 ? useCaseImages : supportImages.slice(0, 2),
+      useCases: [...useCaseImages, ...supportImages].slice(0, 2),
       cta: ctaImage,
     },
     districts,
