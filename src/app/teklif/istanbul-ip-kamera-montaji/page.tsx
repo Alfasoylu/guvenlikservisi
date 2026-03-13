@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description:
       "İstanbul genelinde IP kamera kurulumu, mobil izleme ayarı, gece görüşlü sistemler ve hızlı teklif.",
     images: [
-      "https://www.guvenlikservisi.com/images/landing/istanbul-ip-kamera-hero.webp",
+      "https://guvenlikservisi.com/images/landing/istanbul-ip-kamera-hero.webp",
     ],
   },
 };
@@ -373,19 +373,19 @@ export default function IstanbulIpKameraMontajiPage() {
         "@type": "ListItem",
         position: 1,
         name: "Anasayfa",
-        item: "https://www.guvenlikservisi.com",
+        item: "https://guvenlikservisi.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Teklif",
-        item: "https://www.guvenlikservisi.com/teklif",
+        item: "https://guvenlikservisi.com/teklif",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "İstanbul IP Kamera Montajı",
-        item: "https://www.guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
+        item: "https://guvenlikservisi.com/teklif/istanbul-ip-kamera-montaji",
       },
     ],
   };
