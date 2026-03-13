@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
@@ -43,6 +44,22 @@ interface ServiceSpecificContent {
     title: string;
     paragraphs: string[];
     items?: string[];
+  }[];
+  authoritySections?: {
+    title: string;
+    paragraphs: string[];
+    items?: string[];
+    imageSrc?: string;
+    imageAlt?: string;
+  }[];
+  conversionBlocks?: {
+    title: string;
+    description: string;
+    whatsappText: string;
+    supportingLink?: {
+      href: string;
+      label: string;
+    };
   }[];
   sectionTitle1: string;
   sectionBody1: string;
@@ -98,6 +115,43 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Süreci adım adım planlayarak hem teknik doğruluğu hem de kullanım kolaylığını birlikte hedefliyoruz.",
     ctaText:
       "IP kamera sistemi kararını hızlandırmak için şehir, mekan tipi ve hedef kayıt süresine göre hızlı keşif planı oluşturuyoruz.",
+    authoritySections: [
+      {
+        title: "Kamera Sistemi Kurulumu Nedir?",
+        paragraphs: [
+          "Kamera sistemi kurulumu, işletme ve yaşam alanlarında güvenliği artırmak için doğru noktaların keşif ile belirlenmesi, kayıt altyapısının planlanması ve görüntü kalitesinin ihtiyaca göre optimize edilmesi sürecidir.",
+          "Profesyonel kurulum sayesinde sadece görüntü almak değil, olay anında net kayıt elde etmek, uzaktan izleme ile anlık kontrol sağlamak ve caydırıcılığı görünür hale getirmek mümkün olur.",
+        ],
+        items: [
+          "Hızlı keşif ve aynı gün planlama",
+          "Uygun fiyatlı ama performans odaklı cihaz seçimi",
+          "Garanti ve teknik destekle sürdürülebilir güvenlik",
+        ],
+        imageSrc: "/images/landing/istanbul-ip-kamera-hero.webp",
+        imageAlt: "IP kamera sistemi kurulumu örnek saha görüntüsü",
+      },
+      {
+        title: "IP Kamera Sistemi Nasıl Çalışır?",
+        paragraphs: [
+          "IP kamera sistemi; kameraların ağ üzerinden kayıt cihazına veya bulut altyapısına görüntü iletmesi, depolama biriminde kayıt tutulması ve mobil uygulama ile uzaktan izleme yapılması prensibine dayanır.",
+          "Doğru lens, doğru açı ve doğru kablolama yapılmadığında görüntü kalitesi düşer. Bu nedenle projeyi kurulum öncesinde kullanım senaryosuna göre planlayarak daha net, daha stabil ve daha ekonomik bir sonuç sağlıyoruz.",
+        ],
+        imageSrc: "/images/landing/ip-kamera-kurulum-detay.webp",
+        imageAlt: "IP kamera teknik montaj detayı",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Ücretsiz keşif ile kamera sisteminizi doğru planlayın",
+        description:
+          "Uzman ekibimiz şehir içinde hızlı keşif planı yapar, bütçenize uygun fiyat aralığını aynı gün netleştirir ve kurulum sonrası garanti ile teknik destek sürecini baştan tanımlar.",
+        whatsappText: "Kamera sistemi kurulumu için ücretsiz keşif ve hızlı fiyat istiyorum.",
+        supportingLink: {
+          href: "/iletisim",
+          label: "Teklif Formunu Doldur",
+        },
+      },
+    ],
     trustBlock:
       "Kamera sisteminde doğru keşif, doğru açı planı ve doğru kayıt altyapısı birlikte kurulmadığında yatırım kısa sürede verim kaybeder. Bu nedenle projeyi yalnızca montaj değil, sürdürülebilir güvenlik performansı odağıyla kuruyoruz.",
     trustTitle: "Kamera yatırımında doğru keşif ve doğru montaj fark yaratır",
@@ -267,6 +321,43 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Kurulumdan önce keşif, kurulum sonrası test ve kullanıcı eğitimi ile sistemi günlük kullanımda güvenilir hale getiriyoruz.",
     ctaText:
       "Alarm sisteminde en kritik adım doğru keşif ve doğru dedektör yerleşimidir. Böylece gereksiz uyarıları azaltıp gerçek güvenlik seviyesini yükseltiyoruz.",
+    authoritySections: [
+      {
+        title: "Alarm Sistemi Nedir ve Neden Gerekli?",
+        paragraphs: [
+          "Alarm sistemi; izinsiz giriş, kırılma veya şüpheli hareketleri erken tespit ederek panel üzerinden siren ve bildirim senaryolarını çalıştıran güvenlik altyapısıdır.",
+          "Apartman, işyeri, mağaza ve depolarda doğru alarm planı sayesinde risk anında müdahale süresi kısalır ve yanlış alarm kaynaklı operasyon kaybı azalır.",
+        ],
+        imageSrc: "/images/services/bakim-servis/alarm-panel-sensor-test-servis.jpg",
+        imageAlt: "Alarm paneli ve dedektör test uygulaması",
+      },
+      {
+        title: "Alarm Paneli, Dedektör ve Siren Kurulumunda Profesyonel Yaklaşım",
+        paragraphs: [
+          "Doğru panel kapasitesi, dedektör konumu ve siren senaryosu belirlenmeden yapılan kurulumlarda sistem ya eksik koruma sağlar ya da gereksiz uyarı üretir.",
+          "Profesyonel ekip; keşif, montaj, test ve kullanıcı eğitimi adımlarını birlikte yöneterek mobil kontrolü aktif eder, sistemi günlük kullanımda stabil hale getirir.",
+        ],
+        items: [
+          "Yanlış alarmı azaltan dedektör yerleşimi",
+          "Mobil uygulama ile uzaktan kontrol",
+          "Kurulum sonrası kullanıcı eğitimi ve destek",
+        ],
+        imageSrc: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp",
+        imageAlt: "Mobil uygulama ile alarm kontrolü",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Alarm sistemi için hızlı fiyat ve keşif talep edin",
+        description:
+          "Şehir içi hızlı keşif ile panel, dedektör ve siren kapsamını doğru belirleyip bütçenize uygun çözümü sunuyoruz. Uygun fiyat, garanti ve teknik destek birlikte planlanır.",
+        whatsappText: "Alarm sistemi kurulumu için hızlı keşif ve fiyat teklifi istiyorum.",
+        supportingLink: {
+          href: "/alarm-sistemi-kurulumu",
+          label: "Alarm Hizmet Detayları",
+        },
+      },
+    ],
     trustBlock:
       "Alarm projelerinde panel, dedektör ve siren kurgusu mekanla uyumlu planlanmadığında sistem ya fazla uyarı verir ya da risk anını geç algılar. Doğru mühendislikle alarmı gerçek güvenlik aracına dönüştürüyoruz.",
     trustTitle: "Alarm sisteminde doğru kurgu yanlış alarmı azaltır",
@@ -420,6 +511,43 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mevzuata uygun planlama, saha montajı, devreye alma testleri ve periyodik bakım önerileri ile sistemi sürdürülebilir hale getiriyoruz.",
     ctaText:
       "Yangın alarm altyapısında doğru planlama hem can güvenliği hem işletme sürekliliği için kritik olduğu için keşif ve test adımlarını detaylı yürütüyoruz.",
+    authoritySections: [
+      {
+        title: "Yangın Alarm Sistemi Nedir?",
+        paragraphs: [
+          "Yangın alarm sistemi; duman dedektörü, ısı dedektörü, manuel buton, siren/flaşör ve panel bileşenlerinin birlikte çalıştığı kritik can güvenliği sistemidir.",
+          "İşyeri, depo, apartman ve ticari yapılarda erken uyarı performansı, doğru projelendirme ve test disipliniyle doğrudan ilişkilidir.",
+        ],
+        imageSrc: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+        imageAlt: "Yangın alarm dedektörü ve acil buton",
+      },
+      {
+        title: "Yangın Alarm Paneli Kurulumu ve Devreye Alma",
+        paragraphs: [
+          "Panel kurulumu sırasında zon planı, dedektör hatları ve siren senaryoları mevzuata uygun şekilde hazırlanmalıdır. Aksi halde sistem geç tepki verebilir.",
+          "Saha testleri, arıza simülasyonları ve devreye alma kontrolleri tamamlandıktan sonra sistem güvenilir biçimde teslim edilir ve periyodik bakım planı oluşturulur.",
+        ],
+        items: [
+          "Duman ve ısı dedektörü konum optimizasyonu",
+          "Panel-siren entegrasyon testi",
+          "Devreye alma sonrası bakım önerisi",
+        ],
+        imageSrc: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+        imageAlt: "Yangın alarm paneli kontrol sistemi",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Yangın alarm projeniz için ücretsiz ön değerlendirme alın",
+        description:
+          "Uzman teknik ekibimiz saha keşfiyle dedektör, panel ve siren kapsamını netleştirir; hızlı teklif, doğru planlama ve satış sonrası teknik destek sunar.",
+        whatsappText: "Yangın alarm sistemi kurulumu için keşif ve teklif almak istiyorum.",
+        supportingLink: {
+          href: "/yangin-alarm-sistemi-kurulumu",
+          label: "Yangın Alarm Hizmeti",
+        },
+      },
+    ],
     trustBlock:
       "Yangın alarm projelerinde en kritik nokta, dedektör-pano-siren bileşenlerinin birlikte ve mevzuata uygun çalışmasıdır. Test odaklı devreye alma ile sistemin kritik anda güven vermesini sağlıyoruz.",
     trustTitle: "Yangın alarm sisteminde mevzuata uyum ve test disiplini esastır",
@@ -573,6 +701,43 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Keşiften sonra kapı noktaları, kullanıcı yetkileri ve raporlama ihtiyacına göre sistemi planlayıp devreye alıyoruz.",
     ctaText:
       "Kartlı geçiş projelerinde doğru okuyucu ve kontrol paneli seçimi, kullanıcı yönetimi ve güvenli erişim için belirleyici faktördür.",
+    authoritySections: [
+      {
+        title: "Kartlı Geçiş Sistemi Nedir?",
+        paragraphs: [
+          "Kartlı geçiş sistemi; kapı kontrolü, kart okuyucu ve turnike altyapısı ile personel ve ziyaretçi hareketini yetki seviyelerine göre yöneten güvenlik çözümüdür.",
+          "Ofis, apartman, işyeri ve fabrikalarda izinsiz erişimi azaltırken giriş-çıkış kayıtlarıyla operasyonel denetimi güçlendirir.",
+        ],
+        imageSrc: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
+        imageAlt: "Kartlı geçiş turnike giriş sistemi",
+      },
+      {
+        title: "Kartlı Kapı Kontrolü ve Personel Takip Süreci",
+        paragraphs: [
+          "Kurulum sürecinde kapı noktaları, kullanıcı rolleri ve yetki kuralları netleştirilir. Ardından okuyucu, panel ve yazılım entegrasyonu tamamlanır.",
+          "Doğru raporlama yapısıyla personel geçiş takibi şeffaf hale gelir, güvenlik ve yönetim süreçleri aynı altyapı üzerinden verimli yürütülür.",
+        ],
+        items: [
+          "Kapı/turnike bazlı erişim yönetimi",
+          "Departman ve saat bazlı yetkilendirme",
+          "Giriş-çıkış loglarıyla operasyonel takip",
+        ],
+        imageSrc: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg",
+        imageAlt: "Kartlı geçiş mobil giriş çıkış kayıt ekranı",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Kartlı geçiş sistemi için hızlı keşif ve bütçe planı",
+        description:
+          "Kapı kontrolü, turnike ve kullanıcı yetkilendirme ihtiyaçlarınızı şehir içi keşifle hızlıca analiz ediyor; uygun fiyatlı ve güvenilir kurulum planı sunuyoruz.",
+        whatsappText: "Kartlı geçiş sistemi için hızlı keşif ve fiyat almak istiyorum.",
+        supportingLink: {
+          href: "/iletisim",
+          label: "Kurumsal Teklif Talebi",
+        },
+      },
+    ],
     trustBlock:
       "Kartlı geçiş sisteminde kapı donanımı, yetki matrisi ve kullanıcı yönetimi doğru kurgulanmadığında operasyon yavaşlar ve güvenlik zayıflar. Projeyi hem güvenlik hem hız odağında kuruyoruz.",
     trustTitle: "Kartlı geçişte doğru yetkilendirme güvenliği ve operasyonu birlikte güçlendirir",
@@ -691,6 +856,38 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Yönetim beklentisi, blok yapısı ve ortak alan kullanımına göre keşif yaparak kamera, alarm ve erişim bileşenlerini birlikte planlıyoruz.",
     ctaText:
       "Site ve apartman güvenliğinde doğru planlama sayesinde giriş-çıkış kontrolü güçlenir, ortak alanlarda görünür caydırıcılık artar.",
+    authoritySections: [
+      {
+        title: "Apartman ve Site Güvenlik Sistemi Neden Önemlidir?",
+        paragraphs: [
+          "Site yönetimlerinde güvenlik yatırımı; giriş kapısı, otopark, çevre hattı ve ortak alanların birlikte planlanmasıyla etkili hale gelir.",
+          "Doğru kurgulanmış sistem, sakin güvenliğini artırırken yönetimin olası olaylarda hızlı ve net karar almasını sağlar.",
+        ],
+        imageSrc: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+        imageAlt: "Site yönetimi güvenlik izleme merkezi",
+      },
+      {
+        title: "Kör Nokta Azaltma ve Kayıt Düzeni",
+        paragraphs: [
+          "Apartman ve site projelerinde en büyük risk, kör noktalardır. Keşifte yaya-araç akışı analiz edilerek kamera ve geçiş noktaları optimize edilir.",
+          "Kayıt süresi, uzaktan izleme ve bakım planı birlikte ele alındığında sistem yıllar boyunca stabil ve ekonomik biçimde çalışır.",
+        ],
+        imageSrc: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+        imageAlt: "Site kamera sistemi bakım ve kayıt düzeni",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Site ve apartman güvenliği için ücretsiz keşif alın",
+        description:
+          "Profesyonel ekibimiz blok yapınıza uygun güvenlik planı çıkarır, uygun fiyatlı cihaz seçeneklerini sunar ve garanti + teknik destek sürecini netleştirir.",
+        whatsappText: "Apartman/site güvenlik sistemi için keşif ve hızlı fiyat istiyorum.",
+        supportingLink: {
+          href: "/apartman-site-guvenlik-sistemi",
+          label: "Hizmet Detayları",
+        },
+      },
+    ],
     trustBlock:
       "Site güvenlik projelerinde kamera, giriş kontrol ve kayıt düzeni tek parça olarak planlanmadığında yönetim tarafında sürekli operasyon yükü oluşur. Planlı kurulumla bu yükü azaltıyoruz.",
     trustTitle: "Site güvenliğinde doğru planlama yönetimin yükünü azaltır",
@@ -809,6 +1006,38 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Mekan tipine göre keşif, cihaz seçimi, kurulum ve kullanıcı eğitimini tek süreçte yöneterek güvenli ve pratik kullanım sağlıyoruz.",
     ctaText:
       "İşyerlerinde güvenlik sistemi yatırımının amacı yalnızca görüntü almak değil, hırsızlık riskini azaltırken günlük operasyonu kontrollü yürütmektir.",
+    authoritySections: [
+      {
+        title: "İşyeri Güvenlik Sistemi ile Operasyon Güvenliğini Artırın",
+        paragraphs: [
+          "Ofis, mağaza ve küçük işletmelerde güvenlik sistemi yalnızca hırsızlık önleme değil, günlük operasyonun kontrollü ve kayıtlı yürütülmesi için de kritik bir altyapıdır.",
+          "Kamera, alarm ve giriş kontrol bileşenlerinin birlikte planlanması hem çalışan hem müşteri güvenliğini güçlendirir.",
+        ],
+        imageSrc: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png",
+        imageAlt: "İşyeri alarm ve güvenlik sistemi kurulumu",
+      },
+      {
+        title: "Hızlı Kurulum, Uygun Fiyat, Sürekli Teknik Destek",
+        paragraphs: [
+          "İşyeri projelerinde hızlı keşif ve doğru planlama sayesinde gereksiz maliyet kalemleri azaltılır, bütçeye uygun ama performanslı bir sistem kurgusu oluşturulur.",
+          "Kurulum sonrası teknik destek ve garanti yaklaşımı sayesinde işletme, güvenlik altyapısını kesintisiz kullanmaya devam eder.",
+        ],
+        imageSrc: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+        imageAlt: "İşyeri teknik servis ve kurulum ekibi",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "İşyeriniz için aynı gün keşif ve teklif alın",
+        description:
+          "Şehir içi ekip planlamamızla kısa sürede keşif yapıyor, güvenlik ihtiyacınıza göre uygun fiyatlı çözümü WhatsApp, telefon veya form üzerinden hızlıca iletiyoruz.",
+        whatsappText: "İşyeri güvenlik sistemi için keşif ve fiyat teklifi istiyorum.",
+        supportingLink: {
+          href: "/iletisim",
+          label: "Uzmanla Görüş",
+        },
+      },
+    ],
     trustBlock:
       "İşyerlerinde sistemin sadece kurulması değil, çalışanlar tarafından doğru kullanılması da kritik değerdir. Bu nedenle kurulum kadar operasyonel kullanım kolaylığına da odaklanıyoruz.",
     trustTitle: "İşyeri güvenliğinde pratik kullanım ve hızlı müdahale kritik",
@@ -927,6 +1156,38 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Saha koşulları, operasyon akışı ve riskli bölgeleri analiz ederek kurulum, devreye alma ve bakım önerisini birlikte sunuyoruz.",
     ctaText:
       "Fabrika ve depolarda güvenlik sistemi başarısı, geniş alanı kör nokta bırakmadan planlayıp bakım kaynaklı arıza riskini azaltmakla başlar.",
+    authoritySections: [
+      {
+        title: "Fabrika ve Depo Güvenliğinde Doğru Altyapı Neden Kritik?",
+        paragraphs: [
+          "Geniş alanlı üretim ve depo tesislerinde güvenlik sistemleri, çevre hattından yükleme-boşaltma noktalarına kadar bütün alanı kapsayacak şekilde planlanmalıdır.",
+          "Doğru planlama yapılmadığında kör nokta, yetersiz kayıt süresi ve gece performans kaybı oluşur; bu da operasyonel ve finansal riskleri artırır.",
+        ],
+        imageSrc: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+        imageAlt: "Fabrika güvenlik sistemleri teknik servis uygulaması",
+      },
+      {
+        title: "Uzun Kayıt, Gece Görüş ve Teknik Süreklilik",
+        paragraphs: [
+          "Sanayi tesislerinde kayıt altyapısı, cihaz kapasitesi ve ağ stabilitesi birlikte ele alınmalıdır. Böylece kritik olaylarda geçmişe dönük kayıt erişimi güvenilir olur.",
+          "Periyodik bakım ve teknik destek planı, yoğun çalışma koşullarında oluşabilecek arıza risklerini düşürerek sistem sürekliliğini korur.",
+        ],
+        imageSrc: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
+        imageAlt: "NVR kayıt cihazı ve harddisk kontrolü",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Fabrika ve depo projeleri için kurumsal keşif planlayın",
+        description:
+          "Uzman ekibimiz saha keşfi ile kritik risk noktalarını belirler, uygun fiyatlı ve ölçeklenebilir bir kurulum planı sunar. Hızlı servis, garanti ve satış sonrası destek süreçleri birlikte yönetilir.",
+        whatsappText: "Fabrika/depo güvenlik sistemi için kurumsal keşif ve teklif istiyorum.",
+        supportingLink: {
+          href: "/fabrika-depo-guvenlik-sistemi",
+          label: "Fabrika ve Depo Güvenlik Çözümleri",
+        },
+      },
+    ],
     trustBlock:
       "Sanayi ve depo projelerinde cihaz seçimi kadar saha planı, kayıt mimarisi ve bakım disiplininin birlikte yönetilmesi gerekir. Bu yaklaşım uzun vadede operasyon kayıplarını azaltır.",
     trustTitle: "Geniş alanlarda profesyonel kurulum operasyon kaybını azaltır",
@@ -1080,6 +1341,43 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Sistem envanteri, kayıt ve bağlantı kontrolleri, uzaktan teşhis ve sahada müdahale adımlarını düzenli bir bakım planına bağlı yürütüyoruz.",
     ctaText:
       "Periyodik bakım ve uzaktan izleme modeli ile kayıt kaybı, bağlantı kesintisi ve görüntü sorunlarını daha hızlı tespit ederek operasyon sürekliliğini koruyoruz.",
+    authoritySections: [
+      {
+        title: "Güvenlik Sistemleri Bakımı Neden Kritik?",
+        paragraphs: [
+          "Kurulu sistemler zamanla bakım gerektirir. Kayıt cihazı, disk, görüntü kalitesi ve bağlantı tarafında oluşan küçük hatalar müdahale edilmezse büyük kesintilere dönüşebilir.",
+          "Bakım hizmetinin amacı sistemi değiştirmek değil, mevcut altyapıyı koruyarak arıza riskini düşürmek ve güvenlik performansını sürdürülebilir hale getirmektir.",
+        ],
+        imageSrc: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+        imageAlt: "Güvenlik sistemi bakım teknisyen ekibi",
+      },
+      {
+        title: "Uzaktan İzleme ve Hızlı Teknik Destek",
+        paragraphs: [
+          "Uzaktan erişim altyapısı ile bağlantı hataları, kayıt kesintileri ve görüntü sorunları erken tespit edilir. Bu yaklaşım sahaya çıkmadan çözülebilen arızalarda ciddi zaman kazandırır.",
+          "Periyodik bakım, NVR/DVR kontrolleri, disk sağlığı analizi ve alarm panel testleri ile sistemin sürekli çalışır kalması sağlanır.",
+        ],
+        items: [
+          "Kayıt cihazı ve harddisk sağlık kontrolü",
+          "Görüntü/bağlantı sorunlarında hızlı teşhis",
+          "Uzaktan destek + yerinde müdahale planı",
+        ],
+        imageSrc: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+        imageAlt: "Uzaktan izleme merkezi ekranları",
+      },
+    ],
+    conversionBlocks: [
+      {
+        title: "Mevcut sisteminizi değiştirmeden performansını yükseltin",
+        description:
+          "Uzman ekibimiz periyodik bakım ve uzaktan destek planıyla kayıt, görüntü ve bağlantı sorunlarını hızlıca tespit eder. Uygun maliyetli bakım sözleşmesiyle sistemi güvenle işletmeye devam edin.",
+        whatsappText: "Bakım-servis-uzaktan izleme için hızlı fiyat ve destek planı istiyorum.",
+        supportingLink: {
+          href: "/bakim-servis-uzaktan-izleme",
+          label: "Bakım Hizmeti Detayları",
+        },
+      },
+    ],
     trustBlock:
       "Bakım hizmetinde değer, arıza çıktıktan sonra müdahale etmek değil arızayı önceden yakalayıp sürekliliği korumaktır. Teknik izleme ve periyodik bakım bu yüzden birlikte sunulmalıdır.",
     trustTitle: "Mevcut sistemi güçlü tutan şey düzenli bakım ve hızlı müdahaledir",
@@ -1258,6 +1556,8 @@ export default async function ServicePage({ params }: PageProps) {
   const serviceSeoBlocks = isCameraService
     ? pageContent.seoContent.blocks
     : serviceSpecificContent.seoBlocks ?? [];
+  const serviceAuthoritySections = serviceSpecificContent.authoritySections ?? [];
+  const serviceConversionBlocks = serviceSpecificContent.conversionBlocks ?? [];
 
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraService
@@ -1605,6 +1905,94 @@ export default async function ServicePage({ params }: PageProps) {
       />
 
       {serviceSeoBlocks.length > 0 ? <ServiceSEOContent blocks={serviceSeoBlocks} /> : null}
+
+      {serviceAuthoritySections.length > 0 ? (
+        <section className="bg-white">
+          <div className="mx-auto max-w-7xl space-y-10 px-4 py-12 md:px-6 md:py-16">
+            {serviceAuthoritySections.map((block) => (
+              <article
+                key={block.title}
+                className="grid gap-6 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8 lg:grid-cols-[1.1fr_0.9fr]"
+              >
+                <div>
+                  <h2 className="text-2xl font-black text-slate-950 md:text-3xl">{block.title}</h2>
+                  <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600 md:text-base">
+                    {block.paragraphs.map((paragraph) => (
+                      <p key={`${block.title}-${paragraph}`}>{paragraph}</p>
+                    ))}
+                  </div>
+                  {block.items?.length ? (
+                    <ul className="mt-4 space-y-2">
+                      {block.items.map((item) => (
+                        <li
+                          key={`${block.title}-${item}`}
+                          className="flex items-start gap-2 text-sm font-medium leading-7 text-slate-700"
+                        >
+                          <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+                {block.imageSrc ? (
+                  <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <Image
+                      src={block.imageSrc}
+                      alt={block.imageAlt ?? block.title}
+                      width={1200}
+                      height={800}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {serviceConversionBlocks.length > 0 ? (
+        <section className="bg-slate-50">
+          <div className="mx-auto max-w-7xl space-y-6 px-4 py-10 md:px-6">
+            {serviceConversionBlocks.map((block) => (
+              <div
+                key={block.title}
+                className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8"
+              >
+                <h2 className="text-xl font-black text-slate-950 md:text-2xl">{block.title}</h2>
+                <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 md:text-base">
+                  {block.description}
+                </p>
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(block.whatsappText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-500"
+                  >
+                    WhatsApp ile Hızlı Fiyat Al
+                  </a>
+                  <a
+                    href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                    className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100"
+                  >
+                    Hemen Arayın
+                  </a>
+                  {block.supportingLink ? (
+                    <Link
+                      href={block.supportingLink.href}
+                      className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
+                    >
+                      {block.supportingLink.label}
+                    </Link>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <ServiceVisualSection
         title={pageContent.visuals.title}
