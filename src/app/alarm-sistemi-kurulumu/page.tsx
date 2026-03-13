@@ -74,6 +74,26 @@ const data: ServicePageData = {
   imagePlaceholder: "Alarm Kurulum Görseli",
   ctaTitle: "Alarm Sistemi Teklifi Alın",
   ctaSubtitle: "Ücretsiz keşif için formu doldurun veya bizi arayın.",
+  authorityBeforeFaq: {
+    title: "Türkiye Genelinde Alarm Sistemi Kurulumu Hizmeti",
+    description:
+      "Alarm sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde sunuyoruz. Şehir bazlı uygulama detaylarını aşağıdaki sayfalardan inceleyebilirsiniz.",
+    links: [
+      { href: "/istanbul/alarm-sistemi-kurulumu", label: "İstanbul Alarm Sistemi Kurulumu" },
+      { href: "/ankara/alarm-sistemi-kurulumu", label: "Ankara Alarm Sistemi Kurulumu" },
+      { href: "/izmir/alarm-sistemi-kurulumu", label: "İzmir Alarm Sistemi Kurulumu" },
+    ],
+  },
+  authorityAfterFaq: {
+    title: "Alarm Sistemi Kurulumu Hizmeti Verilen Şehirler",
+    links: [
+      { href: "/istanbul/alarm-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/ankara/alarm-sistemi-kurulumu", label: "Ankara" },
+      { href: "/izmir/alarm-sistemi-kurulumu", label: "İzmir" },
+      { href: "/bursa/alarm-sistemi-kurulumu", label: "Bursa" },
+      { href: "/antalya/alarm-sistemi-kurulumu", label: "Antalya" },
+    ],
+  },
 };
 
 export default function AlarmSayfasi() {

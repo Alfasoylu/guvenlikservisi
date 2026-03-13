@@ -74,6 +74,35 @@ const data: ServicePageData = {
   imagePlaceholder: "Yangın Alarm Kurulum Görseli",
   ctaTitle: "Yangın Alarm Teklifi Alın",
   ctaSubtitle: "Yasal uyum ve güvenlik için ücretsiz keşif alın.",
+  authorityBeforeFaq: {
+    title: "Türkiye Genelinde Yangın Alarm Sistemi Kurulumu Hizmeti",
+    description:
+      "Yangın alarm sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde sunuyoruz. Şehir bazlı kapsam detaylarına aşağıdaki sayfalardan erişebilirsiniz.",
+    links: [
+      {
+        href: "/istanbul/yangin-alarm-sistemi-kurulumu",
+        label: "İstanbul Yangın Alarm Sistemi Kurulumu",
+      },
+      {
+        href: "/ankara/yangin-alarm-sistemi-kurulumu",
+        label: "Ankara Yangın Alarm Sistemi Kurulumu",
+      },
+      {
+        href: "/izmir/yangin-alarm-sistemi-kurulumu",
+        label: "İzmir Yangın Alarm Sistemi Kurulumu",
+      },
+    ],
+  },
+  authorityAfterFaq: {
+    title: "Yangın Alarm Sistemi Kurulumu Hizmeti Verilen Şehirler",
+    links: [
+      { href: "/istanbul/yangin-alarm-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/ankara/yangin-alarm-sistemi-kurulumu", label: "Ankara" },
+      { href: "/izmir/yangin-alarm-sistemi-kurulumu", label: "İzmir" },
+      { href: "/bursa/yangin-alarm-sistemi-kurulumu", label: "Bursa" },
+      { href: "/antalya/yangin-alarm-sistemi-kurulumu", label: "Antalya" },
+    ],
+  },
 };
 
 export default function YanginAlarmSayfasi() {

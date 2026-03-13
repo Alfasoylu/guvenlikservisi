@@ -78,6 +78,26 @@ const data: ServicePageData = {
   imagePlaceholder: "Kamera Kurulum Görseli",
   ctaTitle: "Kamera Kurulum Teklifi Alın",
   ctaSubtitle: "Ücretsiz keşif için formu doldurun veya bizi arayın.",
+  authorityBeforeFaq: {
+    title: "Türkiye Genelinde Kamera Sistemi Kurulumu Hizmeti",
+    description:
+      "Kamera sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde aktif olarak sunuyoruz. Şehir bazlı hizmet detaylarına aşağıdaki sayfalardan ulaşabilirsiniz.",
+    links: [
+      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul Kamera Sistemi Kurulumu" },
+      { href: "/ankara/kamera-sistemi-kurulumu", label: "Ankara Kamera Sistemi Kurulumu" },
+      { href: "/izmir/kamera-sistemi-kurulumu", label: "İzmir Kamera Sistemi Kurulumu" },
+    ],
+  },
+  authorityAfterFaq: {
+    title: "Kamera Sistemi Kurulumu Hizmeti Verilen Şehirler",
+    links: [
+      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/ankara/kamera-sistemi-kurulumu", label: "Ankara" },
+      { href: "/izmir/kamera-sistemi-kurulumu", label: "İzmir" },
+      { href: "/bursa/kamera-sistemi-kurulumu", label: "Bursa" },
+      { href: "/antalya/kamera-sistemi-kurulumu", label: "Antalya" },
+    ],
+  },
 };
 
 export default function KameraSayfasi() {

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/bakim-servis-uzaktan-izleme");
 
@@ -707,6 +708,40 @@ export default function BakimServisUzaktanIzlemePage() {
               title="Bakım Sözleşmesi Hakkında Merak Edilenler"
             />
 
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-2xl font-bold text-slate-950">
+                Türkiye Genelinde Bakım, Servis ve Uzaktan İzleme Hizmeti
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Bu hizmeti Türkiye&#39;nin büyük şehirlerinde sunuyoruz. Şehir bazlı bakım ve destek
+                detaylarını aşağıdaki sayfalardan inceleyebilirsiniz.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {[
+                  {
+                    href: "/istanbul/bakim-servis-uzaktan-izleme",
+                    label: "İstanbul Bakım, Servis ve Uzaktan İzleme",
+                  },
+                  {
+                    href: "/ankara/bakim-servis-uzaktan-izleme",
+                    label: "Ankara Bakım, Servis ve Uzaktan İzleme",
+                  },
+                  {
+                    href: "/izmir/bakim-servis-uzaktan-izleme",
+                    label: "İzmir Bakım, Servis ve Uzaktan İzleme",
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-12 space-y-4">
               {faqItems.map((item) => (
                 <details
@@ -719,6 +754,26 @@ export default function BakimServisUzaktanIzlemePage() {
                   <p className="mt-4 leading-7 text-slate-600">{item.answer}</p>
                 </details>
               ))}
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-2xl font-bold text-slate-950">
+                Bakım, Servis ve Uzaktan İzleme Hizmeti Verilen Şehirler
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Aylık bakım sözleşmesi potansiyeli yüksek şehirlerde aktif olarak hizmet veriyoruz.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {cities.slice(0, 8).map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={`/${city.slug}/bakim-servis-uzaktan-izleme`}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+                  >
+                    {city.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
