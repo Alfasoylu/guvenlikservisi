@@ -804,7 +804,7 @@ export default async function ServicePage({ params }: PageProps) {
   }
 
   const cityLocative = getCityLocative(city.name);
-  const heroHeading = `${city.name} ${service.name} ve Montaj Hizmeti`;
+  const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
 
   const faqExtraItems = [
