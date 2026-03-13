@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CheckCircle, AlertCircle, Loader2, ShieldCheck, PhoneCall } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 
 interface QuoteFormProps {
   defaultService?: string;
@@ -102,11 +103,7 @@ export default function QuoteForm({
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const [utmParams, setUtmParams] = useState({
-    utm_source: "",
-    utm_medium: "",
-    utm_campaign: "",
-  });
+  const attribution = useLandingAttribution();
 
   useEffect(() => {
     setForm((prev) => ({
@@ -114,15 +111,6 @@ export default function QuoteForm({
       service_type: prev.service_type || defaultService,
     }));
   }, [defaultService]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setUtmParams({
-      utm_source: params.get("utm_source") || "",
-      utm_medium: params.get("utm_medium") || "",
-      utm_campaign: params.get("utm_campaign") || "",
-    });
-  }, []);
 
   const selectedServiceLabel = useMemo(() => {
     return serviceOptions.find((item) => item.value === form.service_type)?.label || "";
@@ -211,10 +199,8 @@ export default function QuoteForm({
         body: JSON.stringify({
           ...form,
           phone: normalizePhone(form.phone),
-          ...utmParams,
-          page_url: window.location.href,
+          ...attribution,
           page_title: document.title,
-          timestamp: Date.now(),
         }),
       });
 
@@ -302,6 +288,14 @@ export default function QuoteForm({
       )}
 
       <div className={`grid gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
+        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
+        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
+        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
+        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
+        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
+        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+
         <div>
           <label htmlFor="quote-name" className={labelClass}>
             Ad Soyad *

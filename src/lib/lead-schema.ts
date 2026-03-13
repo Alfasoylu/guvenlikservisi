@@ -23,6 +23,8 @@
  * utm_medium
  * utm_campaign
  * utm_term
+ * utm_content
+ * referrer
  * gclid
  * call_status
  * lead_status
@@ -187,6 +189,8 @@ export interface RawLeadInput {
   utm_campaign?: string;
   utm_term?: string;
   utm_content?: string; // şu an sheet'te yok, ama ileride lazım olabilir
+  referrer?: string;
+  page_title?: string;
   gclid?: string;
 
   // opsiyonel sistem alanları
@@ -374,11 +378,17 @@ export function buildLeadRecord(
     raw.camera_count || raw.cameraCount || raw.kamera_sayisi || ""
   );
 
-  const message = cleanString(
-    raw.message || raw.note || raw.notes || raw.aciklama
-  );
+  const message = cleanString(raw.message || raw.note || raw.aciklama);
 
   const page_url = cleanString(raw.page_url || raw.page || raw.url);
+  const notes = [
+    cleanString(raw.notes),
+    cleanString(raw.utm_content) ? `utm_content:${cleanString(raw.utm_content)}` : "",
+    cleanString(raw.referrer) ? `referrer:${cleanString(raw.referrer)}` : "",
+    cleanString(raw.page_title) ? `page_title:${cleanString(raw.page_title)}` : "",
+  ]
+    .filter(Boolean)
+    .join(" | ");
 
   return {
     lead_id: cleanString(raw.lead_id) || createLeadId(),
@@ -408,7 +418,7 @@ export function buildLeadRecord(
     call_status: "aranmadi",
     lead_status: "yeni",
     assigned_to: "",
-    notes: "",
+    notes,
   };
 }
 
