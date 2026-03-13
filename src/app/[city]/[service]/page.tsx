@@ -39,6 +39,11 @@ interface ServiceSpecificContent {
   heroIntro: string;
   useCases: string[];
   installationSteps: string[];
+  seoBlocks?: {
+    title: string;
+    paragraphs: string[];
+    items?: string[];
+  }[];
   sectionTitle1: string;
   sectionBody1: string;
   sectionTitle2: string;
@@ -206,6 +211,41 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "alarm-sistemi-kurulumu": {
     heroIntro:
       "Apartman, işyeri, mağaza ve depolar için alarm sistemi keşif, panel yerleşimi, dedektör konumlandırma ve uzaktan kontrol odaklı kurulum hizmeti sunuyoruz.",
+    seoBlocks: [
+      {
+        title: "Alarm Sistemi Nedir",
+        paragraphs: [
+          "Alarm sistemi; izinsiz giriş, şüpheli hareket ve güvenlik ihlallerini erken algılayıp kullanıcıyı hızlıca uyaran entegre bir güvenlik altyapısıdır.",
+          "Apartman, işyeri, mağaza ve depolarda doğru panel ve dedektör kurgusu ile risk anında tepki süresi kısalır ve maddi kayıp ihtimali azalır.",
+        ],
+      },
+      {
+        title: "Alarm Sistemi Nasıl Çalışır",
+        paragraphs: [
+          "Hareket dedektörü, manyetik kontak ve siren gibi bileşenler alarm paneline bağlı çalışır. Panel, tanımlanan senaryoya göre alarm üretir ve mobil bildirim gönderir.",
+          "Doğru konumlandırma yapılmadığında yanlış alarm artar. Bu nedenle dedektör açısı, giriş-çıkış gecikmeleri ve kullanım senaryosu saha keşfiyle optimize edilir.",
+        ],
+        items: [
+          "Panel ve dedektör uyumu",
+          "Siren ve bildirim senaryosu",
+          "Mobil kontrol ve kullanıcı yetkisi",
+        ],
+      },
+      {
+        title: "Alarm Sistemi Kurulum Süreci",
+        paragraphs: [
+          "Kurulum süreci keşif, projelendirme, montaj, test ve kullanıcı eğitimi adımlarından oluşur.",
+          "Teslim öncesi yapılan saha testleriyle panel komutları, dedektör tepkileri ve alarm senaryoları doğrulanarak sistem güvenli şekilde devreye alınır.",
+        ],
+      },
+      {
+        title: "Alarm Sistemi Fiyatını Etkileyen Faktörler",
+        paragraphs: [
+          "Fiyat; panel kapasitesi, dedektör adedi, kablolu-kablosuz altyapı tercihi ve mekan büyüklüğüne göre değişir.",
+          "Net maliyet için en doğru yöntem, kullanım alışkanlığı ve risk seviyesine göre sahada keşif yapılmasıdır.",
+        ],
+      },
+    ],
     useCases: [
       "Apartman dairelerinde kapı-manyetik ve hareket dedektörü ile gece güvenliği",
       "Mağaza ve işyerlerinde açılış-kapanış saatleri için kontrollü alarm yönetimi",
@@ -324,6 +364,41 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "yangin-alarm-sistemi-kurulumu": {
     heroIntro:
       "İşyeri, depo, apartman ve ticari alanlar için dedektör, buton, siren ve panel bileşenleriyle yangın alarm sistemi planlama ve devreye alma hizmeti veriyoruz.",
+    seoBlocks: [
+      {
+        title: "Yangın Alarm Sistemi Nedir",
+        paragraphs: [
+          "Yangın alarm sistemi; duman, ısı veya manuel buton tetiklemelerini algılayarak panel üzerinden sesli ve görsel uyarı üreten kritik bir can güvenliği altyapısıdır.",
+          "İşyeri, apartman, depo ve ticari alanlarda doğru projelendirme, erken uyarı performansını doğrudan artırır.",
+        ],
+      },
+      {
+        title: "Duman ve Isı Dedektörleri Nasıl Çalışır",
+        paragraphs: [
+          "Duman dedektörleri partikül yoğunluğunu, ısı dedektörleri ise sıcaklık artışını izleyerek paneli tetikler.",
+          "Dedektör tipi ve yerleşimi mekanın kullanım amacına göre belirlenmelidir; aksi halde geç algılama veya hatalı uyarı riski doğabilir.",
+        ],
+        items: [
+          "Duman dedektörü yerleşimi",
+          "Isı dedektörü seçim kriteri",
+          "Zon bazlı alarm yönetimi",
+        ],
+      },
+      {
+        title: "Yangın Alarm Paneli Kurulumu",
+        paragraphs: [
+          "Panel; dedektör, buton ve siren hatlarını tek merkezde yöneten ana bileşendir. Kurulumda zon planı ve kablolama disiplini kritik öneme sahiptir.",
+          "Devreye alma sırasında panel testleri, alarm senaryosu ve arıza simülasyonları yapılarak sistem doğrulanır.",
+        ],
+      },
+      {
+        title: "Yangın Alarm Sistemi Kurulum Süreci",
+        paragraphs: [
+          "Süreç keşif, proje planı, saha uygulaması, test-devreye alma ve bakım önerisi adımlarıyla ilerler.",
+          "Mevzuata uygun planlama sayesinde hem denetim sürecinde hem günlük işletmede sürdürülebilir bir güvenlik standardı sağlanır.",
+        ],
+      },
+    ],
     useCases: [
       "İşyeri ve ofislerde zon bazlı dedektör planı ile erken algılama",
       "Depo ve lojistik alanlarda panel-siren uyumlu alarm senaryosu",
@@ -442,6 +517,41 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "kartli-gecis-sistemi-kurulumu": {
     heroIntro:
       "Ofis, işyeri, apartman ve fabrika yapılarında kapı kontrolü, turnike ve personel yetkilendirme odaklı kartlı geçiş sistemi kurulumu yapıyoruz.",
+    seoBlocks: [
+      {
+        title: "Kartlı Geçiş Sistemi Nedir",
+        paragraphs: [
+          "Kartlı geçiş sistemi; belirlenen kapı ve turnike noktalarında kim, ne zaman, hangi alana erişebilir sorusunu yöneten güvenlik altyapısıdır.",
+          "Ofis, apartman, işyeri ve fabrika gibi yapılarda yetkisiz erişimi azaltırken operasyonel denetimi artırır.",
+        ],
+      },
+      {
+        title: "Kartlı Kapı Kontrolü Nasıl Çalışır",
+        paragraphs: [
+          "Kart okuyucu, kontrol paneli ve elektrikli kilit bileşenleri birlikte çalışarak doğrulanan kullanıcıya geçiş izni verir.",
+          "Yetki seviyeleri saat, bölüm veya kullanıcı bazında tanımlanabildiği için alan güvenliği esnek biçimde yönetilir.",
+        ],
+        items: [
+          "Kart okuyucu ve panel entegrasyonu",
+          "Yetki seviyeleri tanımlama",
+          "Kapı bazlı erişim kontrolü",
+        ],
+      },
+      {
+        title: "Personel Geçiş Takip Sistemleri",
+        paragraphs: [
+          "Personel geçiş kayıtları, vardiya ve giriş-çıkış takibi için önemli bir operasyon verisi sağlar.",
+          "Doğru raporlama altyapısı, hem güvenlik hem iç denetim süreçlerinde yönetime somut veri sunar.",
+        ],
+      },
+      {
+        title: "Kartlı Geçiş Kurulum Süreci",
+        paragraphs: [
+          "Kurulum; keşif, geçiş noktası planı, cihaz montajı, yazılım yetkilendirme ve test aşamalarından oluşur.",
+          "Teslim aşamasında kullanıcı tanımları, yönetici eğitimi ve temel raporlama senaryoları aktif hale getirilir.",
+        ],
+      },
+    ],
     useCases: [
       "Ofis ve plazalarda kapı bazlı erişim ve personel yetki yönetimi",
       "İşyeri ve mağazalarda depo-giriş ayrımı ile kontrollü geçiş",
@@ -914,6 +1024,41 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   "bakim-servis-uzaktan-izleme": {
     heroIntro:
       "Mevcut sistemlerin kayıt cihazı, kamera, bağlantı ve görüntü problemlerini tespit edip periyodik bakım ve uzaktan izleme desteğiyle arıza riskini düşürüyoruz.",
+    seoBlocks: [
+      {
+        title: "Güvenlik Sistemleri Bakımı Nedir",
+        paragraphs: [
+          "Güvenlik sistemleri bakımı; kurulu altyapının düzenli kontrol, test ve performans iyileştirmeleriyle sürekli çalışır kalmasını sağlayan profesyonel hizmettir.",
+          "Amaç yeni sistem kurmak değil, mevcut sistemi değiştirmeden arıza riskini azaltmak ve kesintileri önlemektir.",
+        ],
+      },
+      {
+        title: "Kamera ve Alarm Sistemleri Periyodik Bakımı",
+        paragraphs: [
+          "Periyodik bakım kapsamında kayıt cihazı kontrolü, disk sağlığı analizi, görüntü kalitesi kontrolü ve alarm bileşen testleri yapılır.",
+          "Bu sayede gizli arızalar büyümeden tespit edilir ve sistemin kritik anda devre dışı kalma riski düşürülür.",
+        ],
+        items: [
+          "Kayıt cihazı ve disk sağlığı kontrolü",
+          "Görüntü, bağlantı ve erişim testleri",
+          "Alarm paneli ve dedektör fonksiyon kontrolleri",
+        ],
+      },
+      {
+        title: "Uzaktan İzleme ve Arıza Tespiti",
+        paragraphs: [
+          "Uzaktan erişim altyapısı sayesinde bağlantı kopması, kayıt hatası veya görüntü bozulması gibi sorunlar erken aşamada fark edilir.",
+          "Sahaya gitmeden çözülebilecek problemler hızlıca kapatılır, yerinde müdahale gereken durumlarda doğru ekip planlaması yapılır.",
+        ],
+      },
+      {
+        title: "Sistem Bakımı Neden Önemlidir",
+        paragraphs: [
+          "Bakım yapılmayan sistemler zamanla kayıt kaybı, görüntü düşüşü ve erişim sorunları üretir. Bu durum güvenlik yatırımının etkisini azaltır.",
+          "Düzenli bakım, maliyetli arızaları azaltır ve sistemin kurulduğu günden sonraki performansını korur.",
+        ],
+      },
+    ],
     useCases: [
       "Kayıt cihazı ve disk sağlığı kaynaklı kayıt kesintilerinin azaltılması",
       "Kamera görüntü kalitesi ve açı bozulmalarının düzenli kontrolü",
@@ -1110,6 +1255,9 @@ export default async function ServicePage({ params }: PageProps) {
   const cityLocative = getCityLocative(city.name);
   const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
+  const serviceSeoBlocks = isCameraService
+    ? pageContent.seoContent.blocks
+    : serviceSpecificContent.seoBlocks ?? [];
 
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraService
@@ -1456,7 +1604,7 @@ export default async function ServicePage({ params }: PageProps) {
         items={pageContent.stats.items}
       />
 
-      {isCameraService ? <ServiceSEOContent blocks={pageContent.seoContent.blocks} /> : null}
+      {serviceSeoBlocks.length > 0 ? <ServiceSEOContent blocks={serviceSeoBlocks} /> : null}
 
       <ServiceVisualSection
         title={pageContent.visuals.title}
