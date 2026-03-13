@@ -728,6 +728,13 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
   },
 };
 
+function getCityLocative(cityName: string) {
+  const normalized = cityName.toLocaleLowerCase("tr-TR");
+  const lastVowel = [...normalized].reverse().find((char) => "aeıioöuü".includes(char));
+  const suffix = lastVowel && "eiöü".includes(lastVowel) ? "de" : "da";
+  return `${cityName}'${suffix}`;
+}
+
 export function generateStaticParams() {
   return getCityServiceStaticParams();
 }
@@ -791,8 +798,12 @@ export default async function ServicePage({ params }: PageProps) {
 
   const pageContent = getServicePageFactoryData(city, service);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
-  const serviceSpecificContent =
-    serviceContentMap[service.slug] ?? serviceContentMap["kamera-sistemi-kurulumu"];
+  const serviceSpecificContent = serviceContentMap[service.slug];
+  if (!serviceSpecificContent) {
+    notFound();
+  }
+
+  const cityLocative = getCityLocative(city.name);
   const heroHeading = `${city.name} ${service.name} ve Montaj Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
 
@@ -982,7 +993,7 @@ export default async function ServicePage({ params }: PageProps) {
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-black text-slate-950 md:text-4xl">
-              {city.name}’de {serviceSpecificContent.sectionTitle1}
+              {cityLocative} {serviceSpecificContent.sectionTitle1}
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
               {serviceSpecificContent.sectionBody1}
@@ -1185,7 +1196,7 @@ export default async function ServicePage({ params }: PageProps) {
 
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-          <h2 className="text-2xl font-black text-slate-950">Türkiye Genelinde Kamera Kurulumu</h2>
+          <h2 className="text-2xl font-black text-slate-950">Türkiye Genelinde {service.name} Hizmeti</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
             {service.name} hizmetini İstanbul başta olmak üzere birçok şehirde sunuyoruz. Şehir
             bazlı hizmet detaylarını aşağıdaki merkez sayfalardan inceleyebilirsiniz.
