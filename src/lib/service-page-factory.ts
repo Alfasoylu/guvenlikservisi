@@ -566,7 +566,7 @@ export function getServicePageFactoryData(
         service
       ),
       primaryLabel: "Hemen Ara",
-      secondaryLabel: "İletişim Formuna Git",
+      secondaryLabel: "İletişim Sayfasına Git",
       whatsappLabel: "WhatsApp ile Yazın",
       whatsappHref: `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
     },
