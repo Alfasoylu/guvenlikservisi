@@ -1861,6 +1861,10 @@ export default async function ServicePage({ params }: PageProps) {
     serviceContentMap[service.slug] ?? buildDefaultServiceSpecificContent(city, service, pageContent);
 
   const isCameraService = service.slug === "kamera-sistemi-kurulumu";
+  const isCameraRelatedService =
+    isCameraService ||
+    service.slug.includes("kamera") ||
+    service.name.toLocaleLowerCase("tr-TR").includes("kamera");
   const cityLocative = getCityLocative(city.name);
   const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
@@ -1915,7 +1919,7 @@ export default async function ServicePage({ params }: PageProps) {
   const serviceImages = serviceImageMap[service.slug] ?? [];
 
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
-  const baseFaqItems = isCameraService
+  const baseFaqItems = isCameraRelatedService
     ? pageContent.faq.items
     : pageContent.faq.items.filter(
         (item) => !cameraTopicPattern.test(`${item.question} ${item.answer}`)
@@ -2021,9 +2025,15 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-black leading-tight text-slate-950 md:text-4xl">
-              {heroHeading}
-            </h2>
+            {isCameraService ? (
+              <h2 className="text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+                {heroHeading}
+              </h2>
+            ) : (
+              <h1 className="text-3xl font-black leading-tight text-slate-950 md:text-4xl">
+                {heroHeading}
+              </h1>
+            )}
             <p className="mt-4 text-base leading-8 text-slate-600">{heroDecisionIntro}</p>
           </div>
 
