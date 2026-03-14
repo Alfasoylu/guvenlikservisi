@@ -204,7 +204,7 @@ export default function BakimServisUzaktanIzlemePage() {
             <div>
               <div className="mb-5 flex flex-wrap gap-3">
                 <span className="rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold text-red-700">
-                  18 İlde Hizmet
+                  Hızlı Servis Müdahalesi
                 </span>
                 <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700">
                   Aylık 2.000 TL’den Başlayan
@@ -305,7 +305,7 @@ export default function BakimServisUzaktanIzlemePage() {
         <TrustSignals
           items={[
             { icon: Clock3, label: "Hızlı Servis Müdahalesi" },
-            { icon: MapPin, label: "18 İlde Hizmet" },
+            { icon: MapPin, label: "Geniş Hizmet Ağı" },
             { icon: ShieldCheck, label: "Sözleşmeli Öncelik" },
             { icon: BadgeCheck, label: "Periyodik Bakım" },
             { icon: Wrench, label: "Uzaktan İzleme Desteği" },
@@ -677,12 +677,108 @@ export default function BakimServisUzaktanIzlemePage() {
           </div>
         </section>
 
+        {/* Fiyatı Etkileyen Faktörler */}
+        <section className="border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-block rounded-full bg-red-100 px-4 py-1.5 text-xs font-semibold text-red-700">
+                Fiyatı etkileyen 5 ana faktör
+              </span>
+              <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">
+                Bakım Sözleşmesi Fiyatını Ne Belirler?
+              </h2>
+              <p className="mt-3 text-slate-600">
+                Aylık bakım sözleşmesi bedeli, tesisin büyüklüğü ve sistem
+                kapsamına göre şekillenir.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                "Toplam kamera sayısı ve kayıt cihazı adedi doğrudan bakım kapsamını belirler.",
+                "Alarm ve yangın alarm sistemi dahilse kontrol noktası sayısı artar, periyodik test süresi uzar.",
+                "Tesisin fiziksel büyüklüğü ve kat sayısı saha bakım süresini etkiler.",
+                "Uzaktan izleme altyapısı (VPN, bulut, statik IP) ek yapılandırma ve kontrol gerektirir.",
+                "Bakım sıklığı (aylık, çeyreklik, yıllık) ve öncelikli servis taahhüdü sözleşme bedelini değiştirir.",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <p className="text-sm leading-6 text-slate-700">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Hangi Tesisler İçin Uygun */}
+        <section className="border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+                Hangi Tesisler İçin Uygun?
+              </h2>
+              <p className="mt-3 text-slate-600">
+                Aylık bakım sözleşmesi özellikle büyük ve kritik altyapıya sahip
+                tesisler için tasarlanmıştır.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: "Site ve Rezidans",
+                  description:
+                    "Çoklu blok, otopark ve ortak alan güvenlik sistemleri için periyodik kontrol ve bakım.",
+                },
+                {
+                  title: "Fabrika ve Üretim Tesisi",
+                  description:
+                    "Geniş saha kameraları, çevre güvenliği ve yangın alarm sistemlerinin düzenli kontrolü.",
+                },
+                {
+                  title: "Depo ve Lojistik Alanı",
+                  description:
+                    "Yükleme noktaları, gece görüş kameraları ve alarm panellerinin sürekli çalışır durumda tutulması.",
+                },
+                {
+                  title: "Plaza ve Ofis Binası",
+                  description:
+                    "Giriş kontrol, yangın alarm ve kamera sistemlerinin tüm katlarda düzenli bakımı.",
+                },
+                {
+                  title: "AVM ve Ticari Alan",
+                  description:
+                    "Yoğun trafikli alanlarda güvenlik altyapısının kesintisiz çalışması için periyodik kontrol.",
+                },
+                {
+                  title: "Zincir Mağaza ve Şubeler",
+                  description:
+                    "Birden fazla lokasyonda standart bakım süreci ve merkezi raporlama.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                >
+                  <h3 className="font-bold text-slate-900">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
             <SectionTitle
-              eyebrow="18 İl"
+              eyebrow="Hizmet Ağı"
               title="Hizmet Verdiğimiz İller"
-              description="Odak; aylık bakım sözleşmesi potansiyeli yüksek şehirler. Bu yapı küçük tek seferlik servis yerine daha büyük ve tekrar eden gelir üretir."
+              description="Aylık bakım sözleşmesi potansiyeli yüksek şehirlerde aktif saha ekipleriyle hizmet veriyoruz."
             />
 
             <div className="mt-12 flex flex-wrap justify-center gap-3">

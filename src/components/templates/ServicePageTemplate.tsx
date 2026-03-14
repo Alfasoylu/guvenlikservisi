@@ -102,6 +102,7 @@ export interface ServicePageData {
   finalCtaTitle?: string;
   finalCtaSubtitle?: string;
   whatsappMessage?: string;
+  heroCtaLabel?: string;
   authorityBeforeFaq?: {
     title: string;
     description?: string;
@@ -238,7 +239,7 @@ export default function ServicePageTemplate({
                   href="#quote-form"
                   className="inline-flex items-center gap-2 rounded-xl bg-cta px-8 py-4 font-bold text-white shadow-lg transition-colors hover:bg-ctaHover"
                 >
-                  Ücretsiz Teklif Al
+                  {data.heroCtaLabel || "Ücretsiz Teklif Al"}
                 </a>
 
                 <a

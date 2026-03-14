@@ -142,10 +142,6 @@ export default function QuickLeadForm({
       newErrors.phone = phoneError;
     }
 
-    if (!form.service_type) {
-      newErrors.service_type = "Hizmet seçiniz.";
-    }
-
     if (form.message.length > 500) {
       newErrors.message = "Mesaj 500 karakteri geçemez.";
     }
@@ -175,7 +171,7 @@ export default function QuickLeadForm({
   function trackFormStart() {
     if (hasTrackedStart.current) return;
     hasTrackedStart.current = true;
-    pushAnalyticsEvent("form_start", {
+    pushAnalyticsEvent("view_lead_form", {
       page_path: pathname || "",
       lead_channel: "form",
       form_source: formSource,
@@ -224,13 +220,19 @@ export default function QuickLeadForm({
       setStatus("success");
       setFeedbackMessage(result?.message || "");
 
-      pushAnalyticsEvent("form_submit", {
+      pushAnalyticsEvent("submit_lead_form", {
         page_path: pathname || "",
         lead_channel: "form",
         form_source: formSource,
         service_type: form.service_type || defaultService || "",
         event_category: "lead",
         value: 1,
+      });
+
+      pushAnalyticsEvent("lead_form_success", {
+        page_path: pathname || "",
+        form_source: formSource,
+        service_type: form.service_type || defaultService || "",
       });
 
       setForm(buildInitialForm(defaultService, defaultDistrict));
@@ -371,7 +373,7 @@ export default function QuickLeadForm({
             value={form.name}
             onChange={handleChange}
             className={inputClass("name")}
-            placeholder="Ad Soyad"
+            placeholder="Adınız Soyadınız"
             autoComplete="name"
           />
           {errors.name ? (
@@ -391,6 +393,7 @@ export default function QuickLeadForm({
             id="qlf-phone"
             name="phone"
             type="tel"
+            inputMode="tel"
             value={form.phone}
             onChange={handleChange}
             className={inputClass("phone")}
@@ -402,66 +405,60 @@ export default function QuickLeadForm({
           ) : null}
         </div>
 
-        {/* Hizmet + İlçe row */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label
-              htmlFor="qlf-service"
-              className="mb-1.5 block text-sm font-semibold text-gray-700"
-            >
-              Hizmet *
-            </label>
-            <select
-              id="qlf-service"
-              name="service_type"
-              value={form.service_type}
-              onChange={handleChange}
-              className={inputClass("service_type")}
-            >
-              <option value="">Seçiniz</option>
-              {serviceOptions.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-            {errors.service_type ? (
-              <p className="mt-1 text-xs text-red-500">{errors.service_type}</p>
-            ) : null}
-          </div>
-
-          <div>
-            <label
-              htmlFor="qlf-district"
-              className="mb-1.5 block text-sm font-semibold text-gray-700"
-            >
-              İlçe
-            </label>
-            <select
-              id="qlf-district"
-              name="district"
-              value={form.district}
-              onChange={handleChange}
-              className={inputClass("district")}
-            >
-              <option value="">Seçiniz</option>
-              {istanbulDistricts.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* İlçe */}
+        <div>
+          <label
+            htmlFor="qlf-district"
+            className="mb-1.5 block text-sm font-semibold text-gray-700"
+          >
+            İlçe
+          </label>
+          <select
+            id="qlf-district"
+            name="district"
+            value={form.district}
+            onChange={handleChange}
+            className={inputClass("district")}
+          >
+            <option value="">İlçe seçin (opsiyonel)</option>
+            {istanbulDistricts.map((d) => (
+              <option key={d} value={d}>
+                {d}
+              </option>
+            ))}
+          </select>
         </div>
 
-        {/* Ek Bilgi (collapsible for mobile) */}
+        {/* Kısa Not */}
+        <div>
+          <label
+            htmlFor="qlf-message"
+            className="mb-1.5 block text-sm font-semibold text-gray-700"
+          >
+            Kısa Not
+          </label>
+          <textarea
+            id="qlf-message"
+            name="message"
+            rows={2}
+            value={form.message}
+            onChange={handleChange}
+            className={inputClass("message")}
+            placeholder="Mekan tipi, kamera sayısı veya özel ihtiyaç"
+          />
+          {errors.message ? (
+            <p className="mt-1 text-xs text-red-500">{errors.message}</p>
+          ) : null}
+        </div>
+
+        {/* Ek Detaylar (collapsible for mobile) */}
         <div>
           <button
             type="button"
             onClick={() => setShowExtras((p) => !p)}
             className="flex w-full items-center justify-between rounded-xl border border-gray-200 bg-surface px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100"
           >
-            Ek bilgi ekle (opsiyonel)
+            Hizmet ve detay seçimi (opsiyonel)
             <ChevronDown
               size={16}
               className={`transition-transform ${showExtras ? "rotate-180" : ""}`}
@@ -469,6 +466,29 @@ export default function QuickLeadForm({
           </button>
           {showExtras && (
             <div className="mt-3 grid gap-4">
+              <div>
+                <label
+                  htmlFor="qlf-service"
+                  className="mb-1.5 block text-sm font-semibold text-gray-700"
+                >
+                  Hizmet Türü
+                </label>
+                <select
+                  id="qlf-service"
+                  name="service_type"
+                  value={form.service_type}
+                  onChange={handleChange}
+                  className={inputClass("service_type")}
+                >
+                  <option value="">Seçiniz (opsiyonel)</option>
+                  {serviceOptions.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label
                   htmlFor="qlf-camera"
@@ -483,33 +503,12 @@ export default function QuickLeadForm({
                   onChange={handleChange}
                   className={inputClass("camera_count")}
                 >
-                  <option value="">Bilmiyorum / Belirtmek İstemiyorum</option>
+                  <option value="">Bilmiyorum</option>
                   <option value="1-4">1–4 Kamera</option>
                   <option value="5-8">5–8 Kamera</option>
                   <option value="9-16">9–16 Kamera</option>
                   <option value="17+">17+ Kamera</option>
                 </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="qlf-message"
-                  className="mb-1.5 block text-sm font-semibold text-gray-700"
-                >
-                  Not / Mesaj
-                </label>
-                <textarea
-                  id="qlf-message"
-                  name="message"
-                  rows={2}
-                  value={form.message}
-                  onChange={handleChange}
-                  className={inputClass("message")}
-                  placeholder="Varsa ek bilgi yazabilirsiniz"
-                />
-                {errors.message ? (
-                  <p className="mt-1 text-xs text-red-500">{errors.message}</p>
-                ) : null}
               </div>
             </div>
           )}

@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { CheckCircle, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { pushAnalyticsEvent } from "@/lib/analytics";
 
 type FormState = {
   company: string;
@@ -34,6 +36,21 @@ export default function MaintenanceQuoteForm() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const hasTrackedView = useRef(false);
+
+  const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
+  const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Merhaba, güvenlik sistemi bakım sözleşmesi hakkında bilgi almak istiyorum.")}`;
+
+  function trackFormView() {
+    if (hasTrackedView.current) return;
+    hasTrackedView.current = true;
+    pushAnalyticsEvent("view_lead_form", {
+      page_path: "/bakim-servis-uzaktan-izleme",
+      form_source: "maintenance_contract_page",
+      lead_channel: "form",
+      service_type: "bakim-servis",
+    });
+  }
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -97,13 +114,29 @@ export default function MaintenanceQuoteForm() {
       }
 
       setSuccessMessage(
-        "Talebiniz alındı. Kurumsal bakım ekibimiz teklif hazırlığı için sizinle iletişime geçecek."
+        "Talebiniz alındı. Kurumsal bakım ekibimiz teklif hazırlığı için sizinle iletişime geçecek.",
       );
+
+      pushAnalyticsEvent("submit_lead_form", {
+        page_path: "/bakim-servis-uzaktan-izleme",
+        form_source: "maintenance_contract_page",
+        lead_channel: "form",
+        service_type: "bakim-servis",
+        event_category: "lead",
+        value: 1,
+      });
+
+      pushAnalyticsEvent("lead_form_success", {
+        page_path: "/bakim-servis-uzaktan-izleme",
+        form_source: "maintenance_contract_page",
+        service_type: "bakim-servis",
+      });
+
       setForm(initialState);
     } catch (error) {
       console.error("maintenance form submit error", error);
       setErrorMessage(
-        "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya doğrudan bizi arayın."
+        "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya doğrudan bizi arayın.",
       );
     } finally {
       setLoading(false);
@@ -112,9 +145,17 @@ export default function MaintenanceQuoteForm() {
 
   return (
     <div className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl">
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form
+        onSubmit={handleSubmit}
+        onFocusCapture={trackFormView}
+        className="space-y-5"
+      >
         <input type="hidden" name="service_type" value="bakim-servis" />
-        <input type="hidden" name="form_source" value="maintenance_contract_page" />
+        <input
+          type="hidden"
+          name="form_source"
+          value="maintenance_contract_page"
+        />
 
         <div>
           <label htmlFor="company" className="mb-2 block text-sm font-semibold">
@@ -235,12 +276,18 @@ export default function MaintenanceQuoteForm() {
             >
               <option value="">Seçiniz</option>
               <option value="Site / Rezidans">Site / Rezidans</option>
-              <option value="Fabrika / Üretim Tesisi">Fabrika / Üretim Tesisi</option>
-              <option value="Depo / Lojistik Alanı">Depo / Lojistik Alanı</option>
+              <option value="Fabrika / Üretim Tesisi">
+                Fabrika / Üretim Tesisi
+              </option>
+              <option value="Depo / Lojistik Alanı">
+                Depo / Lojistik Alanı
+              </option>
               <option value="Plaza / Ofis Binası">Plaza / Ofis Binası</option>
               <option value="AVM / Ticari Alan">AVM / Ticari Alan</option>
               <option value="Mağaza / Zincir Şube">Mağaza / Zincir Şube</option>
-              <option value="Kampüs / Eğitim Yapısı">Kampüs / Eğitim Yapısı</option>
+              <option value="Kampüs / Eğitim Yapısı">
+                Kampüs / Eğitim Yapısı
+              </option>
               <option value="Diğer">Diğer</option>
             </select>
           </div>
@@ -283,9 +330,7 @@ export default function MaintenanceQuoteForm() {
               <option value="Sadece kamera sistemi">
                 Sadece kamera sistemi
               </option>
-              <option value="Kamera + alarm">
-                Kamera + alarm
-              </option>
+              <option value="Kamera + alarm">Kamera + alarm</option>
               <option value="Kamera + alarm + yangın">
                 Kamera + alarm + yangın
               </option>
@@ -323,8 +368,54 @@ export default function MaintenanceQuoteForm() {
         </button>
 
         {successMessage ? (
-          <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
-            {successMessage}
+          <div className="rounded-2xl border border-green-200 bg-white p-6">
+            <CheckCircle className="mx-auto mb-3 text-emerald-500" size={40} />
+            <h3 className="mb-1 text-center text-lg font-bold text-slate-900">
+              Talebiniz Alındı
+            </h3>
+            <p className="mb-4 text-center text-sm text-slate-600">
+              {successMessage}
+            </p>
+            <div className="mb-4 rounded-xl bg-slate-50 p-3">
+              <ol className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    1
+                  </span>
+                  Bakım ekibimiz sizi en kısa sürede arayacak
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    2
+                  </span>
+                  Tesis keşifi ve mevcut sistem analizi
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    3
+                  </span>
+                  Sözleşme teklifi ve bakım planı
+                </li>
+              </ol>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a
+                href={phoneHref}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+              >
+                <Phone size={16} />
+                Hemen Ara
+              </a>
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#20BD5A]"
+              >
+                <MessageCircle size={16} />
+                WhatsApp ile Yazın
+              </a>
+            </div>
           </div>
         ) : null}
 

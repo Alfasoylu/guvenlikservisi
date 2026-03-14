@@ -24,7 +24,7 @@ function getTrackedAnchor(target: EventTarget | null) {
 
   return {
     anchor,
-    eventName: isPhoneLink ? "phone_click" : "whatsapp_click",
+    eventName: isPhoneLink ? "click_call" : "click_whatsapp",
     leadChannel:
       anchor.dataset.leadChannel || (isPhoneLink ? "phone" : "whatsapp"),
   };

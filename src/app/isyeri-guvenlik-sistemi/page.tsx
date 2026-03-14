@@ -161,6 +161,7 @@ const data: ServicePageData = {
     "Kamera, alarm ve yangın alarm tek elden. İşyerinize özel ücretsiz keşif için hemen iletişime geçin.",
   whatsappMessage:
     "Merhaba, işyerim için güvenlik sistemi kurulumu hakkında bilgi almak istiyorum.",
+  heroCtaLabel: "İşyeri Güvenlik Teklifi Al",
   segments: [
     {
       title: "Mağaza ve Perakende",

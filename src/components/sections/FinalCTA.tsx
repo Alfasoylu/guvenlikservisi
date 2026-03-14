@@ -27,7 +27,7 @@ export default function FinalCTA({
   const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
   function trackCta(channel: string) {
-    pushAnalyticsEvent("cta_click", {
+    pushAnalyticsEvent("click_cta_primary", {
       page_path: typeof window !== "undefined" ? window.location.pathname : "",
       lead_channel: channel,
       cta_slot: "final_cta",

@@ -249,7 +249,7 @@ export default function QuoteForm({
 
     hasTrackedFormStart.current = true;
 
-    pushAnalyticsEvent("form_start", {
+    pushAnalyticsEvent("view_lead_form", {
       page_path: effectiveTrackingContext?.page_path || pathname || "",
       city: effectiveTrackingContext?.city || "",
       service: effectiveTrackingContext?.service || "",
@@ -302,7 +302,7 @@ export default function QuoteForm({
       setStatus("success");
       setFeedbackMessage(result?.message || "");
 
-      pushAnalyticsEvent("form_submit", {
+      pushAnalyticsEvent("submit_lead_form", {
         page_path: effectiveTrackingContext?.page_path || pathname || "",
         city: effectiveTrackingContext?.city || "",
         service: effectiveTrackingContext?.service || "",
@@ -314,6 +314,12 @@ export default function QuoteForm({
         event_category: "lead",
         event_label: form.service_type || defaultService || "genel-teklif",
         value: 1,
+      });
+
+      pushAnalyticsEvent("lead_form_success", {
+        page_path: effectiveTrackingContext?.page_path || pathname || "",
+        form_source: effectiveFormSource,
+        service_type: form.service_type || defaultService || "",
       });
 
       setForm(buildInitialForm(defaultCity, defaultService));

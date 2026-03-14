@@ -160,6 +160,7 @@ const data: ServicePageData = {
     "Apartman ve site güvenliği için ücretsiz keşif randevusu alın. Kamera, kartlı geçiş ve yangın alarm tek projede.",
   whatsappMessage:
     "Merhaba, sitemiz için güvenlik sistemi teklifi almak istiyorum.",
+  heroCtaLabel: "Site Güvenlik Teklifi Al",
   segments: [
     {
       title: "Giriş Kontrolü ve Interkom",
