@@ -5,8 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { cities } from "@/data/cities";
 import { siteConfig } from "@/data/site-config";
+import TrustSignals from "@/components/sections/TrustSignals";
+import FinalCTA from "@/components/sections/FinalCTA";
+import { BadgeCheck, Clock3, MapPin, ShieldCheck, Wrench } from "lucide-react";
 
-const canonicalUrl = getCanonicalUrlForKnownPath("/bakim-servis-uzaktan-izleme");
+const canonicalUrl = getCanonicalUrlForKnownPath(
+  "/bakim-servis-uzaktan-izleme",
+);
 
 export const metadata: Metadata = {
   title:
@@ -111,7 +116,8 @@ const faqItems = [
       "Evet. Yangın alarm sistemi bakım ve test hizmeti veriyoruz. Ancak sahadaki sistemin marka, panel yapısı, loop mimarisi ve mevcut projeye göre kapsam belirlenir. Bu tip sistemlerde raporlama ve test disiplini kritik olduğu için ön keşif gerekir.",
   },
   {
-    question: "Bakım sözleşmesi olan müşteriye servis önceliği veriyor musunuz?",
+    question:
+      "Bakım sözleşmesi olan müşteriye servis önceliği veriyor musunuz?",
     answer:
       "Evet. Sözleşmeli müşteriler servis planlamasında öncelik alır. Çünkü recurring bakım müşterisi hem daha uzun vadeli iş ortağıdır hem de sistem geçmişi kayıt altında tutulduğu için müdahale süresi daha kısa olur.",
   },
@@ -219,11 +225,12 @@ export default function BakimServisUzaktanIzlemePage() {
               </h1>
 
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-                Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri kritik
-                anda çalışmıyorsa o sistem aslında yoktur. Bu yüzden büyük site,
-                fabrika, depo, plaza ve işletmelere düzenli bakım, hızlı servis
-                ve uzaktan sistem takibi sunuyoruz. Hedefimiz tek seferlik arıza
-                değil; sistemin yıl boyunca çalışır kalmasını sağlamak.
+                Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri
+                kritik anda çalışmıyorsa o sistem aslında yoktur. Bu yüzden
+                büyük site, fabrika, depo, plaza ve işletmelere düzenli bakım,
+                hızlı servis ve uzaktan sistem takibi sunuyoruz. Hedefimiz tek
+                seferlik arıza değil; sistemin yıl boyunca çalışır kalmasını
+                sağlamak.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -247,7 +254,8 @@ export default function BakimServisUzaktanIzlemePage() {
                     Aylık bakım sözleşmesi
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    2.000 TL’den başlayan planlarla recurring teknik gelir modeli
+                    2.000 TL’den başlayan planlarla recurring teknik gelir
+                    modeli
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-4">
@@ -263,7 +271,8 @@ export default function BakimServisUzaktanIzlemePage() {
                     Kurumsal raporlama
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Yapılan bakım, tespit edilen risk ve öneriler kayıt altına alınır
+                    Yapılan bakım, tespit edilen risk ve öneriler kayıt altına
+                    alınır
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-4">
@@ -271,7 +280,8 @@ export default function BakimServisUzaktanIzlemePage() {
                     Farklı marka sistemleri devralma
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Başka firmanın kurduğu sistemi de analiz edip bakım kapsamına alabiliriz
+                    Başka firmanın kurduğu sistemi de analiz edip bakım
+                    kapsamına alabiliriz
                   </p>
                 </div>
               </div>
@@ -291,6 +301,16 @@ export default function BakimServisUzaktanIzlemePage() {
             </div>
           </div>
         </section>
+
+        <TrustSignals
+          items={[
+            { icon: Clock3, label: "Hızlı Servis Müdahalesi" },
+            { icon: MapPin, label: "18 İlde Hizmet" },
+            { icon: ShieldCheck, label: "Sözleşmeli Öncelik" },
+            { icon: BadgeCheck, label: "Periyodik Bakım" },
+            { icon: Wrench, label: "Uzaktan İzleme Desteği" },
+          ]}
+        />
 
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
@@ -442,27 +462,33 @@ export default function BakimServisUzaktanIzlemePage() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
                 Kurumsal müşteri “geldik baktık” cümlesine para ödemez. Ölçülen,
-                test edilen, raporlanan ve önceliklendirilen bakım ister. Bu yüzden
-                saha bakımını teknik checklist mantığıyla yürütüyoruz.
+                test edilen, raporlanan ve önceliklendirilen bakım ister. Bu
+                yüzden saha bakımını teknik checklist mantığıyla yürütüyoruz.
               </p>
 
               <div className="mt-8 grid gap-4">
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <h3 className="font-bold text-slate-900">Kayıt ve Disk Kontrolü</h3>
+                  <h3 className="font-bold text-slate-900">
+                    Kayıt ve Disk Kontrolü
+                  </h3>
                   <p className="mt-2 text-slate-600">
-                    NVR/DVR disk sağlığı, kayıt süresi, hata logları, kanal kayıt
-                    sürekliliği ve depolama riski kontrol edilir.
+                    NVR/DVR disk sağlığı, kayıt süresi, hata logları, kanal
+                    kayıt sürekliliği ve depolama riski kontrol edilir.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <h3 className="font-bold text-slate-900">Görüntü ve Lens Kalitesi</h3>
+                  <h3 className="font-bold text-slate-900">
+                    Görüntü ve Lens Kalitesi
+                  </h3>
                   <p className="mt-2 text-slate-600">
                     Kör açı, kirli lens, bozuk fokus, düşük gece performansı ve
                     yön bozulması gibi problemler giderilir.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <h3 className="font-bold text-slate-900">Alarm / Sensör / Batarya Testi</h3>
+                  <h3 className="font-bold text-slate-900">
+                    Alarm / Sensör / Batarya Testi
+                  </h3>
                   <p className="mt-2 text-slate-600">
                     Panel, manyetik kontak, PIR sensör, siren ve güç yedekleme
                     tarafı test edilerek zayıf halkalar tespit edilir.
@@ -483,7 +509,10 @@ export default function BakimServisUzaktanIzlemePage() {
           </div>
         </section>
 
-        <section id="fiyatlar" className="border-b border-slate-200 bg-white scroll-mt-24">
+        <section
+          id="fiyatlar"
+          className="border-b border-slate-200 bg-white scroll-mt-24"
+        >
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
             <SectionTitle
               eyebrow="Fiyatlandırma"
@@ -550,7 +579,9 @@ export default function BakimServisUzaktanIzlemePage() {
                     </div>
                   ) : null}
 
-                  <h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">
+                    {plan.name}
+                  </h3>
                   <p className="mt-3 text-2xl font-extrabold text-red-600">
                     {plan.price}
                   </p>
@@ -577,9 +608,10 @@ export default function BakimServisUzaktanIzlemePage() {
 
             <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-slate-700">
               <strong className="text-slate-900">Net gerçek:</strong> 2.000 TL
-              altı bakım sözleşmelerinde çoğu firma ya bakım yapıyormuş gibi görünür
-              ya da raporsuz gezer. Büyük müşteri işinde ucuz değil, sürdürülebilir
-              ve ölçülebilir hizmet satar. Fiyat değil güven ve süreklilik sat.
+              altı bakım sözleşmelerinde çoğu firma ya bakım yapıyormuş gibi
+              görünür ya da raporsuz gezer. Büyük müşteri işinde ucuz değil,
+              sürdürülebilir ve ölçülebilir hizmet satar. Fiyat değil güven ve
+              süreklilik sat.
             </div>
           </div>
         </section>
@@ -676,17 +708,21 @@ export default function BakimServisUzaktanIzlemePage() {
                 Yerinde Gitmeden Çözülebilen Sorunları Uzaktan Çözüyoruz
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                Her servis için araç çıkarmak ölçeklenmez. En kârlı model; uzaktan
-                çözülebilecek sorunları sahaya taşımadan kapatmaktır. Bu hem müşteriye
-                hız sağlar hem de operasyon verimini artırır.
+                Her servis için araç çıkarmak ölçeklenmez. En kârlı model;
+                uzaktan çözülebilecek sorunları sahaya taşımadan kapatmaktır. Bu
+                hem müşteriye hız sağlar hem de operasyon verimini artırır.
               </p>
 
               <ul className="mt-8 grid gap-4">
                 <CheckItem>Uzaktan bağlantı ve erişim kontrolü</CheckItem>
                 <CheckItem>Kayıt akışı ve kanal kontrolü</CheckItem>
                 <CheckItem>Kullanıcı yetki ve şifre problemleri</CheckItem>
-                <CheckItem>Temel yazılım / ayar problemlerinin çözümü</CheckItem>
-                <CheckItem>Yerinde müdahale gerektiren durumların önceden ayrıştırılması</CheckItem>
+                <CheckItem>
+                  Temel yazılım / ayar problemlerinin çözümü
+                </CheckItem>
+                <CheckItem>
+                  Yerinde müdahale gerektiren durumların önceden ayrıştırılması
+                </CheckItem>
               </ul>
             </div>
 
@@ -714,8 +750,9 @@ export default function BakimServisUzaktanIzlemePage() {
                 Türkiye Genelinde Bakım, Servis ve Uzaktan İzleme Hizmeti
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Bu hizmeti Türkiye&#39;nin büyük şehirlerinde sunuyoruz. Şehir bazlı bakım ve destek
-                detaylarını aşağıdaki sayfalardan inceleyebilirsiniz.
+                Bu hizmeti Türkiye&#39;nin büyük şehirlerinde sunuyoruz. Şehir
+                bazlı bakım ve destek detaylarını aşağıdaki sayfalardan
+                inceleyebilirsiniz.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 {[
@@ -762,7 +799,8 @@ export default function BakimServisUzaktanIzlemePage() {
                 Bakım, Servis ve Uzaktan İzleme Hizmeti Verilen Şehirler
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Aylık bakım sözleşmesi potansiyeli yüksek şehirlerde aktif olarak hizmet veriyoruz.
+                Aylık bakım sözleşmesi potansiyeli yüksek şehirlerde aktif
+                olarak hizmet veriyoruz.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 {cities.slice(0, 8).map((city) => (
@@ -779,38 +817,43 @@ export default function BakimServisUzaktanIzlemePage() {
           </div>
         </section>
 
-       <section
-  id="teklif"
-  className="border-b border-slate-200 bg-slate-950 text-white scroll-mt-24"
->
-  <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
-    <div>
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
-        Hemen Teklif Al
-      </p>
-      <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-        Site veya Fabrikanız İçin Bakım Sözleşmesi Teklifi İsteyin
-      </h2>
-      <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-        Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri için
-        bakım, servis ve uzaktan izleme teklifinizi hazırlayalım.
-        Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
-        model sözleşmeli hizmettir.
-      </p>
+        <section
+          id="teklif"
+          className="border-b border-slate-200 bg-slate-950 text-white scroll-mt-24"
+        >
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
+                Hemen Teklif Al
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                Site veya Fabrikanız İçin Bakım Sözleşmesi Teklifi İsteyin
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                Güvenlik kamerası, alarm, yangın alarm ve kayıt sistemleri için
+                bakım, servis ve uzaktan izleme teklifinizi hazırlayalım.
+                Özellikle aylık bakım yaptırmak isteyen büyük tesislerde doğru
+                model sözleşmeli hizmettir.
+              </p>
 
-      <ul className="mt-8 space-y-4 text-slate-200">
-        <li>✓ Aylık 2.000 TL’den başlayan bakım sözleşmeleri</li>
-        <li>✓ Site yönetimleri, fabrikalar ve büyük tesisler için kurumsal hizmet</li>
-        <li>✓ 18 ilde saha ekipleri ve hızlı müdahale yapısı</li>
-        <li>✓ Kamera, alarm ve kayıt sistemleri için periyodik bakım</li>
-        <li>✓ Uzaktan bağlantı ile hızlı arıza tespiti</li>
-        <li>✓ Sözleşmeli müşterilere öncelikli servis</li>
-      </ul>
-    </div>
+              <ul className="mt-8 space-y-4 text-slate-200">
+                <li>✓ Aylık 2.000 TL’den başlayan bakım sözleşmeleri</li>
+                <li>
+                  ✓ Site yönetimleri, fabrikalar ve büyük tesisler için kurumsal
+                  hizmet
+                </li>
+                <li>✓ 18 ilde saha ekipleri ve hızlı müdahale yapısı</li>
+                <li>
+                  ✓ Kamera, alarm ve kayıt sistemleri için periyodik bakım
+                </li>
+                <li>✓ Uzaktan bağlantı ile hızlı arıza tespiti</li>
+                <li>✓ Sözleşmeli müşterilere öncelikli servis</li>
+              </ul>
+            </div>
 
-    <MaintenanceQuoteForm />
-  </div>
-</section>
+            <MaintenanceQuoteForm />
+          </div>
+        </section>
 
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
@@ -821,9 +864,10 @@ export default function BakimServisUzaktanIzlemePage() {
                     Tek seferlik servis para kazandırır.
                   </h2>
                   <p className="mt-2 max-w-3xl text-slate-600">
-                    Ama aylık bakım sözleşmesi daha çok kazandırır. Çünkü recurring
-                    gelir üretir, müşteri ömrünü uzatır, rakip girişini zorlaştırır
-                    ve kamera + alarm + yangın + servis çapraz satışını açar.
+                    Ama aylık bakım sözleşmesi daha çok kazandırır. Çünkü
+                    recurring gelir üretir, müşteri ömrünü uzatır, rakip
+                    girişini zorlaştırır ve kamera + alarm + yangın + servis
+                    çapraz satışını açar.
                   </p>
                 </div>
 
@@ -837,6 +881,12 @@ export default function BakimServisUzaktanIzlemePage() {
             </div>
           </div>
         </section>
+
+        <FinalCTA
+          title="Bakım Sözleşmesi veya Servis Talebi İçin Hemen İletişime Geçin"
+          subtitle="Güvenlik sisteminizin yıl boyunca sorunsuz çalışması için bakım sözleşmesi teklifi alın. Ekibimiz aynı gün dönüş yapıyor."
+          whatsappMessage="Merhaba, güvenlik sistemi bakım sözleşmesi hakkında bilgi almak istiyorum."
+        />
       </main>
     </>
   );

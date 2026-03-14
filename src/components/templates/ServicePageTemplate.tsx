@@ -13,6 +13,8 @@ import FAQSection, { FAQItem } from "@/components/sections/FAQSection";
 import CTASection, {
   type CTASectionContent,
 } from "@/components/sections/CTASection";
+import TrustSignals from "@/components/sections/TrustSignals";
+import FinalCTA from "@/components/sections/FinalCTA";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
@@ -56,6 +58,11 @@ interface PricingFactors {
   items: string[];
 }
 
+interface VenueType {
+  title: string;
+  description: string;
+}
+
 export interface ServicePageData {
   slug: string;
   title: string;
@@ -91,6 +98,10 @@ export interface ServicePageData {
   decisionBlocks?: DecisionBlock[];
   scopeDetails?: ScopeDetails;
   pricingFactors?: PricingFactors;
+  venueTypes?: VenueType[];
+  finalCtaTitle?: string;
+  finalCtaSubtitle?: string;
+  whatsappMessage?: string;
   authorityBeforeFaq?: {
     title: string;
     description?: string;
@@ -316,6 +327,8 @@ export default function ServicePageTemplate({
         </Container>
       </section>
 
+      <TrustSignals />
+
       <section className="bg-white py-16 md:py-20">
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
@@ -475,34 +488,65 @@ export default function ServicePageTemplate({
       {data.pricingFactors && (
         <section className="bg-surface py-16 md:py-20">
           <Container>
-            <div className="max-w-5xl">
+            <div className="mb-8 max-w-5xl">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-warning/10 px-4 py-1.5 text-xs font-semibold text-warning">
+                Fiyatı etkileyen {data.pricingFactors.items.length} ana faktör
+              </div>
               <h2 className="mb-4 text-2xl font-bold text-primary">
-                {data.pricingFactors.title ||
-                  "Bu Hizmette Fiyatı ve Süreyi Ne Etkiler?"}
+                {data.pricingFactors.title || "Fiyatı Etkileyen 5 Ana Faktör"}
               </h2>
               {data.pricingFactors.description && (
-                <p className="mb-6 max-w-3xl text-sm leading-7 text-text-light">
+                <p className="max-w-3xl text-sm leading-7 text-text-light">
                   {data.pricingFactors.description}
                 </p>
               )}
             </div>
-            <div className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-              <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {data.pricingFactors.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 rounded-2xl bg-surface p-4"
-                  >
-                    <CheckCircle
-                      size={18}
-                      className="mt-0.5 shrink-0 text-cta"
-                    />
-                    <span className="text-sm leading-6 text-gray-700">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {data.pricingFactors.items.map((item, i) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm leading-6 text-gray-700">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {data.venueTypes && data.venueTypes.length > 0 && (
+        <section className="bg-white py-16 md:py-20">
+          <Container>
+            <div className="mb-10 max-w-5xl">
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                Hangi Mekanlar İçin Uygun?
+              </h2>
+              <p className="max-w-3xl text-sm leading-7 text-text-light">
+                Bu hizmet farklı mekan türlerine göre özelleştirilerek
+                uygulanır. İhtiyacınıza en uygun senaryoyu aşağıda
+                bulabilirsiniz.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {data.venueTypes.map((venue) => (
+                <div
+                  key={venue.title}
+                  className="rounded-2xl border border-gray-200 bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <h3 className="mb-2 text-base font-bold text-primary">
+                    {venue.title}
+                  </h3>
+                  <p className="text-sm leading-6 text-text-light">
+                    {venue.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </Container>
         </section>
@@ -699,6 +743,12 @@ export default function ServicePageTemplate({
         title={data.ctaTitle}
         subtitle={data.ctaSubtitle}
         defaultService={data.defaultService}
+      />
+
+      <FinalCTA
+        title={data.finalCtaTitle}
+        subtitle={data.finalCtaSubtitle}
+        whatsappMessage={data.whatsappMessage}
       />
     </>
   );

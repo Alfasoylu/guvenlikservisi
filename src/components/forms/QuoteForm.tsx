@@ -2,7 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AlertCircle, CheckCircle, Loader2, PhoneCall, ShieldCheck } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle,
+  Loader2,
+  MessageCircle,
+  Phone,
+  PhoneCall,
+  ShieldCheck,
+} from "lucide-react";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import { cities } from "@/data/cities";
 import { siteConfig } from "@/data/site-config";
@@ -65,7 +73,10 @@ const locationOptions = [
   { value: "diger", label: "Diğer" },
 ];
 
-function buildInitialForm(defaultCity: string, defaultService: string): FormData {
+function buildInitialForm(
+  defaultCity: string,
+  defaultService: string,
+): FormData {
   return {
     name: "",
     phone: "",
@@ -96,10 +107,16 @@ export default function QuoteForm({
   trackingContext,
   extraNotes = [],
 }: QuoteFormProps) {
-  const [form, setForm] = useState<FormData>(() => buildInitialForm(defaultCity, defaultService));
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [form, setForm] = useState<FormData>(() =>
+    buildInitialForm(defaultCity, defaultService),
+  );
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
+    {},
+  );
   const attribution = useLandingAttribution();
   const pathname = usePathname();
   const hasTrackedFormStart = useRef(false);
@@ -114,38 +131,51 @@ export default function QuoteForm({
 
   const effectiveTrackingContext = useMemo(
     () => trackingContext ?? getCityServiceTrackingContext(pathname || ""),
-    [pathname, trackingContext]
+    [pathname, trackingContext],
   );
 
   const effectiveFormSource =
-    formSource || (attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form");
+    formSource ||
+    (attribution.page_type === "landing_page"
+      ? "landing_quote_form"
+      : "quote_form");
   const effectivePageTemplate =
-    pageTemplate || effectiveTrackingContext?.page_template || attribution.page_type || "";
+    pageTemplate ||
+    effectiveTrackingContext?.page_template ||
+    attribution.page_type ||
+    "";
 
   const selectedServiceLabel = useMemo(
-    () => serviceOptions.find((item) => item.value === form.service_type)?.label || "",
-    [form.service_type]
+    () =>
+      serviceOptions.find((item) => item.value === form.service_type)?.label ||
+      "",
+    [form.service_type],
   );
 
   const contextNotes = useMemo(
-    () =>
-      [
-        ...new Set(
-          [
-            ...extraNotes,
-            effectivePageTemplate ? `page_template:${effectivePageTemplate}` : "",
-            intentType ? `intent_type:${intentType}` : "",
-            effectiveTrackingContext?.city ? `city_slug:${effectiveTrackingContext.city}` : "",
-            effectiveTrackingContext?.service ? `service_slug:${effectiveTrackingContext.service}` : "",
-          ].filter(Boolean)
-        ),
-      ],
-    [effectivePageTemplate, effectiveTrackingContext, extraNotes, intentType]
+    () => [
+      ...new Set(
+        [
+          ...extraNotes,
+          effectivePageTemplate ? `page_template:${effectivePageTemplate}` : "",
+          intentType ? `intent_type:${intentType}` : "",
+          effectiveTrackingContext?.city
+            ? `city_slug:${effectiveTrackingContext.city}`
+            : "",
+          effectiveTrackingContext?.service
+            ? `service_slug:${effectiveTrackingContext.service}`
+            : "",
+        ].filter(Boolean),
+      ),
+    ],
+    [effectivePageTemplate, effectiveTrackingContext, extraNotes, intentType],
   );
 
   const fixedContextSummary = [
     lockCity && form.city ? `İl: ${form.city}` : "",
-    lockService && selectedServiceLabel ? `Hizmet: ${selectedServiceLabel}` : "",
+    lockService && selectedServiceLabel
+      ? `Hizmet: ${selectedServiceLabel}`
+      : "",
   ].filter(Boolean);
 
   function validate(): boolean {
@@ -187,7 +217,9 @@ export default function QuoteForm({
   }
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) {
     const { name, value } = e.target;
     const nextValue = name === "phone" ? formatTurkishPhoneInput(value) : value;
@@ -258,9 +290,10 @@ export default function QuoteForm({
         }),
       });
 
-      const result = (await response.json().catch(() => null)) as
-        | { success?: boolean; message?: string }
-        | null;
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+      } | null;
 
       if (!response.ok) {
         throw new Error(result?.message || "FORM_SUBMIT_FAILED");
@@ -291,7 +324,7 @@ export default function QuoteForm({
       setFeedbackMessage(
         error instanceof Error && error.message !== "FORM_SUBMIT_FAILED"
           ? error.message
-          : "Form gönderilemedi. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
+          : "Form gönderilemedi. Lütfen bilgilerinizi kontrol edip tekrar deneyin.",
       );
     }
   }
@@ -306,27 +339,71 @@ export default function QuoteForm({
   const labelClass = "mb-1.5 block text-sm font-semibold text-gray-700";
 
   if (status === "success") {
+    const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Merhaba, az önce teklif formu gönderdim. Bilgi almak istiyorum.")}`;
     return (
-      <div className={`rounded-2xl border border-green-200 bg-white p-8 text-center shadow-lg ${className}`}>
+      <div
+        className={`rounded-2xl border border-green-200 bg-white p-8 shadow-lg ${className}`}
+      >
         <CheckCircle className="mx-auto mb-4 text-cta" size={56} />
-        <h3 className="mb-3 text-2xl font-bold text-primary">Talebiniz Alındı</h3>
+        <h3 className="mb-3 text-2xl font-bold text-primary">
+          Talebiniz Alındı
+        </h3>
         <p className="mb-2 text-text-light">
-          {feedbackMessage || "Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak."}
+          {feedbackMessage ||
+            "Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak."}
         </p>
         {selectedServiceLabel ? (
-          <p className="mb-4 text-sm text-text-light">
-            Talep edilen hizmet: <span className="font-semibold text-primary">{selectedServiceLabel}</span>
+          <p className="mb-5 text-sm text-text-light">
+            Talep edilen hizmet:{" "}
+            <span className="font-semibold text-primary">
+              {selectedServiceLabel}
+            </span>
           </p>
         ) : null}
-        <div className="rounded-xl bg-surface px-4 py-4 text-sm text-text-light">
-          Acil bir durum varsa{" "}
+
+        <div className="mb-5 rounded-xl bg-surface p-4">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary/60">
+            Sonraki adımlar
+          </p>
+          <ol className="space-y-2 text-sm text-text-light">
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                1
+              </span>
+              Ekibimiz sizi en kısa sürede arayacak
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                2
+              </span>
+              Ücretsiz keşif ve ihtiyaç analizi
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                3
+              </span>
+              Detaylı teklif ve kurulum planı
+            </li>
+          </ol>
+        </div>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="font-semibold text-accent"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-surface"
           >
-            {siteConfig.phone}
-          </a>{" "}
-          numarasını hemen arayabilirsiniz.
+            <Phone size={16} />
+            Hemen Ara
+          </a>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20BD5A]"
+          >
+            <MessageCircle size={16} />
+            WhatsApp ile Yazın
+          </a>
         </div>
       </div>
     );
@@ -346,7 +423,9 @@ export default function QuoteForm({
             Ücretsiz keşif ve hızlı teklif
           </div>
 
-          <h3 className="text-xl font-bold text-primary">Size Uygun Sistemi Birlikte Belirleyelim</h3>
+          <h3 className="text-xl font-bold text-primary">
+            Size Uygun Sistemi Birlikte Belirleyelim
+          </h3>
           <p className="mt-1 text-sm text-text-light">
             Formu doldurun, alanınıza uygun güvenlik sistemi için sizi arayalım.
           </p>
@@ -367,23 +446,73 @@ export default function QuoteForm({
       ) : null}
 
       <div className={`grid gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
-        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
+        <input
+          type="hidden"
+          name="page_url"
+          value={attribution.page_url}
+          readOnly
+        />
         <input
           type="hidden"
           name="page_type"
           value={effectivePageTemplate || attribution.page_type}
           readOnly
         />
-        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
-        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
-        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
-        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
-        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
-        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
-        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+        <input
+          type="hidden"
+          name="utm_source"
+          value={attribution.utm_source}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_medium"
+          value={attribution.utm_medium}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_campaign"
+          value={attribution.utm_campaign}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_term"
+          value={attribution.utm_term}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_content"
+          value={attribution.utm_content}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="referrer"
+          value={attribution.referrer}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="timestamp"
+          value={attribution.timestamp}
+          readOnly
+        />
         <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
-        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
-        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
+        <input
+          type="hidden"
+          name="fbclid"
+          value={attribution.fbclid}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="msclkid"
+          value={attribution.msclkid}
+          readOnly
+        />
         <div
           aria-hidden="true"
           style={{
@@ -421,7 +550,9 @@ export default function QuoteForm({
             autoComplete="name"
             className={inputClass("name")}
           />
-          {errors.name ? <p className="mt-1 text-xs text-red-500">{errors.name}</p> : null}
+          {errors.name ? (
+            <p className="mt-1 text-xs text-red-500">{errors.name}</p>
+          ) : null}
         </div>
 
         <div>
@@ -439,12 +570,15 @@ export default function QuoteForm({
             inputMode="tel"
             className={inputClass("phone")}
           />
-          {errors.phone ? <p className="mt-1 text-xs text-red-500">{errors.phone}</p> : null}
+          {errors.phone ? (
+            <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+          ) : null}
         </div>
 
         <div className={compact ? "" : "sm:col-span-2"}>
           <label htmlFor="quote-email" className={labelClass}>
-            E-posta <span className="font-normal text-gray-400">(opsiyonel)</span>
+            E-posta{" "}
+            <span className="font-normal text-gray-400">(opsiyonel)</span>
           </label>
           <input
             id="quote-email"
@@ -456,7 +590,9 @@ export default function QuoteForm({
             autoComplete="email"
             className={inputClass("email")}
           />
-          {errors.email ? <p className="mt-1 text-xs text-red-500">{errors.email}</p> : null}
+          {errors.email ? (
+            <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+          ) : null}
         </div>
 
         {lockCity ? (
@@ -480,12 +616,19 @@ export default function QuoteForm({
                 </option>
               ))}
             </select>
-            {errors.city ? <p className="mt-1 text-xs text-red-500">{errors.city}</p> : null}
+            {errors.city ? (
+              <p className="mt-1 text-xs text-red-500">{errors.city}</p>
+            ) : null}
           </div>
         )}
 
         {lockService ? (
-          <input type="hidden" name="service_type" value={form.service_type} readOnly />
+          <input
+            type="hidden"
+            name="service_type"
+            value={form.service_type}
+            readOnly
+          />
         ) : (
           <div>
             <label htmlFor="quote-service" className={labelClass}>
@@ -536,7 +679,8 @@ export default function QuoteForm({
 
         <div className={compact ? "" : "sm:col-span-2"}>
           <label htmlFor="quote-note" className={labelClass}>
-            Proje Notu <span className="font-normal text-gray-400">(opsiyonel)</span>
+            Proje Notu{" "}
+            <span className="font-normal text-gray-400">(opsiyonel)</span>
           </label>
           <textarea
             id="quote-note"
@@ -564,7 +708,8 @@ export default function QuoteForm({
       {status === "error" ? (
         <div className="mt-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           <AlertCircle size={16} />
-          {feedbackMessage || `Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: ${siteConfig.phone}`}
+          {feedbackMessage ||
+            `Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: ${siteConfig.phone}`}
         </div>
       ) : null}
 
@@ -587,7 +732,8 @@ export default function QuoteForm({
       </button>
 
       <p className="mt-3 text-center text-xs text-gray-400">
-        Bilgileriniz yalnızca teklif oluşturmak ve sizinle iletişime geçmek için kullanılır.
+        Bilgileriniz yalnızca teklif oluşturmak ve sizinle iletişime geçmek için
+        kullanılır.
       </p>
     </form>
   );
