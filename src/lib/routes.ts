@@ -1,6 +1,7 @@
 import { blogPosts } from "@/data/blog-posts";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
+import { getAllDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { siteConfig } from "@/data/site-config";
 
 export const rootPaths = ["/", "/blog"] as const;
@@ -46,6 +47,11 @@ const staticPathSet = new Set<string>([
   ...teklifPaths,
 ]);
 const blogPathSet = new Set(blogPosts.map((post) => `/blog/${post.slug}`));
+
+const districtServiceParams = getAllDistrictServiceParams();
+const districtServicePathSet = new Set(
+  districtServiceParams.map((p) => `/${p.city}/${p.district}/${p.service}`),
+);
 
 export function normalizeRoutePath(path: string) {
   if (!path) return "/";
@@ -97,6 +103,42 @@ export function getCityServiceCanonicalUrl(
   return path ? getAbsoluteUrl(path) : null;
 }
 
+// --- District service paths ---
+
+export function getDistrictServicePath(
+  citySlug: string,
+  districtSlug: string,
+  serviceSlug: string,
+) {
+  const candidate = `/${citySlug}/${districtSlug}/${serviceSlug}`;
+  return districtServicePathSet.has(candidate) ? candidate : null;
+}
+
+export function getDistrictServiceCanonicalUrl(
+  citySlug: string,
+  districtSlug: string,
+  serviceSlug: string,
+) {
+  const path = getDistrictServicePath(citySlug, districtSlug, serviceSlug);
+  return path ? getAbsoluteUrl(path) : null;
+}
+
+export function getDistrictServiceStaticParams() {
+  return districtServiceParams.map((p) => ({
+    city: p.city,
+    district: p.district,
+    service: p.service,
+  }));
+}
+
+export function isValidDistrictServicePath(path: string) {
+  return districtServicePathSet.has(normalizeRoutePath(path));
+}
+
+export function getAllDistrictServicePaths() {
+  return [...districtServicePathSet];
+}
+
 export function getCityStaticParams() {
   return cities.map((city) => ({
     city: city.slug,
@@ -136,6 +178,7 @@ export function getAllKnownAppPaths() {
     ...getAllBlogPaths(),
     ...getAllCityPaths(),
     ...getAllCityServicePaths(),
+    ...getAllDistrictServicePaths(),
   ];
 }
 
@@ -166,7 +209,8 @@ export function isKnownAppPath(path: string) {
   return (
     isKnownStaticPath(path) ||
     isValidCityPath(path) ||
-    isValidCityServicePath(path)
+    isValidCityServicePath(path) ||
+    isValidDistrictServicePath(path)
   );
 }
 

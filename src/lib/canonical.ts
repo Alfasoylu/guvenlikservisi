@@ -3,17 +3,20 @@ import {
   getAbsoluteUrl,
   getCityPath,
   isKnownAppPath,
+  isValidDistrictServicePath,
   normalizeRoutePath,
 } from "@/lib/routes";
 
 const legacyCanonicalPathMap: Record<string, string> = {
-  "/teklif/kamera/istanbul-ip-kamera-montaji": "/teklif/istanbul-ip-kamera-montaji",
+  "/teklif/kamera/istanbul-ip-kamera-montaji":
+    "/teklif/istanbul-ip-kamera-montaji",
   "/hizmetler/guvenlik-kamera-kurulumu": "/kamera-sistemi-kurulumu",
   "/hizmetler/alarm-sistemi-kurulumu": "/alarm-sistemi-kurulumu",
   "/hizmetler/yangin-alarm-sistemi-kurulumu": "/yangin-alarm-sistemi-kurulumu",
   "/hizmetler/kartli-gecis-sistemi-kurulumu": "/kartli-gecis-sistemi-kurulumu",
   "/kartli-gecis-ve-turnike-sistemi": "/kartli-gecis-sistemi-kurulumu",
-  "/hizmetler/apartman-site-guvenlik-sistemi": "/apartman-site-guvenlik-sistemi",
+  "/hizmetler/apartman-site-guvenlik-sistemi":
+    "/apartman-site-guvenlik-sistemi",
   "/hizmetler/isyeri-guvenlik-sistemi": "/isyeri-guvenlik-sistemi",
   "/hizmetler/fabrika-depo-guvenlik-sistemi": "/fabrika-depo-guvenlik-sistemi",
   "/hizmetler/bakim-servis-uzaktan-izleme": "/bakim-servis-uzaktan-izleme",
@@ -27,11 +30,16 @@ export function resolveCanonicalPath(path: string) {
   }
 
   const legacyCity = cities.find(
-    (city) => normalizedPath === `/${city.slug}-guvenlik-sistemi-kurulumu`
+    (city) => normalizedPath === `/${city.slug}-guvenlik-sistemi-kurulumu`,
   );
 
   if (legacyCity) {
     return getCityPath(legacyCity.slug);
+  }
+
+  // District service paths (e.g. /istanbul/kadikoy/kamera-sistemi-kurulumu)
+  if (isValidDistrictServicePath(normalizedPath)) {
+    return normalizedPath;
   }
 
   if (isKnownAppPath(normalizedPath)) {
@@ -50,7 +58,9 @@ export function getCanonicalUrlForKnownPath(path: string) {
   const canonicalUrl = getCanonicalUrlForPath(path);
 
   if (!canonicalUrl) {
-    throw new Error(`Missing canonical mapping for route: ${normalizeRoutePath(path)}`);
+    throw new Error(
+      `Missing canonical mapping for route: ${normalizeRoutePath(path)}`,
+    );
   }
 
   return canonicalUrl;

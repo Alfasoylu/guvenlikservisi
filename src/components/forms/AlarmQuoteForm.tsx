@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { CheckCircle, MessageCircle, Phone } from "lucide-react";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import {
   formatTurkishPhoneInput,
   getTurkishPhoneValidationMessage,
   normalizeTurkishPhone,
 } from "@/lib/phone";
+import { pushAnalyticsEvent } from "@/lib/analytics";
 import { siteConfig } from "@/data/site-config";
 
 type FormState = {
@@ -36,7 +38,22 @@ export default function AlarmQuoteForm() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const hasTrackedView = useRef(false);
   const attribution = useLandingAttribution();
+
+  const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
+  const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Merhaba, alarm sistemi kurulumu hakkında bilgi ve fiyat almak istiyorum.")}`;
+
+  function trackFormView() {
+    if (hasTrackedView.current) return;
+    hasTrackedView.current = true;
+    pushAnalyticsEvent("view_lead_form", {
+      page_path: "/teklif/alarm",
+      form_source: "alarm_landing_page",
+      lead_channel: "form",
+      service_type: "alarm",
+    });
+  }
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -98,10 +115,26 @@ export default function AlarmQuoteForm() {
         throw new Error(result.message || "Form gönderilemedi");
       }
 
+      pushAnalyticsEvent("submit_lead_form", {
+        page_path: "/teklif/alarm",
+        form_source: "alarm_landing_page",
+        lead_channel: "form",
+        service_type: "alarm",
+        event_category: "lead",
+        value: 1,
+      });
+
+      pushAnalyticsEvent("lead_form_success", {
+        page_path: "/teklif/alarm",
+        form_source: "alarm_landing_page",
+        service_type: "alarm",
+      });
+
       setSuccessMessage(
         result.message || "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek."
       );
       setForm(initialState);
+      hasTrackedView.current = false;
     } catch (error) {
       console.error("alarm form submit error", error);
       setErrorMessage(
@@ -116,7 +149,70 @@ export default function AlarmQuoteForm() {
 
   return (
     <div className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl">
-      <form onSubmit={handleSubmit} className="space-y-5">
+      {successMessage ? (
+        <div className="rounded-2xl border border-green-200 bg-white p-6">
+          <CheckCircle className="mx-auto mb-3 text-emerald-500" size={40} />
+          <h3 className="mb-1 text-center text-lg font-bold text-slate-900">
+            Talebiniz Alındı
+          </h3>
+          <p className="mb-4 text-center text-sm text-slate-600">
+            {successMessage}
+          </p>
+          <div className="mb-4 rounded-xl bg-slate-50 p-3">
+            <ol className="space-y-2 text-sm text-slate-600">
+              <li className="flex items-start gap-2">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                  1
+                </span>
+                Ekibimiz sizi en kısa sürede arayacak
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                  2
+                </span>
+                Ücretsiz keşif ve alarm ihtiyaç analizi
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                  3
+                </span>
+                Detaylı teklif ve kurulum planı
+              </li>
+            </ol>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <a
+              href={phoneHref}
+              onClick={() =>
+                pushAnalyticsEvent("click_call", {
+                  page_path: "/teklif/alarm",
+                  lead_channel: "phone",
+                  cta_slot: "form_success",
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+            >
+              <Phone size={16} /> Hemen Ara
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                pushAnalyticsEvent("click_whatsapp", {
+                  page_path: "/teklif/alarm",
+                  lead_channel: "whatsapp",
+                  cta_slot: "form_success",
+                })
+              }
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#20BD5A]"
+            >
+              <MessageCircle size={16} /> WhatsApp ile Yazın
+            </a>
+          </div>
+        </div>
+      ) : (
+      <form onSubmit={handleSubmit} onFocusCapture={trackFormView} className="space-y-5">
         <input type="hidden" name="service_type" value="alarm" />
         <input type="hidden" name="form_source" value="alarm_landing_page" />
         <input type="hidden" name="camera_count" value="" />
@@ -173,6 +269,8 @@ export default function AlarmQuoteForm() {
             id="phone"
             name="phone"
             type="tel"
+            inputMode="tel"
+            autoComplete="tel"
             required
             value={form.phone}
             onChange={(e) => updateField("phone", formatTurkishPhoneInput(e.target.value))}
@@ -273,12 +371,6 @@ export default function AlarmQuoteForm() {
           {loading ? "Gönderiliyor..." : "Teklif Talebi Gönder"}
         </button>
 
-        {successMessage ? (
-          <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
-            {successMessage}
-          </div>
-        ) : null}
-
         {errorMessage ? (
           <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {errorMessage}
@@ -289,6 +381,7 @@ export default function AlarmQuoteForm() {
           Formu doldurduğunuzda bilgileriniz teklif değerlendirmesi için ekibimize iletilir.
         </p>
       </form>
+      )}
     </div>
   );
 }

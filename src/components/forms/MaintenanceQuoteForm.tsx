@@ -3,6 +3,12 @@
 import { useRef, useState } from "react";
 import { CheckCircle, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
+import {
+  formatTurkishPhoneInput,
+  getTurkishPhoneValidationMessage,
+  normalizeTurkishPhone,
+} from "@/lib/phone";
 import { pushAnalyticsEvent } from "@/lib/analytics";
 
 type FormState = {
@@ -16,6 +22,7 @@ type FormState = {
   camera_count: string;
   system_scope: string;
   message: string;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -29,6 +36,7 @@ const initialState: FormState = {
   camera_count: "",
   system_scope: "",
   message: "",
+  website: "",
 };
 
 export default function MaintenanceQuoteForm() {
@@ -37,6 +45,7 @@ export default function MaintenanceQuoteForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const hasTrackedView = useRef(false);
+  const attribution = useLandingAttribution();
 
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
   const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Merhaba, güvenlik sistemi bakım sözleşmesi hakkında bilgi almak istiyorum.")}`;
@@ -59,6 +68,12 @@ export default function MaintenanceQuoteForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const phoneError = getTurkishPhoneValidationMessage(form.phone);
+    if (phoneError) {
+      setErrorMessage(phoneError);
+      return;
+    }
+
     setLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
@@ -76,7 +91,7 @@ export default function MaintenanceQuoteForm() {
 
       const payload = {
         name: form.name.trim(),
-        phone: form.phone.trim(),
+        phone: normalizeTurkishPhone(form.phone),
         email: form.email.trim(),
         city: form.city.trim(),
         district: form.district.trim(),
@@ -85,10 +100,23 @@ export default function MaintenanceQuoteForm() {
         camera_count: form.camera_count.trim(),
         message: composedMessage,
         page_url:
-          typeof window !== "undefined"
+          attribution.page_url ||
+          (typeof window !== "undefined"
             ? window.location.href
-            : `${siteConfig.url}/bakim-servis-uzaktan-izleme`,
+            : `${siteConfig.url}/bakim-servis-uzaktan-izleme`),
         form_source: "maintenance_contract_page",
+        page_type: attribution.page_type || "site_page",
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+        utm_term: attribution.utm_term,
+        utm_content: attribution.utm_content,
+        referrer: attribution.referrer,
+        timestamp: attribution.timestamp,
+        gclid: attribution.gclid,
+        fbclid: attribution.fbclid,
+        msclkid: attribution.msclkid,
+        website: form.website,
         notes: [
           "lead_type: kurumsal_bakim",
           "pricing: aylik_2000_tl_baslangic",
@@ -157,6 +185,29 @@ export default function MaintenanceQuoteForm() {
           value="maintenance_contract_page"
         />
 
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: "-5000px",
+            top: "auto",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
+        >
+          <label htmlFor="maint-website">Website</label>
+          <input
+            id="maint-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) => updateField("website", e.target.value)}
+          />
+        </div>
+
         <div>
           <label htmlFor="company" className="mb-2 block text-sm font-semibold">
             Firma / Site / Tesis Adı
@@ -198,9 +249,11 @@ export default function MaintenanceQuoteForm() {
               id="phone"
               name="phone"
               type="tel"
+              inputMode="tel"
+              autoComplete="tel"
               required
               value={form.phone}
-              onChange={(e) => updateField("phone", e.target.value)}
+              onChange={(e) => updateField("phone", formatTurkishPhoneInput(e.target.value))}
               placeholder="05xx xxx xx xx"
               className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
             />
@@ -401,6 +454,13 @@ export default function MaintenanceQuoteForm() {
             <div className="grid gap-3 sm:grid-cols-2">
               <a
                 href={phoneHref}
+                onClick={() =>
+                  pushAnalyticsEvent("click_call", {
+                    page_path: "/bakim-servis-uzaktan-izleme",
+                    lead_channel: "phone",
+                    cta_slot: "form_success",
+                  })
+                }
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 <Phone size={16} />
@@ -410,6 +470,13 @@ export default function MaintenanceQuoteForm() {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  pushAnalyticsEvent("click_whatsapp", {
+                    page_path: "/bakim-servis-uzaktan-izleme",
+                    lead_channel: "whatsapp",
+                    cta_slot: "form_success",
+                  })
+                }
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#20BD5A]"
               >
                 <MessageCircle size={16} />
