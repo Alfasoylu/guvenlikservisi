@@ -6,6 +6,7 @@ export interface SeoMetadataInput {
   description: string;
   canonical?: string | null;
   robots?: Metadata["robots"];
+  keywords?: Metadata["keywords"];
   type?: "website" | "article";
 }
 
@@ -14,11 +15,13 @@ export function buildSeoMetadata({
   description,
   canonical,
   robots,
+  keywords,
   type = "website",
 }: SeoMetadataInput): Metadata {
   return {
     title,
     description,
+    keywords,
     alternates: canonical
       ? {
           canonical,

@@ -16,6 +16,7 @@ import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
 import { cities } from "@/data/cities";
 import { buildCoverageFaqItem } from "@/data/seo/faq-bank";
+import { getLeadIntentKeywordsForService, getSeoTrafficKeywordsForService } from "@/data/seo/keywords";
 import { getSeoServiceBySlug } from "@/data/seo/services";
 import { trustElementsByIntent } from "@/data/seo/trust-elements";
 import { services } from "@/data/services";
@@ -28,7 +29,7 @@ import {
   getCityServiceStaticParams,
 } from "@/lib/routes";
 import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
-import { dedupeFaqItems, getCityLocative } from "@/lib/seo/page-factory";
+import { dedupeFaqItems, getCityLocative, getPriorityServiceLinksForService } from "@/lib/seo/page-factory";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -127,7 +128,7 @@ function buildDefaultServiceSpecificContent(
   pageContent: FactoryPageContent
 ): ServiceSpecificContent {
   const seoService = getSeoServiceBySlug(service.slug);
-  const trustElement = trustElementsByIntent[seoService?.intentType ?? "installation"];
+  const trustElement = trustElementsByIntent[seoService?.businessIntent ?? "installation"];
   const useCases =
     pageContent.useCases.items.length > 0
       ? pageContent.useCases.items
@@ -1817,11 +1818,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const pageContent = getServicePageFactoryData(city, service);
+  const leadKeywords = getLeadIntentKeywordsForService(service.slug)
+    .slice(0, 6)
+    .map((record) => record.keyword);
+  const trafficKeywords = getSeoTrafficKeywordsForService(service.slug)
+    .slice(0, 4)
+    .map((record) => record.keyword);
+  const metadataKeywords = [...new Set([...leadKeywords, ...trafficKeywords])];
 
   return buildSeoMetadata({
     title: pageContent.meta.title,
     description: pageContent.meta.description,
     canonical,
+    keywords: metadataKeywords,
   });
 }
 
@@ -1923,6 +1932,11 @@ export default async function ServicePage({ params }: PageProps) {
     { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
     { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
   ];
+
+  const prioritizedRelatedCoreServiceLinks = getPriorityServiceLinksForService(service.slug).map((item) => ({
+    href: `/${item.slug}`,
+    label: item.name,
+  }));
 
   const nationwideCityHubLinks = ["istanbul", "ankara", "izmir"]
     .map((slug) => {
@@ -2388,7 +2402,7 @@ export default async function ServicePage({ params }: PageProps) {
             Projenizi bütüncül planlamak için aşağıdaki temel hizmet sayfalarını da inceleyebilirsiniz.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            {relatedCoreServiceLinks.map((link) => (
+            {prioritizedRelatedCoreServiceLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
