@@ -13,6 +13,8 @@ import FAQSection, { FAQItem } from "@/components/sections/FAQSection";
 import CTASection, {
   type CTASectionContent,
 } from "@/components/sections/CTASection";
+import TrustSignals from "@/components/sections/TrustSignals";
+import FinalCTA from "@/components/sections/FinalCTA";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
@@ -315,6 +317,8 @@ export default function ServicePageTemplate({
           </div>
         </Container>
       </section>
+
+      <TrustSignals />
 
       <section className="bg-white py-16 md:py-20">
         <Container>
@@ -700,6 +704,8 @@ export default function ServicePageTemplate({
         subtitle={data.ctaSubtitle}
         defaultService={data.defaultService}
       />
+
+      <FinalCTA />
     </>
   );
 }
