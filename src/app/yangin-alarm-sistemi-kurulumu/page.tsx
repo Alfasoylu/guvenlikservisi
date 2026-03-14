@@ -131,6 +131,38 @@ const data: ServicePageData = {
       "Belgelendirme (proje, test raporu, sertifika) tüm kurulumların standart parçasıdır.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Otel ve Konaklama",
+      description:
+        "Yasal zorunluluk gereği kat bazlı dedektör planı, ihbar butonu ve acil anons sistemi.",
+    },
+    {
+      title: "Restoran ve Kafe",
+      description:
+        "Mutfak yangın riski için davlumbaz dedektörleri ve özel söndürme sistemi entegrasyonu.",
+    },
+    {
+      title: "Apartman ve Rezidans",
+      description:
+        "Merdiven boşluğu, bodrum kat ve otopark için duman algılama ve acil aydınlatma.",
+    },
+    {
+      title: "Fabrika ve Üretim Tesisi",
+      description:
+        "Endüstriyel gaz ve ısı algılama, ATEX uyumlu dedektörler ve sprinkler entegrasyonu.",
+    },
+    {
+      title: "AVM ve Plaza",
+      description:
+        "Büyük alan adreslenebilir sistemler, merkezi kontrol paneli ve itfaiye bağlantısı.",
+    },
+  ],
+  finalCtaTitle: "Yangın Alarm Sistemi Kurulumu İçin Hemen İletişime Geçin",
+  finalCtaSubtitle:
+    "TS EN 54 uyumlu yangın alarm sistemi kurulumu için teklif alın. Proje, montaj ve belgelendirme tek elden.",
+  whatsappMessage:
+    "Merhaba, yangın alarm sistemi kurulumu hakkında teklif almak istiyorum.",
   segments: [
     {
       title: "Apartman ve Siteler İçin Yangın Alarmı",

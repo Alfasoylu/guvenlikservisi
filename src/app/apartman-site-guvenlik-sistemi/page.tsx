@@ -128,6 +128,38 @@ const data: ServicePageData = {
       "Araç bariyer, LPR ve turnike gibi ek bileşenler projeye göre ayrıca fiyatlandırılır.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Küçük Apartman (5–20 Daire)",
+      description:
+        "Kamera ve video interkom ile temel güvenlik. Giriş kapısı ve otopark izleme.",
+    },
+    {
+      title: "Büyük Apartman (20–50 Daire)",
+      description:
+        "Kartlı geçiş, yangın alarm ve merkezi kamera sistemi dahil komple güvenlik.",
+    },
+    {
+      title: "Rezidans",
+      description:
+        "Üst düzey güvenlik: lobi, asansör, otopark kontrol ve misafir yönetim sistemi.",
+    },
+    {
+      title: "Toplu Konut Sitesi",
+      description:
+        "Çevre güvenlik, araç bariyeri, plaka tanıma ve site yönetimi kontrol yazılımı.",
+    },
+    {
+      title: "Kooperatif",
+      description:
+        "Bütçeye uygun modüler güvenlik çözümü. Aşamalı kurulum ile ödeme kolaylığı.",
+    },
+  ],
+  finalCtaTitle: "Siteniz İçin Komple Güvenlik Teklifi Alın",
+  finalCtaSubtitle:
+    "Apartman ve site güvenliği için ücretsiz keşif randevusu alın. Kamera, kartlı geçiş ve yangın alarm tek projede.",
+  whatsappMessage:
+    "Merhaba, sitemiz için güvenlik sistemi teklifi almak istiyorum.",
   segments: [
     {
       title: "Giriş Kontrolü ve Interkom",

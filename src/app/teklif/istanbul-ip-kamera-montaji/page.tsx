@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock3,
+  MapPin,
   MonitorSmartphone,
   Phone,
   Server,
@@ -18,10 +19,13 @@ import {
   Users,
   Warehouse,
   Wifi,
+  Wrench,
 } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import IstanbulIpCameraQuoteForm from "@/components/IstanbulIpCameraQuoteForm";
-import TrustSignals from "@/components/sections/TrustSignals";
+import TrustSignals, {
+  type TrustItem,
+} from "@/components/sections/TrustSignals";
 import IstanbulCoverage from "@/components/sections/IstanbulCoverage";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -520,7 +524,18 @@ export default function IstanbulIpKameraMontajiPage() {
         </div>
       </section>
 
-      <TrustSignals bgClass="border-b border-slate-200 bg-white" />
+      <TrustSignals
+        items={
+          [
+            { icon: Clock3, label: "Aynı Gün Keşif" },
+            { icon: MapPin, label: "İstanbul Geneli Hizmet" },
+            { icon: ShieldCheck, label: "Garantili Kurulum" },
+            { icon: BadgeCheck, label: "Uzman Teknik Ekip" },
+            { icon: Wrench, label: "Ücretsiz Keşif" },
+          ] as TrustItem[]
+        }
+        bgClass="border-b border-slate-200 bg-white"
+      />
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
@@ -1155,7 +1170,13 @@ export default function IstanbulIpKameraMontajiPage() {
         </div>
       </section>
 
-      <FinalCTA formHref="#teklif-formu" bgClass="bg-emerald-600" />
+      <FinalCTA
+        formHref="#teklif-formu"
+        bgClass="bg-emerald-600"
+        title="İstanbul'da IP Kamera Montajı İçin Hemen Teklif Alın"
+        subtitle="İstanbul'un tüm ilçelerine aynı gün keşif. Ücretsiz keşif randevusu alın, profesyonel ekibimiz sizi arasın."
+        whatsappMessage="Merhaba, İstanbul'da IP kamera montajı hakkında teklif almak istiyorum."
+      />
     </main>
   );
 }

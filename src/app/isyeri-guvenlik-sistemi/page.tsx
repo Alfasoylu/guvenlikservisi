@@ -124,6 +124,43 @@ const data: ServicePageData = {
       "Yangın alarm belgelendirme (proje, test raporu, sertifika) zorunlu kapsam olarak dahildir.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Mağaza ve Perakende",
+      description:
+        "Hırsızlık önleme, kasa güvenliği ve müşteri alanı kameraları ile kayıp kontrol.",
+    },
+    {
+      title: "Ofis ve Kurumsal",
+      description:
+        "Veri odası koruması, çalışan erişim kontrolü ve giriş-çıkış takip sistemi.",
+    },
+    {
+      title: "Restoran ve Kafe",
+      description:
+        "Mutfak yangın alarmı, müşteri alanı güvenliği ve personel erişim kontrolü.",
+    },
+    {
+      title: "Otel ve Konaklama",
+      description:
+        "Kat bazlı kamera, yangın alarm ve resepsiyon erişim yönetim sistemi.",
+    },
+    {
+      title: "Klinik ve Sağlık Merkezi",
+      description:
+        "Hasta mahremiyetine uygun kamera planlaması ve ilaç deposu güvenliği.",
+    },
+    {
+      title: "Showroom ve Galeri",
+      description:
+        "Değerli ürün koruması, çevre kamera ve hareket algılama sistemi.",
+    },
+  ],
+  finalCtaTitle: "İşyeriniz İçin Güvenlik Sistemi Teklifi Alın",
+  finalCtaSubtitle:
+    "Kamera, alarm ve yangın alarm tek elden. İşyerinize özel ücretsiz keşif için hemen iletişime geçin.",
+  whatsappMessage:
+    "Merhaba, işyerim için güvenlik sistemi kurulumu hakkında bilgi almak istiyorum.",
   segments: [
     {
       title: "Mağaza ve Perakende",

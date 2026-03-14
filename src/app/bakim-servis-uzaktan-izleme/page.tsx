@@ -885,6 +885,7 @@ export default function BakimServisUzaktanIzlemePage() {
         <FinalCTA
           title="Bakım Sözleşmesi veya Servis Talebi İçin Hemen İletişime Geçin"
           subtitle="Güvenlik sisteminizin yıl boyunca sorunsuz çalışması için bakım sözleşmesi teklifi alın. Ekibimiz aynı gün dönüş yapıyor."
+          whatsappMessage="Merhaba, güvenlik sistemi bakım sözleşmesi hakkında bilgi almak istiyorum."
         />
       </main>
     </>

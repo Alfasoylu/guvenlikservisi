@@ -22,14 +22,11 @@ function getTrackedAnchor(target: EventTarget | null) {
     return null;
   }
 
-  if (anchor.dataset.pageTemplate !== "city_service") {
-    return null;
-  }
-
   return {
     anchor,
     eventName: isPhoneLink ? "phone_click" : "whatsapp_click",
-    leadChannel: anchor.dataset.leadChannel || (isPhoneLink ? "phone" : "whatsapp"),
+    leadChannel:
+      anchor.dataset.leadChannel || (isPhoneLink ? "phone" : "whatsapp"),
   };
 }
 
@@ -43,7 +40,7 @@ export default function ConversionClickTracker() {
       }
 
       pushAnalyticsEvent(tracked.eventName, {
-        page_path: tracked.anchor.dataset.pagePath || window.location.pathname,
+        page_path: window.location.pathname,
         city: tracked.anchor.dataset.city || "",
         service: tracked.anchor.dataset.service || "",
         cta_slot: tracked.anchor.dataset.ctaSlot || "",

@@ -15,7 +15,7 @@ interface TrustSignalsProps {
 
 const defaultItems: TrustItem[] = [
   { icon: Clock3, label: "Aynı Gün Keşif" },
-  { icon: MapPin, label: "İstanbul Geneli Hizmet" },
+  { icon: MapPin, label: "Türkiye Geneli Hizmet" },
   { icon: ShieldCheck, label: "Garantili Kurulum" },
   { icon: BadgeCheck, label: "Uzman Teknik Ekip" },
   { icon: Wrench, label: "Ücretsiz Keşif" },

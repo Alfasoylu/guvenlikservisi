@@ -2,7 +2,14 @@
 
 import { useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { CheckCircle, Loader2, ShieldCheck } from "lucide-react";
+import {
+  CheckCircle,
+  ChevronDown,
+  Loader2,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import { siteConfig } from "@/data/site-config";
 import {
@@ -71,6 +78,7 @@ interface QuickLeadFormProps {
   className?: string;
   heading?: string;
   subheading?: string;
+  whatsappMessage?: string;
 }
 
 interface FormState {
@@ -105,6 +113,7 @@ export default function QuickLeadForm({
   className = "",
   heading = "Hızlı Teklif Al",
   subheading = "Bilgilerinizi bırakın, aynı gün dönüş yapalım.",
+  whatsappMessage = "Merhaba, güvenlik sistemi hakkında bilgi almak istiyorum.",
 }: QuickLeadFormProps) {
   const [form, setForm] = useState<FormState>(() =>
     buildInitialForm(defaultService, defaultDistrict),
@@ -116,6 +125,7 @@ export default function QuickLeadForm({
   const [errors, setErrors] = useState<
     Partial<Record<keyof FormState, string>>
   >({});
+  const [showExtras, setShowExtras] = useState(false);
   const hasTrackedStart = useRef(false);
   const attribution = useLandingAttribution();
   const pathname = usePathname();
@@ -244,26 +254,62 @@ export default function QuickLeadForm({
     }`;
 
   if (status === "success") {
+    const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
     return (
       <div
-        className={`rounded-2xl border border-green-200 bg-white p-8 text-center shadow-lg ${className}`}
+        className={`rounded-2xl border border-green-200 bg-white p-8 shadow-lg ${className}`}
       >
         <CheckCircle className="mx-auto mb-4 text-cta" size={48} />
         <h3 className="mb-2 text-xl font-bold text-primary">
           Talebiniz Alındı
         </h3>
-        <p className="mb-4 text-sm text-text-light">
+        <p className="mb-5 text-sm text-text-light">
           {feedbackMessage || "Ekibimiz en kısa sürede sizi arayacak."}
         </p>
-        <div className="rounded-xl bg-surface px-4 py-3 text-sm text-text-light">
-          Acil durumda{" "}
+
+        <div className="mb-5 rounded-xl bg-surface p-4">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary/60">
+            Sonraki adımlar
+          </p>
+          <ol className="space-y-2 text-sm text-text-light">
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                1
+              </span>
+              Ekibimiz sizi en kısa sürede arayacak
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                2
+              </span>
+              İhtiyaç analizi ve ücretsiz keşif randevusu
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-[10px] font-bold text-white">
+                3
+              </span>
+              Detaylı teklif ve kurulum planı
+            </li>
+          </ol>
+        </div>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="font-semibold text-accent"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-surface"
           >
-            {siteConfig.phone}
-          </a>{" "}
-          numarasını arayabilirsiniz.
+            <Phone size={16} />
+            Hemen Ara
+          </a>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20BD5A]"
+          >
+            <MessageCircle size={16} />
+            WhatsApp ile Yazın
+          </a>
         </div>
       </div>
     );
@@ -408,49 +454,65 @@ export default function QuickLeadForm({
           </div>
         </div>
 
-        {/* Kamera Sayısı */}
+        {/* Ek Bilgi (collapsible for mobile) */}
         <div>
-          <label
-            htmlFor="qlf-camera"
-            className="mb-1.5 block text-sm font-semibold text-gray-700"
+          <button
+            type="button"
+            onClick={() => setShowExtras((p) => !p)}
+            className="flex w-full items-center justify-between rounded-xl border border-gray-200 bg-surface px-4 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100"
           >
-            Tahmini Kamera Sayısı
-          </label>
-          <select
-            id="qlf-camera"
-            name="camera_count"
-            value={form.camera_count}
-            onChange={handleChange}
-            className={inputClass("camera_count")}
-          >
-            <option value="">Bilmiyorum / Belirtmek İstemiyorum</option>
-            <option value="1-4">1–4 Kamera</option>
-            <option value="5-8">5–8 Kamera</option>
-            <option value="9-16">9–16 Kamera</option>
-            <option value="17+">17+ Kamera</option>
-          </select>
-        </div>
+            Ek bilgi ekle (opsiyonel)
+            <ChevronDown
+              size={16}
+              className={`transition-transform ${showExtras ? "rotate-180" : ""}`}
+            />
+          </button>
+          {showExtras && (
+            <div className="mt-3 grid gap-4">
+              <div>
+                <label
+                  htmlFor="qlf-camera"
+                  className="mb-1.5 block text-sm font-semibold text-gray-700"
+                >
+                  Tahmini Kamera Sayısı
+                </label>
+                <select
+                  id="qlf-camera"
+                  name="camera_count"
+                  value={form.camera_count}
+                  onChange={handleChange}
+                  className={inputClass("camera_count")}
+                >
+                  <option value="">Bilmiyorum / Belirtmek İstemiyorum</option>
+                  <option value="1-4">1–4 Kamera</option>
+                  <option value="5-8">5–8 Kamera</option>
+                  <option value="9-16">9–16 Kamera</option>
+                  <option value="17+">17+ Kamera</option>
+                </select>
+              </div>
 
-        {/* Mesaj */}
-        <div>
-          <label
-            htmlFor="qlf-message"
-            className="mb-1.5 block text-sm font-semibold text-gray-700"
-          >
-            Not / Mesaj
-          </label>
-          <textarea
-            id="qlf-message"
-            name="message"
-            rows={2}
-            value={form.message}
-            onChange={handleChange}
-            className={inputClass("message")}
-            placeholder="Varsa ek bilgi yazabilirsiniz"
-          />
-          {errors.message ? (
-            <p className="mt-1 text-xs text-red-500">{errors.message}</p>
-          ) : null}
+              <div>
+                <label
+                  htmlFor="qlf-message"
+                  className="mb-1.5 block text-sm font-semibold text-gray-700"
+                >
+                  Not / Mesaj
+                </label>
+                <textarea
+                  id="qlf-message"
+                  name="message"
+                  rows={2}
+                  value={form.message}
+                  onChange={handleChange}
+                  className={inputClass("message")}
+                  placeholder="Varsa ek bilgi yazabilirsiniz"
+                />
+                {errors.message ? (
+                  <p className="mt-1 text-xs text-red-500">{errors.message}</p>
+                ) : null}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Submit */}

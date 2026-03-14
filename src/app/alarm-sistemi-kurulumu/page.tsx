@@ -128,6 +128,38 @@ const data: ServicePageData = {
       "Mevcut altyapı veya panel varsa revizyon ile maliyet düşürülebilir.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Ev ve Konut",
+      description:
+        "Kapı, pencere sensörleri ve iç alan koruması. Evdeyken/dışarıdayken farklı bölge profilleri.",
+    },
+    {
+      title: "Yazlık ve Bağ Evi",
+      description:
+        "Uzun süreli boş kalan mülkler için GSM tabanlı uzaktan takip ve anlık bildirim.",
+    },
+    {
+      title: "Mağaza ve Dükkan",
+      description:
+        "Mesai dışı otomatik devreye giren alarm. Kasa bölgesi ve depo koruması.",
+    },
+    {
+      title: "Ofis",
+      description:
+        "Çalışma saatleri sonrası bölgesel alarm yapılandırması ve giriş noktası koruması.",
+    },
+    {
+      title: "Depo ve Atölye",
+      description:
+        "Çevre alarm, hareket algılama ve dış mekan sirenleriyle caydırıcı koruma.",
+    },
+  ],
+  finalCtaTitle: "Alarm Sistemi Kurulumu İçin Hemen Teklif Alın",
+  finalCtaSubtitle:
+    "Mekanınıza uygun alarm çözümü için ücretsiz keşif randevusu alın. GSM+internet çift hatlı güvenli iletim.",
+  whatsappMessage:
+    "Merhaba, alarm sistemi kurulumu hakkında teklif almak istiyorum.",
   segments: [
     {
       title: "Konutlar İçin Alarm Sistemi",

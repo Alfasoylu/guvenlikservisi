@@ -1,5 +1,8 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
+import { pushAnalyticsEvent } from "@/lib/analytics";
 import { ArrowRight, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
@@ -9,17 +12,27 @@ interface FinalCTAProps {
   formHref?: string;
   formLabel?: string;
   bgClass?: string;
+  whatsappMessage?: string;
 }
 
 export default function FinalCTA({
-  title = "İstanbul'da Güvenlik Sistemi Kurulumu İçin Hemen İletişime Geçin",
+  title = "Güvenlik Sistemi Kurulumu İçin Hemen İletişime Geçin",
   subtitle = "Ücretsiz keşif randevusu alın, alanınıza uygun sistemi birlikte belirleyelim. Profesyonel ekibimiz aynı gün dönüş yapıyor.",
   formHref = "#quote-form",
   formLabel = "Ücretsiz Teklif Al",
   bgClass = "bg-primary",
+  whatsappMessage = "Merhaba, güvenlik sistemi hakkında bilgi almak istiyorum.",
 }: FinalCTAProps) {
   const phoneClean = siteConfig.phone.replace(/\s/g, "");
-  const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Merhaba, güvenlik sistemi hakkında bilgi almak istiyorum.")}`;
+  const waLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  function trackCta(channel: string) {
+    pushAnalyticsEvent("cta_click", {
+      page_path: typeof window !== "undefined" ? window.location.pathname : "",
+      lead_channel: channel,
+      cta_slot: "final_cta",
+    });
+  }
 
   return (
     <section className={`py-16 md:py-20 ${bgClass}`}>
@@ -41,6 +54,7 @@ export default function FinalCTA({
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={`tel:${phoneClean}`}
+              onClick={() => trackCta("phone")}
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-3.5 font-bold text-primary transition-colors hover:bg-white/90 sm:w-auto"
             >
               <Phone size={18} />
@@ -51,6 +65,7 @@ export default function FinalCTA({
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCta("whatsapp")}
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-7 py-3.5 font-bold text-white transition-colors hover:bg-[#20BD5A] sm:w-auto"
             >
               <MessageCircle size={18} />
@@ -59,6 +74,7 @@ export default function FinalCTA({
 
             <Link
               href={formHref}
+              onClick={() => trackCta("form")}
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
             >
               {formLabel}

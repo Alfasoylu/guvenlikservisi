@@ -130,6 +130,38 @@ const data: ServicePageData = {
       "SLA seviyesi (müdahale süresi taahhüdü) bakım sözleşmesi fiyatını doğrudan etkiler.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Üretim Tesisi",
+      description:
+        "İş güvenliği odaklı kamera, çevre hattı koruması ve vardiya bazlı erişim kontrolü.",
+    },
+    {
+      title: "Lojistik Deposu",
+      description:
+        "Yükleme rampası, stok alanı ve araç trafiği takibi. LPR plaka tanıma desteği.",
+    },
+    {
+      title: "Soğuk Hava Deposu",
+      description:
+        "IP67 koruma sınıfı kameralar ve özel koşullara dayanıklı algılama sistemleri.",
+    },
+    {
+      title: "Sanayi Sitesi",
+      description:
+        "Ortak alan kameraları, turnike sistemi ve bölgesel erişim yetkilendirmesi.",
+    },
+    {
+      title: "Gıda Üretim Tesisi",
+      description:
+        "HACCP uyumlu izleme, hijyen alanı kontrolü ve kayıt arşivleme sistemi.",
+    },
+  ],
+  finalCtaTitle: "Tesisiniz İçin Endüstriyel Güvenlik Teklifi Alın",
+  finalCtaSubtitle:
+    "Geniş alan kamera, çevre güvenlik ve turnike sistemi için ücretsiz keşif. SLA garantili bakım sözleşmesi dahil.",
+  whatsappMessage:
+    "Merhaba, fabrikamız/depomuz için güvenlik sistemi teklifi almak istiyorum.",
   segments: [
     {
       title: "Üretim Tesisleri",

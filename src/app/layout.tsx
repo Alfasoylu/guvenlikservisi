@@ -116,7 +116,9 @@ export default function RootLayout({
 
         <Header />
         <ConversionClickTracker />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="pb-20 md:pb-0">
+          {children}
+        </main>
         <Footer />
         <WhatsAppButton />
         <PhoneButton />

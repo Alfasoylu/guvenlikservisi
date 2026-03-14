@@ -127,6 +127,43 @@ const data: ServicePageData = {
       "Tek katlı mekan ile çok katlı bina veya geniş saha arasında montaj süresi farklıdır.",
     ],
   },
+  venueTypes: [
+    {
+      title: "Villa ve Müstakil Ev",
+      description:
+        "Çevre izleme, kapı girişi ve bahçe güvenliği için dış mekan kameraları ve gece görüş desteği.",
+    },
+    {
+      title: "Mağaza ve Dükkan",
+      description:
+        "Kasa, depo ve müşteri alanı görüntüleme. Hırsızlık önleme ve operasyonel denetim odaklı.",
+    },
+    {
+      title: "Ofis ve İş Merkezi",
+      description:
+        "Giriş-çıkış, koridor ve ortak alan izleme. Çalışan güvenliği ve erişim takibi.",
+    },
+    {
+      title: "Apartman ve Site",
+      description:
+        "Otopark, asansör, kapı ve ortak alan kameraları. Merkezi izleme ve kayıt arşivi.",
+    },
+    {
+      title: "Fabrika ve Depo",
+      description:
+        "Geniş alan, çevre hattı ve yükleme noktası. PTZ ve gece görüş odaklı kurulum.",
+    },
+    {
+      title: "Otopark ve Açık Alan",
+      description:
+        "Araç takibi, plaka tanıma (LPR) ve çevre güvenliği için geniş açı kameralar.",
+    },
+  ],
+  finalCtaTitle: "Kamera Sistemi Kurulumu İçin Hemen Teklif Alın",
+  finalCtaSubtitle:
+    "Mekanınıza uygun kamera sistemi için ücretsiz keşif randevusu alın. Profesyonel ekibimiz en kısa sürede dönüş yapıyor.",
+  whatsappMessage:
+    "Merhaba, kamera sistemi kurulumu hakkında teklif almak istiyorum.",
   segments: [
     {
       title: "Apartman ve Siteler İçin Kamera Sistemi",
