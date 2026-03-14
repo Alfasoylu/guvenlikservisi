@@ -1856,6 +1856,7 @@ export default async function ServicePage({ params }: PageProps) {
   }
 
   const pageContent = getServicePageFactoryData(city, service);
+  const seoService = getSeoServiceBySlug(service.slug);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
   const serviceSpecificContent =
     serviceContentMap[service.slug] ?? buildDefaultServiceSpecificContent(city, service, pageContent);
@@ -1868,6 +1869,20 @@ export default async function ServicePage({ params }: PageProps) {
   const cityLocative = getCityLocative(city.name);
   const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
+  const pagePath = `/${city.slug}/${service.slug}`;
+  const leadTrackingBase = {
+    "data-page-path": pagePath,
+    "data-city": city.slug,
+    "data-service": service.slug,
+    "data-intent-type": seoService?.businessIntent ?? "",
+    "data-page-template": "city_service",
+  } as const;
+  const getLeadTrackingProps = (ctaSlot: string, leadChannel: "phone" | "whatsapp") =>
+    ({
+      ...leadTrackingBase,
+      "data-cta-slot": ctaSlot,
+      "data-lead-channel": leadChannel,
+    }) as const;
   const serviceSeoBlocks = isCameraService
     ? pageContent.seoContent.blocks
     : serviceSpecificContent.seoBlocks ?? [];
@@ -2019,6 +2034,13 @@ export default async function ServicePage({ params }: PageProps) {
           benefits={pageContent.hero.benefits}
           process={pageContent.hero.process}
           image={pageContent.images.hero}
+          trackingContext={{
+            pagePath,
+            city: city.slug,
+            service: service.slug,
+            intentType: seoService?.businessIntent ?? "",
+          }}
+          phoneCtaSlot="hero-card-phone"
         />
       ) : null}
 
@@ -2048,6 +2070,7 @@ export default async function ServicePage({ params }: PageProps) {
               href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
               data-event="phone_click"
               className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-6 py-4 text-base font-bold text-slate-950 transition hover:bg-slate-50"
+              {...getLeadTrackingProps("hero-decision-phone", "phone")}
             >
               Hemen Ara
             </a>
@@ -2059,6 +2082,7 @@ export default async function ServicePage({ params }: PageProps) {
               rel="noopener noreferrer"
               data-event="whatsapp_click"
               className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-4 text-base font-bold text-white transition hover:bg-slate-800"
+              {...getLeadTrackingProps("hero-decision-whatsapp", "whatsapp")}
             >
               WhatsApp
             </a>
@@ -2254,12 +2278,14 @@ export default async function ServicePage({ params }: PageProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-500"
+              {...getLeadTrackingProps("trust-section-whatsapp", "whatsapp")}
             >
               WhatsApp ile Ücretsiz Keşif
             </a>
             <a
               href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
               className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-4 text-base font-bold text-slate-950 transition hover:bg-slate-50"
+              {...getLeadTrackingProps("trust-section-phone", "phone")}
             >
               {siteConfig.phone}
             </a>
@@ -2369,12 +2395,14 @@ export default async function ServicePage({ params }: PageProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-500"
+                    {...getLeadTrackingProps("conversion-block-whatsapp", "whatsapp")}
                   >
                     WhatsApp ile Hızlı Fiyat Al
                   </a>
                   <a
                     href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
                     className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100"
+                    {...getLeadTrackingProps("conversion-block-phone", "phone")}
                   >
                     Hemen Arayın
                   </a>
@@ -2517,6 +2545,7 @@ export default async function ServicePage({ params }: PageProps) {
               <a
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100"
+                {...getLeadTrackingProps("final-panel-phone", "phone")}
               >
                 {siteConfig.phone}
               </a>
@@ -2527,6 +2556,7 @@ export default async function ServicePage({ params }: PageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
+                {...getLeadTrackingProps("final-panel-whatsapp", "whatsapp")}
               >
                 WhatsApp
               </a>
@@ -2543,6 +2573,14 @@ export default async function ServicePage({ params }: PageProps) {
         whatsappLabel={pageContent.cta.whatsappLabel}
         whatsappHref={pageContent.cta.whatsappHref}
         image={pageContent.images.cta}
+        trackingContext={{
+          pagePath,
+          city: city.slug,
+          service: service.slug,
+          intentType: seoService?.businessIntent ?? "",
+        }}
+        phoneCtaSlot="footer-cta-phone"
+        whatsappCtaSlot="footer-cta-whatsapp"
       />
     </main>
   );

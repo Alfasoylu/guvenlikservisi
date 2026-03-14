@@ -13,6 +13,13 @@ import {
 import { siteConfig } from "@/data/site-config";
 import type { ServicePageImage } from "@/lib/service-page-factory";
 
+interface CtaTrackingContext {
+  pagePath: string;
+  city: string;
+  service: string;
+  intentType: string;
+}
+
 interface ServiceCTAProps {
   title: string;
   description: string;
@@ -21,6 +28,29 @@ interface ServiceCTAProps {
   whatsappLabel?: string;
   whatsappHref?: string;
   image?: ServicePageImage | null;
+  trackingContext?: CtaTrackingContext;
+  phoneCtaSlot?: string;
+  whatsappCtaSlot?: string;
+}
+
+function getTrackingProps(
+  trackingContext: CtaTrackingContext | undefined,
+  ctaSlot: string | undefined,
+  leadChannel: "phone" | "whatsapp"
+) {
+  if (!trackingContext || !ctaSlot) {
+    return {};
+  }
+
+  return {
+    "data-page-path": trackingContext.pagePath,
+    "data-city": trackingContext.city,
+    "data-service": trackingContext.service,
+    "data-cta-slot": ctaSlot,
+    "data-lead-channel": leadChannel,
+    "data-intent-type": trackingContext.intentType,
+    "data-page-template": "city_service",
+  } as const;
 }
 
 export default function ServiceCTA({
@@ -31,6 +61,9 @@ export default function ServiceCTA({
   whatsappLabel,
   whatsappHref,
   image,
+  trackingContext,
+  phoneCtaSlot,
+  whatsappCtaSlot,
 }: ServiceCTAProps) {
   return (
     <section id="teklif" className={ctaSectionClass}>
@@ -41,7 +74,11 @@ export default function ServiceCTA({
           <p className={ctaTextClass}>{description}</p>
 
           <div className={actionRowCompactClass}>
-            <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className={primaryButtonClass}>
+            <a
+              href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+              className={primaryButtonClass}
+              {...getTrackingProps(trackingContext, phoneCtaSlot, "phone")}
+            >
               {primaryLabel}: {siteConfig.phone}
             </a>
 
@@ -51,6 +88,7 @@ export default function ServiceCTA({
                 target="_blank"
                 rel="noopener noreferrer"
                 className={secondaryButtonClass}
+                {...getTrackingProps(trackingContext, whatsappCtaSlot, "whatsapp")}
               >
                 {whatsappLabel}
               </a>

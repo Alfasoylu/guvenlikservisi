@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import { CheckCircle, AlertCircle, Loader2, ShieldCheck, PhoneCall } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
+import { getCityServiceTrackingContext, pushAnalyticsEvent } from "@/lib/analytics";
 import {
   formatTurkishPhoneInput,
   getTurkishPhoneValidationMessage,
@@ -80,6 +82,7 @@ export default function QuoteForm({
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const attribution = useLandingAttribution();
+  const pathname = usePathname();
 
   useEffect(() => {
     setForm((prev) => ({
@@ -91,6 +94,10 @@ export default function QuoteForm({
   const selectedServiceLabel = useMemo(() => {
     return serviceOptions.find((item) => item.value === form.service_type)?.label || "";
   }, [form.service_type]);
+  const cityServiceTrackingContext = useMemo(
+    () => getCityServiceTrackingContext(pathname || ""),
+    [pathname]
+  );
 
   function validate(): boolean {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
@@ -195,12 +202,18 @@ export default function QuoteForm({
       setFeedbackMessage(result?.message || "");
 
       if (
-        typeof window !== "undefined" &&
-        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+        typeof window !== "undefined"
       ) {
-        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", {
+        pushAnalyticsEvent("form_submit", {
+          page_path: cityServiceTrackingContext?.page_path || pathname || "",
+          city: cityServiceTrackingContext?.city || "",
+          service: cityServiceTrackingContext?.service || "",
+          lead_channel: "form",
+          form_source: attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form",
+          service_type: form.service_type || defaultService || "",
+          page_template: cityServiceTrackingContext?.page_template || attribution.page_type || "",
           event_category: "lead",
-          event_label: form.service_type || "genel-teklif",
+          event_label: form.service_type || defaultService || "genel-teklif",
           value: 1,
         });
       }

@@ -682,9 +682,9 @@ Her sayfa için:
 ## P15.1 Event Standardı
 - [ ] page_view
 - [ ] form_start
-- [ ] form_submit
-- [ ] whatsapp_click
-- [ ] phone_click
+- [x] form_submit
+- [x] whatsapp_click
+- [x] phone_click
 - [ ] quote_request
 - [ ] scroll_depth
 - [ ] city_page_view

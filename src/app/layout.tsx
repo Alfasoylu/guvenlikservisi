@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PhoneButton from "@/components/PhoneButton";
+import ConversionClickTracker from "@/components/ConversionClickTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -114,6 +115,7 @@ export default function RootLayout({
         )}
 
         <Header />
+        <ConversionClickTracker />
         <main id="main-content">{children}</main>
         <Footer />
         <WhatsAppButton />
