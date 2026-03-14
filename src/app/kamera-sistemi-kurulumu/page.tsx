@@ -164,6 +164,7 @@ const data: ServicePageData = {
     "Mekanınıza uygun kamera sistemi için ücretsiz keşif randevusu alın. Profesyonel ekibimiz en kısa sürede dönüş yapıyor.",
   whatsappMessage:
     "Merhaba, kamera sistemi kurulumu hakkında teklif almak istiyorum.",
+  heroCtaLabel: "Kamera Teklifi Al",
   segments: [
     {
       title: "Apartman ve Siteler İçin Kamera Sistemi",

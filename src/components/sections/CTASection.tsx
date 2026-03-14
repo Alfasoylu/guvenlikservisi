@@ -90,7 +90,10 @@ export default function CTASection({
   };
 
   return (
-    <section id="quote-form" className={`py-16 md:py-24 ${bgClass}`}>
+    <section
+      id="quote-form"
+      className={`scroll-mt-4 py-16 md:py-24 ${bgClass}`}
+    >
       <Container>
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
           <div className="text-white">

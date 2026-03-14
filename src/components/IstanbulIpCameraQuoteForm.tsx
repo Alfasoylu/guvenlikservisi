@@ -1,7 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Phone } from "lucide-react";
+import { FormEvent, useRef, useState } from "react";
+import { CheckCircle, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import {
@@ -9,12 +9,7 @@ import {
   getTurkishPhoneValidationMessage,
   normalizeTurkishPhone,
 } from "@/lib/phone";
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
+import { pushAnalyticsEvent } from "@/lib/analytics";
 
 type Props = {
   districts: string[];
@@ -26,12 +21,23 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
   const [formError, setFormError] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [honeypot, setHoneypot] = useState("");
+  const hasTrackedView = useRef(false);
   const attribution = useLandingAttribution();
 
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
   const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum."
+    "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum.",
   )}`;
+
+  function trackFormView() {
+    if (hasTrackedView.current) return;
+    hasTrackedView.current = true;
+    pushAnalyticsEvent("view_lead_form", {
+      page_path: "/teklif/istanbul-ip-kamera-montaji",
+      form_source: "istanbul_ip_kamera",
+      lead_channel: "form",
+    });
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -95,9 +101,10 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         body: JSON.stringify(payload),
       });
 
-      const result = (await res.json().catch(() => null)) as
-        | { success?: boolean; message?: string }
-        | null;
+      const result = (await res.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+      } | null;
 
       if (!res.ok || !result?.success) {
         throw new Error(result?.message || "Form gönderilemedi");
@@ -110,7 +117,24 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         page_path: window.location.pathname,
       });
 
-      setFormSuccess(result?.message || "Talebiniz alındı. En kısa sürede sizi arayacağız.");
+      pushAnalyticsEvent("submit_lead_form", {
+        page_path: "/teklif/istanbul-ip-kamera-montaji",
+        form_source: "istanbul_ip_kamera",
+        lead_channel: "form",
+        service_type: "kamera",
+        event_category: "lead",
+        value: 1,
+      });
+
+      pushAnalyticsEvent("lead_form_success", {
+        page_path: "/teklif/istanbul-ip-kamera-montaji",
+        form_source: "istanbul_ip_kamera",
+        service_type: "kamera",
+      });
+
+      setFormSuccess(
+        result?.message || "Talebiniz alındı. En kısa sürede sizi arayacağız.",
+      );
       form.reset();
       setPhoneValue("");
       setHoneypot("");
@@ -118,7 +142,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       setFormError(
         error instanceof Error && error.message
           ? error.message
-          : "Gönderim sırasında hata oluştu. Lütfen tekrar deneyin."
+          : "Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.",
       );
     } finally {
       setIsSubmitting(false);
@@ -139,22 +163,88 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
-        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
-        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
-        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
-        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
-        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
-        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
-        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
-        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
+      <form
+        onSubmit={handleSubmit}
+        onFocusCapture={trackFormView}
+        className="space-y-4"
+      >
+        <input
+          type="hidden"
+          name="page_url"
+          value={attribution.page_url}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="page_type"
+          value={attribution.page_type}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_source"
+          value={attribution.utm_source}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_medium"
+          value={attribution.utm_medium}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_campaign"
+          value={attribution.utm_campaign}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_term"
+          value={attribution.utm_term}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="utm_content"
+          value={attribution.utm_content}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="referrer"
+          value={attribution.referrer}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="timestamp"
+          value={attribution.timestamp}
+          readOnly
+        />
         <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
-        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
-        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
+        <input
+          type="hidden"
+          name="fbclid"
+          value={attribution.fbclid}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="msclkid"
+          value={attribution.msclkid}
+          readOnly
+        />
         <div
           aria-hidden="true"
-          style={{ position: "absolute", left: "-5000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+          style={{
+            position: "absolute",
+            left: "-5000px",
+            top: "auto",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
         >
           <label htmlFor="istanbul-website">Website</label>
           <input
@@ -170,9 +260,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div>
-            <label className="mb-2 block text-sm font-semibold">
-              Ad Soyad
-            </label>
+            <label className="mb-2 block text-sm font-semibold">Ad Soyad</label>
             <input
               type="text"
               name="name"
@@ -183,16 +271,16 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-semibold">
-              Telefon
-            </label>
+            <label className="mb-2 block text-sm font-semibold">Telefon</label>
             <input
               type="tel"
               name="phone"
               placeholder="05xx xxx xx xx"
               required
               value={phoneValue}
-              onChange={(e) => setPhoneValue(formatTurkishPhoneInput(e.target.value))}
+              onChange={(e) =>
+                setPhoneValue(formatTurkishPhoneInput(e.target.value))
+              }
               className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
             />
           </div>
@@ -200,9 +288,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div>
-            <label className="mb-2 block text-sm font-semibold">
-              İlçe
-            </label>
+            <label className="mb-2 block text-sm font-semibold">İlçe</label>
             <select
               name="district"
               className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
@@ -272,9 +358,55 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         </button>
 
         {formSuccess && (
-          <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
-            {formSuccess}
-          </p>
+          <div className="rounded-2xl border border-green-200 bg-white p-6">
+            <CheckCircle className="mx-auto mb-3 text-emerald-500" size={40} />
+            <h3 className="mb-1 text-center text-lg font-bold text-slate-900">
+              Talebiniz Alındı
+            </h3>
+            <p className="mb-4 text-center text-sm text-slate-600">
+              {formSuccess}
+            </p>
+            <div className="mb-4 rounded-xl bg-slate-50 p-3">
+              <ol className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    1
+                  </span>
+                  Ekibimiz sizi en kısa sürede arayacak
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    2
+                  </span>
+                  İstanbul'da ücretsiz keşif randevusu
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
+                    3
+                  </span>
+                  Detaylı teklif ve montaj planı
+                </li>
+              </ol>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a
+                href={phoneHref}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+              >
+                <Phone size={16} />
+                Hemen Ara
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#20BD5A]"
+              >
+                <MessageCircle size={16} />
+                WhatsApp ile Yazın
+              </a>
+            </div>
+          </div>
         )}
 
         {formError && (
