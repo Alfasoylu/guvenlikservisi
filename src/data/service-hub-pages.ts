@@ -35,61 +35,77 @@ const supportCities = ["istanbul", "ankara", "izmir", "bursa", "kocaeli"] as con
 
 export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
   "kamera-ariza-servisi": {
-    metadataTitle: "Kamera Arıza Servisi | Görüntü, Kayıt ve Offline Kamera Sorunları",
+    metadataTitle: "Kamera Arıza Servisi | Güvenlik Kamera Arızaları İçin Teknik Destek",
     metadataDescription:
-      "Görüntü yok, kayıt alınmıyor, kamera offline veya NVR/HDD hatası varsa profesyonel kamera arıza servisi desteği alın. Hızlı teşhis, yerinde müdahale ve sistem sürekliliği odaklı servis.",
+      "Kamera görüntü yok, kayıt alınmıyor, cihaz offline, HDD arızası veya uzaktan erişim problemi yaşıyorsanız kamera arıza servisi için teknik inceleme ve çözüm sürecini başlatın.",
     data: {
       slug: "kamera-ariza-servisi",
       title: "Kamera Arıza Servisi",
+      detailSectionTitle: "Hizmet Kapsamı",
       subtitle:
-        "Görüntü yok, kayıt alınmıyor, kamera offline veya uzaktan erişim çalışmıyorsa hızlı teşhis ve doğru müdahale ile sistemi yeniden çalışır hale getiriyoruz.",
+        "Güvenlik kamera sistemlerinde görüntü kesilmesi, kayıt kaybı, cihazın çevrimdışı görünmesi, gece görüş sorunları veya uzaktan izleme problemleri iş güvenliği ve kayıt sürekliliği açısından risk oluşturur. Kamera arıza servisi sayfamız, bu sorunları hızlı teşhis edip doğru müdahale planı oluşturmak isteyen işletmeler ve mülk yöneticileri için hazırlandı.",
       description:
-        "Kamera arıza servisi, kritik anda kayıt alınamayan ve güvenlik açığı oluşturan sistemleri tekrar sağlıklı çalışır hale getirmek için verilir.\n\nSahada en sık karşılaşılan problemler görüntü kaybı, kayıt cihazının disk hatası vermesi, PoE besleme sorunları, ağ kopmaları, uzaktan erişim kesintisi ve yanlış yapılandırma kaynaklı kayıt problemleridir.\n\nAmacımız parçayı rastgele değiştirmek değil; arızanın kaynağını ayırıp kalıcı çözüm üretmektir. Gerekirse yerinde müdahale, gerekirse bakım veya teknik servis planı ile sistemi yeniden güvenilir hale getiriyoruz.",
-      heroBadge: "Acil müdahale • Hızlı geri dönüş",
+        "Kamera arıza servisi sürecinde önce arızanın kaynağı ayrıştırılır. Sorunun kamerada mı, kayıt cihazında mı, diskte mi, güç beslemesinde mi, ağ tarafında mı yoksa kullanıcı erişim ayarlarında mı olduğu netleştirilir.\n\nGerekli olduğunda cihaz, bağlantı, kayıt, görüntü ve uzaktan erişim katmanları tek tek kontrol edilerek çözüm planı oluşturulur.\n\nAmaç yalnızca geçici çalıştırma değil, arızanın tekrar etmesini azaltacak şekilde sistemin sağlıklı çalışmasını geri getirmektir.",
+      heroBadge: "Teknik teşhis • Doğru müdahale planı",
       heroHighlights: [
-        "Görüntü yok, kayıt yok ve offline kamera teşhisi",
-        "NVR, DVR, HDD ve PoE kaynaklı arızaların ayrıştırılması",
-        "Yerinde müdahale veya uzaktan ön değerlendirme",
-        "Sistem tekrar açıldıktan sonra sürdürülebilirlik önerisi",
+        "Görüntü kesilmesi ve kayıt kaybı yaşayan sistemler için teknik inceleme",
+        "Offline cihaz, HDD arızası ve uzaktan erişim sorunlarının ayrıştırılması",
+        "Yerinde veya uzaktan ilk teşhis ile müdahale planının netleştirilmesi",
+        "Sistemin tekrar arıza verme riskini azaltan servis yaklaşımı",
       ],
+      featureSectionTitle: "Hangi Sorunları Çözer",
       features: [
-        "Görüntü yok ve kayıt yok arıza tespiti",
-        "Offline kamera ve ağ bağlantı problemi analizi",
-        "NVR / DVR kayıt cihazı hata kontrolü",
-        "Hard disk, adaptör ve PoE besleme testleri",
-        "Uzaktan erişim ve mobil izleme problemi çözümü",
-        "Yerinde servis veya bakım sözleşmesine geçiş yönlendirmesi",
+        "Kamera görüntüsü gelmiyor",
+        "Kayıt cihazı kayıt almıyor",
+        "Kamera offline görünüyor",
+        "HDD arızası veya kayıt süresi problemi",
+        "PoE besleme ve bağlantı sorunları",
+        "Gece görüş / IR performans sorunları",
+        "Mobil uygulamadan erişim problemleri",
+        "Ağ, IP çakışması veya görüntü donması",
       ],
+      segmentsSectionTitle: "Kimler İçin Uygun",
+      segmentsSectionDescription:
+        "Bu hizmeti farklı yapılarda benzer teknik mantıkla planlıyoruz. Aşağıdaki senaryolar, kamera arızasının operasyon ve güvenlik açısından en çok risk oluşturduğu kullanım alanlarını gösterir.",
       segments: [
         {
-          title: "Site ve Apartman Sistemleri",
+          title: "İşyerinde görüntü kesintisi yaşayan firmalar",
           content:
-            "Ortak alan kamerası, giriş hattı veya otopark kayıt sistemi arıza verdiğinde yönetime hızlı geri dönüş gerekir. Arıza servisi bu tip kesintilerde kritik değer üretir.",
-          href: "/apartman-site-guvenlik-sistemi",
-        },
-        {
-          title: "Mağaza ve İşletme Sistemleri",
-          content:
-            "Kasa önü, giriş hattı ve depo kameralarında kayıt kesintisi yaşanıyorsa kayıp ve itiraz yönetimi doğrudan etkilenir. Hızlı servis gerekir.",
+            "Mağaza, ofis ve işletmelerde görüntü veya kayıt kesintisi yaşandığında olay inceleme, giriş takibi ve operasyon güvenliği doğrudan etkilenir.",
           href: "/isyeri-guvenlik-sistemi",
         },
         {
-          title: "Fabrika ve Depo Kayıt Altyapısı",
+          title: "Apartman ve site yönetimleri",
           content:
-            "Yükleme alanı, çevre hat veya vardiya izleme kamerası arızalandığında yalnızca cihaz değil operasyon görünürlüğü kaybolur. Doğru teşhis şarttır.",
+            "Ortak alan, giriş ve otopark kameralarında oluşan arızalar yönetim açısından hızlı geri dönüş ve doğru servis planı gerektirir.",
+          href: "/apartman-site-guvenlik-sistemi",
+        },
+        {
+          title: "Depo, fabrika ve üretim sahaları",
+          content:
+            "Yükleme alanı, çevre hatları ve vardiya takibinde kullanılan kameralarda oluşan arızalar yalnızca cihaz sorunu değil, görünürlük kaybı anlamına gelir.",
           href: "/fabrika-depo-guvenlik-sistemi",
         },
       ],
       authoritySection: {
-        title: "Kamera Arızasında Hızlı Teşhis Neden Kritik?",
+        title: "Neden Bekletilmemeli",
         paragraphs: [
-          "Kamera arızasında asıl risk cihazın bozulması değil, kaydın kesilmesi ve sorunun fark edilmeden uzamasıdır.",
-          "Görüntü yok, kayıt alınmıyor veya kamera offline gibi durumlarda yanlış parça değişimi hem maliyeti büyütür hem de servis süresini uzatır. Önce kaynağı netleştirmek gerekir.",
-          "Doğru arıza servisi yaklaşımı; disk, kayıt cihazı, ağ, besleme ve kamera tarafını birlikte test ederek kalıcı çözüm üretir.",
+          "Kamera arızaları bekledikçe yalnızca teknik problem olarak kalmaz. Kayıt boşluğu oluşur, olay inceleme kabiliyeti zayıflar, giriş-çıkış kontrolü düşer ve işletme tarafında güvenlik açığı büyür.",
+          "Özellikle depo, fabrika, mağaza ve site yönetimlerinde birkaç günlük kayıt kaybı bile sonradan telafi edilemeyen risk yaratabilir.",
+          "Bu yüzden sorun belirtileri oluştuğunda hızlı teşhis ve doğru müdahale planı ile ilerlemek, geçici çalıştırmadan daha değerlidir.",
         ],
-        noteTitle: "Acil kamera arıza kaydı bırakın",
+        noteTitle: "Müdahale yolunu birlikte netleştirelim",
         noteText:
-          "Belirtileri kısa şekilde paylaşın; yerinde müdahale mi, uzaktan ön teşhis mi yoksa bakım planı mı gerektiğini hızlıca netleştirelim.",
+          "Kamera sisteminizde görüntü, kayıt veya erişim sorunu yaşıyorsanız form bırakın ya da hemen arayın. Sorunun kaynağını netleştirip en doğru müdahale yolunu birlikte belirleyelim.",
+      },
+      processSection: {
+        title: "Süreç Nasıl İlerler",
+        steps: [
+          { step: 1, title: "Sorun belirtileri alınır", description: "Görüntü, kayıt, offline cihaz veya erişim problemi gibi belirtiler netleştirilir." },
+          { step: 2, title: "Sistem yapısı belirlenir", description: "Cihaz tipi, kayıt altyapısı ve arızanın görüldüğü katman netleştirilir." },
+          { step: 3, title: "İlk teşhis yapılır", description: "Yerinde veya uzaktan ön kontrol ile arıza noktası ayrıştırılır." },
+          { step: 4, title: "Müdahale ve test tamamlanır", description: "Gerekli işlem, parça ihtiyacı ve tekrar arızayı azaltacak öneriler sunulur." },
+        ],
       },
       faq: [
         {
@@ -118,6 +134,8 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Hizmet verdiğimiz şehirlerde kamera arıza servisi sağlıyoruz. Şehir bazlı destek detaylarını ilgili yerel hizmet sayfalarından da inceleyebilirsiniz.",
         },
       ],
+      relatedPagesDescription:
+        "Kamera arıza servisi tek başına yeterli olmayabilir. Sorunun tekrar etmesini azaltmak için bakım sözleşmesi, uzaktan izleme ve kurulum revizyonu hizmetleriyle birlikte değerlendirmek daha doğru olabilir.",
       relatedPages: [
         {
           title: "Bakım, Servis ve Uzaktan İzleme",
@@ -136,13 +154,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         },
       ],
       defaultService: "kamera",
-      ctaTitle: "Kamera Arıza Servisi Talebi Bırakın",
+      ctaTitle: "Kamera Arıza Servisi İçin Hemen İletişime Geçin",
       ctaSubtitle:
-        "Görüntü, kayıt veya bağlantı problemi yaşıyorsanız formu doldurun ya da hemen arayın. Sorunun kaynağını hızlıca netleştirelim.",
+        "Kamera sisteminizde görüntü, kayıt veya erişim sorunu yaşıyorsanız form bırakın ya da hemen arayın. Sorunun kaynağını netleştirip en doğru müdahale yolunu birlikte belirleyelim.",
       authorityBeforeFaq: {
         title: "Şehir Bazlı Kamera Arıza Servisi Sayfaları",
         description:
-          "Yerel destek ve şehir içi hizmet detaylarını aşağıdaki yerel sayfalardan inceleyebilirsiniz.",
+          "Bu hizmeti farklı şehirlerde de aynı servis mantığıyla planlıyoruz. Bulunduğunuz lokasyona göre ilgili şehir sayfasından yerel kapsamı inceleyebilirsiniz.",
         links: buildCityServiceLinks("kamera-ariza-servisi", [...priorityCities]),
       },
       authorityAfterFaq: {
@@ -152,61 +170,75 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
     },
   },
   "kamera-sistemi-bakim-sozlesmesi": {
-    metadataTitle: "Kamera Sistemi Bakım Sözleşmesi | Periyodik Kontrol ve Kayıt Sürekliliği",
+    metadataTitle: "Kamera Sistemi Bakım Sözleşmesi | Kayıt Sürekliliği ve Periyodik Kontrol",
     metadataDescription:
-      "Kamera sistemi bakım sözleşmesi ile kayıt sürekliliği, cihaz sağlığı ve arıza riskini kontrol altına alın. Site, fabrika, depo ve işletmeler için periyodik bakım planları.",
+      "Kamera sistemi bakım sözleşmesi ile kayıt sürekliliğini, cihaz sağlığını ve uzaktan izleme performansını koruyun. İşletmeler, siteler, depolar ve fabrikalar için bakım planı oluşturun.",
     data: {
       slug: "kamera-sistemi-bakim-sozlesmesi",
       title: "Kamera Sistemi Bakım Sözleşmesi",
+      detailSectionTitle: "Hizmet Kapsamı",
       subtitle:
-        "Periyodik kontrol, kayıt sağlığı takibi ve arıza riskini azaltan kamera sistemi bakım sözleşmesi ile sisteminizi kritik anda çalışır tutun.",
+        "Kamera sistemi kurulu olsa bile düzenli bakım yapılmayan yapılarda zamanla kayıt kaybı, disk sorunları, kör nokta artışı, bağlantı zayıflığı ve uzaktan erişim problemleri oluşur. Kamera sistemi bakım sözleşmesi, bu riskleri arıza çıkmadan önce azaltmak isteyen işletmeler ve yöneticiler için daha kontrollü bir hizmet modelidir.",
       description:
-        "Kamera sistemi bakım sözleşmesi, kayıt cihazı ve kameraların sadece bugün çalışmasını değil, aylar sonra da güvenilir kalmasını hedefler.\n\nBakım yapılmayan sistemlerde lens kirlenir, disk hataları büyür, kayıt süreleri düşer, uzaktan erişim ayarları bozulur ve kullanıcılar bunu çoğu zaman olay anına kadar fark etmez.\n\nBu hizmette periyodik saha kontrolü, kayıt sağlık takibi, cihaz durumunun raporlanması ve gerektiğinde öncelikli servis akışı birlikte planlanır. Özellikle site yönetimleri, fabrikalar, depolar ve çok kameralı yapılarda en güçlü model bakım sözleşmesidir.",
-      heroBadge: "Periyodik bakım • Süreklilik odaklı",
+        "Bakım sözleşmesi kapsamında sistemin temel sağlık kontrolleri, kayıt kontrolü, disk ve cihaz durum takibi, bağlantı gözden geçirmesi, görüntü kalitesi değerlendirmesi ve kritik noktalarda işlev testi planlanır.\n\nHedef, sorun çıktığında telaşla müdahale etmek yerine sistemin daha düzenli, öngörülebilir ve kayıt sürekliliğini koruyan bir yapıda çalışmasını sağlamaktır.",
+      heroBadge: "Periyodik kontrol • Süreklilik odaklı",
       heroHighlights: [
-        "Kayıt sürekliliği ve disk sağlığı takibi",
-        "Lens, açı ve cihaz performans kontrolleri",
-        "Arıza büyümeden önleyici bakım yaklaşımı",
-        "Sözleşmeli müşterilere öncelikli servis akışı",
+        "Kayıt sürekliliğini arıza çıkmadan önce korumaya odaklanan bakım düzeni",
+        "Disk, cihaz, bağlantı ve görüntü kalitesinin birlikte değerlendirilmesi",
+        "Uzaktan erişim ve izleme performansındaki bozulmaların erken fark edilmesi",
+        "Süreklilik isteyen yapılara uygun daha kontrollü hizmet modeli",
       ],
+      featureSectionTitle: "Hangi Sorunları Çözer",
       features: [
-        "Periyodik saha bakım planı",
-        "Kayıt cihazı, disk ve kanal kontrolü",
-        "Kamera açı, netlik ve gece görüş performans testi",
-        "Uzaktan erişim ve kullanıcı yetki kontrolü",
-        "Bakım raporu ve risk listesi oluşturma",
-        "Teknik servis ve uzaktan izleme ile entegre çalışma",
+        "Fark edilmeyen kayıt kesintileri",
+        "Zayıflayan disk ve depolama performansı",
+        "Zamanla kayma yapan görüntüleme açıları",
+        "Toz, bağlantı ve güç kaynaklı performans düşüşü",
+        "Uzaktan erişimde düzensiz bağlantı sorunları",
+        "Arıza çıkana kadar fark edilmeyen sistem zafiyetleri",
       ],
+      segmentsSectionTitle: "Kimler İçin Uygun",
+      segmentsSectionDescription:
+        "Bakım sözleşmesi ihtiyacı özellikle çok kameralı, kayıt sürekliliği önemli ve operasyonu aksatmaması gereken yapılarda öne çıkar. Aşağıdaki senaryolar buna en çok ihtiyaç duyan kullanım alanlarını özetler.",
       segments: [
         {
-          title: "Site ve Toplu Konut Sistemleri",
+          title: "Site ve apartman yönetimleri",
           content:
-            "Ortak alan, giriş ve otopark kameralarında bakım yapılmadığında yönetim şikayetleri ve kayıt kaybı artar. Sözleşmeli bakım daha güvenli bir modeldir.",
+            "Ortak alan, giriş ve otopark kameralarında kayıt sürekliliği ve arıza takibi düzenli bakım olmadan sürdürülebilir kalmaz.",
           href: "/apartman-site-guvenlik-sistemi",
         },
         {
-          title: "Fabrika ve Depo Sistemleri",
+          title: "Fabrika ve depo işletmeleri",
           content:
-            "Yükleme alanı, çevre hat ve üretim takibinde kayıt sürekliliği kritik olduğu için bakım sözleşmesi arıza riskini ciddi şekilde düşürür.",
+            "Yükleme alanı, çevre hat ve üretim takibinde kullanılan sistemlerde kayıt kaybı ve performans düşüşü doğrudan operasyon riskine dönüşür.",
           href: "/fabrika-depo-guvenlik-sistemi",
         },
         {
-          title: "Çok Noktalı İşletmeler",
+          title: "Ofis, plaza ve iş merkezi yönetimleri",
           content:
-            "Birden fazla şubede kamera sistemi varsa bakım disiplini ve merkezi kontrol ihtiyacı artar. Sözleşmeli model burada daha verimlidir.",
+            "Çok kameralı iş merkezlerinde bakım düzeni kurulmadığında sorunlar ancak ihtiyaç anında fark edilir ve müdahale maliyeti büyür.",
           href: "/isyeri-guvenlik-sistemi",
         },
       ],
       authoritySection: {
-        title: "Bakım Sözleşmesi Neden Sadece Servis Çağrısından Daha Değerlidir?",
+        title: "Neden Bekletilmemeli",
         paragraphs: [
-          "Tek seferlik servis, problem çıktıktan sonra çözüm üretir. Bakım sözleşmesi ise problem büyümeden kayıt ve cihaz sağlığını korur.",
-          "Özellikle çok kameralı yapılarda kayıt kaybı çoğu zaman fark edilmez. Periyodik bakım disiplini olmadan sistem görünürde açık ama fiilen riskli olabilir.",
-          "Sözleşmeli bakım modeli, arıza riskini azaltır, müdahale süresini kısaltır ve teknik geçmişi kayıt altına alır.",
+          "Kamera sistemi çoğu yerde çalışıyor sanılıyor ama kayıt kaybı veya görüntü sorunu ancak ihtiyaç anında fark ediliyor. Bu da iş işten geçtikten sonra ortaya çıkıyor.",
+          "Düzenli bakım, tek seferlik satış mantığından daha değerlidir çünkü sistemin gerçekten çalışır halde kalmasını hedefler.",
+          "Bakım planı geciktikçe küçük performans düşüşleri birikir, arıza ihtimali artar ve kritik anda güven kaybı oluşur.",
         ],
-        noteTitle: "Bakım kapsamını birlikte netleştirelim",
+        noteTitle: "Bakım düzenini şimdi kuralım",
         noteText:
-          "Kamera sayısı, lokasyon yapısı ve beklediğiniz servis disiplinini paylaşın; size uygun bakım sözleşmesi çerçevesini çıkaralım.",
+          "Kamera sisteminiz kurulu ama bakım düzeni yoksa şimdi iletişime geçin. Sisteminizi arıza çıkmadan önce kontrol altına almak için uygun bakım planını birlikte netleştirelim.",
+      },
+      processSection: {
+        title: "Süreç Nasıl İlerler",
+        steps: [
+          { step: 1, title: "Envanter çıkarılır", description: "Mevcut kamera, kayıt cihazı, depolama ve bağlantı yapısı netleştirilir." },
+          { step: 2, title: "Risk alanları belirlenir", description: "Kayıt sürekliliğini etkileyen kritik zafiyetler ve bakım öncelikleri ayrıştırılır." },
+          { step: 3, title: "Bakım planı oluşturulur", description: "Kontrol sıklığı, müdahale çerçevesi ve gerekiyorsa revizyon önerileri belirlenir." },
+          { step: 4, title: "Süreklilik düzeni kurulur", description: "Periyodik bakım akışı, takip mantığı ve servis entegrasyonu netleştirilir." },
+        ],
       },
       faq: [
         {
@@ -235,6 +267,8 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Evet. En güçlü model bakım sözleşmesi, uzaktan izleme ve gerektiğinde teknik servis akışının birlikte yürütülmesidir.",
         },
       ],
+      relatedPagesDescription:
+        "Bakım sözleşmesi çoğu zaman kamera arıza servisi, uzaktan kamera izleme ve teknik servis hizmetleriyle birlikte daha verimli sonuç verir.",
       relatedPages: [
         {
           title: "Bakım, Servis ve Uzaktan İzleme",
@@ -253,13 +287,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         },
       ],
       defaultService: "bakim-servis",
-      ctaTitle: "Kamera Bakım Sözleşmesi Teklifi Alın",
+      ctaTitle: "Kamera Bakım Sözleşmesi İçin Plan Oluşturalım",
       ctaSubtitle:
-        "Kamera sistemi bakım planınızı, servis önceliğinizi ve uzaktan destek ihtiyacınızı birlikte netleştirelim.",
+        "Kamera sisteminiz kurulu ama bakım düzeni yoksa şimdi iletişime geçin. Sisteminizi arıza çıkmadan önce kontrol altına almak için uygun bakım planını birlikte netleştirelim.",
       authorityBeforeFaq: {
         title: "Şehir Bazlı Kamera Bakım Sözleşmesi Sayfaları",
         description:
-          "Yerel keşif ve şehir içi bakım planlaması için aşağıdaki sayfalardan detay alabilirsiniz.",
+          "Bakım sözleşmesi ihtiyacı şehirden bağımsız aynı mantıkla ortaya çıkar, ancak saha koşulları ve yapı tipi yerel planlamayı etkileyebilir. İlgili şehir sayfalarından lokal kapsamı inceleyebilirsiniz.",
         links: buildCityServiceLinks("kamera-sistemi-bakim-sozlesmesi", [...priorityCities]),
       },
       authorityAfterFaq: {
@@ -269,61 +303,75 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
     },
   },
   "uzaktan-kamera-izleme": {
-    metadataTitle: "Uzaktan Kamera İzleme | Merkezi Takip, Mobil Erişim ve Süreklilik",
+    metadataTitle: "Uzaktan Kamera İzleme | Mobil Erişim ve Merkezden Takip Çözümleri",
     metadataDescription:
-      "Uzaktan kamera izleme hizmeti ile sistem çevrim içi mi, kayıt akışı sağlıklı mı ve çok lokasyonlu takip nasıl yönetilir sorularını merkezi olarak kontrol edin.",
+      "Uzaktan kamera izleme ile işyeri, depo, site ve tesislerinizi telefondan veya merkezden takip edin. Erişim, kayıt kontrolü ve sistem sürekliliği için doğru kurgu oluşturun.",
     data: {
       slug: "uzaktan-kamera-izleme",
       title: "Uzaktan Kamera İzleme",
+      detailSectionTitle: "Hizmet Kapsamı",
       subtitle:
-        "Tek lokasyon veya çoklu saha fark etmeksizin kamera sistemlerinizi merkezi görünürlük, mobil erişim ve kayıt sürekliliği odağıyla takip edin.",
+        "Kamera sisteminin kurulmuş olması tek başına yeterli değildir. Asıl ihtiyaç çoğu zaman sahayı uzaktan takip edebilmek, kritik alanları anlık görmek, kayıt sürekliliğini kontrol etmek ve sistemden hızlıca haberdar olmaktır. Uzaktan kamera izleme hizmeti, bu ihtiyacı daha düzenli ve kontrollü hale getirmek için planlanır.",
       description:
-        "Uzaktan kamera izleme hizmeti, yalnızca telefondan görüntü açmak değil; sistemin gerçekten çevrim içi olup olmadığını, kayıt akışının sağlıklı ilerleyip ilerlemediğini ve çok lokasyonlu yapılarda operasyon görünürlüğünü kontrol etmektir.\n\nÖzellikle site yönetimleri, fabrikalar, depolar ve zincir mağazalarda tek tek sahaya gitmeden temel sistem durumu hakkında görünürlük sağlamak ciddi operasyon avantajı üretir.\n\nBu hizmet bakım sözleşmesi ve teknik servis akışıyla birlikte kurgulandığında, kesintiler daha erken fark edilir ve arıza büyümeden müdahale imkanı oluşur.",
-      heroBadge: "Merkezi takip • Çok lokasyon desteği",
+        "Uzaktan kamera izleme hizmetinde erişim altyapısı, kullanıcı yetkileri, mobil veya masaüstü görüntüleme yapısı, kayıt kontrol mantığı ve bağlantı istikrarı birlikte ele alınır.\n\nAmaç yalnızca telefondan görüntü açmak değil; sistemin güvenli, düzenli ve kullanıcının gerçekten işine yarayan bir izleme deneyimi sunmasını sağlamaktır.",
+      heroBadge: "Mobil erişim • Merkezden takip",
       heroHighlights: [
-        "Merkezi görünürlük ve mobil erişim planlaması",
-        "Kayıt akışı ve temel çevrim içi durum takibi",
-        "Çok noktalı yapılarda yönetimi kolaylaştıran yapı",
-        "Bakım ve teknik servis akışıyla birlikte çalışma",
+        "Sahayı uzaktan takip etmeyi kolaylaştıran erişim ve kullanıcı kurgusu",
+        "Kayıt alınıp alınmadığını kontrol etmeye yardımcı izleme mantığı",
+        "Şube, saha ve kritik alan takibinde görünürlüğü artıran yapı",
+        "Bakım ve revizyon önerileriyle desteklenebilen daha kontrollü kullanım",
       ],
+      featureSectionTitle: "Hangi Sorunları Çözer",
       features: [
-        "Mobil ve merkezi erişim yapısının kurulması",
-        "Kayıt akışı ve kamera çevrim içi durumunun takibi",
-        "Kullanıcı yetki ve erişim düzenlemeleri",
-        "Çok lokasyonlu yapıların merkezi görünürlüğü",
-        "Bakım sözleşmesi ile entegre süreklilik modeli",
-        "Servis gerektiren durumların erken ayrıştırılması",
+        "Kameralara dışarıdan erişememe",
+        "Mobil uygulamada kopuk izleme deneyimi",
+        "Şube veya saha takibinde kontrol zayıflığı",
+        "Kayıt alınıp alınmadığını uzaktan görememe",
+        "Kritik alanlarda anlık görünürlük eksikliği",
+        "Yönetim ve saha arasında bilgi gecikmesi",
       ],
+      segmentsSectionTitle: "Kimler İçin Uygun",
+      segmentsSectionDescription:
+        "Uzaktan izleme ihtiyacı en çok birden fazla alanı kontrol etmek, gece ve vardiya düzenini izlemek veya sahaya gitmeden görünürlük kazanmak isteyen yapılarda ortaya çıkar.",
       segments: [
         {
-          title: "Site Yönetimleri",
+          title: "Birden fazla şubeyi uzaktan takip etmek isteyen işletmeler",
           content:
-            "Giriş, otopark ve ortak alan kameralarını yönetime tek ekranda ve uzaktan izleme disipliniyle sunmak için ideal modeldir.",
-          href: "/apartman-site-guvenlik-sistemi",
+            "Farklı lokasyonlarda kurulu kameraları tek tek kontrol etmek yerine daha düzenli bir erişim ve takip kurgusu gerekir.",
+          href: "/isyeri-guvenlik-sistemi",
         },
         {
-          title: "Fabrika ve Depolar",
+          title: "Depo ve üretim sahalarını merkezden izlemek isteyen firmalar",
           content:
-            "Yükleme alanı, çevre hat ve kritik operasyon bölgelerinin uzaktan görünürlüğü üretim ve lojistik kontrolünü güçlendirir.",
+            "Yükleme alanı, üretim sahası ve çevre hattı gibi bölgelerde anlık görünürlük ve kayıt takibi operasyonel avantaj sağlar.",
           href: "/fabrika-depo-guvenlik-sistemi",
         },
         {
-          title: "Çok Noktalı İşletmeler",
+          title: "Site ve residence yönetimleri",
           content:
-            "Birden fazla şubeyi tek tek takip etmek yerine standart bir uzaktan izleme akışı kurmak daha sürdürülebilir bir model oluşturur.",
-          href: "/isyeri-guvenlik-sistemi",
+            "Ortak alan ve giriş kameralarına uzaktan erişim, yönetim tarafında daha hızlı kontrol ve bilgi akışı sağlar.",
+          href: "/apartman-site-guvenlik-sistemi",
         },
       ],
       authoritySection: {
-        title: "Uzaktan İzleme Neden Sadece Mobil Uygulama Kurulumu Değildir?",
+        title: "Neden Bekletilmemeli",
         paragraphs: [
-          "Gerçek uzaktan izleme değeri, sistemin çevrim içi durumu, kayıt akışı ve kullanıcı erişiminin düzenli şekilde yönetilmesinde ortaya çıkar.",
-          "Çok lokasyonlu yapılarda amaç sadece görüntü açmak değil; hangi saha çalışıyor, hangi saha risk üretiyor sorusuna daha hızlı cevap vermektir.",
-          "Bakım ve teknik servis desteğiyle birlikte kurgulanan uzaktan izleme modeli, kesintilerin büyümeden fark edilmesini sağlar.",
+          "Uzaktan izleme yoksa birçok işletme sadece olay olduktan sonra kayıt arayan pasif bir yapıda kalır.",
+          "Doğru uzaktan erişim; şube yönetimi, gece kontrolü, depo takibi ve saha görünürlüğü açısından ciddi avantaj sağlar.",
+          "Özellikle çok lokasyonlu işletmelerde zaman ve kontrol kaybını azaltmak için erişim kurgusunu bekletmeden planlamak gerekir.",
         ],
-        noteTitle: "Uzaktan izleme yapısını netleştirelim",
+        noteTitle: "Erişim yapısını birlikte netleştirelim",
         noteText:
-          "Tek lokasyon mu yönetiyorsunuz, birden fazla saha mı takip ediyorsunuz? Kapsamı paylaşın; merkezi görünürlük modelini birlikte çıkaralım.",
+          "Kamera sisteminizi sadece kurulu bırakmayın; gerçekten izlenebilir ve yönetilebilir hale getirin. Uzaktan erişim ve izleme yapınızı netleştirmek için şimdi iletişime geçin.",
+      },
+      processSection: {
+        title: "Süreç Nasıl İlerler",
+        steps: [
+          { step: 1, title: "Sistem incelenir", description: "Mevcut kamera, kayıt cihazı ve ağ yapısının uzaktan erişime uygunluğu değerlendirilir." },
+          { step: 2, title: "Erişim senaryosu netleşir", description: "Kimlerin hangi cihazlardan ve hangi kapsamda erişeceği belirlenir." },
+          { step: 3, title: "Yetki ve test yapılır", description: "Mobil veya masaüstü görüntüleme, kayıt kontrolü ve bağlantı istikrarı doğrulanır." },
+          { step: 4, title: "Geliştirme önerileri eklenir", description: "Gerekiyorsa bakım, revizyon veya servis ihtiyacı ek planla birlikte sunulur." },
+        ],
       },
       faq: [
         {
@@ -352,6 +400,8 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Bazı belirtiler uzaktan fark edilebilir, ancak nihai teşhis için teknik kontrol gerekebilir. Bu yüzden uzaktan izleme teknik servis akışıyla birlikte daha güçlü çalışır.",
         },
       ],
+      relatedPagesDescription:
+        "Uzaktan izleme çoğu zaman kamera kurulumu, bakım sözleşmesi ve arıza servisiyle birlikte değerlendirilince daha sağlıklı sonuç verir.",
       relatedPages: [
         {
           title: "Bakım, Servis ve Uzaktan İzleme",
@@ -370,13 +420,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         },
       ],
       defaultService: "bakim-servis",
-      ctaTitle: "Uzaktan Kamera İzleme Teklifi Alın",
+      ctaTitle: "Uzaktan Kamera İzleme Yapınızı Netleştirin",
       ctaSubtitle:
-        "Merkezi izleme, mobil erişim ve sistem sürekliliği ihtiyacınızı paylaşın; size uygun yapıyı netleştirelim.",
+        "Kamera sisteminizi sadece kurulu bırakmayın; gerçekten izlenebilir ve yönetilebilir hale getirin. Uzaktan erişim ve izleme yapınızı netleştirmek için şimdi iletişime geçin.",
       authorityBeforeFaq: {
         title: "Şehir Bazlı Uzaktan Kamera İzleme Sayfaları",
         description:
-          "Yerel operasyon ve şehir bazlı destek detayları için aşağıdaki sayfalardan devam edebilirsiniz.",
+          "Uzaktan kamera izleme ihtiyacı farklı şehirlerdeki işletmeler için benzer olsa da sistem yapısı, saha tipi ve bağlantı kurgusu yerel detayları etkileyebilir. İlgili şehir hizmet sayfalarından lokal kapsamı inceleyebilirsiniz.",
         links: buildCityServiceLinks("uzaktan-kamera-izleme", [...priorityCities]),
       },
       authorityAfterFaq: {
@@ -386,61 +436,75 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
     },
   },
   "kartli-gecis-sistemi-kurulumu": {
-    metadataTitle: "Kartlı Geçiş Sistemi Kurulumu | Erişim Kontrol ve Turnike Çözümleri",
+    metadataTitle: "Kartlı Geçiş Sistemi Kurulumu | Ofis, Apartman ve İşletmeler İçin Giriş Kontrolü",
     metadataDescription:
-      "Kartlı geçiş sistemi kurulumu ile ofis, site, plaza ve tesis girişlerini kontrollü hale getirin. RFID, biyometrik okuyucu, turnike ve kapı kontrol çözümleri.",
+      "Kartlı geçiş sistemi kurulumu ile giriş çıkış kontrolünü düzenleyin. Ofis, apartman, site, depo ve işletmeler için geçiş yetkisi, kapı kontrolü ve güvenli kullanım senaryolarını planlayın.",
     data: {
       slug: "kartli-gecis-sistemi-kurulumu",
       title: "Kartlı Geçiş Sistemi Kurulumu",
+      detailSectionTitle: "Hizmet Kapsamı",
       subtitle:
-        "RFID kart, biyometrik okuyucu, turnike ve kapı kontrol altyapısı ile giriş-çıkışları kayıt altına alın, yetkisiz erişimi azaltın.",
+        "Giriş çıkış kontrolü olmayan yapılarda güvenlik açığı, yetki karmaşası ve operasyonel düzensizlik oluşur. Kartlı geçiş sistemi kurulumu; ofisler, apartmanlar, siteler, depolar ve kontrollü alan ihtiyacı olan işletmeler için daha düzenli, takip edilebilir ve yönetilebilir bir giriş yapısı kurmayı hedefler.",
       description:
-        "Kartlı geçiş sistemi kurulumu; yalnızca kapı açma donanımı değil, erişim yetkisi, personel akışı, ziyaretçi disiplini ve raporlama altyapısının birlikte planlanmasıdır.\n\nOfisler, plazalar, siteler, üretim alanları ve lojistik tesislerde aynı ihtiyaç yoktur. Bu yüzden okuyucu tipi, turnike yapısı, kapı kilidi ve yazılım tarafı kullanım senaryosuna göre belirlenir.\n\nDoğru kurulum yapıldığında sadece güvenlik artmaz; giriş disiplini, personel hareketlerinin görünürlüğü ve çok alanlı erişim yönetimi de iyileşir.",
-      heroBadge: "Erişim kontrolü • Raporlama odaklı",
+        "Kartlı geçiş sistemi kurulumu sürecinde giriş noktası, kullanıcı yoğunluğu, yetki mantığı, kapı tipi ve kullanım senaryosu birlikte değerlendirilir.\n\nİhtiyaca göre kapı kontrol altyapısı, kartlı veya yetkili geçiş mantığı ve gerekli entegrasyon yapısı planlanır.\n\nAmaç yalnızca cihaz montajı değil, giriş akışını yönetilebilir hale getirmektir.",
+      heroBadge: "Giriş kontrolü • Yönetilebilir kurgu",
       heroHighlights: [
-        "RFID, biyometrik ve turnike seçenekleri",
-        "Kapı, turnike ve yetki senaryosunun birlikte planlanması",
-        "Ofis, plaza, site ve tesis yapısına göre kurulum",
-        "Yazılım, kullanıcı ve raporlama altyapısının devreye alınması",
+        "Yetki karmaşasını azaltan kontrollü giriş kurgusu",
+        "Kapı, turnike ve kullanıcı yoğunluğuna uygun sistem planlaması",
+        "Personel, sakin veya ziyaretçi akışına göre geçiş mantığının belirlenmesi",
+        "Kamera ve alarm entegrasyonu için uygun altyapı önerileri",
       ],
+      featureSectionTitle: "Hangi Sorunları Çözer",
       features: [
-        "RFID kart ve okuyucu kurulumu",
-        "Parmak izi ve yüz tanıma seçenekleri",
-        "Kapı kilidi, turnike ve erişim senaryosu planlaması",
-        "Personel ve ziyaretçi yetki yönetimi",
-        "Giriş-çıkış kayıtları ve raporlama altyapısı",
-        "Kamera ve diğer güvenlik sistemleriyle birlikte çalışma",
+        "Yetkisiz giriş riski",
+        "Anahtar karmaşası ve kontrol kaybı",
+        "Personel veya kullanıcı bazlı yetki eksikliği",
+        "Ortak alan güvenliği zafiyeti",
+        "Giriş kayıtlarının düzensizliği",
+        "Kapı kontrolünde operasyonel verimsizlik",
       ],
+      segmentsSectionTitle: "Kimler İçin Uygun",
+      segmentsSectionDescription:
+        "Kartlı geçiş ihtiyacı en çok girişin kimler tarafından, hangi saatlerde ve hangi alanlarda yapılacağının net yönetilmesi gereken yapılarda ortaya çıkar.",
       segments: [
         {
-          title: "Plaza ve Kurumsal Ofisler",
+          title: "Ofis ve kurumsal iş yerleri",
           content:
-            "Kat bazlı yetki, personel geçiş disiplini ve profesyonel giriş deneyimi bekleyen yapılarda kartlı geçiş sistemi temel altyapılardan biridir.",
+            "Personel, ziyaretçi ve kritik alan geçişlerinin kontrol altına alınması gereken ofis yapılarında düzenli giriş kurgusu sağlar.",
           href: "/isyeri-guvenlik-sistemi",
         },
         {
-          title: "Site ve Toplu Konutlar",
+          title: "Apartman ve site yönetimleri",
           content:
-            "Site girişleri, blok kapıları, otopark ve ortak alanlarda sakin ve ziyaretçi yönetimini daha kontrollü hale getirir.",
+            "Blok, otopark ve ortak alan girişlerinde sakin ve ziyaretçi akışını daha yönetilebilir hale getirir.",
           href: "/apartman-site-guvenlik-sistemi",
         },
         {
-          title: "Fabrika ve Depolar",
+          title: "Depo ve lojistik alanları",
           content:
-            "Personel yoğunluğu, vardiyalı giriş ve güvenlik kontrollü alanlar nedeniyle erişim yönetimi üretim tarafında doğrudan operasyon konusudur.",
+            "Personel yoğunluğu, vardiyalı kullanım ve kontrollü alan ihtiyacı nedeniyle giriş akışının daha net yönetilmesini sağlar.",
           href: "/fabrika-depo-guvenlik-sistemi",
         },
       ],
       authoritySection: {
-        title: "Kartlı Geçişte Doğru Kurulum Neden Kritik?",
+        title: "Neden Bekletilmemeli",
         paragraphs: [
-          "Kartlı geçişte sorun çoğu zaman okuyucudan değil, yanlış kapı kurgusu, eksik yetki planı veya zayıf yazılım senaryosundan çıkar.",
-          "Sadece cihaz takmak, yoğun giriş çıkışlı yapılarda uzun vadede yetmez. Kim, hangi kapıdan, hangi saatlerde geçecek sorusu en baştan doğru planlanmalıdır.",
-          "Kapı, turnike, okuyucu ve raporlama tarafı birlikte kurgulandığında hem güvenlik hem günlük kullanım akışı daha verimli hale gelir.",
+          "Kontrolsüz giriş yapıları hem güvenlik hem operasyon açısından maliyetlidir.",
+          "Özellikle ofis, site, depo ve ortak alan kullanan yapılarda giriş düzeni kurulmaması ileride daha büyük güvenlik ve takip problemleri doğurur.",
+          "Kapı ve kullanıcı kurgusu geciktikçe anahtar, yetki ve geçiş kontrolü tarafında dağınık yapı kalıcı hale gelir.",
         ],
-        noteTitle: "Erişim kontrol yapınızı paylaşın",
+        noteTitle: "Kurulum planını birlikte netleştirelim",
         noteText:
-          "Kapı sayısı, kullanıcı tipi ve turnike ihtiyacını iletin; size uygun kartlı geçiş yapısını birlikte çıkaralım.",
+          "Giriş çıkış kontrolünü düzenlemek ve yapınıza uygun kurulum planını netleştirmek için şimdi iletişime geçin. İhtiyacınıza göre en doğru kurguya birlikte karar verelim.",
+      },
+      processSection: {
+        title: "Süreç Nasıl İlerler",
+        steps: [
+          { step: 1, title: "Geçiş analizi yapılır", description: "Kapılar, kullanıcı yoğunluğu ve geçiş ihtiyacı değerlendirilir." },
+          { step: 2, title: "Sistem kurgusu belirlenir", description: "Uygun okuyucu, kapı kontrol mantığı ve yetki yapısı netleştirilir." },
+          { step: 3, title: "Kurulum ve test planlanır", description: "Kullanım senaryosu doğrulanır, gerekiyorsa entegrasyon önerileri eklenir." },
+          { step: 4, title: "Kullanım devreye alınır", description: "Sistem çalışır hale getirilir ve günlük yönetim akışı netleştirilir." },
+        ],
       },
       faq: [
         {
@@ -469,6 +533,8 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Evet. Projenin kapsamına göre kullanıcı tanımı, yetki kurgusu ve giriş kayıtlarının raporlanması mümkündür.",
         },
       ],
+      relatedPagesDescription:
+        "Kartlı geçiş sistemleri çoğu zaman kamera sistemleri, alarm sistemleri ve uzaktan izleme çözümleriyle birlikte daha güçlü bir güvenlik yapısı oluşturur.",
       relatedPages: [
         {
           title: "İşyeri Güvenlik Sistemi",
@@ -487,13 +553,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         },
       ],
       defaultService: "kartli-gecis",
-      ctaTitle: "Kartlı Geçiş Sistemi Teklifi Alın",
+      ctaTitle: "Kartlı Geçiş Kurulumunu Planlayın",
       ctaSubtitle:
-        "Kapı, turnike ve yetki yönetimi ihtiyacınızı paylaşın; size uygun erişim kontrol çözümünü planlayalım.",
+        "Giriş çıkış kontrolünü düzenlemek ve yapınıza uygun kurulum planını netleştirmek için şimdi iletişime geçin. İhtiyacınıza göre en doğru kurguya birlikte karar verelim.",
       authorityBeforeFaq: {
         title: "Şehir Bazlı Kartlı Geçiş Sistemi Sayfaları",
         description:
-          "Yerel uygulama ve şehir içi keşif detayları için aşağıdaki sayfalardan ilerleyebilirsiniz.",
+          "Kartlı geçiş sistemi kurulumu farklı şehirlerde benzer ihtiyaçlara cevap verir; ancak bina tipi ve kullanım yoğunluğu yerel planlamayı etkiler. İlgili şehir sayfalarından bulunduğunuz bölgeye uygun kapsamı inceleyebilirsiniz.",
         links: buildCityServiceLinks("kartli-gecis-sistemi-kurulumu", [...priorityCities]),
       },
       authorityAfterFaq: {

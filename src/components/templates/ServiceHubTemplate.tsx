@@ -26,14 +26,24 @@ interface RelatedPage {
   description: string;
 }
 
+interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
 export interface ServiceHubPageData {
   slug: string;
   title: string;
   subtitle: string;
   description: string;
+  detailSectionTitle?: string;
   heroBadge: string;
   heroHighlights: string[];
+  featureSectionTitle?: string;
   features: string[];
+  segmentsSectionTitle?: string;
+  segmentsSectionDescription?: string;
   segments: {
     title: string;
     content: string;
@@ -46,7 +56,12 @@ export interface ServiceHubPageData {
     noteText: string;
   };
   faq: FAQItem[];
+  processSection?: {
+    title: string;
+    steps: ProcessStep[];
+  };
   relatedPages?: RelatedPage[];
+  relatedPagesDescription?: string;
   defaultService?: string;
   ctaTitle?: string;
   ctaSubtitle?: string;
@@ -206,7 +221,9 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-primary">Hizmet Detayı</h2>
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {data.detailSectionTitle || "Hizmet Detayı"}
+              </h2>
 
               <div className="max-w-none text-sm leading-7 text-text-light">
                 {data.description.split("\n").map((paragraph, index) => (
@@ -216,7 +233,11 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                 ))}
               </div>
 
-              <ul className="mt-8 space-y-3">
+              <h3 className="mt-8 text-lg font-bold text-primary">
+                {data.featureSectionTitle || "Hangi Sorunları Çözer"}
+              </h3>
+
+              <ul className="mt-4 space-y-3">
                 {data.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
@@ -255,11 +276,11 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
           <Container>
             <div className="mb-10 max-w-3xl">
               <h2 className="mb-4 text-2xl font-bold text-primary">
-                Bu Hizmet Kimler İçin Daha Uygun?
+                {data.segmentsSectionTitle || "Bu Hizmet Kimler İçin Daha Uygun?"}
               </h2>
               <p className="text-sm leading-7 text-text-light">
-                Hizmetin kapsamı kullanım alanına, operasyon riskine ve karar verici beklentisine göre değişir.
-                Aşağıdaki sayfalardan ilgili senaryoya daha hızlı geçebilirsiniz.
+                {data.segmentsSectionDescription ||
+                  "Hizmetin kapsamı kullanım alanına, operasyon riskine ve karar verici beklentisine göre değişir. Aşağıdaki sayfalardan ilgili senaryoya daha hızlı geçebilirsiniz."}
               </p>
             </div>
 
@@ -285,7 +306,15 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         </section>
       ) : null}
 
-      <ProcessSection />
+      {data.processSection ? (
+        <ProcessSection
+          title={data.processSection.title}
+          steps={data.processSection.steps}
+          bgClass="bg-surface"
+        />
+      ) : (
+        <ProcessSection />
+      )}
 
       <section className="bg-white py-16">
         <Container>
@@ -319,6 +348,11 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         <section className="bg-surface py-16">
           <Container>
             <h2 className="mb-8 text-2xl font-bold text-primary">İlgili Hizmet Sayfaları</h2>
+            {data.relatedPagesDescription ? (
+              <p className="mb-8 max-w-3xl text-sm leading-7 text-text-light">
+                {data.relatedPagesDescription}
+              </p>
+            ) : null}
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {data.relatedPages.map((page) => (
