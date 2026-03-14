@@ -39,7 +39,7 @@ const data: ServicePageData = {
     {
       title: "Üretim Tesisleri",
       content: "Üretim hatları, depo alanları ve personel girişlerini kapsayan entegre güvenlik sistemi. Vardiya takibi ve erişim yetkilendirmesi dahil.",
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
     },
     {
       title: "Lojistik ve Depo",

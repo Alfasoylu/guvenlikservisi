@@ -10,7 +10,7 @@ const hizmetlerMenu = [
   { href: "/kamera-sistemi-kurulumu", label: "Güvenlik Kamera Kurulumu" },
   { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
   { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi" },
-  { href: "/kartli-gecis-ve-turnike-sistemi", label: "Kartlı Geçiş Sistemi" },
+  { href: "/kartli-gecis-sistemi-kurulumu", label: "Kartlı Geçiş Sistemi" },
 ];
 
 const cozumlerMenu = [

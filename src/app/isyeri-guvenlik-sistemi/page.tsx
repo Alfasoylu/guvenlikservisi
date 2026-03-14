@@ -44,7 +44,7 @@ const data: ServicePageData = {
     {
       title: "Ofis ve Kurumsal",
       content: "Çalışan erişim kontrolü, veri odası güvenliği ve yangın alarm. İK sistemleriyle entegre giriş-çıkış takibi.",
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
     },
     {
       title: "Restoran, Otel ve Konaklama",
