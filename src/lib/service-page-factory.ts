@@ -14,9 +14,10 @@ import { packagesContent } from "@/data/seo-content/packages";
 import { serviceContent } from "@/data/seo-content/services";
 import { useCaseContent } from "@/data/seo-content/usecases";
 import { cities } from "@/data/cities";
-import { services } from "@/data/services";
+import { getBusinessModelForService, getSeoServiceBySlug, services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import { getCityServicePath } from "@/lib/routes";
+import { getHighLtvSegmentsForService, sortServicesByBusinessPriority } from "@/lib/seo/page-factory";
 
 type CityRecord = (typeof cities)[number];
 type ServiceRecord = (typeof services)[number];
@@ -251,6 +252,8 @@ export function getServicePageFactoryData(
 ): ServicePageFactoryResult {
   const cityDetails = cityContent[city.slug];
   const serviceDetails = serviceContent[service.slug];
+  const seoService = getSeoServiceBySlug(service.slug);
+  const businessModel = seoService ? getBusinessModelForService(seoService) : null;
   const serviceFaq = faqContent[service.slug];
   const servicePackages = packagesContent[service.slug];
   const serviceUseCases = useCaseContent[service.slug];
@@ -280,8 +283,13 @@ export function getServicePageFactoryData(
 
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
   const metadataTargetText = formatNaturalList(metadataTargets);
+  const primarySegments = getHighLtvSegmentsForService(service.slug)
+    .slice(0, 2)
+    .map((segment) => segment.searchLabels[0] ?? segment.name.toLocaleLowerCase("tr-TR"));
+  const segmentText = primarySegments.length > 0 ? `${formatNaturalList(primarySegments)} gibi öncelikli projelerde ` : "";
+  const businessMetaAngle = businessModel?.businessGuidance.metaAngle ?? "Profesyonel keşif ve hızlı teklif akışı ile süreci netleştiriyoruz.";
   const metaDescription = cityDetails
-    ? `${city.name} içinde ${metadataTargetText} için ${serviceDetails?.metadataIntent || service.name.toLowerCase()} hizmeti sunuyoruz. ${cityDetails.metadataDistrictCoverage} Ücretsiz keşif ve hızlı teklif alın.`
+    ? `${city.name} içinde ${metadataTargetText} için ${serviceDetails?.metadataIntent || service.name.toLowerCase()} hizmeti sunuyoruz. ${segmentText}${businessMetaAngle} ${cityDetails.metadataDistrictCoverage} Ücretsiz keşif ve hızlı teklif alın.`
     : `${city.name} içinde ${service.name.toLowerCase()} hizmeti sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
 
   const stats: ServiceStatItem[] = [
@@ -291,7 +299,7 @@ export function getServicePageFactoryData(
     { label: "Hizmet Bölgeleri", value: `${siteConfig.serviceCityCount} Şehir` },
   ];
 
-  const relatedServices = services.flatMap((item) => {
+  const relatedServices = sortServicesByBusinessPriority(services).flatMap((item) => {
     if (item.slug === service.slug) {
       return [];
     }

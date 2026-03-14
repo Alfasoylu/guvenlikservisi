@@ -15,6 +15,7 @@ import {
 } from "@/lib/routes";
 import { getCityPageVisuals } from "@/lib/page-images";
 import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
+import { sortServicesByBusinessPriority } from "@/lib/seo/page-factory";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -74,7 +75,7 @@ export default async function CityPage({ params }: PageProps) {
 
   const faqItems = buildCityFaqItems(city.name);
   const cityVisuals = getCityPageVisuals(city.slug);
-  const cityServiceLinks = services.flatMap((service) => {
+  const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap((service) => {
     const href = getCityServicePath(city.slug, service.slug);
 
     if (!href) {

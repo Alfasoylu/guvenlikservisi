@@ -60,16 +60,16 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 
 ## P0.2 İş Modeli Netliği
 - [x] Öncelikli para sayfalarını listele
-- [ ] Kurulum vs bakım vs teknik servis vs arıza servis ayrımını netleştir
-- [ ] “SEO trafik” ile “yüksek intent lead” keywordlerini ayır
-- [ ] En yüksek LTV segmentleri belirle:
-  - [ ] site yönetimleri
-  - [ ] fabrikalar
-  - [ ] depolar
-  - [ ] AVM / zincir mağaza
-  - [ ] plazalar / kurumsal ofisler
+- [x] Kurulum vs bakım vs teknik servis vs arıza servis ayrımını netleştir
+- [x] “SEO trafik” ile “yüksek intent lead” keywordlerini ayır
+- [x] En yüksek LTV segmentleri belirle:
+  - [x] site yönetimleri
+  - [x] fabrikalar
+  - [x] depolar
+  - [x] AVM / zincir mağaza
+  - [x] plazalar / kurumsal ofisler
 - [x] Hangi servisler recurring gelir üretir listele
-- [ ] Hangi servisler sadece tek seferlik gelir üretir listele
+- [x] Hangi servisler sadece tek seferlik gelir üretir listele
 
 ## P0.3 Ölümcül Riskler
 - [ ] Thin content riski dokümante et
