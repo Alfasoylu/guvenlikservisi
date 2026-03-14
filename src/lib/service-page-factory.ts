@@ -3,7 +3,10 @@ import type { ServiceFAQItem } from "@/components/service-page/ServiceFAQ";
 import type { ServiceStatItem } from "@/components/service-page/ServiceStats";
 import type { FaqCollectionKey } from "@/data/seo/faq-bank";
 import { getFaqItemsByKeys } from "@/data/seo/faq-bank";
+import { getSeoCityBySlug } from "@/data/seo/cities";
+import { getDistrictsByCitySlug, getPrimaryDistrictsByCitySlug } from "@/data/seo/districts";
 import { getPainPointsBySlugs } from "@/data/seo/pain-points";
+import { getTrustElement } from "@/data/seo/trust-elements";
 import { cityContent } from "@/data/seo-content/cities";
 import {
   fallbackServiceImages,
@@ -83,11 +86,55 @@ export interface ServicePageFactoryResult {
     title: string;
     items: ServiceFAQItem[];
   };
+  commercial: {
+    title: string;
+    description: string;
+    audienceItems: string[];
+    includedItems: string[];
+    urgencyTitle: string;
+    urgencyBody: string;
+    trustTitle: string;
+    trustItems: string[];
+  };
+  painPoints: {
+    title: string;
+    description: string;
+    items: {
+      slug: string;
+      label: string;
+      painStatement: string;
+      businessImpact: string;
+      recommendedCtaAngle: string;
+    }[];
+  };
+  segmentFit: {
+    title: string;
+    description: string;
+    items: {
+      slug: string;
+      name: string;
+      summary: string;
+      decisionMakerLabel: string;
+      trustAngle: string;
+      ctaAngle: string;
+      commonServices: string[];
+    }[];
+  };
+  localCoverage: {
+    title: string;
+    description: string;
+    note?: string;
+    schemaAreaServed: string;
+    primaryDistricts: string[];
+    otherDistricts: string[];
+  };
   cta: {
     title: string;
     description: string;
     primaryLabel: string;
     secondaryLabel: string;
+    whatsappLabel: string;
+    whatsappHref: string;
   };
   images: {
     hero: ServicePageImage | null;
@@ -125,6 +172,51 @@ function formatNaturalList(items: string[]) {
 function getSortedDistricts(citySlug: string) {
   const turkishCollator = new Intl.Collator("tr");
   return [...(cityContent[citySlug]?.districts || [])].sort((a, b) => turkishCollator.compare(a, b));
+}
+
+function getDecisionMakerLabel(decisionMakerType: string) {
+  switch (decisionMakerType) {
+    case "site-management-board":
+      return "Site yönetimi / yönetim kurulu";
+    case "facility-manager":
+      return "Tesis veya teknik yönetim";
+    case "operations-manager":
+      return "Operasyon veya saha yönetimi";
+    case "procurement":
+      return "Satın alma";
+    case "store-operations":
+      return "Mağaza operasyon yönetimi";
+    case "corporate-admin":
+      return "İdari işler / kurumsal yönetim";
+    default:
+      return "Yetkili karar verici";
+  }
+}
+
+function buildUrgencyBody(
+  city: CityRecord,
+  service: ServiceRecord,
+  businessIntent: string | undefined,
+  leadPriority: string | undefined,
+  painPointSummary?: string
+) {
+  if (businessIntent === "fault-repair") {
+    return `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} taleplerinde kayıt veya görüntü kesintisi uzadıkça güvenlik açığı büyür. Belirti bazlı hızlı teşhis ve yerinde müdahale planı bu yüzden kritik hale gelir.`;
+  }
+
+  if (businessIntent === "maintenance" || businessIntent === "monitoring") {
+    return `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacını ertelemek kayıt sürekliliği, cihaz sağlığı ve uzaktan erişim tarafında biriken riskleri artırır. Planlı bakım ve hızlı kontrol uzun vadeli servis maliyetini düşürür.`;
+  }
+
+  if (businessIntent === "technical-service") {
+    return `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacında doğru teşhis geciktiğinde aynı arıza tekrar eder ve saha kesintisi uzar. Sorunun kaynağını hızla netleştirmek bu yüzden ilk adımdır.`;
+  }
+
+  if (leadPriority === "strategic") {
+    return `${city.name} içinde bu hizmet çoğu zaman daha büyük bir güvenlik yatırımının başlangıcıdır. ${painPointSummary ?? "Doğru kapsam ve bakım devamlılığı"} netleşmeden verilen kararlar sonradan ek maliyet ve yeniden iş çıkarabilir.`;
+  }
+
+  return `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} kararını geciktirmek kör nokta, kayıt sürekliliği veya erişim güvenliği gibi kritik riskleri büyütebilir. Doğru keşif ve hızlı teklif süreci daha kontrollü bir kurulum sağlar.`;
 }
 
 function getServiceImageEntry(serviceSlug: string): ServiceImageRegistryEntry {
@@ -253,6 +345,7 @@ export function getServicePageFactoryData(
   service: ServiceRecord
 ): ServicePageFactoryResult {
   const cityDetails = cityContent[city.slug];
+  const seoCity = getSeoCityBySlug(city.slug);
   const serviceDetails = serviceContent[service.slug];
   const seoService = getSeoServiceBySlug(service.slug);
   const businessModel = seoService ? getBusinessModelForService(seoService) : null;
@@ -260,11 +353,22 @@ export function getServicePageFactoryData(
   const serviceUseCases = useCaseContent[service.slug];
   const imageEntry = getServiceImageEntry(service.slug);
   const servicePainPoints = getPainPointsBySlugs(seoService?.painPointSlugs ?? []);
-  const serviceFaqItems = getFaqItemsByKeys(
-    seoService?.faqKeys ?? ([`service:${service.slug}`] as FaqCollectionKey[])
-  );
+  const primarySegments = getHighLtvSegmentsForService(service.slug).slice(0, 3);
+  const serviceFaqItems = getFaqItemsByKeys([
+    ...(seoService?.faqKeys ?? ([`service:${service.slug}`] as FaqCollectionKey[])),
+    ...primarySegments.slice(0, 1).map((segment) => `segment:${segment.slug}` as FaqCollectionKey),
+    ...servicePainPoints.slice(0, 1).map((painPoint) => `issue:${painPoint.slug}` as FaqCollectionKey),
+  ]);
+  const trustElement =
+    getTrustElement(seoService?.trustElementKey ?? "installation") ??
+    getTrustElement("installation")!;
 
   const districts = getSortedDistricts(city.slug);
+  const primaryDistricts = getPrimaryDistrictsByCitySlug(city.slug);
+  const otherDistricts = getDistrictsByCitySlug(city.slug)
+    .filter((district) => district.priority !== "primary")
+    .map((district) => district.name)
+    .slice(0, 8);
   const benefits = serviceDetails?.benefits.map((item) => fillTemplate(item, city, service)) || [];
   const process = serviceDetails?.process.map((item) => fillTemplate(item, city, service)) || [];
   const useCases =
@@ -289,14 +393,57 @@ export function getServicePageFactoryData(
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
   const metadataTargetText = formatNaturalList(metadataTargets);
   const fallbackUseCases = servicePainPoints.slice(0, 4).map((painPoint) => painPoint.painStatement);
-  const primarySegments = getHighLtvSegmentsForService(service.slug)
+  const primarySegmentLabels = primarySegments
     .slice(0, 2)
     .map((segment) => segment.searchLabels[0] ?? segment.name.toLocaleLowerCase("tr-TR"));
-  const segmentText = primarySegments.length > 0 ? `${formatNaturalList(primarySegments)} gibi öncelikli projelerde ` : "";
+  const segmentText = primarySegmentLabels.length > 0 ? `${formatNaturalList(primarySegmentLabels)} gibi öncelikli projelerde ` : "";
   const businessMetaAngle = businessModel?.businessGuidance.metaAngle ?? "Profesyonel keşif ve hızlı teklif akışı ile süreci netleştiriyoruz.";
   const metaDescription = cityDetails
     ? `${city.name} içinde ${metadataTargetText} için ${serviceDetails?.metadataIntent || service.name.toLowerCase()} hizmeti sunuyoruz. ${segmentText}${businessMetaAngle} ${cityDetails.metadataDistrictCoverage} Ücretsiz keşif ve hızlı teklif alın.`
     : `${city.name} içinde ${service.name.toLowerCase()} hizmeti sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
+  const localCoverageDescription =
+    primaryDistricts.length > 0
+      ? `${city.name} içinde ${primaryDistricts
+          .slice(0, 4)
+          .map((district) => district.name)
+          .join(", ")} başta olmak üzere ilçe bazlı keşif, montaj ve servis planlaması yapıyoruz.`
+      : `${city.name} genelinde ilçe bazlı keşif, montaj ve servis planlaması yapıyoruz.`;
+  const localCoverageSchemaArea =
+    primaryDistricts.length > 0
+      ? `${city.name} ve ${formatNaturalList(primaryDistricts.slice(0, 3).map((district) => district.name))}`
+      : city.name;
+  const commercialAudienceItems =
+    primarySegments.length > 0
+      ? primarySegments.map((segment) => `${segment.name}: ${segment.commonPainPoints[0] ?? segment.trustAngle}`)
+      : (seoCity?.serviceAreas ?? [])
+          .slice(0, 3)
+          .map((area) => `${city.name} içinde ${area} için planlı ${service.name.toLocaleLowerCase("tr-TR")} desteği`);
+  const guidanceItems = businessModel?.businessGuidance.emphasisPoints.slice(0, 4) ?? [];
+  const includedItems =
+    guidanceItems.length > 0 ? guidanceItems : benefits.slice(0, 4).length > 0 ? benefits.slice(0, 4) : process.slice(0, 4);
+  const urgencyBody = buildUrgencyBody(
+    city,
+    service,
+    businessModel?.businessIntent,
+    businessModel?.leadPriority,
+    servicePainPoints[0]?.businessImpact
+  );
+  const segmentFitItems = primarySegments.map((segment) => ({
+    slug: segment.slug,
+    name: segment.name,
+    summary: segment.commonPainPoints[0] ?? segment.trustAngle,
+    decisionMakerLabel: getDecisionMakerLabel(segment.decisionMakerType),
+    trustAngle: segment.trustAngle,
+    ctaAngle: segment.recommendedCtaAngle,
+    commonServices: segment.commonServiceSlugs
+      .map((serviceSlug) => services.find((item) => item.slug === serviceSlug)?.name)
+      .filter((item): item is string => Boolean(item))
+      .slice(0, 3),
+  }));
+  const whatsappMessage =
+    businessModel?.leadPriority === "urgent"
+      ? `${city.name} ${service.name} için acil destek almak istiyorum.`
+      : `${city.name} ${service.name} için bilgi, keşif ve fiyat almak istiyorum.`;
 
   const stats: ServiceStatItem[] = [
     { label: "Tamamlanan Proje", value: siteConfig.stats.projects },
@@ -319,7 +466,7 @@ export function getServicePageFactoryData(
     return {
       href,
       label: `${city.name} ${item.name}`,
-      description: `${city.name} içindeki ${item.name.toLowerCase()} sayfasını da inceleyin.`,
+      description: item.shortDescription,
     };
   });
 
@@ -367,6 +514,50 @@ export function getServicePageFactoryData(
       title: "Sık Sorulan Sorular",
       items: faqItems,
     },
+    commercial: {
+      title: `${city.name} içinde ${service.name} hizmetini kimler tercih ediyor?`,
+      description:
+        businessModel?.businessGuidance.trustAngle ??
+        `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} taleplerinde doğru kapsam, hızlı saha planı ve güven veren teslim süreci öne çıkar.`,
+      audienceItems: commercialAudienceItems,
+      includedItems,
+      urgencyTitle:
+        businessModel?.leadPriority === "urgent"
+          ? "Neden hızlı müdahale önemli?"
+          : "Neden bekletmeden planlamak gerekir?",
+      urgencyBody,
+      trustTitle: trustElement.title,
+      trustItems: trustElement.bullets,
+    },
+    painPoints: {
+      title: `${service.name} hizmetinde en sık çözdüğümüz sorunlar`,
+      description:
+        servicePainPoints[0]?.businessImpact ??
+        `${city.name} içinde bu hizmet genelde saha görünürlüğü, kayıt sürekliliği ve hızlı müdahale ihtiyacıyla birlikte talep edilir.`,
+      items: servicePainPoints.slice(0, 4).map((painPoint) => ({
+        slug: painPoint.slug,
+        label: painPoint.label,
+        painStatement: painPoint.painStatement,
+        businessImpact: painPoint.businessImpact,
+        recommendedCtaAngle: painPoint.recommendedCtaAngle,
+      })),
+    },
+    segmentFit: {
+      title: `${city.name} içinde bu hizmet hangi işletme tiplerinde daha kritik hale gelir?`,
+      description:
+        primarySegments.length > 0
+          ? `${city.name} içinde aynı hizmet farklı segmentlerde farklı satın alma davranışı üretir. Aşağıdaki özetler teklif ve keşif dilini buna göre netleştirir.`
+          : `${city.name} içinde hizmet kapsamını mekan tipi, operasyon riski ve bakım beklentisine göre şekillendiriyoruz.`,
+      items: segmentFitItems,
+    },
+    localCoverage: {
+      title: `${city.name} içinde hizmet verdiğimiz öncelikli ilçeler`,
+      description: localCoverageDescription,
+      note: cityDetails?.districtsNote ?? seoCity?.serviceAreaEmphasis,
+      schemaAreaServed: localCoverageSchemaArea,
+      primaryDistricts: primaryDistricts.map((district) => district.name),
+      otherDistricts,
+    },
     cta: {
       title: fillTemplate(serviceDetails?.ctaTitle || `${city.name} için teklif alın`, city, service),
       description: fillTemplate(
@@ -376,6 +567,8 @@ export function getServicePageFactoryData(
       ),
       primaryLabel: "Hemen Ara",
       secondaryLabel: "İletişim Formuna Git",
+      whatsappLabel: "WhatsApp ile Yazın",
+      whatsappHref: `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
     },
     images: {
       hero: heroImage,
