@@ -1,7 +1,11 @@
+import type { FaqCollectionKey } from "./faq-bank";
 import { serviceFaqBank } from "./faq-bank";
-import { primaryKeywordThemeByServiceSlug } from "./keywords";
+import { getKeywordOpportunitySummaryForService, primaryKeywordThemeByServiceSlug } from "./keywords";
+import type { PainPointSlug } from "./pain-points";
+import { painPointSlugsByServiceSlug } from "./pain-points";
 import { schemaTypeByServiceSlug, type SeoSchemaType } from "./schema-map";
 import type { HighLtvSegmentSlug } from "./segments";
+import type { TrustIntentKey } from "./trust-elements";
 import { serviceContent } from "../seo-content/services";
 
 export interface ServiceRouteRecord {
@@ -47,17 +51,22 @@ export interface ServiceBusinessModel {
   targetSegmentSlugs: HighLtvSegmentSlug[];
   priorityLinkSlugs: string[];
   keywordThemeTags: string[];
+  painPointSlugs: PainPointSlug[];
   businessGuidance: ServiceBusinessGuidance;
 }
 
 export interface SeoService extends ServiceRouteRecord, ServiceBusinessModel {
   intentType: SeoServiceIntent;
   primaryKeywordTheme: string;
+  primaryLeadKeyword: string;
+  primaryTrafficKeyword: string | null;
   leadValue: "high" | "medium";
   schemaType: SeoSchemaType;
   ctaStyle: SeoCtaStyle;
   heroTitlePattern: string;
-  faqKeys: string[];
+  faqKeys: FaqCollectionKey[];
+  painPointSlugs: PainPointSlug[];
+  trustElementKey: TrustIntentKey;
   internalLinkHints: string[];
   metadataTargets: string[];
 }
@@ -343,6 +352,10 @@ const keywordThemeTagsByServiceSlug: Record<string, string[]> = {
   "uzaktan-kamera-izleme": ["uzaktan-izleme", "merkezi-takip", "sureklilik"],
 };
 
+const faqKeysByServiceSlug: Record<string, FaqCollectionKey[]> = Object.fromEntries(
+  serviceRouteRecords.map((service) => [service.slug, [`service:${service.slug}` as FaqCollectionKey]])
+) as Record<string, FaqCollectionKey[]>;
+
 const businessGuidanceByIntent: Record<ServiceBusinessIntent, ServiceBusinessGuidance> = {
   installation: {
     metaAngle: "Keşif, proje planlama ve doğru ekipman seçimi ile ilk kurulumun sağlam başlamasını hedefliyoruz.",
@@ -436,6 +449,8 @@ export const seoServices: SeoService[] = serviceRouteRecords.map((service) => {
   const revenueModel = revenueModelByServiceSlug[service.slug] ?? "one-time";
   const revenueFlags = buildRevenueFlags(revenueModel);
   const businessGuidance = businessGuidanceByIntent[businessIntent];
+  const keywordSummary = getKeywordOpportunitySummaryForService(service.slug);
+  const faqKeys = faqKeysByServiceSlug[service.slug] ?? [`service:${service.slug}`];
 
   return {
     ...service,
@@ -445,6 +460,8 @@ export const seoServices: SeoService[] = serviceRouteRecords.map((service) => {
       primaryKeywordThemeByServiceSlug[service.slug] ??
       content?.metadataIntent ??
       service.name.toLocaleLowerCase("tr-TR"),
+    primaryLeadKeyword: keywordSummary.primaryLeadKeyword ?? service.name,
+    primaryTrafficKeyword: keywordSummary.primaryTrafficKeyword,
     leadValue: leadValueOverrides[service.slug] ?? "high",
     leadPriority: leadPriorityByServiceSlug[service.slug] ?? "high",
     businessPriorityScore: businessPriorityScoreByServiceSlug[service.slug] ?? 3,
@@ -455,7 +472,15 @@ export const seoServices: SeoService[] = serviceRouteRecords.map((service) => {
     schemaType: schemaTypeByServiceSlug[service.slug] ?? "Service",
     ctaStyle: ctaStyleByServiceSlug[service.slug] ?? "quote",
     heroTitlePattern: "{city} {service} Hizmeti",
-    faqKeys: serviceFaqBank[service.slug] ? [service.slug] : [],
+    faqKeys: faqKeys.filter((faqKey) => {
+      if (!faqKey.startsWith("service:")) {
+        return true;
+      }
+
+      return Boolean(serviceFaqBank[faqKey.replace("service:", "")]);
+    }),
+    painPointSlugs: painPointSlugsByServiceSlug[service.slug] ?? [],
+    trustElementKey: businessIntent,
     internalLinkHints: ["city-hub", "same-city-related-services", "same-service-other-cities"],
     priorityLinkSlugs: priorityLinkSlugsByServiceSlug[service.slug] ?? [],
     targetSegmentSlugs: targetSegmentSlugsByServiceSlug[service.slug] ?? [],
@@ -526,5 +551,6 @@ export function getBusinessModelForService(serviceOrSlug: string | SeoService) {
     priorityLinkSlugs: service.priorityLinkSlugs,
     keywordThemeTags: service.keywordThemeTags,
     businessGuidance: service.businessGuidance,
+    painPointSlugs: service.painPointSlugs,
   } satisfies ServiceBusinessModel;
 }
