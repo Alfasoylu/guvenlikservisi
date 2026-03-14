@@ -259,7 +259,7 @@ Her programmatic sayfada aşağıdaki bloklar bulunmalı:
 - [ ] sık arızalar / riskler
 - [ ] sık sorulan sorular
 - [ ] CTA
-- [ ] form
+- [x] form
 - [ ] breadcrumb
 - [ ] schema
 
@@ -397,8 +397,8 @@ Her sayfa için:
 - [ ] 404 ve soft 404 listesini izle
 
 ## P6.3 Search Console Operasyonu
-- [ ] domain property doğrula
-- [ ] sitemap gönder
+- [x] domain property doğrula
+- [x] sitemap gönder
 - [ ] coverage sorunlarını takip et
 - [ ] crawl stats izle
 - [ ] sayfa indexlenme oranını takip et
@@ -440,9 +440,9 @@ Her sayfa için:
 
 ## P8.1 Form Standardizasyonu
 - [ ] tüm form component’lerini tek veri modeliyle hizala
-- [ ] şehir / ilçe / servis değerlerini otomatik doldur
-- [ ] hidden field ile `page_url` zorunlu gönder
-- [ ] hidden field ile `form_source` zorunlu gönder
+- [x] şehir / ilçe / servis değerlerini otomatik doldur
+- [x] hidden field ile `page_url` zorunlu gönder
+- [x] hidden field ile `form_source` zorunlu gönder
 - [ ] campaign parametreleri yakala
 - [ ] CTA varyasyonlarını test et
 
@@ -681,7 +681,7 @@ Her sayfa için:
 
 ## P15.1 Event Standardı
 - [ ] page_view
-- [ ] form_start
+- [x] form_start
 - [x] form_submit
 - [x] whatsapp_click
 - [x] phone_click
