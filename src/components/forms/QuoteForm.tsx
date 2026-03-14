@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { CheckCircle, AlertCircle, Loader2, ShieldCheck, PhoneCall } from "lucide-react";
-import { siteConfig } from "@/data/site-config";
-import { cities } from "@/data/cities";
+import { AlertCircle, CheckCircle, Loader2, PhoneCall, ShieldCheck } from "lucide-react";
 import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
-import { getCityServiceTrackingContext, pushAnalyticsEvent } from "@/lib/analytics";
+import { cities } from "@/data/cities";
+import { siteConfig } from "@/data/site-config";
+import {
+  getCityServiceTrackingContext,
+  pushAnalyticsEvent,
+  type CityServiceTrackingContext,
+} from "@/lib/analytics";
 import {
   formatTurkishPhoneInput,
   getTurkishPhoneValidationMessage,
@@ -15,8 +19,16 @@ import {
 
 interface QuoteFormProps {
   defaultService?: string;
+  defaultCity?: string;
   compact?: boolean;
   className?: string;
+  lockCity?: boolean;
+  lockService?: boolean;
+  formSource?: string;
+  pageTemplate?: string;
+  intentType?: string;
+  trackingContext?: CityServiceTrackingContext | null;
+  extraNotes?: string[];
 }
 
 interface FormData {
@@ -29,17 +41,6 @@ interface FormData {
   note: string;
   website: string;
 }
-
-const initialForm: FormData = {
-  name: "",
-  phone: "",
-  email: "",
-  city: "",
-  service_type: "",
-  location_type: "",
-  note: "",
-  website: "",
-};
 
 const serviceOptions = [
   { value: "kamera", label: "Kamera Sistemi Kurulumu" },
@@ -64,6 +65,19 @@ const locationOptions = [
   { value: "diger", label: "Diğer" },
 ];
 
+function buildInitialForm(defaultCity: string, defaultService: string): FormData {
+  return {
+    name: "",
+    phone: "",
+    email: "",
+    city: defaultCity,
+    service_type: defaultService,
+    location_type: "",
+    note: "",
+    website: "",
+  };
+}
+
 function isValidEmail(value: string) {
   if (!value.trim()) return true;
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
@@ -71,33 +85,68 @@ function isValidEmail(value: string) {
 
 export default function QuoteForm({
   defaultService = "",
+  defaultCity = "",
   compact = false,
   className = "",
+  lockCity = false,
+  lockService = false,
+  formSource,
+  pageTemplate,
+  intentType = "",
+  trackingContext,
+  extraNotes = [],
 }: QuoteFormProps) {
-  const [form, setForm] = useState<FormData>({
-    ...initialForm,
-    service_type: defaultService,
-  });
+  const [form, setForm] = useState<FormData>(() => buildInitialForm(defaultCity, defaultService));
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const attribution = useLandingAttribution();
   const pathname = usePathname();
+  const hasTrackedFormStart = useRef(false);
 
   useEffect(() => {
     setForm((prev) => ({
       ...prev,
-      service_type: prev.service_type || defaultService,
+      city: defaultCity || prev.city,
+      service_type: defaultService || prev.service_type,
     }));
-  }, [defaultService]);
+  }, [defaultCity, defaultService]);
 
-  const selectedServiceLabel = useMemo(() => {
-    return serviceOptions.find((item) => item.value === form.service_type)?.label || "";
-  }, [form.service_type]);
-  const cityServiceTrackingContext = useMemo(
-    () => getCityServiceTrackingContext(pathname || ""),
-    [pathname]
+  const effectiveTrackingContext = useMemo(
+    () => trackingContext ?? getCityServiceTrackingContext(pathname || ""),
+    [pathname, trackingContext]
   );
+
+  const effectiveFormSource =
+    formSource || (attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form");
+  const effectivePageTemplate =
+    pageTemplate || effectiveTrackingContext?.page_template || attribution.page_type || "";
+
+  const selectedServiceLabel = useMemo(
+    () => serviceOptions.find((item) => item.value === form.service_type)?.label || "",
+    [form.service_type]
+  );
+
+  const contextNotes = useMemo(
+    () =>
+      [
+        ...new Set(
+          [
+            ...extraNotes,
+            effectivePageTemplate ? `page_template:${effectivePageTemplate}` : "",
+            intentType ? `intent_type:${intentType}` : "",
+            effectiveTrackingContext?.city ? `city_slug:${effectiveTrackingContext.city}` : "",
+            effectiveTrackingContext?.service ? `service_slug:${effectiveTrackingContext.service}` : "",
+          ].filter(Boolean)
+        ),
+      ],
+    [effectivePageTemplate, effectiveTrackingContext, extraNotes, intentType]
+  );
+
+  const fixedContextSummary = [
+    lockCity && form.city ? `İl: ${form.city}` : "",
+    lockService && selectedServiceLabel ? `Hizmet: ${selectedServiceLabel}` : "",
+  ].filter(Boolean);
 
   function validate(): boolean {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
@@ -109,7 +158,6 @@ export default function QuoteForm({
     }
 
     const phoneError = getTurkishPhoneValidationMessage(form.phone);
-
     if (phoneError) {
       newErrors.phone = phoneError;
     }
@@ -142,12 +190,7 @@ export default function QuoteForm({
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
-
-    let nextValue = value;
-
-    if (name === "phone") {
-      nextValue = formatTurkishPhoneInput(value);
-    }
+    const nextValue = name === "phone" ? formatTurkishPhoneInput(value) : value;
 
     setForm((prev) => ({
       ...prev,
@@ -167,10 +210,31 @@ export default function QuoteForm({
     }
   }
 
+  function trackFormStart() {
+    if (hasTrackedFormStart.current) {
+      return;
+    }
+
+    hasTrackedFormStart.current = true;
+
+    pushAnalyticsEvent("form_start", {
+      page_path: effectiveTrackingContext?.page_path || pathname || "",
+      city: effectiveTrackingContext?.city || "",
+      service: effectiveTrackingContext?.service || "",
+      lead_channel: "form",
+      form_source: effectiveFormSource,
+      service_type: form.service_type || defaultService || "",
+      intent_type: intentType,
+      page_template: effectivePageTemplate,
+    });
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!validate()) return;
+    if (!validate()) {
+      return;
+    }
 
     setStatus("loading");
     setFeedbackMessage("");
@@ -184,8 +248,12 @@ export default function QuoteForm({
         body: JSON.stringify({
           ...form,
           phone: normalizeTurkishPhone(form.phone),
-          form_source: attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form",
+          form_source: effectiveFormSource,
           ...attribution,
+          page_type: effectivePageTemplate || attribution.page_type,
+          page_template: effectivePageTemplate || undefined,
+          intent_type: intentType || undefined,
+          notes: contextNotes.join(" | "),
           page_title: document.title,
         }),
       });
@@ -201,28 +269,23 @@ export default function QuoteForm({
       setStatus("success");
       setFeedbackMessage(result?.message || "");
 
-      if (
-        typeof window !== "undefined"
-      ) {
-        pushAnalyticsEvent("form_submit", {
-          page_path: cityServiceTrackingContext?.page_path || pathname || "",
-          city: cityServiceTrackingContext?.city || "",
-          service: cityServiceTrackingContext?.service || "",
-          lead_channel: "form",
-          form_source: attribution.page_type === "landing_page" ? "landing_quote_form" : "quote_form",
-          service_type: form.service_type || defaultService || "",
-          page_template: cityServiceTrackingContext?.page_template || attribution.page_type || "",
-          event_category: "lead",
-          event_label: form.service_type || defaultService || "genel-teklif",
-          value: 1,
-        });
-      }
-
-      setForm({
-        ...initialForm,
-        service_type: defaultService,
+      pushAnalyticsEvent("form_submit", {
+        page_path: effectiveTrackingContext?.page_path || pathname || "",
+        city: effectiveTrackingContext?.city || "",
+        service: effectiveTrackingContext?.service || "",
+        lead_channel: "form",
+        form_source: effectiveFormSource,
+        service_type: form.service_type || defaultService || "",
+        intent_type: intentType,
+        page_template: effectivePageTemplate,
+        event_category: "lead",
+        event_label: form.service_type || defaultService || "genel-teklif",
+        value: 1,
       });
+
+      setForm(buildInitialForm(defaultCity, defaultService));
       setErrors({});
+      hasTrackedFormStart.current = false;
     } catch (error) {
       setStatus("error");
       setFeedbackMessage(
@@ -250,11 +313,11 @@ export default function QuoteForm({
         <p className="mb-2 text-text-light">
           {feedbackMessage || "Ekibimiz en kısa sürede sizi arayarak keşif ve teklif sürecini başlatacak."}
         </p>
-        {selectedServiceLabel && (
+        {selectedServiceLabel ? (
           <p className="mb-4 text-sm text-text-light">
             Talep edilen hizmet: <span className="font-semibold text-primary">{selectedServiceLabel}</span>
           </p>
-        )}
+        ) : null}
         <div className="rounded-xl bg-surface px-4 py-4 text-sm text-text-light">
           Acil bir durum varsa{" "}
           <a
@@ -272,10 +335,11 @@ export default function QuoteForm({
   return (
     <form
       onSubmit={handleSubmit}
+      onFocusCapture={trackFormStart}
       noValidate
       className={`rounded-2xl border border-gray-200 bg-white p-6 shadow-lg ${className}`}
     >
-      {!compact && (
+      {!compact ? (
         <div className="mb-6">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             <ShieldCheck size={14} />
@@ -287,11 +351,29 @@ export default function QuoteForm({
             Formu doldurun, alanınıza uygun güvenlik sistemi için sizi arayalım.
           </p>
         </div>
-      )}
+      ) : null}
+
+      {fixedContextSummary.length > 0 ? (
+        <div className="mb-4 flex flex-wrap gap-2">
+          {fixedContextSummary.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      ) : null}
 
       <div className={`grid gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
         <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
-        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
+        <input
+          type="hidden"
+          name="page_type"
+          value={effectivePageTemplate || attribution.page_type}
+          readOnly
+        />
         <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
         <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
         <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
@@ -339,7 +421,7 @@ export default function QuoteForm({
             autoComplete="name"
             className={inputClass("name")}
           />
-          {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+          {errors.name ? <p className="mt-1 text-xs text-red-500">{errors.name}</p> : null}
         </div>
 
         <div>
@@ -357,7 +439,7 @@ export default function QuoteForm({
             inputMode="tel"
             className={inputClass("phone")}
           />
-          {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+          {errors.phone ? <p className="mt-1 text-xs text-red-500">{errors.phone}</p> : null}
         </div>
 
         <div className={compact ? "" : "sm:col-span-2"}>
@@ -374,52 +456,60 @@ export default function QuoteForm({
             autoComplete="email"
             className={inputClass("email")}
           />
-          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+          {errors.email ? <p className="mt-1 text-xs text-red-500">{errors.email}</p> : null}
         </div>
 
-        <div>
-          <label htmlFor="quote-city" className={labelClass}>
-            İl *
-          </label>
-          <select
-            id="quote-city"
-            name="city"
-            value={form.city}
-            onChange={handleChange}
-            className={inputClass("city")}
-          >
-            <option value="">Seçiniz...</option>
-            {cities.map((c) => (
-              <option key={c.slug} value={c.name}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-          {errors.city && <p className="mt-1 text-xs text-red-500">{errors.city}</p>}
-        </div>
+        {lockCity ? (
+          <input type="hidden" name="city" value={form.city} readOnly />
+        ) : (
+          <div>
+            <label htmlFor="quote-city" className={labelClass}>
+              İl *
+            </label>
+            <select
+              id="quote-city"
+              name="city"
+              value={form.city}
+              onChange={handleChange}
+              className={inputClass("city")}
+            >
+              <option value="">Seçiniz...</option>
+              {cities.map((city) => (
+                <option key={city.slug} value={city.name}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
+            {errors.city ? <p className="mt-1 text-xs text-red-500">{errors.city}</p> : null}
+          </div>
+        )}
 
-        <div>
-          <label htmlFor="quote-service" className={labelClass}>
-            Hizmet Türü *
-          </label>
-          <select
-            id="quote-service"
-            name="service_type"
-            value={form.service_type}
-            onChange={handleChange}
-            className={inputClass("service_type")}
-          >
-            <option value="">Seçiniz...</option>
-            {serviceOptions.map((service) => (
-              <option key={service.value} value={service.value}>
-                {service.label}
-              </option>
-            ))}
-          </select>
-          {errors.service_type && (
-            <p className="mt-1 text-xs text-red-500">{errors.service_type}</p>
-          )}
-        </div>
+        {lockService ? (
+          <input type="hidden" name="service_type" value={form.service_type} readOnly />
+        ) : (
+          <div>
+            <label htmlFor="quote-service" className={labelClass}>
+              Hizmet Türü *
+            </label>
+            <select
+              id="quote-service"
+              name="service_type"
+              value={form.service_type}
+              onChange={handleChange}
+              className={inputClass("service_type")}
+            >
+              <option value="">Seçiniz...</option>
+              {serviceOptions.map((service) => (
+                <option key={service.value} value={service.value}>
+                  {service.label}
+                </option>
+              ))}
+            </select>
+            {errors.service_type ? (
+              <p className="mt-1 text-xs text-red-500">{errors.service_type}</p>
+            ) : null}
+          </div>
+        )}
 
         <div className={compact ? "" : "sm:col-span-2"}>
           <label htmlFor="quote-location" className={labelClass}>
@@ -439,9 +529,9 @@ export default function QuoteForm({
               </option>
             ))}
           </select>
-          {errors.location_type && (
+          {errors.location_type ? (
             <p className="mt-1 text-xs text-red-500">{errors.location_type}</p>
-          )}
+          ) : null}
         </div>
 
         <div className={compact ? "" : "sm:col-span-2"}>
@@ -471,12 +561,12 @@ export default function QuoteForm({
         </div>
       </div>
 
-      {status === "error" && (
+      {status === "error" ? (
         <div className="mt-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           <AlertCircle size={16} />
           {feedbackMessage || `Bir hata oluştu. Form gönderilemediyse bizi doğrudan arayın: ${siteConfig.phone}`}
         </div>
-      )}
+      ) : null}
 
       <button
         type="submit"

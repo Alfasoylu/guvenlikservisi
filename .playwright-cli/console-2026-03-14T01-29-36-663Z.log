@@ -1,0 +1,51 @@
+[ 2609285ms] [ERROR] ./src/components/sections/CTASection.tsx:2:1
+Module not found: Can't resolve '@/components/forms/QuoteForm'
+  1 | import Link from "next/link";
+> 2 | import QuoteForm from "@/components/forms/QuoteForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { Container } from "@/components/ui/Container";
+  4 | import { siteConfig } from "@/data/site-config";
+  5 | import { Phone, ShieldCheck, Clock3, BadgeCheck, ArrowRight } from "lucide-react";
+
+Import map: aliased to relative './src/components/forms/QuoteForm' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/components/sections/CTASection.tsx
+    ./src/app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[ 2609534ms] [ERROR] ./src/components/sections/CTASection.tsx:2:1
+Module not found: Can't resolve '@/components/forms/QuoteForm'
+  1 | import Link from "next/link";
+> 2 | import QuoteForm from "@/components/forms/QuoteForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { Container } from "@/components/ui/Container";
+  4 | import { siteConfig } from "@/data/site-config";
+  5 | import { Phone, ShieldCheck, Clock3, BadgeCheck, ArrowRight } from "lucide-react";
+
+Import map: aliased to relative './src/components/forms/QuoteForm' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/components/sections/CTASection.tsx
+    ./src/app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[ 2609606ms] [ERROR] ./src/components/sections/CTASection.tsx:2:1
+Module not found: Can't resolve '@/components/forms/QuoteForm'
+  1 | import Link from "next/link";
+> 2 | import QuoteForm from "@/components/forms/QuoteForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { Container } from "@/components/ui/Container";
+  4 | import { siteConfig } from "@/data/site-config";
+  5 | import { Phone, ShieldCheck, Clock3, BadgeCheck, ArrowRight } from "lucide-react";
+
+Import map: aliased to relative './src/components/forms/QuoteForm' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./src/components/sections/CTASection.tsx
+    ./src/app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127

@@ -10,6 +10,7 @@ import ServiceCTA from "@/components/service-page/ServiceCTA";
 import ServiceDistricts from "@/components/service-page/ServiceDistricts";
 import ServiceFAQ from "@/components/service-page/ServiceFAQ";
 import ServiceHero from "@/components/service-page/ServiceHero";
+import ServiceLeadFormSection from "@/components/service-page/ServiceLeadFormSection";
 import ServicePackages from "@/components/service-page/ServicePackages";
 import ServicePainPoints from "@/components/service-page/ServicePainPoints";
 import ServiceSEOContent from "@/components/service-page/ServiceSEOContent";
@@ -109,6 +110,33 @@ interface ServiceSpecificContent {
 type CityRecord = (typeof cities)[number];
 type ServiceRecord = (typeof services)[number];
 type FactoryPageContent = ReturnType<typeof getServicePageFactoryData>;
+
+const waveOneMoneyPages = new Set([
+  "/istanbul/kamera-sistemi-kurulumu",
+  "/istanbul/kamera-ariza-servisi",
+  "/istanbul/bakim-servis-uzaktan-izleme",
+  "/istanbul/apartman-site-guvenlik-sistemi",
+  "/istanbul/fabrika-depo-guvenlik-sistemi",
+  "/ankara/kamera-sistemi-kurulumu",
+  "/ankara/kamera-ariza-servisi",
+  "/kocaeli/fabrika-depo-guvenlik-sistemi",
+]);
+
+function getEmbeddedQuoteServiceType(serviceSlug: string) {
+  switch (serviceSlug) {
+    case "kamera-sistemi-kurulumu":
+    case "kamera-ariza-servisi":
+      return "kamera";
+    case "bakim-servis-uzaktan-izleme":
+      return "bakim-servis";
+    case "apartman-site-guvenlik-sistemi":
+      return "apartman-site";
+    case "fabrika-depo-guvenlik-sistemi":
+      return "fabrika-depo";
+    default:
+      return "";
+  }
+}
 
 function buildSectionCards(items: string[]) {
   const cards = [];
@@ -1870,6 +1898,9 @@ export default async function ServicePage({ params }: PageProps) {
   const heroHeading = `${city.name} ${service.name} Hizmeti`;
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
   const pagePath = `/${city.slug}/${service.slug}`;
+  const embeddedFormServiceType = getEmbeddedQuoteServiceType(service.slug);
+  const showEmbeddedLeadForm =
+    Boolean(embeddedFormServiceType) && waveOneMoneyPages.has(pagePath);
   const leadTrackingBase = {
     "data-page-path": pagePath,
     "data-city": city.slug,
@@ -2537,7 +2568,7 @@ export default async function ServicePage({ params }: PageProps) {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="#teklif-formu"
+                href={showEmbeddedLeadForm ? "#teklif-formu" : "#teklif"}
                 className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-500"
               >
                 Ücretsiz Teklif Al
@@ -2564,6 +2595,17 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {showEmbeddedLeadForm ? (
+        <ServiceLeadFormSection
+          cityName={city.name}
+          citySlug={city.slug}
+          serviceName={service.name}
+          serviceSlug={service.slug}
+          intentType={seoService?.businessIntent ?? "installation"}
+          defaultServiceType={embeddedFormServiceType}
+        />
+      ) : null}
 
       <ServiceCTA
         title={pageContent.cta.title}
