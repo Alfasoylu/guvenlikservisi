@@ -7,6 +7,7 @@ import {
   getTurkishPhoneValidationMessage,
   normalizeTurkishPhone,
 } from "@/lib/phone";
+import { siteConfig } from "@/data/site-config";
 
 type FormState = {
   name: string;
@@ -67,7 +68,7 @@ export default function AlarmQuoteForm() {
         camera_count: "",
         message: form.message.trim(),
         website: form.website,
-        page_url: attribution.page_url || "https://guvenlikservisi.com/teklif/alarm",
+        page_url: attribution.page_url || `${siteConfig.url}/teklif/alarm`,
         page_type: attribution.page_type || "landing_page",
         form_source: "alarm_landing_page",
         utm_source: attribution.utm_source,

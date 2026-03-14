@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
 import AlarmQuoteForm from "@/components/forms/AlarmQuoteForm";
+import { siteConfig } from "@/data/site-config";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/alarm");
 
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     description:
       "İstanbul içi aynı gün alarm montajı. Kablolu ve kablosuz alarm sistemleri, mobil kontrol ve 2 yıl garanti.",
     images: [
-      "https://guvenlikservisi.com/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png",
+      `${siteConfig.url}/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png`,
     ],
   },
 };
@@ -145,7 +146,7 @@ const jsonLd = {
   provider: {
     "@type": "Organization",
     name: "Güvenlik Servisi",
-    url: "https://guvenlikservisi.com",
+    url: siteConfig.url,
   },
   areaServed: {
     "@type": "City",
