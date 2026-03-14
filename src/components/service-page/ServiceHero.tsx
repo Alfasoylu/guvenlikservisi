@@ -20,6 +20,13 @@ import {
   trustGridClass,
 } from "@/components/service-page/styles";
 
+interface HeroTrackingContext {
+  pagePath: string;
+  city: string;
+  service: string;
+  intentType: string;
+}
+
 interface ServiceHeroProps {
   cityName: string;
   serviceName: string;
@@ -29,6 +36,27 @@ interface ServiceHeroProps {
   benefits: string[];
   process: string[];
   image?: ServicePageImage | null;
+  trackingContext?: HeroTrackingContext;
+  phoneCtaSlot?: string;
+}
+
+function getPhoneTrackingProps(
+  trackingContext: HeroTrackingContext | undefined,
+  ctaSlot: string | undefined
+) {
+  if (!trackingContext || !ctaSlot) {
+    return {};
+  }
+
+  return {
+    "data-page-path": trackingContext.pagePath,
+    "data-city": trackingContext.city,
+    "data-service": trackingContext.service,
+    "data-cta-slot": ctaSlot,
+    "data-lead-channel": "phone",
+    "data-intent-type": trackingContext.intentType,
+    "data-page-template": "city_service",
+  } as const;
 }
 
 export default function ServiceHero({
@@ -40,6 +68,8 @@ export default function ServiceHero({
   benefits,
   process,
   image,
+  trackingContext,
+  phoneCtaSlot,
 }: ServiceHeroProps) {
   return (
     <section className={`${sectionClass} ${heroGridClass}`}>
@@ -67,7 +97,11 @@ export default function ServiceHero({
             Ücretsiz Teklif Al
           </a>
 
-          <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className={secondaryButtonClass}>
+          <a
+            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+            className={secondaryButtonClass}
+            {...getPhoneTrackingProps(trackingContext, phoneCtaSlot)}
+          >
             {siteConfig.phone}
           </a>
         </div>
