@@ -4,6 +4,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
 import { cities } from "@/data/cities";
+import { siteConfig } from "@/data/site-config";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/bakim-servis-uzaktan-izleme");
 
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Site, fabrika, depo ve işletmeler için aylık bakım, servis ve uzaktan izleme hizmeti.",
     images: [
-      "https://guvenlikservisi.com/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+      `${siteConfig.url}/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg`,
     ],
   },
 };
@@ -134,7 +135,7 @@ const jsonLd = {
   provider: {
     "@type": "Organization",
     name: "Güvenlik Servisi",
-    url: "https://guvenlikservisi.com",
+    url: siteConfig.url,
   },
   areaServed: provinces.map((province) => ({
     "@type": "City",

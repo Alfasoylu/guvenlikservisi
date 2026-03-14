@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     description:
       "İstanbul genelinde IP kamera kurulumu, mobil izleme ayarı, gece görüşlü sistemler ve hızlı teklif.",
     images: [
-      "https://guvenlikservisi.com/images/landing/istanbul-ip-kamera-hero.webp",
+      `${siteConfig.url}/images/landing/istanbul-ip-kamera-hero.webp`,
     ],
   },
 };
@@ -1181,4 +1181,3 @@ export default function IstanbulIpKameraMontajiPage() {
     </main>
   );
 }
-

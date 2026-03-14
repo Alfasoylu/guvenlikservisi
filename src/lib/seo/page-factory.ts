@@ -3,6 +3,7 @@ import { getLeadIntentKeywordsForService, getSeoTrafficKeywordsForService } from
 import { getPainPointsBySlugs } from "@/data/seo/pain-points";
 import { getPrimaryDistrictsByCitySlug } from "@/data/seo/districts";
 import { getHighLtvSegmentBySlug, highLtvSegments } from "@/data/seo/segments";
+import { isKnownAppPath } from "@/lib/routes";
 import {
   getBusinessModelForService,
   getServiceRouteRecord,
@@ -108,11 +109,22 @@ export function getPriorityServiceLinksForService(serviceSlug: string, limit = 4
   const service = getSeoServiceBySlug(serviceSlug);
   const priorityRecords = (service?.priorityLinkSlugs ?? [])
     .map((slug) => getServiceRouteRecord(slug))
-    .filter((item): item is ServiceRouteRecord => Boolean(item));
+    .filter((item): item is ServiceRouteRecord => {
+      if (!item) {
+        return false;
+      }
+
+      return isKnownAppPath(`/${item.slug}`);
+    });
   const prioritySlugs = new Set(priorityRecords.map((item) => item.slug));
   const fallbackRecords = sortServicesByBusinessPriority(
     seoServices
-      .filter((item) => item.slug !== serviceSlug && !prioritySlugs.has(item.slug))
+      .filter(
+        (item) =>
+          item.slug !== serviceSlug &&
+          !prioritySlugs.has(item.slug) &&
+          isKnownAppPath(`/${item.slug}`)
+      )
       .map(({ slug, name, shortDescription }) => ({ slug, name, shortDescription }))
   );
 

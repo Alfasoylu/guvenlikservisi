@@ -2,7 +2,7 @@ import { cities } from "@/data/cities";
 
 export const siteConfig = {
   name: "Güvenlik Servisi",
-  url: "https://guvenlikservisi.com",
+  url: "https://www.guvenlikservisi.com",
 
   phone: "+90 542 593 49 00",
   whatsapp: "908503077397",
