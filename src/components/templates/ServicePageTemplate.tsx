@@ -10,7 +10,9 @@ import {
 } from "lucide-react";
 import ProcessSection from "@/components/sections/ProcessSection";
 import FAQSection, { FAQItem } from "@/components/sections/FAQSection";
-import CTASection from "@/components/sections/CTASection";
+import CTASection, {
+  type CTASectionContent,
+} from "@/components/sections/CTASection";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
@@ -33,6 +35,27 @@ interface BlogPost {
   excerpt: string;
 }
 
+interface DecisionBlock {
+  title: string;
+  description?: string;
+  items: string[];
+}
+
+interface ScopeDetails {
+  title?: string;
+  description?: string;
+  includedTitle?: string;
+  includedItems: string[];
+  additionalTitle?: string;
+  additionalItems?: string[];
+}
+
+interface PricingFactors {
+  title?: string;
+  description?: string;
+  items: string[];
+}
+
 export interface ServicePageData {
   slug: string;
   title: string;
@@ -51,6 +74,23 @@ export interface ServicePageData {
   imagePlaceholder?: string;
   ctaTitle?: string;
   ctaSubtitle?: string;
+  ctaContent?: CTASectionContent;
+  heroBadge?: string;
+  heroTrustItems?: string[];
+  heroAdvantages?: { title: string; text: string }[];
+  heroPanel?: {
+    title: string;
+    body: string[];
+  };
+  authorityTitle?: string;
+  authorityBody?: string[];
+  authorityNote?: {
+    title: string;
+    body: string;
+  };
+  decisionBlocks?: DecisionBlock[];
+  scopeDetails?: ScopeDetails;
+  pricingFactors?: PricingFactors;
   authorityBeforeFaq?: {
     title: string;
     description?: string;
@@ -73,27 +113,27 @@ interface ServicePageTemplateProps {
   data: ServicePageData;
 }
 
-const guvenMaddeleri = [
+const defaultTrustItems = [
   "Ücretsiz keşif ve ihtiyaç analizi",
   "Doğru ürün seçimi ve sistem planlaması",
   "Anahtar teslim montaj ve devreye alma",
   "Mobil izleme ve temel kullanıcı kurulumu",
 ];
 
-const avantajlar = [
+const defaultAdvantages = [
   {
-    icon: <Clock3 size={18} className="text-accent" />,
     title: "Hızlı teklif",
     text: "Temel ihtiyacınızı öğrendikten sonra en kısa sürede uygun çözüm yapısını çıkarıyoruz.",
   },
   {
-    icon: <BadgeCheck size={18} className="text-accent" />,
     title: "Doğru sistem",
     text: "Gereksiz ürün satmak yerine alanınıza gerçekten uygun sistem öneriyoruz.",
   },
 ];
 
-export default function ServicePageTemplate({ data }: ServicePageTemplateProps) {
+export default function ServicePageTemplate({
+  data,
+}: ServicePageTemplateProps) {
   const lbSchema = generateLocalBusinessSchema();
   const serviceSchema = generateServiceSchema({
     name: data.title,
@@ -105,6 +145,22 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
     { name: data.title, url: `/${data.slug}` },
   ]);
   const ratingSchema = generateAggregateRatingSchema();
+
+  const trustItems = data.heroTrustItems || defaultTrustItems;
+  const advantages = data.heroAdvantages || defaultAdvantages;
+  const heroBadge = data.heroBadge || "Profesyonel kurulum • Hızlı teklif";
+  const authorityTitle =
+    data.authorityTitle || "Neden Profesyonel Kurulum Önemlidir?";
+  const authorityBody = data.authorityBody || [
+    "Yanlış keşif, eksik kapsama, kötü kablolama ve yanlış cihaz seçimi yüzünden birçok sistem ilk bakışta çalışıyor gibi görünür ama olay anında yetersiz kalır.",
+    "Profesyonel kurulumda amaç sadece cihazı monte etmek değil, alanı gerçekten güvenli hale getirmektir. Bu yüzden planlama, kurulum kadar kritiktir.",
+    "Kör noktaları azaltan, kayıt süresini doğru planlayan ve mobil izlemeyi düzgün kuran sistemler uzun vadede çok daha az sorun çıkarır.",
+  ];
+  const authorityNote = data.authorityNote || {
+    title: "Hızlı teklif almak için",
+    body: "Bize şehir, mekan tipi ve temel ihtiyacınızı iletin. En kısa sürede size uygun sistem yapısını netleştirelim.",
+  };
+  const heroPanel = data.heroPanel;
 
   return (
     <>
@@ -137,28 +193,28 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
+      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-24">
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="max-w-3xl">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-white/90">
                 <ShieldCheck size={14} />
-                Profesyonel kurulum • Hızlı teklif
+                {heroBadge}
               </div>
 
-              <h1 className="mb-4 text-3xl font-bold leading-tight sm:text-4xl">
+              <h1 className="mb-5 text-3xl font-bold leading-tight sm:text-4xl md:text-[2.75rem]">
                 {data.title}
               </h1>
 
-              <p className="mb-6 text-lg leading-relaxed text-white/80">
+              <p className="mb-8 text-lg leading-relaxed text-white/80">
                 {data.subtitle}
               </p>
 
               <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {guvenMaddeleri.map((item) => (
+                {trustItems.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90"
+                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-snug text-white/90"
                   >
                     <CheckCircle size={16} className="shrink-0 text-accent" />
                     {item}
@@ -185,35 +241,73 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <div className="mb-5 rounded-2xl border border-white/10 bg-white/5 p-5">
-                <div className="mb-3 flex items-center gap-2 text-white">
-                  <BadgeCheck size={18} className="text-accent" />
-                  <span className="font-semibold">Bu hizmette odak noktamız</span>
+              {heroPanel ? (
+                <div className="mb-5 rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div className="mb-3 flex items-center gap-2 text-white">
+                    <BadgeCheck size={18} className="text-accent" />
+                    <span className="font-semibold">{heroPanel.title}</span>
+                  </div>
+                  <ul className="space-y-3">
+                    {heroPanel.body.map((point, index) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-3 text-sm leading-6 text-white/85"
+                      >
+                        {index === 0 ? (
+                          <Clock3
+                            size={18}
+                            className="mt-0.5 shrink-0 text-accent"
+                          />
+                        ) : (
+                          <BadgeCheck
+                            size={18}
+                            className="mt-0.5 shrink-0 text-accent"
+                          />
+                        )}
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <div className="space-y-4 text-sm leading-7 text-white/80">
-                  <p>
-                    Doğru sistem seçimi, temiz montaj ve gerçek ihtiyaca göre planlama.
-                    Amacımız ürün satmak değil, çalışan ve sorunsuz kullanılan sistem kurmak.
-                  </p>
-                  <p>
-                    Kamera açısı, kayıt süresi, uzaktan erişim, altyapı ve kullanıcı kolaylığı
-                    birlikte düşünülerek çözüm üretiyoruz.
-                  </p>
+              ) : (
+                <div className="mb-5 rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div className="mb-3 flex items-center gap-2 text-white">
+                    <BadgeCheck size={18} className="text-accent" />
+                    <span className="font-semibold">
+                      Bu hizmette odak noktamız
+                    </span>
+                  </div>
+                  <div className="space-y-4 text-sm leading-7 text-white/80">
+                    <p>
+                      Doğru sistem seçimi, temiz montaj ve gerçek ihtiyaca göre
+                      planlama. Amacımız ürün satmak değil, çalışan ve sorunsuz
+                      kullanılan sistem kurmak.
+                    </p>
+                    <p>
+                      Kamera açısı, kayıt süresi, uzaktan erişim, altyapı ve
+                      kullanıcı kolaylığı birlikte düşünülerek çözüm üretiyoruz.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {avantajlar.map((item) => (
+                {advantages.map((item, index) => (
                   <div
                     key={item.title}
                     className="rounded-2xl border border-white/10 bg-white/5 p-4"
                   >
                     <div className="mb-2 flex items-center gap-2 text-white">
-                      {item.icon}
+                      {index === 0 ? (
+                        <Clock3 size={18} className="text-accent" />
+                      ) : (
+                        <BadgeCheck size={18} className="text-accent" />
+                      )}
                       <span className="font-semibold">{item.title}</span>
                     </div>
-                    <p className="text-sm leading-6 text-white/75">{item.text}</p>
+                    <p className="text-sm leading-6 text-white/75">
+                      {item.text}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -222,11 +316,13 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
         </Container>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 md:py-20">
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-primary">Hizmet Detayı</h2>
+              <h2 className="mb-5 text-2xl font-bold text-primary">
+                Hizmet Detayı
+              </h2>
 
               <div className="max-w-none text-sm leading-7 text-text-light">
                 {data.description.split("\n").map((para, i) => (
@@ -239,42 +335,35 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
               <ul className="mt-8 space-y-3">
                 {data.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
-                    <span className="text-sm leading-6 text-gray-700">{feature}</span>
+                    <CheckCircle
+                      size={18}
+                      className="mt-0.5 shrink-0 text-cta"
+                    />
+                    <span className="text-sm leading-6 text-gray-700">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-gray-200 bg-surface p-6">
-              <h2 className="mb-4 text-2xl font-bold text-primary">
-                Neden Profesyonel Kurulum Önemlidir?
+            <div className="rounded-3xl border border-gray-100 bg-surface p-7 shadow-sm">
+              <h2 className="mb-5 text-2xl font-bold text-primary">
+                {authorityTitle}
               </h2>
 
               <div className="space-y-4 text-sm leading-7 text-text-light">
-                <p>
-                  Yanlış keşif, eksik kapsama, kötü kablolama ve yanlış cihaz seçimi yüzünden
-                  birçok sistem ilk bakışta çalışıyor gibi görünür ama olay anında yetersiz kalır.
-                </p>
-
-                <p>
-                  Profesyonel kurulumda amaç sadece cihazı monte etmek değil, alanı gerçekten
-                  güvenli hale getirmektir. Bu yüzden planlama, kurulum kadar kritiktir.
-                </p>
-
-                <p>
-                  Kör noktaları azaltan, kayıt süresini doğru planlayan ve mobil izlemeyi düzgün
-                  kuran sistemler uzun vadede çok daha az sorun çıkarır.
-                </p>
+                {authorityBody.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
               </div>
 
               <div className="mt-6 rounded-2xl border border-accent/15 bg-white p-5">
                 <div className="mb-2 text-sm font-semibold text-primary">
-                  Hızlı teklif almak için
+                  {authorityNote.title}
                 </div>
                 <p className="text-sm leading-6 text-text-light">
-                  Bize şehir, mekan tipi ve temel ihtiyacınızı iletin. En kısa sürede size uygun
-                  sistem yapısını netleştirelim.
+                  {authorityNote.body}
                 </p>
               </div>
             </div>
@@ -282,30 +371,171 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
         </Container>
       </section>
 
+      {data.decisionBlocks && data.decisionBlocks.length > 0 && (
+        <section className="bg-surface py-16 md:py-20">
+          <Container>
+            <div className="space-y-10">
+              {data.decisionBlocks.map((block, i) => (
+                <div key={i} className="max-w-5xl">
+                  <h2 className="mb-4 text-2xl font-bold text-primary">
+                    {block.title}
+                  </h2>
+                  {block.description && (
+                    <p className="mb-6 max-w-3xl text-sm leading-7 text-text-light">
+                      {block.description}
+                    </p>
+                  )}
+                  <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                      {block.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-3 rounded-2xl bg-surface p-4"
+                        >
+                          <CheckCircle
+                            size={18}
+                            className="mt-0.5 shrink-0 text-cta"
+                          />
+                          <span className="text-sm leading-6 text-gray-700">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {data.scopeDetails && (
+        <section className="bg-white py-16 md:py-20">
+          <Container>
+            <div className="max-w-5xl">
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {data.scopeDetails.title ||
+                  "Neler Dahil, Neler Ayrıca Değerlendirilir?"}
+              </h2>
+              {data.scopeDetails.description && (
+                <p className="max-w-3xl text-sm leading-7 text-text-light">
+                  {data.scopeDetails.description}
+                </p>
+              )}
+            </div>
+            <div
+              className={`mt-8 grid grid-cols-1 gap-6 ${data.scopeDetails.additionalItems?.length ? "lg:grid-cols-2" : "max-w-3xl"}`}
+            >
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-bold text-primary">
+                  {data.scopeDetails.includedTitle || "Dahil olan başlıklar"}
+                </h3>
+                <ul className="space-y-3">
+                  {data.scopeDetails.includedItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle
+                        size={18}
+                        className="mt-0.5 shrink-0 text-cta"
+                      />
+                      <span className="text-sm leading-6 text-gray-700">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {data.scopeDetails.additionalItems &&
+                data.scopeDetails.additionalItems.length > 0 && (
+                  <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <h3 className="mb-4 text-lg font-bold text-primary">
+                      {data.scopeDetails.additionalTitle ||
+                        "Ayrıca değerlendirilen başlıklar"}
+                    </h3>
+                    <ul className="space-y-3">
+                      {data.scopeDetails.additionalItems.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <CheckCircle
+                            size={18}
+                            className="mt-0.5 shrink-0 text-accent"
+                          />
+                          <span className="text-sm leading-6 text-gray-700">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {data.pricingFactors && (
+        <section className="bg-surface py-16 md:py-20">
+          <Container>
+            <div className="max-w-5xl">
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {data.pricingFactors.title ||
+                  "Bu Hizmette Fiyatı ve Süreyi Ne Etkiler?"}
+              </h2>
+              {data.pricingFactors.description && (
+                <p className="mb-6 max-w-3xl text-sm leading-7 text-text-light">
+                  {data.pricingFactors.description}
+                </p>
+              )}
+            </div>
+            <div className="mt-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+              <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {data.pricingFactors.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-2xl bg-surface p-4"
+                  >
+                    <CheckCircle
+                      size={18}
+                      className="mt-0.5 shrink-0 text-cta"
+                    />
+                    <span className="text-sm leading-6 text-gray-700">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {data.segments.length > 0 && (
-        <section className="bg-surface py-16">
+        <section className="border-t border-gray-100 bg-surface py-16 md:py-20">
           <Container>
             <div className="mb-10 max-w-3xl">
               <h2 className="mb-4 text-2xl font-bold text-primary">
                 Alt Hizmet ve Uygulama Alanları
               </h2>
               <p className="text-sm leading-7 text-text-light">
-                İhtiyaçlar kullanım alanına göre değişir. Aşağıdaki bağlantılardan ilgili senaryoya
-                daha net bakabilirsiniz.
+                İhtiyaçlar kullanım alanına göre değişir. Aşağıdaki
+                bağlantılardan ilgili senaryoya daha net bakabilirsiniz.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {data.segments.map((segment, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+                  className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <h3 className="mb-3 text-lg font-bold text-primary">{segment.title}</h3>
-                  <p className="mb-4 text-sm leading-7 text-text-light">{segment.content}</p>
+                  <h3 className="mb-3 text-lg font-bold text-primary">
+                    {segment.title}
+                  </h3>
+                  <p className="mb-5 text-sm leading-7 text-text-light">
+                    {segment.content}
+                  </p>
                   <Link
                     href={segment.href}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all group-hover:gap-3"
                   >
                     Detaylı bilgi
                     <ArrowRight size={14} />
@@ -319,15 +549,16 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
 
       <ProcessSection />
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 md:py-20">
         <Container>
           <h2 className="mb-4 text-center text-2xl font-bold text-primary">
             Hizmet Verdiğimiz Şehirler
           </h2>
 
           <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
-            Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz.
-            Gerçekten hizmet verdiğimiz şehirleri gösteriyoruz; boş vaat vermiyoruz.
+            Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet
+            veriyoruz. Gerçekten hizmet verdiğimiz şehirleri gösteriyoruz; boş
+            vaat vermiyoruz.
           </p>
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -361,8 +592,12 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
                   href={page.href}
                   className="rounded-2xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <h3 className="mb-2 text-lg font-bold text-primary">{page.title}</h3>
-                  <p className="mb-4 text-sm leading-7 text-text-light">{page.description}</p>
+                  <h3 className="mb-2 text-lg font-bold text-primary">
+                    {page.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-7 text-text-light">
+                    {page.description}
+                  </p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
                     Sayfaya git
                     <ArrowRight size={14} />
@@ -388,8 +623,12 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
                   href={`/blog/${post.slug}`}
                   className="rounded-2xl border border-gray-200 bg-surface p-6 transition hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <h3 className="mb-3 text-lg font-bold text-primary">{post.title}</h3>
-                  <p className="mb-4 text-sm leading-7 text-text-light">{post.excerpt}</p>
+                  <h3 className="mb-3 text-lg font-bold text-primary">
+                    {post.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-7 text-text-light">
+                    {post.excerpt}
+                  </p>
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
                     Yazıyı oku
                     <ArrowRight size={14} />
@@ -404,7 +643,9 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
       {data.authorityBeforeFaq && data.authorityBeforeFaq.links.length > 0 && (
         <section className="bg-white py-12">
           <Container>
-            <h2 className="text-2xl font-bold text-primary">{data.authorityBeforeFaq.title}</h2>
+            <h2 className="text-2xl font-bold text-primary">
+              {data.authorityBeforeFaq.title}
+            </h2>
             {data.authorityBeforeFaq.description ? (
               <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
                 {data.authorityBeforeFaq.description}
@@ -430,7 +671,9 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
       {data.authorityAfterFaq && data.authorityAfterFaq.links.length > 0 && (
         <section className="bg-surface py-12">
           <Container>
-            <h2 className="text-2xl font-bold text-primary">{data.authorityAfterFaq.title}</h2>
+            <h2 className="text-2xl font-bold text-primary">
+              {data.authorityAfterFaq.title}
+            </h2>
             {data.authorityAfterFaq.description ? (
               <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
                 {data.authorityAfterFaq.description}
@@ -452,6 +695,7 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
       )}
 
       <CTASection
+        content={data.ctaContent}
         title={data.ctaTitle}
         subtitle={data.ctaSubtitle}
         defaultService={data.defaultService}

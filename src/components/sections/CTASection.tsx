@@ -2,7 +2,13 @@ import Link from "next/link";
 import QuoteForm from "@/components/forms/QuoteForm";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
-import { ArrowRight, BadgeCheck, Clock3, Phone, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Clock3,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 
 interface CTASupportCard {
   title: string;
@@ -49,8 +55,8 @@ const defaultContent: Required<CTASectionContent> = {
     "Ücretsiz keşif ve ihtiyaç analizi",
     "24 saat içinde hızlı geri dönüş",
     "Anahtar teslim kurulum ve devreye alma",
-    "Urun ve iscilik destegi",
-    "Satis sonrasi teknik destek",
+    "Ürün ve işçilik desteği",
+    "Satış sonrası teknik destek",
   ],
   supportCards: [
     {
@@ -77,10 +83,10 @@ export default function CTASection({
     ...(subtitle ? { subtitle } : {}),
     ...content,
     trustItems: content?.trustItems || defaultContent.trustItems,
-    supportCards: (content?.supportCards?.length ? content.supportCards : defaultContent.supportCards).slice(
-      0,
-      2,
-    ),
+    supportCards: (content?.supportCards?.length
+      ? content.supportCards
+      : defaultContent.supportCards
+    ).slice(0, 2),
   };
 
   return (
@@ -122,7 +128,10 @@ export default function CTASection({
 
             <ul className="mb-8 space-y-3">
               {mergedContent.trustItems.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-white/90">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm text-white/90"
+                >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cta text-xs font-bold text-white">
                     ✓
                   </span>
@@ -151,7 +160,9 @@ export default function CTASection({
 
             <p
               className={`mt-4 text-xs leading-6 ${
-                mergedContent.helperTone === "direct" ? "text-white/75" : "text-white/60"
+                mergedContent.helperTone === "direct"
+                  ? "text-white/75"
+                  : "text-white/60"
               }`}
             >
               {mergedContent.helperText}
@@ -166,7 +177,9 @@ export default function CTASection({
                     {mergedContent.intentTag}
                   </div>
                 ) : null}
-                <p className="text-sm leading-6 text-white/80">{mergedContent.preFormNote}</p>
+                <p className="text-sm leading-6 text-white/80">
+                  {mergedContent.preFormNote}
+                </p>
               </div>
             ) : null}
             <QuoteForm defaultService={defaultService} />
