@@ -131,7 +131,8 @@ export default function AlarmQuoteForm() {
       });
 
       setSuccessMessage(
-        result.message || "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek."
+        result.message ||
+          "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
       );
       setForm(initialState);
       hasTrackedView.current = false;
@@ -140,7 +141,7 @@ export default function AlarmQuoteForm() {
       setErrorMessage(
         error instanceof Error && error.message
           ? error.message
-          : "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın."
+          : "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın.",
       );
     } finally {
       setLoading(false);
@@ -212,175 +213,258 @@ export default function AlarmQuoteForm() {
           </div>
         </div>
       ) : (
-      <form onSubmit={handleSubmit} onFocusCapture={trackFormView} className="space-y-5">
-        <input type="hidden" name="service_type" value="alarm" />
-        <input type="hidden" name="form_source" value="alarm_landing_page" />
-        <input type="hidden" name="camera_count" value="" />
-        <input type="hidden" name="notes" value="alarm sayfası formu" />
-        <input type="hidden" name="page_url" value={attribution.page_url} readOnly />
-        <input type="hidden" name="page_type" value={attribution.page_type} readOnly />
-        <input type="hidden" name="utm_source" value={attribution.utm_source} readOnly />
-        <input type="hidden" name="utm_medium" value={attribution.utm_medium} readOnly />
-        <input type="hidden" name="utm_campaign" value={attribution.utm_campaign} readOnly />
-        <input type="hidden" name="utm_term" value={attribution.utm_term} readOnly />
-        <input type="hidden" name="utm_content" value={attribution.utm_content} readOnly />
-        <input type="hidden" name="referrer" value={attribution.referrer} readOnly />
-        <input type="hidden" name="timestamp" value={attribution.timestamp} readOnly />
-        <input type="hidden" name="gclid" value={attribution.gclid} readOnly />
-        <input type="hidden" name="fbclid" value={attribution.fbclid} readOnly />
-        <input type="hidden" name="msclkid" value={attribution.msclkid} readOnly />
-        <div
-          aria-hidden="true"
-          style={{ position: "absolute", left: "-5000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+        <form
+          onSubmit={handleSubmit}
+          onFocusCapture={trackFormView}
+          className="space-y-5"
         >
-          <label htmlFor="alarm-website">Website</label>
+          <input type="hidden" name="service_type" value="alarm" />
+          <input type="hidden" name="form_source" value="alarm_landing_page" />
+          <input type="hidden" name="camera_count" value="" />
+          <input type="hidden" name="notes" value="alarm sayfası formu" />
           <input
-            id="alarm-website"
-            name="website"
-            type="text"
-            tabIndex={-1}
-            autoComplete="off"
-            value={form.website}
-            onChange={(e) => updateField("website", e.target.value)}
+            type="hidden"
+            name="page_url"
+            value={attribution.page_url}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-semibold">
-            Ad Soyad
-          </label>
           <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            value={form.name}
-            onChange={(e) => updateField("name", e.target.value)}
-            placeholder="Adınız ve soyadınız"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            type="hidden"
+            name="page_type"
+            value={attribution.page_type}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-semibold">
-            Telefon
-          </label>
           <input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            required
-            value={form.phone}
-            onChange={(e) => updateField("phone", formatTurkishPhoneInput(e.target.value))}
-            placeholder="05xx xxx xx xx"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            type="hidden"
+            name="utm_source"
+            value={attribution.utm_source}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-semibold">
-            E-posta
-          </label>
           <input
-            id="email"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={(e) => updateField("email", e.target.value)}
-            placeholder="ornek@mail.com"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            type="hidden"
+            name="utm_medium"
+            value={attribution.utm_medium}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="city" className="mb-2 block text-sm font-semibold">
-            Şehir
-          </label>
           <input
-            id="city"
-            name="city"
-            type="text"
-            required
-            value={form.city}
-            onChange={(e) => updateField("city", e.target.value)}
-            placeholder="İstanbul"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            type="hidden"
+            name="utm_campaign"
+            value={attribution.utm_campaign}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="district" className="mb-2 block text-sm font-semibold">
-            İlçe
-          </label>
           <input
-            id="district"
-            name="district"
-            type="text"
-            value={form.district}
-            onChange={(e) => updateField("district", e.target.value)}
-            placeholder="Örn: Şişli, Kadıköy, Bakırköy"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            type="hidden"
+            name="utm_term"
+            value={attribution.utm_term}
+            readOnly
           />
-        </div>
-
-        <div>
-          <label htmlFor="location_type" className="mb-2 block text-sm font-semibold">
-            Mekan Türü
-          </label>
-          <select
-            id="location_type"
-            name="location_type"
-            required
-            value={form.location_type}
-            onChange={(e) => updateField("location_type", e.target.value)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+          <input
+            type="hidden"
+            name="utm_content"
+            value={attribution.utm_content}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="referrer"
+            value={attribution.referrer}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="timestamp"
+            value={attribution.timestamp}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="gclid"
+            value={attribution.gclid}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="fbclid"
+            value={attribution.fbclid}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="msclkid"
+            value={attribution.msclkid}
+            readOnly
+          />
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: "-5000px",
+              top: "auto",
+              width: "1px",
+              height: "1px",
+              overflow: "hidden",
+            }}
           >
-            <option value="">Seçiniz</option>
-            <option value="Ev / Daire">Ev / Daire</option>
-            <option value="Ofis">Ofis</option>
-            <option value="Dükkan / Mağaza">Dükkan / Mağaza</option>
-            <option value="Depo">Depo</option>
-            <option value="Apartman Girişi">Apartman Girişi</option>
-            <option value="Villa">Villa</option>
-            <option value="Diğer">Diğer</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="message" className="mb-2 block text-sm font-semibold">
-            Kısa Bilgi
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            value={form.message}
-            onChange={(e) => updateField("message", e.target.value)}
-            placeholder="Kaç giriş var, kablolu mu kablosuz mu düşünüyorsunuz, aciliyet nedir?"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full rounded-xl bg-red-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {loading ? "Gönderiliyor..." : "Teklif Talebi Gönder"}
-        </button>
-
-        {errorMessage ? (
-          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            {errorMessage}
+            <label htmlFor="alarm-website">Website</label>
+            <input
+              id="alarm-website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={(e) => updateField("website", e.target.value)}
+            />
           </div>
-        ) : null}
 
-        <p className="text-xs leading-6 text-slate-500">
-          Formu doldurduğunuzda bilgileriniz teklif değerlendirmesi için ekibimize iletilir.
-        </p>
-      </form>
+          <div>
+            <label htmlFor="name" className="mb-2 block text-sm font-semibold">
+              Ad Soyad
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              value={form.name}
+              onChange={(e) => updateField("name", e.target.value)}
+              placeholder="Adınız ve soyadınız"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="mb-2 block text-sm font-semibold">
+              Telefon
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              required
+              value={form.phone}
+              onChange={(e) =>
+                updateField("phone", formatTurkishPhoneInput(e.target.value))
+              }
+              placeholder="05xx xxx xx xx"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="mb-2 block text-sm font-semibold">
+              E-posta
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={(e) => updateField("email", e.target.value)}
+              placeholder="ornek@mail.com"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="city" className="mb-2 block text-sm font-semibold">
+              Şehir
+            </label>
+            <input
+              id="city"
+              name="city"
+              type="text"
+              required
+              value={form.city}
+              onChange={(e) => updateField("city", e.target.value)}
+              placeholder="İstanbul"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="district"
+              className="mb-2 block text-sm font-semibold"
+            >
+              İlçe
+            </label>
+            <input
+              id="district"
+              name="district"
+              type="text"
+              value={form.district}
+              onChange={(e) => updateField("district", e.target.value)}
+              placeholder="Örn: Şişli, Kadıköy, Bakırköy"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="location_type"
+              className="mb-2 block text-sm font-semibold"
+            >
+              Mekan Türü
+            </label>
+            <select
+              id="location_type"
+              name="location_type"
+              required
+              value={form.location_type}
+              onChange={(e) => updateField("location_type", e.target.value)}
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            >
+              <option value="">Seçiniz</option>
+              <option value="Ev / Daire">Ev / Daire</option>
+              <option value="Ofis">Ofis</option>
+              <option value="Dükkan / Mağaza">Dükkan / Mağaza</option>
+              <option value="Depo">Depo</option>
+              <option value="Apartman Girişi">Apartman Girişi</option>
+              <option value="Villa">Villa</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="mb-2 block text-sm font-semibold"
+            >
+              Kısa Bilgi
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              value={form.message}
+              onChange={(e) => updateField("message", e.target.value)}
+              placeholder="Kaç giriş var, kablolu mu kablosuz mu düşünüyorsunuz, aciliyet nedir?"
+              className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-xl bg-red-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? "Gönderiliyor..." : "Teklif Talebi Gönder"}
+          </button>
+
+          {errorMessage ? (
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {errorMessage}
+            </div>
+          ) : null}
+
+          <p className="text-xs leading-6 text-slate-500">
+            Formu doldurduğunuzda bilgileriniz teklif değerlendirmesi için
+            ekibimize iletilir.
+          </p>
+        </form>
       )}
     </div>
   );

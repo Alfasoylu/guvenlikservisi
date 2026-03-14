@@ -253,7 +253,9 @@ export default function MaintenanceQuoteForm() {
               autoComplete="tel"
               required
               value={form.phone}
-              onChange={(e) => updateField("phone", formatTurkishPhoneInput(e.target.value))}
+              onChange={(e) =>
+                updateField("phone", formatTurkishPhoneInput(e.target.value))
+              }
               placeholder="05xx xxx xx xx"
               className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-500"
             />
