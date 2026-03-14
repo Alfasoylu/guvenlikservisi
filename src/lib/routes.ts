@@ -13,9 +13,12 @@ export const staticPagePaths = [
   "/hakkimizda",
   "/iletisim",
   "/isyeri-guvenlik-sistemi",
+  "/kamera-ariza-servisi",
+  "/kamera-sistemi-bakim-sozlesmesi",
   "/kamera-sistemi-kurulumu",
-  "/kartli-gecis-ve-turnike-sistemi",
+  "/kartli-gecis-sistemi-kurulumu",
   "/paketler-ve-fiyatlandirma",
+  "/uzaktan-kamera-izleme",
   "/yangin-alarm-sistemi-kurulumu",
 ] as const;
 

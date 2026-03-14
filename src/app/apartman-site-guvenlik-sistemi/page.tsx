@@ -39,7 +39,7 @@ const data: ServicePageData = {
     {
       title: "Giriş Kontrolü ve Interkom",
       content: "Site kapılarında kartlı geçiş, daire içi video interkom ve uzaktan kapı açma özelliği. Sakinler misafirlerini kendi dairelerinden video ile görüp kapı açabilir.",
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
     },
     {
       title: "Güvenlik Kamera Sistemi",
