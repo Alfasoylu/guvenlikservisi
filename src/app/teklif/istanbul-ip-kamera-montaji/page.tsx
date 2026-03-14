@@ -478,7 +478,6 @@ export default function IstanbulIpKameraMontajiPage() {
 
               <a
                 href={phoneHref}
-                data-event="phone_click"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-base font-bold text-white transition hover:bg-white/15"
               >
                 <Phone className="h-5 w-5" />
@@ -489,7 +488,6 @@ export default function IstanbulIpKameraMontajiPage() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-event="whatsapp_click"
                 className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-4 text-base font-bold text-emerald-700 transition hover:bg-emerald-50"
               >
                 WhatsApp’tan Yaz
@@ -748,7 +746,6 @@ export default function IstanbulIpKameraMontajiPage() {
                 </a>
                 <a
                   href={phoneHref}
-                  data-event="phone_click"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-emerald-300 px-5 py-3 font-bold text-slate-950 transition hover:bg-white"
                 >
                   <Phone className="h-5 w-5" />
@@ -758,7 +755,6 @@ export default function IstanbulIpKameraMontajiPage() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-event="whatsapp_click"
                   className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 font-bold text-emerald-700 transition hover:bg-emerald-100"
                 >
                   WhatsApp

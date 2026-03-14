@@ -12,6 +12,13 @@ export const staticPagePaths = [
   "/fabrika-depo-guvenlik-sistemi",
   "/hakkimizda",
   "/iletisim",
+  "/istanbul-alarm-sistemi",
+  "/istanbul-ip-kamera-montaji",
+  "/istanbul-kamera-bakim-servisi",
+  "/istanbul-kamera-sistemi-kurulumu",
+  "/istanbul-kamera-teknik-servis",
+  "/istanbul-kartli-gecis-sistemi",
+  "/istanbul-yangin-alarm-sistemi",
   "/isyeri-guvenlik-sistemi",
   "/kamera-ariza-servisi",
   "/kamera-sistemi-bakim-sozlesmesi",
@@ -33,7 +40,11 @@ export const teklifPaths = [
 
 const citySlugSet = new Set(cities.map((city) => city.slug));
 const serviceSlugSet = new Set(services.map((service) => service.slug));
-const staticPathSet = new Set<string>([...rootPaths, ...staticPagePaths, ...teklifPaths]);
+const staticPathSet = new Set<string>([
+  ...rootPaths,
+  ...staticPagePaths,
+  ...teklifPaths,
+]);
 const blogPathSet = new Set(blogPosts.map((post) => `/blog/${post.slug}`));
 
 export function normalizeRoutePath(path: string) {
@@ -78,7 +89,10 @@ export function getCityCanonicalUrl(citySlug: string) {
   return path ? getAbsoluteUrl(path) : null;
 }
 
-export function getCityServiceCanonicalUrl(citySlug: string, serviceSlug: string) {
+export function getCityServiceCanonicalUrl(
+  citySlug: string,
+  serviceSlug: string,
+) {
   const path = getCityServicePath(citySlug, serviceSlug);
   return path ? getAbsoluteUrl(path) : null;
 }
@@ -94,7 +108,7 @@ export function getCityServiceStaticParams() {
     services.map((service) => ({
       city: city.slug,
       service: service.slug,
-    }))
+    })),
   );
 }
 
@@ -156,6 +170,8 @@ export function isKnownAppPath(path: string) {
   );
 }
 
-export function filterValidInternalLinks<T extends { href: string }>(links: readonly T[]) {
+export function filterValidInternalLinks<T extends { href: string }>(
+  links: readonly T[],
+) {
   return links.filter((link) => isKnownAppPath(link.href));
 }
