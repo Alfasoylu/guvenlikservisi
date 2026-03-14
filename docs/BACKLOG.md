@@ -285,9 +285,9 @@ Her programmatic sayfada aşağıdaki bloklar bulunmalı:
 - [ ] “en iyi / en ucuz / garanti ilk sayfa” gibi spam dili kaldır
 
 ## P3.4 Ticari Intent İçerik Önceliği
-- [ ] “bakım sözleşmesi” sayfaları
+- [x] “bakım sözleşmesi” sayfaları
 - [ ] “teknik servis” sayfaları
-- [ ] “arıza servisi” sayfaları
+- [x] “arıza servisi” sayfaları
 - [ ] “site yönetimi” sayfaları
 - [ ] “fabrika” sayfaları
 - [ ] “depo” sayfaları
@@ -392,7 +392,7 @@ Her sayfa için:
 - [ ] zayıf sayfaları indexe açma
 - [ ] noindex karar matrisi oluştur
 - [ ] parametreli URL üretimini engelle
-- [ ] duplicate canonical hatalarını yakala
+- [x] duplicate canonical hatalarını yakala
 - [ ] yetim sayfaları tespit et
 - [ ] 404 ve soft 404 listesini izle
 
@@ -428,7 +428,7 @@ Her sayfa için:
 
 ## P7.3 Teknik Temizlik
 - [ ] 301 yönlendirme tablosu çıkar
-- [ ] broken link taraması yap
+- [x] broken link taraması yap
 - [ ] heading hiyerarşisini standardize et
 - [ ] görsel alt metin standardı belirle
 - [ ] duplicate title / meta taraması yap
@@ -482,7 +482,7 @@ Her sayfa için:
 # P9 — Sayfa Türleri: Para Getiren Öncelik Sırası
 
 ## P9.1 İlk Açılacak Yüksek Niyetli Sayfalar
-- [ ] kamera sistemi bakım sözleşmesi
+- [x] kamera sistemi bakım sözleşmesi
 - [ ] güvenlik sistemi bakım sözleşmesi
 - [ ] site kamera sistemi bakım
 - [ ] site yönetimi kamera bakım
@@ -490,8 +490,8 @@ Her sayfa için:
 - [ ] depo güvenlik sistemi bakım
 - [ ] NVR bakım servisi
 - [ ] güvenlik sistemi teknik servis
-- [ ] kamera arıza servisi
-- [ ] uzaktan kamera izleme hizmeti
+- [x] kamera arıza servisi
+- [x] uzaktan kamera izleme hizmeti
 
 ## P9.2 İkinci Dalga Sayfalar
 - [ ] alarm sistemi bakım
