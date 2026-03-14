@@ -6,7 +6,7 @@ Repo App Router kullanıyor ve metadata iki layout ile 24 `page.tsx` dosyasına 
 
 Root layout `src/app/layout.tsx` içinde `metadataBase`, default `title`, `description`, `alternates.canonical`, `robots`, `openGraph`, `twitter`, `icons` tanımlı. `/teklif` alt ağacı ayrıca `src/app/teklif/layout.tsx` ile `robots` tanımlıyor ama title/description/canonical üretmiyor. Dinamik metadata şablonları üç yerde var: `/blog/[slug]`, `/[city]`, `/[city]/[service]`. `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx` ayrıca özel bir landing page metadata üretse de `next.config.ts` içindeki redirect kuralı bu URL'yi `/istanbul` rotasına yönlendiriyor; bu yüzden sayfanın metadata'sı pratikte bypass ediliyor olabilir.
 
-Kod tabanında yaygın encoding bozulması var: birçok dosyada Türkçe karakterler `GÃ¼venlik`, `Ä°stanbul` gibi bozuk görünüyor. Bu bozulma metadata string'lerine de yansıyor.
+Terminal veya code page uyumsuzluğu nedeniyle bazı ortamlarda Türkçe karakterler bozuk görünebilir. Gerçek mojibake tespiti dosya içeriği üzerinden doğrulanmalıdır.
 
 ## Metadata Üreten Dosyalar
 
@@ -16,7 +16,7 @@ Kod tabanında yaygın encoding bozulması var: birçok dosyada Türkçe karakte
 - Route pattern: `/*`
 - Source file: `src/app/layout.tsx`
 - Metadata type: `static metadata`
-- Title mantığı: Default title `"GÃ¼venlik Sistemi Kurulumu | Kamera, Alarm ve GeÃ§iÅŸ Sistemleri"`; ayrıca template `%s | ${siteConfig.name}`.
+- Title mantığı: Default title `"Güvenlik Sistemi Kurulumu | Kamera, Alarm ve Geçiş Sistemleri"`; ayrıca template `%s | ${siteConfig.name}`.
 - Description mantığı: `siteConfig.description`
 - Canonical var mı: Evet, `alternates.canonical = "/"`
 - Open Graph var mı: Evet, `siteConfig` üzerinden tam `openGraph` objesi
