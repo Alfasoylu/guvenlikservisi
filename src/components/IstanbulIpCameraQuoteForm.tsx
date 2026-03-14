@@ -110,13 +110,6 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         throw new Error(result?.message || "Form gönderilemedi");
       }
 
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "form_submit_success",
-        form_name: "istanbul_ip_kamera_montaji_teklif_formu",
-        page_path: window.location.pathname,
-      });
-
       pushAnalyticsEvent("submit_lead_form", {
         page_path: "/teklif/istanbul-ip-kamera-montaji",
         form_source: "istanbul_ip_kamera",
@@ -152,7 +145,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
   return (
     <div
       id="teklif-formu"
-      className="rounded-3xl bg-white p-6 text-slate-900 shadow-2xl lg:p-8"
+      className="scroll-mt-24 rounded-3xl bg-white p-6 text-slate-900 shadow-2xl lg:p-8"
     >
       <div className="mb-5">
         <h2 className="text-2xl font-extrabold">
@@ -420,7 +413,6 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            data-event="whatsapp_click"
             className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 font-bold text-white transition hover:bg-emerald-600"
           >
             WhatsApp’tan Hızlı Fiyat Al
@@ -428,7 +420,6 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
 
           <a
             href={phoneHref}
-            data-event="phone_click"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-900 transition hover:bg-slate-50"
           >
             <Phone size={18} />

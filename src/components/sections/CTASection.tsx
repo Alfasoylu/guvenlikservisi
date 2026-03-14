@@ -92,7 +92,7 @@ export default function CTASection({
   return (
     <section
       id="quote-form"
-      className={`scroll-mt-4 py-16 md:py-24 ${bgClass}`}
+      className={`scroll-mt-24 py-16 md:py-24 ${bgClass}`}
     >
       <Container>
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
@@ -143,10 +143,10 @@ export default function CTASection({
               ))}
             </ul>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-primary transition-colors hover:bg-white/90"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-primary transition-colors hover:bg-white/90 sm:w-auto"
               >
                 <Phone size={18} />
                 {mergedContent.primaryLabel}
@@ -154,7 +154,7 @@ export default function CTASection({
 
               <Link
                 href={mergedContent.secondaryHref}
-                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
               >
                 {mergedContent.secondaryLabel}
                 <ArrowRight size={16} />
