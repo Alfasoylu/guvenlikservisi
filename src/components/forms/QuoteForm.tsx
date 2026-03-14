@@ -396,6 +396,13 @@ export default function QuoteForm({
         <div className="flex flex-col gap-3 sm:flex-row">
           <a
             href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+            onClick={() =>
+              pushAnalyticsEvent("click_call", {
+                page_path: pathname || "",
+                lead_channel: "phone",
+                cta_slot: "form_success",
+              })
+            }
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-surface"
           >
             <Phone size={16} />
@@ -405,6 +412,13 @@ export default function QuoteForm({
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              pushAnalyticsEvent("click_whatsapp", {
+                page_path: pathname || "",
+                lead_channel: "whatsapp",
+                cta_slot: "form_success",
+              })
+            }
             className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20BD5A]"
           >
             <MessageCircle size={16} />

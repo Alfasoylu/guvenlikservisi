@@ -406,6 +406,8 @@ export default function IstanbulServiceQuoteForm({
               <input
                 type="tel"
                 name="phone"
+                inputMode="tel"
+                autoComplete="tel"
                 placeholder="05xx xxx xx xx"
                 required
                 value={phoneValue}

@@ -268,6 +268,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
             <input
               type="tel"
               name="phone"
+              inputMode="tel"
+              autoComplete="tel"
               placeholder="05xx xxx xx xx"
               required
               value={phoneValue}
@@ -384,6 +386,13 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
             <div className="grid gap-3 sm:grid-cols-2">
               <a
                 href={phoneHref}
+                onClick={() =>
+                  pushAnalyticsEvent("click_call", {
+                    page_path: "/teklif/istanbul-ip-kamera-montaji",
+                    lead_channel: "phone",
+                    cta_slot: "form_success",
+                  })
+                }
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 <Phone size={16} />
@@ -393,6 +402,13 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  pushAnalyticsEvent("click_whatsapp", {
+                    page_path: "/teklif/istanbul-ip-kamera-montaji",
+                    lead_channel: "whatsapp",
+                    cta_slot: "form_success",
+                  })
+                }
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#20BD5A]"
               >
                 <MessageCircle size={16} />
