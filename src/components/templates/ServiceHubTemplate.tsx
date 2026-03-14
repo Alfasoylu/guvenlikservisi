@@ -8,7 +8,9 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import CTASection, { type CTASectionContent } from "@/components/sections/CTASection";
+import CTASection, {
+  type CTASectionContent,
+} from "@/components/sections/CTASection";
 import FAQSection, { type FAQItem } from "@/components/sections/FAQSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import { Container } from "@/components/ui/Container";
@@ -54,7 +56,11 @@ interface BaseServiceHubContentBlock {
 }
 
 interface ServiceHubListContentBlock extends BaseServiceHubContentBlock {
-  type: "service-fit" | "pricing-factors" | "takeover-process" | "prep-checklist";
+  type:
+    | "service-fit"
+    | "pricing-factors"
+    | "takeover-process"
+    | "prep-checklist";
   items: string[];
 }
 
@@ -114,7 +120,14 @@ export interface ServiceHubPageData {
     steps: ProcessStep[];
   };
   contentBlocks?: ServiceHubContentBlock[];
-  sectionOrder?: Array<"segments" | "process" | "contentBlocks" | "cityLinks" | "relatedPages" | "faq">;
+  sectionOrder?: Array<
+    | "segments"
+    | "process"
+    | "contentBlocks"
+    | "cityLinks"
+    | "relatedPages"
+    | "faq"
+  >;
   relatedPages?: RelatedPage[];
   relatedPagesTitle?: string;
   relatedPagesDescription?: string;
@@ -125,6 +138,11 @@ export interface ServiceHubPageData {
     description?: string;
     links: ContextualLink[];
   };
+  blogPosts?: {
+    slug: string;
+    title: string;
+    excerpt: string;
+  }[];
 }
 
 interface ServiceHubTemplateProps {
@@ -136,7 +154,8 @@ const contentBlockTitles: Record<ServiceHubContentBlockType, string> = {
   "scope-details": "Neler Dahil, Neler Ayrıca Değerlendirilir?",
   "pricing-factors": "Bu Hizmette Fiyatı ve Süreyi Ne Etkiler?",
   "takeover-process": "Mevcut Sistemi Devralırken Nasıl İlerliyoruz?",
-  "prep-checklist": "İlk Görüşmede Hangi Bilgileri Hazırlarsanız Süreç Hızlanır?",
+  "prep-checklist":
+    "İlk Görüşmede Hangi Bilgileri Hazırlarsanız Süreç Hızlanır?",
   "issue-triage": "Arıza Türüne Göre Nasıl İlerliyoruz?",
 };
 
@@ -155,12 +174,17 @@ function renderContentBlock(block: ServiceHubContentBlock) {
 
   if (block.type === "issue-triage") {
     return (
-      <section key={`${block.type}-${title}`} className={`py-16 ${sectionClass}`}>
+      <section
+        key={`${block.type}-${title}`}
+        className={`py-16 ${sectionClass}`}
+      >
         <Container>
           <div className="max-w-5xl">
             <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
             {block.description ? (
-              <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+              <p className="max-w-3xl text-sm leading-7 text-text-light">
+                {block.description}
+              </p>
             ) : null}
           </div>
 
@@ -170,8 +194,12 @@ function renderContentBlock(block: ServiceHubContentBlock) {
                 key={item.title}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
               >
-                <h3 className="mb-3 text-lg font-bold text-primary">{item.title}</h3>
-                <p className="text-sm leading-7 text-text-light">{item.description}</p>
+                <h3 className="mb-3 text-lg font-bold text-primary">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-7 text-text-light">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -184,12 +212,17 @@ function renderContentBlock(block: ServiceHubContentBlock) {
     const hasAdditionalItems = Boolean(block.additionalItems?.length);
 
     return (
-      <section key={`${block.type}-${title}`} className={`py-16 ${sectionClass}`}>
+      <section
+        key={`${block.type}-${title}`}
+        className={`py-16 ${sectionClass}`}
+      >
         <Container>
           <div className="max-w-5xl">
             <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
             {block.description ? (
-              <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+              <p className="max-w-3xl text-sm leading-7 text-text-light">
+                {block.description}
+              </p>
             ) : null}
           </div>
 
@@ -205,8 +238,13 @@ function renderContentBlock(block: ServiceHubContentBlock) {
               <ul className="space-y-3">
                 {block.includedItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
-                    <span className="text-sm leading-6 text-gray-700">{item}</span>
+                    <CheckCircle
+                      size={18}
+                      className="mt-0.5 shrink-0 text-cta"
+                    />
+                    <span className="text-sm leading-6 text-gray-700">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -220,8 +258,13 @@ function renderContentBlock(block: ServiceHubContentBlock) {
                 <ul className="space-y-3">
                   {block.additionalItems?.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <CheckCircle size={18} className="mt-0.5 shrink-0 text-accent" />
-                      <span className="text-sm leading-6 text-gray-700">{item}</span>
+                      <CheckCircle
+                        size={18}
+                        className="mt-0.5 shrink-0 text-accent"
+                      />
+                      <span className="text-sm leading-6 text-gray-700">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -239,14 +282,19 @@ function renderContentBlock(block: ServiceHubContentBlock) {
         <div className="max-w-5xl">
           <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
           {block.description ? (
-            <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+            <p className="max-w-3xl text-sm leading-7 text-text-light">
+              {block.description}
+            </p>
           ) : null}
         </div>
 
         <div className="mt-8 rounded-3xl border border-gray-200 bg-white p-6">
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {block.items.map((item) => (
-              <li key={item} className="flex items-start gap-3 rounded-2xl bg-surface p-4">
+              <li
+                key={item}
+                className="flex items-start gap-3 rounded-2xl bg-surface p-4"
+              >
                 <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
                 <span className="text-sm leading-6 text-gray-700">{item}</span>
               </li>
@@ -264,8 +312,14 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
     intro: undefined,
     points: data.authoritySection.paragraphs.slice(0, 2),
   };
-  const sectionOrder =
-    data.sectionOrder || ["segments", "process", "contentBlocks", "cityLinks", "relatedPages", "faq"];
+  const sectionOrder = data.sectionOrder || [
+    "segments",
+    "process",
+    "contentBlocks",
+    "cityLinks",
+    "relatedPages",
+    "faq",
+  ];
 
   const localBusinessSchema = generateLocalBusinessSchema();
   const serviceSchema = generateServiceSchema({
@@ -282,7 +336,9 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       <script
         type="application/ld+json"
@@ -318,7 +374,9 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                 {data.title}
               </h1>
 
-              <p className="mb-6 text-lg leading-relaxed text-white/80">{data.subtitle}</p>
+              <p className="mb-6 text-lg leading-relaxed text-white/80">
+                {data.subtitle}
+              </p>
 
               <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {data.heroHighlights.map((item) => (
@@ -358,16 +416,27 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                 </div>
 
                 {heroPanel.intro ? (
-                  <p className="mb-4 text-sm leading-7 text-white/80">{heroPanel.intro}</p>
+                  <p className="mb-4 text-sm leading-7 text-white/80">
+                    {heroPanel.intro}
+                  </p>
                 ) : null}
 
                 <ul className="space-y-3">
                   {heroPanel.points.map((point, index) => (
-                    <li key={point} className="flex items-start gap-3 text-sm leading-6 text-white/85">
+                    <li
+                      key={point}
+                      className="flex items-start gap-3 text-sm leading-6 text-white/85"
+                    >
                       {index === 0 ? (
-                        <Clock3 size={18} className="mt-0.5 shrink-0 text-accent" />
+                        <Clock3
+                          size={18}
+                          className="mt-0.5 shrink-0 text-accent"
+                        />
                       ) : (
-                        <BadgeCheck size={18} className="mt-0.5 shrink-0 text-accent" />
+                        <BadgeCheck
+                          size={18}
+                          className="mt-0.5 shrink-0 text-accent"
+                        />
                       )}
                       <span>{point}</span>
                     </li>
@@ -402,8 +471,13 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
               <ul className="mt-4 space-y-3">
                 {data.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
-                    <span className="text-sm leading-6 text-gray-700">{feature}</span>
+                    <CheckCircle
+                      size={18}
+                      className="mt-0.5 shrink-0 text-cta"
+                    />
+                    <span className="text-sm leading-6 text-gray-700">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -442,7 +516,8 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
               <Container>
                 <div className="mb-10 max-w-3xl">
                   <h2 className="mb-4 text-2xl font-bold text-primary">
-                    {data.segmentsSectionTitle || "Bu Hizmet Kimler İçin Daha Uygun?"}
+                    {data.segmentsSectionTitle ||
+                      "Bu Hizmet Kimler İçin Daha Uygun?"}
                   </h2>
                   <p className="text-sm leading-7 text-text-light">
                     {data.segmentsSectionDescription ||
@@ -456,8 +531,12 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                       key={segment.title}
                       className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
                     >
-                      <h3 className="mb-3 text-lg font-bold text-primary">{segment.title}</h3>
-                      <p className="mb-4 text-sm leading-7 text-text-light">{segment.content}</p>
+                      <h3 className="mb-3 text-lg font-bold text-primary">
+                        {segment.title}
+                      </h3>
+                      <p className="mb-4 text-sm leading-7 text-text-light">
+                        {segment.content}
+                      </p>
                       <Link
                         href={segment.href}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
@@ -487,7 +566,10 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         }
 
         if (sectionKey === "contentBlocks") {
-          return data.contentBlocks?.map((block) => renderContentBlock(block)) || null;
+          return (
+            data.contentBlocks?.map((block) => renderContentBlock(block)) ||
+            null
+          );
         }
 
         if (sectionKey === "cityLinks") {
@@ -519,9 +601,13 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                             Şehir hizmet sayfası
                           </span>
                         </div>
-                        <h3 className="mb-2 text-lg font-bold text-primary">{link.label}</h3>
+                        <h3 className="mb-2 text-lg font-bold text-primary">
+                          {link.label}
+                        </h3>
                         {link.description ? (
-                          <p className="mb-4 text-sm leading-7 text-text-light">{link.description}</p>
+                          <p className="mb-4 text-sm leading-7 text-text-light">
+                            {link.description}
+                          </p>
                         ) : null}
                         <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
                           Şehir sayfasını inceleyin
@@ -542,8 +628,9 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                   Hizmet Verdiğimiz Şehirler
                 </h2>
                 <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
-                  Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz. Gerçekten hizmet
-                  verdiğimiz şehirleri gösteriyor, boş rota üretmiyoruz.
+                  Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde
+                  hizmet veriyoruz. Gerçekten hizmet verdiğimiz şehirleri
+                  gösteriyor, boş rota üretmiyoruz.
                 </p>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
                   {cities.map((city) => (
@@ -586,8 +673,12 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                       href={page.href}
                       className="rounded-2xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      <h3 className="mb-2 text-lg font-bold text-primary">{page.title}</h3>
-                      <p className="mb-4 text-sm leading-7 text-text-light">{page.description}</p>
+                      <h3 className="mb-2 text-lg font-bold text-primary">
+                        {page.title}
+                      </h3>
+                      <p className="mb-4 text-sm leading-7 text-text-light">
+                        {page.description}
+                      </p>
                       <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
                         {page.ctaLabel || "Sayfaya git"}
                         <ArrowRight size={14} />
@@ -606,6 +697,36 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
 
         return null;
       })}
+
+      {data.blogPosts && data.blogPosts.length > 0 && (
+        <section className="bg-white py-16">
+          <Container>
+            <h2 className="mb-8 text-2xl font-bold text-primary">
+              Faydalı İçerikler
+            </h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {data.blogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="rounded-2xl border border-gray-200 bg-surface p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <h3 className="mb-3 text-lg font-bold text-primary">
+                    {post.title}
+                  </h3>
+                  <p className="mb-4 text-sm leading-7 text-text-light">
+                    {post.excerpt}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                    Yazıyı oku
+                    <ArrowRight size={14} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <CTASection
         content={data.ctaContent}

@@ -1,4 +1,4 @@
-import { blogPosts } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/data/blog-posts";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { getAllDistrictServiceParams } from "@/data/seo/istanbul-district-content";
@@ -46,7 +46,7 @@ const staticPathSet = new Set<string>([
   ...staticPagePaths,
   ...teklifPaths,
 ]);
-const blogPathSet = new Set(blogPosts.map((post) => `/blog/${post.slug}`));
+const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
 
 const districtServiceParams = getAllDistrictServiceParams();
 const districtServicePathSet = new Set(

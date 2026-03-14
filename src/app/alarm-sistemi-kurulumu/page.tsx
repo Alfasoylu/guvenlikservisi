@@ -208,6 +208,38 @@ const data: ServicePageData = {
     },
   ],
   defaultService: "alarm",
+  blogPosts: [
+    {
+      slug: "alarm-sistemi-fiyatlari-2026",
+      title: "Alarm Sistemi Fiyatları 2026",
+      excerpt:
+        "Konut ve işyeri için alarm sistemi kurulum maliyeti ne kadar? Güncel fiyatlar, kablolu-kablosuz farkları ve paket örnekleri.",
+    },
+    {
+      slug: "ev-guvenlik-kamera-sistemi-rehberi",
+      title: "Ev Güvenlik Kamera Sistemi Rehberi",
+      excerpt:
+        "Konut güvenliğinde kamera türleri, kurulum noktaları, maliyet ve uzaktan izleme rehberi.",
+    },
+    {
+      slug: "kablosuz-alarm-sistemi-rehberi",
+      title: "Kablosuz Alarm Sistemi Rehberi",
+      excerpt:
+        "Kablosuz alarm sistemi hakkında kapsamlı teknik rehber. Çalışma prensibi, avantajları, seçim kriterleri ve fiyat bilgileri.",
+    },
+    {
+      slug: "isyeri-alarm-sistemi-secimi",
+      title: "İşyeri Alarm Sistemi Nasıl Seçilir?",
+      excerpt:
+        "İşyeri alarm sistemi seçiminde dikkat edilmesi gerekenler, sistem tipleri, bileşenler ve fiyat rehberi.",
+    },
+    {
+      slug: "alarm-sistemi-nasil-calisir",
+      title: "Alarm Sistemi Nasıl Çalışır?",
+      excerpt:
+        "Alarm sistemi çalışma prensibi, bileşenleri ve farklı alarm türleri hakkında teknik rehber.",
+    },
+  ],
   ctaContent: {
     badge: "Keşif • Bölge planı • Teklif",
     title: "Alarm Sistemi İçin Ücretsiz Keşif ve Teklif Alın",
