@@ -8,7 +8,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
-import CTASection from "@/components/sections/CTASection";
+import CTASection, { type CTASectionContent } from "@/components/sections/CTASection";
 import FAQSection, { type FAQItem } from "@/components/sections/FAQSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import { Container } from "@/components/ui/Container";
@@ -24,6 +24,13 @@ interface RelatedPage {
   title: string;
   href: string;
   description: string;
+  ctaLabel?: string;
+}
+
+interface ContextualLink {
+  href: string;
+  label: string;
+  description?: string;
 }
 
 interface ProcessStep {
@@ -32,11 +39,57 @@ interface ProcessStep {
   description: string;
 }
 
+type ServiceHubContentBlockType =
+  | "service-fit"
+  | "scope-details"
+  | "pricing-factors"
+  | "takeover-process"
+  | "prep-checklist"
+  | "issue-triage";
+
+interface BaseServiceHubContentBlock {
+  type: ServiceHubContentBlockType;
+  title?: string;
+  description?: string;
+}
+
+interface ServiceHubListContentBlock extends BaseServiceHubContentBlock {
+  type: "service-fit" | "pricing-factors" | "takeover-process" | "prep-checklist";
+  items: string[];
+}
+
+interface ServiceHubScopeContentBlock extends BaseServiceHubContentBlock {
+  type: "scope-details";
+  includedTitle?: string;
+  includedItems: string[];
+  additionalTitle?: string;
+  additionalItems?: string[];
+}
+
+interface ServiceHubIssueTriageBlock extends BaseServiceHubContentBlock {
+  type: "issue-triage";
+  items: {
+    title: string;
+    description: string;
+  }[];
+}
+
+export type ServiceHubContentBlock =
+  | ServiceHubListContentBlock
+  | ServiceHubScopeContentBlock
+  | ServiceHubIssueTriageBlock;
+
 export interface ServiceHubPageData {
   slug: string;
   title: string;
   subtitle: string;
   description: string;
+  heroPrimaryCtaLabel?: string;
+  heroPanel?: {
+    title: string;
+    intro?: string;
+    points: string[];
+  };
   detailSectionTitle?: string;
   heroBadge: string;
   heroHighlights: string[];
@@ -60,26 +113,17 @@ export interface ServiceHubPageData {
     title: string;
     steps: ProcessStep[];
   };
+  contentBlocks?: ServiceHubContentBlock[];
+  sectionOrder?: Array<"segments" | "process" | "contentBlocks" | "cityLinks" | "relatedPages" | "faq">;
   relatedPages?: RelatedPage[];
+  relatedPagesTitle?: string;
   relatedPagesDescription?: string;
   defaultService?: string;
-  ctaTitle?: string;
-  ctaSubtitle?: string;
-  authorityBeforeFaq?: {
+  ctaContent?: CTASectionContent;
+  cityLinksSection?: {
     title: string;
     description?: string;
-    links: {
-      href: string;
-      label: string;
-    }[];
-  };
-  authorityAfterFaq?: {
-    title: string;
-    description?: string;
-    links: {
-      href: string;
-      label: string;
-    }[];
+    links: ContextualLink[];
   };
 }
 
@@ -87,20 +131,142 @@ interface ServiceHubTemplateProps {
   data: ServiceHubPageData;
 }
 
-const advantages = [
-  {
-    icon: <Clock3 size={18} className="text-accent" />,
-    title: "Hızlı dönüş",
-    text: "İhtiyaç ve öncelik seviyesini netleştirip uygun teklif veya müdahale planını gecikmeden çıkarıyoruz.",
-  },
-  {
-    icon: <BadgeCheck size={18} className="text-accent" />,
-    title: "Doğru kapsam",
-    text: "Gereksiz ürün veya işlem yerine gerçekten ihtiyaca uyan sistem, bakım veya servis kapsamı öneriyoruz.",
-  },
-];
+const contentBlockTitles: Record<ServiceHubContentBlockType, string> = {
+  "service-fit": "Hangi Durumda Bu Hizmet Doğru Seçimdir?",
+  "scope-details": "Neler Dahil, Neler Ayrıca Değerlendirilir?",
+  "pricing-factors": "Bu Hizmette Fiyatı ve Süreyi Ne Etkiler?",
+  "takeover-process": "Mevcut Sistemi Devralırken Nasıl İlerliyoruz?",
+  "prep-checklist": "İlk Görüşmede Hangi Bilgileri Hazırlarsanız Süreç Hızlanır?",
+  "issue-triage": "Arıza Türüne Göre Nasıl İlerliyoruz?",
+};
+
+const contentBlockBackgrounds: Record<ServiceHubContentBlockType, string> = {
+  "service-fit": "bg-surface",
+  "scope-details": "bg-white",
+  "pricing-factors": "bg-surface",
+  "takeover-process": "bg-white",
+  "prep-checklist": "bg-surface",
+  "issue-triage": "bg-white",
+};
+
+function renderContentBlock(block: ServiceHubContentBlock) {
+  const title = block.title || contentBlockTitles[block.type];
+  const sectionClass = contentBlockBackgrounds[block.type];
+
+  if (block.type === "issue-triage") {
+    return (
+      <section key={`${block.type}-${title}`} className={`py-16 ${sectionClass}`}>
+        <Container>
+          <div className="max-w-5xl">
+            <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
+            {block.description ? (
+              <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+            ) : null}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {block.items.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-3 text-lg font-bold text-primary">{item.title}</h3>
+                <p className="text-sm leading-7 text-text-light">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (block.type === "scope-details") {
+    const hasAdditionalItems = Boolean(block.additionalItems?.length);
+
+    return (
+      <section key={`${block.type}-${title}`} className={`py-16 ${sectionClass}`}>
+        <Container>
+          <div className="max-w-5xl">
+            <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
+            {block.description ? (
+              <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+            ) : null}
+          </div>
+
+          <div
+            className={`mt-8 grid grid-cols-1 gap-6 ${
+              hasAdditionalItems ? "lg:grid-cols-2" : "max-w-3xl"
+            }`}
+          >
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold text-primary">
+                {block.includedTitle || "Dahil olan başlıklar"}
+              </h3>
+              <ul className="space-y-3">
+                {block.includedItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
+                    <span className="text-sm leading-6 text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {hasAdditionalItems ? (
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                <h3 className="mb-4 text-lg font-bold text-primary">
+                  {block.additionalTitle || "Ayrıca değerlendirilen başlıklar"}
+                </h3>
+                <ul className="space-y-3">
+                  {block.additionalItems?.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle size={18} className="mt-0.5 shrink-0 text-accent" />
+                      <span className="text-sm leading-6 text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  return (
+    <section key={`${block.type}-${title}`} className={`py-16 ${sectionClass}`}>
+      <Container>
+        <div className="max-w-5xl">
+          <h2 className="mb-4 text-2xl font-bold text-primary">{title}</h2>
+          {block.description ? (
+            <p className="max-w-3xl text-sm leading-7 text-text-light">{block.description}</p>
+          ) : null}
+        </div>
+
+        <div className="mt-8 rounded-3xl border border-gray-200 bg-white p-6">
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {block.items.map((item) => (
+              <li key={item} className="flex items-start gap-3 rounded-2xl bg-surface p-4">
+                <CheckCircle size={18} className="mt-0.5 shrink-0 text-cta" />
+                <span className="text-sm leading-6 text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
 
 export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
+  const heroPanel = data.heroPanel || {
+    title: "Bu hizmette odak noktamız",
+    intro: undefined,
+    points: data.authoritySection.paragraphs.slice(0, 2),
+  };
+  const sectionOrder =
+    data.sectionOrder || ["segments", "process", "contentBlocks", "cityLinks", "relatedPages", "faq"];
+
   const localBusinessSchema = generateLocalBusinessSchema();
   const serviceSchema = generateServiceSchema({
     name: data.title,
@@ -171,7 +337,7 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                   href="#quote-form"
                   className="inline-flex items-center gap-2 rounded-xl bg-cta px-8 py-4 font-bold text-white shadow-lg transition-colors hover:bg-ctaHover"
                 >
-                  Ücretsiz Teklif Al
+                  {data.heroPrimaryCtaLabel || "Ücretsiz Teklif Al"}
                 </a>
 
                 <a
@@ -188,29 +354,25 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
               <div className="mb-5 rounded-2xl border border-white/10 bg-white/5 p-5">
                 <div className="mb-3 flex items-center gap-2 text-white">
                   <BadgeCheck size={18} className="text-accent" />
-                  <span className="font-semibold">Bu hizmette odak noktamız</span>
+                  <span className="font-semibold">{heroPanel.title}</span>
                 </div>
 
-                <div className="space-y-4 text-sm leading-7 text-white/80">
-                  {data.authoritySection.paragraphs.slice(0, 2).map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                {heroPanel.intro ? (
+                  <p className="mb-4 text-sm leading-7 text-white/80">{heroPanel.intro}</p>
+                ) : null}
+
+                <ul className="space-y-3">
+                  {heroPanel.points.map((point, index) => (
+                    <li key={point} className="flex items-start gap-3 text-sm leading-6 text-white/85">
+                      {index === 0 ? (
+                        <Clock3 size={18} className="mt-0.5 shrink-0 text-accent" />
+                      ) : (
+                        <BadgeCheck size={18} className="mt-0.5 shrink-0 text-accent" />
+                      )}
+                      <span>{point}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {advantages.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                  >
-                    <div className="mb-2 flex items-center gap-2 text-white">
-                      {item.icon}
-                      <span className="font-semibold">{item.title}</span>
-                    </div>
-                    <p className="text-sm leading-6 text-white/75">{item.text}</p>
-                  </div>
-                ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -271,162 +433,182 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         </Container>
       </section>
 
-      {data.segments.length > 0 ? (
-        <section className="bg-surface py-16">
-          <Container>
-            <div className="mb-10 max-w-3xl">
-              <h2 className="mb-4 text-2xl font-bold text-primary">
-                {data.segmentsSectionTitle || "Bu Hizmet Kimler İçin Daha Uygun?"}
-              </h2>
-              <p className="text-sm leading-7 text-text-light">
-                {data.segmentsSectionDescription ||
-                  "Hizmetin kapsamı kullanım alanına, operasyon riskine ve karar verici beklentisine göre değişir. Aşağıdaki sayfalardan ilgili senaryoya daha hızlı geçebilirsiniz."}
-              </p>
-            </div>
+      {sectionOrder.map((sectionKey) => {
+        if (sectionKey === "segments") {
+          if (data.segments.length === 0) return null;
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {data.segments.map((segment) => (
-                <div
-                  key={segment.title}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
-                >
-                  <h3 className="mb-3 text-lg font-bold text-primary">{segment.title}</h3>
-                  <p className="mb-4 text-sm leading-7 text-text-light">{segment.content}</p>
-                  <Link
-                    href={segment.href}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
-                  >
-                    Detaylı bilgi
-                    <ArrowRight size={14} />
-                  </Link>
+          return (
+            <section key="segments" className="bg-surface py-16">
+              <Container>
+                <div className="mb-10 max-w-3xl">
+                  <h2 className="mb-4 text-2xl font-bold text-primary">
+                    {data.segmentsSectionTitle || "Bu Hizmet Kimler İçin Daha Uygun?"}
+                  </h2>
+                  <p className="text-sm leading-7 text-text-light">
+                    {data.segmentsSectionDescription ||
+                      "Hizmetin kapsamı kullanım alanına, operasyon riskine ve karar verici beklentisine göre değişir. Aşağıdaki sayfalardan ilgili senaryoya daha hızlı geçebilirsiniz."}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
 
-      {data.processSection ? (
-        <ProcessSection
-          title={data.processSection.title}
-          steps={data.processSection.steps}
-          bgClass="bg-surface"
-        />
-      ) : (
-        <ProcessSection />
-      )}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {data.segments.map((segment) => (
+                    <div
+                      key={segment.title}
+                      className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+                    >
+                      <h3 className="mb-3 text-lg font-bold text-primary">{segment.title}</h3>
+                      <p className="mb-4 text-sm leading-7 text-text-light">{segment.content}</p>
+                      <Link
+                        href={segment.href}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3"
+                      >
+                        Detaylı bilgi
+                        <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </Container>
+            </section>
+          );
+        }
 
-      <section className="bg-white py-16">
-        <Container>
-          <h2 className="mb-4 text-center text-2xl font-bold text-primary">
-            Hizmet Verdiğimiz Şehirler
-          </h2>
+        if (sectionKey === "process") {
+          return data.processSection ? (
+            <ProcessSection
+              key="process"
+              title={data.processSection.title}
+              steps={data.processSection.steps}
+              bgClass="bg-surface"
+            />
+          ) : (
+            <ProcessSection key="process" />
+          );
+        }
 
-          <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
-            Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz. Gerçekten hizmet
-            verdiğimiz şehirleri gösteriyor, boş rota üretmiyoruz.
-          </p>
+        if (sectionKey === "contentBlocks") {
+          return data.contentBlocks?.map((block) => renderContentBlock(block)) || null;
+        }
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {cities.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/${city.slug}`}
-                className="group flex flex-col items-center gap-2 rounded-xl bg-surface p-4 text-center transition-colors hover:bg-accent/10"
-              >
-                <MapPin size={18} className="text-accent" />
-                <span className="text-sm font-semibold text-primary group-hover:text-accent">
-                  {city.name}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
+        if (sectionKey === "cityLinks") {
+          if (data.cityLinksSection) {
+            return (
+              <section key="cityLinks" className="bg-white py-16">
+                <Container>
+                  <div className="max-w-3xl">
+                    <h2 className="mb-4 text-2xl font-bold text-primary">
+                      {data.cityLinksSection.title}
+                    </h2>
+                    {data.cityLinksSection.description ? (
+                      <p className="text-sm leading-7 text-text-light">
+                        {data.cityLinksSection.description}
+                      </p>
+                    ) : null}
+                  </div>
 
-      {data.relatedPages && data.relatedPages.length > 0 ? (
-        <section className="bg-surface py-16">
-          <Container>
-            <h2 className="mb-8 text-2xl font-bold text-primary">İlgili Hizmet Sayfaları</h2>
-            {data.relatedPagesDescription ? (
-              <p className="mb-8 max-w-3xl text-sm leading-7 text-text-light">
-                {data.relatedPagesDescription}
-              </p>
-            ) : null}
+                  <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+                    {data.cityLinksSection.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="rounded-2xl border border-gray-200 bg-surface p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                      >
+                        <div className="mb-3 flex items-center gap-2 text-accent">
+                          <MapPin size={16} />
+                          <span className="text-xs font-semibold uppercase tracking-[0.16em]">
+                            Şehir hizmet sayfası
+                          </span>
+                        </div>
+                        <h3 className="mb-2 text-lg font-bold text-primary">{link.label}</h3>
+                        {link.description ? (
+                          <p className="mb-4 text-sm leading-7 text-text-light">{link.description}</p>
+                        ) : null}
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                          Şehir sayfasını inceleyin
+                          <ArrowRight size={14} />
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </Container>
+              </section>
+            );
+          }
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {data.relatedPages.map((page) => (
-                <Link
-                  key={page.href}
-                  href={page.href}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
-                >
-                  <h3 className="mb-2 text-lg font-bold text-primary">{page.title}</h3>
-                  <p className="mb-4 text-sm leading-7 text-text-light">{page.description}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                    Sayfaya git
-                    <ArrowRight size={14} />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+          return (
+            <section key="cityLinksFallback" className="bg-white py-16">
+              <Container>
+                <h2 className="mb-4 text-center text-2xl font-bold text-primary">
+                  Hizmet Verdiğimiz Şehirler
+                </h2>
+                <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
+                  Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz. Gerçekten hizmet
+                  verdiğimiz şehirleri gösteriyor, boş rota üretmiyoruz.
+                </p>
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+                  {cities.map((city) => (
+                    <Link
+                      key={city.slug}
+                      href={`/${city.slug}`}
+                      className="group flex flex-col items-center gap-2 rounded-xl bg-surface p-4 text-center transition-colors hover:bg-accent/10"
+                    >
+                      <MapPin size={18} className="text-accent" />
+                      <span className="text-sm font-semibold text-primary group-hover:text-accent">
+                        {city.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </Container>
+            </section>
+          );
+        }
 
-      {data.authorityBeforeFaq && data.authorityBeforeFaq.links.length > 0 ? (
-        <section className="bg-white py-12">
-          <Container>
-            <h2 className="text-2xl font-bold text-primary">{data.authorityBeforeFaq.title}</h2>
-            {data.authorityBeforeFaq.description ? (
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
-                {data.authorityBeforeFaq.description}
-              </p>
-            ) : null}
-            <div className="mt-5 flex flex-wrap gap-3">
-              {data.authorityBeforeFaq.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-xl border border-gray-200 bg-surface px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+        if (sectionKey === "relatedPages") {
+          if (!data.relatedPages || data.relatedPages.length === 0) return null;
 
-      <FAQSection items={data.faq} />
+          return (
+            <section key="relatedPages" className="bg-surface py-16">
+              <Container>
+                <h2 className="mb-8 text-2xl font-bold text-primary">
+                  {data.relatedPagesTitle || "İlgili Hizmet Sayfaları"}
+                </h2>
+                {data.relatedPagesDescription ? (
+                  <p className="mb-8 max-w-3xl text-sm leading-7 text-text-light">
+                    {data.relatedPagesDescription}
+                  </p>
+                ) : null}
 
-      {data.authorityAfterFaq && data.authorityAfterFaq.links.length > 0 ? (
-        <section className="bg-surface py-12">
-          <Container>
-            <h2 className="text-2xl font-bold text-primary">{data.authorityAfterFaq.title}</h2>
-            {data.authorityAfterFaq.description ? (
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
-                {data.authorityAfterFaq.description}
-              </p>
-            ) : null}
-            <div className="mt-5 flex flex-wrap gap-3">
-              {data.authorityAfterFaq.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </section>
-      ) : null}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {data.relatedPages.map((page) => (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      className="rounded-2xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      <h3 className="mb-2 text-lg font-bold text-primary">{page.title}</h3>
+                      <p className="mb-4 text-sm leading-7 text-text-light">{page.description}</p>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                        {page.ctaLabel || "Sayfaya git"}
+                        <ArrowRight size={14} />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </Container>
+            </section>
+          );
+        }
+
+        if (sectionKey === "faq") {
+          return <FAQSection key="faq" items={data.faq} />;
+        }
+
+        return null;
+      })}
 
       <CTASection
-        title={data.ctaTitle}
-        subtitle={data.ctaSubtitle}
+        content={data.ctaContent}
         defaultService={data.defaultService}
       />
     </>
