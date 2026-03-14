@@ -1,4 +1,5 @@
 import { cityContent } from "../seo-content/cities";
+import { getDistrictsByCitySlug, getPrimaryDistrictsByCitySlug } from "./districts";
 
 export interface CityRouteRecord {
   slug: string;
@@ -11,8 +12,12 @@ export interface SeoCity extends CityRouteRecord {
   serviceAreaEmphasis: string;
   serviceAreas: string[];
   seoPriority: "high" | "medium";
+  commercialPriorityScore: 1 | 2 | 3 | 4 | 5;
   areaServedLabel: string;
   districts: string[];
+  districtSlugs: string[];
+  primaryDistrictSlugs: string[];
+  districtCount: number;
   districtsNote?: string;
   metadataDistrictCoverage?: string;
 }
@@ -47,29 +52,6 @@ const defaultServiceAreas = [
   "Mağazalar",
 ];
 
-const cityIntroBySlug: Record<string, string> = {
-  istanbul:
-    "İstanbul içinde apartman, site, villa, mağaza, ofis, depo ve fabrika projeleri için profesyonel güvenlik sistemi kurulumu yapıyoruz.",
-  ankara:
-    "Ankara içinde ev, işyeri, apartman ve ticari alanlar için keşif, ürün seçimi, montaj ve devreye alma dahil güvenlik çözümleri sunuyoruz.",
-  izmir:
-    "İzmir içinde iç ve dış mekanlara uygun kamera, alarm ve geçiş kontrol sistemleri kuruyoruz.",
-  bursa:
-    "Bursa içinde fabrika, depo, mağaza, site ve apartman projeleri için profesyonel montaj hizmeti veriyoruz.",
-  kocaeli:
-    "Kocaeli içinde özellikle fabrika, depo ve sanayi tesisleri için güvenlik sistemi çözümleri sunuyoruz.",
-  antalya:
-    "Antalya içinde villa, site, otel çevresi ve ticari alanlar için güvenlik kamera ve alarm sistemleri kuruyoruz.",
-  sakarya:
-    "Sakarya içinde ev, işyeri, depo ve site projelerinde anahtar teslim güvenlik sistemi kurulumu sunuyoruz.",
-  yalova:
-    "Yalova içinde konut, site, villa, işyeri ve küçük işletmeler için profesyonel güvenlik sistemleri kurulumu yapıyoruz.",
-  edirne:
-    "Edirne içinde konut ve ticari projeler için kamera sistemi, alarm sistemi ve kartlı geçiş çözümleri sunuyoruz.",
-  kirklareli:
-    "Kırklareli içinde işyeri, depo, apartman ve açık alan güvenliği için profesyonel montaj hizmeti sağlıyoruz.",
-};
-
 const cityServiceAreasBySlug: Record<string, string[]> = {
   istanbul: ["Apartmanlar", "Siteler", "Mağazalar", "Ofisler", "Depolar", "Fabrikalar"],
   ankara: ["Daireler", "Villalar", "İşyerleri", "Apartman girişleri", "Depolar", "Mağazalar"],
@@ -92,6 +74,27 @@ const highPriorityCitySlugs = new Set([
   "antalya",
 ]);
 
+const commercialPriorityScoreByCitySlug: Record<string, 1 | 2 | 3 | 4 | 5> = {
+  istanbul: 5,
+  ankara: 5,
+  izmir: 5,
+  bursa: 4,
+  kocaeli: 4,
+  antalya: 4,
+  tekirdag: 4,
+  sakarya: 3,
+  balikesir: 3,
+  adana: 4,
+  konya: 4,
+  gaziantep: 4,
+  kayseri: 3,
+  eskisehir: 3,
+  mersin: 4,
+  yalova: 3,
+  edirne: 3,
+  kirklareli: 3,
+};
+
 function getCityLocative(name: string) {
   const normalized = name.toLocaleLowerCase("tr-TR");
   const lastVowel = [...normalized].reverse().find((char) => "aeıioöuü".includes(char));
@@ -105,18 +108,24 @@ function getDefaultCityIntro(name: string) {
 
 export const seoCities: SeoCity[] = cityRouteRecords.map((city) => {
   const citySeoContent = cityContent[city.slug];
+  const cityDistricts = getDistrictsByCitySlug(city.slug);
+  const primaryDistricts = getPrimaryDistrictsByCitySlug(city.slug);
 
   return {
     ...city,
     locative: getCityLocative(city.name),
-    shortIntro: cityIntroBySlug[city.slug] ?? citySeoContent?.intro ?? getDefaultCityIntro(city.name),
+    shortIntro: citySeoContent?.intro ?? getDefaultCityIntro(city.name),
     serviceAreaEmphasis:
       citySeoContent?.districtsNote ??
       `${city.name} genelinde keşif, montaj ve devreye alma desteği veriyoruz.`,
     serviceAreas: cityServiceAreasBySlug[city.slug] ?? defaultServiceAreas,
     seoPriority: highPriorityCitySlugs.has(city.slug) ? "high" : "medium",
+    commercialPriorityScore: commercialPriorityScoreByCitySlug[city.slug] ?? 3,
     areaServedLabel: city.name,
-    districts: citySeoContent?.districts ?? [],
+    districts: cityDistricts.map((district) => district.name),
+    districtSlugs: cityDistricts.map((district) => district.slug),
+    primaryDistrictSlugs: primaryDistricts.map((district) => district.slug),
+    districtCount: cityDistricts.length,
     districtsNote: citySeoContent?.districtsNote,
     metadataDistrictCoverage: citySeoContent?.metadataDistrictCoverage,
   };
@@ -130,4 +139,13 @@ export function getSeoCityBySlug(citySlug: string) {
 
 export function getCityRouteRecord(citySlug: string) {
   return cities.find((city) => city.slug === citySlug);
+}
+
+export function getHighPrioritySeoCities() {
+  return [...seoCities].sort((left, right) => {
+    return (
+      right.commercialPriorityScore - left.commercialPriorityScore ||
+      left.name.localeCompare(right.name, "tr")
+    );
+  });
 }

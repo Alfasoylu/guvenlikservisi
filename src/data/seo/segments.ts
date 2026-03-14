@@ -1,3 +1,5 @@
+import type { PainPointSlug } from "./pain-points";
+
 export const HIGH_LTV_SEGMENT_SLUGS = [
   "site-yonetimi",
   "fabrika",
@@ -44,6 +46,7 @@ export interface HighLtvSegment {
   decisionMakerType: SegmentDecisionMaker;
   urgencyPattern: SegmentUrgencyPattern;
   commonPainPoints: string[];
+  painPointSlugs: PainPointSlug[];
   commonServiceSlugs: string[];
   recurringRevenuePotential: SegmentRecurringPotential;
   recommendedCtaAngle: string;
@@ -51,21 +54,22 @@ export interface HighLtvSegment {
   priorityScore: 1 | 2 | 3 | 4 | 5;
 }
 
-export const highLtvSegments: HighLtvSegment[] = [
+export const highLtvSegments = [
   {
     slug: "site-yonetimi",
-    name: "Site Yönetimleri ve Toplu Konutlar",
-    searchLabels: ["site yönetimi", "apartman güvenlik sistemi", "site kamera sistemi", "rezidans güvenlik"],
+    name: "Site Yonetimleri ve Toplu Konutlar",
+    searchLabels: ["site yonetimi", "apartman guvenlik sistemi", "site kamera sistemi", "rezidans guvenlik"],
     businessType: "residential-management",
     leadValue: "very-high",
     decisionMakerType: "site-management-board",
     urgencyPattern: "contract-renewal",
     commonPainPoints: [
-      "ortak alan kamera kayıtlarının sürekliliği",
-      "uzaktan izleme ve yönetim erişimi",
-      "çok girişli bloklarda bakım disiplini",
-      "yönetim onayı gerektiren teklif süreci",
+      "ortak alan kamera kayitlarinin surekliligi",
+      "uzaktan izleme ve yonetim erisimi",
+      "cok girisli bloklarda bakim disiplini",
+      "yonetim onayi gerektiren teklif sureci",
     ],
+    painPointSlugs: ["ortak-alan-guvenligi", "yonetim-onay-sureci", "bakim-yapilmayan-sistem"],
     commonServiceSlugs: [
       "apartman-site-guvenlik-sistemi",
       "kamera-sistemi-bakim-sozlesmesi",
@@ -73,24 +77,25 @@ export const highLtvSegments: HighLtvSegment[] = [
       "uzaktan-kamera-izleme",
     ],
     recurringRevenuePotential: "very-high",
-    recommendedCtaAngle: "Bakım sözleşmesi, ortak alan güvenliği ve yönetim raporlaması odaklı teklif verin.",
-    trustAngle: "Çok bloklu yapılarda kayıt sürekliliği ve servis disiplini gösterin.",
+    recommendedCtaAngle: "Bakim sozlesmesi, ortak alan guvenligi ve yonetim raporlamasi odakli teklif verin.",
+    trustAngle: "Cok bloklu yapilarda kayit surekliligi ve servis disiplini gosterin.",
     priorityScore: 5,
   },
   {
     slug: "fabrika",
-    name: "Fabrikalar ve Üretim Tesisleri",
-    searchLabels: ["fabrika güvenlik sistemi", "üretim tesisi kamera sistemi", "fabrika çevre güvenliği"],
+    name: "Fabrikalar ve Uretim Tesisleri",
+    searchLabels: ["fabrika guvenlik sistemi", "uretim tesisi kamera sistemi", "fabrika cevre guvenligi"],
     businessType: "industrial",
     leadValue: "very-high",
     decisionMakerType: "facility-manager",
     urgencyPattern: "operational-risk",
     commonPainPoints: [
-      "üretim hattında kayıt kaybı riski",
-      "çevre ve giriş noktalarında kör nokta",
-      "vardiya bazlı güvenlik ihtiyacı",
-      "bakım yapılmadığında uzun duruş maliyeti",
+      "uretim hattinda kayit kaybi riski",
+      "cevre ve giris noktalarinda kor nokta",
+      "vardiya bazli guvenlik ihtiyaci",
+      "bakim yapilmadiginda uzun durus maliyeti",
     ],
+    painPointSlugs: ["stok-kaybi-ve-gece-takibi", "kor-nokta-riski", "sla-ve-servis-surekliligi"],
     commonServiceSlugs: [
       "fabrika-depo-guvenlik-sistemi",
       "bakim-servis-uzaktan-izleme",
@@ -98,24 +103,25 @@ export const highLtvSegments: HighLtvSegment[] = [
       "uzaktan-kamera-izleme",
     ],
     recurringRevenuePotential: "very-high",
-    recommendedCtaAngle: "Kurumsal keşif, bakım planı ve kesinti riskini düşüren uzun vadeli teklif verin.",
-    trustAngle: "Geniş saha planlama, dokümantasyon ve hızlı müdahale kabiliyeti öne çıkarılmalı.",
+    recommendedCtaAngle: "Kurumsal kesif, bakim plani ve kesinti riskini dusuren uzun vadeli teklif verin.",
+    trustAngle: "Genis saha planlama, dokumantasyon ve hizli mudahale kabiliyeti one cikarilmali.",
     priorityScore: 5,
   },
   {
     slug: "depo",
-    name: "Depolar ve Lojistik Alanları",
-    searchLabels: ["depo kamera sistemi", "lojistik güvenlik sistemi", "depo güvenlik kamerası"],
+    name: "Depolar ve Lojistik Alanlari",
+    searchLabels: ["depo kamera sistemi", "lojistik guvenlik sistemi", "depo guvenlik kamerasi"],
     businessType: "logistics",
     leadValue: "high",
     decisionMakerType: "operations-manager",
     urgencyPattern: "operational-risk",
     commonPainPoints: [
-      "yükleme alanlarında görünürlük eksikliği",
-      "stok kaybı ve gece izleme ihtiyacı",
-      "uzun kayıt süresi beklentisi",
-      "NVR ve ağ güvenilirliği sorunları",
+      "yukleme alanlarinda gorunurluk eksikligi",
+      "stok kaybi ve gece izleme ihtiyaci",
+      "uzun kayit suresi beklentisi",
+      "NVR ve ag guvenilirligi sorunlari",
     ],
+    painPointSlugs: ["stok-kaybi-ve-gece-takibi", "poe-ag-kararsizligi", "kayit-yok"],
     commonServiceSlugs: [
       "fabrika-depo-guvenlik-sistemi",
       "kamera-sistemi-kurulumu",
@@ -123,24 +129,25 @@ export const highLtvSegments: HighLtvSegment[] = [
       "kamera-sistemi-bakim-sozlesmesi",
     ],
     recurringRevenuePotential: "high",
-    recommendedCtaAngle: "Yükleme alanı görünürlüğü, kayıt sürekliliği ve gece takibi üzerinden teklif verin.",
-    trustAngle: "Kayıt güvenilirliği ve hızlı arıza müdahalesi depolarda kritik güven sinyalidir.",
+    recommendedCtaAngle: "Yukleme alani gorunurlugu, kayit surekliligi ve gece takibi uzerinden teklif verin.",
+    trustAngle: "Kayit guvenilirligi ve hizli ariza mudahalesi depolarda kritik guven sinyalidir.",
     priorityScore: 5,
   },
   {
     slug: "avm",
-    name: "AVM ve Büyük Ticari Merkezler",
-    searchLabels: ["AVM güvenlik sistemi", "alışveriş merkezi yangın alarm bakımı", "AVM geçiş kontrol"],
+    name: "AVM ve Buyuk Ticari Merkezler",
+    searchLabels: ["AVM guvenlik sistemi", "alisveris merkezi yangin alarm bakimi", "AVM gecis kontrol"],
     businessType: "retail",
     leadValue: "very-high",
     decisionMakerType: "facility-manager",
     urgencyPattern: "compliance-driven",
     commonPainPoints: [
-      "çok alanlı erişim ve yangın güvenliği koordinasyonu",
-      "yoğun insan trafiğinde servis kesintisi riski",
-      "bakım kayıtlarının kurumsal takibi",
-      "yüksek görünürlük beklentisi",
+      "cok alanli erisim ve yangin guvenligi koordinasyonu",
+      "yogun insan trafiginde servis kesintisi riski",
+      "bakim kayitlarinin kurumsal takibi",
+      "yuksek gorunurluk beklentisi",
     ],
+    painPointSlugs: ["sla-ve-servis-surekliligi", "erisim-kontrol-entegrasyonu", "bakim-yapilmayan-sistem"],
     commonServiceSlugs: [
       "yangin-alarm-sistemi-kurulumu",
       "yangin-alarm-bakim-sozlesmesi",
@@ -148,24 +155,25 @@ export const highLtvSegments: HighLtvSegment[] = [
       "bakim-servis-uzaktan-izleme",
     ],
     recurringRevenuePotential: "very-high",
-    recommendedCtaAngle: "Uyumluluk, periyodik test ve çok bileşenli bakım planı üzerinden görüşme açın.",
-    trustAngle: "AVM projelerinde süreç disiplini, raporlama ve SLA beklentisi vurgulanmalıdır.",
+    recommendedCtaAngle: "Uyumluluk, periyodik test ve cok bilesenli bakim plani uzerinden gorusme acin.",
+    trustAngle: "AVM projelerinde surec disiplini, raporlama ve SLA beklentisi vurgulanmalidir.",
     priorityScore: 4,
   },
   {
     slug: "zincir-magaza",
-    name: "Zincir Mağazalar ve Çok Şubeli Perakende",
-    searchLabels: ["zincir mağaza kamera sistemi", "çok şubeli işletme güvenlik", "mağaza alarm sistemi"],
+    name: "Zincir Magazalar ve Cok Subeli Perakende",
+    searchLabels: ["zincir magaza kamera sistemi", "cok subeli isletme guvenlik", "magaza alarm sistemi"],
     businessType: "retail",
     leadValue: "high",
     decisionMakerType: "store-operations",
     urgencyPattern: "multi-location-standardization",
     commonPainPoints: [
-      "şubeler arası standart kurulum ihtiyacı",
-      "merkezi görünürlük ve uzaktan erişim",
-      "aynı servis disiplinini farklı lokasyonlarda sürdürme",
-      "arıza olduğunda hızlı ve standart müdahale beklentisi",
+      "subeler arasi standart kurulum ihtiyaci",
+      "merkezi gorunurluk ve uzaktan erisim",
+      "ayni servis disiplinini farkli lokasyonlarda surdurme",
+      "ariza oldugunda hizli ve standart mudahale beklentisi",
     ],
+    painPointSlugs: ["cok-lokasyonlu-standart", "uzaktan-erisim-sorunu", "sla-ve-servis-surekliligi"],
     commonServiceSlugs: [
       "isyeri-guvenlik-sistemi",
       "uzaktan-kamera-izleme",
@@ -173,24 +181,25 @@ export const highLtvSegments: HighLtvSegment[] = [
       "kamera-ariza-servisi",
     ],
     recurringRevenuePotential: "high",
-    recommendedCtaAngle: "Çok lokasyonlu standart kurulum ve merkezi raporlama üzerinden teklif verin.",
-    trustAngle: "Tek mağaza değil, tüm şubelerde aynı servis disiplinini sağlayabildiğinizi gösterin.",
+    recommendedCtaAngle: "Cok lokasyonlu standart kurulum ve merkezi raporlama uzerinden teklif verin.",
+    trustAngle: "Tek magaza degil, tum subelerde ayni servis disiplinini saglayabildiginizi gosterin.",
     priorityScore: 4,
   },
   {
     slug: "plaza-ofis",
     name: "Plazalar ve Kurumsal Ofisler",
-    searchLabels: ["plaza güvenlik sistemi", "kurumsal ofis geçiş kontrol", "ofis kamera sistemi"],
+    searchLabels: ["plaza guvenlik sistemi", "kurumsal ofis gecis kontrol", "ofis kamera sistemi"],
     businessType: "corporate-office",
     leadValue: "high",
     decisionMakerType: "corporate-admin",
     urgencyPattern: "compliance-driven",
     commonPainPoints: [
-      "erişim kontrolü ve profesyonel ziyaretçi akışı",
+      "erisim kontrolu ve profesyonel ziyaretci akisi",
       "kurumsal raporlama beklentisi",
-      "kesintisiz çalışma ve bakım planı ihtiyacı",
-      "alarm ve kamera entegrasyonunda düzen beklentisi",
+      "kesintisiz calisma ve bakim plani ihtiyaci",
+      "alarm ve kamera entegrasyonunda duzen beklentisi",
     ],
+    painPointSlugs: ["erisim-kontrol-entegrasyonu", "sla-ve-servis-surekliligi", "yonetim-onay-sureci"],
     commonServiceSlugs: [
       "kartli-gecis-sistemi-kurulumu",
       "isyeri-guvenlik-sistemi",
@@ -198,11 +207,11 @@ export const highLtvSegments: HighLtvSegment[] = [
       "bakim-servis-uzaktan-izleme",
     ],
     recurringRevenuePotential: "high",
-    recommendedCtaAngle: "Erişim kontrolü, servis disiplini ve kurumsal bakım planı üzerinden CTA kurun.",
-    trustAngle: "Kurumsal ofislerde profesyonel teslim, dokümantasyon ve bakım sürekliliği öne çıkar.",
+    recommendedCtaAngle: "Erisim kontrolu, servis disiplini ve kurumsal bakim plani uzerinden CTA kurun.",
+    trustAngle: "Kurumsal ofislerde profesyonel teslim, dokumantasyon ve bakim surekliligi one cikar.",
     priorityScore: 4,
   },
-];
+] satisfies HighLtvSegment[];
 
 export function getHighLtvSegmentBySlug(segmentSlug: string) {
   return highLtvSegments.find((segment) => segment.slug === segmentSlug);

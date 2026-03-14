@@ -87,16 +87,16 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 # P1 — Veri Mimarisi ve Programmatic SEO Motorunun Temeli
 
 ## P1.1 Tek Source of Truth Veri Yapısı
-- [ ] `src/data/seo/` klasörü oluştur
-- [ ] `services.ts` veri modelini genişlet
-- [ ] `cities.ts` veri modelini normalize et
-- [ ] `districts.ts` dosyasını oluştur
-- [ ] `keywords.ts` dosyasını oluştur
-- [ ] `segments.ts` dosyasını oluştur
-- [ ] `pain-points.ts` dosyasını oluştur
-- [ ] `faq-bank.ts` dosyasını oluştur
-- [ ] `trust-elements.ts` dosyasını oluştur
-- [ ] `schema-map.ts` dosyasını oluştur
+- [x] `src/data/seo/` klasörü oluştur
+- [x] `services.ts` veri modelini genişlet
+- [x] `cities.ts` veri modelini normalize et
+- [x] `districts.ts` dosyasını oluştur
+- [x] `keywords.ts` dosyasını oluştur
+- [x] `segments.ts` dosyasını oluştur
+- [x] `pain-points.ts` dosyasını oluştur
+- [x] `faq-bank.ts` dosyasını oluştur
+- [x] `trust-elements.ts` dosyasını oluştur
+- [x] `schema-map.ts` dosyasını oluştur
 
 ## P1.2 Şehir Veri Modeli
 Her şehir için:

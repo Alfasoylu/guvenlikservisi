@@ -612,3 +612,11 @@ export function getKeywordOpportunitySummaryForService(serviceSlug: string) {
     primaryTrafficKeyword: trafficKeywords[0]?.keyword ?? null,
   };
 }
+
+export function getKeywordsByOpportunityType(opportunityType: KeywordOpportunityType) {
+  return seoKeywordRecords.filter((record) => record.opportunityType === opportunityType);
+}
+
+export function getKeywordsBySegment(segmentSlug: string) {
+  return seoKeywordRecords.filter((record) => record.segmentSlug === segmentSlug);
+}

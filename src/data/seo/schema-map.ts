@@ -38,3 +38,11 @@ export const allowedSchemasByPageIntent: Record<SeoPageIntent, SeoSchemaName[]> 
   segment: ["WebPage", "BreadcrumbList", "FAQPage", "Service"],
   blog: ["WebPage", "BreadcrumbList", "Article"],
 };
+
+export function getSchemaTypeForService(serviceSlug: string) {
+  return schemaTypeByServiceSlug[serviceSlug] ?? "Service";
+}
+
+export function getAllowedSchemasForPageIntent(pageIntent: SeoPageIntent) {
+  return allowedSchemasByPageIntent[pageIntent] ?? [];
+}

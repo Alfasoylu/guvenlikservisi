@@ -1,3 +1,4 @@
+import type { HighLtvSegmentSlug } from "./segments";
 import type { ServiceBusinessIntent } from "./services";
 
 export interface TrustElement {
@@ -7,6 +8,7 @@ export interface TrustElement {
 }
 
 export type TrustIntentKey = ServiceBusinessIntent;
+export type TrustElementKey = TrustIntentKey | `segment:${HighLtvSegmentSlug}`;
 
 export const trustElementsByIntent: Record<TrustIntentKey, TrustElement> = {
   installation: {
@@ -54,7 +56,7 @@ export const trustElementsByIntent: Record<TrustIntentKey, TrustElement> = {
     body:
       "Görüntü yok, kayıt yok, kamera offline veya NVR problemi gibi durumlarda hızlı teşhis ve yerinde müdahale güvenlik açığını büyümeden kapatır.",
     bullets: [
-      "Belirti bazlı hızlı arıza ayrıştırması",
+      "Belirti bazlı hızlı arıza ayrımı",
       "NVR, disk, PoE ve ağ testi",
       "Sistemi yeniden çalışır hale getiren doğrulama adımı",
     ],
@@ -70,3 +72,51 @@ export const trustElementsByIntent: Record<TrustIntentKey, TrustElement> = {
     ],
   },
 };
+
+export const segmentTrustElements: Record<`segment:${HighLtvSegmentSlug}`, TrustElement> = {
+  "segment:site-yonetimi": {
+    title: "Site projelerinde güven ortak alan sürekliliği ile kurulur",
+    body:
+      "Site yönetimleri sadece kurulum değil; ortak alan güvenliği, kayıt sürekliliği ve bakım disiplininin düzenli işlemesini bekler.",
+    bullets: ["Yönetim kuruluna uygun kapsam", "Ortak alan kayıt sürekliliği", "Planlı bakım ve raporlama"],
+  },
+  "segment:fabrika": {
+    title: "Fabrikalarda güven kesintisiz operasyonla ilgilidir",
+    body:
+      "Üretim ve çevre güvenliği projelerinde teşhis hızı, kayıt sürekliliği ve saha disiplini güvenin ana ölçüsüdür.",
+    bullets: ["Geniş saha kapsama", "Hızlı saha müdahalesi", "Bakım ve izleme sürekliliği"],
+  },
+  "segment:depo": {
+    title: "Depo projelerinde görünürlük ve kayıt güvenilirliği öne çıkar",
+    body:
+      "Yükleme alanları, stok takibi ve gece saatleri için kesintisiz izleme güven duygusunu belirler.",
+    bullets: ["Yükleme alanı görünürlüğü", "Kayıt süresi ve disk sağlığı", "Gece takibi disiplini"],
+  },
+  "segment:avm": {
+    title: "AVM projelerinde süreç disiplini güven sinyalidir",
+    body:
+      "Yoğun insan trafiği olan yapılarda bakım planı, test kayıtları ve entegrasyon disiplini projeyi belirler.",
+    bullets: ["Uyumluluk odaklı planlama", "Periyodik test süreci", "Çok bileşenli entegrasyon"],
+  },
+  "segment:zincir-magaza": {
+    title: "Çok şubeli yapılarda standart servis kalitesi kritik hale gelir",
+    body:
+      "Şubeler arasında aynı cihaz, aynı görünürlük ve aynı müdahale kalitesini sürdürebilmek en büyük güven unsurudur.",
+    bullets: ["Merkezi görünürlük", "Standart servis notları", "Şubeler arası aynı disiplin"],
+  },
+  "segment:plaza-ofis": {
+    title: "Kurumsal ofislerde profesyonel teslim ve entegrasyon beklenir",
+    body:
+      "Plaza ve ofis projelerinde ziyaretçi akışı, erişim kontrolü ve düzenli servis süreci aynı profesyonel çizgide yönetilmelidir.",
+    bullets: ["Erişim kontrolü entegrasyonu", "Kurumsal raporlama", "Kesintisiz servis süreci"],
+  },
+};
+
+export const trustElements: Record<TrustElementKey, TrustElement> = {
+  ...trustElementsByIntent,
+  ...segmentTrustElements,
+};
+
+export function getTrustElement(trustKey: TrustElementKey) {
+  return trustElements[trustKey];
+}

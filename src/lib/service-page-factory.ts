@@ -1,8 +1,10 @@
 import type { InternalLinkItem } from "@/components/InternalLinkSection";
 import type { ServiceFAQItem } from "@/components/service-page/ServiceFAQ";
 import type { ServiceStatItem } from "@/components/service-page/ServiceStats";
+import type { FaqCollectionKey } from "@/data/seo/faq-bank";
+import { getFaqItemsByKeys } from "@/data/seo/faq-bank";
+import { getPainPointsBySlugs } from "@/data/seo/pain-points";
 import { cityContent } from "@/data/seo-content/cities";
-import { faqContent } from "@/data/seo-content/faq";
 import {
   fallbackServiceImages,
   serviceImages,
@@ -254,10 +256,13 @@ export function getServicePageFactoryData(
   const serviceDetails = serviceContent[service.slug];
   const seoService = getSeoServiceBySlug(service.slug);
   const businessModel = seoService ? getBusinessModelForService(seoService) : null;
-  const serviceFaq = faqContent[service.slug];
   const servicePackages = packagesContent[service.slug];
   const serviceUseCases = useCaseContent[service.slug];
   const imageEntry = getServiceImageEntry(service.slug);
+  const servicePainPoints = getPainPointsBySlugs(seoService?.painPointSlugs ?? []);
+  const serviceFaqItems = getFaqItemsByKeys(
+    seoService?.faqKeys ?? ([`service:${service.slug}`] as FaqCollectionKey[])
+  );
 
   const districts = getSortedDistricts(city.slug);
   const benefits = serviceDetails?.benefits.map((item) => fillTemplate(item, city, service)) || [];
@@ -265,7 +270,7 @@ export function getServicePageFactoryData(
   const useCases =
     serviceUseCases?.items.map((item) => fillTemplate(item, city, service)) || [];
   const faqItems =
-    serviceFaq?.items.map((item) => ({
+    serviceFaqItems.map((item) => ({
       question: fillTemplate(item.question, city, service),
       answer: fillTemplate(item.answer, city, service),
     })) || [];
@@ -283,6 +288,7 @@ export function getServicePageFactoryData(
 
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
   const metadataTargetText = formatNaturalList(metadataTargets);
+  const fallbackUseCases = servicePainPoints.slice(0, 4).map((painPoint) => painPoint.painStatement);
   const primarySegments = getHighLtvSegmentsForService(service.slug)
     .slice(0, 2)
     .map((segment) => segment.searchLabels[0] ?? segment.name.toLocaleLowerCase("tr-TR"));
@@ -349,7 +355,7 @@ export function getServicePageFactoryData(
       title: fillTemplate(serviceUseCases?.title || service.name, city, service),
       description: fillTemplate(serviceUseCases?.description || "", city, service),
       localContext: fillTemplate(serviceUseCases?.localContext || "", city, service),
-      items: useCases,
+      items: useCases.length > 0 ? useCases : fallbackUseCases,
     },
     packages: {
       title: fillTemplate(servicePackages?.title || "Örnek paketler", city, service),
@@ -358,7 +364,7 @@ export function getServicePageFactoryData(
       items: packageItems,
     },
     faq: {
-      title: serviceFaq?.title || "Sık Sorulan Sorular",
+      title: "Sık Sorulan Sorular",
       items: faqItems,
     },
     cta: {

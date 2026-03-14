@@ -128,7 +128,7 @@ function buildDefaultServiceSpecificContent(
   pageContent: FactoryPageContent
 ): ServiceSpecificContent {
   const seoService = getSeoServiceBySlug(service.slug);
-  const trustElement = trustElementsByIntent[seoService?.businessIntent ?? "installation"];
+  const trustElement = trustElementsByIntent[seoService?.trustElementKey ?? "installation"];
   const useCases =
     pageContent.useCases.items.length > 0
       ? pageContent.useCases.items

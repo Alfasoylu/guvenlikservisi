@@ -1,5 +1,7 @@
 import type { FaqItem } from "@/data/seo/faq-bank";
 import { getLeadIntentKeywordsForService, getSeoTrafficKeywordsForService } from "@/data/seo/keywords";
+import { getPainPointsBySlugs } from "@/data/seo/pain-points";
+import { getPrimaryDistrictsByCitySlug } from "@/data/seo/districts";
 import { getHighLtvSegmentBySlug, highLtvSegments } from "@/data/seo/segments";
 import {
   getBusinessModelForService,
@@ -139,5 +141,10 @@ export function getPageBusinessSummary(serviceSlug: string) {
     leadKeywords: getLeadIntentKeywordsForService(serviceSlug),
     trafficKeywords: getSeoTrafficKeywordsForService(serviceSlug),
     primarySegments: getHighLtvSegmentsForService(serviceSlug),
+    painPoints: getPainPointsBySlugs(service.painPointSlugs),
   };
+}
+
+export function getPrimaryDistrictsForCity(citySlug: string) {
+  return getPrimaryDistrictsByCitySlug(citySlug);
 }
