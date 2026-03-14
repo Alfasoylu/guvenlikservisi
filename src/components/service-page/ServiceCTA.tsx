@@ -8,6 +8,7 @@ import {
   heroGridClass,
   inverseButtonClass,
   primaryButtonClass,
+  secondaryButtonClass,
 } from "@/components/service-page/styles";
 import { siteConfig } from "@/data/site-config";
 import type { ServicePageImage } from "@/lib/service-page-factory";
@@ -17,6 +18,8 @@ interface ServiceCTAProps {
   description: string;
   primaryLabel: string;
   secondaryLabel: string;
+  whatsappLabel?: string;
+  whatsappHref?: string;
   image?: ServicePageImage | null;
 }
 
@@ -25,6 +28,8 @@ export default function ServiceCTA({
   description,
   primaryLabel,
   secondaryLabel,
+  whatsappLabel,
+  whatsappHref,
   image,
 }: ServiceCTAProps) {
   return (
@@ -39,6 +44,17 @@ export default function ServiceCTA({
             <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className={primaryButtonClass}>
               {primaryLabel}: {siteConfig.phone}
             </a>
+
+            {whatsappHref && whatsappLabel ? (
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={secondaryButtonClass}
+              >
+                {whatsappLabel}
+              </a>
+            ) : null}
 
             <Link href="/iletisim" className={inverseButtonClass}>
               {secondaryLabel}

@@ -4,13 +4,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import CityHubSection from "@/components/service-page/CityHubSection";
+import ServiceCommercialHighlights from "@/components/service-page/ServiceCommercialHighlights";
 import RelatedServicesSection from "@/components/service-page/RelatedServicesSection";
 import ServiceCTA from "@/components/service-page/ServiceCTA";
 import ServiceDistricts from "@/components/service-page/ServiceDistricts";
 import ServiceFAQ from "@/components/service-page/ServiceFAQ";
 import ServiceHero from "@/components/service-page/ServiceHero";
 import ServicePackages from "@/components/service-page/ServicePackages";
+import ServicePainPoints from "@/components/service-page/ServicePainPoints";
 import ServiceSEOContent from "@/components/service-page/ServiceSEOContent";
+import ServiceSegmentFit from "@/components/service-page/ServiceSegmentFit";
 import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
@@ -1963,7 +1966,7 @@ export default async function ServicePage({ params }: PageProps) {
   const localBusinessSchema = buildLocalBusinessSchema({
     name: `${city.name} ${service.name} - Güvenlik Servisi`,
     url: canonical,
-    areaServed: city.name,
+    areaServed: pageContent.localCoverage.schemaAreaServed,
     description: pageContent.meta.description,
   });
   const serviceSchema = buildServiceSchema({
@@ -1971,7 +1974,7 @@ export default async function ServicePage({ params }: PageProps) {
     description: pageContent.meta.description,
     url: canonical,
     serviceType: service.name,
-    areaServed: city.name,
+    areaServed: pageContent.localCoverage.schemaAreaServed,
   });
   const webPageSchema = buildWebPageSchema({
     name: pageContent.meta.title,
@@ -2267,10 +2270,27 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
+      <ServiceCommercialHighlights
+        title={pageContent.commercial.title}
+        description={pageContent.commercial.description}
+        audienceItems={pageContent.commercial.audienceItems}
+        includedItems={pageContent.commercial.includedItems}
+        urgencyTitle={pageContent.commercial.urgencyTitle}
+        urgencyBody={pageContent.commercial.urgencyBody}
+        trustTitle={pageContent.commercial.trustTitle}
+        trustItems={pageContent.commercial.trustItems}
+      />
+
       <ServiceStats
         title={pageContent.stats.title}
         description={pageContent.stats.description}
         items={pageContent.stats.items}
+      />
+
+      <ServicePainPoints
+        title={pageContent.painPoints.title}
+        description={pageContent.painPoints.description}
+        items={pageContent.painPoints.items}
       />
 
       {serviceSeoBlocks.length > 0 ? <ServiceSEOContent blocks={serviceSeoBlocks} /> : null}
@@ -2373,6 +2393,12 @@ export default async function ServicePage({ params }: PageProps) {
 
       <RelatedServicesSection cityName={city.name} links={pageContent.relatedServices} />
 
+      <ServiceSegmentFit
+        title={pageContent.segmentFit.title}
+        description={pageContent.segmentFit.description}
+        items={pageContent.segmentFit.items}
+      />
+
       {isCameraService ? (
         <ServiceUseCases
           title={pageContent.useCases.title}
@@ -2393,7 +2419,15 @@ export default async function ServicePage({ params }: PageProps) {
         />
       ) : null}
 
-      <ServiceDistricts cityName={city.name} districts={pageContent.districts} />
+      <ServiceDistricts
+        cityName={city.name}
+        serviceName={service.name}
+        title={pageContent.localCoverage.title}
+        description={pageContent.localCoverage.description}
+        note={pageContent.localCoverage.note}
+        primaryDistricts={pageContent.localCoverage.primaryDistricts}
+        otherDistricts={pageContent.localCoverage.otherDistricts}
+      />
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
@@ -2496,6 +2530,8 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.cta.description}
         primaryLabel={pageContent.cta.primaryLabel}
         secondaryLabel={pageContent.cta.secondaryLabel}
+        whatsappLabel={pageContent.cta.whatsappLabel}
+        whatsappHref={pageContent.cta.whatsappHref}
         image={pageContent.images.cta}
       />
     </main>
