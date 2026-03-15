@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import InternalLinkSection from "@/components/InternalLinkSection";
+import CityDistrictGridSection from "@/components/service-page/CityDistrictGridSection";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import { buildCityFaqItems } from "@/data/seo/faq-bank";
 import { getSeoCityBySlug } from "@/data/seo/cities";
+import { getDistrictsByCitySlug } from "@/data/seo/districts";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import {
@@ -75,6 +77,11 @@ export default async function CityPage({ params }: PageProps) {
 
   const faqItems = buildCityFaqItems(city.name);
   const cityVisuals = getCityPageVisuals(city.slug);
+  const cityDistricts = getDistrictsByCitySlug(city.slug).map((d) => ({
+    name: d.name,
+    slug: d.slug,
+    citySlug: d.citySlug,
+  }));
   const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap((service) => {
     const href = getPrimaryCityServicePath(city.slug, service.slug);
 
@@ -265,6 +272,11 @@ export default async function CityPage({ params }: PageProps) {
           ))}
         </div>
       </section>
+
+      <CityDistrictGridSection
+        cityName={city.name}
+        districts={cityDistricts}
+      />
 
       <section style={{ marginBottom: "50px" }}>
         <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>

@@ -404,6 +404,23 @@ They must not be mass-published without:
 Istanbul can be the first deep district implementation.
 But the architecture must be reusable for national district rollout later.
 
+### District UI Presentation Rule (Active — March 2026)
+
+On city hub (`/{city}`) and city/service (`/{city}/{service}`) pages:
+- ALL districts for the city are shown in ONE unified grid block
+- Title: "Hizmet Verdiğimiz İlçeler"
+- NO visible prioritization, NO "Öncelikli ilçe" or "Diğer hizmet bölgeleri" labels
+- Districts are NOT links for now; the component supports `enableLinks` for future activation
+- Each district is stored as `{ name, slug, citySlug }` — ready for future city × district routing
+
+The old split UI ("Öncelikli ilçe kapsamı" / "Diğer hizmet bölgeleri") is DEPRECATED.
+
+Data-layer fields like `priority`, `tier`, and `nearbyDistricts` remain for routing and internal-link logic
+but must NOT control the visible district listing on city or city/service pages.
+
+Reusable component: `src/components/service-page/CityDistrictGridSection.tsx`
+Deprecated component: `src/components/service-page/ServiceDistricts.tsx`
+
 ---
 
 ## 13. PROBLEM SEO ARCHITECTURE

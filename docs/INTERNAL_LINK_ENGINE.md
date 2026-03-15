@@ -367,6 +367,10 @@ Istanbul ilçe/servis sayfalarında (`/istanbul/{district}/{service}`) zaten mev
 - **Aynı ilçe, farklı servis** (`sameDistrictLinks`)
 - **Aynı servis, yakın ilçeler** (`nearbyLinks`) — `profile.nearbyDistricts` üzerinden
 
+> **NOT:** `nearbyDistricts` verisi yalnızca `[city]/[district]/[service]` ilçe/servis rotasında
+> komşu ilçe linkleri için kullanılır. Bu veri city veya city/service sayfalarındaki
+> ilçe listeleme UI bloğunu KONTROL ETMEZ. Aşağıdaki "İlçe Listeleme UI Modeli" bölümüne bakın.
+
 ### Eklenen ilce profilleri
 
 | İlçe       | Komşular                                            |
@@ -387,3 +391,61 @@ Istanbul ilçe/servis sayfalarında (`/istanbul/{district}/{service}`) zaten mev
 - 4 yeni ilçe × 3 servis = **12 yeni sayfa** (toplam 348 sayfa)
 - 7 Tier-1 ilçe arasında komşuluk bazlı çapraz linkler aktif
 - Tier-2/3 ilçe profilleri eklendiğinde komşu linkleri otomatik çalışacak
+
+---
+
+## İlçe Listeleme UI Modeli (Güncel)
+
+> **DURUM: AKTİF — Mart 2026 itibarıyla**
+
+### Eski model (DEPRECATED — geri dönmeyin)
+
+Eski model şu şekilde çalışıyordu:
+
+- `ServiceDistricts` bileşeni `primaryDistricts` ve `otherDistricts` prop'larını alıyordu
+- UI'da "Öncelikli ilçe kapsamı" ve "Diğer hizmet bölgeleri" başlıklarıyla iki ayrı grup gösteriliyordu
+- Veri katmanındaki `priority: "primary" | "secondary"` değeri doğrudan UI'a yansıyordu
+- Yalnızca sınırlı sayıda (≤8) "diğer ilçe" gösteriliyordu
+
+**Bu model artık kullanılmıyor. Geri döndürmeyin.**
+
+### Yeni model (AKTİF)
+
+Yeni model şu şekilde çalışır:
+
+- `CityDistrictGridSection` bileşeni `districts` prop'u alır
+- Başlık: "Hizmet Verdiğimiz İlçeler"
+- Şehrin TÜM ilçeleri tek bir grid/blokta gösterilir
+- Görünür UI'da ilçe öncelik gruplaması YOKTUR
+- "Öncelikli ilçe" / "Diğer ilçe" / "Yakın ilçe" şeklinde UI ayrımı YOKTUR
+- İlçeler alfabetik sıralıdır
+- İlçeler şu an link DEĞİLDİR (statik `<div>` kartları)
+- `enableLinks` prop'u `true` yapılarak gelecekte linkler etkinleştirilebilir
+
+### Veri yapısı
+
+Her ilçe objesi en az şunları içerir:
+
+```ts
+{
+  name: string;    // İlçe adı
+  slug: string;    // URL-safe slug
+  citySlug: string; // Bağlı şehir slug'ı
+}
+```
+
+### Kullanım alanları
+
+- `src/app/[city]/page.tsx` — şehir hub sayfası
+- `src/app/[city]/[service]/page.tsx` — şehir/servis sayfası
+
+### Önemli ayrım
+
+- Veri katmanında `priority`, `tier`, `nearbyDistricts` gibi ilişkiler **kalabilir** (routing, internal linking, SEO stratejisi için)
+- Ancak bu veriler city veya city/service sayfalarındaki **görünür ilçe listeleme UI bloğunu** kontrol ETMEZ
+- Görünür UI'da tüm ilçeler eşit, tek blok, önceliklendirme etiketi olmadan gösterilir
+
+### Bu kural neden önemli?
+
+- Eski "Öncelikli / Diğer" ayrımı yapay, zayıf ve görsel olarak kırık görünüyordu
+- Tek birleşik blok daha temiz, daha güvenilir ve gelecekteki `city × district` routing modeline hazır
