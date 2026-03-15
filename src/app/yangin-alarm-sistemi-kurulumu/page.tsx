@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/yangin-alarm-sistemi-kurulumu",
@@ -261,6 +262,16 @@ const data: ServicePageData = {
       { href: "/bursa/yangin-alarm-sistemi-kurulumu", label: "Bursa" },
       { href: "/antalya/yangin-alarm-sistemi-kurulumu", label: "Antalya" },
     ],
+  },
+  cityServiceLinks: {
+    title: "Yangın Alarm Sistemi Kurulumu — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde yangın alarm sistemi kurulumu için detaylı bilgi ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/yangin-alarm-sistemi-kurulumu`,
+      label: `${city.name} Yangın Alarm Sistemi Kurulumu`,
+      description: `${city.name} içinde yangın alarm sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

@@ -392,13 +392,473 @@ const atasehir: DistrictProfile = {
 };
 
 // ---------------------------------------------------------------------------
-// Registry — only pilot districts for now; extend as tiers roll out
+// Tier 1 — Şişli
+// ---------------------------------------------------------------------------
+
+const sisli: DistrictProfile = {
+  name: "Şişli",
+  slug: "sisli",
+  locative: "Şişli'de",
+  districtIntro:
+    "Mecidiyeköy-Esentepe iş aksı, Nişantaşı'nın prestijli perakende dokusu ve Bomonti'nin hızla dönüşen karma yapısıyla Şişli, İstanbul'un en yoğun ticari ilçelerinden biridir.",
+  landmarks: [
+    "Mecidiyeköy",
+    "Nişantaşı",
+    "Osmanbey",
+    "Bomonti",
+    "Esentepe",
+    "Fulya",
+    "Halaskargazi Caddesi",
+    "Teşvikiye",
+    "Feriköy",
+    "Pangaltı",
+  ],
+  nearbyDistricts: ["besiktas", "kagithane", "beyoglu", "eyupsultan"],
+  services: {
+    "kamera-sistemi-kurulumu": {
+      heroTitle: "Şişli Kamera Sistemi Kurulumu",
+      heroIntro:
+        "Mecidiyeköy iş merkezlerinden Nişantaşı butiklerine, Bomonti'nin yeni projelerinden Esentepe ofislerine — Şişli'de her koridorda profesyonel kamera izleme ihtiyacı var. Keşiften montaja aynı gün hizmet.",
+      whatsappMessage:
+        "Merhaba, Şişli'de kamera sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Mecidiyeköy metro kavşağının getirdiği yoğun yaya-araç trafiği, Nişantaşı'ndaki lüks perakende ve Bomonti'nin dönüşüm projeleri Şişli'de kurumsal standartlarda kamera güvenliğini zorunlu kılıyor.",
+      ctaTitle: "Mecidiyeköy'den Nişantaşı'na — Şişli'de Kamera Kurulumu",
+      ctaSubtitle:
+        "Ofisiniz, mağazanız veya siteniz için Şişli bölgesinde yerinde keşif yaptırın; kamera planınızı birlikte oluşturalım.",
+      faqs: [
+        {
+          question: "Mecidiyeköy'deki ofisim için kamera sistemi nasıl planlanır?",
+          answer:
+            "Ofis giriş-çıkışları, ortak alanlar, otopark ve sunucu odası keşif sonrası analiz edilerek kamera planı oluşturulur.",
+        },
+        {
+          question: "Nişantaşı'ndaki mağazam için kaç kamera yeterli?",
+          answer:
+            "Mağaza giriş-çıkışı, kasa alanı, depo ve vitrin bölümüne göre genellikle 4-6 kamera ile kapsamlı izleme sağlanır.",
+        },
+        {
+          question: "Şişli'de plaza kamera sistemi uzaktan izlenebilir mi?",
+          answer:
+            "Evet. NVR üzerinden mobil ve masaüstü uzaktan erişim kurulumu standart olarak yapılmaktadır.",
+        },
+      ],
+    },
+    "alarm-sistemi-kurulumu": {
+      heroTitle: "Şişli Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Nişantaşı'nın yoğun mağaza trafiğinden Feriköy'ün konut bloklarına kadar Şişli genelinde hırsızlık caydırıcı alarm çözümleri. Sensör planlamasından mobil bildirime komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Şişli'de alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Halaskargazi Caddesi üzerindeki mağazalar, Osmanbey'in toptan ticaret dokusu ve Teşvikiye'nin prestijli konutları Şişli'de alarm kurulumunu hem ticari hem konut tarafında kritik kılıyor.",
+      ctaTitle: "Şişli'de Alarm Korumanızı Güçlendirin",
+      ctaSubtitle:
+        "Mağazanız veya daireniz için Şişli bölgesinde alarm keşfi ve teklif alın — kurulum aynı gün tamamlanır.",
+      faqs: [
+        {
+          question: "Nişantaşı'ndaki mağazam için hangi alarm tipi uygun?",
+          answer:
+            "Mağaza giriş-çıkışına, vitrin alanına ve depo bölümüne göre kablosuz veya hibrit alarm sistemleri önerilir.",
+        },
+        {
+          question: "Şişli'de apartman dairesi için alarm kurulumu yapılıyor mu?",
+          answer:
+            "Evet. Daire içi kablosuz alarm bağımsız kurulur; manyetik kapı sensörü ve hareket dedektörüyle tam koruma sağlanır.",
+        },
+        {
+          question: "Mecidiyeköy'deki ofisim için alarm ve kamera birlikte kurulabilir mi?",
+          answer:
+            "Evet. Alarm tetiklendiğinde ilgili kameradan görüntü kaydı başlatma ve mobil bildirim gönderme senaryoları kurulabilir.",
+        },
+      ],
+    },
+    "kartli-gecis-sistemi-kurulumu": {
+      heroTitle: "Şişli Kartlı Geçiş Sistemi Kurulumu",
+      heroIntro:
+        "Mecidiyeköy'deki yoğun plaza trafiğinden Esentepe'nin çok kiracılı ofis binalarına — Şişli'de günde binlerce kişinin giriş-çıkışını kartlı geçiş sistemiyle yönetin.",
+      whatsappMessage:
+        "Merhaba, Şişli'de kartlı geçiş sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Mecidiyeköy metro çevresi, Esentepe'deki çok katlı ofis yapıları ve Fulya'daki rezidanslar; personel, ziyaretçi ve kiracı trafiğini kontrol eden kartlı geçiş sistemi gerektiriyor.",
+      ctaTitle: "Şişli'de Erişim Kontrolünüzü Profesyonelleştirin",
+      ctaSubtitle:
+        "Şişli'deki plaza, ofis veya rezidansınız için kartlı geçiş keşfi ve teklif alın.",
+      faqs: [
+        {
+          question: "Mecidiyeköy'deki plazama kartlı geçiş nasıl kurulur?",
+          answer:
+            "Giriş kapısı, kat geçişleri ve özel alanlar keşif sonrası belirlenerek okuyucu ve kontrol paneli yerleşimi planlanır.",
+        },
+        {
+          question: "Şişli'de çok kiracılı ofiste kat bazlı erişim kısıtlaması yapılabilir mi?",
+          answer:
+            "Evet. Her kiracı için ayrı erişim yetkilendirmesi, zaman bazlı kısıtlama ve giriş logları raporlanabilir.",
+        },
+        {
+          question: "Esentepe'deki ofisime ziyaretçi yönetimi nasıl kurulur?",
+          answer:
+            "Geçici kart, QR kod veya uzaktan kapı açma seçenekleriyle ziyaretçi girişleri düzenlenir; tüm giriş logları raporlanır.",
+        },
+      ],
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Tier 1 — Ümraniye
+// ---------------------------------------------------------------------------
+
+const umraniye: DistrictProfile = {
+  name: "Ümraniye",
+  slug: "umraniye",
+  locative: "Ümraniye'de",
+  districtIntro:
+    "Anadolu Yakası'nın en hızlı büyüyen ticari merkezlerinden biri olan Ümraniye; organize sanayi bölgesi, yoğun konut projeleri ve hızla genişleyen iş merkezleriyle güvenlik sistemi talebinin kesintisiz arttığı bir ilçedir.",
+  landmarks: [
+    "Ümraniye Organize Sanayi",
+    "Şerifali",
+    "Çakmak",
+    "Hekimbaşı",
+    "Alemdağ Caddesi",
+    "Esenevler",
+    "Parseller",
+    "Site Mahallesi",
+    "Elmalıkent",
+    "Tantavi",
+  ],
+  nearbyDistricts: ["atasehir", "sancaktepe", "cekmekoy", "uskudar", "beykoz"],
+  services: {
+    "kamera-sistemi-kurulumu": {
+      heroTitle: "Ümraniye Kamera Sistemi Kurulumu",
+      heroIntro:
+        "Ümraniye Organize Sanayi'deki fabrikalardan Şerifali'nin lojistik depolarına, Çakmak'ın konut sitelerinden Alemdağ Caddesi'ndeki mağazalara — Ümraniye'de profesyonel kamera izleme ile güvenliği güçlendirin.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'de kamera sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Organize sanayi ve Şerifali lojistik aksındaki endüstriyel tesisler, Çakmak-Hekimbaşı hattındaki konut siteleri ve Alemdağ Caddesi'nin ticari yoğunluğu Ümraniye'de kesintisiz kamera güvenliği gerektiriyor.",
+      ctaTitle: "Sanayi'den Siteye — Ümraniye'de Kamera Kurulumu",
+      ctaSubtitle:
+        "Fabrikanız, deponuz veya siteniz için Ümraniye'de yerinde keşif yaptırın; kamera planınızı birlikte oluşturalım.",
+      faqs: [
+        {
+          question: "Ümraniye Organize Sanayi'deki fabrikam için kamera sistemi nasıl planlanır?",
+          answer:
+            "Fabrika giriş-çıkışları, üretim alanları, depo ve çevre hattı keşif sonrası analiz edilerek kamera planı oluşturulur.",
+        },
+        {
+          question: "Şerifali'deki depom için kaç kamera gerekiyor?",
+          answer:
+            "Depo büyüklüğü, raf düzeni ve yükleme alanlarına göre genellikle 8-16 kamera ile kapsamlı izleme sağlanır.",
+        },
+        {
+          question: "Ümraniye'de kamera sistemi uzaktan izlenebilir mi?",
+          answer:
+            "Evet. NVR üzerinden mobil ve masaüstü uzaktan erişim kurulumu standart olarak yapılmaktadır.",
+        },
+      ],
+    },
+    "alarm-sistemi-kurulumu": {
+      heroTitle: "Ümraniye Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Organize sanayi bölgesindeki fabrikalardan Hekimbaşı'nın konut projelerine kadar Ümraniye genelinde hırsızlık caydırıcı alarm çözümleri. Sensör planlamasından mobil bildirime komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'de alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Şerifali'deki lojistik tesisler, Parseller ve Esenevler'deki konut siteleri ve Alemdağ Caddesi'ndeki mağazalar Ümraniye'de alarm kurulumunu hem endüstriyel hem konut tarafında zorunlu kılıyor.",
+      ctaTitle: "Ümraniye'de Güvenliği Alarma Bağlayın",
+      ctaSubtitle:
+        "Fabrikanız, deponuz veya daireniz için sensör planlaması ve keşif randevusu alın — kurulum aynı gün tamamlanır.",
+      faqs: [
+        {
+          question: "Ümraniye'deki fabrikam için alarm nasıl planlanır?",
+          answer:
+            "Fabrika sınırları, giriş kapıları, depo ve ofis alanları analiz edilerek çok bölgeli alarm planı oluşturulur.",
+        },
+        {
+          question: "Ümraniye'de apartman dairesi için alarm kurulumu yapılıyor mu?",
+          answer:
+            "Evet. Daire içi kablosuz alarm bağımsız kurulur; manyetik kapı sensörü ve hareket dedektörüyle tam koruma sağlanır.",
+        },
+        {
+          question: "Organize sanayi bölgesinde alarm ve kamera birlikte kurulabilir mi?",
+          answer:
+            "Evet. Alarm tetiklendiğinde ilgili kameradan görüntü kaydı başlatma ve merkeze bildirim gönderme senaryoları kurulabilir.",
+        },
+      ],
+    },
+    "kartli-gecis-sistemi-kurulumu": {
+      heroTitle: "Ümraniye Kartlı Geçiş Sistemi Kurulumu",
+      heroIntro:
+        "Organize sanayi'deki vardiya trafiğinden Çakmak'ın konut sitelerine, Alemdağ Caddesi'ndeki ofislerden Şerifali depolarına — Ümraniye'de giriş-çıkış kontrolünü kartlı geçiş sistemiyle yönetin.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'de kartlı geçiş sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Organize sanayi'deki fabrikalar, Şerifali'nin lojistik yapıları ve Çakmak hattındaki siteler; işçi, personel ve ziyaretçi akışını yönetmek için kartlı geçiş sistemi gerektiriyor.",
+      ctaTitle: "Ümraniye'de Giriş Kontrolünüzü Merkezi Hâle Getirin",
+      ctaSubtitle:
+        "Fabrikanız, deponuz veya siteniz için kartlı geçiş keşfi ve teklif alın — personel yönetimini kolaylaştırın.",
+      faqs: [
+        {
+          question: "Ümraniye Organize Sanayi'de kartlı geçiş nasıl kurulur?",
+          answer:
+            "Ana giriş, vardiya kapıları ve hassas üretim alanları keşif sonrası belirlenerek okuyucu ve kontrol paneli yerleşimi planlanır.",
+        },
+        {
+          question: "Ümraniye'deki siteye kartlı geçiş kurulabilir mi?",
+          answer:
+            "Evet. Ana giriş, otopark bariyeri ve ortak alanlara kartlı veya proximity geçiş sistemi kurulabilir.",
+        },
+        {
+          question: "Şerifali'deki depomda personel giriş-çıkış takibi yapılabilir mi?",
+          answer:
+            "Evet. Kart bazlı giriş logları, mesai saatleri ve yetkisiz giriş denemeleri raporlanabilir.",
+        },
+      ],
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Tier 1 — Başakşehir
+// ---------------------------------------------------------------------------
+
+const basaksehir: DistrictProfile = {
+  name: "Başakşehir",
+  slug: "basaksehir",
+  locative: "Başakşehir'de",
+  districtIntro:
+    "İkitelli Organize Sanayi Bölgesi'nin sanayi gücü, Kayabaşı'nın büyük konut projeleri ve hızla gelişen ticari merkezleriyle Başakşehir, Avrupa Yakası'nın en yoğun güvenlik sistemi talebi oluşturan ilçelerindendir.",
+  landmarks: [
+    "İkitelli OSB",
+    "Kayabaşı",
+    "Başak Konutları",
+    "Hoşdere",
+    "Güvercintepe",
+    "Başakşehir Şehir Hastanesi",
+    "Olimpiyat Stadyumu",
+    "Bahçeşehir",
+    "Sular Vadisi",
+    "Onurkent",
+  ],
+  nearbyDistricts: ["arnavutkoy", "esenyurt", "bagcilar", "sultangazi", "avcilar"],
+  services: {
+    "kamera-sistemi-kurulumu": {
+      heroTitle: "Başakşehir Kamera Sistemi Kurulumu",
+      heroIntro:
+        "İkitelli OSB'deki fabrikalardan Kayabaşı konut projelerine, Bahçeşehir villalarından Başak Konutları'na — Başakşehir'de endüstriyel ve konut güvenliğini kamera sistemiyle sağlayın.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'de kamera sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İkitelli OSB'nin endüstriyel yoğunluğu, Kayabaşı'ndaki büyük konut projeleri ve Bahçeşehir'in villa-rezidans dokusu Başakşehir'de hem sanayi hem konut tarafında kamera güvenliğini zorunlu kılıyor.",
+      ctaTitle: "İkitelli'den Bahçeşehir'e — Başakşehir'de Kamera Kurulumu",
+      ctaSubtitle:
+        "Fabrikanız, villanız veya siteniz için Başakşehir'de yerinde keşif yaptırın; kamera planınızı birlikte oluşturalım.",
+      faqs: [
+        {
+          question: "İkitelli OSB'deki fabrikam için kamera sistemi nasıl planlanır?",
+          answer:
+            "Fabrika giriş-çıkışları, üretim hatları, depo alanları ve çevre hattı keşif sonrası analiz edilerek kamera planı oluşturulur.",
+        },
+        {
+          question: "Bahçeşehir'deki villamın dış çevresi için kaç kamera gerekir?",
+          answer:
+            "Villa büyüklüğüne göre giriş, bahçe, garaj ve arka cephe için genellikle 4-8 kamera yeterli olur.",
+        },
+        {
+          question: "Başakşehir'de konut sitesi için merkezi kamera izleme kurulabilir mi?",
+          answer:
+            "Evet. Site yönetim odası veya güvenlik kabinine merkezi NVR yerleşimi ve uzaktan erişim kurulumu yapılmaktadır.",
+        },
+      ],
+    },
+    "alarm-sistemi-kurulumu": {
+      heroTitle: "Başakşehir Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Kayabaşı'nın yeni konut projelerinden İkitelli'nin endüstriyel yapılarına kadar Başakşehir genelinde caydırıcı alarm çözümleri. Sensör planlamasından mobil bildirime komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'de alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kayabaşı'ndaki büyük konut siteleri, İkitelli OSB'deki endüstriyel tesisler ve Bahçeşehir'in villa bölgeleri; hırsızlık caydırıcılığı ve anlık bildirimli alarm sistemleri gerektiriyor.",
+      ctaTitle: "Başakşehir'de Alarm Korumanızı Güçlendirin",
+      ctaSubtitle:
+        "Villanız, siteniz veya fabrikanız için Başakşehir bölgesinde alarm keşfi ve teklif alın.",
+      faqs: [
+        {
+          question: "Bahçeşehir'deki villamın bahçe çevresi için alarm nasıl planlanır?",
+          answer:
+            "Bahçe sınırları, giriş kapıları ve garaj alanına dış ortam sensörleri ile çok bölgeli alarm planı oluşturulur.",
+        },
+        {
+          question: "İkitelli'deki fabrikam için endüstriyel alarm çözümü var mı?",
+          answer:
+            "Evet. Fabrika çevre hattı, depo girişleri ve ofis alanları için çok bölgeli endüstriyel alarm sistemleri kurulur.",
+        },
+        {
+          question: "Başakşehir'de yeni taşındığım dairede alarm kurulumu yapılabilir mi?",
+          answer:
+            "Evet. Daire içi kablosuz alarm bağımsız kurulur; manyetik kapı sensörü ve hareket dedektörüyle tam koruma sağlanır.",
+        },
+      ],
+    },
+    "kartli-gecis-sistemi-kurulumu": {
+      heroTitle: "Başakşehir Kartlı Geçiş Sistemi Kurulumu",
+      heroIntro:
+        "İkitelli OSB'deki vardiya trafiğinden Kayabaşı sitelerine, Bahçeşehir villalarından iş merkezlerine — Başakşehir'de giriş-çıkış kontrolünü kartlı geçiş sistemiyle yönetin.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'de kartlı geçiş sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İkitelli'deki fabrikalar, Kayabaşı'nın büyük konut siteleri ve Bahçeşehir'deki rezidanslar; işçi, personel ve sakin trafiğini yönetmek için kartlı geçiş sistemi gerektiriyor.",
+      ctaTitle: "Başakşehir'de Giriş Trafiğinizi Kontrol Altına Alın",
+      ctaSubtitle:
+        "Fabrikanız, siteniz veya rezidansınız için kartlı geçiş keşfi ve teklif alın.",
+      faqs: [
+        {
+          question: "İkitelli OSB'de kartlı geçiş nasıl kurulur?",
+          answer:
+            "Ana giriş, vardiya kapıları ve hassas üretim alanları keşif sonrası belirlenerek okuyucu ve kontrol paneli yerleşimi planlanır.",
+        },
+        {
+          question: "Kayabaşı'ndaki siteye kartlı geçiş kurulabilir mi?",
+          answer:
+            "Evet. Ana giriş, otopark bariyeri ve ortak alanlara kartlı veya proximity geçiş sistemi kurulabilir.",
+        },
+        {
+          question: "Bahçeşehir'deki villa sitesine turnike sistemi kurulabilir mi?",
+          answer:
+            "Evet. Site ana girişine turnike, araç girişine bariyer ve otopark alanına ANPR plaka okuma sistemi entegre edilebilir.",
+        },
+      ],
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Tier 1 — Pendik
+// ---------------------------------------------------------------------------
+
+const pendik: DistrictProfile = {
+  name: "Pendik",
+  slug: "pendik",
+  locative: "Pendik'te",
+  districtIntro:
+    "Sabiha Gökçen Havalimanı'nın yanı başında, Kurtköy'ün hızla büyüyen ticari merkezi ve Yenişehir bölgesinin lojistik yoğunluğuyla Pendik, Anadolu Yakası'nın en stratejik güvenlik pazarlarından biridir.",
+  landmarks: [
+    "Sabiha Gökçen Havalimanı",
+    "Kurtköy",
+    "Yenişehir",
+    "Kaynarca",
+    "Esenyalı",
+    "Kavakpınar",
+    "Velibaba",
+    "Güzelyalı",
+    "Pendik Tersanesi",
+    "Viaport",
+  ],
+  nearbyDistricts: ["kartal", "tuzla", "sultanbeyli", "sancaktepe", "maltepe"],
+  services: {
+    "kamera-sistemi-kurulumu": {
+      heroTitle: "Pendik Kamera Sistemi Kurulumu",
+      heroIntro:
+        "Kurtköy'ün yeni iş merkezlerinden Yenişehir'in lojistik depolarına, Kaynarca konut sitelerinden havalimanı çevresi otellere — Pendik'te profesyonel kamera güvenliği ile 7/24 izleme.",
+      whatsappMessage:
+        "Merhaba, Pendik'te kamera sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Havalimanı çevresinin otel ve lojistik yoğunluğu, Kurtköy'deki ticari merkezler ve Yenişehir'in depoları Pendik'te endüstriyel ve kurumsal kamera güvenliğini zorunlu kılıyor.",
+      ctaTitle: "Kurtköy'den Kaynarca'ya — Pendik'te Kamera Kurulumu",
+      ctaSubtitle:
+        "Deponuz, oteliniz veya siteniz için Pendik'te yerinde keşif yaptırın; kamera planınızı birlikte oluşturalım.",
+      faqs: [
+        {
+          question: "Kurtköy'deki iş merkezi için kamera sistemi nasıl planlanır?",
+          answer:
+            "Bina giriş-çıkışları, otopark, ortak alanlar ve ofis katları keşif sonrası analiz edilerek kamera planı oluşturulur.",
+        },
+        {
+          question: "Pendik'teki depom için kaç kamera gerekiyor?",
+          answer:
+            "Depo büyüklüğü, raf düzeni ve yükleme alanlarına göre genellikle 8-16 kamera ile kapsamlı izleme sağlanır.",
+        },
+        {
+          question: "Pendik'te kamera sistemi uzaktan izlenebilir mi?",
+          answer:
+            "Evet. NVR üzerinden mobil ve masaüstü uzaktan erişim kurulumu standart olarak yapılmaktadır.",
+        },
+      ],
+    },
+    "alarm-sistemi-kurulumu": {
+      heroTitle: "Pendik Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Yenişehir'in lojistik tesislerinden Kaynarca'nın konut projelerine kadar Pendik genelinde hırsızlık caydırıcı alarm çözümleri. Sensör planlamasından mobil bildirime komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Pendik'te alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Yenişehir'deki lojistik depolar, Kurtköy'ün ticari yapıları ve Kaynarca-Esenyalı hattındaki konut siteleri Pendik'te alarm kurulumunu hem endüstriyel hem konut tarafında zorunlu kılıyor.",
+      ctaTitle: "Pendik'te Güvenliği Alarma Bağlayın",
+      ctaSubtitle:
+        "Deponuz, ofisiniz veya daireniz için Pendik bölgesinde alarm keşfi ve teklif alın.",
+      faqs: [
+        {
+          question: "Yenişehir'deki depom için alarm nasıl planlanır?",
+          answer:
+            "Depo çevre hattı, giriş kapıları ve ofis alanları analiz edilerek çok bölgeli alarm planı oluşturulur.",
+        },
+        {
+          question: "Pendik'te konut sitesi için alarm kurulumu yapılıyor mu?",
+          answer:
+            "Evet. Site ortak alanları ve daire içi bağımsız alarm kurulumu birlikte veya ayrı planlanabilir.",
+        },
+        {
+          question: "Kurtköy'deki mağazam için alarm ve kamera birlikte kurulabilir mi?",
+          answer:
+            "Evet. Alarm tetiklendiğinde ilgili kameradan görüntü kaydı başlatma ve mobil bildirim gönderme senaryoları kurulabilir.",
+        },
+      ],
+    },
+    "kartli-gecis-sistemi-kurulumu": {
+      heroTitle: "Pendik Kartlı Geçiş Sistemi Kurulumu",
+      heroIntro:
+        "Yenişehir depolarındaki personel trafiğinden Kurtköy ofislerine, Kaynarca sitelerinden havalimanı çevresi otellere — Pendik'te giriş-çıkış kontrolünü kartlı geçiş sistemiyle yönetin.",
+      whatsappMessage:
+        "Merhaba, Pendik'te kartlı geçiş sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Yenişehir'deki lojistik tesisler, Kurtköy'ün iş merkezleri ve Kaynarca'nın konut siteleri; işçi, personel ve ziyaretçi akışını yönetmek için kartlı geçiş sistemi gerektiriyor.",
+      ctaTitle: "Pendik'te Giriş Kontrolünüzü Merkezi Hâle Getirin",
+      ctaSubtitle:
+        "Deponuz, ofisiniz veya siteniz için kartlı geçiş keşfi ve teklif alın.",
+      faqs: [
+        {
+          question: "Yenişehir'deki depomda kartlı geçiş nasıl kurulur?",
+          answer:
+            "Ana giriş, vardiya kapıları ve hassas depo alanları keşif sonrası belirlenerek okuyucu ve kontrol paneli yerleşimi planlanır.",
+        },
+        {
+          question: "Kaynarca'daki siteye kartlı geçiş kurulabilir mi?",
+          answer:
+            "Evet. Ana giriş, otopark bariyeri ve ortak alanlara kartlı veya proximity geçiş sistemi kurulabilir.",
+        },
+        {
+          question: "Pendik'te otel girişine erişim kontrol sistemi kurulabilir mi?",
+          answer:
+            "Evet. Otel ana girişi, personel girişi, otopark ve kat bazlı erişim kısıtlamaları planlanabilir.",
+        },
+      ],
+    },
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Registry — Tier 1 districts
 // ---------------------------------------------------------------------------
 
 export const istanbulDistrictProfiles: Record<string, DistrictProfile> = {
   kadikoy,
   besiktas,
   atasehir,
+  sisli,
+  umraniye,
+  basaksehir,
+  pendik,
 };
 
 /** Services selected for district page rollout */

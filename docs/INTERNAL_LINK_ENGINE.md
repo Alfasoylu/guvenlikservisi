@@ -151,11 +151,163 @@ Bu katmanin beklenen SEO etkileri:
 - city/service -> city hub
 - city/service -> ayni sehirde diger servisler
 - city/service -> ayni hizmetin diger sehirleri
+- blog -> ilgili hizmet sayfalari (yapisal section)
+- blog -> ilgili city/service para sayfalari (yapisal section)
+- blog -> ilgili hizmet sayfalari (inline content linkleri)
+- /sorun/\* -> ilgili hizmet sayfalari (relatedServiceLinks)
+- national service hub -> city/service para sayfalari (yapisal cityServiceLinks section)
+
+## Blog -> Para Sayfalari Link Katmani
+
+### Eklenen mantik
+
+`src/app/blog/[slug]/page.tsx` dosyasina "Ilgili Hizmetlerimiz" adli yapisal bir section eklendi.
+
+Bu section:
+
+- blog yazisinin `tags` alanini kullanarak ilgili hizmet sayfalarini belirler
+- tag-to-service mapping ile national service hub ve Istanbul city/service para sayfalarina link verir
+- maksimum 6 link gosterir, dedup edilmis
+- hicbir tag eslesmezse fallback olarak kamera, alarm ve bakim sayfalarini gosterir
+- makale CTA'si ile FAQ arasina yerlestirilmistir
+
+### Link tipi: Blog -> national service hubs + city/service para sayfalari
+
+Kaynak:
+
+- blog post `tags` alani
+
+Uretim:
+
+- tag bazli eslestirme ile hedef servis URL'leri secilir
+- ornek: `kamera` tag'i -> `/kamera-sistemi-kurulumu` + `/istanbul/kamera-sistemi-kurulumu`
+
+Amac:
+
+- bilgilendirici icerikten ticari sayfalara otorite akisi saglamak
+- blog okuyucularini donusum sayfasina yonlendirmek
+- crawl kesfini bilgilendirici -> ticari yonde guclendirmek
+
+## National Service Hub -> City/Service Link Katmani
+
+### Eklenen mantik
+
+`ServicePageTemplate` kullanan 6 ulusal hub sayfasina `cityServiceLinks` alani eklendi.
+`ServiceHubTemplate` kullanan 4 sayfada zaten `cityLinksSection` mevcuttu.
+`bakim-servis-uzaktan-izleme` custom sayfasinda zaten hardcoded city/service linkleri vardi.
+
+Toplam 11 ulusal hub sayfasi artik ilgili city/service para sayfalarina yapisal link veriyor.
+
+### Etkilenen sayfalar (ServicePageTemplate — yeni eklenen)
+
+- `/kamera-sistemi-kurulumu` -> 18 sehir icin `/{city}/kamera-sistemi-kurulumu`
+- `/alarm-sistemi-kurulumu` -> 18 sehir icin `/{city}/alarm-sistemi-kurulumu`
+- `/yangin-alarm-sistemi-kurulumu` -> 18 sehir icin `/{city}/yangin-alarm-sistemi-kurulumu`
+- `/apartman-site-guvenlik-sistemi` -> 18 sehir icin `/{city}/apartman-site-guvenlik-sistemi`
+- `/isyeri-guvenlik-sistemi` -> 18 sehir icin `/{city}/isyeri-guvenlik-sistemi`
+- `/fabrika-depo-guvenlik-sistemi` -> 18 sehir icin `/{city}/fabrika-depo-guvenlik-sistemi`
+
+### Render mantigi
+
+- `cityServiceLinks` alani doluysa, generic "Hizmet Verdigimiz Sehirler" gridi yerine
+  servis-spesifik kart tabli link blogu render edilir
+- Her kart: MapPin icon + "Sehir hizmet sayfasi" badge + sehir/servis label + description + CTA
+- Grid layout: 3 sutun (md ekranlar)
+
+### Link tipi: National hub -> city/service para sayfalari
+
+Kaynak:
+
+- `cities` array'i (`@/data/cities`)
+
+Uretim:
+
+- `cities.map()` ile 18 sehir x 1 servis = 18 link uretilir
+- hedef format: `/${city.slug}/${service-slug}`
+- anchor text: `{city.name} {service.name}`
+
+Amac:
+
+- ulusal hub sayfalarindan sehir bazli para sayfalarina otorite akisi saglamak
+- crawl kesfini ulusal -> yerel yonde guclendirmek
+- kullaniciyi dogru sehir sayfasina hizli yonlendirmek
 
 ## Sonraki gelistirme firsatlari
 
 - sehir bazli populerlik veya ticari oncelige gore diger sehir linklerini dinamik siralamak
-- static service page'lerden ilgili city/service kombinasyonlarina secili derin linkler eklemek
-- blog yazilarindan ilgili city/service sayfalarina baglanti katmani kurmak
 - link bloklarina sayfa tipine gore farkli schema veya nav semantigi eklemek
 - ileride link secimini Search Console / analytics verisiyle agirliklandirmak
+
+---
+
+## Bakım/Servis Ailesi Cross-Link Katmani
+
+### Eklenen mantik
+
+Bakım, servis ve teknik destek ailesi sayfaları arasına karşılıklı çapraz linkler eklendi.
+
+**Aile sayfaları:**
+
+- `/bakim-servis-uzaktan-izleme` (custom sayfa)
+- `/kamera-ariza-servisi` (ServiceHubTemplate)
+- `/kamera-sistemi-bakim-sozlesmesi` (ServiceHubTemplate)
+- `/uzaktan-kamera-izleme` (ServiceHubTemplate)
+- `/kamera-sistemi-kurulumu` (ServicePageTemplate — install→maintain zinciri)
+
+### Yapılan degisiklikler
+
+1. **`/bakim-servis-uzaktan-izleme`**: "Bakım ve Servis Kararını Destekleyen İlgili Sayfalar" bölümü
+   eklendi — 4 sibling sayfaya (arıza servisi, bakım sözleşmesi, uzaktan izleme, kamera kurulumu)
+   kart bazlı yapısal link veriyor
+
+2. **3 ServiceHubTemplate sayfası** (`kamera-ariza-servisi`, `kamera-sistemi-bakim-sozlesmesi`,
+   `uzaktan-kamera-izleme`): `relatedPages` array'lerine `/kamera-sistemi-kurulumu` eklendi —
+   install→maintain zinciri tamamlandı
+
+### Cross-link matrisi (guncel)
+
+| FROM / TO                       | bakim-servis | bakim-sozlesmesi | uzaktan-izleme | ariza-servisi | kamera-kurulumu |
+| ------------------------------- | :----------: | :--------------: | :------------: | :-----------: | :-------------: |
+| bakim-servis-uzaktan-izleme     |      —       |        ✅        |       ✅       |      ✅       |       ✅        |
+| kamera-sistemi-bakim-sozlesmesi |      ✅      |        —         |       ✅       |      ✅       |       ✅        |
+| uzaktan-kamera-izleme           |      ✅      |        ✅        |       —        |      ✅       |       ✅        |
+| kamera-ariza-servisi            |      ✅      |        ✅        |       ✅       |       —       |       ✅        |
+
+Toplam: 16 yeni çapraz link (4 × 4 yön)
+
+---
+
+## İlçe Komşu Link Katmanı
+
+### Eklenen mantik
+
+Istanbul ilçe/servis sayfalarında (`/istanbul/{district}/{service}`) zaten mevcut olan
+`nearbyDistricts` komşu link altyapısı, 4 yeni Tier-1 ilçe profili eklenerek genişletildi.
+
+### Mevcut altyapi
+
+`[city]/[district]/[service]/page.tsx` zaten iki tür iç link render ediyor:
+
+- **Aynı ilçe, farklı servis** (`sameDistrictLinks`)
+- **Aynı servis, yakın ilçeler** (`nearbyLinks`) — `profile.nearbyDistricts` üzerinden
+
+### Eklenen ilce profilleri
+
+| İlçe       | Komşular                                            |
+| ---------- | --------------------------------------------------- |
+| Şişli      | beşiktaş, kağıthane, beyoğlu, eyüpsultan            |
+| Ümraniye   | ataşehir, sancaktepe, çekmeköy, üsküdar, beykoz     |
+| Başakşehir | arnavutköy, esenyurt, bağcılar, sultangazi, avcılar |
+| Pendik     | kartal, tuzla, sultanbeyli, sancaktepe, maltepe     |
+
+### Artik calisan reciprocal linkler
+
+- Kadıköy ↔ Ataşehir (önceden de vardı)
+- Beşiktaş ↔ Şişli (yeni)
+- Ataşehir ↔ Ümraniye (yeni)
+
+### Etki
+
+- 4 yeni ilçe × 3 servis = **12 yeni sayfa** (toplam 348 sayfa)
+- 7 Tier-1 ilçe arasında komşuluk bazlı çapraz linkler aktif
+- Tier-2/3 ilçe profilleri eklendiğinde komşu linkleri otomatik çalışacak

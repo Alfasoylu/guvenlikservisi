@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { createHash } from "node:crypto";
+import { buildDuplicateLeadFingerprint } from "@/lib/lead-dedup";
 import { classifyPageType } from "@/lib/page-type";
 
 const HONEYPOT_FIELDS = ["website", "company_website"] as const;
@@ -167,16 +168,6 @@ export function checkSubmissionThrottle(input: {
   };
 }
 
-function createMessageFingerprint(message: string) {
-  const normalized = collapseWhitespace(message).toLocaleLowerCase("tr-TR");
-
-  if (!normalized) {
-    return "no-message";
-  }
-
-  return createShortHash(normalized.slice(0, 240));
-}
-
 export function findRecentDuplicateLead(input: {
   phone: string;
   serviceType: string;
@@ -192,12 +183,7 @@ export function findRecentDuplicateLead(input: {
     };
   }
 
-  const key = [
-    input.phone,
-    collapseWhitespace(input.serviceType).toLocaleLowerCase("tr-TR"),
-    getPagePath(input.pageUrl) || "",
-    createMessageFingerprint(input.message),
-  ].join("|");
+  const { key } = buildDuplicateLeadFingerprint(input);
 
   const match = duplicateStore.get(key);
 
@@ -236,12 +222,7 @@ export function registerRecentLeadSubmission(input: {
     return;
   }
 
-  const key = [
-    input.phone,
-    collapseWhitespace(input.serviceType).toLocaleLowerCase("tr-TR"),
-    getPagePath(input.pageUrl) || "",
-    createMessageFingerprint(input.message),
-  ].join("|");
+  const { key } = buildDuplicateLeadFingerprint(input);
 
   duplicateStore.set(key, {
     createdAt: Date.now(),

@@ -192,6 +192,15 @@ export interface ServicePageData {
     subtitle?: string;
     links: InternalLinkItem[];
   };
+  cityServiceLinks?: {
+    title?: string;
+    description?: string;
+    links: {
+      href: string;
+      label: string;
+      description?: string;
+    }[];
+  };
 }
 
 interface ServicePageTemplateProps {
@@ -751,34 +760,81 @@ export default function ServicePageTemplate({
 
       {!data.discoveryProcess && <ProcessSection />}
 
-      <section className="bg-white py-16 md:py-20">
-        <Container>
-          <h2 className="mb-4 text-center text-2xl font-bold text-primary">
-            Hizmet Verdiğimiz Şehirler
-          </h2>
+      {data.cityServiceLinks ? (
+        <section className="bg-white py-16 md:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {data.cityServiceLinks.title ||
+                  `${data.title} — Şehir Bazlı Hizmet Sayfaları`}
+              </h2>
+              {data.cityServiceLinks.description ? (
+                <p className="text-sm leading-7 text-text-light">
+                  {data.cityServiceLinks.description}
+                </p>
+              ) : null}
+            </div>
 
-          <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
-            Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet
-            veriyoruz. Gerçekten hizmet verdiğimiz şehirleri gösteriyoruz; boş
-            vaat vermiyoruz.
-          </p>
+            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {data.cityServiceLinks.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-2xl border border-gray-200 bg-surface p-6 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div className="mb-3 flex items-center gap-2 text-accent">
+                    <MapPin size={16} />
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em]">
+                      Şehir hizmet sayfası
+                    </span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-primary">
+                    {link.label}
+                  </h3>
+                  {link.description ? (
+                    <p className="mb-4 text-sm leading-7 text-text-light">
+                      {link.description}
+                    </p>
+                  ) : null}
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                    Şehir sayfasını inceleyin
+                    <ArrowRight size={14} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : (
+        <section className="bg-white py-16 md:py-20">
+          <Container>
+            <h2 className="mb-4 text-center text-2xl font-bold text-primary">
+              Hizmet Verdiğimiz Şehirler
+            </h2>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {cities.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/${city.slug}`}
-                className="group flex flex-col items-center gap-2 rounded-xl bg-surface p-4 text-center transition-colors hover:bg-accent/10"
-              >
-                <MapPin size={18} className="text-accent" />
-                <span className="text-sm font-semibold text-primary group-hover:text-accent">
-                  {city.name}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
+            <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-7 text-text-light">
+              Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet
+              veriyoruz. Gerçekten hizmet verdiğimiz şehirleri gösteriyoruz; boş
+              vaat vermiyoruz.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {cities.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/${city.slug}`}
+                  className="group flex flex-col items-center gap-2 rounded-xl bg-surface p-4 text-center transition-colors hover:bg-accent/10"
+                >
+                  <MapPin size={18} className="text-accent" />
+                  <span className="text-sm font-semibold text-primary group-hover:text-accent">
+                    {city.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {data.relatedPages && data.relatedPages.length > 0 && (
         <section className="bg-surface py-16">

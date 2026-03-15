@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/isyeri-guvenlik-sistemi");
 
@@ -645,6 +646,16 @@ const data: ServicePageData = {
         text: "Montaj, programlama, mobil erişim ve eğitim ile sistemi hazır teslim ediyoruz.",
       },
     ],
+  },
+  cityServiceLinks: {
+    title: "İşyeri Güvenlik Sistemi — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde işyeri güvenlik sistemi kurulumu için detaylı bilgi ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/isyeri-guvenlik-sistemi`,
+      label: `${city.name} İşyeri Güvenlik Sistemi`,
+      description: `${city.name} içinde işyeri güvenlik sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

@@ -1,4 +1,5 @@
 # LANDING PAGES
+
 guvenlikservisi.com
 
 Purpose:
@@ -13,6 +14,7 @@ This document replaces the stale raw route dump that previously lived here.
 `/teklif/*` is the paid conversion layer.
 
 It exists for:
+
 - Google Ads landing experiences
 - message-match with campaigns
 - form completion
@@ -27,6 +29,7 @@ It does not exist to own organic query clusters.
 ## 2. REQUIRED RULES
 
 All `/teklif/*` pages must:
+
 - be treated as Google Ads landing pages
 - stay outside the organic sitemap
 - use `noindex,nofollow`
@@ -35,6 +38,7 @@ All `/teklif/*` pages must:
 - prioritize conversion clarity over SEO expansion
 
 All `/teklif/*` pages must not:
+
 - be canonical winners for national, city, or district service queries
 - receive heavy organic internal-link authority
 - create duplicate ownership against `/{city}/{service}` or core service hubs
@@ -44,6 +48,7 @@ All `/teklif/*` pages must not:
 ## 3. CURRENT PAID LANDING ROUTES
 
 Current active `/teklif/*` routes in repo:
+
 - `/teklif/alarm`
 - `/teklif/apartman`
 - `/teklif/istanbul-ip-kamera-montaji`
@@ -53,15 +58,17 @@ Current active `/teklif/*` routes in repo:
 - `/teklif/yangin`
 
 Status notes:
+
 - `tamamlandı`: `/teklif` layout now applies `noindex,nofollow`.
 - `tamamlandı`: `/teklif/*` stays out of the App Router sitemap.
-- `kısmi`: `/teklif/kamera/istanbul-ip-kamera-montaji` remains a duplicate-risk paid route and should be consolidated or retired in a later cleanup pass.
+- `tamamlandı`: `/teklif/kamera/istanbul-ip-kamera-montaji` now uses `permanentRedirect()` to `/teklif/istanbul-ip-kamera-montaji`. Duplicate risk resolved.
 
 ---
 
 ## 4. ORGANIC / PAID SEPARATION
 
 Organic winners:
+
 - national service hubs
 - `/{city}`
 - `/{city}/{service}`
@@ -69,6 +76,7 @@ Organic winners:
 - `/sorun/{problem}`
 
 Paid winners:
+
 - only the relevant `/teklif/*` landing for its ad campaign
 
 If a campaign needs a city-specific paid experience, the landing page may mirror intent,
@@ -79,6 +87,7 @@ but it must not compete for canonical ownership with the organic city/service pa
 ## 5. TRACKING REQUIREMENTS
 
 Every landing page submission path should preserve:
+
 - `page_url`
 - `form_source`
 - `utm_source`
@@ -88,6 +97,7 @@ Every landing page submission path should preserve:
 - `gclid`
 
 Recommended form source conventions:
+
 - `landing_page`
 - campaign-specific form sources where custom forms exist
 

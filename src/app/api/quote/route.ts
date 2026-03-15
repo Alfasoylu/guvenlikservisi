@@ -245,7 +245,12 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const duplicateCheck = await checkDuplicateLead(lead.phone);
+  const duplicateCheck = await checkDuplicateLead({
+    phone: lead.phone,
+    serviceType: lead.service_type,
+    pageUrl: lead.page_url,
+    message: lead.message,
+  });
 
   if (duplicateCheck.duplicate) {
     lead.notes = [

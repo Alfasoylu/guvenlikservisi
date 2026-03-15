@@ -41,7 +41,7 @@ Google Sheet şu aşamada yeterli çünkü:
 - ilk 100–500 lead aralığında iş görür
 
 Ama şu sorunları vardır:
-- duplicate lead yönetimi zayıf
+- duplicate lead yönetimi kısmen iyileşti, ancak hâlâ Apps Script tarafında merkezi fingerprint lookup’una bağımlı
 - filtreleme / raporlama kısıtlı
 - otomasyon ölçeklenince dağılır
 - admin panel yerine manuel takip gerekir
@@ -128,3 +128,8 @@ Aşağıdaki eşiklerden biri olursa Supabase'e geçilir:
 - offline conversion / CRM entegrasyonu ihtiyacı
 
 O güne kadar ana hedef: **lead akışını stabilize etmek.**
+
+## Durum Notu — 2026-03-15
+
+- `kısmi`: Duplicate lead fingerprint’i artık local memory ve Google Sheets duplicate check çağrısında aynı kuralla üretiliyor: `phone + service_type + page_path + message fingerprint`.
+- `açık iş`: Gerçek merkezi suppress davranışı için Google Apps Script tarafının bu fingerprint alanlarını kullanarak kalıcı lookup yapması gerekiyor. Kod tarafı bu geçişe hazırlandı, ancak harici script davranışı henüz repo içinde doğrulanmıyor.

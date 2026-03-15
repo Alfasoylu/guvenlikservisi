@@ -307,6 +307,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Arızaya uzaktan erişim veya cihaz çevrim içi görünürlüğü de eşlik ediyorsa bu sayfadan uzaktan görünürlük modelini değerlendirin.",
           ctaLabel: "Uzaktan görünürlüğü değerlendirin",
         },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Arıza sıklığı artıyorsa veya sistem ekonomik ömrünü tamamladıysa yeni kurulum sayfasından devam edin.",
+          ctaLabel: "Kurulum seçeneklerini görün",
+        },
       ],
       cityLinksSection: {
         title: "Şehre Göre Kamera Arıza Servisi Kapsamı",
@@ -568,6 +575,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           description:
             "Bakım sözleşmesi olmayan sistemlerde sorun çıktığında nasıl müdahale edildiğini görmek için arıza servisi sayfasına geçin.",
           ctaLabel: "Arıza servisi farkını görün",
+        },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Mevcut sistem bakım modeline uygun değilse veya yenileme gerekiyorsa kurulum sayfasından ilerleyin.",
+          ctaLabel: "Kurulum seçeneklerini inceleyin",
         },
       ],
       cityLinksSection: {
@@ -856,6 +870,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           description:
             "Sorunun uzaktan görünürlükten mi yoksa cihaz, kayıt veya ağ arızasından mı kaynaklandığını ayırmak için arıza servisi sayfasına geçin.",
           ctaLabel: "Arıza triage sayfasına gidin",
+        },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Uzaktan izleme altyapısını yeni bir kurulumla birlikte planlamak istiyorsanız kurulum sayfasından devam edin.",
+          ctaLabel: "Kurulum sayfasına geçin",
         },
       ],
       cityLinksSection: {
