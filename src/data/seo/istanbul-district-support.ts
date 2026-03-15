@@ -220,25 +220,25 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
         href: "/istanbul-kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
         description:
-          "İlçe sayfasını İstanbul ana money page ile bağlayarak ana ticari kümeyi güçlendirir.",
+          "İstanbul genelinde kamera sistemi kurulum hizmetlerimizin detaylarını inceleyin.",
       },
       {
         href: "/istanbul-kamera-teknik-servis",
         label: "İstanbul Kamera Teknik Servis",
         description:
-          "Kurulum sonrası destek ve arıza ihtiyacı olan kullanıcıları servis lead'ine çevirir.",
+          "Mevcut kamera sisteminizde arıza veya performans sorunu varsa teknik destek alın.",
       },
       {
         href: "/istanbul-kamera-bakim-servisi",
         label: "İstanbul Kamera Bakım Servisi",
         description:
-          "Site, mağaza ve ofis müşterilerini recurring bakım ihtiyacına taşır.",
+          "Kamera sisteminizin kesintisiz çalışması için periyodik bakım hizmetimiz.",
       },
       {
         href: "/uzaktan-kamera-izleme",
         label: "Uzaktan Kamera İzleme",
         description:
-          "Çok lokasyonlu veya merkezi izleme isteyen işletmeler için yüksek değerli support path açar.",
+          "Telefondan veya merkezden canlı izleme ve uzaktan erişim çözümlerimiz.",
       },
     ];
   }
@@ -249,25 +249,25 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
         href: "/istanbul-alarm-sistemi",
         label: "İstanbul Alarm Sistemi",
         description:
-          "İlçe alarm talebini İstanbul winner URL üzerinde toplar ve canonical odağı korur.",
+          "İstanbul genelinde ev ve işyeri alarm sistemi kurulum hizmetlerimiz.",
       },
       {
         href: "/isyeri-guvenlik-sistemi",
         label: "İşyeri Güvenlik Sistemi",
         description:
-          "Mağaza, ofis ve işletme karar vericileri için daha geniş ticari çözüm sayfasına taşır.",
+          "Mağaza, ofis ve işletmeler için kamera, alarm ve geçiş sistemlerini kapsayan çözümler.",
       },
       {
         href: "/bakim-servis-uzaktan-izleme",
         label: "Bakım, Servis ve Uzaktan İzleme",
         description:
-          "Alarm sistemini bakım ve devam eden servis gelirine bağlar.",
+          "Alarm sisteminizin düzenli bakımı ve uzaktan izleme entegrasyonu.",
       },
       {
         href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Yeni kurulum yerine mevcut sistem sorunu yaşayan kullanıcılar için net rota sunar.",
+          "Mevcut alarm sisteminizde teknik sorun yaşıyorsanız servis desteği alın.",
       },
     ];
   }
@@ -277,25 +277,25 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
       href: "/istanbul-kartli-gecis-sistemi",
       label: "İstanbul Kartlı Geçiş Sistemi",
       description:
-        "İlçe bazlı erişim kontrol talebini ana İstanbul ticari sayfasına konsolide eder.",
+        "İstanbul genelindeki kartlı geçiş ve erişim kontrol sistemi hizmetlerimiz.",
     },
     {
       href: "/isyeri-guvenlik-sistemi",
       label: "İşyeri Güvenlik Sistemi",
       description:
-        "Kartlı geçiş satın alan ofis ve işletmeleri daha geniş güvenlik çözümüne taşır.",
+        "Kartlı geçişle birlikte kamera ve alarm entegrasyonu içeren kapsamlı çözümler.",
     },
     {
       href: "/istanbul/guvenlik-sistemi-teknik-servis",
       label: "Güvenlik Sistemi Teknik Servis",
       description:
-        "Mevcut geçiş sisteminde arıza yaşayan kullanıcılar için servis katmanını açar.",
+        "Geçiş sisteminizdeki okuyucu, kilit veya yazılım kaynaklı sorunlarda teknik destek.",
     },
     {
       href: "/bakim-servis-uzaktan-izleme",
       label: "Bakım, Servis ve Uzaktan İzleme",
       description:
-        "Kurulum sonrası sürdürülebilir bakım ve servis ilişkisini destekler.",
+        "Erişim kontrol sisteminizin sürekliliği için bakım ve uzaktan yönetim hizmeti.",
     },
   ];
 }
@@ -307,19 +307,19 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
         href: "/sorun/kamera-goruntu-gelmiyor",
         label: "Kamera Görüntü Gelmiyor",
         description:
-          "Kurulu sistemde en sık karşılaşılan görüntü kaybı sorunu için arıza lead'i üretir.",
+          "Görüntü kaybı veya siyah ekran sorunu mu var? Çözüm adımlarını inceleyin.",
       },
       {
         href: "/sorun/kamera-offline",
         label: "Kamera Offline Sorunu",
         description:
-          "Ağ, PoE ve uzaktan erişim problemlerinde teknik servis intent'ini yakalar.",
+          "Kameranız ağ bağlantısını kaybettiyse veya uzaktan erişilemiyorsa destek alın.",
       },
       {
         href: "/sorun/kayit-yapilmiyor",
         label: "Kayıt Yapılmıyor",
         description:
-          "NVR, HDD ve kayıt sürekliliği problemlerini bakım-servis gelirine bağlar.",
+          "NVR veya HDD kaynaklı kayıt sorunlarını tespit edip çözmek için inceleyin.",
       },
     ];
   }
@@ -330,13 +330,13 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
         href: "/sorun/alarm-arizalari",
         label: "Alarm Arızaları",
         description:
-          "Yanlış alarm, sensör hatası ve panel problemi yaşayan kullanıcılar için en net destek sayfası.",
+          "Yanlış alarm, sensör hatası veya panel arızası mı yaşıyorsunuz? Çözüm rehberimizi inceleyin.",
       },
       {
         href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Kurulu alarm sisteminde sahaya çıkılması gereken sorunları servis formuna taşır.",
+          "Alarm sisteminizde sahada müdahale gerektiren sorunlar için teknik servis talebi oluşturun.",
       },
     ];
   }
@@ -346,13 +346,13 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
       href: "/sorun/kartli-gecis-calismiyor",
       label: "Kartlı Geçiş Çalışmıyor",
       description:
-        "Kapı açılmama, kart okumama ve turnike arızası gibi acil sorunları toplar.",
+        "Kapı açılmıyor, kart okumuyor veya turnike arızası mı var? Çözüm bilgilerini inceleyin.",
     },
     {
       href: "/istanbul/guvenlik-sistemi-teknik-servis",
       label: "Güvenlik Sistemi Teknik Servis",
       description:
-        "Geçiş kontrol arızalarını tek servis hattına yönlendirerek lead kaçışını azaltır.",
+        "Geçiş kontrol sisteminizde yaşanan arızalar için yerinde teknik servis desteği.",
     },
   ];
 }
@@ -372,17 +372,17 @@ export function getIstanbulDistrictSupportContent(
           : "karma talep";
 
   return {
-    eyebrow: `${profile.name} lead modeli`,
-    title: `${profile.name} için ${seoService.name.toLocaleLowerCase("tr-TR")} talebi nasıl toplanmalı?`,
-    description: `${profile.name} ${marketLabel} taşıyan bir Tier ${seoDistrict.tier} ilçe segmenti. Bu yüzden ilçe sayfası sadece lokal varyasyon değil; ana İstanbul money page, servis sayfaları ve problem-intent kümeleri arasında ticari bir köprü gibi çalışmalı.`,
+    eyebrow: `${profile.name} Güvenlik Çözümleri`,
+    title: `${profile.name} bölgesinde ${seoService.name.toLocaleLowerCase("tr-TR")} hizmeti`,
+    description: `${profile.name}, ${marketLabel} taşıyan önemli bir İstanbul ilçesidir. Bu bölgedeki işletme ve konut yapılarının güvenlik ihtiyaçlarına uygun kurulum, teknik servis ve bakım hizmetleri sunuyoruz.`,
     segmentCards: getDistrictDemandCards(profile.slug, seoService.slug),
-    supportTitle: `${profile.name} sayfasını lead üretimine bağlayan support path'ler`,
+    supportTitle: `${profile.name} için ilgili güvenlik hizmetlerimiz`,
     supportDescription:
-      "İlçe sayfasından çıkan bağlantılar yalnızca gezinme amaçlı olmamalı. Ana money page, bakım-servis ve daha geniş ticari çözüm sayfaları birlikte bağlanmalı.",
+      "Kurulum, bakım ve teknik servis ihtiyaçlarınız için İstanbul genelindeki diğer hizmet sayfalarımızı da inceleyebilirsiniz.",
     supportLinks: getSupportLinks(seoService.slug),
-    problemTitle: `${profile.name} sonrası servis ve arıza akışı`,
+    problemTitle: "Arıza veya sorun mu yaşıyorsunuz?",
     problemDescription:
-      "Kurulum lead'i ile servis lead'i ayrı düşünülmemeli. Bu ilçe sayfası, sorun yaşayan kullanıcıları da doğru arıza veya teknik servis sayfalarına taşımalı.",
+      "Mevcut sisteminizde bir sorun varsa aşağıdaki sayfalardan teknik destek ve çözüm bilgilerine ulaşabilirsiniz.",
     problemLinks: getProblemLinks(seoService.slug),
   };
 }
