@@ -22,6 +22,7 @@ This file is a living source of truth, not a stale one-time audit snapshot.
 - Root layout still defines a global homepage canonical; this is safe for pages with explicit canonical but remains risky if a new page ships without route-level metadata.
 - Some static service/support pages still use page-local metadata instead of a fully centralized metadata factory.
 - Legacy static Istanbul pages still exist in repo as redirect losers and should eventually be retired or reduced.
+- The remaining legacy Istanbul loser pages now use redirect-only implementations instead of serving duplicate content.
 
 ### open issues
 - legacy redirect families still exist in repo and should continue shrinking as one-off exceptions are retired.

@@ -37,7 +37,7 @@ It is not acceptable to block future marketplace evolution with short-term code 
 
 ## 2. CORE PRODUCT PRINCIPLE
 
-Architecture = national
+Architecture = national  
 Validation = Istanbul first
 
 This means:
@@ -45,6 +45,96 @@ This means:
 - route families must be designed for Turkey scale
 - content systems must be reusable nationally
 - Istanbul is the first deep market, not a one-off exception
+
+---
+
+## 2.5 TECHNICAL STACK ARCHITECTURE
+
+The platform is implemented using a modern React-based server-rendered architecture.
+
+Core stack:
+
+- Next.js (App Router)
+- React
+- TypeScript
+- TailwindCSS
+- Vercel deployment
+
+Supporting tooling:
+
+- Node runtime APIs
+- API routes
+- Google Sheets webhook storage (early stage lead storage)
+- email notifications for lead alerts
+
+The stack is intentionally simple in early phases to optimize for:
+
+- fast iteration
+- SEO stability
+- operational simplicity
+
+Future phases may introduce:
+
+- database-backed lead storage
+- background jobs for lead routing
+- partner dashboards
+- internal admin tools
+
+---
+
+## 2.6 PROJECT FOLDER ARCHITECTURE
+
+The repository follows a layered architecture separating routing, UI, data, and infrastructure logic.
+
+Core structure:
+
+- `src/app/` → Next.js route layer
+- `src/components/` → reusable UI components and sections
+- `src/components/templates/` → reusable page templates
+- `src/data/` → business taxonomy and structured SEO data
+- `src/data/seo/` → SEO dictionaries and structured content models
+- `src/lib/` → reusable helpers (SEO, canonical, routing, lead handling)
+- `public/images/` → service and marketing images
+- `docs/` → architecture, governance, and strategy documentation
+
+Key rules:
+
+- Route logic belongs in `src/app`
+- Reusable UI belongs in `src/components`
+- Business taxonomy belongs in `src/data`
+- SEO helpers belong in `src/lib`
+- Page files should not contain business taxonomy directly
+
+---
+
+## 2.7 RUNTIME INFRASTRUCTURE
+
+Current runtime infrastructure:
+
+Deployment:
+- Vercel
+
+Runtime services:
+
+- `/api/lead`
+- `/api/quote`
+- lead validation
+- spam protection
+- attribution capture
+
+Lead storage (early stage):
+
+- Google Sheets webhook
+- email notifications
+- manual sales workflow
+
+Future runtime evolution:
+
+- database-backed lead storage
+- lead assignment system
+- installer routing logic
+- partner dashboards
+- billing and monetization modules
 
 ---
 
