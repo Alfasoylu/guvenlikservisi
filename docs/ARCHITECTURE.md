@@ -60,7 +60,7 @@ This means:
 - `/kamera-sistemi-kurulumu`
 - `/alarm-sistemi-kurulumu`
 - `/yangin-alarm-sistemi-kurulumu`
-- `/kartli-gecis-ve-turnike-sistemi`
+- `/kartli-gecis-sistemi-kurulumu`
 - `/apartman-site-guvenlik-sistemi`
 - `/isyeri-guvenlik-sistemi`
 - `/fabrika-depo-guvenlik-sistemi`

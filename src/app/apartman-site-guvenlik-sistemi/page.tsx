@@ -510,7 +510,7 @@ const data: ServicePageData = {
           "Site giriş, otopark, koridor ve çevre kamerası kurulumu. Tek başına da hizmet veriyoruz.",
       },
       {
-        href: "/kartli-gecis-ve-turnike-sistemi",
+        href: "/kartli-gecis-sistemi-kurulumu",
         label: "Kartlı Geçiş ve Turnike Sistemi",
         description:
           "Blok bazlı giriş kontrolü, biyometrik okuyucu ve araç bariyer çözümleri.",

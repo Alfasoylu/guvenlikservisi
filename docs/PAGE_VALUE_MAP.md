@@ -4,7 +4,7 @@
 
 Repo içindeki mevcut yapı iki ana değer katmanı oluşturuyor: doğrudan dönüşüm odaklı sayfalar ve programmatic SEO destek ağı. En yüksek doğrudan lead değeri, form veya net teklif akışı taşıyan `/teklif/*`, `/iletisim` ve `/bakim-servis-uzaktan-izleme` sayfalarında. En yüksek ölçeklenebilir SEO + ticari değer ise `/<city>/<service>` ağında; bu grup hem gerçek hizmet intent'i taşıyor hem de 18 şehir x 8 servis ile büyüyebiliyor.
 
-Blog katmanı şu an ağırlıklı olarak trafik ve otorite üretir; doğrudan para sayfası değildir. Recurring gelir açısından açık ara en güçlü grup bakım / servis / uzaktan izleme sayfalarıdır. Risk tarafında en önemli başlıklar, `next.config.ts` ile `/<city>-guvenlik-sistemi-kurulumu` -> `/<city>` redirect'i nedeniyle riskli hale gelen `/istanbul-guvenlik-sistemi-kurulumu`, ayrıca `kartli-gecis-ve-turnike-sistemi` ile veri katmanındaki `kartli-gecis-sistemi-kurulumu` slug ayrışması ve iki ayrı İstanbul IP kamera teklif route'udur.
+Blog katmanı şu an ağırlıklı olarak trafik ve otorite üretir; doğrudan para sayfası değildir. Recurring gelir açısından açık ara en güçlü grup bakım / servis / uzaktan izleme sayfalarıdır. Risk tarafında en önemli başlıklar, `next.config.ts` ile `/<city>-guvenlik-sistemi-kurulumu` -> `/<city>` redirect'i nedeniyle riskli hale gelen `/istanbul-guvenlik-sistemi-kurulumu` ve iki ayrı İstanbul IP kamera teklif route'udur.
 
 ## 2. Route Grup Bazlı Sınıflandırma
 
@@ -16,7 +16,7 @@ Blog katmanı şu an ağırlıklı olarak trafik ve otorite üretir; doğrudan p
 | `/kamera-sistemi-kurulumu` | Money Page | 5 | 4 | 4 | 4 | Doğrudan kurulum intent'i, CTASection ve fiyat/kurulum dili güçlü. |
 | `/alarm-sistemi-kurulumu` | Money Page | 5 | 4 | 4 | 4 | Doğrudan alarm kurulum intent'i ve teklif CTA'sı güçlü. |
 | `/yangin-alarm-sistemi-kurulumu` | Money Page | 5 | 4 | 3 | 4 | Yasal uyum + kurulum ihtiyacı taşıyor; yüksek ticari niyet. |
-| `/kartli-gecis-ve-turnike-sistemi` | Money Page | 4 | 3 | 4 | 3 | B2B intent güçlü, fakat slug/veri modeli uyumsuzluğu nedeniyle risk taşıyor. |
+| `/kartli-gecis-sistemi-kurulumu` | Money Page | 4 | 3 | 4 | 4 | B2B intent güçlü; national hub ve city/service katmanı artık aynı slug sözlüğünü kullanıyor. |
 | `/apartman-site-guvenlik-sistemi` | Money Page | 4 | 4 | 4 | 4 | Site yönetimi ve toplu proje dili var; proje başı ticket yüksek. |
 | `/isyeri-guvenlik-sistemi` | Money Page | 5 | 4 | 4 | 4 | İşletme odaklı teklif CTA'sı var; satışa yakın. |
 | `/fabrika-depo-guvenlik-sistemi` | Money Page | 5 | 4 | 5 | 4 | Büyük proje ve bakım potansiyeli yüksek; B2B ticket değeri kuvvetli. |
@@ -103,7 +103,7 @@ Blog için net sonuç: Mevcut içerik seti trafik ve otorite üretir. Kendi baş
 | --- | --- | --- |
 | `/istanbul-guvenlik-sistemi-kurulumu` | Redirect / duplicate riski | `next.config.ts` içindeki `/${city.slug}-guvenlik-sistemi-kurulumu` -> `/${city.slug}` redirect mantığı bu URL ile çakışıyor. |
 | `/teklif/kamera/istanbul-ip-kamera-montaji` | Yakın niyet duplication riski | `/teklif/istanbul-ip-kamera-montaji` ile aynı konuya çok yakın. |
-| `/kartli-gecis-ve-turnike-sistemi` | Slug / intent uyumsuzluğu | Statik route adı ile `services.ts` içindeki `kartli-gecis-sistemi-kurulumu` farklı. İç link ve ölçekleme tarafında parçalanma riski yaratır. |
+| `/kartli-gecis-sistemi-kurulumu` | Residual legacy redirect riski | Legacy `/kartli-gecis-ve-turnike-sistemi` redirect olarak kaldığı için iç link ve sitemap katmanında winner slug’ın korunması gerekir. |
 | `/<city>/kartli-gecis-sistemi-kurulumu` | Eşleşme riski | Programmatic slug ile statik sayfa adı farklı olduğu için otorite bölünmesi olabilir. |
 | Template tabanlı `/teklif/*` grubu | İnce farklarla yakınlaşma riski | Aynı CTASection akışı ve benzer teklif dili nedeniyle dikkatli çoğaltılmazsa birbirine yaklaşabilir. |
 
@@ -131,7 +131,7 @@ Neden: Bu sıra hem yüksek intent'i hem de daha yüksek ticket veya recurring p
 
 1. `/istanbul-guvenlik-sistemi-kurulumu` ile `/istanbul` ilişkisi netleştirilmeli; mevcut haliyle iki farklı hedefe çalışıyor.
 2. `/teklif/kamera/istanbul-ip-kamera-montaji` ile `/teklif/istanbul-ip-kamera-montaji` tek güçlü landing altında birleştirilmeye aday.
-3. `kartli-gecis-ve-turnike-sistemi` ile `kartli-gecis-sistemi-kurulumu` isimlendirmesi tek çizgiye çekilmeli.
+3. Legacy `/kartli-gecis-ve-turnike-sistemi` redirect rotası sitemap ve iç link katmanında tekrar winner gibi görünmemeli.
 4. Çok yakın varyasyonlu yeni `/teklif/*` sayfalar, ayrı teklif açısı veya ayrı form mantığı yoksa çoğaltılmamalı.
 
 ## 9. Kısa Audit Özeti
@@ -166,7 +166,7 @@ Neden: Bu sıra hem yüksek intent'i hem de daha yüksek ticket veya recurring p
 
 1. `/istanbul-guvenlik-sistemi-kurulumu`
 2. `/teklif/kamera/istanbul-ip-kamera-montaji`
-3. `/kartli-gecis-ve-turnike-sistemi`
+3. Legacy `/kartli-gecis-ve-turnike-sistemi` redirect’i
 4. `/<city>/kartli-gecis-sistemi-kurulumu`
 5. Formsuz template `/teklif/*` varyasyonları
 

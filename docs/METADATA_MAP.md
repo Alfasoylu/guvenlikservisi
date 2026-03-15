@@ -23,7 +23,7 @@ This file is a living source of truth, not a stale one-time audit snapshot.
 - Legacy static Istanbul pages still exist in repo as redirect losers and should eventually be retired or reduced.
 
 ### open issues
-- `kartli-gecis-ve-turnike-sistemi` vs `kartli-gecis-sistemi-kurulumu` slug ownership is still split across route families.
+- legacy redirect families still exist in repo and should continue shrinking as one-off exceptions are retired.
 - Metadata documentation for every single page instance is intentionally not repeated here; route-family governance is the source of truth.
 
 ---

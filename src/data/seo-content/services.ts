@@ -89,28 +89,28 @@ export const serviceContent: Record<string, SeoServiceContent> = {
   },
   "kartli-gecis-sistemi-kurulumu": {
     heroIntro:
-      "{city} içinde personel, apartman ve işyeri girişleri için kartlı geçiş sistemi kuruyoruz. Okuyucu, kilit, buton ve yetkilendirme altyapısını giriş senaryosuna göre planlıyoruz.",
+      "{city} içinde plaza, ofis, fabrika, depo ve apartman girişleri için kartlı geçiş ve turnike sistemi kuruyoruz. Okuyucu, kilit, turnike, biyometrik doğrulama ve PDKS uyumlu yetkilendirme altyapısını giriş senaryosuna göre planlıyoruz.",
     localContext:
-      "{city} içinde kontrollü giriş gereken ofis, apartman ve işletme alanlarında hızlı ama güvenli geçiş akışı kuruyoruz.",
+      "{city} içinde kontrollü giriş gereken plaza lobileri, ofis katları, vardiyalı fabrika girişleri ve apartman kapılarında hızlı ama denetlenebilir geçiş akışı kuruyoruz.",
     benefits: [
       "Yetkili erişimi net şekilde yönetir.",
-      "Kapı ve turnike girişlerinde kontrol sağlar.",
-      "Kullanıcı ekleme ve yetki güncellemesini kolaylaştırır.",
+      "Kapı, turnike ve personel giriş noktalarında merkezi kontrol sağlar.",
+      "PDKS, ziyaretçi yönetimi ve vardiya takibi gibi operasyonları destekler.",
     ],
     process: [
-      "Kapı tipi ve kullanıcı sayısı analizi",
-      "Okuyucu ve kilit altyapısının planlanması",
-      "Montaj ve bağlantıların tamamlanması",
-      "Kart tanımı ve yetki teslimi",
+      "Kapı tipi, turnike ihtiyacı ve kullanıcı yoğunluğu analizi",
+      "Okuyucu, kilit, turnike ve kontrol paneli altyapısının planlanması",
+      "Montaj, entegrasyon ve bağlantı testlerinin tamamlanması",
+      "Kart tanımı, yetki kurgusu ve PDKS teslimi",
     ],
     statsTitle: "Geçiş kontrolünde kullanım kolaylığı kadar güvenlik de önemlidir",
     statsDescription:
-      "{city} içinde kartlı geçiş sistemleri kurarken kapı tipi, kullanıcı yoğunluğu ve yetki senaryolarını birlikte değerlendiriyoruz.",
-    ctaTitle: "{city} kartlı geçiş sistemi için çözüm alın",
+      "{city} içinde kartlı geçiş ve turnike sistemleri kurarken kapı tipi, kullanıcı yoğunluğu, vardiya akışı ve raporlama ihtiyacını birlikte değerlendiriyoruz.",
+    ctaTitle: "{city} kartlı geçiş ve turnike sistemi için çözüm alın",
     ctaDescription:
-      "{city} içindeki yapınız için kullanıcı sayısını, kapı tipini ve erişim senaryosunu birlikte planlayalım.",
-    metadataIntent: "kartlı geçiş sistemi kurulumu",
-    metadataTargets: ["ofis", "apartman", "işyeri"],
+      "{city} içindeki yapınız için kullanıcı sayısını, kapı ve turnike tipini, PDKS veya ziyaretçi yönetimi ihtiyacını birlikte planlayalım.",
+    metadataIntent: "kartlı geçiş ve turnike sistemi kurulumu",
+    metadataTargets: ["plaza", "ofis", "fabrika", "depo"],
   },
   "apartman-site-guvenlik-sistemi": {
     heroIntro:

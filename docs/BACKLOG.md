@@ -232,7 +232,7 @@ Her ilçe için:
 - [x] programmatic route guardrails ve valid route source utility kur
 - [ ] district page canonical kuralları yaz
 - [~] benzer intent’li sayfalar için unique primary URL belirle
-- [ ] duplicate URL varyasyonlarını 301 ile topla
+- [~] duplicate URL varyasyonlarını 301 ile topla
 
 ## P2.3 Route Önceliği
 - [ ] Önce en yüksek intent şehir × servis sayfaları
@@ -838,4 +838,7 @@ Her yeni sayfada:
 
 - `tamamlandı`: `docs/RISK_ANALYSIS.md` ile kritik SEO, crawl, duplicate, low-conversion ve spam riskleri source-of-truth seviyesinde dokümante edildi.
 - `kısmi`: Canonical ownership cleanup ilerledi; İstanbul city/service para sayfaları yeniden `/{city}/{service}` winner modeline taşındı, ancak kalan legacy slug aileleri ve district canonical governance henüz tam kapanmadı.
+- `tamamlandı`: `kartli-gecis-ve-turnike-sistemi` -> `/kartli-gecis-sistemi-kurulumu` slug split’i winner URL lehine kapatıldı; core internal link ve docs katmanı aynı slug’a hizalandı.
+- `tamamlandı`: `turnike` kelimesi slug değiştirilmeden kartlı geçiş cluster’ında daha görünür hale getirildi; service taxonomy, hub metadata ve city/service başlık sinyalleri yüksek bütçeli turnike intentini daha net taşıyor.
+- `tamamlandı`: Kartlı geçiş cluster’ında `turnike`, `PDKS`, plaza/ofis ve fabrika/depo alt-intentleri shared content, package ve CTA katmanında güçlendirildi; daha yüksek bütçeli kurumsal lead sinyali yalnız slug düzeyinde değil içerik düzeyinde de işlendi.
 - `kısmi`: Sitemap tarafında `/teklif/*` organik envanter dışında tutuluyor; sitemap index, parçalı sitemap ve düşük kaliteli route gate sistemi ise halen açık iş kalemi.

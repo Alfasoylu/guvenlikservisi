@@ -522,7 +522,7 @@ const data: ServicePageData = {
           "Zorunlu yangın algılama, belgelendirme, sigorta raporu ve mevzuat uyumluluğu.",
       },
       {
-        href: "/kartli-gecis-ve-turnike-sistemi",
+        href: "/kartli-gecis-sistemi-kurulumu",
         label: "Kartlı Geçiş ve Personel Kontrol",
         description:
           "Personel giriş-çıkış takibi, zaman puantajı entegrasyonu ve alan bazlı yetkilendirme.",

@@ -547,7 +547,7 @@ const data: ServicePageData = {
           "Endüstriyel yangın algılama, gaz dedektörleri, belgelendirme ve mevzuat uyumu.",
       },
       {
-        href: "/kartli-gecis-ve-turnike-sistemi",
+        href: "/kartli-gecis-sistemi-kurulumu",
         label: "Kartlı Geçiş ve Turnike Sistemi",
         description:
           "Personel giriş-çıkış kontrolü, vardiya takibi, zaman puantajı ve ziyaretçi yönetimi.",
@@ -572,7 +572,7 @@ const data: ServicePageData = {
       title: "Üretim Tesisleri",
       content:
         "Üretim hatları, depo alanları ve personel girişlerini kapsayan entegre güvenlik. Vardiya takibi, erişim yetkilendirmesi ve İSG uyumu dahil.",
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
     },
     {
       title: "Lojistik ve Depo",

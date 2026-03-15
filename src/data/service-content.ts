@@ -246,54 +246,55 @@ export const serviceContent: Record<string, ServiceContentTemplate> = {
     ],
   },
   "kartli-gecis-sistemi-kurulumu": {
-    title: "Kartlı Geçiş Sistemi Kurulumu",
+    title: "Kartlı Geçiş ve Turnike Sistemi Kurulumu",
     intro:
-      "{city} içinde personel, apartman ve işyeri girişleri için kartlı geçiş sistemi kuruyoruz. Okuyucu, kilit, buton, turnike ve yetkilendirme altyapısını giriş senaryosuna göre planlıyoruz.",
+      "{city} içinde personel, plaza, ofis, fabrika, depo ve apartman girişleri için kartlı geçiş ve turnike sistemi kuruyoruz. Okuyucu, kilit, buton, turnike, biyometrik doğrulama ve yetkilendirme altyapısını giriş senaryosuna göre planlıyoruz.",
     trustBullets: [
-      "Geçiş senaryosuna göre kart, şifre veya biyometrik kombinasyon öneriyoruz.",
+      "Geçiş senaryosuna göre kart, şifre, biyometrik ve turnike kombinasyonlarını öneriyoruz.",
       "Kapı altyapısı ile uyumlu kilit ve aksesuar seçimi yapıyoruz.",
-      "Yetki tanımları ve kullanıcı teslim sürecini net şekilde kuruyoruz.",
+      "Yetki tanımları, PDKS uyumu ve kullanıcı teslim sürecini net şekilde kuruyoruz.",
     ],
     processSummary: {
       title: "Geçiş kontrolünde nasıl ilerliyoruz?",
       body:
-        "Kapı tipini, kullanıcı sayısını ve raporlama ihtiyacını inceliyoruz. Buna göre okuyucu, kilit ve kontrol ünitesi yerleşimini belirleyip yetki kurgusunu teslim ediyoruz.",
+        "Kapı tipini, kullanıcı sayısını, turnike ihtiyacını ve raporlama beklentisini inceliyoruz. Buna göre okuyucu, kilit, turnike ve kontrol ünitesi yerleşimini belirleyip yetki kurgusunu teslim ediyoruz.",
     },
     useCaseTitle: "Kartlı geçiş sistemi en çok hangi senaryolarda kullanılıyor?",
     useCaseDescription:
-      "{city} içinde giriş kontrolü, personel yönetimi ve güvenli alan ayrımı gereken yapılarda kartlı geçiş sistemleri kuruyoruz.",
+      "{city} içinde giriş kontrolü, personel yönetimi, vardiya takibi ve güvenli alan ayrımı gereken yapılarda kartlı geçiş ve turnike sistemleri kuruyoruz.",
     useCases: [
-      "Ofis girişleri",
+      "Plaza ve ofis girişleri",
       "Apartman ve site kapıları",
-      "Personel devam kontrol noktaları",
+      "Personel devam kontrol ve PDKS noktaları",
       "Depo ve teknik oda girişleri",
       "Turnikeli kurumsal girişler",
+      "Vardiyalı fabrika personel geçişleri",
       "Yetkili erişim gerektiren özel alanlar",
     ],
     packageTitle: "Örnek geçiş kontrol paketleri",
     packageDescription:
-      "{city} içindeki farklı giriş tipleri için örnek kartlı geçiş sistemi senaryoları.",
+      "{city} içindeki farklı giriş tipleri için örnek kartlı geçiş, turnike ve PDKS senaryoları.",
     packages: [
       {
-        title: "Tek Kapı Paketi",
+        title: "Tek Kapı ve Apartman Girişi Paketi",
         description:
-          "{city} içinde küçük ofis veya apartman girişleri için okuyucu, kilit ve kullanıcı tanımlama çözümü.",
+          "{city} içinde küçük ofis, apartman ve teknik oda girişleri için okuyucu, kilit ve kullanıcı tanımlama çözümü.",
       },
       {
-        title: "Çok Noktalı Ofis Paketi",
+        title: "Plaza ve Çok Noktalı Ofis Paketi",
         description:
-          "{city} bölgesinde birden fazla kapı ve departman için merkezi geçiş yetkilendirme altyapısı.",
+          "{city} bölgesinde lobi, kat geçişi ve departman bazlı yetkilendirme gereken projeler için merkezi geçiş altyapısı.",
       },
       {
-        title: "Turnike Entegre Paket",
+        title: "PDKS ve Turnike Entegre Paket",
         description:
-          "{city} içinde personel giriş çıkış takibi gereken alanlar için turnike ve geçiş kontrol entegrasyonu.",
+          "{city} içinde personel giriş çıkış takibi, vardiya kontrolü ve ziyaretçi akışı gereken alanlar için turnike ve geçiş kontrol entegrasyonu.",
       },
     ],
     cta: {
-      title: "{city} kartlı geçiş sistemi için çözüm alın",
+      title: "{city} kartlı geçiş ve turnike sistemi için çözüm alın",
       description:
-        "{city} içindeki yapınız için kullanıcı sayısını, kapı tipini ve erişim senaryosunu birlikte planlayalım.",
+        "{city} içindeki yapınız için kullanıcı sayısını, kapı ve turnike tipini, PDKS veya ziyaretçi yönetimi ihtiyacını birlikte planlayalım.",
       primaryLabel: "Hemen Ara",
       secondaryLabel: "İletişim Formuna Git",
     },
@@ -301,7 +302,7 @@ export const serviceContent: Record<string, ServiceContentTemplate> = {
       {
         question: "{city} içinde kartlı geçiş sistemi kurulumu yapıyor musunuz?",
         answer:
-          "Evet. {city} içinde ofis, apartman, işyeri ve kontrollü giriş gereken alanlar için kartlı geçiş sistemleri kuruyoruz.",
+          "Evet. {city} içinde ofis, plaza, apartman, işyeri, fabrika ve kontrollü giriş gereken alanlar için kartlı geçiş ve turnike sistemleri kuruyoruz.",
       },
       {
         question: "Mevcut kapıya kartlı geçiş sistemi uygulanabilir mi?",
@@ -312,6 +313,11 @@ export const serviceContent: Record<string, ServiceContentTemplate> = {
         question: "Kullanıcı yetkileri sonradan değiştirilebilir mi?",
         answer:
           "Evet. Sistem kurulumundan sonra kart iptali, yeni kullanıcı ekleme ve yetki güncellemeleri yapılabilir.",
+      },
+      {
+        question: "Turnike ve PDKS entegrasyonu aynı sistem içinde kurulabilir mi?",
+        answer:
+          "Evet. Uygun projelerde turnike geçişi, personel devam kontrol ve yetki yönetimini aynı altyapı içinde planlayabiliyoruz.",
       },
     ],
   },
