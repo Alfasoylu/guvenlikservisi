@@ -16,92 +16,92 @@ export type FaqCollectionKey = `service:${string}` | `segment:${HighLtvSegmentSl
 
 const segmentFaqCollections: Record<`segment:${HighLtvSegmentSlug}`, FaqCollection> = {
   "segment:site-yonetimi": {
-    title: "Site yonetimi sorulari",
+    title: "Site yönetimi soruları",
     items: [
       {
-        question: "Site projelerinde ortak alanlar ayni sistemde toplanabilir mi?",
+        question: "Site projelerinde ortak alanlar aynı sistemde toplanabilir mi?",
         answer:
-          "Evet. Apartman girisleri, otopark, cevre hattı ve ortak alanlar uygun senaryoda ayni izleme ve kayit yapisinda birlestirilebilir.",
+          "Evet. Apartman girişleri, otopark, çevre hattı ve ortak alanlar uygun senaryoda aynı izleme ve kayıt yapısında birleştirilebilir.",
       },
       {
-        question: "Yonetim kurulu icin bakim ve raporlama sureci nasil ilerler?",
+        question: "Yönetim kurulu için bakım ve raporlama süreci nasıl ilerler?",
         answer:
-          "Bakim periyodu, kayit kontrolu ve servis notlari teklif asamasinda netlestirilerek yonetim onayina uygun bir surec kurulur.",
+          "Bakım periyodu, kayıt kontrolü ve servis notları teklif aşamasında netleştirilerek yönetim onayına uygun bir süreç kurulur.",
       },
     ],
   },
   "segment:fabrika": {
-    title: "Fabrika projeleri sorulari",
+    title: "Fabrika projeleri soruları",
     items: [
       {
-        question: "Uretim alani ve cevre hattı ayni proje icinde planlanabilir mi?",
+        question: "Üretim alanı ve çevre hattı aynı proje içinde planlanabilir mi?",
         answer:
-          "Evet. Uretim, sevkiyat, girisler ve acik alanlar tek proje kapsaminda analiz edilip uygun kamera ve kayit yapisi belirlenebilir.",
+          "Evet. Üretim, sevkiyat, girişler ve açık alanlar tek proje kapsamında analiz edilip uygun kamera ve kayıt yapısı belirlenebilir.",
       },
       {
-        question: "Kurumsal bakim plani gerekli midir?",
+        question: "Kurumsal bakım planı gerekli midir?",
         answer:
-          "Genis saha ve vardiyali calisma olan tesislerde bakim plani, durus riskini ve plansiz servis ihtiyacini azaltir.",
+          "Geniş saha ve vardiyalı çalışma olan tesislerde bakım planı, duruş riskini ve plansız servis ihtiyacını azaltır.",
       },
     ],
   },
   "segment:depo": {
-    title: "Depo projeleri sorulari",
+    title: "Depo projeleri soruları",
     items: [
       {
-        question: "Yukleme alanlari ve raf koridorlari icin farkli plan gerekir mi?",
+        question: "Yükleme alanları ve raf koridorları için farklı plan gerekir mi?",
         answer:
-          "Evet. Yukleme bosaltma alanlari, raf koridorlari ve gece izlemesi ayni kamera yerlesimi ile cozulmez; saha kullanimina gore planlama gerekir.",
+          "Evet. Yükleme boşaltma alanları, raf koridorları ve gece izlemesi aynı kamera yerleşimi ile çözülmez; saha kullanımına göre planlama gerekir.",
       },
       {
-        question: "Uzun kayit suresi icin nelere dikkat edilir?",
+        question: "Uzun kayıt süresi için nelere dikkat edilir?",
         answer:
-          "Kamera sayisi, kayit cihazi kapasitesi, disk sagligi ve kayit senaryosu birlikte planlanir.",
+          "Kamera sayısı, kayıt cihazı kapasitesi, disk sağlığı ve kayıt senaryosu birlikte planlanır.",
       },
     ],
   },
   "segment:avm": {
-    title: "AVM sorulari",
+    title: "AVM soruları",
     items: [
       {
-        question: "AVM projelerinde yangin, erisim ve kamera ayni disiplinle yonetilebilir mi?",
+        question: "AVM projelerinde yangın, erişim ve kamera aynı disiplinle yönetilebilir mi?",
         answer:
-          "Evet. AVM gibi cok bilesenli projelerde farkli sistemlerin teslim, test ve bakim akisi birlikte planlanmalidir.",
+          "Evet. AVM gibi çok bileşenli projelerde farklı sistemlerin teslim, test ve bakım akışı birlikte planlanmalıdır.",
       },
       {
-        question: "Periyodik test ve bakim neden kritik?",
+        question: "Periyodik test ve bakım neden kritik?",
         answer:
-          "Yogun insan trafigi olan yapilarda servis kesintisi ve uyumluluk riski daha yuksektir; bu nedenle periyodik kontrol onemlidir.",
+          "Yoğun insan trafiği olan yapılarda servis kesintisi ve uyumluluk riski daha yüksektir; bu nedenle periyodik kontrol önemlidir.",
       },
     ],
   },
   "segment:zincir-magaza": {
-    title: "Zincir magazalar icin sorular",
+    title: "Zincir mağazalar için sorular",
     items: [
       {
-        question: "Birden fazla sube ayni servis standardi ile yonetilebilir mi?",
+        question: "Birden fazla şube aynı servis standardı ile yönetilebilir mi?",
         answer:
-          "Evet. Standart kurulum, merkezi izleme ve ortak servis disiplini ile subeler arasi fark azaltilabilir.",
+          "Evet. Standart kurulum, merkezi izleme ve ortak servis disiplini ile şubeler arası fark azaltılabilir.",
       },
       {
-        question: "Ariza oldugunda ayni mudahale kalitesi nasil korunur?",
+        question: "Arıza olduğunda aynı müdahale kalitesi nasıl korunur?",
         answer:
-          "Sube yapisi, cihaz standardi ve servis notlari net olursa ariza sureci daha tutarli yonetilir.",
+          "Şube yapısı, cihaz standardı ve servis notları net olursa arıza süreci daha tutarlı yönetilir.",
       },
     ],
   },
   "segment:plaza-ofis": {
-    title: "Kurumsal ofis sorulari",
+    title: "Kurumsal ofis soruları",
     items: [
       {
-        question: "Kartli gecis ve kamera ayni ofis projesinde birlikte planlanabilir mi?",
+        question: "Kartlı geçiş ve kamera aynı ofis projesinde birlikte planlanabilir mi?",
         answer:
-          "Evet. Giris kontrolu, ziyaretci akisi ve kamera kapsama planı ayni kurumsal proje icinde birlikte ele alinabilir.",
+          "Evet. Giriş kontrolü, ziyaretçi akışı ve kamera kapsama planı aynı kurumsal proje içinde birlikte ele alınabilir.",
       },
       {
-        question: "Kurumsal tarafta bakim beklentisi neden farklidir?",
+        question: "Kurumsal tarafta bakım beklentisi neden farklıdır?",
         answer:
-          "Kesintisiz calisma, raporlama ve servis disiplini kurumsal yapilarda daha yuksek beklentiyle takip edilir.",
+          "Kesintisiz çalışma, raporlama ve servis disiplini kurumsal yapılarda daha yüksek beklentiyle takip edilir.",
       },
     ],
   },
@@ -109,152 +109,152 @@ const segmentFaqCollections: Record<`segment:${HighLtvSegmentSlug}`, FaqCollecti
 
 const issueFaqCollections: Record<`issue:${PainPointSlug}`, FaqCollection> = {
   "issue:kor-nokta-riski": {
-    title: "Kor nokta sorulari",
+    title: "Kör nokta soruları",
     items: [
       {
-        question: "Kor noktalar kesif olmadan anlasilabilir mi?",
+        question: "Kör noktalar keşif olmadan anlaşılabilir mi?",
         answer:
-          "Kismen tahmin edilebilir, ancak net sonuc icin girisler, cevre hatti ve kritik kullanim alanlari sahada analiz edilmelidir.",
+          "Kısmen tahmin edilebilir, ancak net sonuç için girişler, çevre hattı ve kritik kullanım alanları sahada analiz edilmelidir.",
       },
     ],
   },
   "issue:gece-gorusu-yetersizligi": {
-    title: "Gece gorusu sorulari",
+    title: "Gece görüşü soruları",
     items: [
       {
-        question: "Gece gorusu sorunu sadece kamera degisimiyle cozulur mu?",
+        question: "Gece görüşü sorunu sadece kamera değişimiyle çözülür mü?",
         answer:
-          "Her zaman degil. Lens acisi, aydinlatma, montaj yuksekligi ve ortam kosullari da sonucu etkiler.",
+          "Her zaman değil. Lens açısı, aydınlatma, montaj yüksekliği ve ortam koşulları da sonucu etkiler.",
       },
     ],
   },
   "issue:kayit-yok": {
-    title: "Kayit sorunu sorulari",
+    title: "Kayıt sorunu soruları",
     items: [
       {
-        question: "Kayit yoksa ilk hangi parcalar kontrol edilir?",
+        question: "Kayıt yoksa ilk hangi parçalar kontrol edilir?",
         answer:
-          "Disk sagligi, NVR/DVR ayarlari, kayit modu ve baglanti durumu birlikte kontrol edilmelidir.",
+          "Disk sağlığı, NVR/DVR ayarları, kayıt modu ve bağlantı durumu birlikte kontrol edilmelidir.",
       },
     ],
   },
   "issue:goruntu-yok": {
-    title: "Goruntu sorunu sorulari",
+    title: "Görüntü sorunu soruları",
     items: [
       {
-        question: "Goruntu yok sorunu kamera mi yoksa kayit cihazi mi kaynakli olur?",
+        question: "Görüntü yok sorunu kamera mı yoksa kayıt cihazı mı kaynaklı olur?",
         answer:
-          "Her iki taraftan da kaynaklanabilir; kamera, enerji, kablolama, switch ve kayit cihazi birlikte test edilmelidir.",
+          "Her iki taraftan da kaynaklanabilir; kamera, enerji, kablolama, switch ve kayıt cihazı birlikte test edilmelidir.",
       },
     ],
   },
   "issue:kamera-offline": {
-    title: "Offline kamera sorulari",
+    title: "Offline kamera soruları",
     items: [
       {
-        question: "Kamera neden aralikli olarak offline olur?",
+        question: "Kamera neden aralıklı olarak offline olur?",
         answer:
-          "PoE besleme, ag kararsizligi, switch sorunlari veya cihaz arizasi buna sebep olabilir.",
+          "PoE besleme, ağ kararsızlığı, switch sorunları veya cihaz arızası buna sebep olabilir.",
       },
     ],
   },
   "issue:nvr-hdd-arizasi": {
-    title: "NVR ve HDD sorulari",
+    title: "NVR ve HDD soruları",
     items: [
       {
-        question: "Disk hatasi kayit suresini etkiler mi?",
+        question: "Disk hatası kayıt süresini etkiler mi?",
         answer:
-          "Evet. Disk sagligi bozuldugunda kayit surekliligi ve gecmis goruntulere erisim dogrudan etkilenir.",
+          "Evet. Disk sağlığı bozulduğunda kayıt sürekliliği ve geçmiş görüntülere erişim doğrudan etkilenir.",
       },
     ],
   },
   "issue:poe-ag-kararsizligi": {
-    title: "Ag kararsizligi sorulari",
+    title: "Ağ kararsızlığı soruları",
     items: [
       {
         question: "PoE veya switch sorunu tekrar eden kopmalara neden olur mu?",
         answer:
-          "Evet. Zayif enerji beslemesi veya ag tarafindaki dalgalanmalar kamera kopmalarina yol acabilir.",
+          "Evet. Zayıf enerji beslemesi veya ağ tarafındaki dalgalanmalar kamera kopmalarına yol açabilir.",
       },
     ],
   },
   "issue:bakim-yapilmayan-sistem": {
-    title: "Bakim surekliligi sorulari",
+    title: "Bakım sürekliliği soruları",
     items: [
       {
-        question: "Calisan sistem icin yine de bakim gerekli mi?",
+        question: "Çalışan sistem için yine de bakım gerekli mi?",
         answer:
-          "Evet. Kayit, aci, disk ve baglanti sagligi bozulmadan once kontrol edilirse plansiz ariza ihtimali azalir.",
+          "Evet. Kayıt, açı, disk ve bağlantı sağlığı bozulmadan önce kontrol edilirse plansız arıza ihtimali azalır.",
       },
     ],
   },
   "issue:uzaktan-erisim-sorunu": {
-    title: "Uzaktan erisim sorulari",
+    title: "Uzaktan erişim soruları",
     items: [
       {
-        question: "Mobil izleme sorunu sadece internet hattindan mi kaynaklanir?",
+        question: "Mobil izleme sorunu sadece internet hattından mı kaynaklanır?",
         answer:
-          "Hayir. Modem, ag ayarlari, cihaz konfigrasyonu ve kullanici yetkileri birlikte kontrol edilmelidir.",
+          "Hayır. Modem, ağ ayarları, cihaz konfigürasyonu ve kullanıcı yetkileri birlikte kontrol edilmelidir.",
       },
     ],
   },
   "issue:ortak-alan-guvenligi": {
-    title: "Ortak alan guvenligi sorulari",
+    title: "Ortak alan güvenliği soruları",
     items: [
       {
-        question: "Apartman ve site ortak alanlari icin tek tip kurulum yeterli olur mu?",
+        question: "Apartman ve site ortak alanları için tek tip kurulum yeterli olur mu?",
         answer:
-          "Genelde hayir. Giris, otopark, lobi ve cevre alani ayni goruntu ihtiyacina sahip olmadigi icin plan farklilasir.",
+          "Genelde hayır. Giriş, otopark, lobi ve çevre alanı aynı görüntü ihtiyacına sahip olmadığı için plan farklılaşır.",
       },
     ],
   },
   "issue:yonetim-onay-sureci": {
-    title: "Yonetim onayi sorulari",
+    title: "Yönetim onayı soruları",
     items: [
       {
-        question: "Yonetim onayi gereken projelerde teklif nasil sade tutulur?",
+        question: "Yönetim onayı gereken projelerde teklif nasıl sade tutulur?",
         answer:
-          "Kapsam, bakim beklentisi ve maliyet kalemleri net anlatilan teklifler karar surecini hizlandirir.",
+          "Kapsam, bakım beklentisi ve maliyet kalemleri net anlatılan teklifler karar sürecini hızlandırır.",
       },
     ],
   },
   "issue:stok-kaybi-ve-gece-takibi": {
-    title: "Depo ve fabrika sorulari",
+    title: "Depo ve fabrika soruları",
     items: [
       {
-        question: "Yukleme alanlari icin neden ayri plan gerekir?",
+        question: "Yükleme alanları için neden ayrı plan gerekir?",
         answer:
-          "Yukleme ve bosaltma alanlarinda hareket yogunlugu, arac girisleri ve gece takibi ayni anda ele alinmalidir.",
+          "Yükleme ve boşaltma alanlarında hareket yoğunluğu, araç girişleri ve gece takibi aynı anda ele alınmalıdır.",
       },
     ],
   },
   "issue:cok-lokasyonlu-standart": {
-    title: "Cok lokasyonlu yapi sorulari",
+    title: "Çok lokasyonlu yapı soruları",
     items: [
       {
-        question: "Birden fazla subede ayni kamera ve servis standardi kurulabilir mi?",
+        question: "Birden fazla şubede aynı kamera ve servis standardı kurulabilir mi?",
         answer:
-          "Evet. Cihaz seti, servis notlari ve erisim politikasi standartlastirilirsa yonetim kolaylasir.",
+          "Evet. Cihaz seti, servis notları ve erişim politikası standartlaştırılırsa yönetim kolaylaşır.",
       },
     ],
   },
   "issue:erisim-kontrol-entegrasyonu": {
-    title: "Erisim kontrolu sorulari",
+    title: "Erişim kontrolü soruları",
     items: [
       {
-        question: "Kamera, alarm ve kartli gecis birbirine baglanabilir mi?",
+        question: "Kamera, alarm ve kartlı geçiş birbirine bağlanabilir mi?",
         answer:
-          "Uygun projelerde evet. Giris kontrolu, olay takibi ve kamera kapsama planı birlikte tasarlanabilir.",
+          "Uygun projelerde evet. Giriş kontrolü, olay takibi ve kamera kapsama planı birlikte tasarlanabilir.",
       },
     ],
   },
   "issue:sla-ve-servis-surekliligi": {
-    title: "Servis surekliligi sorulari",
+    title: "Servis sürekliliği soruları",
     items: [
       {
-        question: "Kurumsal tarafta servis surekliligi neden ayrica konusulur?",
+        question: "Kurumsal tarafta servis sürekliliği neden ayrıca konuşulur?",
         answer:
-          "Kurulum tek seferliktir; asil guven duygusu mudahale hizi, periyodik kontrol ve duzenli raporlama ile olusur.",
+          "Kurulum tek seferliktir; asıl güven duygusu müdahale hızı, periyodik kontrol ve düzenli raporlama ile oluşur.",
       },
     ],
   },

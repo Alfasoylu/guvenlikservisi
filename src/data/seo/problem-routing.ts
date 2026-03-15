@@ -26,19 +26,19 @@ export interface ProblemRoutingContent {
 function getTriageCards(data: ProblemPageData): RoutingCard[] {
   const common = [
     {
-      title: "Acil Servis Intenti",
+      title: "Acil Servis İntenti",
       description:
-        "Sorun kayit, goruntu veya erisim kesintisi yaratiyorsa bu sayfa teknik servis lead'ini toplamalidir.",
+        "Sorun kayıt, görüntü veya erişim kesintisi yaratıyorsa bu sayfa teknik servis lead'ini toplamalıdır.",
     },
     {
-      title: "Bakim ve Sureklilik",
+      title: "Bakım ve Süreklilik",
       description:
-        "Tekrarlayan arizalar yalnizca onarim degil, periyodik bakim ve kontrol ihtiyacina da isaret eder.",
+        "Tekrarlayan arızalar yalnızca onarım değil, periyodik bakım ve kontrol ihtiyacına da işaret eder.",
     },
     {
       title: "Kurulum ve Yenileme",
       description:
-        "Eski veya yetersiz sistemlerde ariza aramasi zamanla yeni kurulum veya yenileme talebine donusebilir.",
+        "Eski veya yetersiz sistemlerde arıza araması zamanla yeni kurulum veya yenileme talebine dönüşebilir.",
     },
   ];
 
@@ -72,21 +72,21 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
     return [
       {
         href: "/istanbul-alarm-sistemi",
-        label: "Istanbul Alarm Sistemi",
+        label: "İstanbul Alarm Sistemi",
         description:
-          "Ariza sonrasi degisim veya yeni kurulum ihtiyacini ana Istanbul winner URL'ye tasir.",
+          "Arıza sonrası değişim veya yeni kurulum ihtiyacını ana İstanbul winner URL'ye taşır.",
       },
       {
         href: "/guvenlik-sistemi-teknik-servis",
-        label: "Guvenlik Sistemi Teknik Servis",
+        label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Mevcut alarm altyapisinda saha mudahalesi gereken durumlar icin servis hatti sunar.",
+          "Mevcut alarm altyapısında saha müdahalesi gereken durumlar için servis hattı sunar.",
       },
       {
         href: "/bakim-servis-uzaktan-izleme",
-        label: "Bakim, Servis ve Uzaktan Izleme",
+        label: "Bakım, Servis ve Uzaktan İzleme",
         description:
-          "Tekrarlayan panel ve sensor sorunlarini bakim sozlesmesine baglar.",
+          "Tekrarlayan panel ve sensör sorunlarını bakım sözleşmesine bağlar.",
       },
     ];
   }
@@ -95,21 +95,21 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
     return [
       {
         href: "/istanbul-kartli-gecis-sistemi",
-        label: "Istanbul Kartli Gecis Sistemi",
+        label: "İstanbul Kartlı Geçiş Sistemi",
         description:
-          "Kartli gecis arizasini ana Istanbul ticari sayfasina geri baglar.",
+          "Kartlı geçiş arızasını ana İstanbul ticari sayfasına geri bağlar.",
       },
       {
         href: "/guvenlik-sistemi-teknik-servis",
-        label: "Guvenlik Sistemi Teknik Servis",
+        label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Okuyucu, kilit ve kontrol unitesi sorunlarinda en net servis cikisidir.",
+          "Okuyucu, kilit ve kontrol ünitesi sorunlarında en net servis çıkışıdır.",
       },
       {
         href: "/isyeri-guvenlik-sistemi",
-        label: "Isyeri Guvenlik Sistemi",
+        label: "İşyeri Güvenlik Sistemi",
         description:
-          "Kartli gecis ihtiyacini daha genis ofis ve isletme guvenlik cozumune tasir.",
+          "Kartlı geçiş ihtiyacını daha geniş ofis ve işletme güvenlik çözümüne taşır.",
       },
     ];
   }
@@ -117,21 +117,21 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
   return [
     {
       href: "/istanbul-kamera-teknik-servis",
-      label: "Istanbul Kamera Teknik Servis",
+      label: "İstanbul Kamera Teknik Servis",
       description:
-        "Kamera, NVR, HDD ve baglanti problemleri icin en hizli Istanbul servis yoludur.",
+        "Kamera, NVR, HDD ve bağlantı problemleri için en hızlı İstanbul servis yoludur.",
     },
     {
       href: "/istanbul-kamera-bakim-servisi",
-      label: "Istanbul Kamera Bakim Servisi",
+      label: "İstanbul Kamera Bakım Servisi",
       description:
-        "Tekrarlayan kamera sorunlarini periyodik kontrol ve bakim gelirine baglar.",
+        "Tekrarlayan kamera sorunlarını periyodik kontrol ve bakım gelirine bağlar.",
     },
     {
       href: "/kamera-ariza-servisi",
-      label: "Kamera Ariza Servisi",
+      label: "Kamera Arıza Servisi",
       description:
-        "Hizli ariza tespiti ve sahada onarim odakli kullanicilar icin dogrudan servis cikisi sunar.",
+        "Hızlı arıza tespiti ve sahada onarım odaklı kullanıcılar için doğrudan servis çıkışı sunar.",
     },
   ];
 }
@@ -141,15 +141,15 @@ function getCommercialLinks(data: ProblemPageData): RoutingLink[] {
     return [
       {
         href: "/yangin-alarm-sistemi-kurulumu",
-        label: "Yangin Alarm Sistemi Kurulumu",
+        label: "Yangın Alarm Sistemi Kurulumu",
         description:
-          "Alarm ve can guvenligi ihtiyacini daha yuksek ticari degerli kurulum katmanina tasir.",
+          "Alarm ve can güvenliği ihtiyacını daha yüksek ticari değerli kurulum katmanına taşır.",
       },
       {
         href: "/isyeri-guvenlik-sistemi",
-        label: "Isyeri Guvenlik Sistemi",
+        label: "İşyeri Güvenlik Sistemi",
         description:
-          "Alarm sorununu kamera ve erisim kontrol ile birlesen ticari pakete baglar.",
+          "Alarm sorununu kamera ve erişim kontrol ile birleşen ticari pakete bağlar.",
       },
     ];
   }
@@ -158,15 +158,15 @@ function getCommercialLinks(data: ProblemPageData): RoutingLink[] {
     return [
       {
         href: "/istanbul-kartli-gecis-sistemi",
-        label: "Istanbul Kartli Gecis Sistemi",
+        label: "İstanbul Kartlı Geçiş Sistemi",
         description:
-          "Ariza cozuldugunde yenileme veya kapasite artisi ihtiyacini ana sayfaya yonlendirir.",
+          "Arıza çözüldüğünde yenileme veya kapasite artışı ihtiyacını ana sayfaya yönlendirir.",
       },
       {
         href: "/isyeri-guvenlik-sistemi",
-        label: "Isyeri Guvenlik Sistemi",
+        label: "İşyeri Güvenlik Sistemi",
         description:
-          "Ofis, plaza ve ticari alanlar icin daha genis guvenlik mimarisine gecis saglar.",
+          "Ofis, plaza ve ticari alanlar için daha geniş güvenlik mimarisine geçiş sağlar.",
       },
     ];
   }
@@ -174,21 +174,21 @@ function getCommercialLinks(data: ProblemPageData): RoutingLink[] {
   return [
     {
       href: "/istanbul-kamera-sistemi-kurulumu",
-      label: "Istanbul Kamera Sistemi Kurulumu",
+      label: "İstanbul Kamera Sistemi Kurulumu",
       description:
-        "Eski veya yetersiz sistemlerde arizayi yeni kurulum kararina donusturen ana ticari sayfadir.",
+        "Eski veya yetersiz sistemlerde arızayı yeni kurulum kararına dönüştüren ana ticari sayfadır.",
     },
     {
       href: "/uzaktan-kamera-izleme",
-      label: "Uzaktan Kamera Izleme",
+      label: "Uzaktan Kamera İzleme",
       description:
-        "Baglanti ve izleme sorunlarini merkezi erisim ve sureklilik ihtiyacina baglar.",
+        "Bağlantı ve izleme sorunlarını merkezi erişim ve süreklilik ihtiyacına bağlar.",
     },
     {
       href: "/kamera-sistemi-bakim-sozlesmesi",
-      label: "Kamera Sistemi Bakim Sozlesmesi",
+      label: "Kamera Sistemi Bakım Sözleşmesi",
       description:
-        "Ariza odakli kullaniciyi recurrent gelir uretebilen bakim modeline tasir.",
+        "Arıza odaklı kullanıcıyı recurrent gelir üretebilen bakım modeline taşır.",
     },
   ];
 }
@@ -197,17 +197,17 @@ export function getProblemRoutingContent(
   data: ProblemPageData,
 ): ProblemRoutingContent {
   return {
-    title: "Bu sorun hangi lead yoluna baglanmali?",
+    title: "Bu sorun hangi lead yoluna bağlanmalı?",
     description:
-      "Problem sayfalari sadece bilgilendirme icerigi olarak kalmamali. Her sayfa acil servis, bakim ve daha genis ticari cozum katmanlarina kontrollu sekilde baglanmalidir.",
+      "Problem sayfaları sadece bilgilendirme içeriği olarak kalmamalı. Her sayfa acil servis, bakım ve daha geniş ticari çözüm katmanlarına kontrollü şekilde bağlanmalıdır.",
     triageCards: getTriageCards(data),
-    serviceTitle: "Acil servis ve teknik mudahale yolları",
+    serviceTitle: "Acil servis ve teknik müdahale yolları",
     serviceDescription:
-      "Kullanici sorunu tanimladiginda en yakin cozum sayfalarina gitmeli; gereksiz blog veya zayif sayfalara dagilmamali.",
+      "Kullanıcı sorunu tanımladığında en yakın çözüm sayfalarına gitmeli; gereksiz blog veya zayıf sayfalara dağılmamalı.",
     serviceLinks: getServiceLinks(data),
-    commercialTitle: "Sorundan ticari cozum katmanina gecis",
+    commercialTitle: "Sorundan ticari çözüm katmanına geçiş",
     commercialDescription:
-      "Ariza intent'i bazen yeni kurulum, yenileme veya bakim sozlesmesi gibi daha yuksek degerli lead'lere donusur. Bu baglanti her sayfada net olmalidir.",
+      "Arıza intent'i bazen yeni kurulum, yenileme veya bakım sözleşmesi gibi daha yüksek değerli lead'lere dönüşür. Bu bağlantı her sayfada net olmalıdır.",
     commercialLinks: getCommercialLinks(data),
   };
 }

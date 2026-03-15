@@ -210,7 +210,7 @@ const besiktas: DistrictProfile = {
     "alarm-sistemi-kurulumu": {
       heroTitle: "Beşiktaş Alarm Sistemi Kurulumu",
       heroIntro:
-        "Etiler villaları, Ulus rezidansları ve Ortaköy'ün yoğun ticari doküsunda güvenlik beklentisi yüksek. Beşiktaş'a özel, çok bölgeli alarm senaryoları ile villanızdan mağazanıza kadar caydırıcı koruma.",
+        "Etiler villaları, Ulus rezidansları ve Ortaköy'ün yoğun ticari dokusunda güvenlik beklentisi yüksek. Beşiktaş'a özel, çok bölgeli alarm senaryoları ile villanızdan mağazanıza kadar caydırıcı koruma.",
       whatsappMessage:
         "Merhaba, Beşiktaş'ta alarm sistemi kurulumu için bilgi almak istiyorum.",
       commercialAngle:
@@ -344,7 +344,7 @@ const atasehir: DistrictProfile = {
         },
         {
           question:
-            "Ataşehir Bulvarı'ındaki ofisim için en uygun alarm tipi hangisi?",
+            "Ataşehir Bulvarı'ndaki ofisim için en uygun alarm tipi hangisi?",
           answer:
             "Ofis büyüklüğüne, giriş sayısına ve çalışma saatlerine göre kablosuz veya hibrit alarm sistemleri önerilir.",
         },

@@ -34,53 +34,53 @@ function getDistrictDemandCards(
     kadikoy: {
       "kamera-sistemi-kurulumu": [
         {
-          title: "Cadde Magazalari",
+          title: "Cadde Mağazaları",
           description:
-            "Bagdat Caddesi ve carsi hattindaki magazalar giris, kasa ve depo gorunurlugu ister.",
+            "Bağdat Caddesi ve çarşı hattındaki mağazalar giriş, kasa ve depo görünürlüğü ister.",
         },
         {
           title: "Konut ve Apartmanlar",
           description:
-            "Moda, Fenerbahce ve Caferaga tarafinda apartman ve site girisleri daha kontrollu izleme ariyor.",
+            "Moda, Fenerbahçe ve Caferağa tarafında apartman ve site girişleri daha kontrollü izleme arıyor.",
         },
         {
           title: "Ofis ve Klinikler",
           description:
-            "Kozyatagi ve Hasanpasa cevresindeki profesyonel alanlar kayit surekliligi ve uzaktan erisim bekliyor.",
+            "Kozyatağı ve Hasanpaşa çevresindeki profesyonel alanlar kayıt sürekliliği ve uzaktan erişim bekliyor.",
         },
       ],
       "alarm-sistemi-kurulumu": [
         {
-          title: "Perakende Noktalari",
+          title: "Perakende Noktaları",
           description:
-            "Mesai sonrasi alarm devreye alma ve anlik bildirim, carsi bolgesinde en kritik ihtiyac.",
+            "Mesai sonrası alarm devreye alma ve anlık bildirim, çarşı bölgesinde en kritik ihtiyaç.",
         },
         {
           title: "Daire ve Rezidanslar",
           description:
-            "Yogun konut dokusunda kapi, balkon ve ic hareket alarmi talebi one cikar.",
+            "Yoğun konut dokusunda kapı, balkon ve iç hareket alarmı talebi öne çıkar.",
         },
         {
-          title: "Butik Isletmeler",
+          title: "Butik İşletmeler",
           description:
-            "Kafe, restoran ve butik isletmeler hizli kurulum ve mobil kontrol ister.",
+            "Kafe, restoran ve butik işletmeler hızlı kurulum ve mobil kontrol ister.",
         },
       ],
       "kartli-gecis-sistemi-kurulumu": [
         {
           title: "Apartman ve Siteler",
           description:
-            "Yuksek sirkulasyonlu apartman girisleri kontrollu kapi acma ve log takibi istiyor.",
+            "Yüksek sirkülasyonlu apartman girişleri kontrollü kapı açma ve log takibi istiyor.",
         },
         {
-          title: "Ofis Katlari",
+          title: "Ofis Katları",
           description:
-            "Kozyatagi cevresindeki ofisler personel ve ziyaretci akislarini ayri yonetmek istiyor.",
+            "Kozyatağı çevresindeki ofisler personel ve ziyaretçi akışlarını ayrı yönetmek istiyor.",
         },
         {
           title: "Ticari Binalar",
           description:
-            "Cok kullanicili yapilarda kart, kilit ve raporlama senaryosu birlikte talep ediliyor.",
+            "Çok kullanıcılı yapılarda kart, kilit ve raporlama senaryosu birlikte talep ediliyor.",
         },
       ],
     },
@@ -89,104 +89,104 @@ function getDistrictDemandCards(
         {
           title: "Plaza ve Ofisler",
           description:
-            "Levent hattinda giris-cikis, ortak alan ve otopark izleme dogrudan satin alma kriteri.",
+            "Levent hattında giriş-çıkış, ortak alan ve otopark izleme doğrudan satın alma kriteri.",
         },
         {
           title: "Villa ve Rezidanslar",
           description:
-            "Etiler ve Ulus segmenti daha yuksek cozunurluk, cevre hatti ve uzaktan erisim bekliyor.",
+            "Etiler ve Ulus segmenti daha yüksek çözünürlük, çevre hattı ve uzaktan erişim bekliyor.",
         },
         {
-          title: "Prestijli Isletmeler",
+          title: "Prestijli İşletmeler",
           description:
-            "Bebek ve Ortakoy tarafinda marka imajini bozmayan temiz kurulum daha onemli.",
+            "Bebek ve Ortaköy tarafında marka imajını bozmayan temiz kurulum daha önemli.",
         },
       ],
       "alarm-sistemi-kurulumu": [
         {
-          title: "Luks Konutlar",
+          title: "Lüks Konutlar",
           description:
-            "Cok bolgeli alarm, dis cevre sensoru ve mobil bildirim bu segmentte standart beklenti.",
+            "Çok bölgeli alarm, dış çevre sensörü ve mobil bildirim bu segmentte standart beklenti.",
         },
         {
-          title: "Cadde Magazalari",
+          title: "Cadde Mağazaları",
           description:
-            "Vitrin, arka ofis ve depo icin ayrilmis alarm senaryolari karar surecini hizlandirir.",
+            "Vitrin, arka ofis ve depo için ayrılmış alarm senaryoları karar sürecini hızlandırır.",
         },
         {
           title: "Kurumsal Ofisler",
           description:
-            "Alarm ile kamera entegrasyonu ve kullanici bazli yetkilendirme one cikar.",
+            "Alarm ile kamera entegrasyonu ve kullanıcı bazlı yetkilendirme öne çıkar.",
         },
       ],
       "kartli-gecis-sistemi-kurulumu": [
         {
-          title: "Kurumsal Girisler",
+          title: "Kurumsal Girişler",
           description:
-            "Levent ve Maslak aksinda ofis girisleri icin hizli ve raporlanabilir erisim kontrolu beklenir.",
+            "Levent ve Maslak aksında ofis girişleri için hızlı ve raporlanabilir erişim kontrolü beklenir.",
         },
         {
           title: "Rezidans Projeleri",
           description:
-            "Kiraci sirkulasyonu yuksek yapilarda kart tanimlama ve iptal surecleri onemlidir.",
+            "Kiracı sirkülasyonu yüksek yapılarda kart tanımlama ve iptal süreçleri önemlidir.",
         },
         {
-          title: "Turnike ve Kapi Sistemleri",
+          title: "Turnike ve Kapı Sistemleri",
           description:
-            "Turnike, manyetik kilit ve ziyaretci akisi tek senaryoda cozulmek istenir.",
+            "Turnike, manyetik kilit ve ziyaretçi akışı tek senaryoda çözülmek istenir.",
         },
       ],
     },
     atasehir: {
       "kamera-sistemi-kurulumu": [
         {
-          title: "Finans ve Plaza Katlari",
+          title: "Finans ve Plaza Katları",
           description:
-            "IFM cevresindeki ofisler yuksek kayit disiplini ve merkezi izleme ister.",
+            "IFM çevresindeki ofisler yüksek kayıt disiplini ve merkezi izleme ister.",
         },
         {
           title: "Rezidans Siteleri",
           description:
-            "Site girisleri, otoparklar ve ortak alanlar icin genis kapsama talebi gucludur.",
+            "Site girişleri, otoparklar ve ortak alanlar için geniş kapsama talebi güçlüdür.",
         },
         {
           title: "AVM ve Ticari Alanlar",
           description:
-            "Watergarden cevresindeki isletmeler yogun ziyaretci akisini kayit altina almak ister.",
+            "Watergarden çevresindeki işletmeler yoğun ziyaretçi akışını kayıt altına almak ister.",
         },
       ],
       "alarm-sistemi-kurulumu": [
         {
           title: "Yeni Teslim Konutlar",
           description:
-            "Yeni tasinan kullanicilar kablosuz ve hizli devreye alinan alarm sistemine yonelir.",
+            "Yeni taşınan kullanıcılar kablosuz ve hızlı devreye alınan alarm sistemine yönelir.",
         },
         {
-          title: "Ofis ve Muhasebe Alanlari",
+          title: "Ofis ve Muhasebe Alanları",
           description:
-            "Finans merkezine yakin ofisler anlik bildirim ve kullanici bazli alarm yonetimi ister.",
+            "Finans merkezine yakın ofisler anlık bildirim ve kullanıcı bazlı alarm yönetimi ister.",
         },
         {
-          title: "Magaza ve Showroomlar",
+          title: "Mağaza ve Showroomlar",
           description:
-            "Mesai disi koruma ve kamera entegrasyonu karar verirken en cok sorulan basliklardir.",
+            "Mesai dışı koruma ve kamera entegrasyonu karar verirken en çok sorulan başlıklardır.",
         },
       ],
       "kartli-gecis-sistemi-kurulumu": [
         {
-          title: "Plaza Girisleri",
+          title: "Plaza Girişleri",
           description:
-            "Yuksek personel trafigi olan binalar kart, ziyaretci ve zaman kisiti yonetimi istiyor.",
+            "Yüksek personel trafiği olan binalar kart, ziyaretçi ve zaman kısıtı yönetimi istiyor.",
         },
         {
-          title: "Rezidans ve Site Kapilari",
+          title: "Rezidans ve Site Kapıları",
           description:
-            "Sakin, ziyaretci ve otopark akislarini birlikte kontrol edebilen yapi tercih ediliyor.",
+            "Sakin, ziyaretçi ve otopark akışlarını birlikte kontrol edebilen yapı tercih ediliyor.",
         },
         {
           title: "Kurumsal Alanlar",
           description:
-            "Kat bazli yetkilendirme ve loglama, IFM cevresi icin temel ihtiyac haline geldi.",
+            "Kat bazlı yetkilendirme ve loglama, IFM çevresi için temel ihtiyaç haline geldi.",
         },
       ],
     },
@@ -197,17 +197,17 @@ function getDistrictDemandCards(
       {
         title: "Ticari Noktalar",
         description:
-          "Ilce bazinda en cok talep ureten isletme ve saha kullanimlari icin hizmet planlanir.",
+          "İlçe bazında en çok talep üreten işletme ve saha kullanımları için hizmet planlanır.",
       },
       {
         title: "Konut Projeleri",
         description:
-          "Apartman, site ve rezidans yapilari daha kontrollu giris ve izleme ihtiyaci tasir.",
+          "Apartman, site ve rezidans yapıları daha kontrollü giriş ve izleme ihtiyacı taşır.",
       },
       {
-        title: "Operasyonel Sureklilik",
+        title: "Operasyonel Süreklilik",
         description:
-          "Kurulum sonrasi servis, bakim ve ariza cozumu ayni musteri yolculugunun parcasidir.",
+          "Kurulum sonrası servis, bakım ve arıza çözümü aynı müşteri yolculuğunun parçasıdır.",
       },
     ]
   );
@@ -218,27 +218,27 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
     return [
       {
         href: "/istanbul-kamera-sistemi-kurulumu",
-        label: "Istanbul Kamera Sistemi Kurulumu",
+        label: "İstanbul Kamera Sistemi Kurulumu",
         description:
-          "Ilce sayfasini Istanbul ana money page ile baglayarak ana ticari kumeyi guclendirir.",
+          "İlçe sayfasını İstanbul ana money page ile bağlayarak ana ticari kümeyi güçlendirir.",
       },
       {
         href: "/istanbul-kamera-teknik-servis",
-        label: "Istanbul Kamera Teknik Servis",
+        label: "İstanbul Kamera Teknik Servis",
         description:
-          "Kurulum sonrasi destek ve ariza ihtiyaci olan kullanicilari servis lead'ine cevirir.",
+          "Kurulum sonrası destek ve arıza ihtiyacı olan kullanıcıları servis lead'ine çevirir.",
       },
       {
         href: "/istanbul-kamera-bakim-servisi",
-        label: "Istanbul Kamera Bakim Servisi",
+        label: "İstanbul Kamera Bakım Servisi",
         description:
-          "Site, magaza ve ofis musterilerini recurring bakim ihtiyacina tasir.",
+          "Site, mağaza ve ofis müşterilerini recurring bakım ihtiyacına taşır.",
       },
       {
         href: "/uzaktan-kamera-izleme",
-        label: "Uzaktan Kamera Izleme",
+        label: "Uzaktan Kamera İzleme",
         description:
-          "Cok lokasyonlu veya merkezi izleme isteyen isletmeler icin yuksek degerli support path acar.",
+          "Çok lokasyonlu veya merkezi izleme isteyen işletmeler için yüksek değerli support path açar.",
       },
     ];
   }
@@ -247,27 +247,27 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
     return [
       {
         href: "/istanbul-alarm-sistemi",
-        label: "Istanbul Alarm Sistemi",
+        label: "İstanbul Alarm Sistemi",
         description:
-          "Ilce alarm talebini Istanbul winner URL uzerinde toplar ve canonical odagi korur.",
+          "İlçe alarm talebini İstanbul winner URL üzerinde toplar ve canonical odağı korur.",
       },
       {
         href: "/isyeri-guvenlik-sistemi",
-        label: "Isyeri Guvenlik Sistemi",
+        label: "İşyeri Güvenlik Sistemi",
         description:
-          "Magaza, ofis ve isletme karar vericileri icin daha genis ticari cozum sayfasina tasir.",
+          "Mağaza, ofis ve işletme karar vericileri için daha geniş ticari çözüm sayfasına taşır.",
       },
       {
         href: "/bakim-servis-uzaktan-izleme",
-        label: "Bakim, Servis ve Uzaktan Izleme",
+        label: "Bakım, Servis ve Uzaktan İzleme",
         description:
-          "Alarm sistemini bakim ve devam eden servis gelirine baglar.",
+          "Alarm sistemini bakım ve devam eden servis gelirine bağlar.",
       },
       {
         href: "/guvenlik-sistemi-teknik-servis",
-        label: "Guvenlik Sistemi Teknik Servis",
+        label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Yeni kurulum yerine mevcut sistem sorunu yasayan kullanicilar icin net rota sunar.",
+          "Yeni kurulum yerine mevcut sistem sorunu yaşayan kullanıcılar için net rota sunar.",
       },
     ];
   }
@@ -275,27 +275,27 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
   return [
     {
       href: "/istanbul-kartli-gecis-sistemi",
-      label: "Istanbul Kartli Gecis Sistemi",
+      label: "İstanbul Kartlı Geçiş Sistemi",
       description:
-        "Ilce bazli erisim kontrol talebini ana Istanbul ticari sayfasina konsolide eder.",
+        "İlçe bazlı erişim kontrol talebini ana İstanbul ticari sayfasına konsolide eder.",
     },
     {
       href: "/isyeri-guvenlik-sistemi",
-      label: "Isyeri Guvenlik Sistemi",
+      label: "İşyeri Güvenlik Sistemi",
       description:
-        "Kartli gecis satin alan ofis ve isletmeleri daha genis guvenlik cozumune tasir.",
+        "Kartlı geçiş satın alan ofis ve işletmeleri daha geniş güvenlik çözümüne taşır.",
     },
     {
       href: "/guvenlik-sistemi-teknik-servis",
-      label: "Guvenlik Sistemi Teknik Servis",
+      label: "Güvenlik Sistemi Teknik Servis",
       description:
-        "Mevcut gecis sisteminde ariza yasayan kullanicilar icin servis katmanini acar.",
+        "Mevcut geçiş sisteminde arıza yaşayan kullanıcılar için servis katmanını açar.",
     },
     {
       href: "/bakim-servis-uzaktan-izleme",
-      label: "Bakim, Servis ve Uzaktan Izleme",
+      label: "Bakım, Servis ve Uzaktan İzleme",
       description:
-        "Kurulum sonrasi surdurulebilir bakim ve servis iliskisini destekler.",
+        "Kurulum sonrası sürdürülebilir bakım ve servis ilişkisini destekler.",
     },
   ];
 }
@@ -305,21 +305,21 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
     return [
       {
         href: "/sorun/kamera-goruntu-gelmiyor",
-        label: "Kamera Goruntu Gelmiyor",
+        label: "Kamera Görüntü Gelmiyor",
         description:
-          "Kurulu sistemde en sik karsilasilan goruntu kaybi sorunu icin ariza lead'i uretir.",
+          "Kurulu sistemde en sık karşılaşılan görüntü kaybı sorunu için arıza lead'i üretir.",
       },
       {
         href: "/sorun/kamera-offline",
         label: "Kamera Offline Sorunu",
         description:
-          "Ag, PoE ve uzaktan erisim problemlerinde teknik servis intent'ini yakalar.",
+          "Ağ, PoE ve uzaktan erişim problemlerinde teknik servis intent'ini yakalar.",
       },
       {
         href: "/sorun/kayit-yapilmiyor",
-        label: "Kayit Yapilmiyor",
+        label: "Kayıt Yapılmıyor",
         description:
-          "NVR, HDD ve kayit surekliligi problemlerini bakim-servis gelirine baglar.",
+          "NVR, HDD ve kayıt sürekliliği problemlerini bakım-servis gelirine bağlar.",
       },
     ];
   }
@@ -328,15 +328,15 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
     return [
       {
         href: "/sorun/alarm-arizalari",
-        label: "Alarm Arizalari",
+        label: "Alarm Arızaları",
         description:
-          "Yanlis alarm, sensor hatasi ve panel problemi yasayan kullanicilar icin en net destek sayfasi.",
+          "Yanlış alarm, sensör hatası ve panel problemi yaşayan kullanıcılar için en net destek sayfası.",
       },
       {
         href: "/guvenlik-sistemi-teknik-servis",
-        label: "Guvenlik Sistemi Teknik Servis",
+        label: "Güvenlik Sistemi Teknik Servis",
         description:
-          "Kurulu alarm sisteminde sahaya cikilmasi gereken sorunlari servis formuna tasir.",
+          "Kurulu alarm sisteminde sahaya çıkılması gereken sorunları servis formuna taşır.",
       },
     ];
   }
@@ -344,15 +344,15 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
   return [
     {
       href: "/sorun/kartli-gecis-calismiyor",
-      label: "Kartli Gecis Calismiyor",
+      label: "Kartlı Geçiş Çalışmıyor",
       description:
-        "Kapi acilmama, kart okumama ve turnike arizasi gibi acil sorunlari toplar.",
+        "Kapı açılmama, kart okumama ve turnike arızası gibi acil sorunları toplar.",
     },
     {
       href: "/guvenlik-sistemi-teknik-servis",
-      label: "Guvenlik Sistemi Teknik Servis",
+      label: "Güvenlik Sistemi Teknik Servis",
       description:
-        "Gecis kontrol arizalarini tek servis hattina yonlendirerek lead kacisini azaltir.",
+        "Geçiş kontrol arızalarını tek servis hattına yönlendirerek lead kaçışını azaltır.",
     },
   ];
 }
@@ -364,25 +364,25 @@ export function getIstanbulDistrictSupportContent(
 ): IstanbulDistrictSupportContent {
   const marketLabel =
     seoDistrict.marketType === "commercial"
-      ? "ticari yogunluk"
+      ? "ticari yoğunluk"
       : seoDistrict.marketType === "residential"
-        ? "konut yogunlugu"
+        ? "konut yoğunluğu"
         : seoDistrict.marketType === "industrial"
-          ? "operasyonel yogunluk"
+          ? "operasyonel yoğunluk"
           : "karma talep";
 
   return {
     eyebrow: `${profile.name} lead modeli`,
-    title: `${profile.name} icin ${seoService.name.toLocaleLowerCase("tr-TR")} talebi nasil toplanmali?`,
-    description: `${profile.name} ${marketLabel} tasiyan bir Tier ${seoDistrict.tier} ilce segmenti. Bu yuzden ilce sayfasi sadece lokal varyasyon degil; ana Istanbul money page, servis sayfalari ve problem-intent kumeleri arasinda ticari bir kopru gibi calismali.`,
+    title: `${profile.name} için ${seoService.name.toLocaleLowerCase("tr-TR")} talebi nasıl toplanmalı?`,
+    description: `${profile.name} ${marketLabel} taşıyan bir Tier ${seoDistrict.tier} ilçe segmenti. Bu yüzden ilçe sayfası sadece lokal varyasyon değil; ana İstanbul money page, servis sayfaları ve problem-intent kümeleri arasında ticari bir köprü gibi çalışmalı.`,
     segmentCards: getDistrictDemandCards(profile.slug, seoService.slug),
-    supportTitle: `${profile.name} sayfasini lead uretimine baglayan support path'ler`,
+    supportTitle: `${profile.name} sayfasını lead üretimine bağlayan support path'ler`,
     supportDescription:
-      "Ilce sayfasindan cikan baglantilar yalnizca gezinme amacli olmamali. Ana money page, bakim-servis ve daha genis ticari cozum sayfalari birlikte baglanmali.",
+      "İlçe sayfasından çıkan bağlantılar yalnızca gezinme amaçlı olmamalı. Ana money page, bakım-servis ve daha geniş ticari çözüm sayfaları birlikte bağlanmalı.",
     supportLinks: getSupportLinks(seoService.slug),
-    problemTitle: `${profile.name} sonrasi servis ve ariza akisi`,
+    problemTitle: `${profile.name} sonrası servis ve arıza akışı`,
     problemDescription:
-      "Kurulum lead'i ile servis lead'i ayri dusunulmemeli. Bu ilce sayfasi, sorun yasayan kullanicilari da dogru ariza veya teknik servis sayfalarina tasimali.",
+      "Kurulum lead'i ile servis lead'i ayrı düşünülmemeli. Bu ilçe sayfası, sorun yaşayan kullanıcıları da doğru arıza veya teknik servis sayfalarına taşımalı.",
     problemLinks: getProblemLinks(seoService.slug),
   };
 }
