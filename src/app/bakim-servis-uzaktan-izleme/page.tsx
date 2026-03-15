@@ -4,9 +4,11 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Image from "next/image";
 import Link from "next/link";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 import { siteConfig } from "@/data/site-config";
 import TrustSignals from "@/components/sections/TrustSignals";
 import FinalCTA from "@/components/sections/FinalCTA";
+import FAQSection from "@/components/sections/FAQSection";
 import { BadgeCheck, Clock3, MapPin, ShieldCheck, Wrench } from "lucide-react";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
@@ -68,26 +70,7 @@ export const metadata: Metadata = {
   },
 };
 
-const provinces = [
-  "İstanbul",
-  "Ankara",
-  "İzmir",
-  "Bursa",
-  "Kocaeli",
-  "Sakarya",
-  "Tekirdağ",
-  "Edirne",
-  "Çanakkale",
-  "Balıkesir",
-  "Eskişehir",
-  "Antalya",
-  "Konya",
-  "Adana",
-  "Mersin",
-  "Gaziantep",
-  "Kayseri",
-  "Samsun",
-];
+const provinces = cities.map((city) => city.name);
 
 const faqItems = [
   {
@@ -782,13 +765,14 @@ export default function BakimServisUzaktanIzlemePage() {
             />
 
             <div className="mt-12 flex flex-wrap justify-center gap-3">
-              {provinces.map((province) => (
-                <span
-                  key={province}
-                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+              {cities.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/${city.slug}`}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-white"
                 >
-                  {province}
-                </span>
+                  {city.name}
+                </Link>
               ))}
             </div>
           </div>
@@ -876,19 +860,7 @@ export default function BakimServisUzaktanIzlemePage() {
               </div>
             </div>
 
-            <div className="mt-12 space-y-4">
-              {faqItems.map((item) => (
-                <details
-                  key={item.question}
-                  className="group rounded-2xl border border-slate-200 bg-slate-50 p-6"
-                >
-                  <summary className="cursor-pointer list-none text-lg font-bold text-slate-900">
-                    {item.question}
-                  </summary>
-                  <p className="mt-4 leading-7 text-slate-600">{item.answer}</p>
-                </details>
-              ))}
-            </div>
+            <FAQSection items={faqItems} title="Sıkça Sorulan Sorular" />
 
             <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className="text-2xl font-bold text-slate-950">
@@ -908,6 +880,35 @@ export default function BakimServisUzaktanIzlemePage() {
                     {city.name}
                   </Link>
                 ))}
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-2xl font-bold text-slate-950">
+                Bakım ve Servis İhtiyacını Gösteren Sorun Sayfaları
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Mevcut sisteminizde bakım mı, arıza müdahalesi mi yoksa uzaktan
+                destek mi gerektiğini daha hızlı ayırmak için ilgili sorun
+                sayfalarını inceleyin.
+              </p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {serviceProblemLinks["bakim-servis-uzaktan-izleme"].map(
+                  (item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-300 hover:bg-white"
+                    >
+                      <p className="font-semibold text-slate-900 group-hover:text-blue-700">
+                        {item.label}
+                      </p>
+                      <p className="mt-1 text-sm leading-6 text-slate-500">
+                        {item.description}
+                      </p>
+                    </Link>
+                  ),
+                )}
               </div>
             </div>
 
@@ -959,6 +960,28 @@ export default function BakimServisUzaktanIzlemePage() {
                     <p className="mt-1 text-sm leading-6 text-slate-500">
                       {item.description}
                     </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-2xl font-bold text-slate-950">
+                Şehir Bazlı Güvenlik Hizmetleri
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Şehir bazlı güvenlik çözümlerimizi incelemek ve
+                bulunduğunuz ildeki diğer hizmetlerimize geçmek için aşağıdaki
+                sayfaları kullanın.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {topCityHubLinks.map((city) => (
+                  <Link
+                    key={city.href}
+                    href={city.href}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+                  >
+                    {city.label}
                   </Link>
                 ))}
               </div>

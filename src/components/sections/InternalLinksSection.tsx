@@ -5,7 +5,7 @@ import { ArrowRight, Link2 } from "lucide-react";
 export interface InternalLinkItem {
   href: string;
   label: string;
-  description: string;
+  description?: string;
 }
 
 interface InternalLinksSectionProps {

@@ -4,6 +4,7 @@ import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/fabrika-depo-guvenlik-sistemi",
@@ -566,6 +567,12 @@ const data: ServicePageData = {
       },
     ],
   },
+  problemLinks: {
+    title: "Fabrika ve Depo Operasyonlarında Kritik Sorun Sayfaları",
+    subtitle:
+      "Kayıt kaybı, offline kameralar, alarm arızaları ve geçiş kontrol sorunlarında ilgili rehber sayfalarını inceleyin.",
+    links: serviceProblemLinks["fabrika-depo-guvenlik-sistemi"],
+  },
 
   /* ── Segment Bağlantıları ── */
   segments: [
@@ -681,6 +688,12 @@ const data: ServicePageData = {
       label: `${city.name} Fabrika ve Depo Güvenlik Sistemi`,
       description: `${city.name} içinde fabrika ve depo güvenlik sistemi kurulumu için keşif ve teklif alın.`,
     })),
+  },
+  cityHubLinks: {
+    title: "Şehir Bazlı Güvenlik Hizmetleri",
+    description:
+      "Sanayi ve lojistik talebinin öne çıktığı şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+    links: topCityHubLinks,
   },
 };
 

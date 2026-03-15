@@ -192,6 +192,11 @@ export interface ServicePageData {
     subtitle?: string;
     links: InternalLinkItem[];
   };
+  problemLinks?: {
+    title?: string;
+    subtitle?: string;
+    links: InternalLinkItem[];
+  };
   cityServiceLinks?: {
     title?: string;
     description?: string;
@@ -199,6 +204,14 @@ export interface ServicePageData {
       href: string;
       label: string;
       description?: string;
+    }[];
+  };
+  cityHubLinks?: {
+    title?: string;
+    description?: string;
+    links: {
+      href: string;
+      label: string;
     }[];
   };
 }
@@ -758,6 +771,14 @@ export default function ServicePageTemplate({
         />
       )}
 
+      {data.problemLinks && data.problemLinks.links.length > 0 && (
+        <InternalLinksSection
+          title={data.problemLinks.title || "Sorun Sayfaları ve Arıza Rehberleri"}
+          subtitle={data.problemLinks.subtitle}
+          links={data.problemLinks.links}
+        />
+      )}
+
       {!data.discoveryProcess && <ProcessSection />}
 
       {data.cityServiceLinks ? (
@@ -860,6 +881,32 @@ export default function ServicePageTemplate({
                     Sayfaya git
                     <ArrowRight size={14} />
                   </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {data.cityHubLinks && data.cityHubLinks.links.length > 0 && (
+        <section className="bg-white py-12">
+          <Container>
+            <h2 className="text-2xl font-bold text-primary">
+              {data.cityHubLinks.title || "Şehir Bazlı Hizmet Sayfaları"}
+            </h2>
+            {data.cityHubLinks.description ? (
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
+                {data.cityHubLinks.description}
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {data.cityHubLinks.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl border border-gray-200 bg-surface px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
+                >
+                  {link.label}
                 </Link>
               ))}
             </div>

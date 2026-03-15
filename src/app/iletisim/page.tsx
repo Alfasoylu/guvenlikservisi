@@ -185,6 +185,76 @@ export default function IletisimSayfasi() {
           </div>
         </Container>
       </section>
+
+      {/* ── Hizmet Dizini ── */}
+      <section className="bg-white py-16 md:py-20">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-3 text-2xl font-bold text-primary">
+              Hangi Hizmeti Arıyorsunuz?
+            </h2>
+            <p className="mb-8 text-sm leading-7 text-text-light">
+              İhtiyacınıza en uygun hizmet sayfasına doğrudan ulaşarak detaylı bilgi ve teklif
+              alabilirsiniz.
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                {
+                  href: "/kamera-sistemi-kurulumu",
+                  title: "Kamera Sistemi Kurulumu",
+                  desc: "IP kamera montajı, NVR kayıt ve uzaktan izleme kurulumu.",
+                },
+                {
+                  href: "/alarm-sistemi-kurulumu",
+                  title: "Alarm Sistemi Kurulumu",
+                  desc: "Hırsız alarm, GSM+internet çift hat ve izleme merkezi bağlantısı.",
+                },
+                {
+                  href: "/yangin-alarm-sistemi-kurulumu",
+                  title: "Yangın Alarm Sistemi Kurulumu",
+                  desc: "TS EN 54 uyumlu yangın algılama, proje ve belgelendirme.",
+                },
+                {
+                  href: "/kartli-gecis-sistemi-kurulumu",
+                  title: "Kartlı Geçiş ve Turnike Sistemi",
+                  desc: "Kapı giriş kontrolü, personel takibi ve yetki yönetimi.",
+                },
+                {
+                  href: "/apartman-site-guvenlik-sistemi",
+                  title: "Apartman ve Site Güvenlik Sistemi",
+                  desc: "Kamera, kartlı geçiş ve yangın alarm ile komple site güvenliği.",
+                },
+                {
+                  href: "/isyeri-guvenlik-sistemi",
+                  title: "İşyeri Güvenlik Sistemi",
+                  desc: "Mağaza, ofis ve işyeri için bütünleşik güvenlik çözümü.",
+                },
+                {
+                  href: "/fabrika-depo-guvenlik-sistemi",
+                  title: "Fabrika ve Depo Güvenlik Sistemi",
+                  desc: "Geniş alan takibi, çevre güvenliği ve üretim alanı izleme.",
+                },
+                {
+                  href: "/bakim-servis-uzaktan-izleme",
+                  title: "Bakım, Servis ve Uzaktan İzleme",
+                  desc: "Periyodik bakım sözleşmesi, arıza servisi ve uzaktan izleme.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group rounded-2xl border border-gray-200 bg-surface p-5 transition hover:border-accent/30 hover:shadow-sm"
+                >
+                  <p className="mb-1 font-semibold text-primary group-hover:text-accent">
+                    {item.title}
+                  </p>
+                  <p className="text-sm text-text-light">{item.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

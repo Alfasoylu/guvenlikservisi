@@ -1,5 +1,6 @@
 import type { ServiceHubPageData } from "@/components/templates/ServiceHubTemplate";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 
 interface ServiceHubPageConfig {
   metadataTitle: string;
@@ -325,6 +326,18 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             `${cityName} için görüntü yok, kayıt yok veya offline kamera arızalarında yerel servis kapsamını görün.`,
         }),
       },
+      problemLinksSection: {
+        title: "Kamera Arızalarında Sık Karşılaşılan Sorunlar",
+        description:
+          "Arıza teşhis sürecinde teknik belirtiyi daha hızlı ayrıştırmak ve doğru müdahale yolunu belirlemek için ilgili sorun sayfalarını inceleyin.",
+        links: serviceProblemLinks["kamera-ariza-servisi"],
+      },
+      cityHubLinksSection: {
+        title: "Şehir Bazlı Güvenlik Hizmetleri",
+        description:
+          "Kamera servis talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve yerel hizmet kapsamımızı inceleyin.",
+        links: topCityHubLinks,
+      },
       defaultService: "kamera",
       ctaContent: {
         badge: "Arıza teşhisi • Müdahale kararı",
@@ -593,6 +606,18 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           getDescription: (cityName) =>
             `${cityName} için periyodik kontrol, ilk denetim ve bakım modeli uygunluğunu bu sayfadan inceleyin.`,
         }),
+      },
+      problemLinksSection: {
+        title: "Bakım İhtiyacını Gösteren Sorun Sayfaları",
+        description:
+          "Periyodik bakım kararını destekleyen en kritik belirtileri ve arıza senaryolarını ilgili sorun sayfalarından inceleyin.",
+        links: serviceProblemLinks["kamera-sistemi-bakim-sozlesmesi"],
+      },
+      cityHubLinksSection: {
+        title: "Şehir Bazlı Güvenlik Hizmetleri",
+        description:
+          "Bakım ve servis talebinin yoğunlaştığı şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+        links: topCityHubLinks,
       },
       defaultService: "bakim-servis",
       ctaContent: {
@@ -888,6 +913,18 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           getDescription: (cityName) =>
             `${cityName} için uzaktan erişim modeli, kayıt görünürlüğü ve çok lokasyon kullanım mantığını inceleyin.`,
         }),
+      },
+      problemLinksSection: {
+        title: "Uzaktan Erişim Sorunlarında Rehber Sayfalar",
+        description:
+          "Mobil uygulama, offline cihaz ve uzaktan bağlantı problemlerinde doğru teşhis adımlarını ilgili sorun sayfalarından takip edin.",
+        links: serviceProblemLinks["uzaktan-kamera-izleme"],
+      },
+      cityHubLinksSection: {
+        title: "Şehir Bazlı Güvenlik Hizmetleri",
+        description:
+          "Uzaktan izleme talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+        links: topCityHubLinks,
       },
       defaultService: "bakim-servis",
       ctaContent: {
@@ -1188,6 +1225,18 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           getDescription: (cityName) =>
             `${cityName} için kartlı geçiş, turnike ve kapı tipi seçim mantığını bu sayfada görün.`,
         }),
+      },
+      problemLinksSection: {
+        title: "Geçiş Kontrolünde Sık Karşılaşılan Sorunlar",
+        description:
+          "Kartlı geçiş arızaları, çalışmayan okuyucu ve turnike sorunlarında ilgili rehber sayfasını inceleyin.",
+        links: serviceProblemLinks["kartli-gecis-sistemi-kurulumu"],
+      },
+      cityHubLinksSection: {
+        title: "Şehir Bazlı Güvenlik Hizmetleri",
+        description:
+          "Geçiş kontrol talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+        links: topCityHubLinks,
       },
       defaultService: "kartli-gecis",
       blogPosts: [

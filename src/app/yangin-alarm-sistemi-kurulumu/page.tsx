@@ -24,12 +24,6 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-  cityHubLinks: {
-    title: "One Cikan Sehir Sayfalari",
-    description:
-      "Yasal uyumluluk ve bina guvenligi arayisinin yogun oldugu sehirlerdeki genel hizmet sayfalarina buradan gecin.",
-    links: topCityHubLinks,
-  },
 };
 
 const data: ServicePageData = {
@@ -650,6 +644,12 @@ const data: ServicePageData = {
       label: `${city.name} Yangın Alarm Sistemi Kurulumu`,
       description: `${city.name} içinde yangın alarm sistemi kurulumu için keşif ve teklif alın.`,
     })),
+  },
+  cityHubLinks: {
+    title: "Şehir Bazlı Güvenlik Hizmetleri",
+    description:
+      "Yangın alarmı ve bina güvenliği talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+    links: topCityHubLinks,
   },
 };
 

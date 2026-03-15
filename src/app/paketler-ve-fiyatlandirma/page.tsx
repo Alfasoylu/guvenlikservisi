@@ -286,6 +286,65 @@ export default function PaketlerSayfasi() {
 
       <FAQSection items={faqItems} title="Fiyatlandırma Hakkında Sık Sorulan Sorular" />
 
+      {/* ── Tüm Hizmet Kategorileri ── */}
+      <section className="bg-surface py-16 md:py-20">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-3 text-2xl font-bold text-primary">
+              Tüm Hizmet Kategorilerimiz
+            </h2>
+            <p className="mb-8 text-sm leading-7 text-text-light">
+              Yukarıdaki paketler dışında sunduğumuz diğer güvenlik hizmetlerine de göz atarak ihtiyacınıza en uygun çözümü değerlendirin.
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  href: "/yangin-alarm-sistemi-kurulumu",
+                  title: "Yangın Alarm Sistemi",
+                  desc: "TS EN 54 uyumlu proje, montaj ve belgelendirme.",
+                },
+                {
+                  href: "/kartli-gecis-sistemi-kurulumu",
+                  title: "Kartlı Geçiş Sistemi",
+                  desc: "Kapı giriş kontrolü, turnike ve yetki yönetimi.",
+                },
+                {
+                  href: "/apartman-site-guvenlik-sistemi",
+                  title: "Apartman ve Site Güvenliği",
+                  desc: "Kamera, kartlı geçiş, yangın alarm tek projede.",
+                },
+                {
+                  href: "/isyeri-guvenlik-sistemi",
+                  title: "İşyeri Güvenlik Sistemi",
+                  desc: "Mağaza, ofis ve işyeri için bütünleşik çözüm.",
+                },
+                {
+                  href: "/fabrika-depo-guvenlik-sistemi",
+                  title: "Fabrika ve Depo Güvenliği",
+                  desc: "Geniş alan takibi ve çevre hattı güvenliği.",
+                },
+                {
+                  href: "/bakim-servis-uzaktan-izleme",
+                  title: "Bakım ve Servis Sözleşmesi",
+                  desc: "Periyodik bakım, arıza servisi, uzaktan izleme.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group rounded-2xl border border-gray-200 bg-white p-5 transition hover:border-accent/30 hover:shadow-sm"
+                >
+                  <p className="mb-1 font-semibold text-primary group-hover:text-accent">
+                    {item.title}
+                  </p>
+                  <p className="text-sm text-text-light">{item.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <CTASection
         title="Size Uygun Net Teklifi Alın"
         subtitle="Paketler başlangıç rehberidir. Keşif sonrası alanınıza uygun net fiyatı ve doğru sistemi birlikte belirleyelim."
