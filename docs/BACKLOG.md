@@ -443,16 +443,16 @@ Her sayfa için:
 - [x] şehir / ilçe / servis değerlerini otomatik doldur
 - [x] hidden field ile `page_url` zorunlu gönder
 - [x] hidden field ile `form_source` zorunlu gönder
-- [ ] campaign parametreleri yakala
+- [x] campaign parametreleri yakala
 - [ ] CTA varyasyonlarını test et
 
 ## P8.2 Lead Kalite Koruması
-- [ ] duplicate lead kontrolünü merkezi hale getir
-- [ ] telefon normalize et
+- [ ] duplicate lead kontrolünü merkezi hale getir (kısmen tamamlandı: `/api/lead` ve `/api/quote` içinde phone + service_type + page_path + message fingerprint ile in-memory duplicate guard var; instance/webhook düzeyi merkezi kalıcılık henüz yok)
+- [x] telefon normalize et
 - [ ] sahte telefon tespit et
 - [ ] spam keyword blacklist oluştur
-- [ ] rate limit ekle
-- [ ] honeypot ekle
+- [x] rate limit ekle
+- [x] honeypot ekle
 - [ ] basit bot koruması ekle
 - [ ] webhook failure log ekle
 - [ ] mail failure fallback ekle

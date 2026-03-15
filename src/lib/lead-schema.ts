@@ -33,14 +33,22 @@ export type LeadStatus = (typeof LEAD_STATUSES)[number];
 export const FORM_SOURCES = [
   "quote_form",
   "istanbul_ip_kamera",
+  "istanbul_kamera_kurulum",
+  "istanbul_kamera_bakim",
+  "istanbul_kamera_teknik_servis",
+  "istanbul_alarm",
+  "istanbul_yangin_alarm",
+  "istanbul_kartli_gecis",
   "istanbul_lead_form",
   "landing_page",
+  "landing_quote_form",
+  "alarm_landing_page",
   "whatsapp",
   "phone_call",
   "manual",
 ] as const;
 
-export type FormSource = (typeof FORM_SOURCES)[number];
+export type FormSource = (typeof FORM_SOURCES)[number] | string;
 
 export interface LeadRecord {
   lead_id: string;
@@ -201,48 +209,72 @@ export function createLeadId(): string {
 
 function normalizeServiceType(value: string): string {
   const v = safeLower(value);
+  const normalizedSlug = v.replace(/_/g, "-");
 
   if (!v) return "";
 
   if (
-    v.includes("kamera") ||
+    normalizedSlug.includes("kartli-gecis") ||
+    v.includes("kartlı geçiş") ||
+    v.includes("kartli gecis")
+  ) {
+    return "kartli-gecis";
+  }
+
+  if (normalizedSlug.includes("yangin") || v.includes("yangın") || v.includes("yangin")) {
+    return "yangin";
+  }
+
+  if (
+    normalizedSlug.includes("teknik-servis") ||
+    normalizedSlug.includes("bakim") ||
+    normalizedSlug.includes("ariza") ||
+    normalizedSlug.includes("uzaktan-izleme") ||
+    normalizedSlug.includes("nvr") ||
+    v.includes("bakım") ||
+    v.includes("bakim") ||
+    v.includes("arıza") ||
+    v.includes("ariza") ||
+    v.includes("teknik servis") ||
+    v.includes("uzaktan izleme") ||
+    v.includes("servis")
+  ) {
+    return "bakim-servis";
+  }
+
+  if (normalizedSlug.includes("apartman-site") || v.includes("apartman") || v.includes("site")) {
+    return "apartman-site";
+  }
+
+  if (
+    normalizedSlug.includes("fabrika-depo") ||
+    v.includes("fabrika") ||
+    v.includes("depo")
+  ) {
+    return "fabrika-depo";
+  }
+
+  if (
+    normalizedSlug.includes("isyeri") ||
+    v.includes("işyeri") ||
+    v.includes("isyeri") ||
+    v.includes("ofis")
+  ) {
+    return "isyeri";
+  }
+
+  if (normalizedSlug.includes("alarm") && !normalizedSlug.includes("yangin")) {
+    return "alarm";
+  }
+
+  if (
+    normalizedSlug.includes("kamera") ||
+    normalizedSlug.includes("cctv") ||
     v.includes("ip kamera") ||
     v.includes("güvenlik kamerası") ||
     v.includes("guvenlik kamerasi")
   ) {
     return "kamera";
-  }
-
-  if (v.includes("alarm") && !v.includes("yang")) {
-    return "alarm";
-  }
-
-  if (v.includes("yangın") || v.includes("yangin")) {
-    return "yangin";
-  }
-
-  if (
-    v.includes("kartlı geçiş") ||
-    v.includes("kartli gecis") ||
-    v.includes("kartli-gecis")
-  ) {
-    return "kartli-gecis";
-  }
-
-  if (v.includes("apartman") || v.includes("site")) {
-    return "apartman-site";
-  }
-
-  if (v.includes("işyeri") || v.includes("isyeri") || v.includes("ofis")) {
-    return "isyeri";
-  }
-
-  if (v.includes("fabrika") || v.includes("depo")) {
-    return "fabrika-depo";
-  }
-
-  if (v.includes("bakım") || v.includes("bakim") || v.includes("servis")) {
-    return "bakim-servis";
   }
 
   if (v.includes("komple") || v.includes("hepsi")) {
@@ -288,16 +320,32 @@ function normalizeFormSource(
 ): FormSource {
   const value = safeLower(rawSource);
 
+  if (!value) {
+    return pageUrl.includes("/teklif/") ? "landing_page" : fallbackSource;
+  }
+
   if (value.includes("whatsapp")) return "whatsapp";
   if (value.includes("phone")) return "phone_call";
   if (value.includes("manual")) return "manual";
-  if (value.includes("istanbul") && value.includes("kamera"))
-    return "istanbul_ip_kamera";
+  if (value.includes("alarm_landing_page")) return "alarm_landing_page";
+  if (value.includes("landing_quote_form")) return "landing_quote_form";
+  if (value.includes("istanbul_kamera_teknik_servis"))
+    return "istanbul_kamera_teknik_servis";
+  if (value.includes("istanbul_kamera_bakim")) return "istanbul_kamera_bakim";
+  if (value.includes("istanbul_kamera_kurulum"))
+    return "istanbul_kamera_kurulum";
+  if (value.includes("istanbul_ip_kamera")) return "istanbul_ip_kamera";
+  if (value.includes("istanbul_kartli_gecis"))
+    return "istanbul_kartli_gecis";
+  if (value.includes("istanbul_yangin_alarm"))
+    return "istanbul_yangin_alarm";
+  if (value.includes("istanbul_alarm")) return "istanbul_alarm";
+  if (value.includes("istanbul_lead_form")) return "istanbul_lead_form";
   if (value.includes("landing")) return "landing_page";
   if (value.includes("quote")) return "quote_form";
   if (pageUrl.includes("/teklif/")) return "landing_page";
 
-  return fallbackSource;
+  return cleanString(rawSource) || fallbackSource;
 }
 
 function isValidEmail(value: string) {

@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { createHash } from "node:crypto";
+import { classifyPageType } from "@/lib/page-type";
 
 const HONEYPOT_FIELDS = ["website", "company_website"] as const;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -66,17 +67,7 @@ export function getPageType(pageUrl: string, explicitPageType?: unknown) {
   }
 
   const pagePath = getPagePath(pageUrl);
-
-  if (!pagePath) return "";
-  if (pagePath.startsWith("/teklif/")) return "landing_page";
-  if (pagePath.startsWith("/blog/")) return "blog_post";
-
-  const segments = pagePath.split("/").filter(Boolean);
-
-  if (segments.length === 1) return "city_page";
-  if (segments.length === 2) return "city_service_page";
-
-  return "site_page";
+  return classifyPageType(pagePath);
 }
 
 export function getHoneypotValue(raw: Record<string, unknown>) {

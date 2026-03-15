@@ -296,7 +296,7 @@ export default async function DistrictServicePage({ params }: PageProps) {
           <IstanbulServiceQuoteForm
             pagePath={pagePath}
             formSource={`istanbul_${district}_${service.replace(/-/g, "_")}`}
-            serviceType={service.split("-")[0]}
+            serviceType={service}
             title={`${profile.locative} Ücretsiz Keşif ve Teklif`}
             subtitle={`${profile.name} bölgesinde ${seoService.name.toLocaleLowerCase("tr-TR")} ihtiyacınızı belirtin.`}
             submitLabel={`${profile.name} İçin Teklif Al`}
