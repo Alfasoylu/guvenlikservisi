@@ -64,9 +64,9 @@ const data: ServicePageData = {
 
   /* ── Hedef Kitle ── */
   targetAudience: {
-    title: "Bu Sayfa Kimler İçin?",
+    title: "Bu Hizmet Kime Uygun?",
     subtitle:
-      "Üretim tesisi, lojistik merkezi veya depo güvenliği arayan karar vericiler — aşağıdaki profillerden biriyseniz doğru sayfadasınız.",
+      "Üretim tesisi, lojistik merkezi veya depo güvenliği arıyorsanız ve aşağıdaki profillerden biriyseniz doğru yerdesiniz.",
     items: [
       {
         title: "Fabrika ve Tesis Yöneticileri",

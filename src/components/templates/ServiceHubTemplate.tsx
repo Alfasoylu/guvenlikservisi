@@ -555,7 +555,7 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
                   </h2>
                   <p className="text-sm leading-7 text-text-light">
                     {data.segmentsSectionDescription ||
-                      "Hizmetin kapsamı kullanım alanına, operasyon riskine ve karar verici beklentisine göre değişir. Aşağıdaki sayfalardan ilgili senaryoya daha hızlı geçebilirsiniz."}
+                      "Hizmetin kapsamı kullanım alanına ve ihtiyaca göre değişir. Aşağıdaki sayfalardan size en uygun senaryoya geçebilirsiniz."}
                   </p>
                 </div>
 

@@ -46,7 +46,9 @@ export default function HeroSection({
         >
           <div
             className={
-              imageSrc ? "text-center lg:text-left" : "mx-auto max-w-3xl text-center"
+              imageSrc
+                ? "text-center lg:text-left"
+                : "mx-auto max-w-3xl text-center"
             }
           >
             <h1 className="mb-5 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
@@ -58,7 +60,9 @@ export default function HeroSection({
 
             <div
               className={`flex flex-col gap-4 ${
-                imageSrc ? "sm:flex-row lg:justify-start" : "justify-center sm:flex-row"
+                imageSrc
+                  ? "sm:flex-row lg:justify-start"
+                  : "justify-center sm:flex-row"
               }`}
             >
               <a

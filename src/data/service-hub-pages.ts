@@ -61,7 +61,7 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         "Güvenlik kamera sisteminde görüntü yoksa, kayıt alınmıyorsa veya cihazlar offline görünüyorsa asıl sorun çoğu zaman ilk bakışta görünen parça değildir. Kamera arıza servisi sayfası; sorunun kamera, kayıt cihazı, disk, ağ veya enerji tarafında mı olduğunu netleştirip doğru müdahale yoluna karar vermek isteyen işletmeler ve yöneticiler için hazırlandı.",
       description:
         "Kamera arıza servisinde ilk hedef, sorunun tam olarak hangi katmanda oluştuğunu ayırmaktır. Görüntü gelmemesi her zaman kamera arızası anlamına gelmez; kayıt cihazı, depolama, PoE besleme, ağ ayarı veya kullanıcı erişim tarafı aynı belirtinin nedeni olabilir.\n\nBu nedenle sürece yalnızca arızalı görünen parçayı değiştirerek değil, görüntü, kayıt, erişim ve altyapı ilişkisini birlikte kontrol ederek yaklaşırız. Önce neyin teşhis edilebileceğini, neyin yerinde görülmesi gerektiğini ve neyin mevcut donanımın fiziksel durumuna bağlı olduğunu netleştiririz.\n\nAmaç sistemi geçici olarak ayağa kaldırmak değil, arızanın tekrar etme riskini de hesaba katarak sağlıklı bir müdahale planı çıkarmaktır.",
-      heroBadge: "Arıza triage • Teknik teşhis",
+      heroBadge: "Arıza tespit • Teknik teşhis",
       heroHighlights: [
         "Görüntü yok, kayıt yok veya offline cihaz belirtilerinin aynı havuzda değerlendirilmesi",
         "Uzaktan ilk teşhis ile yerinde servis gerektiren durumların erken ayrıştırılması",
@@ -410,7 +410,7 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         "Kamera sistemi kurulu olabilir ama bu, gerçekten sağlıklı çalıştığı anlamına gelmez. Kayıt sürekliliği, disk durumu, görüntü açıları, bağlantı kararlılığı ve uzaktan erişim tarafı düzenli kontrol edilmiyorsa sistem çoğu yerde ancak ihtiyaç anında sorunlu olduğu anlaşılır. Kamera sistemi bakım sözleşmesi, bu tabloyu arıza bekleyen yapıdan planlı denetim modeline çevirmek isteyen işletmeler ve yöneticiler için kurulur.",
       description:
         "Bakım sözleşmesi satılan tek şeyin teknik servis olmadığı bir modeldir. Burada amaç sadece arıza olduğunda gelmek değil; kayıt alınıp alınmadığını, disk ve kayıt cihazının sağlıklı çalışıp çalışmadığını, görüntü açılarının zamanla bozulup bozulmadığını, bağlantı ve enerji tarafında zayıflık oluşup oluşmadığını düzenli biçimde kontrol etmektir.\n\nBu model özellikle çok kameralı, ortak alanlı veya kayıt ihtiyacı kritik yapılarda daha anlamlı hale gelir. Çünkü ihtiyaç anında çalışmayan sistemi sonradan düzeltmek yerine, zafiyetleri önceden görmek daha düşük riskli ve daha yönetilebilir bir yaklaşım sunar.\n\nBakım sözleşmesi her kurulu sistem için otomatik doğru çözüm değildir. Bazı yapılarda önce zayıf altyapıyı düzeltmek, sonra bakım düzeni kurmak gerekir. Doğru yaklaşım, sistemin bugünkü durumuna göre sözleşmeli modelin mantıklı olup olmadığını açıkça değerlendirmektir.",
-      heroBadge: "Bakım modeli • Sistem denetimi",
+      heroBadge: "Periyodik bakım • Sistem denetimi",
       heroHighlights: [
         "Arıza çıktığında değil, kayıt ve cihaz sağlığı bozulmadan önce kontrol mantığı kurulması",
         "Disk, kayıt cihazı, görüntü açısı, bağlantı, enerji ve uzaktan erişim tarafının birlikte değerlendirilmesi",
@@ -704,7 +704,7 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         "Uzaktan kamera izleme sayfası, yalnızca telefondan görüntü açma ihtiyacını değil; erişim modelini, kayıt görünürlüğünü, çok lokasyon takibini ve uzaktan erken durum fark etmeyi birlikte değerlendirmek isteyen yapılar için hazırlandı. Amaç, sistemin dışarıdan açılıyor görünmesi değil, gerçekten işleyen bir uzaktan görünürlük düzeni kurmaktır.",
       description:
         "Bu hizmet basit mobil erişim kurulumundan daha geniş, tam zamanlı bir alarm merkezi vaadinden ise daha sınırlı bir çerçeveye sahiptir. Önce sistemin uzaktan erişime uygun olup olmadığını, kimlerin hangi kapsamda erişeceğini, kayıt tarafının uzaktan nasıl takip edileceğini ve mevcut altyapının bu modele ne kadar hazır olduğunu netleştiririz.\n\nBazı yapılarda ihtiyaç sadece telefondan görüntü açmaktır. Bazılarında ise farklı şubeleri merkezden görmek, kayıt akışını kontrol etmek, cihaz çevrim içi mi değil mi anlamak ve saha ile yönetim arasında görünürlük kurmak gerekir. Bu sayfa ikinci gruba daha çok hitap eder.\n\nDolayısıyla burada satılan şey tek başına uygulama kurulumu değil; erişim, görünürlük ve operasyonel kullanım mantığının işin gerçek ihtiyacına göre düzenlenmesidir.",
-      heroBadge: "Erişim modeli • Uzaktan görünürlük",
+      heroBadge: "Uzaktan erişim • Canlı izleme",
       heroHighlights: [
         "Telefondan izleme ile gerçekten işe yarayan uzaktan görünürlüğün birbirinden ayrılması",
         "Kayıt cihazı, erişim modeli ve kullanıcı yetkilerinin birlikte planlanması",
@@ -1026,7 +1026,7 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         "Kartlı geçiş sistemi kurulumu yalnızca kapıya okuyucu takmak anlamına gelmez. Doğru kurgu; kapı tipine, kullanıcı yoğunluğuna, personel ve ziyaretçi akışına, ortak alan ile kritik alan ayrımına ve yetki seviyesine göre şekillenir. Bu sayfa, yapınıza hangi geçiş modelinin daha uygun olduğunu netleştirmek için hazırlandı.",
       description:
         "Kartlı geçiş sistemi seçiminde en sık hata, farklı kullanım senaryolarını tek ürün mantığıyla çözmeye çalışmaktır. Küçük bir ofis kapısı ile vardiyalı depo girişi, apartman ortak alanı ile kritik oda geçişi aynı yapı değildir.\n\nBu nedenle kurulum sürecinde önce geçiş noktalarının tipi, kullanıcı yoğunluğu, okuyucu veya turnike ihtiyacı, kilit altyapısı ve yetki kurgusu ayrıştırılır. Ardından personel, ziyaretçi, ortak alan ve kritik alan gibi farklı geçiş ihtiyaçlarına göre sistemin nasıl yönetileceği netleştirilir.\n\nBurada satılan şey sadece cihaz montajı değil; günlük kullanımı, sonradan kullanıcı ekleme-çıkarma disiplinini ve gerektiğinde kamera ya da alarm entegrasyonunu da hesaba katan uygulanabilir bir giriş kontrol modelidir.",
-      heroBadge: "Keşif analizi • Geçiş modeli seçimi",
+      heroBadge: "Keşif ve planlama • Geçiş sistemi seçimi",
       heroHighlights: [
         "Kapı tipi, kullanıcı yoğunluğu ve yetki seviyesine göre doğru geçiş modelinin ayrıştırılması",
         "Okuyucu, kilit veya turnike ihtiyacının kullanım senaryosuna göre belirlenmesi",

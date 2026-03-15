@@ -61,9 +61,9 @@ const data: ServicePageData = {
 
   /* ── Hedef Kitle ── */
   targetAudience: {
-    title: "Bu Sayfa Kimler İçin?",
+    title: "Bu Hizmet Kime Uygun?",
     subtitle:
-      "İşyeri güvenliği arayan karar vericiler: aşağıdaki profillerden biri sizse, bu sayfa doğrudan sizin ihtiyacınıza hitap ediyor.",
+      "İşyeri güvenliği arıyorsanız ve aşağıdaki profillerden biri sizse, bu sayfa tam size göre.",
     items: [
       {
         title: "Mağaza ve Dükkan Sahipleri",

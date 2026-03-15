@@ -192,7 +192,7 @@ function getDecisionMakerLabel(decisionMakerType: string) {
     case "corporate-admin":
       return "İdari işler / kurumsal yönetim";
     default:
-      return "Yetkili karar verici";
+      return "İşletme yetkilisi";
   }
 }
 

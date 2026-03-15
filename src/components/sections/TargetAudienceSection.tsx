@@ -13,7 +13,7 @@ interface TargetAudienceSectionProps {
 }
 
 export default function TargetAudienceSection({
-  title = "Bu Sayfa Kimler İçin?",
+  title = "Bu Hizmet Kime Uygun?",
   subtitle,
   items,
 }: TargetAudienceSectionProps) {
@@ -23,7 +23,7 @@ export default function TargetAudienceSection({
         <div className="mb-10 max-w-3xl">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold text-accent">
             <Users size={14} />
-            Hedef karar vericiler
+            Kime hitap ediyor?
           </div>
           <h2 className="mb-4 text-2xl font-bold text-primary sm:text-3xl">
             {title}
