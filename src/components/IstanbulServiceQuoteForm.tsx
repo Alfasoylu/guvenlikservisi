@@ -104,8 +104,13 @@ export default function IstanbulServiceQuoteForm({
     hasTrackedView.current = true;
     pushAnalyticsEvent("view_lead_form", {
       page_path: pagePath,
+      page_type: attribution.page_type,
       form_source: formSource,
       lead_channel: "form",
+      service_type: serviceType,
+      session_id: attribution.session_id,
+      landing_page_path: attribution.landing_page_path,
+      landing_page_type: attribution.landing_page_type,
     });
   }
 
@@ -122,6 +127,14 @@ export default function IstanbulServiceQuoteForm({
     const phone = normalizeTurkishPhone(String(formData.get("phone") || ""));
 
     if (!name || !phoneValue.trim()) {
+      pushAnalyticsEvent("lead_form_validation_error", {
+        page_path: pagePath,
+        page_type: attribution.page_type,
+        form_source: formSource,
+        service_type: serviceType,
+        error_type: "missing_required_fields",
+        session_id: attribution.session_id,
+      });
       setFormError("Lütfen ad soyad ve telefon alanlarını doldurun.");
       setIsSubmitting(false);
       return;
@@ -129,6 +142,14 @@ export default function IstanbulServiceQuoteForm({
 
     const phoneError = getTurkishPhoneValidationMessage(phoneValue);
     if (phoneError) {
+      pushAnalyticsEvent("lead_form_validation_error", {
+        page_path: pagePath,
+        page_type: attribution.page_type,
+        form_source: formSource,
+        service_type: serviceType,
+        error_type: "invalid_phone",
+        session_id: attribution.session_id,
+      });
       setFormError(phoneError);
       setIsSubmitting(false);
       return;
@@ -150,7 +171,14 @@ export default function IstanbulServiceQuoteForm({
         attribution.page_url ||
         (typeof window !== "undefined" ? window.location.href : ""),
       page_type: attribution.page_type || "landing_page",
+      page_path: attribution.page_path,
+      page_title: attribution.page_title,
       form_source: formSource,
+      session_id: attribution.session_id,
+      landing_page_url: attribution.landing_page_url,
+      landing_page_type: attribution.landing_page_type,
+      landing_page_path: attribution.landing_page_path,
+      landing_timestamp: attribution.landing_timestamp,
       utm_source: attribution.utm_source,
       utm_medium: attribution.utm_medium,
       utm_campaign: attribution.utm_campaign,
@@ -182,17 +210,24 @@ export default function IstanbulServiceQuoteForm({
 
       pushAnalyticsEvent("submit_lead_form", {
         page_path: pagePath,
+        page_type: attribution.page_type,
         form_source: formSource,
         lead_channel: "form",
         service_type: serviceType,
+        district: String(formData.get("district") || ""),
         event_category: "lead",
         value: 1,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
       });
 
       pushAnalyticsEvent("lead_form_success", {
         page_path: pagePath,
+        page_type: attribution.page_type,
         form_source: formSource,
         service_type: serviceType,
+        session_id: attribution.session_id,
       });
 
       setFormSuccess(
@@ -202,6 +237,13 @@ export default function IstanbulServiceQuoteForm({
       setPhoneValue("");
       setHoneypot("");
     } catch (error) {
+      pushAnalyticsEvent("lead_form_submit_error", {
+        page_path: pagePath,
+        page_type: attribution.page_type,
+        form_source: formSource,
+        service_type: serviceType,
+        session_id: attribution.session_id,
+      });
       setFormError(
         error instanceof Error && error.message
           ? error.message
@@ -300,6 +342,48 @@ export default function IstanbulServiceQuoteForm({
             type="hidden"
             name="page_type"
             value={attribution.page_type}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="page_path"
+            value={attribution.page_path}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="page_title"
+            value={attribution.page_title}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="session_id"
+            value={attribution.session_id}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="landing_page_url"
+            value={attribution.landing_page_url}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="landing_page_type"
+            value={attribution.landing_page_type}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="landing_page_path"
+            value={attribution.landing_page_path}
+            readOnly
+          />
+          <input
+            type="hidden"
+            name="landing_timestamp"
+            value={attribution.landing_timestamp}
             readOnly
           />
           <input

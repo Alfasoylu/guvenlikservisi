@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Phone } from "lucide-react";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import { pushAnalyticsEvent } from "@/lib/analytics";
 
 interface HeroCTAButtonsProps {
@@ -9,6 +10,9 @@ interface HeroCTAButtonsProps {
   phoneDisplay: string;
   waHref: string;
   pagePath: string;
+  formSource?: string;
+  serviceType?: string;
+  pageType?: string;
 }
 
 export default function HeroCTAButtons({
@@ -17,7 +21,12 @@ export default function HeroCTAButtons({
   phoneDisplay,
   waHref,
   pagePath,
+  formSource = "",
+  serviceType = "",
+  pageType = "",
 }: HeroCTAButtonsProps) {
+  const attribution = useLandingAttribution();
+
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <a
@@ -25,8 +34,14 @@ export default function HeroCTAButtons({
         onClick={() =>
           pushAnalyticsEvent("click_cta_primary", {
             page_path: pagePath,
+            page_type: pageType || attribution.page_type,
             lead_channel: "form",
             cta_slot: "hero",
+            form_source: formSource,
+            service_type: serviceType,
+            session_id: attribution.session_id,
+            landing_page_path: attribution.landing_page_path,
+            landing_page_type: attribution.landing_page_type,
           })
         }
         className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-400"
@@ -38,8 +53,14 @@ export default function HeroCTAButtons({
         onClick={() =>
           pushAnalyticsEvent("click_call", {
             page_path: pagePath,
+            page_type: pageType || attribution.page_type,
             lead_channel: "phone",
             cta_slot: "hero",
+            form_source: formSource,
+            service_type: serviceType,
+            session_id: attribution.session_id,
+            landing_page_path: attribution.landing_page_path,
+            landing_page_type: attribution.landing_page_type,
           })
         }
         className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-base font-bold text-white transition hover:bg-white/15"
@@ -53,8 +74,14 @@ export default function HeroCTAButtons({
         onClick={() =>
           pushAnalyticsEvent("click_whatsapp", {
             page_path: pagePath,
+            page_type: pageType || attribution.page_type,
             lead_channel: "whatsapp",
             cta_slot: "hero",
+            form_source: formSource,
+            service_type: serviceType,
+            session_id: attribution.session_id,
+            landing_page_path: attribution.landing_page_path,
+            landing_page_type: attribution.landing_page_type,
           })
         }
         className="inline-flex items-center justify-center rounded-2xl bg-[#25D366] px-6 py-4 text-base font-bold text-white transition hover:bg-[#20BD5A]"

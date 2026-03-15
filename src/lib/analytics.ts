@@ -7,14 +7,19 @@ export interface CityServiceTrackingContext {
 
 export interface AnalyticsEventPayload {
   page_path?: string;
+  page_type?: string;
   city?: string;
   service?: string;
+  district?: string;
   cta_slot?: string;
   lead_channel?: string;
   intent_type?: string;
   page_template?: string;
   form_source?: string;
   service_type?: string;
+  session_id?: string;
+  landing_page_path?: string;
+  landing_page_type?: string;
   [key: string]: string | number | boolean | undefined;
 }
 

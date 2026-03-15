@@ -373,7 +373,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
                     2
                   </span>
-                  İstanbul'da ücretsiz keşif randevusu
+                  İstanbul&apos;da ücretsiz keşif randevusu
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">

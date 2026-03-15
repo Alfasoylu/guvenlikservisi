@@ -239,7 +239,7 @@ const data: ServicePageData = {
       "Yangın alarm sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde sunuyoruz. Şehir bazlı kapsam detaylarına aşağıdaki sayfalardan erişebilirsiniz.",
     links: [
       {
-        href: "/istanbul/yangin-alarm-sistemi-kurulumu",
+        href: "/istanbul-yangin-alarm-sistemi",
         label: "İstanbul Yangın Alarm Sistemi Kurulumu",
       },
       {
@@ -255,7 +255,7 @@ const data: ServicePageData = {
   authorityAfterFaq: {
     title: "Yangın Alarm Sistemi Kurulumu Hizmeti Verilen Şehirler",
     links: [
-      { href: "/istanbul/yangin-alarm-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/istanbul-yangin-alarm-sistemi", label: "İstanbul" },
       { href: "/ankara/yangin-alarm-sistemi-kurulumu", label: "Ankara" },
       { href: "/izmir/yangin-alarm-sistemi-kurulumu", label: "İzmir" },
       { href: "/bursa/yangin-alarm-sistemi-kurulumu", label: "Bursa" },

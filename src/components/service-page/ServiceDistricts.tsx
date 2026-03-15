@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   bodyTextClass,
   chipClass,
@@ -14,8 +15,14 @@ interface ServiceDistrictsProps {
   title?: string;
   description?: string;
   note?: string;
-  primaryDistricts: string[];
-  otherDistricts?: string[];
+  primaryDistricts: {
+    label: string;
+    href?: string;
+  }[];
+  otherDistricts?: {
+    label: string;
+    href?: string;
+  }[];
 }
 
 export default function ServiceDistricts({
@@ -44,9 +51,15 @@ export default function ServiceDistricts({
           <h3 className="mb-3 text-[20px] text-[#0F2B46]">Öncelikli ilçe kapsaması</h3>
           <div className={chipWrapClass}>
             {primaryDistricts.map((district) => (
-              <span key={district} className={chipClass}>
-                {district}
-              </span>
+              district.href ? (
+                <Link key={`${district.label}-${district.href}`} href={district.href} className={chipClass}>
+                  {district.label}
+                </Link>
+              ) : (
+                <span key={district.label} className={chipClass}>
+                  {district.label}
+                </span>
+              )
             ))}
           </div>
         </div>
@@ -57,9 +70,15 @@ export default function ServiceDistricts({
           <h3 className="mb-3 text-[20px] text-[#0F2B46]">Diğer hizmet bölgeleri</h3>
           <div className={chipWrapClass}>
             {otherDistricts.map((district) => (
-              <span key={district} className={chipClass}>
-                {district}
-              </span>
+              district.href ? (
+                <Link key={`${district.label}-${district.href}`} href={district.href} className={chipClass}>
+                  {district.label}
+                </Link>
+              ) : (
+                <span key={district.label} className={chipClass}>
+                  {district.label}
+                </span>
+              )
             ))}
           </div>
         </div>

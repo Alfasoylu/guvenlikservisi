@@ -18,9 +18,13 @@ import IstanbulServiceQuoteForm from "@/components/IstanbulServiceQuoteForm";
 import TrustSignals, {
   type TrustItem,
 } from "@/components/sections/TrustSignals";
+import IstanbulMoneySupportSection from "@/components/sections/IstanbulMoneySupportSection";
+import IstanbulTrustLayerSection from "@/components/sections/IstanbulTrustLayerSection";
 import IstanbulCoverage from "@/components/sections/IstanbulCoverage";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { istanbulMoneySupportData } from "@/data/seo/istanbul-money-pages";
+import { istanbulTrustLayerData } from "@/data/seo/istanbul-trust-layer";
 
 const PAGE_PATH = "/istanbul-ip-kamera-montaji";
 const canonicalUrl = getCanonicalUrlForKnownPath(PAGE_PATH);
@@ -135,6 +139,9 @@ const faqs = [
       "Giriş sayısı, kasa, koridor ve kritik noktaların yapısına göre genellikle 2-6 kamera yeterli olur.",
   },
 ];
+
+const supportData = istanbulMoneySupportData.ip_kamera;
+const trustLayerData = istanbulTrustLayerData.ip_kamera;
 
 export default function IstanbulIpKameraMontajiPage() {
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
@@ -365,6 +372,9 @@ export default function IstanbulIpKameraMontajiPage() {
           </div>
         </div>
       </section>
+
+      <IstanbulMoneySupportSection {...supportData} />
+      <IstanbulTrustLayerSection content={trustLayerData} />
 
       {/* ISTANBUL COVERAGE */}
       <IstanbulCoverage bgClass="bg-slate-50" />

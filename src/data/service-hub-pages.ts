@@ -33,21 +33,7 @@ function buildCityServiceLinks(
   }));
 }
 
-function buildCityLinks(
-  serviceSlug: string,
-  citySlugs: string[],
-  options?: {
-    getLabel?: (cityName: string) => string;
-  },
-) {
-  return citySlugs.map((citySlug) => ({
-    href: `/${citySlug}/${serviceSlug}`,
-    label: options?.getLabel?.(getCityName(citySlug)) || getCityName(citySlug),
-  }));
-}
-
 const priorityCities = ["istanbul", "ankara", "izmir"] as const;
-const supportCities = ["istanbul", "ankara", "izmir", "bursa", "kocaeli"] as const;
 
 export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
   "kamera-ariza-servisi": {

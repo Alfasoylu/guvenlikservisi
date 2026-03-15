@@ -18,9 +18,13 @@ import IstanbulServiceQuoteForm from "@/components/IstanbulServiceQuoteForm";
 import TrustSignals, {
   type TrustItem,
 } from "@/components/sections/TrustSignals";
+import IstanbulMoneySupportSection from "@/components/sections/IstanbulMoneySupportSection";
+import IstanbulTrustLayerSection from "@/components/sections/IstanbulTrustLayerSection";
 import IstanbulCoverage from "@/components/sections/IstanbulCoverage";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { istanbulMoneySupportData } from "@/data/seo/istanbul-money-pages";
+import { istanbulTrustLayerData } from "@/data/seo/istanbul-trust-layer";
 
 const PAGE_PATH = "/istanbul-kamera-teknik-servis";
 const canonicalUrl = getCanonicalUrlForKnownPath(PAGE_PATH);
@@ -135,6 +139,9 @@ const faqs = [
       "Evet. Uzaktan erişim ayarları, uygulama sorunları ve yazılımsal arızalar için uzaktan destek sağlıyoruz.",
   },
 ];
+
+const supportData = istanbulMoneySupportData.kamera_teknik_servis;
+const trustLayerData = istanbulTrustLayerData.kamera_teknik_servis;
 
 export default function IstanbulKameraTeknikServisPage() {
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
@@ -363,6 +370,9 @@ export default function IstanbulKameraTeknikServisPage() {
           </div>
         </div>
       </section>
+
+      <IstanbulMoneySupportSection {...supportData} />
+      <IstanbulTrustLayerSection content={trustLayerData} />
 
       {/* ISTANBUL COVERAGE */}
       <IstanbulCoverage bgClass="bg-slate-50" />

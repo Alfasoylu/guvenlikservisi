@@ -284,7 +284,7 @@ const data: ServicePageData = {
       "Kamera sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde aktif olarak sunuyoruz. Şehir bazlı hizmet detaylarına aşağıdaki sayfalardan ulaşabilirsiniz.",
     links: [
       {
-        href: "/istanbul/kamera-sistemi-kurulumu",
+        href: "/istanbul-kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
       },
       {
@@ -300,7 +300,7 @@ const data: ServicePageData = {
   authorityAfterFaq: {
     title: "Kamera Sistemi Kurulumu Hizmeti Verilen Şehirler",
     links: [
-      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/istanbul-kamera-sistemi-kurulumu", label: "İstanbul" },
       { href: "/ankara/kamera-sistemi-kurulumu", label: "Ankara" },
       { href: "/izmir/kamera-sistemi-kurulumu", label: "İzmir" },
       { href: "/bursa/kamera-sistemi-kurulumu", label: "Bursa" },

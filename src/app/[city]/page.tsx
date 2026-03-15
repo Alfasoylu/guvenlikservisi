@@ -10,7 +10,7 @@ import { siteConfig } from "@/data/site-config";
 import {
   getCityCanonicalUrl,
   getCityPath,
-  getCityServicePath,
+  getPrimaryCityServicePath,
   getCityStaticParams,
 } from "@/lib/routes";
 import { getCityPageVisuals } from "@/lib/page-images";
@@ -76,7 +76,7 @@ export default async function CityPage({ params }: PageProps) {
   const faqItems = buildCityFaqItems(city.name);
   const cityVisuals = getCityPageVisuals(city.slug);
   const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap((service) => {
-    const href = getCityServicePath(city.slug, service.slug);
+    const href = getPrimaryCityServicePath(city.slug, service.slug);
 
     if (!href) {
       return [];
