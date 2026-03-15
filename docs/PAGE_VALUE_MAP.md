@@ -2,9 +2,9 @@
 
 ## 1. Kısa Yönetici Özeti
 
-Repo içindeki mevcut yapı iki ana değer katmanı oluşturuyor: doğrudan dönüşüm odaklı sayfalar ve programmatic SEO destek ağı. En yüksek doğrudan lead değeri, form veya net teklif akışı taşıyan `/teklif/*`, `/iletisim` ve `/bakim-servis-uzaktan-izleme` sayfalarında. En yüksek ölçeklenebilir SEO + ticari değer ise `/<city>/<service>` ağında; bu grup hem gerçek hizmet intent'i taşıyor hem de 18 şehir x 8 servis ile büyüyebiliyor.
+Repo içindeki mevcut yapı iki ana değer katmanı oluşturuyor: doğrudan dönüşüm odaklı sayfalar ve programmatic SEO destek ağı. En yüksek doğrudan lead değeri, form veya net teklif akışı taşıyan `/teklif/*`, `/iletisim` ve `/bakim-servis-uzaktan-izleme` sayfalarında. En yüksek ölçeklenebilir SEO + ticari değer ise `/<city>/<service>` ağında; bu grup hem gerçek hizmet intent'i taşıyor hem de genişletilebilir şehir x servis modeli ile büyüyebiliyor.
 
-Blog katmanı şu an ağırlıklı olarak trafik ve otorite üretir; doğrudan para sayfası değildir. Recurring gelir açısından açık ara en güçlü grup bakım / servis / uzaktan izleme sayfalarıdır. Risk tarafında en önemli başlıklar, `next.config.ts` ile `/<city>-guvenlik-sistemi-kurulumu` -> `/<city>` redirect'i nedeniyle riskli hale gelen `/istanbul-guvenlik-sistemi-kurulumu` ve iki ayrı İstanbul IP kamera teklif route'udur.
+Blog katmanı şu an ağırlıklı olarak trafik ve otorite üretir; doğrudan para sayfası değildir. Recurring gelir açısından açık ara en güçlü grup bakım / servis / uzaktan izleme sayfalarıdır. Risk tarafında en önemli başlıklar, `next.config.ts` ile `/<city>-guvenlik-sistemi-kurulumu` -> `/<city>` redirect'i nedeniyle riskli hale gelen `/istanbul-guvenlik-sistemi-kurulumu`, repo içinde hâlâ referansları kalan legacy İstanbul organic loser URL'leri ve iki ayrı İstanbul IP kamera teklif route'udur.
 
 ## 2. Route Grup Bazlı Sınıflandırma
 

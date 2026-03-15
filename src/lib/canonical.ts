@@ -12,6 +12,9 @@ const legacyCanonicalPathMap: Record<string, string> = {
   "/istanbul-alarm-sistemi": "/istanbul/alarm-sistemi-kurulumu",
   "/istanbul-yangin-alarm-sistemi": "/istanbul/yangin-alarm-sistemi-kurulumu",
   "/istanbul-kartli-gecis-sistemi": "/istanbul/kartli-gecis-sistemi-kurulumu",
+  "/istanbul-ip-kamera-montaji": "/istanbul/kamera-sistemi-kurulumu",
+  "/istanbul-kamera-bakim-servisi": "/istanbul/kamera-sistemi-bakim-sozlesmesi",
+  "/istanbul-kamera-teknik-servis": "/istanbul/guvenlik-sistemi-teknik-servis",
   "/teklif/kamera/istanbul-ip-kamera-montaji":
     "/teklif/istanbul-ip-kamera-montaji",
   "/hizmetler/guvenlik-kamera-kurulumu": "/kamera-sistemi-kurulumu",

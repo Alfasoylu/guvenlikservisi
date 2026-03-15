@@ -8,7 +8,7 @@ import {
 const internalLinks = `
 [Kamera sistemi kurulumu](/kamera-sistemi-kurulumu) sayfamızdan ücretsiz keşif ve teklif talebinde bulunabilirsiniz.
 
-[İstanbul kamera sistemi kurulumu](/istanbul-kamera-sistemi-kurulumu) sayfası İstanbul'daki projeler için detaylı bilgi sunar.
+[İstanbul kamera sistemi kurulumu](/istanbul/kamera-sistemi-kurulumu) sayfası İstanbul'daki projeler için detaylı bilgi sunar.
 
 [Alarm sistemi kurulumu](/alarm-sistemi-kurulumu) sayfamızdan alarm çözümleri hakkında bilgi alabilirsiniz.
 

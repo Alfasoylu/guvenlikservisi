@@ -111,15 +111,15 @@ export default async function DistrictServicePage({ params }: PageProps) {
   const istanbulMoneyPageMap: Record<string, { href: string; label: string }> =
     {
       "kamera-sistemi-kurulumu": {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+        href: "/istanbul/kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
       },
       "alarm-sistemi-kurulumu": {
-        href: "/istanbul-alarm-sistemi",
+        href: "/istanbul/alarm-sistemi-kurulumu",
         label: "İstanbul Alarm Sistemi",
       },
       "kartli-gecis-sistemi-kurulumu": {
-        href: "/istanbul-kartli-gecis-sistemi",
+        href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "İstanbul Kartlı Geçiş Sistemi",
       },
     };

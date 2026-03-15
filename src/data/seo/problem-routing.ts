@@ -71,7 +71,7 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
   if (data.defaultService === "alarm") {
     return [
       {
-        href: "/istanbul-alarm-sistemi",
+      href: "/istanbul/alarm-sistemi-kurulumu",
         label: "İstanbul Alarm Sistemi",
         description:
           "Arıza sonrası değişim veya yeni kurulum ihtiyacını ana İstanbul winner URL'ye taşır.",
@@ -94,7 +94,7 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
   if (data.defaultService === "kartli-gecis") {
     return [
       {
-        href: "/istanbul-kartli-gecis-sistemi",
+      href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "İstanbul Kartlı Geçiş Sistemi",
         description:
           "Kartlı geçiş arızasını ana İstanbul ticari sayfasına geri bağlar.",
@@ -157,7 +157,7 @@ function getCommercialLinks(data: ProblemPageData): RoutingLink[] {
   if (data.defaultService === "kartli-gecis") {
     return [
       {
-        href: "/istanbul-kartli-gecis-sistemi",
+      href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "İstanbul Kartlı Geçiş Sistemi",
         description:
           "Arıza çözüldüğünde yenileme veya kapasite artışı ihtiyacını ana sayfaya yönlendirir.",
@@ -173,7 +173,7 @@ function getCommercialLinks(data: ProblemPageData): RoutingLink[] {
 
   return [
     {
-      href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
       label: "İstanbul Kamera Sistemi Kurulumu",
       description:
         "Eski veya yetersiz sistemlerde arızayı yeni kurulum kararına dönüştüren ana ticari sayfadır.",

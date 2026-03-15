@@ -34,6 +34,21 @@ const nextConfig: NextConfig = {
         destination: "/istanbul/kartli-gecis-sistemi-kurulumu",
         permanent: true,
       },
+      {
+        source: "/istanbul-ip-kamera-montaji",
+        destination: "/istanbul/kamera-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/istanbul-kamera-bakim-servisi",
+        destination: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
+        permanent: true,
+      },
+      {
+        source: "/istanbul-kamera-teknik-servis",
+        destination: "/istanbul/guvenlik-sistemi-teknik-servis",
+        permanent: true,
+      },
     ];
 
     // eski hizmet url formatı
