@@ -4,6 +4,7 @@ import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/apartman-site-guvenlik-sistemi",
@@ -542,6 +543,12 @@ const data: ServicePageData = {
       },
     ],
   },
+  problemLinks: {
+    title: "Apartman ve Site Yönetimlerinde Sık Karşılaşılan Sorunlar",
+    subtitle:
+      "Ortak alan kamerası, blok alarmı veya geçiş kontrol arızalarında ilgili sorun sayfalarından doğrudan devam edin.",
+    links: serviceProblemLinks["apartman-site-guvenlik-sistemi"],
+  },
 
   /* ── Segment Bağlantıları ── */
   segments: [
@@ -657,6 +664,12 @@ const data: ServicePageData = {
       label: `${city.name} Apartman ve Site Güvenlik Sistemi`,
       description: `${city.name} içinde apartman ve site güvenlik sistemi kurulumu için keşif ve teklif alın.`,
     })),
+  },
+  cityHubLinks: {
+    title: "Şehir Bazlı Güvenlik Hizmetleri",
+    description:
+      "Site ve apartman projelerinin yoğunlaştığı şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+    links: topCityHubLinks,
   },
 };
 

@@ -4,6 +4,7 @@ import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/isyeri-guvenlik-sistemi");
 
@@ -541,6 +542,12 @@ const data: ServicePageData = {
       },
     ],
   },
+  problemLinks: {
+    title: "İşyeri Güvenliğinde Sık Karşılaşılan Sorunlar",
+    subtitle:
+      "İşyeri kameraları, alarm panelleri ve personel geçiş noktalarında sık karşılaşılan arızalara ilgili sayfalardan ulaşın.",
+    links: serviceProblemLinks["isyeri-guvenlik-sistemi"],
+  },
 
   /* ── Segment Bağlantıları ── */
   segments: [
@@ -656,6 +663,12 @@ const data: ServicePageData = {
       label: `${city.name} İşyeri Güvenlik Sistemi`,
       description: `${city.name} içinde işyeri güvenlik sistemi kurulumu için keşif ve teklif alın.`,
     })),
+  },
+  cityHubLinks: {
+    title: "Şehir Bazlı Güvenlik Hizmetleri",
+    description:
+      "Ticari güvenlik arayışının yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+    links: topCityHubLinks,
   },
 };
 

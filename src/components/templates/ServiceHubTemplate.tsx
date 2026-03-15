@@ -138,6 +138,16 @@ export interface ServiceHubPageData {
     description?: string;
     links: ContextualLink[];
   };
+  problemLinksSection?: {
+    title?: string;
+    description?: string;
+    links: ContextualLink[];
+  };
+  cityHubLinksSection?: {
+    title?: string;
+    description?: string;
+    links: ContextualLink[];
+  };
   blogPosts?: {
     slug: string;
     title: string;
@@ -697,6 +707,74 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
 
         return null;
       })}
+
+      {data.problemLinksSection && data.problemLinksSection.links.length > 0 ? (
+        <section className="border-t border-gray-100 bg-white py-16">
+          <Container>
+            <div className="mb-10 max-w-3xl">
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {data.problemLinksSection.title ||
+                  "Sorun Sayfaları ve Arıza Rehberleri"}
+              </h2>
+              {data.problemLinksSection.description ? (
+                <p className="text-sm leading-7 text-text-light">
+                  {data.problemLinksSection.description}
+                </p>
+              ) : null}
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {data.problemLinksSection.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-start gap-4 rounded-2xl border border-gray-200 bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div className="flex-1">
+                    <h3 className="mb-1 text-sm font-bold text-primary group-hover:text-accent">
+                      {link.label}
+                    </h3>
+                    {link.description ? (
+                      <p className="text-xs leading-5 text-text-light">
+                        {link.description}
+                      </p>
+                    ) : null}
+                  </div>
+                  <ArrowRight
+                    size={16}
+                    className="mt-1 shrink-0 text-accent opacity-0 transition-opacity group-hover:opacity-100"
+                  />
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
+      {data.cityHubLinksSection && data.cityHubLinksSection.links.length > 0 ? (
+        <section className="bg-white py-12">
+          <Container>
+            <h2 className="text-2xl font-bold text-primary">
+              {data.cityHubLinksSection.title || "Şehir Bazlı Hizmet Sayfaları"}
+            </h2>
+            {data.cityHubLinksSection.description ? (
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-text-light">
+                {data.cityHubLinksSection.description}
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {data.cityHubLinksSection.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl border border-gray-200 bg-surface px-4 py-2 text-sm font-semibold text-primary transition hover:bg-accent/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       {data.blogPosts && data.blogPosts.length > 0 && (
         <section className="bg-white py-16">

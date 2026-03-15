@@ -240,6 +240,82 @@ Amac:
 
 ---
 
+## Top Service Page -> Problem / City Hub Katmani
+
+### Eklenen mantik
+
+Ulusal service page ve service hub sayfalarina iki yeni ic link katmani eklendi:
+
+- ilgili problem-intent sayfalarina yonlendiren `problemLinks` / `problemLinksSection`
+- one cikan sehir hub sayfalarina yonlendiren `cityHubLinks` / `cityHubLinksSection`
+
+Bu katman, ozellikle en yuksek ticari deger tasiyan ulusal servis sayfalarinda
+bilgilendirici sorun niyeti ile sehir hub navigasyonunu ayni template uzerinden
+guclendirmek icin eklendi.
+
+### Etkilenen sayfa aileleri
+
+- `ServicePageTemplate` kullanan ulusal servis sayfalari
+  - kamera kurulumu
+  - alarm kurulumu
+  - apartman/site guvenligi
+  - isyeri guvenligi
+  - fabrika/depo guvenligi
+  - yangin alarm kurulumu
+- `ServiceHubTemplate` kullanan servis hub sayfalari
+  - kamera ariza servisi
+  - kamera bakim sozlesmesi
+  - uzaktan kamera izleme
+  - kartli gecis sistemi kurulumu
+- custom money page
+  - `bakim-servis-uzaktan-izleme`
+
+### Custom page notu
+
+`bakim-servis-uzaktan-izleme` paylasilan template kullanmadigi icin ayni mantik
+sayfa icinde manuel olarak uygulandi:
+
+- il listesi plain text chip yerine gercek `/<city>` city hub linklerine cevrildi
+- ilgili `/sorun/*` sayfalarina ayri bir blok eklendi
+- mevcut ilgili hizmet ve city/service linkleri korundu
+- ek olarak one cikan city hub linkleri eklendi
+
+### Link tipi: Service -> Problem Page
+
+Kaynak:
+
+- `src/data/internal-links.ts`
+
+Uretim:
+
+- servis slug'ina gore ilgili `/sorun/*` URL'leri gruplanir
+- template tarafinda ayri bir "sorun sayfalari" blogu olarak render edilir
+
+Amac:
+
+- ticari servis sayfasindan problem-intent cluster'ina gecis vermek
+- kullanicinin "kurulum mu lazim, yoksa mevcut sistem arizali mi?" ayrimini hizlandirmak
+- servis cluster'i ile sorun cluster'i arasindaki ic link agini guclendirmek
+
+### Link tipi: Service -> City Hub
+
+Kaynak:
+
+- `src/data/internal-links.ts`
+
+Uretim:
+
+- one cikan 5 sehir hub URL'si (`/<city>`) secilir
+- servis sayfalarinda ikincil konum navigasyonu olarak render edilir
+
+Amac:
+
+- ulusal servis sayfasindan sehir hub'lara dogrudan gecis vermek
+- kullanicinin sehir bazli genel hizmet cluster'ina inmesini kolaylastirmak
+- city hub -> city/service ve service -> city hub arasinda daha tutarli bir iki yonlu bag kurmak
+
+---
+
 ## Bakım/Servis Ailesi Cross-Link Katmani
 
 ### Eklenen mantik

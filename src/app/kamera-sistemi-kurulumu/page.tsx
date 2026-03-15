@@ -4,6 +4,7 @@ import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
+import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/kamera-sistemi-kurulumu");
 
@@ -55,6 +56,90 @@ const data: ServicePageData = {
       "Mobil izleme ve uzaktan erişimi kurulum sırasında aktif hale getirip test ederek teslim ederiz.",
     ],
   },
+
+  /* ── Bu Sayfa Kimler İçin ── */
+  targetAudience: {
+    title: "Kamera Sistemi Kurulumu Kimler İçin?",
+    subtitle:
+      "Güvenlik kamerası ihtiyacı farklı senaryo ve mekan tiplerinde ortaya çıkar. Aşağıdaki profillerden biri size uyuyorsa profesyonel kurulum doğru adımdır.",
+    items: [
+      {
+        title: "Ev ve Villa Sahipleri",
+        description:
+          "Çevre güvenliği, kapı girişi ve bahçe izleme. Tatil dönemlerinde uzaktan takip imkânı.",
+      },
+      {
+        title: "İşyeri ve Mağaza Sahipleri",
+        description:
+          "Kasa, depo ve müşteri alanlarının görüntülenmesi. Operasyonel denetim ve çalışan güvenliği.",
+      },
+      {
+        title: "Apartman ve Site Yöneticileri",
+        description:
+          "Giriş, otopark ve ortak alanları kapsayan merkezi kamera sistemi. Yönetim kuruluna raporlama.",
+      },
+      {
+        title: "Fabrika ve Depo Yöneticileri",
+        description:
+          "Geniş alan takibi, yükleme noktası kontrolü ve çevre hattı güvenliği. PTZ ve gece görüş odaklı.",
+      },
+      {
+        title: "Şantiye ve Geçici Alan Sorumluları",
+        description:
+          "İnşaat alanı, malzeme deposu ve şantiye ofisi güvenliği. Mobil izleme ile uzaktan takip.",
+      },
+      {
+        title: "Belediye ve Kamu Kurumları",
+        description:
+          "Hizmet binaları, parklar ve toplu taşıma noktalarında güvenlik ve olay takibi.",
+      },
+    ],
+  },
+
+  /* ── En Sık Yaşanan Sorunlar ── */
+  commonProblems: {
+    title: "Kamera Sistemi Kurulumunda En Sık Yaşanan Sorunlar",
+    subtitle:
+      "Bu sorunlardan birini yaşıyorsanız, profesyonel keşif ve doğru planlama ile büyük fark yaratabilirsiniz.",
+    items: [
+      {
+        title: "Kör Noktalar ve Yetersiz Kapsam",
+        description:
+          "Kameraların yanlış yerleşimi yüzünden giriş-çıkış noktaları, koridor köşeleri veya otopark bölgeleri görüntülenemez. Olay anında kayıt bulunamaz.",
+      },
+      {
+        title: "Gece Görüntü Kalitesizliği",
+        description:
+          "Ucuz veya yanlış seçilmiş kameralar gece koşullarında net görüntü veremez. IR mesafesi ve aydınlatma planlanmadığında kayıtlar işe yaramaz.",
+      },
+      {
+        title: "Kayıt Süresi Yetersizliği",
+        description:
+          "Hard disk kapasitesi kamera sayısı ve çözünürlüğe göre planlanmadığında kayıtlar birkaç gün sonra silinir. Geriye dönük erişim mümkün olmaz.",
+      },
+      {
+        title: "Uzaktan Erişim ve Mobil İzleme Sorunu",
+        description:
+          "Ağ ayarları doğru yapılandırılmadığında telefondan canlı izleme çalışmaz. Port yönlendirme ve P2P konfigürasyonu eksik kalır.",
+      },
+      {
+        title: "Eski Analog Sistemin Yetersizliği",
+        description:
+          "Analog kameralar HD çözünürlük, uzaktan erişim ve akıllı bildirim sunmaz. IP sisteme geçiş ciddi fark yaratır.",
+      },
+      {
+        title: "Ağ Altyapısı ve Besleme Sorunları",
+        description:
+          "PoE switch kapasitesi, kablo mesafesi ve bant genişliği planlanmadığında görüntü kaybı, gecikme ve donma sorunları oluşur.",
+      },
+      {
+        title: "Bakım ve Arızada Belirsizlik",
+        description:
+          "Kurulum sonrası teknik destek ve yedek parça konusunda muhatap bulunamıyor. Garanti kapsamı baştan netleştirilmemiş.",
+      },
+    ],
+  },
+
   authorityTitle: "Neden Doğru Keşif ve Planlama Belirleyicidir?",
   authorityBody: [
     "Birçok kamera sistemi kurulumdan sonra çalışır görünür ama olay anında yetersiz kalır. Bunun sebebi genellikle yanlış keşif, eksik kapsama veya yetersiz kayıt planlamasıdır.",
@@ -75,6 +160,228 @@ const data: ServicePageData = {
     "Dış mekan için vandal-proof kasalar",
     "1–3 yıl ürün garantisi",
   ],
+
+  /* ── Alan Bazlı Çözümler ── */
+  areaSolutions: {
+    title: "Alan Bazlı Kamera Çözümleri",
+    subtitle:
+      "Her alan farklı kamera tipi, açı ve çözünürlük gerektirir. Sık karşılaştığımız alanlara göre nasıl çözüm ürettiğimizi görün.",
+    items: [
+      {
+        area: "Giriş-Çıkış Noktaları",
+        description:
+          "Ana kapı, personel girişi ve araç giriş noktalarında kim geldi, ne zaman girdi sorusuna net cevap veren kamera yerleşimi.",
+        features: [
+          "Sabit bullet veya dome kamera",
+          "Yüz tanıma uyumlu çözünürlük",
+          "Gece görüş desteği",
+        ],
+      },
+      {
+        area: "Otopark ve Araç Alanları",
+        description:
+          "Geniş açılı kameralar ve isteğe bağlı plaka tanıma (LPR) ile araç takibi ve park yeri kontrolü.",
+        features: [
+          "Geniş açı varifocal lens",
+          "LPR plaka tanıma opsiyonu",
+          "IR gece görüş (50m+)",
+        ],
+      },
+      {
+        area: "Depo ve Stok Alanları",
+        description:
+          "Ürün giriş-çıkış takibi, sayım doğrulama ve hırsızlık önleme. Kritik raflar ve yükleme noktaları odaklı.",
+        features: [
+          "Geniş alan dome kameralar",
+          "Hareket algılama ve bildirim",
+          "Düşük ışık performansı",
+        ],
+      },
+      {
+        area: "Çevre Hattı ve Dış Mekan",
+        description:
+          "Bina çevresi, bahçe duvarları ve açık alanlar. Dış mekan korumalı kasalar ve geniş IR mesafesi ile 7/24 izleme.",
+        features: [
+          "IP67 vandal-proof kasalar",
+          "50m+ IR gece görüş",
+          "PTZ kamera ile geniş alan tarama",
+        ],
+      },
+      {
+        area: "Koridor ve Ortak Alanlar",
+        description:
+          "İç mekanda kim nerede, ne zaman sorusuna cevap veren kompakt dome kameralar. Minimum kör nokta ile tam kapsama.",
+        features: [
+          "Kompakt dome kameralar",
+          "Geniş açı lens (2.8mm)",
+          "PoE tek kablo besleme",
+        ],
+      },
+      {
+        area: "Üretim ve İş Alanları",
+        description:
+          "Fabrika üretim bandı, atölye veya iş istasyonlarında operasyonel denetim ve iş güvenliği takibi.",
+        features: [
+          "Yüksek çözünürlük (4K) detay",
+          "Geniş dinamik aralık (WDR)",
+          "Kayıt arama ve zaman çizelgesi",
+        ],
+      },
+    ],
+  },
+
+  /* ── Mid-page CTA ── */
+  midPageCta: {
+    title: "Mekanınız İçin Kamera Planını Birlikte Çıkaralım",
+    subtitle:
+      "Mekan tipinizi ve tahmini kamera sayısını paylaşın. Kör nokta analizi ve kayıt planlamasını içeren keşif randevusu oluşturalım.",
+    ctaLabel: "Ücretsiz Keşif Randevusu Alın",
+  },
+
+  /* ── Çözüm Seviyeleri ── */
+  solutionTiers: {
+    title: "İhtiyaca Göre Kamera Sistemi Seviyeleri",
+    subtitle:
+      "Her mekan aynı kapsamda kamera sistemi gerektirmez. İhtiyacınıza en yakın seviyeyi birlikte belirleyelim.",
+    ctaLabel: "Mekanınıza Uygun Seviyeyi Belirleyelim",
+    tiers: [
+      {
+        name: "Temel Kamera Paketi",
+        targetAudience:
+          "Ev, küçük mağaza veya tek katlı ofis gibi kompakt alanlar.",
+        solves:
+          "Giriş-çıkış kontrolü, temel caydırıcılık ve olay sonrası kayıt erişimi ihtiyacını karşılar.",
+        components: [
+          "2–4 IP kamera (2K çözünürlük)",
+          "4 kanallı NVR kayıt cihazı",
+          "1–2 TB hard disk",
+          "Mobil uygulama ile uzaktan izleme",
+          "PoE switch veya doğrudan NVR PoE",
+        ],
+        upgradeNote:
+          "Gece görüş mesafesi, kamera sayısı veya kayıt süresi artırılmak istendiğinde.",
+      },
+      {
+        name: "Standart İşyeri Paketi",
+        targetAudience: "Orta ölçekli işyeri, apartman veya çok katlı yapılar.",
+        solves:
+          "Çoklu giriş noktası, iç-dış alan takibi, uzun süreli kayıt ve uzaktan yönetim ihtiyacını karşılar.",
+        components: [
+          "4–8 IP kamera (2K/4K karışık)",
+          "8 kanallı NVR kayıt cihazı",
+          "2–4 TB hard disk (15–30 gün kayıt)",
+          "PoE switch ve yapısal kablolama",
+          "Mobil uygulama + masaüstü erişim",
+          "Hareket algılama ve anlık bildirim ayarları",
+        ],
+        upgradeNote:
+          "LPR plaka tanıma, alarm entegrasyonu veya kartlı geçiş sistemi eklemek istendiğinde.",
+      },
+      {
+        name: "Profesyonel Proje Paketi",
+        targetAudience:
+          "Fabrika, site, AVM, otel veya geniş açık alanlı tesisler.",
+        solves:
+          "Geniş alan takibi, çevre hattı güvenliği, merkezi yönetim ve entegre güvenlik sistemi ihtiyacını karşılar.",
+        components: [
+          "8–32+ IP kamera (4K, PTZ dahil)",
+          "16/32 kanallı NVR veya sunucu kayıt",
+          "4–16 TB RAID depolama",
+          "Merkezi yönetim yazılımı (VMS)",
+          "PoE switch + fiber altyapı (mesafeye göre)",
+          "Alarm ve kartlı geçiş entegrasyonu seçeneği",
+          "Bakım sözleşmesi",
+        ],
+        upgradeNote:
+          "Termal kamera, yapay zeka analitik veya izleme merkezi bağlantısı eklemek istendiğinde.",
+      },
+    ],
+  },
+
+  /* ── Neden Profesyonel Kurulum ── */
+  whyIntegrated: {
+    title: "Neden Profesyonel Kamera Kurulumu Danışmansız Alımdan Farklıdır?",
+    subtitle:
+      "Online kamera paketi alıp kendiniz kurmak cazip görünebilir. Ancak profesyonel kurulumun farkı montajda değil, plandadır:",
+    items: [
+      {
+        title: "Kör Nokta Analizi Sahada Yapılır",
+        description:
+          "Kamera noktalarını plan üzerinden değil, sahada fiziksel inceleme ile belirleriz. Giriş açıları, duvar yükseklikleri ve gece koşulları yerinde değerlendirilir.",
+      },
+      {
+        title: "Kayıt Planlaması İhtiyaca Göre Yapılır",
+        description:
+          "Kaç gün geriye dönük kayıt gerektiği, kamera sayısı ve çözünürlük ile orantılı disk kapasitesi sahada hesaplanır.",
+      },
+      {
+        title: "Ağ Altyapısı Doğru Planlanır",
+        description:
+          "PoE switch kapasitesi, kablo mesafeleri ve bant genişliği projeye göre hesaplanır. Görüntü kaybı ve donma sorunları oluşmaz.",
+      },
+      {
+        title: "Uzaktan Erişim İlk Günden Çalışır",
+        description:
+          "Mobil uygulama kurulumu, ağ yapılandırması ve kullanıcı ayarları montaj sırasında tamamlanır ve test edilir.",
+      },
+      {
+        title: "Bakım ve Garanti Tek Noktadan Yönetilir",
+        description:
+          "Arıza durumunda tek muhatap. Yedek parça, yazılım güncelleme ve teknik destek tanımlı bir süreçle yürür.",
+      },
+      {
+        title: "Genişleme Altyapısı Baştan Planlanır",
+        description:
+          "İleride kamera eklemek isterseniz, NVR kapasitesi, switch port sayısı ve kablo altyapısı buna uygun kurulur.",
+      },
+    ],
+  },
+
+  /* ── Keşif ve Teklif Süreci ── */
+  discoveryProcess: {
+    title: "Kamera Sistemi Kurulumunda Süreç Nasıl İşler?",
+    subtitle:
+      "İlk iletişimden sistemi çalışır halde teslim etmeye kadar net ve şeffaf bir süreç izliyoruz.",
+    steps: [
+      {
+        step: 1,
+        title: "İhtiyaç Bilgisini Alıyoruz",
+        description:
+          "Mekan tipi, tahmini kamera sayısı ve özel beklentilerinizi form, telefon veya WhatsApp ile öğreniyoruz.",
+      },
+      {
+        step: 2,
+        title: "Telefonla Ön Değerlendirme",
+        description:
+          "Teknik ekibimiz sizi arayarak proje kapsamını, kamera tiplerini ve bütçe aralığını netleştiriyor.",
+      },
+      {
+        step: 3,
+        title: "Ücretsiz Yerinde Keşif",
+        description:
+          "Sahaya gelerek giriş-çıkış noktalarını, kör alanları ve gece koşullarını inceliyoruz. Kamera noktalarını yerinde belirliyoruz.",
+      },
+      {
+        step: 4,
+        title: "Teklif ve Proje Planı",
+        description:
+          "Keşif sonrası kamera planı, NVR kapasitesi, depolama süresi ve net fiyat teklifini gönderiyoruz.",
+      },
+      {
+        step: 5,
+        title: "Montaj ve Devreye Alma",
+        description:
+          "Profesyonel ekibimiz montajı gerçekleştiriyor, kablolama, NVR kurulumu ve sistem testini yapıyor.",
+      },
+      {
+        step: 6,
+        title: "Teslim ve Kullanıcı Eğitimi",
+        description:
+          "Mobil uygulama kurulumu, kayıt erişim eğitimi ve bildirim ayarlarını birlikte yapıyoruz. Bakım seçeneklerini sunuyoruz.",
+      },
+    ],
+  },
+
   decisionBlocks: [
     {
       title: "Hangi Durumda Kamera Sistemi Kurulumu Doğru Seçimdir?",
@@ -160,6 +467,74 @@ const data: ServicePageData = {
         "Araç takibi, plaka tanıma (LPR) ve çevre güvenliği için geniş açı kameralar.",
     },
   ],
+
+  /* ── Güven Blokları ── */
+  trustBlocks: {
+    title: "Somut Güvencelerimiz",
+    subtitle: "Genel vaatler yerine size sunduğumuz somut taahhütler:",
+    items: [
+      { text: "Aynı gün geri dönüş garantisi" },
+      { text: "Ücretsiz sahada keşif ve kör nokta analizi" },
+      { text: "Kurulum sonrası mobil uygulama eğitimi" },
+      { text: "1–3 yıl ürün garantisi" },
+      { text: "Arıza bildiriminde hızlı müdahale" },
+      { text: "İstanbul ve çevre illerde ücretsiz keşif" },
+      { text: "Tek muhatap: proje yöneticisi atanır" },
+      { text: "Genişleme için altyapı hazır teslim" },
+    ],
+  },
+
+  /* ── İç Linkler ── */
+  internalLinks: {
+    title: "İlgili Hizmet ve Çözüm Sayfaları",
+    subtitle:
+      "Kamera sistemi dışında ihtiyaç duyabileceğiniz diğer güvenlik çözümlerini inceleyin.",
+    links: [
+      {
+        href: "/alarm-sistemi-kurulumu",
+        label: "Alarm Sistemi Kurulumu",
+        description:
+          "Kameraya ek olarak hırsız alarm ile caydırıcılık ve anlık bildirim sağlayın.",
+      },
+      {
+        href: "/kartli-gecis-sistemi-kurulumu",
+        label: "Kartlı Geçiş Sistemi Kurulumu",
+        description:
+          "Kapı giriş kontrolü ve personel takibi için kartlı geçiş ve turnike çözümleri.",
+      },
+      {
+        href: "/yangin-alarm-sistemi-kurulumu",
+        label: "Yangın Alarm Sistemi Kurulumu",
+        description:
+          "Yasal zorunluluğa uygun yangın algılama sistemi. Proje ve belgelendirme dahil.",
+      },
+      {
+        href: "/apartman-site-guvenlik-sistemi",
+        label: "Apartman ve Site Güvenlik Sistemi",
+        description:
+          "Kamera, kartlı geçiş ve yangın alarm bileşenlerini tek projede kapsayan komple site güvenliği.",
+      },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım, Servis ve Uzaktan İzleme",
+        description:
+          "Kurulum sonrası periyodik bakım, arıza servisi ve uzaktan izleme merkezi bağlantısı.",
+      },
+      {
+        href: "/paketler-ve-fiyatlandirma",
+        label: "Paketler ve Fiyatlandırma",
+        description:
+          "Mekan tipi ve kamera sayısına göre örnek paketler ve fiyat aralıkları.",
+      },
+    ],
+  },
+  problemLinks: {
+    title: "Kamera Kurulumu Sonrası En Sık Karşılaşılan Sorunlar",
+    subtitle:
+      "Kurulum kararı verirken veya mevcut yapınızı iyileştirirken en çok karşılaşılan kamera sorunlarını ilgili rehberlerden inceleyin.",
+    links: serviceProblemLinks["kamera-sistemi-kurulumu"],
+  },
+
   finalCtaTitle: "Kamera Sistemi Kurulumu İçin Hemen Teklif Alın",
   finalCtaSubtitle:
     "Mekanınıza uygun kamera sistemi için ücretsiz keşif randevusu alın. Profesyonel ekibimiz en kısa sürede dönüş yapıyor.",
@@ -317,6 +692,12 @@ const data: ServicePageData = {
       label: `${city.name} Kamera Sistemi Kurulumu`,
       description: `${city.name} içinde profesyonel kamera sistemi kurulumu için keşif ve teklif alın.`,
     })),
+  },
+  cityHubLinks: {
+    title: "Şehir Bazlı Güvenlik Hizmetleri",
+    description:
+      "Kamera kurulumu arayışının yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
+    links: topCityHubLinks,
   },
 };
 
