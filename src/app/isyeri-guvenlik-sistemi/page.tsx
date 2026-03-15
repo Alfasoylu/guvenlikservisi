@@ -670,6 +670,20 @@ const data: ServicePageData = {
       "Ticari güvenlik arayışının yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
+      alt: "İşyeri güvenlik kamera montaj ekibi",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+      alt: "Mağaza kamera montajı ve kablolama",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+      alt: "İşyeri güvenlik sistemi teknik servis ekibi",
+    },
+  },
 };
 
 export default function IsyeriSayfasi() {

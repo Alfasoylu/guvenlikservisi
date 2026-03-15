@@ -695,6 +695,20 @@ const data: ServicePageData = {
       "Sanayi ve lojistik talebinin öne çıktığı şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+      alt: "Fabrika güvenlik kamera sistemleri",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-1374x1470px.jpg",
+      alt: "Fabrika güvenlik kamera sistemi kurulumu",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+      alt: "Güvenlik kamera izleme merkezi",
+    },
+  },
 };
 
 export default function FabrikaDepoSayfasi() {

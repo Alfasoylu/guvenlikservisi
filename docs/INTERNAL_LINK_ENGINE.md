@@ -428,8 +428,8 @@ Her ilçe objesi en az şunları içerir:
 
 ```ts
 {
-  name: string;    // İlçe adı
-  slug: string;    // URL-safe slug
+  name: string; // İlçe adı
+  slug: string; // URL-safe slug
   citySlug: string; // Bağlı şehir slug'ı
 }
 ```

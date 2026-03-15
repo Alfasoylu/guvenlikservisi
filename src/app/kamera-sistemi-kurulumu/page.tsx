@@ -699,6 +699,20 @@ const data: ServicePageData = {
       "Kamera kurulumu arayışının yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
+      alt: "Güvenlik kamera montajı yapan teknik servis ekibi",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/apartman-kamera-montaji-teknisyen-istanbul.jpg",
+      alt: "Apartman güvenlik kamera sistemi kurulumu",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/kucuk-isletme-kamera-montaj-memnuniyeti.jpg",
+      alt: "İşletme kamera montajı sonrası müşteri memnuniyeti",
+    },
+  },
 };
 
 export default function KameraSayfasi() {

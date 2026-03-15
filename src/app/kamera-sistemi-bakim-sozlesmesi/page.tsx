@@ -27,5 +27,25 @@ export const metadata: Metadata = {
 };
 
 export default function KameraBakimSozlesmesiPage() {
-  return <ServiceHubTemplate data={pageConfig.data} />;
+  return (
+    <ServiceHubTemplate
+      data={{
+        ...pageConfig.data,
+        trustImages: {
+          afterHero: {
+            src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+            alt: "Güvenlik sistemi bakım teknisyen ekibi",
+          },
+          beforeFaq: {
+            src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+            alt: "Kamera sistem kontrol ve monitör teknisyeni",
+          },
+          beforeCta: {
+            src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+            alt: "Site kamera sistemi periyodik bakım",
+          },
+        },
+      }}
+    />
+  );
 }

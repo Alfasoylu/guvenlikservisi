@@ -38,7 +38,9 @@ export function generateStaticParams() {
   return getCityStaticParams();
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { city: citySlug } = await params;
   const city = getSeoCityBySlug(citySlug);
 
@@ -82,19 +84,21 @@ export default async function CityPage({ params }: PageProps) {
     slug: d.slug,
     citySlug: d.citySlug,
   }));
-  const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap((service) => {
-    const href = getPrimaryCityServicePath(city.slug, service.slug);
+  const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap(
+    (service) => {
+      const href = getPrimaryCityServicePath(city.slug, service.slug);
 
-    if (!href) {
-      return [];
-    }
+      if (!href) {
+        return [];
+      }
 
-    return {
-      href,
-      label: `${city.name} ${service.name}`,
-      description: `${city.name} içindeki ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
-    };
-  });
+      return {
+        href,
+        label: `${city.name} ${service.name}`,
+        description: `${city.name} içindeki ${service.name.toLowerCase()} sayfasına gidin ve hizmet detaylarını inceleyin.`,
+      };
+    },
+  );
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Ana Sayfa", url: "/" },
@@ -114,7 +118,13 @@ export default async function CityPage({ params }: PageProps) {
   });
 
   return (
-    <main style={{ maxWidth: "1180px", margin: "0 auto", padding: "48px 20px 64px" }}>
+    <main
+      style={{
+        maxWidth: "1180px",
+        margin: "0 auto",
+        padding: "48px 20px 64px",
+      }}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -125,7 +135,9 @@ export default async function CityPage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       <script
         type="application/ld+json"
@@ -161,11 +173,18 @@ export default async function CityPage({ params }: PageProps) {
             color: "#1f2937",
           }}
         >
-          {intro} Ücretsiz keşif, doğru ürün seçimi, profesyonel montaj ve sistem devreye alma
-          desteği sunuyoruz.
+          {intro} Ücretsiz keşif, doğru ürün seçimi, profesyonel montaj ve
+          sistem devreye alma desteği sunuyoruz.
         </p>
 
-        <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "18px" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "14px",
+            flexWrap: "wrap",
+            marginBottom: "18px",
+          }}
+        >
           <Link
             href="/iletisim"
             style={{
@@ -196,7 +215,8 @@ export default async function CityPage({ params }: PageProps) {
         </div>
 
         <p style={{ fontSize: "15px", color: "#555", margin: 0 }}>
-          Hızlı teklif, keşif planlaması ve ihtiyaca uygun sistem önerisi için hemen iletişime geçin.
+          Hızlı teklif, keşif planlaması ve ihtiyaca uygun sistem önerisi için
+          hemen iletişime geçin.
         </p>
       </section>
 
@@ -223,7 +243,14 @@ export default async function CityPage({ params }: PageProps) {
               border: "1px solid #e5e7eb",
             }}
           >
-            <div style={{ fontSize: "30px", fontWeight: 800, color: "#0F2B46", marginBottom: "8px" }}>
+            <div
+              style={{
+                fontSize: "30px",
+                fontWeight: 800,
+                color: "#0F2B46",
+                marginBottom: "8px",
+              }}
+            >
               {item.value}
             </div>
             <div style={{ color: "#555", fontSize: "16px" }}>{item.label}</div>
@@ -244,7 +271,9 @@ export default async function CityPage({ params }: PageProps) {
       />
 
       <section style={{ marginBottom: "50px" }}>
-        <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>
+        <h2
+          style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}
+        >
           Hangi Alanlara Kurulum Yapıyoruz?
         </h2>
 
@@ -273,31 +302,41 @@ export default async function CityPage({ params }: PageProps) {
         </div>
       </section>
 
-      <CityDistrictGridSection
-        cityName={city.name}
-        districts={cityDistricts}
-      />
+      <CityDistrictGridSection cityName={city.name} districts={cityDistricts} />
 
       <section style={{ marginBottom: "50px" }}>
-        <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>
+        <h2
+          style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}
+        >
           {city.name} Güvenlik Sistemi Kurulumu Neden Profesyonel Yapılmalı?
         </h2>
 
-        <p style={{ fontSize: "18px", lineHeight: 1.8, marginBottom: "18px", color: "#374151" }}>
-          Güvenlik sistemlerinde en büyük hata ürünü değil, planlamayı yanlış yapmaktır. Kör nokta
-          bırakılan alanlar, düşük kayıt süresi, yanlış lens seçimi, yetersiz gece görüşü ve kötü
-          kablolama yüzünden sistem çalışıyor gibi görünür ama olay anında işe yaramaz.
+        <p
+          style={{
+            fontSize: "18px",
+            lineHeight: 1.8,
+            marginBottom: "18px",
+            color: "#374151",
+          }}
+        >
+          Güvenlik sistemlerinde en büyük hata ürünü değil, planlamayı yanlış
+          yapmaktır. Kör nokta bırakılan alanlar, düşük kayıt süresi, yanlış
+          lens seçimi, yetersiz gece görüşü ve kötü kablolama yüzünden sistem
+          çalışıyor gibi görünür ama olay anında işe yaramaz.
         </p>
 
         <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#374151" }}>
-          Biz keşif aşamasında giriş-çıkış noktalarını, izlenecek kritik alanları, kayıt beklentisini
-          ve uzaktan erişim ihtiyacını netleştirip ona göre sistem öneriyoruz. Bu sayede kurulum
-          sonrasında sistem gerçekten işe yarar; kör nokta kalmaz, kayıt süresi yeterli olur.
+          Biz keşif aşamasında giriş-çıkış noktalarını, izlenecek kritik
+          alanları, kayıt beklentisini ve uzaktan erişim ihtiyacını netleştirip
+          ona göre sistem öneriyoruz. Bu sayede kurulum sonrasında sistem
+          gerçekten işe yarar; kör nokta kalmaz, kayıt süresi yeterli olur.
         </p>
       </section>
 
       <section style={{ marginBottom: "50px" }}>
-        <h2 style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}>
+        <h2
+          style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "18px" }}
+        >
           Sık Sorulan Sorular
         </h2>
 
@@ -312,10 +351,23 @@ export default async function CityPage({ params }: PageProps) {
                 background: "#fff",
               }}
             >
-              <h3 style={{ fontSize: "21px", color: "#0F2B46", marginBottom: "10px" }}>
+              <h3
+                style={{
+                  fontSize: "21px",
+                  color: "#0F2B46",
+                  marginBottom: "10px",
+                }}
+              >
                 {faq.question}
               </h3>
-              <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#374151", margin: 0 }}>
+              <p
+                style={{
+                  fontSize: "17px",
+                  lineHeight: 1.75,
+                  color: "#374151",
+                  margin: 0,
+                }}
+              >
                 {faq.answer}
               </p>
             </div>
@@ -343,9 +395,9 @@ export default async function CityPage({ params }: PageProps) {
             marginBottom: "24px",
           }}
         >
-          {city.name} içinde kamera sistemi, alarm sistemi, kartlı geçiş sistemi veya bakım hizmeti
-          için hemen iletişime geçin. İhtiyacınıza göre doğru sistemi belirleyelim, gereksiz ürün
-          satmayalım, doğru projeyi kuralım.
+          {city.name} içinde kamera sistemi, alarm sistemi, kartlı geçiş sistemi
+          veya bakım hizmeti için hemen iletişime geçin. İhtiyacınıza göre doğru
+          sistemi belirleyelim, gereksiz ürün satmayalım, doğru projeyi kuralım.
         </p>
 
         <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
