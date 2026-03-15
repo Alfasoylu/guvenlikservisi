@@ -4,6 +4,7 @@ import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
+import { topCityHubLinks } from "@/data/internal-links";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/yangin-alarm-sistemi-kurulumu",
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
+  },
+  cityHubLinks: {
+    title: "One Cikan Sehir Sayfalari",
+    description:
+      "Yasal uyumluluk ve bina guvenligi arayisinin yogun oldugu sehirlerdeki genel hizmet sayfalarina buradan gecin.",
+    links: topCityHubLinks,
   },
 };
 
@@ -57,6 +64,90 @@ const data: ServicePageData = {
       "Kurulum sonrası tüm dedektörleri test ediyor, resmi belgeleri tamamlayıp itfaiye bağlantısını aktif hale getiriyoruz.",
     ],
   },
+
+  /* ── Bu Sayfa Kimler İçin ── */
+  targetAudience: {
+    title: "Yangın Alarm Sistemi Kurulumu Kimler İçin?",
+    subtitle:
+      "Yangın alarm sistemi yasal zorunluluk ve yapı güvenliğinin temel bileşenidir. Aşağıdaki yapı tipleri ve senaryolarda kurulum kaçınılmazdır.",
+    items: [
+      {
+        title: "Otel ve Konaklama Tesisleri",
+        description:
+          "Yasal zorunluluk gereği kat bazlı dedektör, ihbar butonu, acil anons ve tahliye yönlendirme sistemi.",
+      },
+      {
+        title: "Restoran, Kafe ve Mutfaklı İşletmeler",
+        description:
+          "Mutfak yangın riski için davlumbaz dedektörü ve özel söndürme entegrasyonu. Ruhsat zorunluluğu.",
+      },
+      {
+        title: "Apartman ve Rezidans Yönetimleri",
+        description:
+          "Merdiven boşluğu, bodrum kat ve otopark için duman algılama. Bina yönetmeliği uyumluluğu.",
+      },
+      {
+        title: "Fabrika ve Üretim Tesisleri",
+        description:
+          "Endüstriyel gaz ve ısı algılama, ATEX uyumlu dedektörler, sprinkler entegrasyonu ve acil kapatma senaryoları.",
+      },
+      {
+        title: "AVM, Plaza ve Büyük Ticari Yapılar",
+        description:
+          "Adreslenebilir panel, merkezi kontrol, itfaiye bağlantısı ve çok bölgeli tahliye yönlendirmesi.",
+      },
+      {
+        title: "Ruhsat ve Sigorta Zorunluluğu Olanlar",
+        description:
+          "İşyeri açılış ruhsatı, otel izni veya sigorta poliçesi gereği yangın alarm belgesi gerekli olan yapılar.",
+      },
+    ],
+  },
+
+  /* ── En Sık Yaşanan Sorunlar ── */
+  commonProblems: {
+    title: "Yangın Alarm Sistemlerinde En Sık Yaşanan Sorunlar",
+    subtitle:
+      "Bu sorunlardan birini yaşıyorsanız, profesyonel projelendirme ve doğru belgelendirme ile çözüm mümkündür.",
+    items: [
+      {
+        title: "Eksik veya Hatalı Belgelendirme",
+        description:
+          "Proje çizimi, test raporu veya uygunluk sertifikası eksik olduğunda sigorta hasar talebi reddedilir ve ruhsat sorunları çıkar.",
+      },
+      {
+        title: "Yanlış Dedektör Tipi Seçimi",
+        description:
+          "Mutfak, bodrum, ofis ve üretim alanları farklı dedektör tipi gerektirir. Yanlış seçim yanlış alarm veya algılama gecikmesine neden olur.",
+      },
+      {
+        title: "Bakım ve Test Yükümlülüğünün İhmal Edilmesi",
+        description:
+          "Yasal olarak yıllık bakım ve test raporu zorunludur. İhmal edildiğinde sistem performansı düşer ve yasal sorumluluk doğar.",
+      },
+      {
+        title: "Konvansiyonel/Adreslenebilir Kararsızlığı",
+        description:
+          "Yapı ölçeğine uygun panel tipi seçilmediğinde ya gereğinden pahalı ya da yetersiz sistem kurulmuş olur.",
+      },
+      {
+        title: "İtfaiye Bağlantı Eksikliği",
+        description:
+          "İtfaiye bağlantı terminali kurulmadan yapılan kurulumlar yasal uyumsuzluk oluşturur. Olay anında otomatik bildirim sağlanamaz.",
+      },
+      {
+        title: "Tahliye ve Acil Aydınlatma Entegrasyonunun Yapılmaması",
+        description:
+          "Yangın alarmı tetiklendiğinde acil aydınlatma, tahliye yönlendirme ve anons sistemiyle entegrasyon sağlanmamış olur.",
+      },
+      {
+        title: "Birden Fazla Firma ile Parçalı Kurulum",
+        description:
+          "Yangın alarm ayrı, sprinkler ayrı, acil aydınlatma ayrı firmadan alındığında entegrasyon ve belgelendirme sorunları oluşur.",
+      },
+    ],
+  },
+
   authorityTitle:
     "Neden Yasal Uyumlu Kurulum ve Doğru Belgelendirme Kritik Önemlidir?",
   authorityBody: [
@@ -78,6 +169,231 @@ const data: ServicePageData = {
     "Resmi proje çizimi + uygulama belgesi",
     "TS EN 54 uygunluk sertifikası",
   ],
+
+  /* ── Alan Bazlı Çözümler ── */
+  areaSolutions: {
+    title: "Alan Bazlı Yangın Algılama Çözümleri",
+    subtitle:
+      "Her alan farklı yangın riski taşır ve farklı dedektör tipi gerektirir. Yapınızın kritik noktalarına göre nasıl çözüm ürettiğimizi görün.",
+    items: [
+      {
+        area: "Merdiven Boşlukları ve Kaçış Yolları",
+        description:
+          "Tahliye güzergahlarında duman algılama ve acil aydınlatma. Yangın kapılarıyla entegre çalışan sistem.",
+        features: [
+          "Optik duman dedektörleri",
+          "Acil aydınlatma armatürleri",
+          "Yangın kapısı mıknatıs kilitleri",
+        ],
+      },
+      {
+        area: "Mutfak ve Pişirme Alanları",
+        description:
+          "Yüksek ısı ve yağlı buhar ortamında standart dedektörler yanlış alarm verir. Mutfak tipi özel dedektörler ve söndürme sistemi gerekir.",
+        features: [
+          "Isı dedektörleri (sabit ve artış oranlı)",
+          "Davlumbaz söndürme sistemi entegrasyonu",
+          "Yağlı buhar filtrasyonu uyumlu sensörler",
+        ],
+      },
+      {
+        area: "Bodrum Kat ve Otopark",
+        description:
+          "Havalandırması kısıtlı alanlar. Duman yoğunluğu hızla artar. Erken algılama ve hızlı uyarı kritik önemdedir.",
+        features: [
+          "Yüksek hassasiyetli duman dedektörleri",
+          "CO (karbon monoksit) dedektörleri",
+          "Dış siren ve ışıklı uyarı",
+        ],
+      },
+      {
+        area: "Ofis ve Çalışma Alanları",
+        description:
+          "Açık ofis, toplantı odası ve arşiv bölümlerinde standart duman algılama. Adreslenebilir sistem ile nokta tespiti.",
+        features: [
+          "Optik duman dedektörleri",
+          "Manuel ihbar butonları (MİB)",
+          "Sesli ve görsel alarm üniteleri",
+        ],
+      },
+      {
+        area: "Üretim ve Depo Alanları",
+        description:
+          "Endüstriyel tesislerde geniş alan yangın algılama. ATEX uyumlu dedektörler ve sprinkler entegrasyonu.",
+        features: [
+          "Alev dedektörleri",
+          "Gaz algılama sensörleri",
+          "Sprinkler entegrasyonu",
+        ],
+      },
+      {
+        area: "Teknik Odalar ve Elektrik Panoları",
+        description:
+          "Elektrik panosu, jeneratör odası ve UPS hücrelerinde erken algılama. Kablo yangını riski yüksek alanlarda özel çözüm.",
+        features: [
+          "Aspirasyonlu erken uyarı sistemi",
+          "Isı dedektörleri",
+          "Otomatik söndürme entegrasyonu",
+        ],
+      },
+    ],
+  },
+
+  /* ── Mid-page CTA ── */
+  midPageCta: {
+    title: "Yapınız İçin Yangın Alarm Projesini Birlikte Planlayalım",
+    subtitle:
+      "Bina tipi, kat sayısı ve mevcut durumunuzu paylaşın. Yasal uyumlu proje kapsamını ve tahmini bütçeyi hızlıca bildirelim.",
+    ctaLabel: "Yangın Alarm Projesi Teklifi Alın",
+  },
+
+  /* ── Çözüm Seviyeleri ── */
+  solutionTiers: {
+    title: "Yapı Ölçeğine Göre Yangın Alarm Seviyeleri",
+    subtitle:
+      "Her yapı aynı panel tipi ve aynı kapsamda sistem gerektirmez. Yapınıza uygun seviyeyi birlikte belirleyelim.",
+    ctaLabel: "Yapınıza Uygun Seviyeyi Belirleyelim",
+    tiers: [
+      {
+        name: "Konvansiyonel Temel Paket",
+        targetAudience:
+          "Küçük ve orta ölçekli yapılar: mağaza, küçük otel, ofis (10–15 bölgeye kadar).",
+        solves:
+          "Yasal zorunluluk, temel yangın algılama ve belgelendirme ihtiyacını karşılar.",
+        components: [
+          "Konvansiyonel yangın alarm paneli",
+          "Optik duman dedektörleri",
+          "Manuel ihbar butonları (MİB)",
+          "Sesli + görsel alarm üniteleri",
+          "İtfaiye bağlantı terminali",
+          "TS EN 54 uygunluk belgesi ve test raporu",
+        ],
+        upgradeNote:
+          "Yapı büyüdüğünde veya nokta bazlı tespit gerektiğinde adreslenebilir panele yükseltme.",
+      },
+      {
+        name: "Adreslenebilir Standart Paket",
+        targetAudience:
+          "Orta-büyük yapılar: otel, AVM, hastane, büyük ofis binaları.",
+        solves:
+          "Her dedektörün ayrı ayrı tanımlanması, merkezi kontrol ve detaylı olay raporu ihtiyacını karşılar.",
+        components: [
+          "Adreslenebilir yangın alarm paneli",
+          "Adreslenebilir duman ve ısı dedektörleri",
+          "Manuel ihbar butonları",
+          "Sesli + görsel alarm üniteleri",
+          "İtfaiye bağlantı terminali",
+          "Acil aydınlatma entegrasyonu",
+          "Proje çizimi + test raporu + sertifika",
+        ],
+        upgradeNote:
+          "Sprinkler entegrasyonu, gaz söndürme veya aspirasyonlu erken uyarı sistemi eklendiğinde.",
+      },
+      {
+        name: "Endüstriyel Proje Paketi",
+        targetAudience:
+          "Fabrika, depo, üretim tesisi veya yüksek riskli endüstriyel yapılar.",
+        solves:
+          "Geniş alan yangın algılama, gaz/alev dedektörü, ATEX uyumluluk ve sprinkler entegrasyonu ihtiyacını karşılar.",
+        components: [
+          "Adreslenebilir panel (genişleyebilir)",
+          "Alev ve gaz dedektörleri",
+          "ATEX uyumlu dedektörler (patlamaya dayanıklı)",
+          "Sprinkler sistemi entegrasyonu",
+          "Otomatik söndürme sistemi bağlantısı",
+          "Acil durdurma ve kapatma senaryoları",
+          "Bakım sözleşmesi (yasal zorunluluk)",
+        ],
+        upgradeNote:
+          "İzleme merkezi bağlantısı, termal görüntüleme veya acil anons sistemi eklendiğinde.",
+      },
+    ],
+  },
+
+  /* ── Neden Tek Elden Kurulum ── */
+  whyIntegrated: {
+    title: "Neden Yangın Alarm Projesini Tek Firmadan Yaptırmalısınız?",
+    subtitle:
+      "Yangın alarm sistemi yalnızca cihaz montajı değildir. Proje, belgelendirme ve bakım tek süreçte yürütülmelidir:",
+    items: [
+      {
+        title: "Proje ve Kurulum Bütünlüğü",
+        description:
+          "Proje çizimi ve kurulum aynı firma tarafından yapıldığında dedektör yerleşimi %100 projeyle örtüşür. Belgelendirme tutarsızlığı oluşmaz.",
+      },
+      {
+        title: "Belgelendirme Garantisi",
+        description:
+          "Proje, test raporu ve TS EN 54 uygunluk sertifikası tek firmadan teslim edilir. Sigorta ve ruhsat başvurularında belge eksiği yaşanmaz.",
+      },
+      {
+        title: "Entegrasyon Kolaylığı",
+        description:
+          "Sprinkler, acil aydınlatma, tahliye yönlendirme ve anons sistemi aynı proje kapsamında koordineli çalışır.",
+      },
+      {
+        title: "Yasal Bakım Yükümlülüğü Kapsamda",
+        description:
+          "Yıllık bakım ve test raporu zorunludur. Bakım sözleşmesi bu yükümlülüğü otomatik karşılar ve sistem performansını güvence altına alır.",
+      },
+      {
+        title: "İtfaiye ve Belediye Koordinasyonu",
+        description:
+          "İtfaiye bağlantı terminali kurulumu ve belediye ruhsat süreçlerinde teknik destek sağlarız.",
+      },
+      {
+        title: "Tek Muhatap Avantajı",
+        description:
+          "Arıza, bakım veya belge yenileme ihtiyacında tek muhatap. Sorumluluk karmaşası olmadan hızlı çözüm.",
+      },
+    ],
+  },
+
+  /* ── Keşif ve Teklif Süreci ── */
+  discoveryProcess: {
+    title: "Yangın Alarm Projesinde Süreç Nasıl İşler?",
+    subtitle:
+      "İlk iletişimden belge teslimine kadar net ve şeffaf bir süreç izliyoruz.",
+    steps: [
+      {
+        step: 1,
+        title: "Yapı Bilgisini Alıyoruz",
+        description:
+          "Bina tipi, kat sayısı, alan büyüklüğü ve mevcut yangın alarm durumunu form, telefon veya WhatsApp ile öğreniyoruz.",
+      },
+      {
+        step: 2,
+        title: "Ön Kapsam Değerlendirmesi",
+        description:
+          "Teknik ekibimiz panel tipi (konvansiyonel/adreslenebilir), dedektör kapsamı ve tahmini bütçeyi netleştiriyor.",
+      },
+      {
+        step: 3,
+        title: "Yerinde Keşif ve Proje Çizimi",
+        description:
+          "Kat planlarını yerinde inceliyoruz. Dedektör yerleşim planını, ihbar butonu noktalarını ve kablo güzergahlarını belirliyoruz.",
+      },
+      {
+        step: 4,
+        title: "Teklif ve Proje Teslimi",
+        description:
+          "Keşif sonrası resmi proje çizimi, bileşen listesi ve net fiyat teklifini gönderiyoruz.",
+      },
+      {
+        step: 5,
+        title: "Kurulum ve Devreye Alma",
+        description:
+          "Profesyonel ekibimiz montajı gerçekleştiriyor, tüm dedektörleri test ediyor ve itfaiye bağlantısını aktif hale getiriyor.",
+      },
+      {
+        step: 6,
+        title: "Belge Teslimi ve Bakım Planı",
+        description:
+          "Test raporu, TS EN 54 sertifikası ve proje belgeleri teslim ediliyor. Yıllık bakım sözleşmesi sunuluyor.",
+      },
+    ],
+  },
+
   decisionBlocks: [
     {
       title: "Hangi Durumda Yangın Alarm Sistemi Kurulumu Gereklidir?",
@@ -159,6 +475,68 @@ const data: ServicePageData = {
         "Büyük alan adreslenebilir sistemler, merkezi kontrol paneli ve itfaiye bağlantısı.",
     },
   ],
+
+  /* ── Güven Blokları ── */
+  trustBlocks: {
+    title: "Somut Güvencelerimiz",
+    subtitle: "Genel vaatler yerine size sunduğumuz somut taahhütler:",
+    items: [
+      { text: "TS EN 54 uygunluk sertifikası her kurulumda dahil" },
+      { text: "Resmi proje çizimi ve test raporu teslimi" },
+      { text: "İtfaiye bağlantı terminali kurulumu" },
+      { text: "Sigorta şirketine uygun formatta belgelendirme" },
+      { text: "Yıllık bakım ve test zorunluluğu için sözleşme desteği" },
+      { text: "İstanbul ve çevre illerde ücretsiz keşif" },
+      { text: "Tek muhatap: proje dan belgelendirmeye kadar tek firma" },
+      { text: "Mevcut sistemden adreslenebilir sisteme yükseltme desteği" },
+    ],
+  },
+
+  /* ── İç Linkler ── */
+  internalLinks: {
+    title: "İlgili Hizmet ve Çözüm Sayfaları",
+    subtitle:
+      "Yangın alarm sistemi dışında ihtiyaç duyabileceğiniz diğer güvenlik çözümlerini inceleyin.",
+    links: [
+      {
+        href: "/kamera-sistemi-kurulumu",
+        label: "Kamera Sistemi Kurulumu",
+        description:
+          "Yangın alarm sistemiyle birlikte güvenlik kamerası kurulumu ile 7/24 izleme imkânı.",
+      },
+      {
+        href: "/alarm-sistemi-kurulumu",
+        label: "Alarm Sistemi Kurulumu",
+        description:
+          "Hırsız alarm sistemi ile yangın alarmına ek olarak giriş güvenliği ve caydırıcılık.",
+      },
+      {
+        href: "/kartli-gecis-sistemi-kurulumu",
+        label: "Kartlı Geçiş Sistemi Kurulumu",
+        description:
+          "Yangın anında acil tahliye senaryosuyla entegre çalışan kapı giriş kontrolü.",
+      },
+      {
+        href: "/apartman-site-guvenlik-sistemi",
+        label: "Apartman ve Site Güvenlik Sistemi",
+        description:
+          "Yangın alarm dahil tüm güvenlik bileşenlerini tek projede kapsayan komple site güvenliği.",
+      },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım, Servis ve Uzaktan İzleme",
+        description:
+          "Yasal zorunluluk olan yıllık bakım ve test raporu için periyodik bakım hizmeti.",
+      },
+      {
+        href: "/paketler-ve-fiyatlandirma",
+        label: "Paketler ve Fiyatlandırma",
+        description:
+          "Yapı tipi ve ölçeğine göre örnek yangın alarm paketleri ve fiyat aralıkları.",
+      },
+    ],
+  },
+
   finalCtaTitle: "Yangın Alarm Sistemi Kurulumu İçin Hemen İletişime Geçin",
   finalCtaSubtitle:
     "TS EN 54 uyumlu yangın alarm sistemi kurulumu için teklif alın. Proje, montaj ve belgelendirme tek elden.",
