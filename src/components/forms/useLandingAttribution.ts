@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { classifyPageType } from "@/lib/page-type";
 
 export interface LandingAttribution {
   session_id: string;
@@ -48,33 +49,6 @@ const initialAttribution: LandingAttribution = {
 
 const SESSION_STORAGE_KEY = "gvn_session_attribution_v1";
 
-function getPageType(pathname: string) {
-  if (!pathname) return "";
-  if (pathname.startsWith("/teklif/")) return "landing_page";
-  if (pathname.startsWith("/blog/")) return "blog_post";
-  if (pathname.startsWith("/sorun/")) return "problem_page";
-
-  if (
-    pathname === "/istanbul-kamera-sistemi-kurulumu" ||
-    pathname === "/istanbul-alarm-sistemi" ||
-    pathname === "/istanbul-yangin-alarm-sistemi" ||
-    pathname === "/istanbul-kartli-gecis-sistemi" ||
-    pathname === "/istanbul-kamera-teknik-servis" ||
-    pathname === "/istanbul-kamera-bakim-servisi" ||
-    pathname === "/istanbul-ip-kamera-montaji"
-  ) {
-    return "istanbul_money_page";
-  }
-
-  const segments = pathname.split("/").filter(Boolean);
-
-  if (segments.length === 1) return "city_page";
-  if (segments.length === 2) return "city_service_page";
-  if (segments.length === 3) return "district_service_page";
-
-  return "site_page";
-}
-
 function createSessionId() {
   return `sess_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 }
@@ -86,7 +60,7 @@ export function useLandingAttribution() {
     }
 
     const pathname = window.location.pathname;
-    const pageType = getPageType(pathname);
+    const pageType = classifyPageType(pathname);
     const params = new URLSearchParams(window.location.search);
     const now = new Date().toISOString();
     const pageUrl = window.location.href;

@@ -307,6 +307,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Arızaya uzaktan erişim veya cihaz çevrim içi görünürlüğü de eşlik ediyorsa bu sayfadan uzaktan görünürlük modelini değerlendirin.",
           ctaLabel: "Uzaktan görünürlüğü değerlendirin",
         },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Arıza sıklığı artıyorsa veya sistem ekonomik ömrünü tamamladıysa yeni kurulum sayfasından devam edin.",
+          ctaLabel: "Kurulum seçeneklerini görün",
+        },
       ],
       cityLinksSection: {
         title: "Şehre Göre Kamera Arıza Servisi Kapsamı",
@@ -568,6 +575,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           description:
             "Bakım sözleşmesi olmayan sistemlerde sorun çıktığında nasıl müdahale edildiğini görmek için arıza servisi sayfasına geçin.",
           ctaLabel: "Arıza servisi farkını görün",
+        },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Mevcut sistem bakım modeline uygun değilse veya yenileme gerekiyorsa kurulum sayfasından ilerleyin.",
+          ctaLabel: "Kurulum seçeneklerini inceleyin",
         },
       ],
       cityLinksSection: {
@@ -857,6 +871,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             "Sorunun uzaktan görünürlükten mi yoksa cihaz, kayıt veya ağ arızasından mı kaynaklandığını ayırmak için arıza servisi sayfasına geçin.",
           ctaLabel: "Arıza triage sayfasına gidin",
         },
+        {
+          title: "Kamera Sistemi Kurulumu",
+          href: "/kamera-sistemi-kurulumu",
+          description:
+            "Uzaktan izleme altyapısını yeni bir kurulumla birlikte planlamak istiyorsanız kurulum sayfasından devam edin.",
+          ctaLabel: "Kurulum sayfasına geçin",
+        },
       ],
       cityLinksSection: {
         title: "Şehre Göre Uzaktan Kamera İzleme Kurgusu",
@@ -902,12 +923,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
     },
   },
   "kartli-gecis-sistemi-kurulumu": {
-    metadataTitle: "Kartlı Geçiş Sistemi Kurulumu | Kapı Tipi ve Kullanım Yoğunluğuna Göre Seçim",
+    metadataTitle:
+      "Kartlı Geçiş ve Turnike Sistemi Kurulumu | Kapı Tipi ve Kullanım Yoğunluğuna Göre Seçim",
     metadataDescription:
-      "Kartlı geçiş sistemi kurulumu için kapı tipi, kullanıcı yoğunluğu, okuyucu veya turnike ihtiyacı ve yetki seviyesini birlikte değerlendirin. Yapınıza uygun geçiş modelini netleştirin.",
+      "Kartlı geçiş ve turnike sistemi kurulumu için kapı tipi, kullanıcı yoğunluğu, okuyucu veya turnike ihtiyacı ve yetki seviyesini birlikte değerlendirin. Yapınıza uygun geçiş modelini netleştirin.",
     data: {
       slug: "kartli-gecis-sistemi-kurulumu",
-      title: "Kartlı Geçiş Sistemi Kurulumu",
+      title: "Kartlı Geçiş ve Turnike Sistemi Kurulumu",
       heroPrimaryCtaLabel: "Geçiş modeli analizi isteyin",
       heroPanel: {
         title: "Karar destekli bir kurulum sayfası",
@@ -1158,13 +1180,13 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         },
       ],
       cityLinksSection: {
-        title: "Şehre Göre Kartlı Geçiş Sistemi Kurulum Yaklaşımı",
+        title: "Şehre Göre Kartlı Geçiş ve Turnike Sistemi Kurulum Yaklaşımı",
         description:
-          "Kartlı geçiş kurulumu şehir adıyla değil, bina tipi ve kullanım yoğunluğu ile şekillenir; yine de yerel proje yapısı, keşif ve uygulama detaylarını etkiler. Aşağıdaki şehir sayfaları hangi şehirde hangi kullanım senaryosunun öne çıktığını daha ticari çerçevede gösterir.",
+          "Kartlı geçiş ve turnike kurulumu şehir adıyla değil, bina tipi ve kullanım yoğunluğu ile şekillenir; yine de yerel proje yapısı, keşif ve uygulama detaylarını etkiler. Aşağıdaki şehir sayfaları hangi şehirde hangi kullanım senaryosunun öne çıktığını daha ticari çerçevede gösterir.",
         links: buildCityServiceLinks("kartli-gecis-sistemi-kurulumu", [...priorityCities], {
-          getLabel: (cityName) => `${cityName} kartlı geçiş kurulumu`,
+          getLabel: (cityName) => `${cityName} kartlı geçiş ve turnike kurulumu`,
           getDescription: (cityName) =>
-            `${cityName} için kapı tipi, kullanım yoğunluğu ve geçiş modeli seçim mantığını bu sayfada görün.`,
+            `${cityName} için kartlı geçiş, turnike ve kapı tipi seçim mantığını bu sayfada görün.`,
         }),
       },
       defaultService: "kartli-gecis",

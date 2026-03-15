@@ -119,7 +119,7 @@ export const istanbulTrustLayerData = {
       { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu", description: "Yangın alarm sistemi kurulumu hakkında genel bilgi ve hizmet detayları." },
       { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme", description: "Yangın alarm sisteminizin bakımı ve sürekli çalışırlılığı için hizmetlerimiz." },
       { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Panel veya dedektör sorunlarında yerinde teknik servis desteği alın." },
-      { href: "/istanbul-kartli-gecis-sistemi", label: "İstanbul Kartlı Geçiş Sistemi", description: "Bina güvenliğinizi kartlı geçiş sistemiyle tamamlayın." },
+      { href: "/istanbul/kartli-gecis-sistemi-kurulumu", label: "İstanbul Kartlı Geçiş Sistemi", description: "Bina güvenliğinizi kartlı geçiş sistemiyle tamamlayın." },
     ],
   },
   kartli_gecis: {
@@ -181,7 +181,7 @@ export const istanbulTrustLayerData = {
       { href: "/sorun/kamera-offline", label: "Kamera Offline", description: "Kameranız çevrimdışı mı? Ağ ve bağlantı sorunlarının çözümü için inceleyin." },
       { href: "/sorun/kayit-yapilmiyor", label: "Kayıt Yapılmıyor", description: "Kayıt cihazı veya disk kaynaklı sorunların çözümü için inceleyin." },
       { href: "/istanbul-kamera-bakim-servisi", label: "İstanbul Kamera Bakım Servisi", description: "Tekrarlayan arızaları önlemek için periyodik bakım hizmetimizi inceleyin." },
-      { href: "/istanbul-kamera-sistemi-kurulumu", label: "İstanbul Kamera Sistemi Kurulumu", description: "Eski sisteminizi yenilemek veya yeni kamera kurmak için hizmetlerimiz." },
+      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul Kamera Sistemi Kurulumu", description: "Eski sisteminizi yenilemek veya yeni kamera kurmak için hizmetlerimiz." },
     ],
   },
   kamera_bakim: {
@@ -240,7 +240,7 @@ export const istanbulTrustLayerData = {
     ],
     linksTitle: "İlgili IP kamera hizmetlerimiz",
     links: [
-      { href: "/istanbul-kamera-sistemi-kurulumu", label: "İstanbul Kamera Sistemi Kurulumu", description: "İstanbul genelinde kamera sistemi kurulum hizmetlerimizin tamamı." },
+      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul Kamera Sistemi Kurulumu", description: "İstanbul genelinde kamera sistemi kurulum hizmetlerimizin tamamı." },
       { href: "/uzaktan-kamera-izleme", label: "Uzaktan Kamera İzleme", description: "IP kameralarınızı telefondan veya merkezden izleme çözümlerimiz." },
       { href: "/sorun/telefondan-izleme-sorunu", label: "Telefondan İzleme Sorunu", description: "Telefondan izleme sorunu yaşıyorsanız çözüm adımlarını inceleyin." },
       { href: "/istanbul-kamera-teknik-servis", label: "İstanbul Kamera Teknik Servis", description: "IP kamera sisteminizde sorun varsa teknik servis desteği alın." },

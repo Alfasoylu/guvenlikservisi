@@ -86,24 +86,24 @@ export const packagesContent: Record<string, SeoPackagesContent> = {
   "kartli-gecis-sistemi-kurulumu": {
     title: "Örnek geçiş kontrol paketleri",
     description:
-      "{city} içindeki farklı giriş tipleri için örnek kartlı geçiş sistemi senaryoları.",
+      "{city} içindeki farklı giriş tipleri için örnek kartlı geçiş, turnike ve PDKS senaryoları.",
     localContext:
-      "{city} içinde tek kapıdan çok noktalı geçiş altyapısına kadar farklı senaryolar için çözüm geliştiriyoruz.",
+      "{city} içinde tek kapıdan çok noktalı geçiş, turnike hattı ve vardiya giriş altyapısına kadar farklı senaryolar için çözüm geliştiriyoruz.",
     items: [
       {
-        title: "Tek Kapı Paketi",
+        title: "Tek Kapı ve Apartman Girişi Paketi",
         description:
-          "{city} içinde küçük ofis veya apartman girişleri için okuyucu, kilit ve kullanıcı tanımlama çözümü.",
+          "{city} içinde küçük ofis, apartman ve teknik oda girişleri için okuyucu, kilit ve kullanıcı tanımlama çözümü.",
       },
       {
-        title: "Çok Noktalı Ofis Paketi",
+        title: "Plaza ve Çok Noktalı Ofis Paketi",
         description:
-          "{city} bölgesinde birden fazla kapı ve departman için merkezi geçiş yetkilendirme altyapısı.",
+          "{city} bölgesinde lobi, kat geçişi ve departman bazlı yetkilendirme gereken projeler için merkezi geçiş altyapısı.",
       },
       {
-        title: "Turnike Entegre Paket",
+        title: "PDKS ve Turnike Entegre Paket",
         description:
-          "{city} içinde personel giriş çıkış takibi gereken alanlar için turnike ve geçiş kontrol entegrasyonu.",
+          "{city} içinde personel giriş çıkış takibi, vardiya kontrolü ve ziyaretçi akışı gereken fabrika, depo ve kurumsal tesisler için turnike entegrasyonu.",
       },
     ],
   },

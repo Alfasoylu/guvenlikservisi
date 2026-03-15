@@ -8,6 +8,7 @@ import {
   CalendarDays,
   BookOpen,
   ChevronRight,
+  ShieldCheck,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import FAQSection from "@/components/sections/FAQSection";
@@ -221,6 +222,120 @@ const blogFaqMap: Record<string, { question: string; answer: string }[]> = {
   ],
 };
 
+interface RelatedService {
+  href: string;
+  label: string;
+}
+
+const tagToServiceLinks: Record<string, RelatedService[]> = {
+  kamera: [
+    { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
+    {
+      href: "/istanbul/kamera-sistemi-kurulumu",
+      label: "İstanbul Kamera Sistemi Kurulumu",
+    },
+    { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
+  ],
+  alarm: [
+    { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
+    {
+      href: "/istanbul/alarm-sistemi-kurulumu",
+      label: "İstanbul Alarm Sistemi Kurulumu",
+    },
+  ],
+  yangın: [
+    {
+      href: "/yangin-alarm-sistemi-kurulumu",
+      label: "Yangın Alarm Sistemi Kurulumu",
+    },
+    {
+      href: "/istanbul/yangin-alarm-sistemi-kurulumu",
+      label: "İstanbul Yangın Alarm Sistemi",
+    },
+  ],
+  bakım: [
+    {
+      href: "/bakim-servis-uzaktan-izleme",
+      label: "Bakım, Servis ve Uzaktan İzleme",
+    },
+    {
+      href: "/kamera-sistemi-bakim-sozlesmesi",
+      label: "Kamera Sistemi Bakım Sözleşmesi",
+    },
+  ],
+  apartman: [
+    {
+      href: "/apartman-site-guvenlik-sistemi",
+      label: "Apartman ve Site Güvenlik Sistemi",
+    },
+    {
+      href: "/istanbul/apartman-site-guvenlik-sistemi",
+      label: "İstanbul Apartman Güvenlik",
+    },
+  ],
+  işyeri: [
+    { href: "/isyeri-guvenlik-sistemi", label: "İşyeri Güvenlik Sistemi" },
+    {
+      href: "/fabrika-depo-guvenlik-sistemi",
+      label: "Fabrika ve Depo Güvenlik",
+    },
+  ],
+  fabrika: [
+    {
+      href: "/fabrika-depo-guvenlik-sistemi",
+      label: "Fabrika ve Depo Güvenlik Sistemi",
+    },
+    {
+      href: "/istanbul/fabrika-depo-guvenlik-sistemi",
+      label: "İstanbul Fabrika Güvenlik",
+    },
+  ],
+  "kartlı geçiş": [
+    {
+      href: "/kartli-gecis-sistemi-kurulumu",
+      label: "Kartlı Geçiş Sistemi Kurulumu",
+    },
+  ],
+  montaj: [
+    { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
+  ],
+  fiyat: [
+    { href: "/paketler-ve-fiyatlandirma", label: "Paketler ve Fiyatlandırma" },
+  ],
+};
+
+function getRelatedServiceLinks(tags: string[]): RelatedService[] {
+  const seen = new Set<string>();
+  const result: RelatedService[] = [];
+
+  for (const tag of tags) {
+    const normalizedTag = tag.toLowerCase();
+    for (const [key, links] of Object.entries(tagToServiceLinks)) {
+      if (normalizedTag.includes(key) || key.includes(normalizedTag)) {
+        for (const link of links) {
+          if (!seen.has(link.href)) {
+            seen.add(link.href);
+            result.push(link);
+          }
+        }
+      }
+    }
+  }
+
+  if (result.length === 0) {
+    return [
+      { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
+      { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım, Servis ve Uzaktan İzleme",
+      },
+    ];
+  }
+
+  return result.slice(0, 6);
+}
+
 function renderInlineFormatting(text: string) {
   const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
 
@@ -345,6 +460,7 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
 
   const faqItems = blogFaqMap[slug] || getProgrammaticFaq(slug);
   const relatedPosts = getRelatedBlogPosts(slug, 3);
+  const serviceLinks = getRelatedServiceLinks(post.tags);
 
   return (
     <>
@@ -441,6 +557,39 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
           </div>
         </Container>
       </article>
+
+      {serviceLinks.length > 0 && (
+        <section className="border-t border-gray-100 bg-white py-16">
+          <Container>
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+              <ShieldCheck size={14} />
+              Profesyonel hizmetler
+            </div>
+            <h2 className="mb-2 text-2xl font-bold text-primary">
+              İlgili Hizmetlerimiz
+            </h2>
+            <p className="mb-8 text-sm text-text-light">
+              Bu konuyla ilgili profesyonel kurulum, bakım ve servis
+              hizmetlerimiz:
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center justify-between rounded-xl border border-gray-200 bg-surface px-5 py-4 text-sm font-medium text-primary transition hover:border-accent hover:bg-white hover:shadow-sm"
+                >
+                  {link.label}
+                  <ChevronRight
+                    size={16}
+                    className="shrink-0 text-text-light transition group-hover:text-accent"
+                  />
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {faqItems.length > 0 && (
         <FAQSection items={faqItems} title="Bu Konuda Sık Sorulan Sorular" />

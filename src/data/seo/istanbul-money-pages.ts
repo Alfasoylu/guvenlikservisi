@@ -110,7 +110,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
       "Alarm yatırımı genelde kamera, yangın veya geçiş kontrolüyle birlikte değerlendirilir. Bu kombinasyonları kullanıcıya aynı cluster içinde göstermek gerekir.",
     decisionLinks: [
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
         label: "Istanbul kamera sistemi kurulumu",
         description: "Alarm ve kamera birlikte planlandığında keşif kararı daha kolay verilir.",
       },
@@ -120,7 +120,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Mevzuat ve can güvenliği odaklı projelerde yangın katmanı ayrı bir karar yoludur.",
       },
       {
-        href: "/istanbul-kartli-gecis-sistemi",
+      href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "Istanbul kartlı geçiş sistemi",
         description: "Erişim kontrolü ihtiyacı olan ticari yapılar alarm ile birlikte düşünür.",
       },
@@ -176,12 +176,12 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Yeni kurulum kadar periyodik bakım ve sistem sürekliliği ihtiyacını görünür kılar.",
       },
       {
-        href: "/istanbul-alarm-sistemi",
+      href: "/istanbul/alarm-sistemi-kurulumu",
         label: "Istanbul alarm sistemi",
         description: "Yangın ve hırsız alarmı kararlarının ayrıştığı noktaları destekler.",
       },
       {
-        href: "/istanbul-kartli-gecis-sistemi",
+      href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "Istanbul kartlı geçiş sistemi",
         description: "Kurumsal yapılarda erişim ve yangın güvenliği aynı yatırım sepetinde değerlendirilir.",
       },
@@ -221,12 +221,12 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
       "Kartlı geçiş kullanıcıları genelde kamera, alarm ve ticari yapı çözümlerini birlikte inceler.",
     decisionLinks: [
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
         label: "Istanbul kamera sistemi kurulumu",
         description: "Giriş kayıtları ile görsel doğrulama senaryolarını destekler.",
       },
       {
-        href: "/istanbul-alarm-sistemi",
+      href: "/istanbul/alarm-sistemi-kurulumu",
         label: "Istanbul alarm sistemi",
         description: "Yetkisiz erişim ve alarm senaryolarını aynı karar hattında toplar.",
       },
@@ -348,7 +348,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Sözleşmeli bakım niyetini daha net ticari teklif yapısına bağlar.",
       },
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
         label: "Istanbul kamera sistemi kurulumu",
         description: "Yeni kurulum alan kullanıcılara teslim sonrası sürdürülebilirlik yolunu gösterir.",
       },
@@ -389,7 +389,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
       "Bu kullanıcıyı doğrudan ana money page, teknik servis ve fiyat kararına taşıyan iç linkler birlikte çalışmalı.",
     decisionLinks: [
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
         label: "Istanbul kamera sistemi kurulumu",
         description: "Genel kurulum kararını ve keşif teklif hattını ana money page'de toplar.",
       },

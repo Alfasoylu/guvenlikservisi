@@ -89,8 +89,9 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
   },
   {
     slug: "kartli-gecis-sistemi-kurulumu",
-    name: "Kartlı Geçiş Sistemi Kurulumu",
-    shortDescription: "Personel, apartman ve işyeri girişleri için kartlı geçiş sistemi kurulumu.",
+    name: "Kartlı Geçiş ve Turnike Sistemi Kurulumu",
+    shortDescription:
+      "Personel, apartman, plaza ve işyeri girişleri için kartlı geçiş ve turnike sistemi kurulumu.",
   },
   {
     slug: "apartman-site-guvenlik-sistemi",

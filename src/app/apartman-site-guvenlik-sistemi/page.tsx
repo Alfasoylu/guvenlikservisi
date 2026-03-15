@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/apartman-site-guvenlik-sistemi",
@@ -510,7 +511,7 @@ const data: ServicePageData = {
           "Site giriş, otopark, koridor ve çevre kamerası kurulumu. Tek başına da hizmet veriyoruz.",
       },
       {
-        href: "/kartli-gecis-ve-turnike-sistemi",
+        href: "/kartli-gecis-sistemi-kurulumu",
         label: "Kartlı Geçiş ve Turnike Sistemi",
         description:
           "Blok bazlı giriş kontrolü, biyometrik okuyucu ve araç bariyer çözümleri.",
@@ -646,6 +647,16 @@ const data: ServicePageData = {
         text: "Yazılım, eğitim ve raporlama ile sistemi yönetim kuruluna hazır teslim ediyoruz.",
       },
     ],
+  },
+  cityServiceLinks: {
+    title: "Apartman ve Site Güvenlik Sistemi — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde apartman ve site güvenlik sistemi kurulumu için detaylı bilgi ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/apartman-site-guvenlik-sistemi`,
+      label: `${city.name} Apartman ve Site Güvenlik Sistemi`,
+      description: `${city.name} içinde apartman ve site güvenlik sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

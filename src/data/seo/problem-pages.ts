@@ -543,7 +543,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/kartli-gecis-sistemi-kurulumu", label: "Kartlı Geçiş Sistemi Kurulumu" },
-            { href: "/istanbul-kartli-gecis-sistemi", label: "İstanbul Kartlı Geçiş Sistemi" },
+      { href: "/istanbul/kartli-gecis-sistemi-kurulumu", label: "İstanbul Kartlı Geçiş Sistemi" },
         ],
         relatedProblemLinks: [
             { href: "/sorun/alarm-arizalari", label: "Alarm Sistemi Arızaları" },
@@ -638,7 +638,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
-            { href: "/istanbul-alarm-sistemi", label: "İstanbul Alarm Sistemi" },
+      { href: "/istanbul/alarm-sistemi-kurulumu", label: "İstanbul Alarm Sistemi" },
             { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
         ],
         relatedProblemLinks: [

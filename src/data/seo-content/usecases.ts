@@ -56,15 +56,16 @@ export const useCaseContent: Record<string, SeoUseCasesContent> = {
   "kartli-gecis-sistemi-kurulumu": {
     title: "Kartlı geçiş sistemi en çok hangi senaryolarda kullanılıyor?",
     description:
-      "{city} içinde giriş kontrolü, personel yönetimi ve güvenli alan ayrımı gereken yapılarda kartlı geçiş sistemleri kuruyoruz.",
+      "{city} içinde giriş kontrolü, personel yönetimi, PDKS ve güvenli alan ayrımı gereken yapılarda kartlı geçiş ve turnike sistemleri kuruyoruz.",
     localContext:
-      "{city} içinde geçiş kontrolü gereken alanlarda kullanıcı sayısı ve kapı altyapısı doğru çözümü belirler.",
+      "{city} içinde geçiş kontrolü gereken alanlarda kullanıcı sayısı, giriş yoğunluğu ve turnike ihtiyacı doğru çözümü belirler.",
     items: [
-      "Ofis girişleri",
+      "Plaza ve ofis girişleri",
       "Apartman ve site kapıları",
-      "Personel devam kontrol noktaları",
-      "Depo ve teknik oda girişleri",
-      "Turnikeli kurumsal girişler",
+      "Personel devam kontrol ve PDKS noktaları",
+      "Depo, sevkiyat ve teknik oda girişleri",
+      "Turnikeli kurumsal ve ziyaretçi girişleri",
+      "Vardiyalı fabrika personel geçişleri",
       "Yetkili erişim gerektiren özel alanlar",
     ],
   },

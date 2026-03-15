@@ -910,6 +910,59 @@ export default function BakimServisUzaktanIzlemePage() {
                 ))}
               </div>
             </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-2xl font-bold text-slate-950">
+                Bakım ve Servis Kararını Destekleyen İlgili Sayfalar
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Bakım sözleşmesi, arıza müdahalesi, uzaktan izleme ve yeni
+                kurulum birbirini tamamlayan hizmetlerdir. Aşağıdaki sayfalar
+                hangi modelin durumunuza uygun olduğunu netleştirmenize yardımcı
+                olur.
+              </p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    href: "/kamera-ariza-servisi",
+                    title: "Kamera Arıza Servisi",
+                    description:
+                      "Görüntü yok, kayıt yok veya offline kamera sorunlarında arıza teşhisi ve yerinde müdahale.",
+                  },
+                  {
+                    href: "/kamera-sistemi-bakim-sozlesmesi",
+                    title: "Kamera Sistemi Bakım Sözleşmesi",
+                    description:
+                      "Periyodik kontrol, disk-kayıt denetimi ve sözleşmeli bakım modeli.",
+                  },
+                  {
+                    href: "/uzaktan-kamera-izleme",
+                    title: "Uzaktan Kamera İzleme",
+                    description:
+                      "Cihaz çevrim içi durumu, kayıt görünürlüğü ve çok lokasyon uzaktan erişim modeli.",
+                  },
+                  {
+                    href: "/kamera-sistemi-kurulumu",
+                    title: "Kamera Sistemi Kurulumu",
+                    description:
+                      "Yeni kurulum veya mevcut sistemin yenilenmesi gerekiyorsa kurulum sayfasından devam edin.",
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-300 hover:bg-white"
+                  >
+                    <p className="font-semibold text-slate-900 group-hover:text-blue-700">
+                      {item.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-slate-500">
+                      {item.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

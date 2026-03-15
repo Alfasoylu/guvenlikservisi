@@ -16,14 +16,16 @@ This file is a living source of truth, not a stale one-time audit snapshot.
 - `/teklif/*` layout applies `noindex,nofollow`.
 - `/teklif/*` pages are outside sitemap strategy.
 - Istanbul city/service organic winners now belong to `/{city}/{service}`, not legacy one-off Istanbul URLs.
+- Legacy `/istanbul-ip-kamera-montaji`, `/istanbul-kamera-bakim-servisi`, and `/istanbul-kamera-teknik-servis` URLs now redirect and canonicalize to the `/{city}/{service}` winner model.
 
 ### `kısmi`
 - Root layout still defines a global homepage canonical; this is safe for pages with explicit canonical but remains risky if a new page ships without route-level metadata.
 - Some static service/support pages still use page-local metadata instead of a fully centralized metadata factory.
 - Legacy static Istanbul pages still exist in repo as redirect losers and should eventually be retired or reduced.
+- The remaining legacy Istanbul loser pages now use redirect-only implementations instead of serving duplicate content.
 
 ### open issues
-- `kartli-gecis-ve-turnike-sistemi` vs `kartli-gecis-sistemi-kurulumu` slug ownership is still split across route families.
+- legacy redirect families still exist in repo and should continue shrinking as one-off exceptions are retired.
 - Metadata documentation for every single page instance is intentionally not repeated here; route-family governance is the source of truth.
 
 ---
@@ -120,6 +122,7 @@ Rules:
 Current loser families:
 - legacy `/{city}-guvenlik-sistemi-kurulumu`
 - legacy one-off Istanbul money-page routes such as `/istanbul-kamera-sistemi-kurulumu`
+- legacy one-off Istanbul camera routes such as `/istanbul-ip-kamera-montaji`, `/istanbul-kamera-bakim-servisi`, and `/istanbul-kamera-teknik-servis`
 - overlapping paid route `/teklif/kamera/istanbul-ip-kamera-montaji`
 
 Rules:

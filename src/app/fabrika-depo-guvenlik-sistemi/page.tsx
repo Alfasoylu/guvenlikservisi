@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/fabrika-depo-guvenlik-sistemi",
@@ -547,7 +548,7 @@ const data: ServicePageData = {
           "Endüstriyel yangın algılama, gaz dedektörleri, belgelendirme ve mevzuat uyumu.",
       },
       {
-        href: "/kartli-gecis-ve-turnike-sistemi",
+        href: "/kartli-gecis-sistemi-kurulumu",
         label: "Kartlı Geçiş ve Turnike Sistemi",
         description:
           "Personel giriş-çıkış kontrolü, vardiya takibi, zaman puantajı ve ziyaretçi yönetimi.",
@@ -572,7 +573,7 @@ const data: ServicePageData = {
       title: "Üretim Tesisleri",
       content:
         "Üretim hatları, depo alanları ve personel girişlerini kapsayan entegre güvenlik. Vardiya takibi, erişim yetkilendirmesi ve İSG uyumu dahil.",
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
     },
     {
       title: "Lojistik ve Depo",
@@ -670,6 +671,16 @@ const data: ServicePageData = {
         text: "Arıza bildiriminden itibaren 4 saat sahada müdahale taahhüdü ve planlı periyodik bakım.",
       },
     ],
+  },
+  cityServiceLinks: {
+    title: "Fabrika ve Depo Güvenlik Sistemi — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde fabrika ve depo güvenlik sistemi kurulumu için detaylı bilgi ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/fabrika-depo-guvenlik-sistemi`,
+      label: `${city.name} Fabrika ve Depo Güvenlik Sistemi`,
+      description: `${city.name} içinde fabrika ve depo güvenlik sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

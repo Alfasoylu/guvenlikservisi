@@ -217,7 +217,7 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
   if (serviceSlug === "kamera-sistemi-kurulumu") {
     return [
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+      href: "/istanbul/kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
         description:
           "İstanbul genelinde kamera sistemi kurulum hizmetlerimizin detaylarını inceleyin.",
@@ -246,7 +246,7 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
   if (serviceSlug === "alarm-sistemi-kurulumu") {
     return [
       {
-        href: "/istanbul-alarm-sistemi",
+      href: "/istanbul/alarm-sistemi-kurulumu",
         label: "İstanbul Alarm Sistemi",
         description:
           "İstanbul genelinde ev ve işyeri alarm sistemi kurulum hizmetlerimiz.",
@@ -274,7 +274,7 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
 
   return [
     {
-      href: "/istanbul-kartli-gecis-sistemi",
+      href: "/istanbul/kartli-gecis-sistemi-kurulumu",
       label: "İstanbul Kartlı Geçiş Sistemi",
       description:
         "İstanbul genelindeki kartlı geçiş ve erişim kontrol sistemi hizmetlerimiz.",

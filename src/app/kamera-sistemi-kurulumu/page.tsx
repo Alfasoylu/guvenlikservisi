@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/kamera-sistemi-kurulumu");
 
@@ -284,7 +285,7 @@ const data: ServicePageData = {
       "Kamera sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde aktif olarak sunuyoruz. Şehir bazlı hizmet detaylarına aşağıdaki sayfalardan ulaşabilirsiniz.",
     links: [
       {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+        href: "/istanbul/kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
       },
       {
@@ -300,12 +301,22 @@ const data: ServicePageData = {
   authorityAfterFaq: {
     title: "Kamera Sistemi Kurulumu Hizmeti Verilen Şehirler",
     links: [
-      { href: "/istanbul-kamera-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul" },
       { href: "/ankara/kamera-sistemi-kurulumu", label: "Ankara" },
       { href: "/izmir/kamera-sistemi-kurulumu", label: "İzmir" },
       { href: "/bursa/kamera-sistemi-kurulumu", label: "Bursa" },
       { href: "/antalya/kamera-sistemi-kurulumu", label: "Antalya" },
     ],
+  },
+  cityServiceLinks: {
+    title: "Kamera Sistemi Kurulumu — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde kamera sistemi kurulumu için detaylı bilgi, şehre özel içerik ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/kamera-sistemi-kurulumu`,
+      label: `${city.name} Kamera Sistemi Kurulumu`,
+      description: `${city.name} içinde profesyonel kamera sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

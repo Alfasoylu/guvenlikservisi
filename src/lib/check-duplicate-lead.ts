@@ -1,3 +1,8 @@
+import {
+  buildDuplicateLeadFingerprint,
+  type DuplicateLeadFingerprintInput,
+} from "@/lib/lead-dedup";
+
 export interface DuplicateCheckResult {
   ok: boolean;
   found: boolean;
@@ -11,7 +16,7 @@ export interface DuplicateCheckResult {
 }
 
 export async function checkDuplicateLead(
-  phone: string
+  input: DuplicateLeadFingerprintInput
 ): Promise<DuplicateCheckResult> {
   try {
     const scriptUrl =
@@ -27,7 +32,7 @@ export async function checkDuplicateLead(
       };
     }
 
-    if (!phone) {
+    if (!input.phone) {
       return {
         ok: true,
         found: false,
@@ -35,9 +40,15 @@ export async function checkDuplicateLead(
       };
     }
 
-    const url = `${scriptUrl}?action=check_duplicate&phone=${encodeURIComponent(
-      phone
-    )}`;
+    const fingerprint = buildDuplicateLeadFingerprint(input);
+    const query = new URLSearchParams({
+      action: "check_duplicate",
+      phone: fingerprint.phone,
+      service_type: fingerprint.serviceType,
+      page_path: fingerprint.pagePath,
+      message_hash: fingerprint.messageHash,
+    });
+    const url = `${scriptUrl}?${query.toString()}`;
 
     const response = await fetch(url, {
       method: "GET",

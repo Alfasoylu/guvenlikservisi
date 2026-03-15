@@ -57,7 +57,7 @@ Examples:
 - `/kamera-sistemi-kurulumu`
 - `/alarm-sistemi-kurulumu`
 - `/yangin-alarm-sistemi-kurulumu`
-- `/kartli-gecis-ve-turnike-sistemi`
+- `/kartli-gecis-sistemi-kurulumu`
 
 Role:
 National authority pages.

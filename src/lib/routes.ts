@@ -14,9 +14,6 @@ export const staticPagePaths = [
   "/fabrika-depo-guvenlik-sistemi",
   "/hakkimizda",
   "/iletisim",
-  "/istanbul-ip-kamera-montaji",
-  "/istanbul-kamera-bakim-servisi",
-  "/istanbul-kamera-teknik-servis",
   "/isyeri-guvenlik-sistemi",
   "/kamera-ariza-servisi",
   "/kamera-sistemi-bakim-sozlesmesi",
@@ -42,6 +39,9 @@ const staticPathSet = new Set<string>([
   ...rootPaths,
   ...staticPagePaths,
   ...teklifPaths,
+  "/istanbul-ip-kamera-montaji",
+  "/istanbul-kamera-bakim-servisi",
+  "/istanbul-kamera-teknik-servis",
 ]);
 const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
 const sorunPathSet = new Set(getAllProblemSlugs().map((slug) => `/sorun/${slug}`));

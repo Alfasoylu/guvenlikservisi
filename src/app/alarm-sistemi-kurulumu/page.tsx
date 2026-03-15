@@ -3,6 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
 } from "@/components/templates/ServicePageTemplate";
+import { cities } from "@/data/cities";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/alarm-sistemi-kurulumu");
 
@@ -268,7 +269,7 @@ const data: ServicePageData = {
       "Alarm sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde sunuyoruz. Şehir bazlı uygulama detaylarını aşağıdaki sayfalardan inceleyebilirsiniz.",
     links: [
       {
-        href: "/istanbul-alarm-sistemi",
+        href: "/istanbul/alarm-sistemi-kurulumu",
         label: "İstanbul Alarm Sistemi Kurulumu",
       },
       {
@@ -284,12 +285,22 @@ const data: ServicePageData = {
   authorityAfterFaq: {
     title: "Alarm Sistemi Kurulumu Hizmeti Verilen Şehirler",
     links: [
-      { href: "/istanbul-alarm-sistemi", label: "İstanbul" },
+      { href: "/istanbul/alarm-sistemi-kurulumu", label: "İstanbul" },
       { href: "/ankara/alarm-sistemi-kurulumu", label: "Ankara" },
       { href: "/izmir/alarm-sistemi-kurulumu", label: "İzmir" },
       { href: "/bursa/alarm-sistemi-kurulumu", label: "Bursa" },
       { href: "/antalya/alarm-sistemi-kurulumu", label: "Antalya" },
     ],
+  },
+  cityServiceLinks: {
+    title: "Alarm Sistemi Kurulumu — Şehir Bazlı Hizmet Sayfaları",
+    description:
+      "Hizmet verdiğimiz her şehirde alarm sistemi kurulumu için detaylı bilgi ve teklif sayfalarına aşağıdan ulaşabilirsiniz.",
+    links: cities.map((city) => ({
+      href: `/${city.slug}/alarm-sistemi-kurulumu`,
+      label: `${city.name} Alarm Sistemi Kurulumu`,
+      description: `${city.name} içinde alarm sistemi kurulumu için keşif ve teklif alın.`,
+    })),
   },
 };
 

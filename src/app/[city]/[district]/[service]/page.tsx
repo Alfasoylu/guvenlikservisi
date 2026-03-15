@@ -111,15 +111,15 @@ export default async function DistrictServicePage({ params }: PageProps) {
   const istanbulMoneyPageMap: Record<string, { href: string; label: string }> =
     {
       "kamera-sistemi-kurulumu": {
-        href: "/istanbul-kamera-sistemi-kurulumu",
+        href: "/istanbul/kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
       },
       "alarm-sistemi-kurulumu": {
-        href: "/istanbul-alarm-sistemi",
+        href: "/istanbul/alarm-sistemi-kurulumu",
         label: "İstanbul Alarm Sistemi",
       },
       "kartli-gecis-sistemi-kurulumu": {
-        href: "/istanbul-kartli-gecis-sistemi",
+        href: "/istanbul/kartli-gecis-sistemi-kurulumu",
         label: "İstanbul Kartlı Geçiş Sistemi",
       },
     };
@@ -296,7 +296,7 @@ export default async function DistrictServicePage({ params }: PageProps) {
           <IstanbulServiceQuoteForm
             pagePath={pagePath}
             formSource={`istanbul_${district}_${service.replace(/-/g, "_")}`}
-            serviceType={service.split("-")[0]}
+            serviceType={service}
             title={`${profile.locative} Ücretsiz Keşif ve Teklif`}
             subtitle={`${profile.name} bölgesinde ${seoService.name.toLocaleLowerCase("tr-TR")} ihtiyacınızı belirtin.`}
             submitLabel={`${profile.name} İçin Teklif Al`}

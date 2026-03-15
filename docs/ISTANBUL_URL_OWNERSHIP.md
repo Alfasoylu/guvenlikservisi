@@ -68,7 +68,7 @@ Examples:
 | `/kamera-sistemi-kurulumu` | national service authority |
 | `/alarm-sistemi-kurulumu` | national service authority |
 | `/yangin-alarm-sistemi-kurulumu` | national service authority |
-| `/kartli-gecis-ve-turnike-sistemi` or future normalized equivalent | national service authority |
+| `/kartli-gecis-sistemi-kurulumu` | national service authority |
 
 Rules:
 

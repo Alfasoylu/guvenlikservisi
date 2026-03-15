@@ -32,7 +32,7 @@ This document records the structural SEO and lead-generation risks that can dama
   - `src/lib/seo/metadata.ts` centralizes canonical generation cleanly, but canonical alone does not solve similarity when body content and intent are too close.
   - `src/lib/service-page-factory.ts` builds metadata descriptions with repeatable templates, which is efficient but increases similarity risk across many route variants.
   - `src/data/seo/segments.ts` and `src/data/seo/services.ts` now make future segment/service combinations easy to generate; that is good for scale but raises duplication risk if one segment page and one city/service page target the same commercial query set.
-  - `docs/PAGE_VALUE_MAP.md` already records concrete duplication risks such as `/istanbul-guvenlik-sistemi-kurulumu`, `kartli-gecis-ve-turnike-sistemi` vs `kartli-gecis-sistemi-kurulumu`, and overlapping `/teklif/istanbul-ip-kamera-montaji` variants.
+  - `docs/PAGE_VALUE_MAP.md` records concrete duplication risks such as `/istanbul-guvenlik-sistemi-kurulumu` and overlapping `/teklif/istanbul-ip-kamera-montaji` variants; the `kartli-gecis` slug split has been normalized and should stay normalized.
   - `src/app/[city]/[service]/page.tsx` uses a large shared route template. If future district or segment routes reuse the same trust, process, FAQ, and CTA patterns, similarity will rise quickly.
 - Severity: High.
 - Early warning signals:

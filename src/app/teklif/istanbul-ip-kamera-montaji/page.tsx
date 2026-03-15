@@ -1021,7 +1021,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 </Link>{" "}
                 sayfasını, İstanbul özelinde kurulum yaklaşımı için{" "}
                 <Link
-                  href="/istanbul-kamera-sistemi-kurulumu"
+                  href="/istanbul/kamera-sistemi-kurulumu"
                   className="font-bold text-slate-950 underline underline-offset-4"
                 >
                   İstanbul kamera sistemi kurulumu
