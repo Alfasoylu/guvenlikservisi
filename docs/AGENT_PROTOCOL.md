@@ -77,6 +77,23 @@ Görev seçme kuralı:
 - Teknik doğruluk bozuksa önce onu düzelt
 - Kozmetik işleri en sona bırak
 
+---
+
+## Kilitli UI Kuralları
+
+Aşağıdaki UI kararları sabitlenmiştir. Docs açıkça değiştirilmediği sürece geri döndürmeyin.
+
+### İlçe Listeleme Bloğu (Mart 2026)
+
+- City ve city/service sayfalarında ilçeler TEK birleşik blokta gösterilir
+- Bileşen: `CityDistrictGridSection`
+- Başlık: "Hizmet Verdiğimiz İlçeler"
+- Tüm ilçeler alfabetik sırayla, eşit şekilde listelenir
+- Görünür UI'da "Öncelikli ilçe kapsamı", "Diğer hizmet bölgeleri" veya benzeri gruplamalar KULLANILMAZ
+- İlçeler şu an link değildir; `enableLinks` prop'u gelecekte etkinleştirilebilir
+- Eski `ServiceDistricts` bileşeni deprecated'dır; tekrar import etmeyin
+- Veri katmanında `priority`, `tier`, `nearbyDistricts` kalabilir — bunlar routing/internal-link amaçlıdır, görünür ilçe listeleme UI'ını kontrol ETMEZ
+
 Output formatı:
 1. Kısa durum özeti
 2. Docs içinde işaretlenen / güncellenen maddeler

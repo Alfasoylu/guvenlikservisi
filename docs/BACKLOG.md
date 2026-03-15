@@ -276,7 +276,7 @@ Her programmatic sayfada aşağıdaki bloklar bulunmalı:
 - [x] süreç
 - [~] fiyatı etkileyen faktörler — paket/fiyat section kısmi
 - [~] neden profesyonel ekip — trust/commercial highlights mevcut
-- [x] local district mention — İstanbul 39 ilçe aktif
+- [x] local district mention — tüm şehirler aktif; `CityDistrictGridSection` ile tek birleşik ilçe grid bloğu (eski "Öncelikli / Diğer" gruplaması kaldırıldı)
 - [x] sık arızalar / riskler — pain points section mevcut
 - [x] sık sorulan sorular — FAQ with dedup aktif
 - [x] CTA
@@ -390,7 +390,7 @@ Her sayfa için:
 ## P5.2 Contextual Link Sistemi
 
 - [x] “benzer hizmetler”
-- [x] "yakın ilçelerde hizmet" — nearbyDistricts üzerinden 7 Tier-1 ilçede aktif
+- [x] "yakın ilçelerde hizmet" — nearbyDistricts üzerinden 7 Tier-1 ilçede aktif (yalnızca `[city]/[district]/[service]` rotasında; city ve city/service sayfalarında ilçe öncelik gruplaması UI'dan kaldırıldı)
 - [x] “aynı şehirde diğer çözümler”
 - [ ] “site yönetimleri için ilgili hizmetler”
 - [ ] “fabrikalar için ilgili hizmetler”
