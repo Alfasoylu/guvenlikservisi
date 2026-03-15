@@ -142,6 +142,12 @@ export interface RawLeadInput {
   utm_content?: string;
   referrer?: string;
   page_title?: string;
+  page_path?: string;
+  session_id?: string;
+  landing_page_url?: string;
+  landing_page_type?: string;
+  landing_page_path?: string;
+  landing_timestamp?: string;
   gclid?: string;
   fbclid?: string;
   msclkid?: string;
@@ -326,6 +332,22 @@ export function buildLeadRecord(
     cleanString(raw.referrer) ? `referrer:${cleanString(raw.referrer)}` : "",
     cleanString(raw.page_title)
       ? `page_title:${cleanString(raw.page_title)}`
+      : "",
+    cleanString(raw.page_path) ? `page_path:${cleanString(raw.page_path)}` : "",
+    cleanString(raw.session_id)
+      ? `session_id:${cleanString(raw.session_id)}`
+      : "",
+    cleanString(raw.landing_page_url)
+      ? `landing_page_url:${cleanString(raw.landing_page_url)}`
+      : "",
+    cleanString(raw.landing_page_type)
+      ? `landing_page_type:${cleanString(raw.landing_page_type)}`
+      : "",
+    cleanString(raw.landing_page_path)
+      ? `landing_page_path:${cleanString(raw.landing_page_path)}`
+      : "",
+    cleanString(raw.landing_timestamp)
+      ? `landing_timestamp:${cleanString(raw.landing_timestamp)}`
       : "",
     cleanString(raw.fbclid) ? `fbclid:${cleanString(raw.fbclid)}` : "",
     cleanString(raw.msclkid) ? `msclkid:${cleanString(raw.msclkid)}` : "",

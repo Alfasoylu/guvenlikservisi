@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
-import { blogPosts } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/data/blog-posts";
 import {
   getAbsoluteUrl,
   getAllCityPaths,
-  getAllCityServicePaths,
+  getAllDistrictServicePaths,
+  getAllPrimaryCityServicePaths,
+  getAllProblemPaths,
   staticPagePaths,
 } from "@/lib/routes";
 
@@ -33,7 +35,7 @@ export function buildSitemapEntries(lastModified = new Date()): MetadataRoute.Si
   );
 
   entries.push(
-    ...blogPosts.map((post) => ({
+    ...getAllBlogPosts().map((post) => ({
       url: getAbsoluteUrl(`/blog/${post.slug}`),
       lastModified: new Date(post.updatedAt || post.publishedAt),
       changeFrequency: "monthly" as const,
@@ -51,11 +53,29 @@ export function buildSitemapEntries(lastModified = new Date()): MetadataRoute.Si
   );
 
   entries.push(
-    ...getAllCityServicePaths().map((path) => ({
+    ...getAllPrimaryCityServicePaths().map((path) => ({
       url: getAbsoluteUrl(path),
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9,
+    }))
+  );
+
+  entries.push(
+    ...getAllDistrictServicePaths().map((path) => ({
+      url: getAbsoluteUrl(path),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }))
+  );
+
+  entries.push(
+    ...getAllProblemPaths().map((path) => ({
+      url: getAbsoluteUrl(path),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     }))
   );
 

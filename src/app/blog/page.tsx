@@ -3,7 +3,7 @@ import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
 import { Clock3, ArrowRight, CalendarDays, BookOpen } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { blogPosts, getFeaturedBlogPosts } from "@/data/blog-posts";
+import { getAllBlogPosts, getFeaturedBlogPosts } from "@/data/blog-posts";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/blog");
@@ -22,7 +22,7 @@ export default function BlogListeSayfasi() {
   ]);
 
   const featuredPosts = getFeaturedBlogPosts();
-  const regularPosts = blogPosts.filter((post) => !post.featured);
+  const regularPosts = getAllBlogPosts().filter((post) => !post.featured);
 
   return (
     <>
@@ -56,8 +56,9 @@ export default function BlogListeSayfasi() {
             </h1>
 
             <p className="max-w-2xl text-lg leading-relaxed text-white/80">
-              Kamera sistemi kurulumu, alarm çözümleri, yangın alarmı, fiyatlar ve
-              doğru sistem seçimi hakkında gerçek hayatta işinize yarayacak içerikler.
+              Kamera sistemi kurulumu, alarm çözümleri, yangın alarmı, fiyatlar
+              ve doğru sistem seçimi hakkında gerçek hayatta işinize yarayacak
+              içerikler.
             </p>
           </div>
         </Container>
@@ -67,9 +68,12 @@ export default function BlogListeSayfasi() {
         <section className="bg-white py-16">
           <Container>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-primary mb-3">Öne Çıkan Yazılar</h2>
+              <h2 className="text-2xl font-bold text-primary mb-3">
+                Öne Çıkan Yazılar
+              </h2>
               <p className="max-w-3xl text-sm leading-7 text-text-light">
-                En çok aranan ve karar vermeyi hızlandıran içerikleri önce burada gösteriyoruz.
+                En çok aranan ve karar vermeyi hızlandıran içerikleri önce
+                burada gösteriyoruz.
               </p>
             </div>
 
@@ -93,7 +97,9 @@ export default function BlogListeSayfasi() {
                     {post.title}
                   </h3>
 
-                  <p className="mb-5 text-sm leading-7 text-text-light">{post.excerpt}</p>
+                  <p className="mb-5 text-sm leading-7 text-text-light">
+                    {post.excerpt}
+                  </p>
 
                   <div className="mb-5 flex flex-wrap items-center gap-4 text-xs text-text-light">
                     <span className="inline-flex items-center gap-1">
@@ -120,10 +126,12 @@ export default function BlogListeSayfasi() {
       <section className="bg-surface py-16 md:py-20">
         <Container>
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-primary mb-3">Tüm Yazılar</h2>
+            <h2 className="text-2xl font-bold text-primary mb-3">
+              Tüm Yazılar
+            </h2>
             <p className="max-w-3xl text-sm leading-7 text-text-light">
-              Fiyat rehberleri, teknik içerikler, yasal zorunluluklar ve kurulum kararını
-              kolaylaştıran yazıları burada bulabilirsiniz.
+              Fiyat rehberleri, teknik içerikler, yasal zorunluluklar ve kurulum
+              kararını kolaylaştıran yazıları burada bulabilirsiniz.
             </p>
           </div>
 
@@ -135,10 +143,12 @@ export default function BlogListeSayfasi() {
                 className="group rounded-2xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-md"
               >
                 <div className="mb-4 rounded-2xl border border-gray-200 bg-surface p-5">
-                  <div className="mb-2 text-sm font-semibold text-primary">Uzman İçerik</div>
+                  <div className="mb-2 text-sm font-semibold text-primary">
+                    Uzman İçerik
+                  </div>
                   <p className="text-sm leading-7 text-text-light">
-                    Güvenlik sistemleri, kurulum süreçleri, fiyatlar ve doğru ürün seçimi
-                    hakkında pratik bilgiler.
+                    Güvenlik sistemleri, kurulum süreçleri, fiyatlar ve doğru
+                    ürün seçimi hakkında pratik bilgiler.
                   </p>
                 </div>
 
@@ -152,7 +162,9 @@ export default function BlogListeSayfasi() {
                   {post.title}
                 </h3>
 
-                <p className="mb-5 text-sm leading-7 text-text-light">{post.excerpt}</p>
+                <p className="mb-5 text-sm leading-7 text-text-light">
+                  {post.excerpt}
+                </p>
 
                 <div className="mb-5 flex flex-wrap items-center gap-4 text-xs text-text-light">
                   <span className="inline-flex items-center gap-1">

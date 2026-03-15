@@ -218,6 +218,44 @@ const data: ServicePageData = {
     },
   ],
   defaultService: "kamera",
+  blogPosts: [
+    {
+      slug: "guvenlik-kamerasi-montaj-ucreti-2026",
+      title: "Güvenlik Kamerası Montaj Ücreti 2026",
+      excerpt:
+        "Ev, işyeri ve depo için güvenlik kamerası kurulum maliyeti ne kadar? Güncel fiyatlar ve bileşen bazlı maliyet analizi.",
+    },
+    {
+      slug: "ip-kamera-mi-analog-kamera-mi",
+      title: "IP Kamera mı Analog Kamera mı?",
+      excerpt:
+        "IP ve analog kameraların teknik farkları, avantajları ve mekan tipine göre doğru sistem seçimi rehberi.",
+    },
+    {
+      slug: "kamera-sistemi-nereye-takilir",
+      title: "Kamera Sistemi Nereye Takılır?",
+      excerpt:
+        "Ev, işyeri, apartman ve fabrika için doğru kamera yerleşim noktaları ve montaj prensipleri rehberi.",
+    },
+    {
+      slug: "4-kamerali-sistem-fiyati",
+      title: "4 Kameralı Güvenlik Sistemi Fiyatı 2026",
+      excerpt:
+        "4 kameralı güvenlik sistemi fiyatı ne kadar? 2026 güncel fiyatlar, sistem bileşenleri, paket seçenekleri ve kurulum maliyeti rehberi.",
+    },
+    {
+      slug: "8-kamerali-sistem-fiyati",
+      title: "8 Kameralı Güvenlik Sistemi Fiyatı 2026",
+      excerpt:
+        "8 kameralı güvenlik sistemi fiyatı ne kadar? Sistem bileşenleri, paket seçenekleri ve kurulum maliyeti rehberi.",
+    },
+    {
+      slug: "poe-kamera-sistemi-nedir",
+      title: "PoE Kamera Sistemi Nedir?",
+      excerpt:
+        "PoE kamera sistemi hakkında kapsamlı teknik rehber. Çalışma prensibi, avantajları, seçim kriterleri ve fiyat bilgileri.",
+    },
+  ],
   ctaContent: {
     badge: "Keşif • Planlama • Teklif",
     title: "Kamera Sistemi İçin Ücretsiz Keşif ve Teklif Alın",
@@ -246,7 +284,7 @@ const data: ServicePageData = {
       "Kamera sistemi kurulum hizmetini Türkiye'nin büyük şehirlerinde aktif olarak sunuyoruz. Şehir bazlı hizmet detaylarına aşağıdaki sayfalardan ulaşabilirsiniz.",
     links: [
       {
-        href: "/istanbul/kamera-sistemi-kurulumu",
+        href: "/istanbul-kamera-sistemi-kurulumu",
         label: "İstanbul Kamera Sistemi Kurulumu",
       },
       {
@@ -262,7 +300,7 @@ const data: ServicePageData = {
   authorityAfterFaq: {
     title: "Kamera Sistemi Kurulumu Hizmeti Verilen Şehirler",
     links: [
-      { href: "/istanbul/kamera-sistemi-kurulumu", label: "İstanbul" },
+      { href: "/istanbul-kamera-sistemi-kurulumu", label: "İstanbul" },
       { href: "/ankara/kamera-sistemi-kurulumu", label: "Ankara" },
       { href: "/izmir/kamera-sistemi-kurulumu", label: "İzmir" },
       { href: "/bursa/kamera-sistemi-kurulumu", label: "Bursa" },

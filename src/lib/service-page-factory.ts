@@ -21,7 +21,7 @@ import { useCaseContent } from "@/data/seo-content/usecases";
 import { cities } from "@/data/cities";
 import { getBusinessModelForService, getSeoServiceBySlug, services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
-import { getCityServicePath } from "@/lib/routes";
+import { getPrimaryCityServicePath } from "@/lib/routes";
 import { getHighLtvSegmentsForService, sortServicesByBusinessPriority } from "@/lib/seo/page-factory";
 
 type CityRecord = (typeof cities)[number];
@@ -457,7 +457,7 @@ export function getServicePageFactoryData(
       return [];
     }
 
-    const href = getCityServicePath(city.slug, item.slug);
+    const href = getPrimaryCityServicePath(city.slug, item.slug);
 
     if (!href) {
       return [];

@@ -251,6 +251,7 @@ export default function QuoteForm({
 
     pushAnalyticsEvent("view_lead_form", {
       page_path: effectiveTrackingContext?.page_path || pathname || "",
+      page_type: effectivePageTemplate,
       city: effectiveTrackingContext?.city || "",
       service: effectiveTrackingContext?.service || "",
       lead_channel: "form",
@@ -258,6 +259,9 @@ export default function QuoteForm({
       service_type: form.service_type || defaultService || "",
       intent_type: intentType,
       page_template: effectivePageTemplate,
+      session_id: attribution.session_id,
+      landing_page_path: attribution.landing_page_path,
+      landing_page_type: attribution.landing_page_type,
     });
   }
 
@@ -265,6 +269,16 @@ export default function QuoteForm({
     e.preventDefault();
 
     if (!validate()) {
+      pushAnalyticsEvent("lead_form_validation_error", {
+        page_path: effectiveTrackingContext?.page_path || pathname || "",
+        page_type: effectivePageTemplate,
+        city: effectiveTrackingContext?.city || "",
+        service: effectiveTrackingContext?.service || "",
+        form_source: effectiveFormSource,
+        service_type: form.service_type || defaultService || "",
+        intent_type: intentType,
+        session_id: attribution.session_id,
+      });
       return;
     }
 
@@ -283,10 +297,16 @@ export default function QuoteForm({
           form_source: effectiveFormSource,
           ...attribution,
           page_type: effectivePageTemplate || attribution.page_type,
+          page_path: attribution.page_path,
           page_template: effectivePageTemplate || undefined,
           intent_type: intentType || undefined,
           notes: contextNotes.join(" | "),
           page_title: document.title,
+          session_id: attribution.session_id,
+          landing_page_url: attribution.landing_page_url,
+          landing_page_type: attribution.landing_page_type,
+          landing_page_path: attribution.landing_page_path,
+          landing_timestamp: attribution.landing_timestamp,
         }),
       });
 
@@ -304,6 +324,7 @@ export default function QuoteForm({
 
       pushAnalyticsEvent("submit_lead_form", {
         page_path: effectiveTrackingContext?.page_path || pathname || "",
+        page_type: effectivePageTemplate,
         city: effectiveTrackingContext?.city || "",
         service: effectiveTrackingContext?.service || "",
         lead_channel: "form",
@@ -314,18 +335,32 @@ export default function QuoteForm({
         event_category: "lead",
         event_label: form.service_type || defaultService || "genel-teklif",
         value: 1,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
       });
 
       pushAnalyticsEvent("lead_form_success", {
         page_path: effectiveTrackingContext?.page_path || pathname || "",
         form_source: effectiveFormSource,
         service_type: form.service_type || defaultService || "",
+        session_id: attribution.session_id,
       });
 
       setForm(buildInitialForm(defaultCity, defaultService));
       setErrors({});
       hasTrackedFormStart.current = false;
     } catch (error) {
+      pushAnalyticsEvent("lead_form_submit_error", {
+        page_path: effectiveTrackingContext?.page_path || pathname || "",
+        page_type: effectivePageTemplate,
+        city: effectiveTrackingContext?.city || "",
+        service: effectiveTrackingContext?.service || "",
+        form_source: effectiveFormSource,
+        service_type: form.service_type || defaultService || "",
+        intent_type: intentType,
+        session_id: attribution.session_id,
+      });
       setStatus("error");
       setFeedbackMessage(
         error instanceof Error && error.message !== "FORM_SUBMIT_FAILED"
@@ -476,6 +511,48 @@ export default function QuoteForm({
           type="hidden"
           name="page_type"
           value={effectivePageTemplate || attribution.page_type}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="page_path"
+          value={attribution.page_path}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="page_title"
+          value={attribution.page_title}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="session_id"
+          value={attribution.session_id}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="landing_page_url"
+          value={attribution.landing_page_url}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="landing_page_type"
+          value={attribution.landing_page_type}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="landing_page_path"
+          value={attribution.landing_page_path}
+          readOnly
+        />
+        <input
+          type="hidden"
+          name="landing_timestamp"
+          value={attribution.landing_timestamp}
           readOnly
         />
         <input

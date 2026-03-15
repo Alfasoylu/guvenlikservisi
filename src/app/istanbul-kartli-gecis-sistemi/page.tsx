@@ -18,9 +18,13 @@ import IstanbulServiceQuoteForm from "@/components/IstanbulServiceQuoteForm";
 import TrustSignals, {
   type TrustItem,
 } from "@/components/sections/TrustSignals";
+import IstanbulMoneySupportSection from "@/components/sections/IstanbulMoneySupportSection";
+import IstanbulTrustLayerSection from "@/components/sections/IstanbulTrustLayerSection";
 import IstanbulCoverage from "@/components/sections/IstanbulCoverage";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { istanbulMoneySupportData } from "@/data/seo/istanbul-money-pages";
+import { istanbulTrustLayerData } from "@/data/seo/istanbul-trust-layer";
 
 const PAGE_PATH = "/istanbul-kartli-gecis-sistemi";
 const canonicalUrl = getCanonicalUrlForKnownPath(PAGE_PATH);
@@ -144,6 +148,9 @@ const faqs = [
       "İstanbul genelinde Avrupa ve Anadolu Yakası dahil tüm ilçelere hizmet veriyoruz.",
   },
 ];
+
+const supportData = istanbulMoneySupportData.kartli_gecis;
+const trustLayerData = istanbulTrustLayerData.kartli_gecis;
 
 export default function IstanbulKartliGecisSistemiPage() {
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
@@ -373,6 +380,9 @@ export default function IstanbulKartliGecisSistemiPage() {
           </div>
         </div>
       </section>
+
+      <IstanbulMoneySupportSection {...supportData} />
+      <IstanbulTrustLayerSection content={trustLayerData} />
 
       {/* ISTANBUL COVERAGE */}
       <IstanbulCoverage bgClass="bg-slate-50" />

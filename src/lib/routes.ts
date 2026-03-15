@@ -1,7 +1,8 @@
-import { blogPosts } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/data/blog-posts";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { getAllDistrictServiceParams } from "@/data/seo/istanbul-district-content";
+import { getAllProblemSlugs } from "@/data/seo/problem-pages";
 import { siteConfig } from "@/data/site-config";
 
 export const rootPaths = ["/", "/blog"] as const;
@@ -39,6 +40,13 @@ export const teklifPaths = [
   "/teklif/yangin",
 ] as const;
 
+const cityServicePrimaryPathOverrides: Record<string, string> = {
+  "istanbul/kamera-sistemi-kurulumu": "/istanbul-kamera-sistemi-kurulumu",
+  "istanbul/alarm-sistemi-kurulumu": "/istanbul-alarm-sistemi",
+  "istanbul/yangin-alarm-sistemi-kurulumu": "/istanbul-yangin-alarm-sistemi",
+  "istanbul/kartli-gecis-sistemi-kurulumu": "/istanbul-kartli-gecis-sistemi",
+};
+
 const citySlugSet = new Set(cities.map((city) => city.slug));
 const serviceSlugSet = new Set(services.map((service) => service.slug));
 const staticPathSet = new Set<string>([
@@ -46,7 +54,8 @@ const staticPathSet = new Set<string>([
   ...staticPagePaths,
   ...teklifPaths,
 ]);
-const blogPathSet = new Set(blogPosts.map((post) => `/blog/${post.slug}`));
+const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
+const sorunPathSet = new Set(getAllProblemSlugs().map((slug) => `/sorun/${slug}`));
 
 const districtServiceParams = getAllDistrictServiceParams();
 const districtServicePathSet = new Set(
@@ -90,6 +99,17 @@ export function getCityServicePath(citySlug: string, serviceSlug: string) {
   return `/${citySlug}/${serviceSlug}`;
 }
 
+export function getPrimaryCityServicePath(citySlug: string, serviceSlug: string) {
+  if (!isValidCitySlug(citySlug) || !isValidServiceSlug(serviceSlug)) {
+    return null;
+  }
+
+  return (
+    cityServicePrimaryPathOverrides[`${citySlug}/${serviceSlug}`] ??
+    getCityServicePath(citySlug, serviceSlug)
+  );
+}
+
 export function getCityCanonicalUrl(citySlug: string) {
   const path = getCityPath(citySlug);
   return path ? getAbsoluteUrl(path) : null;
@@ -100,6 +120,14 @@ export function getCityServiceCanonicalUrl(
   serviceSlug: string,
 ) {
   const path = getCityServicePath(citySlug, serviceSlug);
+  return path ? getAbsoluteUrl(path) : null;
+}
+
+export function getPrimaryCityServiceCanonicalUrl(
+  citySlug: string,
+  serviceSlug: string,
+) {
+  const path = getPrimaryCityServicePath(citySlug, serviceSlug);
   return path ? getAbsoluteUrl(path) : null;
 }
 
@@ -166,8 +194,39 @@ export function getAllCityServicePaths() {
     .filter((path): path is string => path !== null);
 }
 
+export function getAllPrimaryCityServicePaths() {
+  return [...new Set(
+    getCityServiceStaticParams()
+      .map(({ city, service }) => getPrimaryCityServicePath(city, service))
+      .filter((path): path is string => path !== null),
+  )];
+}
+
+export function getRedirectTargetForCityServicePath(path: string) {
+  const normalizedPath = normalizeRoutePath(path);
+
+  const match = normalizedPath.match(/^\/([^/]+)\/([^/]+)$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, citySlug, serviceSlug] = match;
+  const primaryPath = getPrimaryCityServicePath(citySlug, serviceSlug);
+
+  if (!primaryPath || primaryPath === normalizedPath) {
+    return null;
+  }
+
+  return primaryPath;
+}
+
 export function getAllBlogPaths() {
   return [...blogPathSet];
+}
+
+export function getAllProblemPaths() {
+  return [...sorunPathSet];
 }
 
 export function getAllKnownAppPaths() {
@@ -176,6 +235,7 @@ export function getAllKnownAppPaths() {
     ...staticPagePaths,
     ...teklifPaths,
     ...getAllBlogPaths(),
+    ...getAllProblemPaths(),
     ...getAllCityPaths(),
     ...getAllCityServicePaths(),
     ...getAllDistrictServicePaths(),
@@ -202,7 +262,7 @@ export function isValidCityServicePath(path: string) {
 
 export function isKnownStaticPath(path: string) {
   const normalizedPath = normalizeRoutePath(path);
-  return staticPathSet.has(normalizedPath) || blogPathSet.has(normalizedPath);
+  return staticPathSet.has(normalizedPath) || blogPathSet.has(normalizedPath) || sorunPathSet.has(normalizedPath);
 }
 
 export function isKnownAppPath(path: string) {

@@ -10,11 +10,9 @@ import {
   ChevronRight,
   Clock3,
   MapPin,
-  MonitorSmartphone,
   Phone,
   Server,
   ShieldCheck,
-  Siren,
   Star,
   Users,
   Warehouse,
@@ -117,26 +115,6 @@ const districts = [
   "Ümraniye",
   "Üsküdar",
   "Zeytinburnu",
-];
-
-const highlights = [
-  "Aynı gün keşif planlaması",
-  "Telefon ve tablet üzerinden canlı izleme",
-  "Gece görüşlü net kayıt altyapısı",
-  "Ev, işyeri, mağaza ve depo için projelendirme",
-];
-
-const quickLinks = [
-  { label: "Fiyat Paketleri", href: "#fiyat-paketleri" },
-  { label: "Neler Dahil?", href: "#neler-dahil" },
-  { label: "Sık Sorulanlar", href: "#sss" },
-];
-
-const trustSignals = [
-  "Keşif sonrası net ürün ve işçilik planı",
-  "Kurulum sonrası telefon uygulaması kurulumu",
-  "İstanbul içi ilçe bazlı hızlı yönlendirme",
-  "Tekrar servis riskini azaltan doğru altyapı planlaması",
 ];
 
 const painPoints = [
@@ -1043,7 +1021,7 @@ export default function IstanbulIpKameraMontajiPage() {
                 </Link>{" "}
                 sayfasını, İstanbul özelinde kurulum yaklaşımı için{" "}
                 <Link
-                  href="/istanbul/kamera-sistemi-kurulumu"
+                  href="/istanbul-kamera-sistemi-kurulumu"
                   className="font-bold text-slate-950 underline underline-offset-4"
                 >
                   İstanbul kamera sistemi kurulumu

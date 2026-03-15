@@ -16,11 +16,13 @@ import TrustSignals, {
 } from "@/components/sections/TrustSignals";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
+import IstanbulDistrictSupportSection from "@/components/sections/IstanbulDistrictSupportSection";
 import {
   getDistrictProfile,
   getDistrictServiceContent,
   getServiceLevelContent,
 } from "@/data/seo/istanbul-district-content";
+import { getIstanbulDistrictSupportContent } from "@/data/seo/istanbul-district-support";
 import { getSeoDistrictBySlug } from "@/data/seo/districts";
 import { getSeoServiceBySlug } from "@/data/seo/services";
 import { siteConfig } from "@/data/site-config";
@@ -145,6 +147,11 @@ export default async function DistrictServicePage({ params }: PageProps) {
     });
 
   const parentLink = istanbulMoneyPageMap[service];
+  const districtSupportContent = getIstanbulDistrictSupportContent(
+    profile,
+    seoDistrict,
+    seoService,
+  );
 
   // --- Schema ---
   const serviceSchema = {
@@ -457,6 +464,8 @@ export default async function DistrictServicePage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      <IstanbulDistrictSupportSection content={districtSupportContent} />
 
       {/* FAQ */}
       <FAQSection

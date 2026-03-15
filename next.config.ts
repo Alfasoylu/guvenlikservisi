@@ -6,13 +6,35 @@ const nextConfig: NextConfig = {
     cpus: 2,
   },
   async redirects() {
-
     // eski şehir url formatı
     const legacyCityRedirects = cities.map((city) => ({
       source: `/${city.slug}-guvenlik-sistemi-kurulumu`,
       destination: `/${city.slug}`,
       permanent: true,
     }));
+
+    const istanbulPrimaryMoneyPageRedirects = [
+      {
+        source: "/istanbul/kamera-sistemi-kurulumu",
+        destination: "/istanbul-kamera-sistemi-kurulumu",
+        permanent: true,
+      },
+      {
+        source: "/istanbul/alarm-sistemi-kurulumu",
+        destination: "/istanbul-alarm-sistemi",
+        permanent: true,
+      },
+      {
+        source: "/istanbul/yangin-alarm-sistemi-kurulumu",
+        destination: "/istanbul-yangin-alarm-sistemi",
+        permanent: true,
+      },
+      {
+        source: "/istanbul/kartli-gecis-sistemi-kurulumu",
+        destination: "/istanbul-kartli-gecis-sistemi",
+        permanent: true,
+      },
+    ];
 
     // eski hizmet url formatı
     const legacyServiceRedirects = [
@@ -59,6 +81,7 @@ const nextConfig: NextConfig = {
     ];
 
     return [
+      ...istanbulPrimaryMoneyPageRedirects,
       ...legacyCityRedirects,
       ...legacyServiceRedirects,
     ];

@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import QuoteForm from "@/components/forms/QuoteForm";
+import { useLandingAttribution } from "@/components/forms/useLandingAttribution";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
+import { pushAnalyticsEvent } from "@/lib/analytics";
 import {
   ArrowRight,
   BadgeCheck,
@@ -77,6 +82,8 @@ export default function CTASection({
   defaultService = "",
   bgClass = "bg-primary",
 }: CTASectionProps) {
+  const pathname = usePathname();
+  const attribution = useLandingAttribution();
   const mergedContent = {
     ...defaultContent,
     ...(title ? { title } : {}),
@@ -146,6 +153,18 @@ export default function CTASection({
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                onClick={() =>
+                  pushAnalyticsEvent("click_call", {
+                    page_path: pathname || attribution.page_path,
+                    page_type: attribution.page_type,
+                    lead_channel: "phone",
+                    cta_slot: "cta_section",
+                    service_type: defaultService,
+                    session_id: attribution.session_id,
+                    landing_page_path: attribution.landing_page_path,
+                    landing_page_type: attribution.landing_page_type,
+                  })
+                }
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-primary transition-colors hover:bg-white/90 sm:w-auto"
               >
                 <Phone size={18} />
@@ -154,6 +173,17 @@ export default function CTASection({
 
               <Link
                 href={mergedContent.secondaryHref}
+                onClick={() =>
+                  pushAnalyticsEvent("click_cta_secondary", {
+                    page_path: pathname || attribution.page_path,
+                    page_type: attribution.page_type,
+                    cta_slot: "cta_section",
+                    service_type: defaultService,
+                    session_id: attribution.session_id,
+                    landing_page_path: attribution.landing_page_path,
+                    landing_page_type: attribution.landing_page_type,
+                  })
+                }
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
               >
                 {mergedContent.secondaryLabel}

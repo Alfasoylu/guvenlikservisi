@@ -33,21 +33,7 @@ function buildCityServiceLinks(
   }));
 }
 
-function buildCityLinks(
-  serviceSlug: string,
-  citySlugs: string[],
-  options?: {
-    getLabel?: (cityName: string) => string;
-  },
-) {
-  return citySlugs.map((citySlug) => ({
-    href: `/${citySlug}/${serviceSlug}`,
-    label: options?.getLabel?.(getCityName(citySlug)) || getCityName(citySlug),
-  }));
-}
-
 const priorityCities = ["istanbul", "ankara", "izmir"] as const;
-const supportCities = ["istanbul", "ankara", "izmir", "bursa", "kocaeli"] as const;
 
 export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
   "kamera-ariza-servisi": {
@@ -1182,6 +1168,20 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
         }),
       },
       defaultService: "kartli-gecis",
+      blogPosts: [
+        {
+          slug: "kartli-gecis-sistemi-nedir",
+          title: "Kartlı Geçiş Sistemi Nedir?",
+          excerpt:
+            "Kartlı geçiş sistemi çalışma prensibi, kullanım alanları, kart türleri, teknolojiler ve fiyat rehberi.",
+        },
+        {
+          slug: "turnike-sistemi-fiyatlari",
+          title: "Turnike Sistemi Fiyatları 2026",
+          excerpt:
+            "Turnike sistem türleri, fiyatları, seçim kriterleri ve toplam maliyet rehberi.",
+        },
+      ],
       ctaContent: {
         badge: "Keşif • Uygunluk analizi",
         title: "Hangi yapıda hangi geçiş modelinin uygun olduğunu birlikte netleştirelim",
