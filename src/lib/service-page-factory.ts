@@ -125,8 +125,11 @@ export interface ServicePageFactoryResult {
     description: string;
     note?: string;
     schemaAreaServed: string;
-    primaryDistricts: string[];
-    otherDistricts: string[];
+    districts: {
+      name: string;
+      slug: string;
+      citySlug: string;
+    }[];
   };
   cta: {
     title: string;
@@ -364,11 +367,8 @@ export function getServicePageFactoryData(
     getTrustElement("installation")!;
 
   const districts = getSortedDistricts(city.slug);
+  const allCityDistricts = getDistrictsByCitySlug(city.slug);
   const primaryDistricts = getPrimaryDistrictsByCitySlug(city.slug);
-  const otherDistricts = getDistrictsByCitySlug(city.slug)
-    .filter((district) => district.priority !== "primary")
-    .map((district) => district.name)
-    .slice(0, 8);
   const benefits = serviceDetails?.benefits.map((item) => fillTemplate(item, city, service)) || [];
   const process = serviceDetails?.process.map((item) => fillTemplate(item, city, service)) || [];
   const useCases =
@@ -401,13 +401,6 @@ export function getServicePageFactoryData(
   const metaDescription = cityDetails
     ? `${city.name} içinde ${metadataTargetText} için ${serviceDetails?.metadataIntent || service.name.toLowerCase()} hizmeti sunuyoruz. ${segmentText}${businessMetaAngle} ${cityDetails.metadataDistrictCoverage} Ücretsiz keşif ve hızlı teklif alın.`
     : `${city.name} içinde ${service.name.toLowerCase()} hizmeti sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
-  const localCoverageDescription =
-    primaryDistricts.length > 0
-      ? `${city.name} içinde ${primaryDistricts
-          .slice(0, 4)
-          .map((district) => district.name)
-          .join(", ")} başta olmak üzere ilçe bazlı keşif, montaj ve servis planlaması yapıyoruz.`
-      : `${city.name} genelinde ilçe bazlı keşif, montaj ve servis planlaması yapıyoruz.`;
   const localCoverageSchemaArea =
     primaryDistricts.length > 0
       ? `${city.name} ve ${formatNaturalList(primaryDistricts.slice(0, 3).map((district) => district.name))}`
@@ -551,12 +544,18 @@ export function getServicePageFactoryData(
       items: segmentFitItems,
     },
     localCoverage: {
-      title: `${city.name} içinde hizmet verdiğimiz öncelikli ilçeler`,
-      description: localCoverageDescription,
+      title: "Hizmet Verdiğimiz İlçeler",
+      description: `${city.name} genelinde keşif, kurulum, montaj ve teknik servis desteği verdiğimiz ilçeler aşağıdadır.`,
       note: cityDetails?.districtsNote ?? seoCity?.serviceAreaEmphasis,
       schemaAreaServed: localCoverageSchemaArea,
-      primaryDistricts: primaryDistricts.map((district) => district.name),
-      otherDistricts,
+      districts: districts.map((districtName) => {
+        const districtRecord = allCityDistricts.find((d) => d.name === districtName);
+        return {
+          name: districtName,
+          slug: districtRecord?.slug ?? districtName.toLocaleLowerCase("tr-TR").replace(/\s+/g, "-"),
+          citySlug: city.slug,
+        };
+      }),
     },
     cta: {
       title: fillTemplate(serviceDetails?.ctaTitle || `${city.name} için teklif alın`, city, service),

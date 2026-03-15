@@ -263,8 +263,7 @@ const data: ServicePageData = {
       },
       {
         name: "Standart İşyeri Paketi",
-        targetAudience:
-          "Orta ölçekli işyeri, apartman veya çok katlı yapılar.",
+        targetAudience: "Orta ölçekli işyeri, apartman veya çok katlı yapılar.",
         solves:
           "Çoklu giriş noktası, iç-dış alan takibi, uzun süreli kayıt ve uzaktan yönetim ihtiyacını karşılar.",
         components: [

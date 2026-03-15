@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, MessageCircle, ShieldCheck } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  ShieldCheck,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import QuoteForm from "@/components/forms/QuoteForm";
 import { siteConfig } from "@/data/site-config";
-import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateLocalBusinessSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/schema";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/iletisim");
 
@@ -59,9 +69,9 @@ export default function IletisimSayfasi() {
             </h1>
 
             <p className="max-w-2xl text-lg leading-relaxed text-white/80">
-              Kamera sistemi, alarm sistemi, yangın alarmı ve geçiş kontrol çözümleri için
-              bizimle iletişime geçin. İhtiyacınızı netleştirelim, size uygun sistemi birlikte
-              belirleyelim.
+              Kamera sistemi, alarm sistemi, yangın alarmı ve geçiş kontrol
+              çözümleri için bizimle iletişime geçin. İhtiyacınızı
+              netleştirelim, size uygun sistemi birlikte belirleyelim.
             </p>
           </div>
         </Container>
@@ -72,11 +82,13 @@ export default function IletisimSayfasi() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
             <div>
               <div className="mb-8">
-                <h2 className="mb-3 text-2xl font-bold text-primary">Bize Ulaşın</h2>
+                <h2 className="mb-3 text-2xl font-bold text-primary">
+                  Bize Ulaşın
+                </h2>
                 <p className="max-w-xl text-sm leading-7 text-text-light">
-                  Hızlı teklif almak için telefonla arayabilir, WhatsApp üzerinden yazabilir
-                  veya formu doldurabilirsiniz. Yerinde keşif gereken projelerde en kısa sürede
-                  dönüş sağlıyoruz.
+                  Hızlı teklif almak için telefonla arayabilir, WhatsApp
+                  üzerinden yazabilir veya formu doldurabilirsiniz. Yerinde
+                  keşif gereken projelerde en kısa sürede dönüş sağlıyoruz.
                 </p>
               </div>
 
@@ -143,18 +155,26 @@ export default function IletisimSayfasi() {
                     <Clock size={22} className="text-accent" />
                   </div>
                   <div>
-                    <p className="mb-1 font-semibold text-primary">Çalışma Saatleri</p>
-                    <p className="text-sm text-text-light">Pazartesi – Cuma: 08:00 – 18:00</p>
-                    <p className="text-sm text-text-light">Cumartesi: 09:00 – 16:00</p>
+                    <p className="mb-1 font-semibold text-primary">
+                      Çalışma Saatleri
+                    </p>
+                    <p className="text-sm text-text-light">
+                      Pazartesi – Cuma: 08:00 – 18:00
+                    </p>
+                    <p className="text-sm text-text-light">
+                      Cumartesi: 09:00 – 16:00
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 rounded-3xl border border-accent/15 bg-white p-6">
-                <h3 className="mb-2 text-lg font-bold text-primary">Yerimizi Haritada Görün</h3>
+                <h3 className="mb-2 text-lg font-bold text-primary">
+                  Yerimizi Haritada Görün
+                </h3>
                 <p className="mb-4 text-sm leading-7 text-text-light">
-                  Perpa merkezli çalışıyoruz. Görüşme, keşif planlama ve yer tespiti için haritayı
-                  kullanabilirsiniz.
+                  Perpa merkezli çalışıyoruz. Görüşme, keşif planlama ve yer
+                  tespiti için haritayı kullanabilirsiniz.
                 </p>
 
                 <div className="overflow-hidden rounded-2xl border border-gray-200">
@@ -173,10 +193,13 @@ export default function IletisimSayfasi() {
 
             <div>
               <div className="mb-6">
-                <h2 className="mb-3 text-2xl font-bold text-primary">Teklif Formu</h2>
+                <h2 className="mb-3 text-2xl font-bold text-primary">
+                  Teklif Formu
+                </h2>
                 <p className="text-sm leading-7 text-text-light">
-                  Formu doldurun, ihtiyacınıza göre sizi arayalım. Şehir, mekan tipi ve temel
-                  beklentinizi yazmanız daha doğru teklif almanızı sağlar.
+                  Formu doldurun, ihtiyacınıza göre sizi arayalım. Şehir, mekan
+                  tipi ve temel beklentinizi yazmanız daha doğru teklif almanızı
+                  sağlar.
                 </p>
               </div>
 
@@ -194,8 +217,8 @@ export default function IletisimSayfasi() {
               Hangi Hizmeti Arıyorsunuz?
             </h2>
             <p className="mb-8 text-sm leading-7 text-text-light">
-              İhtiyacınıza en uygun hizmet sayfasına doğrudan ulaşarak detaylı bilgi ve teklif
-              alabilirsiniz.
+              İhtiyacınıza en uygun hizmet sayfasına doğrudan ulaşarak detaylı
+              bilgi ve teklif alabilirsiniz.
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[

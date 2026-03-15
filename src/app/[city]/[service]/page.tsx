@@ -7,7 +7,7 @@ import CityHubSection from "@/components/service-page/CityHubSection";
 import ServiceCommercialHighlights from "@/components/service-page/ServiceCommercialHighlights";
 import RelatedServicesSection from "@/components/service-page/RelatedServicesSection";
 import ServiceCTA from "@/components/service-page/ServiceCTA";
-import ServiceDistricts from "@/components/service-page/ServiceDistricts";
+import CityDistrictGridSection from "@/components/service-page/CityDistrictGridSection";
 import ServiceFAQ from "@/components/service-page/ServiceFAQ";
 import ServiceHero from "@/components/service-page/ServiceHero";
 import ServiceLeadFormSection from "@/components/service-page/ServiceLeadFormSection";
@@ -19,7 +19,6 @@ import ServiceStats from "@/components/service-page/ServiceStats";
 import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
 import { cities } from "@/data/cities";
-import { getDistrictsByCitySlug } from "@/data/seo/districts";
 import { buildCoverageFaqItem } from "@/data/seo/faq-bank";
 import { getLeadIntentKeywordsForService, getSeoTrafficKeywordsForService } from "@/data/seo/keywords";
 import { getSeoServiceBySlug } from "@/data/seo/services";
@@ -32,7 +31,6 @@ import {
   getCityPath,
   getCityServiceCanonicalUrl,
   getCityServiceStaticParams,
-  getDistrictServicePath,
 } from "@/lib/routes";
 import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
 import { dedupeFaqItems, getCityLocative, getPriorityServiceLinksForService } from "@/lib/seo/page-factory";
@@ -1880,28 +1878,12 @@ export default async function ServicePage({ params }: PageProps) {
   const cityPath = getCityPath(city.slug);
   const cityCanonical = getCityCanonicalUrl(city.slug);
   const canonical = getCityServiceCanonicalUrl(city.slug, service.slug);
-  const cityDistricts = getDistrictsByCitySlug(city.slug);
 
   if (!cityPath || !cityCanonical || !canonical) {
     notFound();
   }
 
-  const buildDistrictCoverageLinks = (districtNames: string[]) =>
-    districtNames.map((districtName) => {
-      const districtRecord = cityDistricts.find((item) => item.name === districtName);
-      const href = districtRecord
-        ? getDistrictServicePath(city.slug, districtRecord.slug, service.slug) ?? undefined
-        : undefined;
-
-      return {
-        label: districtName,
-        href,
-      };
-    });
-
   const pageContent = getServicePageFactoryData(city, service);
-  const primaryDistrictLinks = buildDistrictCoverageLinks(pageContent.localCoverage.primaryDistricts);
-  const otherDistrictLinks = buildDistrictCoverageLinks(pageContent.localCoverage.otherDistricts);
   const seoService = getSeoServiceBySlug(service.slug);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
   const serviceSpecificContent =
@@ -2507,14 +2489,11 @@ export default async function ServicePage({ params }: PageProps) {
         />
       ) : null}
 
-      <ServiceDistricts
+      <CityDistrictGridSection
         cityName={city.name}
-        serviceName={service.name}
+        districts={pageContent.localCoverage.districts}
         title={pageContent.localCoverage.title}
-        description={pageContent.localCoverage.description}
-        note={pageContent.localCoverage.note}
-        primaryDistricts={primaryDistrictLinks}
-        otherDistricts={otherDistrictLinks}
+        subtitle={pageContent.localCoverage.description}
       />
 
       <section className="border-y border-slate-200 bg-white">

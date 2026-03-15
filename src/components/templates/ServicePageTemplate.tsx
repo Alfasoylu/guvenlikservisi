@@ -773,7 +773,9 @@ export default function ServicePageTemplate({
 
       {data.problemLinks && data.problemLinks.links.length > 0 && (
         <InternalLinksSection
-          title={data.problemLinks.title || "Sorun Sayfaları ve Arıza Rehberleri"}
+          title={
+            data.problemLinks.title || "Sorun Sayfaları ve Arıza Rehberleri"
+          }
           subtitle={data.problemLinks.subtitle}
           links={data.problemLinks.links}
         />

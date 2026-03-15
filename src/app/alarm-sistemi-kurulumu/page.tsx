@@ -273,8 +273,7 @@ const data: ServicePageData = {
       },
       {
         name: "Profesyonel Tesis Paketi",
-        targetAudience:
-          "Fabrika, depo veya çok katlı yapılar (8+ bölge).",
+        targetAudience: "Fabrika, depo veya çok katlı yapılar (8+ bölge).",
         solves:
           "Çok bölgeli yapıda bağımsız alarm yönetimi, çevre hattı koruması ve izleme merkezi bağlantısı ihtiyacını karşılar.",
         components: [

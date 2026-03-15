@@ -970,9 +970,9 @@ export default function BakimServisUzaktanIzlemePage() {
                 Şehir Bazlı Güvenlik Hizmetleri
               </h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Şehir bazlı güvenlik çözümlerimizi incelemek ve
-                bulunduğunuz ildeki diğer hizmetlerimize geçmek için aşağıdaki
-                sayfaları kullanın.
+                Şehir bazlı güvenlik çözümlerimizi incelemek ve bulunduğunuz
+                ildeki diğer hizmetlerimize geçmek için aşağıdaki sayfaları
+                kullanın.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 {topCityHubLinks.map((city) => (

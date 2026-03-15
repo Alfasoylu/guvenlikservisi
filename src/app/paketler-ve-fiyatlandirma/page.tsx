@@ -52,7 +52,8 @@ const paketler = [
       {
         name: "Premium",
         price: "Teklif Alın",
-        priceNote: "Büyük alan, uzun kablolama, yüksek kayıt ihtiyacı ve özel proje gerektiren işler için.",
+        priceNote:
+          "Büyük alan, uzun kablolama, yüksek kayıt ihtiyacı ve özel proje gerektiren işler için.",
         features: [
           "8+ Kamera",
           "NVR + Yedek Depolama",
@@ -101,7 +102,8 @@ const paketler = [
       {
         name: "Kurumsal",
         price: "Teklif Alın",
-        priceNote: "Çok bölmeli, büyük ve özel alarm projelerinde net fiyat keşif sonrası belirlenir.",
+        priceNote:
+          "Çok bölmeli, büyük ve özel alarm projelerinde net fiyat keşif sonrası belirlenir.",
         features: [
           "Çok Bölgeli Panel",
           "Daha Fazla Sensör Kapasitesi",
@@ -159,7 +161,9 @@ export default function PaketlerSayfasi() {
               Ana Sayfa
             </Link>
             <span>/</span>
-            <span className="text-primary font-medium">Paketler ve Fiyatlandırma</span>
+            <span className="text-primary font-medium">
+              Paketler ve Fiyatlandırma
+            </span>
           </nav>
         </Container>
       </div>
@@ -177,9 +181,9 @@ export default function PaketlerSayfasi() {
             </h1>
 
             <p className="text-lg leading-relaxed text-white/80">
-              İhtiyacınıza uygun güvenlik sistemi paketini seçin. Sayfadaki fiyatlar başlangıç
-              seviyesindeki referans rakamlardır. Net fiyat, keşif sonrası proje şartlarına göre
-              belirlenir.
+              İhtiyacınıza uygun güvenlik sistemi paketini seçin. Sayfadaki
+              fiyatlar başlangıç seviyesindeki referans rakamlardır. Net fiyat,
+              keşif sonrası proje şartlarına göre belirlenir.
             </p>
           </div>
         </Container>
@@ -191,11 +195,15 @@ export default function PaketlerSayfasi() {
             <div className="flex items-start gap-3">
               <Info size={18} className="mt-0.5 shrink-0 text-accent" />
               <div>
-                <h2 className="mb-2 text-lg font-bold text-primary">Fiyatları nasıl okumalısınız?</h2>
+                <h2 className="mb-2 text-lg font-bold text-primary">
+                  Fiyatları nasıl okumalısınız?
+                </h2>
                 <p className="text-sm leading-7 text-text-light">
-                  Düşük fiyat her zaman doğru sistem anlamına gelmez. Alan büyüklüğü, kamera veya sensör
-                  sayısı, kayıt süresi, altyapı ve montaj zorluğu toplam maliyeti değiştirir.
-                  Bu sayfadaki paketler karar vermeyi kolaylaştırmak içindir; net teklif keşif sonrası verilir.
+                  Düşük fiyat her zaman doğru sistem anlamına gelmez. Alan
+                  büyüklüğü, kamera veya sensör sayısı, kayıt süresi, altyapı ve
+                  montaj zorluğu toplam maliyeti değiştirir. Bu sayfadaki
+                  paketler karar vermeyi kolaylaştırmak içindir; net teklif
+                  keşif sonrası verilir.
                 </p>
               </div>
             </div>
@@ -204,12 +212,19 @@ export default function PaketlerSayfasi() {
       </section>
 
       {paketler.map((kategori, ki) => (
-        <section key={ki} className={`py-16 ${ki % 2 === 0 ? "bg-white" : "bg-surface"}`}>
+        <section
+          key={ki}
+          className={`py-16 ${ki % 2 === 0 ? "bg-white" : "bg-surface"}`}
+        >
           <Container>
             <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="max-w-3xl">
-                <h2 className="mb-2 text-2xl font-bold text-primary">{kategori.kategori}</h2>
-                <p className="text-sm leading-7 text-text-light">{kategori.aciklama}</p>
+                <h2 className="mb-2 text-2xl font-bold text-primary">
+                  {kategori.kategori}
+                </h2>
+                <p className="text-sm leading-7 text-text-light">
+                  {kategori.aciklama}
+                </p>
               </div>
 
               <Link
@@ -238,20 +253,28 @@ export default function PaketlerSayfasi() {
                     </div>
                   )}
 
-                  <h3 className={`mb-2 text-xl font-bold ${pkg.highlighted ? "text-white" : "text-primary"}`}>
+                  <h3
+                    className={`mb-2 text-xl font-bold ${pkg.highlighted ? "text-white" : "text-primary"}`}
+                  >
                     {pkg.name}
                   </h3>
 
-                  <p className="mb-2 text-2xl font-bold text-accent">{pkg.price}</p>
+                  <p className="mb-2 text-2xl font-bold text-accent">
+                    {pkg.price}
+                  </p>
 
                   {"priceNote" in pkg && pkg.priceNote && (
-                    <p className={`mb-5 text-xs leading-6 ${pkg.highlighted ? "text-white/70" : "text-text-light"}`}>
+                    <p
+                      className={`mb-5 text-xs leading-6 ${pkg.highlighted ? "text-white/70" : "text-text-light"}`}
+                    >
                       {pkg.priceNote}
                     </p>
                   )}
 
                   {!("priceNote" in pkg) || !pkg.priceNote ? (
-                    <p className={`mb-5 text-xs leading-6 ${pkg.highlighted ? "text-white/70" : "text-text-light"}`}>
+                    <p
+                      className={`mb-5 text-xs leading-6 ${pkg.highlighted ? "text-white/70" : "text-text-light"}`}
+                    >
                       Başlangıç fiyatıdır. Net teklif keşif sonrası belirlenir.
                     </p>
                   ) : null}
@@ -259,8 +282,15 @@ export default function PaketlerSayfasi() {
                   <ul className="mb-6 flex-1 space-y-3">
                     {pkg.features.map((f, fi) => (
                       <li key={fi} className="flex items-start gap-2 text-sm">
-                        <CheckCircle size={15} className="mt-0.5 shrink-0 text-cta" />
-                        <span className={pkg.highlighted ? "text-white/90" : "text-gray-700"}>
+                        <CheckCircle
+                          size={15}
+                          className="mt-0.5 shrink-0 text-cta"
+                        />
+                        <span
+                          className={
+                            pkg.highlighted ? "text-white/90" : "text-gray-700"
+                          }
+                        >
                           {f}
                         </span>
                       </li>
@@ -284,7 +314,10 @@ export default function PaketlerSayfasi() {
         </section>
       ))}
 
-      <FAQSection items={faqItems} title="Fiyatlandırma Hakkında Sık Sorulan Sorular" />
+      <FAQSection
+        items={faqItems}
+        title="Fiyatlandırma Hakkında Sık Sorulan Sorular"
+      />
 
       {/* ── Tüm Hizmet Kategorileri ── */}
       <section className="bg-surface py-16 md:py-20">
@@ -294,7 +327,8 @@ export default function PaketlerSayfasi() {
               Tüm Hizmet Kategorilerimiz
             </h2>
             <p className="mb-8 text-sm leading-7 text-text-light">
-              Yukarıdaki paketler dışında sunduğumuz diğer güvenlik hizmetlerine de göz atarak ihtiyacınıza en uygun çözümü değerlendirin.
+              Yukarıdaki paketler dışında sunduğumuz diğer güvenlik hizmetlerine
+              de göz atarak ihtiyacınıza en uygun çözümü değerlendirin.
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
