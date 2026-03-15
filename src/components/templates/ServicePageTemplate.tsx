@@ -15,6 +15,31 @@ import CTASection, {
 } from "@/components/sections/CTASection";
 import TrustSignals from "@/components/sections/TrustSignals";
 import FinalCTA from "@/components/sections/FinalCTA";
+import TargetAudienceSection, {
+  type TargetAudienceItem,
+} from "@/components/sections/TargetAudienceSection";
+import CommonProblemsSection, {
+  type CommonProblemItem,
+} from "@/components/sections/CommonProblemsSection";
+import AreaSolutionsSection, {
+  type AreaSolutionItem,
+} from "@/components/sections/AreaSolutionsSection";
+import SolutionTiersSection, {
+  type SolutionTier,
+} from "@/components/sections/SolutionTiersSection";
+import WhyIntegratedSection, {
+  type WhyIntegratedItem,
+} from "@/components/sections/WhyIntegratedSection";
+import DiscoveryProcessSection, {
+  type DiscoveryStep,
+} from "@/components/sections/DiscoveryProcessSection";
+import MidPageCta from "@/components/sections/MidPageCta";
+import TrustBlocksSection, {
+  type TrustBlockItem,
+} from "@/components/sections/TrustBlocksSection";
+import InternalLinksSection, {
+  type InternalLinkItem,
+} from "@/components/sections/InternalLinksSection";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
@@ -118,6 +143,54 @@ export interface ServicePageData {
       href: string;
       label: string;
     }[];
+  };
+  /* ──── Money-page segment sections ──── */
+  targetAudience?: {
+    title?: string;
+    subtitle?: string;
+    items: TargetAudienceItem[];
+  };
+  commonProblems?: {
+    title?: string;
+    subtitle?: string;
+    items: CommonProblemItem[];
+  };
+  areaSolutions?: {
+    title?: string;
+    subtitle?: string;
+    items: AreaSolutionItem[];
+    image?: { src: string; alt: string };
+  };
+  solutionTiers?: {
+    title?: string;
+    subtitle?: string;
+    tiers: SolutionTier[];
+    ctaLabel?: string;
+  };
+  whyIntegrated?: {
+    title?: string;
+    subtitle?: string;
+    items: WhyIntegratedItem[];
+  };
+  discoveryProcess?: {
+    title?: string;
+    subtitle?: string;
+    steps?: DiscoveryStep[];
+  };
+  midPageCta?: {
+    title: string;
+    subtitle: string;
+    ctaLabel?: string;
+  };
+  trustBlocks?: {
+    title?: string;
+    subtitle?: string;
+    items: TrustBlockItem[];
+  };
+  internalLinks?: {
+    title?: string;
+    subtitle?: string;
+    links: InternalLinkItem[];
   };
 }
 
@@ -330,6 +403,24 @@ export default function ServicePageTemplate({
 
       <TrustSignals />
 
+      {/* ── Target Audience ── */}
+      {data.targetAudience && (
+        <TargetAudienceSection
+          title={data.targetAudience.title}
+          subtitle={data.targetAudience.subtitle}
+          items={data.targetAudience.items}
+        />
+      )}
+
+      {/* ── Common Problems ── */}
+      {data.commonProblems && (
+        <CommonProblemsSection
+          title={data.commonProblems.title}
+          subtitle={data.commonProblems.subtitle}
+          items={data.commonProblems.items}
+        />
+      )}
+
       <section className="bg-white py-16 md:py-20">
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
@@ -384,6 +475,54 @@ export default function ServicePageTemplate({
           </div>
         </Container>
       </section>
+
+      {/* ── Area Solutions ── */}
+      {data.areaSolutions && (
+        <AreaSolutionsSection
+          title={data.areaSolutions.title}
+          subtitle={data.areaSolutions.subtitle}
+          items={data.areaSolutions.items}
+          image={data.areaSolutions.image}
+        />
+      )}
+
+      {/* ── Mid-page CTA ── */}
+      {data.midPageCta && (
+        <MidPageCta
+          title={data.midPageCta.title}
+          subtitle={data.midPageCta.subtitle}
+          ctaLabel={data.midPageCta.ctaLabel}
+          whatsappMessage={data.whatsappMessage}
+        />
+      )}
+
+      {/* ── Solution Tiers ── */}
+      {data.solutionTiers && (
+        <SolutionTiersSection
+          title={data.solutionTiers.title}
+          subtitle={data.solutionTiers.subtitle}
+          tiers={data.solutionTiers.tiers}
+          ctaLabel={data.solutionTiers.ctaLabel}
+        />
+      )}
+
+      {/* ── Why Integrated ── */}
+      {data.whyIntegrated && (
+        <WhyIntegratedSection
+          title={data.whyIntegrated.title}
+          subtitle={data.whyIntegrated.subtitle}
+          items={data.whyIntegrated.items}
+        />
+      )}
+
+      {/* ── Discovery Process ── */}
+      {data.discoveryProcess && (
+        <DiscoveryProcessSection
+          title={data.discoveryProcess.title}
+          subtitle={data.discoveryProcess.subtitle}
+          steps={data.discoveryProcess.steps ?? []}
+        />
+      )}
 
       {data.decisionBlocks && data.decisionBlocks.length > 0 && (
         <section className="bg-surface py-16 md:py-20">
@@ -592,7 +731,25 @@ export default function ServicePageTemplate({
         </section>
       )}
 
-      <ProcessSection />
+      {/* ── Trust Blocks ── */}
+      {data.trustBlocks && (
+        <TrustBlocksSection
+          title={data.trustBlocks.title}
+          subtitle={data.trustBlocks.subtitle}
+          items={data.trustBlocks.items}
+        />
+      )}
+
+      {/* ── Internal Links ── */}
+      {data.internalLinks && (
+        <InternalLinksSection
+          title={data.internalLinks.title}
+          subtitle={data.internalLinks.subtitle}
+          links={data.internalLinks.links}
+        />
+      )}
+
+      {!data.discoveryProcess && <ProcessSection />}
 
       <section className="bg-white py-16 md:py-20">
         <Container>
