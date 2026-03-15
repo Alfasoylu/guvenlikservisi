@@ -188,6 +188,9 @@ export default function AnaSayfa() {
         subtitle="Kamera sistemi kurulumu, alarm sistemi kurulumu, yangın alarm çözümleri ve kartlı geçiş altyapısı için profesyonel keşif, doğru ürün seçimi ve anahtar teslim montaj hizmeti."
         ctaLabel="Ücretsiz Teklif Al"
         ctaHref="/iletisim"
+        imageSrc="/images/hero-guvenlik-servisi.jpg"
+        imageAlt="İstanbul'da profesyonel güvenlik sistemleri için kamera ve kartlı geçiş montajı yapan teknisyen"
+        imagePriority
       />
 
       <StatsBar />

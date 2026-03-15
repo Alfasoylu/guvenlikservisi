@@ -10,6 +10,7 @@ import {
   Warehouse,
   Wrench,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
@@ -241,8 +242,23 @@ export default function IstanbulKartliGecisSistemiPage() {
               phoneDisplay={siteConfig.phone}
               waHref={waHref}
               pagePath={PAGE_PATH}
+              formSource="istanbul_kartli_gecis"
+              serviceType="kartli_gecis"
+              pageType="istanbul_money_page"
             />
           </div>
+          <div className="space-y-5">
+            <div className="relative hidden overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl lg:block">
+              <div className="absolute inset-0 z-10 bg-gradient-to-tr from-slate-950/25 via-transparent to-slate-950/10" />
+              <Image
+                src="/images/hero-guvenlik-servisi.jpg"
+                alt="İstanbul'da kartlı geçiş ve güvenlik kamerası montajı yapan teknisyen"
+                width={2048}
+                height={1152}
+                priority
+                className="h-full w-full object-cover"
+              />
+            </div>
           <IstanbulServiceQuoteForm
             pagePath={PAGE_PATH}
             formSource="istanbul_kartli_gecis"
@@ -253,6 +269,7 @@ export default function IstanbulKartliGecisSistemiPage() {
             whatsappMessage={WA_MESSAGE}
             placeTypes={placeTypes}
           />
+          </div>
         </div>
       </section>
 
