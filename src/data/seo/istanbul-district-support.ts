@@ -264,7 +264,7 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
           "Alarm sistemini bakım ve devam eden servis gelirine bağlar.",
       },
       {
-        href: "/guvenlik-sistemi-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
           "Yeni kurulum yerine mevcut sistem sorunu yaşayan kullanıcılar için net rota sunar.",
@@ -286,7 +286,7 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
         "Kartlı geçiş satın alan ofis ve işletmeleri daha geniş güvenlik çözümüne taşır.",
     },
     {
-      href: "/guvenlik-sistemi-teknik-servis",
+      href: "/istanbul/guvenlik-sistemi-teknik-servis",
       label: "Güvenlik Sistemi Teknik Servis",
       description:
         "Mevcut geçiş sisteminde arıza yaşayan kullanıcılar için servis katmanını açar.",
@@ -333,7 +333,7 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
           "Yanlış alarm, sensör hatası ve panel problemi yaşayan kullanıcılar için en net destek sayfası.",
       },
       {
-        href: "/guvenlik-sistemi-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
           "Kurulu alarm sisteminde sahaya çıkılması gereken sorunları servis formuna taşır.",
@@ -349,7 +349,7 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
         "Kapı açılmama, kart okumama ve turnike arızası gibi acil sorunları toplar.",
     },
     {
-      href: "/guvenlik-sistemi-teknik-servis",
+      href: "/istanbul/guvenlik-sistemi-teknik-servis",
       label: "Güvenlik Sistemi Teknik Servis",
       description:
         "Geçiş kontrol arızalarını tek servis hattına yönlendirerek lead kaçışını azaltır.",

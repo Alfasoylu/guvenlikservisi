@@ -77,7 +77,7 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
           "Arıza sonrası değişim veya yeni kurulum ihtiyacını ana İstanbul winner URL'ye taşır.",
       },
       {
-        href: "/guvenlik-sistemi-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
           "Mevcut alarm altyapısında saha müdahalesi gereken durumlar için servis hattı sunar.",
@@ -100,7 +100,7 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
           "Kartlı geçiş arızasını ana İstanbul ticari sayfasına geri bağlar.",
       },
       {
-        href: "/guvenlik-sistemi-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Güvenlik Sistemi Teknik Servis",
         description:
           "Okuyucu, kilit ve kontrol ünitesi sorunlarında en net servis çıkışıdır.",

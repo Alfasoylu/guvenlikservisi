@@ -88,7 +88,7 @@ export const istanbulTrustLayerData = {
       { href: "/istanbul/kadikoy/alarm-sistemi-kurulumu", label: "Kadıköy Alarm Sistemi", description: "İlçe bazlı ticari ve konut demand sinyali üretir." },
       { href: "/istanbul/besiktas/alarm-sistemi-kurulumu", label: "Beşiktaş Alarm Sistemi", description: "Prestijli konut ve işletme segmentinde lokal güven ekler." },
       { href: "/sorun/alarm-arizalari", label: "Alarm Arızaları", description: "Kurulum vaadini sorun çözüm kapasitesi ile destekler." },
-      { href: "/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Arıza halinde mevcut sistem kullanıcısını kaybetmez." },
+      { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Arıza halinde mevcut sistem kullanıcısını kaybetmez." },
     ],
   },
   yangin: {
@@ -118,7 +118,7 @@ export const istanbulTrustLayerData = {
     links: [
       { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu", description: "Genel kurulum sayfası ile İstanbul money page arasında konu otoritesi kurar." },
       { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme", description: "Sürekli çalışırlılık beklentisini destekler." },
-      { href: "/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Panel veya dedektör sorunlarında servis çıkışı sunar." },
+      { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Panel veya dedektör sorunlarında servis çıkışı sunar." },
       { href: "/istanbul-kartli-gecis-sistemi", label: "İstanbul Kartlı Geçiş Sistemi", description: "Kurumsal bina güvenliğini daha geniş sistem mantığına bağlar." },
     ],
   },
@@ -150,7 +150,7 @@ export const istanbulTrustLayerData = {
       { href: "/istanbul/kadikoy/kartli-gecis-sistemi-kurulumu", label: "Kadıköy Kartlı Geçiş", description: "Apartman ve ofis tarafında lokal proof katar." },
       { href: "/istanbul/besiktas/kartli-gecis-sistemi-kurulumu", label: "Beşiktaş Kartlı Geçiş", description: "Kurumsal segmentte ilçe destek sinyali verir." },
       { href: "/sorun/kartli-gecis-calismiyor", label: "Kartlı Geçiş Çalışmıyor", description: "Arıza çözüm kabiliyetini açık gösterir." },
-      { href: "/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Kurulum vaadini servis gerçeği ile tamamlar." },
+      { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "Güvenlik Sistemi Teknik Servis", description: "Kurulum vaadini servis gerçeği ile tamamlar." },
     ],
   },
   kamera_teknik_servis: {
