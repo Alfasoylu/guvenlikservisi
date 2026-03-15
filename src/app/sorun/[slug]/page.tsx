@@ -6,6 +6,7 @@ import {
   getProblemPageBySlug,
 } from "@/data/seo/problem-pages";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
+import { siteConfig } from "@/data/site-config";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -33,7 +34,7 @@ export async function generateMetadata({
       title: page.primaryIssue,
       description: page.metaDescription,
       url: canonicalUrl,
-      siteName: "Guvenlik Servisi",
+      siteName: siteConfig.name,
       locale: "tr_TR",
       type: "article",
     },
