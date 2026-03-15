@@ -3,6 +3,7 @@ Guvenlikservisi.com projesinde çalışıyorsun.
 Önce `docs/` klasöründeki tüm `.md` dosyalarını oku ama hepsini eşit ağırlıkta değerlendirme.
 
 Source of truth öncelik sırası:
+
 1. BACKLOG.md
 2. ARCHITECTURE.md
 3. SEO_STRATEGY.md
@@ -14,6 +15,7 @@ Source of truth öncelik sırası:
 9. diğer destekleyici docs
 
 Bu öncelik sırasına göre projenin:
+
 - hedefini
 - niyetini
 - iş modelini
@@ -22,11 +24,12 @@ Bu öncelik sırasına göre projenin:
 - lead engine mantığını
 - 24 aylık büyüme planını
 - öncelik sırasını
-anla.
+  anla.
 
 Ardından repo ve docs arasında tutarlılık analizi yap.
 
 Kurallar:
+
 1. Docs ile kod çelişiyorsa çelişkiyi net yaz.
 2. Tamamlanan backlog maddelerini ilgili docs içinde `[x]` veya net durum notu ile işaretle.
 3. Kısmi tamamlanan işleri `[~]` veya `kısmi` olarak işaretle.
@@ -52,10 +55,12 @@ Kurallar:
    - sonra marketplace readiness
 10. Her turda sadece analiz yapıp bırakma.
 11. Her tur en az 1 gerçek değişiklik yap:
-   - kod değişikliği
-   - docs güncellemesi
-   - redirect/canonical fix
-   - metadata/schema/internal-link fix
+
+- kod değişikliği
+- docs güncellemesi
+- redirect/canonical fix
+- metadata/schema/internal-link fix
+
 12. Düşük kaldıraçlı refactor yapma.
 13. Yeni route family açma, eğer query ownership ve quality gate net değilse.
 14. Thin content, duplicate content, crawl waste, authority split yaratacak işlerden kaçın.
@@ -72,6 +77,7 @@ F. kısa ve net rapor ver
 G. bir sonraki en kritik görevi yaz
 
 Görev seçme kuralı:
+
 - En yüksek etki + en düşük efor
 - Gelire ve organic lead ihtimaline en hızlı katkı
 - Teknik doğruluk bozuksa önce onu düzelt
@@ -95,6 +101,7 @@ Aşağıdaki UI kararları sabitlenmiştir. Docs açıkça değiştirilmediği s
 - Veri katmanında `priority`, `tier`, `nearbyDistricts` kalabilir — bunlar routing/internal-link amaçlıdır, görünür ilçe listeleme UI'ını kontrol ETMEZ
 
 Output formatı:
+
 1. Kısa durum özeti
 2. Docs içinde işaretlenen / güncellenen maddeler
 3. Bu tur yapılan ana görev

@@ -370,6 +370,20 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
           },
         ],
       },
+      trustImages: {
+        afterHero: {
+          src: "/images/services/bakim-servis/kamera-sistemi-periyodik-bakim-servisi.jpg",
+          alt: "Kamera sistemi periyodik bakım servisi",
+        },
+        beforeFaq: {
+          src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg",
+          alt: "NVR kayıt cihazı bakım ve harddisk kontrol",
+        },
+        beforeCta: {
+          src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+          alt: "Güvenlik sistemi teknik servis ekibi sahada",
+        },
+      },
     },
   },
   "kamera-sistemi-bakim-sozlesmesi": {
@@ -649,6 +663,20 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             text: "Doğrudan sözleşmeli plan mı, önce düzeltme sonrası bakım modeli mi daha doğru bunu açık biçimde ayrıştırıyoruz.",
           },
         ],
+      },
+      trustImages: {
+        afterHero: {
+          src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+          alt: "Güvenlik sistemi bakım teknisyen ekibi",
+        },
+        beforeFaq: {
+          src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+          alt: "Kamera sistem kontrol ve monitör teknisyeni",
+        },
+        beforeCta: {
+          src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+          alt: "Site kamera sistemi periyodik bakım",
+        },
       },
     },
   },
@@ -956,6 +984,20 @@ export const serviceHubPageConfigs: Record<string, ServiceHubPageConfig> = {
             text: "Kayıt cihazı, internet yapısı, kullanıcı modeli ve erişim tarafının bu yapıyı taşıyıp taşımadığını kontrol ediyoruz.",
           },
         ],
+      },
+      trustImages: {
+        afterHero: {
+          src: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+          alt: "Uzaktan izleme merkezi ekranları",
+        },
+        beforeFaq: {
+          src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+          alt: "Güvenlik kamera izleme merkezi",
+        },
+        beforeCta: {
+          src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+          alt: "Kamera sistem kontrol monitör teknisyeni",
+        },
       },
     },
   },

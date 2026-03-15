@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   CheckCircle,
@@ -214,6 +215,11 @@ export interface ServicePageData {
       label: string;
     }[];
   };
+  trustImages?: {
+    afterHero?: { src: string; alt: string };
+    beforeFaq?: { src: string; alt: string };
+    beforeCta?: { src: string; alt: string };
+  };
 }
 
 interface ServicePageTemplateProps {
@@ -424,6 +430,23 @@ export default function ServicePageTemplate({
       </section>
 
       <TrustSignals />
+
+      {data.trustImages?.afterHero ? (
+        <section className="bg-white py-8">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <Image
+                src={data.trustImages.afterHero.src}
+                alt={data.trustImages.afterHero.alt}
+                width={1200}
+                height={800}
+                className="w-full h-auto rounded-xl shadow-lg"
+                priority
+              />
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       {/* ── Target Audience ── */}
       {data.targetAudience && (
@@ -973,6 +996,22 @@ export default function ServicePageTemplate({
         </section>
       )}
 
+      {data.trustImages?.beforeFaq ? (
+        <section className="bg-white py-8">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <Image
+                src={data.trustImages.beforeFaq.src}
+                alt={data.trustImages.beforeFaq.alt}
+                width={1200}
+                height={800}
+                className="w-full h-auto rounded-xl shadow-lg"
+              />
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       <FAQSection items={data.faq} />
 
       {data.authorityAfterFaq && data.authorityAfterFaq.links.length > 0 && (
@@ -1000,6 +1039,22 @@ export default function ServicePageTemplate({
           </Container>
         </section>
       )}
+
+      {data.trustImages?.beforeCta ? (
+        <section className="bg-white py-8">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <Image
+                src={data.trustImages.beforeCta.src}
+                alt={data.trustImages.beforeCta.alt}
+                width={1200}
+                height={800}
+                className="w-full h-auto rounded-xl shadow-lg"
+              />
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       <CTASection
         content={data.ctaContent}

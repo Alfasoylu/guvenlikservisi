@@ -671,6 +671,20 @@ const data: ServicePageData = {
       "Site ve apartman projelerinin yoğunlaştığı şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/apartman-yonetimi-kamera-montaj-memnuniyeti.jpg",
+      alt: "Apartman güvenlik kamera montajı",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+      alt: "Site yönetimi güvenlik merkezi izleme ekranı",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+      alt: "Site kamera sistemi periyodik bakım",
+    },
+  },
 };
 
 export default function ApartmanSiteSayfasi() {

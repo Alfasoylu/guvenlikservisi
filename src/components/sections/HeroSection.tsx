@@ -37,11 +37,11 @@ export default function HeroSection({
   imagePriority = false,
 }: HeroSectionProps) {
   return (
-    <section className={`${bgClass} py-20 text-white md:py-28`}>
+    <section className={`${bgClass} py-12 text-white md:py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`grid items-center gap-10 ${
-            imageSrc ? "lg:grid-cols-[1.05fr_0.95fr]" : ""
+          className={`grid items-center gap-8 ${
+            imageSrc ? "lg:grid-cols-[0.9fr_1.1fr]" : ""
           }`}
         >
           <div
@@ -76,23 +76,6 @@ export default function HeroSection({
                 {siteConfig.phone}
               </a>
             </div>
-
-            {stats.length > 0 && (
-              <div
-                className={`mt-12 flex flex-wrap items-center gap-6 sm:gap-10 ${
-                  imageSrc ? "justify-center lg:justify-start" : "justify-center"
-                }`}
-              >
-                {stats.map((stat, index) => (
-                  <div key={index} className="flex items-center gap-2 text-white/90">
-                    <span className="text-2xl">{stat.icon}</span>
-                    <span className="text-sm font-semibold sm:text-base">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
           {imageSrc ? (

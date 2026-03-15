@@ -27,5 +27,25 @@ export const metadata: Metadata = {
 };
 
 export default function UzaktanKameraIzlemePage() {
-  return <ServiceHubTemplate data={pageConfig.data} />;
+  return (
+    <ServiceHubTemplate
+      data={{
+        ...pageConfig.data,
+        trustImages: {
+          afterHero: {
+            src: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+            alt: "Uzaktan izleme merkezi ekranları",
+          },
+          beforeFaq: {
+            src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+            alt: "Güvenlik kamera sistemi izleme merkezi",
+          },
+          beforeCta: {
+            src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+            alt: "Kamera sistem kontrol teknisyeni",
+          },
+        },
+      }}
+    />
+  );
 }

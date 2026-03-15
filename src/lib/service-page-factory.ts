@@ -409,8 +409,8 @@ export function getServicePageFactoryData(
     primarySegments.length > 0
       ? primarySegments.map((segment) => `${segment.name}: ${segment.commonPainPoints[0] ?? segment.trustAngle}`)
       : (seoCity?.serviceAreas ?? [])
-          .slice(0, 3)
-          .map((area) => `${city.name} içinde ${area} için planlı ${service.name.toLocaleLowerCase("tr-TR")} desteği`);
+        .slice(0, 3)
+        .map((area) => `${city.name} içinde ${area} için planlı ${service.name.toLocaleLowerCase("tr-TR")} desteği`);
   const guidanceItems = businessModel?.businessGuidance.emphasisPoints.slice(0, 4) ?? [];
   const includedItems =
     guidanceItems.length > 0 ? guidanceItems : benefits.slice(0, 4).length > 0 ? benefits.slice(0, 4) : process.slice(0, 4);

@@ -20,7 +20,10 @@ import ServiceUseCases from "@/components/service-page/ServiceUseCases";
 import { pageShellClass } from "@/components/service-page/styles";
 import { cities } from "@/data/cities";
 import { buildCoverageFaqItem } from "@/data/seo/faq-bank";
-import { getLeadIntentKeywordsForService, getSeoTrafficKeywordsForService } from "@/data/seo/keywords";
+import {
+  getLeadIntentKeywordsForService,
+  getSeoTrafficKeywordsForService,
+} from "@/data/seo/keywords";
 import { getSeoServiceBySlug } from "@/data/seo/services";
 import { trustElementsByIntent } from "@/data/seo/trust-elements";
 import { services } from "@/data/services";
@@ -33,7 +36,11 @@ import {
   getCityServiceStaticParams,
 } from "@/lib/routes";
 import { buildNotFoundMetadata, buildSeoMetadata } from "@/lib/seo/metadata";
-import { dedupeFaqItems, getCityLocative, getPriorityServiceLinksForService } from "@/lib/seo/page-factory";
+import {
+  dedupeFaqItems,
+  getCityLocative,
+  getPriorityServiceLinksForService,
+} from "@/lib/seo/page-factory";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -156,10 +163,11 @@ function buildSectionCards(items: string[]) {
 function buildDefaultServiceSpecificContent(
   city: CityRecord,
   service: ServiceRecord,
-  pageContent: FactoryPageContent
+  pageContent: FactoryPageContent,
 ): ServiceSpecificContent {
   const seoService = getSeoServiceBySlug(service.slug);
-  const trustElement = trustElementsByIntent[seoService?.trustElementKey ?? "installation"];
+  const trustElement =
+    trustElementsByIntent[seoService?.trustElementKey ?? "installation"];
   const useCases =
     pageContent.useCases.items.length > 0
       ? pageContent.useCases.items
@@ -188,7 +196,9 @@ function buildDefaultServiceSpecificContent(
     heroIntro: pageContent.hero.intro,
     useCases,
     installationSteps: processSteps,
-    sectionTitle1: pageContent.useCases.title || `${service.name} hangi alanlarda tercih edilir?`,
+    sectionTitle1:
+      pageContent.useCases.title ||
+      `${service.name} hangi alanlarda tercih edilir?`,
     sectionBody1:
       pageContent.useCases.description ||
       `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı bulunan kullanım senaryolarını aşağıda özetledik.`,
@@ -201,9 +211,7 @@ function buildDefaultServiceSpecificContent(
       `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} için hızlı keşif ve teklif süreci sunuyoruz.`,
     trustBlock: `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} hizmetinde doğru teşhis, doğru planlama ve sürdürülebilir sonuç odaklı çalışıyoruz.`,
     trustTitle: trustElement.title,
-    trustBody:
-      pageContent.hero.localContext ||
-      trustElement.body,
+    trustBody: pageContent.hero.localContext || trustElement.body,
     trustBullets,
     faqExtras: [],
     faqExtraItems: [],
@@ -278,7 +286,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Ücretsiz keşif ile kamera sisteminizi doğru planlayın",
         description:
           "Uzman ekibimiz şehir içinde hızlı keşif planı yapar, bütçenize uygun fiyat aralığını aynı gün netleştirir ve kurulum sonrası garanti ile teknik destek sürecini baştan tanımlar.",
-        whatsappText: "Kamera sistemi kurulumu için ücretsiz keşif ve hızlı fiyat istiyorum.",
+        whatsappText:
+          "Kamera sistemi kurulumu için ücretsiz keşif ve hızlı fiyat istiyorum.",
         supportingLink: {
           href: "/iletisim",
           label: "Teklif Formunu Doldur",
@@ -391,7 +400,10 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     relatedLinks: [
       { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
-      { href: "/bakim-servis-uzaktan-izleme", label: "Bakım Servis Uzaktan İzleme" },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım Servis Uzaktan İzleme",
+      },
       { href: "/iletisim", label: "İletişim" },
     ],
   },
@@ -483,11 +495,13 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Alarm sistemi; izinsiz giriş, kırılma veya şüpheli hareketleri erken tespit ederek panel üzerinden siren ve bildirim senaryolarını çalıştıran güvenlik altyapısıdır.",
           "Apartman, işyeri, mağaza ve depolarda doğru alarm planı sayesinde risk anında müdahale süresi kısalır ve yanlış alarm kaynaklı operasyon kaybı azalır.",
         ],
-        imageSrc: "/images/services/bakim-servis/alarm-panel-sensor-test-servis.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/alarm-panel-sensor-test-servis.jpg",
         imageAlt: "Alarm paneli ve dedektör test uygulaması",
       },
       {
-        title: "Alarm Paneli, Dedektör ve Siren Kurulumunda Profesyonel Yaklaşım",
+        title:
+          "Alarm Paneli, Dedektör ve Siren Kurulumunda Profesyonel Yaklaşım",
         paragraphs: [
           "Doğru panel kapasitesi, dedektör konumu ve siren senaryosu belirlenmeden yapılan kurulumlarda sistem ya eksik koruma sağlar ya da gereksiz uyarı üretir.",
           "Profesyonel ekip; keşif, montaj, test ve kullanıcı eğitimi adımlarını birlikte yöneterek mobil kontrolü aktif eder, sistemi günlük kullanımda stabil hale getirir.",
@@ -506,7 +520,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Alarm sistemi için hızlı fiyat ve keşif talep edin",
         description:
           "Şehir içi hızlı keşif ile panel, dedektör ve siren kapsamını doğru belirleyip bütçenize uygun çözümü sunuyoruz. Uygun fiyat, garanti ve teknik destek birlikte planlanır.",
-        whatsappText: "Alarm sistemi kurulumu için hızlı keşif ve fiyat teklifi istiyorum.",
+        whatsappText:
+          "Alarm sistemi kurulumu için hızlı keşif ve fiyat teklifi istiyorum.",
         supportingLink: {
           href: "/alarm-sistemi-kurulumu",
           label: "Alarm Hizmet Detayları",
@@ -572,19 +587,35 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "Apartman ve konut",
-        items: ["Daire içi hareket algılama", "Kapı-manyetik güvenliği", "Gece modu senaryoları"],
+        items: [
+          "Daire içi hareket algılama",
+          "Kapı-manyetik güvenliği",
+          "Gece modu senaryoları",
+        ],
       },
       {
         title: "Mağaza ve işyeri",
-        items: ["Kasa çevresi koruma", "Açılış-kapanış kontrolü", "Siren ve panel yönetimi"],
+        items: [
+          "Kasa çevresi koruma",
+          "Açılış-kapanış kontrolü",
+          "Siren ve panel yönetimi",
+        ],
       },
       {
         title: "Depo alanları",
-        items: ["Giriş noktası kontrolü", "Zaman bazlı kurma-çözme", "Uzak bildirim yönetimi"],
+        items: [
+          "Giriş noktası kontrolü",
+          "Zaman bazlı kurma-çözme",
+          "Uzak bildirim yönetimi",
+        ],
       },
       {
         title: "Karma kullanım alanları",
-        items: ["Bölgesel alarm planı", "Yetkili kullanıcı tanımı", "Merkezi panel takibi"],
+        items: [
+          "Bölgesel alarm planı",
+          "Yetkili kullanıcı tanımı",
+          "Merkezi panel takibi",
+        ],
       },
     ],
     processSteps: [
@@ -695,7 +726,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Yangın alarm sistemi; duman dedektörü, ısı dedektörü, manuel buton, siren/flaşör ve panel bileşenlerinin birlikte çalıştığı kritik can güvenliği sistemidir.",
           "İşyeri, depo, apartman ve ticari yapılarda erken uyarı performansı, doğru projelendirme ve test disipliniyle doğrudan ilişkilidir.",
         ],
-        imageSrc: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
         imageAlt: "Yangın alarm dedektörü ve acil buton",
       },
       {
@@ -709,7 +741,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Panel-siren entegrasyon testi",
           "Devreye alma sonrası bakım önerisi",
         ],
-        imageSrc: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
         imageAlt: "Yangın alarm paneli kontrol sistemi",
       },
     ],
@@ -718,7 +751,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Yangın alarm projeniz için ücretsiz ön değerlendirme alın",
         description:
           "Uzman teknik ekibimiz saha keşfiyle dedektör, panel ve siren kapsamını netleştirir; hızlı teklif, doğru planlama ve satış sonrası teknik destek sunar.",
-        whatsappText: "Yangın alarm sistemi kurulumu için keşif ve teklif almak istiyorum.",
+        whatsappText:
+          "Yangın alarm sistemi kurulumu için keşif ve teklif almak istiyorum.",
         supportingLink: {
           href: "/yangin-alarm-sistemi-kurulumu",
           label: "Yangın Alarm Hizmeti",
@@ -727,7 +761,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     trustBlock:
       "Yangın alarm projelerinde en kritik nokta, dedektör-pano-siren bileşenlerinin birlikte ve mevzuata uygun çalışmasıdır. Test odaklı devreye alma ile sistemin kritik anda güven vermesini sağlıyoruz.",
-    trustTitle: "Yangın alarm sisteminde mevzuata uyum ve test disiplini esastır",
+    trustTitle:
+      "Yangın alarm sisteminde mevzuata uyum ve test disiplini esastır",
     trustBody:
       "Dedektör, buton, siren ve panel yerleşimini doğru planlayıp devreye alma testleriyle doğruladığımızda sistemin kritik anda güvenilir çalışmasını sağlıyoruz.",
     trustBullets: [
@@ -784,19 +819,35 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "İşyeri ve ofis",
-        items: ["Zon bazlı dedektör planı", "Panel ve buton yerleşimi", "Sesli uyarı senaryoları"],
+        items: [
+          "Zon bazlı dedektör planı",
+          "Panel ve buton yerleşimi",
+          "Sesli uyarı senaryoları",
+        ],
       },
       {
         title: "Depo ve lojistik",
-        items: ["Yüksek tavan planlaması", "Bölgesel alarm yönetimi", "Siren kapsama kontrolü"],
+        items: [
+          "Yüksek tavan planlaması",
+          "Bölgesel alarm yönetimi",
+          "Siren kapsama kontrolü",
+        ],
       },
       {
         title: "Apartman ve site",
-        items: ["Ortak alan güvenliği", "Kat bazlı planlama", "Tahliye uyarı senaryosu"],
+        items: [
+          "Ortak alan güvenliği",
+          "Kat bazlı planlama",
+          "Tahliye uyarı senaryosu",
+        ],
       },
       {
         title: "Ticari alanlar",
-        items: ["Çalışma saatine uygun senaryo", "Kritik hat izleme", "Periyodik test planı"],
+        items: [
+          "Çalışma saatine uygun senaryo",
+          "Kritik hat izleme",
+          "Periyodik test planı",
+        ],
       },
     ],
     processSteps: [
@@ -814,8 +865,14 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Test/devreye alma kapsamı",
     ],
     relatedLinks: [
-      { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
-      { href: "/bakim-servis-uzaktan-izleme", label: "Bakım Servis Uzaktan İzleme" },
+      {
+        href: "/yangin-alarm-sistemi-kurulumu",
+        label: "Yangın Alarm Sistemi Kurulumu",
+      },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım Servis Uzaktan İzleme",
+      },
       { href: "/iletisim", label: "İletişim" },
     ],
   },
@@ -907,7 +964,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Kartlı geçiş sistemi; kapı kontrolü, kart okuyucu ve turnike altyapısı ile personel ve ziyaretçi hareketini yetki seviyelerine göre yöneten güvenlik çözümüdür.",
           "Ofis, apartman, işyeri ve fabrikalarda izinsiz erişimi azaltırken giriş-çıkış kayıtlarıyla operasyonel denetimi güçlendirir.",
         ],
-        imageSrc: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
         imageAlt: "Kartlı geçiş turnike giriş sistemi",
       },
       {
@@ -921,7 +979,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Departman ve saat bazlı yetkilendirme",
           "Giriş-çıkış loglarıyla operasyonel takip",
         ],
-        imageSrc: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg",
         imageAlt: "Kartlı geçiş mobil giriş çıkış kayıt ekranı",
       },
     ],
@@ -930,7 +989,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Kartlı geçiş sistemi için hızlı keşif ve bütçe planı",
         description:
           "Kapı kontrolü, turnike ve kullanıcı yetkilendirme ihtiyaçlarınızı şehir içi keşifle hızlıca analiz ediyor; uygun fiyatlı ve güvenilir kurulum planı sunuyoruz.",
-        whatsappText: "Kartlı geçiş sistemi için hızlı keşif ve fiyat almak istiyorum.",
+        whatsappText:
+          "Kartlı geçiş sistemi için hızlı keşif ve fiyat almak istiyorum.",
         supportingLink: {
           href: "/iletisim",
           label: "Kurumsal Teklif Talebi",
@@ -939,7 +999,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     trustBlock:
       "Kartlı geçiş sisteminde kapı donanımı, yetki matrisi ve kullanıcı yönetimi doğru kurgulanmadığında operasyon yavaşlar ve güvenlik zayıflar. Projeyi hem güvenlik hem hız odağında kuruyoruz.",
-    trustTitle: "Kartlı geçişte doğru yetkilendirme güvenliği ve operasyonu birlikte güçlendirir",
+    trustTitle:
+      "Kartlı geçişte doğru yetkilendirme güvenliği ve operasyonu birlikte güçlendirir",
     trustBody:
       "Kapı kontrolü, turnike ve kullanıcı yetki seviyelerini işletme akışına göre planlayarak hem güvenli erişim hem pratik kullanım sağlayan bir yapı kuruyoruz.",
     trustBullets: [
@@ -996,19 +1057,35 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "Ofis ve plaza",
-        items: ["Kapı bazlı erişim", "Ziyaretçi kontrolü", "Personel yetki planı"],
+        items: [
+          "Kapı bazlı erişim",
+          "Ziyaretçi kontrolü",
+          "Personel yetki planı",
+        ],
       },
       {
         title: "İşyeri ve mağaza",
-        items: ["Depo-giriş ayrımı", "Sorumlu bazlı yetki", "Geçiş kayıt takibi"],
+        items: [
+          "Depo-giriş ayrımı",
+          "Sorumlu bazlı yetki",
+          "Geçiş kayıt takibi",
+        ],
       },
       {
         title: "Apartman ve site",
-        items: ["Ortak kapı kontrolü", "Blok giriş yönetimi", "Güvenli erişim senaryosu"],
+        items: [
+          "Ortak kapı kontrolü",
+          "Blok giriş yönetimi",
+          "Güvenli erişim senaryosu",
+        ],
       },
       {
         title: "Fabrika tesisleri",
-        items: ["Turnike entegrasyonu", "Vardiya geçiş yönetimi", "Bölgesel yetkilendirme"],
+        items: [
+          "Turnike entegrasyonu",
+          "Vardiya geçiş yönetimi",
+          "Bölgesel yetkilendirme",
+        ],
       },
     ],
     processSteps: [
@@ -1109,7 +1186,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Site yönetimlerinde güvenlik yatırımı; giriş kapısı, otopark, çevre hattı ve ortak alanların birlikte planlanmasıyla etkili hale gelir.",
           "Doğru kurgulanmış sistem, sakin güvenliğini artırırken yönetimin olası olaylarda hızlı ve net karar almasını sağlar.",
         ],
-        imageSrc: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
         imageAlt: "Site yönetimi güvenlik izleme merkezi",
       },
       {
@@ -1118,7 +1196,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Apartman ve site projelerinde en büyük risk, kör noktalardır. Keşifte yaya-araç akışı analiz edilerek kamera ve geçiş noktaları optimize edilir.",
           "Kayıt süresi, uzaktan izleme ve bakım planı birlikte ele alındığında sistem yıllar boyunca stabil ve ekonomik biçimde çalışır.",
         ],
-        imageSrc: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
         imageAlt: "Site kamera sistemi bakım ve kayıt düzeni",
       },
     ],
@@ -1127,7 +1206,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Site ve apartman güvenliği için ücretsiz keşif alın",
         description:
           "Profesyonel ekibimiz blok yapınıza uygun güvenlik planı çıkarır, uygun fiyatlı cihaz seçeneklerini sunar ve garanti + teknik destek sürecini netleştirir.",
-        whatsappText: "Apartman/site güvenlik sistemi için keşif ve hızlı fiyat istiyorum.",
+        whatsappText:
+          "Apartman/site güvenlik sistemi için keşif ve hızlı fiyat istiyorum.",
         supportingLink: {
           href: "/apartman-site-guvenlik-sistemi",
           label: "Hizmet Detayları",
@@ -1193,19 +1273,35 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "Giriş ve çıkış noktaları",
-        items: ["Kapı güvenlik takibi", "Araç giriş kontrolü", "Ziyaretçi hareketi"],
+        items: [
+          "Kapı güvenlik takibi",
+          "Araç giriş kontrolü",
+          "Ziyaretçi hareketi",
+        ],
       },
       {
         title: "Çevre güvenliği",
-        items: ["Site çevresi izleme", "Gece görüş odaklı plan", "Kritik sınır noktaları"],
+        items: [
+          "Site çevresi izleme",
+          "Gece görüş odaklı plan",
+          "Kritik sınır noktaları",
+        ],
       },
       {
         title: "Otopark alanları",
-        items: ["Araç dolaşım izleme", "Kayıt sürekliliği", "Aydınlatma uyumlu kamera"],
+        items: [
+          "Araç dolaşım izleme",
+          "Kayıt sürekliliği",
+          "Aydınlatma uyumlu kamera",
+        ],
       },
       {
         title: "Ortak yaşam alanları",
-        items: ["Asansör ve lobi çevresi", "Çocuk alanı çevresi", "Yönetim öncelikli noktalar"],
+        items: [
+          "Asansör ve lobi çevresi",
+          "Çocuk alanı çevresi",
+          "Yönetim öncelikli noktalar",
+        ],
       },
     ],
     processSteps: [
@@ -1224,7 +1320,10 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     relatedLinks: [
       { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
-      { href: "/bakim-servis-uzaktan-izleme", label: "Bakım Servis Uzaktan İzleme" },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım Servis Uzaktan İzleme",
+      },
       { href: "/iletisim", label: "İletişim" },
     ],
   },
@@ -1314,7 +1413,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "İşyeri projelerinde hızlı keşif ve doğru planlama sayesinde gereksiz maliyet kalemleri azaltılır, bütçeye uygun ama performanslı bir sistem kurgusu oluşturulur.",
           "Kurulum sonrası teknik destek ve garanti yaklaşımı sayesinde işletme, güvenlik altyapısını kesintisiz kullanmaya devam eder.",
         ],
-        imageSrc: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
         imageAlt: "İşyeri teknik servis ve kurulum ekibi",
       },
     ],
@@ -1323,7 +1423,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "İşyeriniz için aynı gün keşif ve teklif alın",
         description:
           "Şehir içi ekip planlamamızla kısa sürede keşif yapıyor, güvenlik ihtiyacınıza göre uygun fiyatlı çözümü WhatsApp, telefon veya form üzerinden hızlıca iletiyoruz.",
-        whatsappText: "İşyeri güvenlik sistemi için keşif ve fiyat teklifi istiyorum.",
+        whatsappText:
+          "İşyeri güvenlik sistemi için keşif ve fiyat teklifi istiyorum.",
         supportingLink: {
           href: "/iletisim",
           label: "Uzmanla Görüş",
@@ -1389,19 +1490,35 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "Ofis alanları",
-        items: ["Giriş kontrol planı", "Çalışan güvenliği", "Ortak alan izleme"],
+        items: [
+          "Giriş kontrol planı",
+          "Çalışan güvenliği",
+          "Ortak alan izleme",
+        ],
       },
       {
         title: "Mağaza ve dükkan",
-        items: ["Müşteri akışı takibi", "Kasa çevresi izleme", "Alarm entegrasyonu"],
+        items: [
+          "Müşteri akışı takibi",
+          "Kasa çevresi izleme",
+          "Alarm entegrasyonu",
+        ],
       },
       {
         title: "Küçük işletmeler",
-        items: ["Bütçe odaklı kurulum", "Temel risk noktaları", "Pratik kullanım senaryosu"],
+        items: [
+          "Bütçe odaklı kurulum",
+          "Temel risk noktaları",
+          "Pratik kullanım senaryosu",
+        ],
       },
       {
         title: "Depo destek alanları",
-        items: ["Arka alan kontrolü", "Yetkisiz giriş önleme", "Kayıt sürekliliği"],
+        items: [
+          "Arka alan kontrolü",
+          "Yetkisiz giriş önleme",
+          "Kayıt sürekliliği",
+        ],
       },
     ],
     processSteps: [
@@ -1502,7 +1619,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Geniş alanlı üretim ve depo tesislerinde güvenlik sistemleri, çevre hattından yükleme-boşaltma noktalarına kadar bütün alanı kapsayacak şekilde planlanmalıdır.",
           "Doğru planlama yapılmadığında kör nokta, yetersiz kayıt süresi ve gece performans kaybı oluşur; bu da operasyonel ve finansal riskleri artırır.",
         ],
-        imageSrc: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
         imageAlt: "Fabrika güvenlik sistemleri teknik servis uygulaması",
       },
       {
@@ -1511,7 +1629,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Sanayi tesislerinde kayıt altyapısı, cihaz kapasitesi ve ağ stabilitesi birlikte ele alınmalıdır. Böylece kritik olaylarda geçmişe dönük kayıt erişimi güvenilir olur.",
           "Periyodik bakım ve teknik destek planı, yoğun çalışma koşullarında oluşabilecek arıza risklerini düşürerek sistem sürekliliğini korur.",
         ],
-        imageSrc: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
         imageAlt: "NVR kayıt cihazı ve harddisk kontrolü",
       },
     ],
@@ -1520,7 +1639,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Fabrika ve depo projeleri için kurumsal keşif planlayın",
         description:
           "Uzman ekibimiz saha keşfi ile kritik risk noktalarını belirler, uygun fiyatlı ve ölçeklenebilir bir kurulum planı sunar. Hızlı servis, garanti ve satış sonrası destek süreçleri birlikte yönetilir.",
-        whatsappText: "Fabrika/depo güvenlik sistemi için kurumsal keşif ve teklif istiyorum.",
+        whatsappText:
+          "Fabrika/depo güvenlik sistemi için kurumsal keşif ve teklif istiyorum.",
         supportingLink: {
           href: "/fabrika-depo-guvenlik-sistemi",
           label: "Fabrika ve Depo Güvenlik Çözümleri",
@@ -1586,7 +1706,11 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     section1Cards: [
       {
         title: "Üretim alanları",
-        items: ["Proses hattı izleme", "Kritik nokta kontrolü", "Operasyon takibi"],
+        items: [
+          "Proses hattı izleme",
+          "Kritik nokta kontrolü",
+          "Operasyon takibi",
+        ],
       },
       {
         title: "Depo raf bölgeleri",
@@ -1594,11 +1718,19 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       },
       {
         title: "Yükleme-boşaltma",
-        items: ["Araç hareket takibi", "Kapı giriş izleme", "Gece görüş odaklı kurgu"],
+        items: [
+          "Araç hareket takibi",
+          "Kapı giriş izleme",
+          "Gece görüş odaklı kurgu",
+        ],
       },
       {
         title: "Çevre hattı",
-        items: ["Sınır güvenliği", "Uzun mesafe izleme", "Kesintisiz kayıt planı"],
+        items: [
+          "Sınır güvenliği",
+          "Uzun mesafe izleme",
+          "Kesintisiz kayıt planı",
+        ],
       },
     ],
     processSteps: [
@@ -1617,7 +1749,10 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     relatedLinks: [
       { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
-      { href: "/bakim-servis-uzaktan-izleme", label: "Bakım Servis Uzaktan İzleme" },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım Servis Uzaktan İzleme",
+      },
       { href: "/iletisim", label: "İletişim" },
     ],
   },
@@ -1702,7 +1837,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Kurulu sistemler zamanla bakım gerektirir. Kayıt cihazı, disk, görüntü kalitesi ve bağlantı tarafında oluşan küçük hatalar müdahale edilmezse büyük kesintilere dönüşebilir.",
           "Bakım hizmetinin amacı sistemi değiştirmek değil, mevcut altyapıyı koruyarak arıza riskini düşürmek ve güvenlik performansını sürdürülebilir hale getirmektir.",
         ],
-        imageSrc: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
         imageAlt: "Güvenlik sistemi bakım teknisyen ekibi",
       },
       {
@@ -1716,7 +1852,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
           "Görüntü/bağlantı sorunlarında hızlı teşhis",
           "Uzaktan destek + yerinde müdahale planı",
         ],
-        imageSrc: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+        imageSrc:
+          "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
         imageAlt: "Uzaktan izleme merkezi ekranları",
       },
     ],
@@ -1725,7 +1862,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
         title: "Mevcut sisteminizi değiştirmeden performansını yükseltin",
         description:
           "Uzman ekibimiz periyodik bakım ve uzaktan destek planıyla kayıt, görüntü ve bağlantı sorunlarını hızlıca tespit eder. Uygun maliyetli bakım sözleşmesiyle sistemi güvenle işletmeye devam edin.",
-        whatsappText: "Bakım-servis-uzaktan izleme için hızlı fiyat ve destek planı istiyorum.",
+        whatsappText:
+          "Bakım-servis-uzaktan izleme için hızlı fiyat ve destek planı istiyorum.",
         supportingLink: {
           href: "/bakim-servis-uzaktan-izleme",
           label: "Bakım Hizmeti Detayları",
@@ -1734,7 +1872,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     trustBlock:
       "Bakım hizmetinde değer, arıza çıktıktan sonra müdahale etmek değil arızayı önceden yakalayıp sürekliliği korumaktır. Teknik izleme ve periyodik bakım bu yüzden birlikte sunulmalıdır.",
-    trustTitle: "Mevcut sistemi güçlü tutan şey düzenli bakım ve hızlı müdahaledir",
+    trustTitle:
+      "Mevcut sistemi güçlü tutan şey düzenli bakım ve hızlı müdahaledir",
     trustBody:
       "Kurulu sistemlerde asıl risk, arıza sonrası geç müdahaledir. Periyodik bakım, uzaktan izleme ve hızlı teknik yönlendirme ile sistemin çalışır kalmasını güvence altına alıyoruz.",
     trustBullets: [
@@ -1746,7 +1885,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     faqExtras: [
       {
-        question: "Bakım hizmeti sadece kendi kurduğunuz sistemlere mi veriliyor?",
+        question:
+          "Bakım hizmeti sadece kendi kurduğunuz sistemlere mi veriliyor?",
         answer:
           "Hayır. Farklı firmalar tarafından kurulmuş sistemleri de devralıp bakım kapsamına alabiliyoruz.",
       },
@@ -1768,7 +1908,8 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
     ],
     faqExtraItems: [
       {
-        question: "Bakım hizmeti sadece kendi kurduğunuz sistemlere mi veriliyor?",
+        question:
+          "Bakım hizmeti sadece kendi kurduğunuz sistemlere mi veriliyor?",
         answer:
           "Hayır. Farklı firmalar tarafından kurulmuş sistemleri de devralıp bakım kapsamına alabiliyoruz.",
       },
@@ -1795,7 +1936,11 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       },
       {
         title: "Kamera performansı",
-        items: ["Görüntü kalite kontrolü", "Açı optimizasyonu", "Gece performansı"],
+        items: [
+          "Görüntü kalite kontrolü",
+          "Açı optimizasyonu",
+          "Gece performansı",
+        ],
       },
       {
         title: "Bağlantı ve erişim",
@@ -1821,7 +1966,10 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
       "Müdahale seviyesi",
     ],
     relatedLinks: [
-      { href: "/bakim-servis-uzaktan-izleme", label: "Bakım Servis Uzaktan İzleme" },
+      {
+        href: "/bakim-servis-uzaktan-izleme",
+        label: "Bakım Servis Uzaktan İzleme",
+      },
       { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
       { href: "/iletisim", label: "İletişim" },
     ],
@@ -1832,7 +1980,9 @@ export function generateStaticParams() {
   return getCityServiceStaticParams();
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { city: citySlug, service: serviceSlug } = await params;
 
   const city = cities.find((c) => c.slug === citySlug);
@@ -1887,7 +2037,8 @@ export default async function ServicePage({ params }: PageProps) {
   const seoService = getSeoServiceBySlug(service.slug);
   const serviceVisuals = getCityServicePageVisuals(city.slug, service.slug);
   const serviceSpecificContent =
-    serviceContentMap[service.slug] ?? buildDefaultServiceSpecificContent(city, service, pageContent);
+    serviceContentMap[service.slug] ??
+    buildDefaultServiceSpecificContent(city, service, pageContent);
 
   const isCameraService = service.slug === "kamera-sistemi-kurulumu";
   const isCameraRelatedService =
@@ -1908,7 +2059,10 @@ export default async function ServicePage({ params }: PageProps) {
     "data-intent-type": seoService?.businessIntent ?? "",
     "data-page-template": "city_service",
   } as const;
-  const getLeadTrackingProps = (ctaSlot: string, leadChannel: "phone" | "whatsapp") =>
+  const getLeadTrackingProps = (
+    ctaSlot: string,
+    leadChannel: "phone" | "whatsapp",
+  ) =>
     ({
       ...leadTrackingBase,
       "data-cta-slot": ctaSlot,
@@ -1916,59 +2070,255 @@ export default async function ServicePage({ params }: PageProps) {
     }) as const;
   const serviceSeoBlocks = isCameraService
     ? pageContent.seoContent.blocks
-    : serviceSpecificContent.seoBlocks ?? [];
-  const serviceAuthoritySections = serviceSpecificContent.authoritySections ?? [];
+    : (serviceSpecificContent.seoBlocks ?? []);
+  const serviceAuthoritySections =
+    serviceSpecificContent.authoritySections ?? [];
   const serviceConversionBlocks = serviceSpecificContent.conversionBlocks ?? [];
 
   const serviceImageMap: Record<string, { src: string; alt: string }[]> = {
     "kamera-sistemi-kurulumu": [
-      { src: "/images/diagrams/camera-system-flow.svg", alt: `${city.name} kamera sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
-      { src: "/images/landing/ip-kamera-kurulum-detay.webp", alt: "IP kamera montaj detay\u0131" },
-      { src: "/images/landing/uzaktan-izleme-mobil.webp", alt: "Mobil uzaktan izleme ekran\u0131" },
+      {
+        src: "/images/diagrams/camera-system-flow.svg",
+        alt: `${city.name} kamera sistemi \u00e7al\u0131\u015fma \u015femas\u0131`,
+      },
+      {
+        src: "/images/landing/ip-kamera-kurulum-detay.webp",
+        alt: "IP kamera montaj detay\u0131",
+      },
+      {
+        src: "/images/landing/uzaktan-izleme-mobil.webp",
+        alt: "Mobil uzaktan izleme ekran\u0131",
+      },
     ],
     "alarm-sistemi-kurulumu": [
-      { src: "/images/diagrams/alarm-system-flow.svg", alt: `${city.name} alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
-      { src: "/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png", alt: "Kablolu ve kablosuz alarm sistemi kurulumu" },
-      { src: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp", alt: "Mobil alarm kontrol uygulamas\u0131" },
+      {
+        src: "/images/diagrams/alarm-system-flow.svg",
+        alt: `${city.name} alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131`,
+      },
+      {
+        src: "/images/landing/istanbul-alarm-sistemi-kurulumu-kablolu-kablosuz.jpg.png",
+        alt: "Kablolu ve kablosuz alarm sistemi kurulumu",
+      },
+      {
+        src: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp",
+        alt: "Mobil alarm kontrol uygulamas\u0131",
+      },
     ],
     "yangin-alarm-sistemi-kurulumu": [
-      { src: "/images/diagrams/fire-alarm-flow.svg", alt: `${city.name} yang\u0131n alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
-      { src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg", alt: "Yang\u0131n alarm dedekt\u00f6r\u00fc ve acil buton" },
-      { src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg", alt: "Yang\u0131n alarm paneli kontrol sistemi" },
+      {
+        src: "/images/diagrams/fire-alarm-flow.svg",
+        alt: `${city.name} yang\u0131n alarm sistemi \u00e7al\u0131\u015fma \u015femas\u0131`,
+      },
+      {
+        src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+        alt: "Yang\u0131n alarm dedekt\u00f6r\u00fc ve acil buton",
+      },
+      {
+        src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+        alt: "Yang\u0131n alarm paneli kontrol sistemi",
+      },
     ],
     "kartli-gecis-sistemi-kurulumu": [
-      { src: "/images/diagrams/access-control-flow.svg", alt: `${city.name} kartl\u0131 ge\u00e7i\u015f sistemi \u00e7al\u0131\u015fma \u015femas\u0131` },
-      { src: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg", alt: "Kartl\u0131 ge\u00e7i\u015f turnike giri\u015f sistemi" },
-      { src: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg", alt: "Kartl\u0131 ge\u00e7i\u015f mobil kay\u0131t ekran\u0131" },
+      {
+        src: "/images/diagrams/access-control-flow.svg",
+        alt: `${city.name} kartl\u0131 ge\u00e7i\u015f sistemi \u00e7al\u0131\u015fma \u015femas\u0131`,
+      },
+      {
+        src: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
+        alt: "Kartl\u0131 ge\u00e7i\u015f turnike giri\u015f sistemi",
+      },
+      {
+        src: "/images/services/bakim-servis/kartli-gecis-sistemi-mobil-giris-cikis-kayitlari-ve-maas-hesaplama.jpg",
+        alt: "Kartl\u0131 ge\u00e7i\u015f mobil kay\u0131t ekran\u0131",
+      },
     ],
     "bakim-servis-uzaktan-izleme": [
-      { src: "/images/diagrams/security-network-flow.svg", alt: `${city.name} g\u00fcvenlik a\u011f yap\u0131s\u0131 \u015femas\u0131` },
-      { src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg", alt: "Bak\u0131m teknisyen ekibi" },
-      { src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg", alt: "NVR kay\u0131t cihaz\u0131 bak\u0131m kontrol\u00fc" },
+      {
+        src: "/images/diagrams/security-network-flow.svg",
+        alt: `${city.name} g\u00fcvenlik a\u011f yap\u0131s\u0131 \u015femas\u0131`,
+      },
+      {
+        src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+        alt: "Bak\u0131m teknisyen ekibi",
+      },
+      {
+        src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
+        alt: "NVR kay\u0131t cihaz\u0131 bak\u0131m kontrol\u00fc",
+      },
     ],
     "apartman-site-guvenlik-sistemi": [
-      { src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg", alt: "Site y\u00f6netimi g\u00fcvenlik izleme merkezi" },
-      { src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg", alt: "Site kamera sistemi periyodik bak\u0131m" },
-      { src: "/images/diagrams/security-network-flow.svg", alt: "Site g\u00fcvenlik a\u011f yap\u0131s\u0131" },
+      {
+        src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+        alt: "Site y\u00f6netimi g\u00fcvenlik izleme merkezi",
+      },
+      {
+        src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+        alt: "Site kamera sistemi periyodik bak\u0131m",
+      },
+      {
+        src: "/images/diagrams/security-network-flow.svg",
+        alt: "Site g\u00fcvenlik a\u011f yap\u0131s\u0131",
+      },
     ],
     "isyeri-guvenlik-sistemi": [
-      { src: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png", alt: "\u0130\u015fyeri alarm ve g\u00fcvenlik sistemi" },
-      { src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg", alt: "\u0130\u015fyeri teknik servis ve kurulum" },
-      { src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg", alt: "Ma\u011faza kamera montaj\u0131 ve kablolama" },
+      {
+        src: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png",
+        alt: "\u0130\u015fyeri alarm ve g\u00fcvenlik sistemi",
+      },
+      {
+        src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+        alt: "\u0130\u015fyeri teknik servis ve kurulum",
+      },
+      {
+        src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+        alt: "Ma\u011faza kamera montaj\u0131 ve kablolama",
+      },
     ],
     "fabrika-depo-guvenlik-sistemi": [
-      { src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg", alt: "Fabrika g\u00fcvenlik kamera sistemleri" },
-      { src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg", alt: "NVR kay\u0131t cihaz\u0131 ve harddisk kontrol\u00fc" },
-      { src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg", alt: "G\u00fcvenlik kamera izleme merkezi" },
+      {
+        src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+        alt: "Fabrika g\u00fcvenlik kamera sistemleri",
+      },
+      {
+        src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg",
+        alt: "NVR kay\u0131t cihaz\u0131 ve harddisk kontrol\u00fc",
+      },
+      {
+        src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+        alt: "G\u00fcvenlik kamera izleme merkezi",
+      },
     ],
   };
   const serviceImages = serviceImageMap[service.slug] ?? [];
+
+  const serviceTrustImageMap: Record<
+    string,
+    {
+      afterHero: { src: string; alt: string };
+      beforeFaq: { src: string; alt: string };
+      beforeCta: { src: string; alt: string };
+    }
+  > = {
+    "kamera-sistemi-kurulumu": {
+      afterHero: {
+        src: "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
+        alt: `${city.name} güvenlik kamera montajı yapan teknik servis ekibi`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/apartman-kamera-montaji-teknisyen-istanbul.jpg",
+        alt: "Apartman güvenlik kamera sistemi kurulumu",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/kucuk-isletme-kamera-montaj-memnuniyeti.jpg",
+        alt: "İşletme kamera montajı sonrası müşteri memnuniyeti",
+      },
+    },
+    "kamera-ariza-servisi": {
+      afterHero: {
+        src: "/images/services/bakim-servis/kamera-sistemi-periyodik-bakim-servisi.jpg",
+        alt: `${city.name} kamera sistemi periyodik bakım servisi`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg",
+        alt: "NVR kayıt cihazı bakım ve harddisk kontrol",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+        alt: "Güvenlik sistemi teknik servis ekibi sahada",
+      },
+    },
+    "bakim-servis-uzaktan-izleme": {
+      afterHero: {
+        src: "/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg",
+        alt: `${city.name} güvenlik sistemi bakım teknisyen ekibi`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+        alt: "Kamera sistem kontrol ve monitör teknisyeni",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+        alt: "Uzaktan izleme merkezi ekranları",
+      },
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      afterHero: {
+        src: "/images/services/bakim-servis/yangin-alarm-sistemi-kurulum.jpg",
+        alt: `${city.name} yangın alarm sistemi kurulumu`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+        alt: "Yangın alarm dedektörü ve acil ihbar butonu montajı",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+        alt: "Yangın alarm paneli kontrol sistemi",
+      },
+    },
+    "alarm-sistemi-kurulumu": {
+      afterHero: {
+        src: "/images/services/bakim-servis/ic-mekan-kamera-ve-alarm-kurulum-servisi.jpg",
+        alt: `${city.name} alarm sistemi kurulum servisi`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/alarm-panel-sensor-test-bakim.jpg",
+        alt: "Alarm panel sensör test ve bakım",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/alarm-sistemi-panel-test-servis.jpg",
+        alt: "Alarm sistemi panel test servisi",
+      },
+    },
+    "apartman-site-guvenlik-sistemi": {
+      afterHero: {
+        src: "/images/services/bakim-servis/apartman-yonetimi-kamera-montaj-memnuniyeti.jpg",
+        alt: `${city.name} apartman güvenlik kamera montajı`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg",
+        alt: "Site yönetimi güvenlik merkezi izleme ekranı",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+        alt: "Site kamera sistemi periyodik bakım",
+      },
+    },
+    "fabrika-depo-guvenlik-sistemi": {
+      afterHero: {
+        src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+        alt: `${city.name} fabrika güvenlik kamera sistemleri`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-1374x1470px.jpg",
+        alt: "Fabrika güvenlik kamera sistemi kurulumu",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+        alt: "Güvenlik kamera izleme merkezi",
+      },
+    },
+    "isyeri-guvenlik-sistemi": {
+      afterHero: {
+        src: "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
+        alt: `${city.name} işyeri güvenlik kamera montaj ekibi`,
+      },
+      beforeFaq: {
+        src: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+        alt: "Mağaza kamera montajı ve kablolama",
+      },
+      beforeCta: {
+        src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+        alt: "İşyeri güvenlik sistemi teknik servis ekibi",
+      },
+    },
+  };
+  const trustImages = serviceTrustImageMap[service.slug];
 
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraRelatedService
     ? pageContent.faq.items
     : pageContent.faq.items.filter(
-        (item) => !cameraTopicPattern.test(`${item.question} ${item.answer}`)
+        (item) => !cameraTopicPattern.test(`${item.question} ${item.answer}`),
       );
 
   const faqExtraItems = [
@@ -1982,12 +2332,20 @@ export default async function ServicePage({ params }: PageProps) {
   const relatedCoreServiceLinks = [
     { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
     { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
-    { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
-    { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+    {
+      href: "/yangin-alarm-sistemi-kurulumu",
+      label: "Yangın Alarm Sistemi Kurulumu",
+    },
+    {
+      href: "/bakim-servis-uzaktan-izleme",
+      label: "Bakım, Servis ve Uzaktan İzleme",
+    },
   ];
   void relatedCoreServiceLinks;
 
-  const prioritizedRelatedCoreServiceLinks = getPriorityServiceLinksForService(service.slug).map((item) => ({
+  const prioritizedRelatedCoreServiceLinks = getPriorityServiceLinksForService(
+    service.slug,
+  ).map((item) => ({
     href: `/${item.slug}`,
     label: item.name,
   }));
@@ -2045,7 +2403,9 @@ export default async function ServicePage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       <script
         type="application/ld+json"
@@ -2088,7 +2448,9 @@ export default async function ServicePage({ params }: PageProps) {
                 {heroHeading}
               </h1>
             )}
-            <p className="mt-4 text-base leading-8 text-slate-600">{heroDecisionIntro}</p>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              {heroDecisionIntro}
+            </p>
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
@@ -2108,7 +2470,7 @@ export default async function ServicePage({ params }: PageProps) {
             </a>
             <a
               href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                `${city.name} ${service.name} için bilgi ve fiyat almak istiyorum.`
+                `${city.name} ${service.name} için bilgi ve fiyat almak istiyorum.`,
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -2121,6 +2483,21 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {trustImages?.afterHero ? (
+        <section className="bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-8 md:px-6">
+            <Image
+              src={trustImages.afterHero.src}
+              alt={trustImages.afterHero.alt}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-xl shadow-lg"
+              priority
+            />
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
@@ -2135,8 +2512,13 @@ export default async function ServicePage({ params }: PageProps) {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {serviceSpecificContent.section1Cards.map((group) => (
-              <div key={group.title} className="rounded-3xl border border-slate-200 bg-white p-6">
-                <h3 className="text-xl font-black text-slate-950">{group.title}</h3>
+              <div
+                key={group.title}
+                className="rounded-3xl border border-slate-200 bg-white p-6"
+              >
+                <h3 className="text-xl font-black text-slate-950">
+                  {group.title}
+                </h3>
                 <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
                   {group.items.map((item) => (
                     <li key={item} className="flex items-start gap-2">
@@ -2164,11 +2546,16 @@ export default async function ServicePage({ params }: PageProps) {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
             {serviceSpecificContent.processSteps.map((step, index) => (
-              <div key={step} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+              <div
+                key={step}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-6"
+              >
                 <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white">
                   {index + 1}
                 </div>
-                <p className="text-sm font-semibold leading-7 text-slate-800">{step}</p>
+                <p className="text-sm font-semibold leading-7 text-slate-800">
+                  {step}
+                </p>
               </div>
             ))}
           </div>
@@ -2180,7 +2567,10 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
             <div className="grid gap-6 md:grid-cols-3">
               {serviceImages.map((img) => (
-                <div key={img.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                <div
+                  key={img.src}
+                  className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm"
+                >
                   <Image
                     src={img.src}
                     alt={img.alt}
@@ -2202,14 +2592,18 @@ export default async function ServicePage({ params }: PageProps) {
               {service.name} Fiyatını Etkileyen Faktörler
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              Fiyat, proje kapsamı ve saha koşullarına göre belirlenir. Net teklif için keşif
-              sonrası ihtiyaç kalemlerini birlikte netleştiriyoruz.
+              Fiyat, proje kapsamı ve saha koşullarına göre belirlenir. Net
+              teklif için keşif sonrası ihtiyaç kalemlerini birlikte
+              netleştiriyoruz.
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
             {serviceSpecificContent.pricingFactors.map((item) => (
-              <div key={item} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
                 <h3 className="text-base font-black text-slate-950">{item}</h3>
               </div>
             ))}
@@ -2219,13 +2613,19 @@ export default async function ServicePage({ params }: PageProps) {
             {serviceSpecificContent.ctaText}{" "}
             {serviceSpecificContent.relatedLinks.map((link, index) => (
               <span key={link.href}>
-                <Link href={link.href} className="font-bold text-slate-950 underline underline-offset-4">
+                <Link
+                  href={link.href}
+                  className="font-bold text-slate-950 underline underline-offset-4"
+                >
                   {link.label}
                 </Link>
-                {index < serviceSpecificContent.relatedLinks.length - 1 ? ", " : " "}
+                {index < serviceSpecificContent.relatedLinks.length - 1
+                  ? ", "
+                  : " "}
               </span>
             ))}
-            sayfalarından detay alabilir, şehirinize özel kurulum için teklif isteyebilirsiniz.
+            sayfalarından detay alabilir, şehirinize özel kurulum için teklif
+            isteyebilirsiniz.
           </p>
         </div>
       </section>
@@ -2265,7 +2665,10 @@ export default async function ServicePage({ params }: PageProps) {
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
               <ul className="space-y-3">
                 {serviceSpecificContent.trustBullets.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-700">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-sm leading-7 text-slate-700"
+                  >
                     <span className="mt-2 inline-block h-2 w-2 rounded-full bg-emerald-600" />
                     <span>{item}</span>
                   </li>
@@ -2283,29 +2686,57 @@ export default async function ServicePage({ params }: PageProps) {
               Neden Bizi Tercih Etmelisiniz?
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600">
-              {city.name} genelinde {service.name.toLocaleLowerCase("tr-TR")} hizmeti veren deneyimli
-              ekibimiz, her projeyi keşif, planlama ve teslim süreciyle birlikte yönetir.
+              {city.name} genelinde {service.name.toLocaleLowerCase("tr-TR")}{" "}
+              hizmeti veren deneyimli ekibimiz, her projeyi keşif, planlama ve
+              teslim süreciyle birlikte yönetir.
             </p>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
             {[
-              { icon: "\ud83d\udee0\ufe0f", title: "Deneyimli Teknik Ekip", desc: "12 yılı aşkın sektör deneyimi ve sertifikalı teknik kadro" },
-              { icon: "\u26a1", title: "Hızlı Montaj", desc: "Çoğu proje aynı gün veya ertesi gün tamamlanır" },
-              { icon: "\ud83d\udcb0", title: "Uygun Fiyat", desc: "Bütçenize uygun çözüm, ücretsiz keşif ve net teklif" },
-              { icon: "\u2705", title: "Kaliteli Ekipman", desc: "Kanıtlanmış markalar ve garanti kapsamında kurulum" },
-              { icon: "\ud83d\udcde", title: "Satış Sonrası Destek", desc: "Teknik servis, bakım ve uzaktan destek sürekliliği" },
+              {
+                icon: "\ud83d\udee0\ufe0f",
+                title: "Deneyimli Teknik Ekip",
+                desc: "12 yılı aşkın sektör deneyimi ve sertifikalı teknik kadro",
+              },
+              {
+                icon: "\u26a1",
+                title: "Hızlı Montaj",
+                desc: "Çoğu proje aynı gün veya ertesi gün tamamlanır",
+              },
+              {
+                icon: "\ud83d\udcb0",
+                title: "Uygun Fiyat",
+                desc: "Bütçenize uygun çözüm, ücretsiz keşif ve net teklif",
+              },
+              {
+                icon: "\u2705",
+                title: "Kaliteli Ekipman",
+                desc: "Kanıtlanmış markalar ve garanti kapsamında kurulum",
+              },
+              {
+                icon: "\ud83d\udcde",
+                title: "Satış Sonrası Destek",
+                desc: "Teknik servis, bakım ve uzaktan destek sürekliliği",
+              },
             ].map((item) => (
-              <div key={item.title} className="rounded-3xl border border-emerald-200 bg-white p-6 text-center shadow-sm">
+              <div
+                key={item.title}
+                className="rounded-3xl border border-emerald-200 bg-white p-6 text-center shadow-sm"
+              >
                 <div className="text-3xl">{item.icon}</div>
-                <h3 className="mt-3 text-base font-black text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                <h3 className="mt-3 text-base font-black text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a
               href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                `${city.name} ${service.name} i\u00e7in \u00fccretsiz ke\u015fif ve fiyat teklifi istiyorum.`
+                `${city.name} ${service.name} i\u00e7in \u00fccretsiz ke\u015fif ve fiyat teklifi istiyorum.`,
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -2328,11 +2759,14 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
-            <h2 className="text-2xl font-black text-slate-950">{city.name} Genelinde Hizmet Kapsamımız</h2>
+            <h2 className="text-2xl font-black text-slate-950">
+              {city.name} Genelinde Hizmet Kapsamımız
+            </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              {city.name} genelinde hizmet veriyor, ilçe bazlı planlama yapabiliyor ve keşif sonrası
-              uygun ekibi hızlı şekilde yönlendiriyoruz. Amaç, proje süresini uzatmadan doğru
-              kurulumla hızlı devreye alma sağlamaktır.
+              {city.name} genelinde hizmet veriyor, ilçe bazlı planlama
+              yapabiliyor ve keşif sonrası uygun ekibi hızlı şekilde
+              yönlendiriyoruz. Amaç, proje süresini uzatmadan doğru kurulumla
+              hızlı devreye alma sağlamaktır.
             </p>
           </div>
         </div>
@@ -2361,7 +2795,9 @@ export default async function ServicePage({ params }: PageProps) {
         items={pageContent.painPoints.items}
       />
 
-      {serviceSeoBlocks.length > 0 ? <ServiceSEOContent blocks={serviceSeoBlocks} /> : null}
+      {serviceSeoBlocks.length > 0 ? (
+        <ServiceSEOContent blocks={serviceSeoBlocks} />
+      ) : null}
 
       {serviceAuthoritySections.length > 0 ? (
         <section className="bg-white">
@@ -2372,7 +2808,9 @@ export default async function ServicePage({ params }: PageProps) {
                 className="grid gap-6 rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8 lg:grid-cols-[1.1fr_0.9fr]"
               >
                 <div>
-                  <h2 className="text-2xl font-black text-slate-950 md:text-3xl">{block.title}</h2>
+                  <h2 className="text-2xl font-black text-slate-950 md:text-3xl">
+                    {block.title}
+                  </h2>
                   <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600 md:text-base">
                     {block.paragraphs.map((paragraph) => (
                       <p key={`${block.title}-${paragraph}`}>{paragraph}</p>
@@ -2417,7 +2855,9 @@ export default async function ServicePage({ params }: PageProps) {
                 key={block.title}
                 className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8"
               >
-                <h2 className="text-xl font-black text-slate-950 md:text-2xl">{block.title}</h2>
+                <h2 className="text-xl font-black text-slate-950 md:text-2xl">
+                  {block.title}
+                </h2>
                 <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 md:text-base">
                   {block.description}
                 </p>
@@ -2427,7 +2867,10 @@ export default async function ServicePage({ params }: PageProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-500"
-                    {...getLeadTrackingProps("conversion-block-whatsapp", "whatsapp")}
+                    {...getLeadTrackingProps(
+                      "conversion-block-whatsapp",
+                      "whatsapp",
+                    )}
                   >
                     WhatsApp ile Hızlı Fiyat Al
                   </a>
@@ -2461,7 +2904,10 @@ export default async function ServicePage({ params }: PageProps) {
 
       <CityHubSection cityName={city.name} cityPath={cityPath} />
 
-      <RelatedServicesSection cityName={city.name} links={pageContent.relatedServices} />
+      <RelatedServicesSection
+        cityName={city.name}
+        links={pageContent.relatedServices}
+      />
 
       <ServiceSegmentFit
         title={pageContent.segmentFit.title}
@@ -2498,9 +2944,12 @@ export default async function ServicePage({ params }: PageProps) {
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-          <h2 className="text-2xl font-black text-slate-950">İlgili Güvenlik Sistemleri Hizmetleri</h2>
+          <h2 className="text-2xl font-black text-slate-950">
+            İlgili Güvenlik Sistemleri Hizmetleri
+          </h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
-            Projenizi bütüncül planlamak için aşağıdaki temel hizmet sayfalarını da inceleyebilirsiniz.
+            Projenizi bütüncül planlamak için aşağıdaki temel hizmet sayfalarını
+            da inceleyebilirsiniz.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             {prioritizedRelatedCoreServiceLinks.map((link) => (
@@ -2516,14 +2965,31 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
+      {trustImages?.beforeFaq ? (
+        <section className="bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-8 md:px-6">
+            <Image
+              src={trustImages.beforeFaq.src}
+              alt={trustImages.beforeFaq.alt}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-xl shadow-lg"
+            />
+          </div>
+        </section>
+      ) : null}
+
       <ServiceFAQ title={pageContent.faq.title} items={mergedFaqItems} />
 
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-          <h2 className="text-2xl font-black text-slate-950">Türkiye Genelinde {service.name} Hizmeti</h2>
+          <h2 className="text-2xl font-black text-slate-950">
+            Türkiye Genelinde {service.name} Hizmeti
+          </h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
-            {service.name} hizmetini İstanbul başta olmak üzere birçok şehirde sunuyoruz. Şehir
-            bazlı hizmet detaylarını aşağıdaki merkez sayfalardan inceleyebilirsiniz.
+            {service.name} hizmetini İstanbul başta olmak üzere birçok şehirde
+            sunuyoruz. Şehir bazlı hizmet detaylarını aşağıdaki merkez
+            sayfalardan inceleyebilirsiniz.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             {nationwideCityHubLinks.map((link) => (
@@ -2546,13 +3012,17 @@ export default async function ServicePage({ params }: PageProps) {
               {city.name} içinde {service.name} için hızlı keşif ve teklif alın
             </h2>
             <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600">
-              Ücretsiz ön değerlendirme ile ihtiyacınızı kısa sürede analiz ediyor, şehir içi planlamaya
-              uygun şekilde hızlı geri dönüş sağlıyoruz. Telefon, WhatsApp ve teklif formu üzerinden
-              aynı gün içinde süreç başlatabilirsiniz.
+              Ücretsiz ön değerlendirme ile ihtiyacınızı kısa sürede analiz
+              ediyor, şehir içi planlamaya uygun şekilde hızlı geri dönüş
+              sağlıyoruz. Telefon, WhatsApp ve teklif formu üzerinden aynı gün
+              içinde süreç başlatabilirsiniz.
             </p>
             <p className="mt-4 text-sm leading-7 text-slate-600">
               İsterseniz{" "}
-              <Link href="/iletisim" className="font-bold text-slate-950 underline underline-offset-4">
+              <Link
+                href="/iletisim"
+                className="font-bold text-slate-950 underline underline-offset-4"
+              >
                 iletişim
               </Link>{" "}
               sayfasından detay paylaşın; sistem sürekliliği için{" "}
@@ -2580,7 +3050,7 @@ export default async function ServicePage({ params }: PageProps) {
               </a>
               <a
                 href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                  `${city.name} ${service.name} için hızlı keşif ve teklif istiyorum.`
+                  `${city.name} ${service.name} için hızlı keşif ve teklif istiyorum.`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -2603,6 +3073,20 @@ export default async function ServicePage({ params }: PageProps) {
           intentType={seoService?.businessIntent ?? "installation"}
           defaultServiceType={embeddedFormServiceType}
         />
+      ) : null}
+
+      {trustImages?.beforeCta ? (
+        <section className="bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-8 md:px-6">
+            <Image
+              src={trustImages.beforeCta.src}
+              alt={trustImages.beforeCta.alt}
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-xl shadow-lg"
+            />
+          </div>
+        </section>
       ) : null}
 
       <ServiceCTA

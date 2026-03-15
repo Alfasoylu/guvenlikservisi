@@ -651,6 +651,20 @@ const data: ServicePageData = {
       "Yangın alarmı ve bina güvenliği talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/yangin-alarm-sistemi-kurulum.jpg",
+      alt: "Yangın alarm sistemi kurulumu",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+      alt: "Yangın alarm dedektörü ve acil ihbar butonu montajı",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+      alt: "Yangın alarm paneli kontrol sistemi",
+    },
+  },
 };
 
 export default function YanginAlarmSayfasi() {

@@ -675,6 +675,20 @@ const data: ServicePageData = {
       "Alarm kurulumu talebinin yoğun olduğu şehirlerdeki güvenlik çözümlerimizi ve hizmet kapsamımızı inceleyin.",
     links: topCityHubLinks,
   },
+  trustImages: {
+    afterHero: {
+      src: "/images/services/bakim-servis/ic-mekan-kamera-ve-alarm-kurulum-servisi.jpg",
+      alt: "Alarm sistemi kurulum servisi",
+    },
+    beforeFaq: {
+      src: "/images/services/bakim-servis/alarm-panel-sensor-test-bakim.jpg",
+      alt: "Alarm panel sensör test ve bakım",
+    },
+    beforeCta: {
+      src: "/images/services/bakim-servis/alarm-sistemi-panel-test-servis.jpg",
+      alt: "Alarm sistemi panel test servisi",
+    },
+  },
 };
 
 export default function AlarmSayfasi() {

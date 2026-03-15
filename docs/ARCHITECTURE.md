@@ -1,4 +1,5 @@
 # ARCHITECTURE
+
 guvenlikservisi.com
 
 Goal:
@@ -21,12 +22,15 @@ This document defines the architecture required to support:
 The platform evolves in 3 layers:
 
 ### Layer 1 — Lead Engine
+
 Collect and convert inbound demand from SEO and Ads.
 
 ### Layer 2 — National Programmatic SEO Platform
+
 Scale city × service × district × problem pages without thin-content collapse.
 
 ### Layer 3 — Lead Marketplace
+
 Allow installer firms to register, define coverage areas, and receive leads.
 
 The architecture must support all 3 layers.
@@ -41,6 +45,7 @@ Architecture = national
 Validation = Istanbul first
 
 This means:
+
 - data models must be designed for Turkey scale
 - route families must be designed for Turkey scale
 - content systems must be reusable nationally
@@ -112,6 +117,7 @@ Key rules:
 Current runtime infrastructure:
 
 Deployment:
+
 - Vercel
 
 Runtime services:
@@ -141,12 +147,14 @@ Future runtime evolution:
 ## 3. ROUTE LAYERS
 
 ### A. Root and support
+
 - `/`
 - `/hakkimizda`
 - `/iletisim`
 - `/paketler-ve-fiyatlandirma`
 
 ### B. National service hubs
+
 - `/kamera-sistemi-kurulumu`
 - `/alarm-sistemi-kurulumu`
 - `/yangin-alarm-sistemi-kurulumu`
@@ -160,30 +168,35 @@ Role:
 National authority + support + internal linking.
 
 ### C. City hub pages
+
 - `/{city}`
 
 Role:
 Local authority hub + internal discovery node.
 
 ### D. City + service pages
+
 - `/{city}/{service}`
 
 Role:
 Primary organic money pages.
 
 ### E. District + service pages
+
 - `/{city}/{district}/{service}`
 
 Role:
 Hyperlocal support pages.
 
 ### F. Problem pages
+
 - `/sorun/{problem}`
 
 Role:
 Problem-intent traffic capture and routing into money pages.
 
 ### G. Blog
+
 - `/blog`
 - `/blog/{slug}`
 
@@ -191,6 +204,7 @@ Role:
 Informational support and topical authority.
 
 ### H. Paid landing pages
+
 - `/teklif/*`
 
 Role:
@@ -198,6 +212,7 @@ Google Ads conversion pages only.
 Not part of the organic SEO architecture.
 
 ### I. API routes
+
 - `/api/lead`
 - `/api/quote`
 
@@ -205,7 +220,9 @@ Role:
 Lead intake and validation.
 
 ### J. Future marketplace routes
+
 Examples:
+
 - `/firmalar`
 - `/firma-kayit`
 - `/firma/{slug}`
@@ -224,6 +241,7 @@ Installer onboarding, profile, routing, and monetization layer.
 The platform must be data-driven.
 
 Source-of-truth domains include:
+
 - cities
 - districts
 - services
@@ -238,6 +256,7 @@ Source-of-truth domains include:
 - future installer coverage data
 
 Preferred organization:
+
 - `src/data/*`
 - `src/data/seo/*`
 - related reusable helpers in `src/lib/*`
@@ -251,6 +270,7 @@ Do not bury business taxonomy inside scattered page files.
 Programmatic pages must render from structured data.
 
 Every scalable route family should be driven by:
+
 - route params
 - structured content data
 - metadata builder
@@ -259,6 +279,7 @@ Every scalable route family should be driven by:
 - CTA rules
 
 This is required for scaling to:
+
 - 81 cities
 - 970 districts
 - 20 services
@@ -271,6 +292,7 @@ This is required for scaling to:
 One search job must have one primary owner URL.
 
 Examples:
+
 - national service intent -> national service hub
 - city + service commercial intent -> city/service page
 - district + service hyperlocal intent -> district/service page
@@ -284,6 +306,7 @@ They do not replace strategy.
 ## 7. LEAD CAPTURE ARCHITECTURE
 
 Lead intake must preserve:
+
 - form data
 - phone normalization
 - spam control
@@ -295,6 +318,7 @@ Lead intake must preserve:
 - future routing context
 
 Current preferred early-stage operating stack:
+
 - web form / call / WhatsApp
 - lead API
 - email notification
@@ -302,6 +326,7 @@ Current preferred early-stage operating stack:
 - manual sales follow-up
 
 Future evolution:
+
 - database-backed lead store
 - assignment logic
 - installer routing
@@ -315,6 +340,7 @@ Future evolution:
 The site must operate as a graph, not isolated pages.
 
 Key link directions:
+
 - city hub -> city/service pages
 - city/service -> city hub
 - city/service -> relevant district/service pages
@@ -330,6 +356,7 @@ Do not leak organic authority heavily into `/teklif/*`.
 ## 9. SEO GOVERNANCE ARCHITECTURE
 
 The technical SEO layer must stay aligned across:
+
 - metadata
 - canonical
 - sitemap
@@ -338,6 +365,7 @@ The technical SEO layer must stay aligned across:
 - internal links
 
 Required governance:
+
 - no duplicate organic winners
 - no paid landing pages in sitemap
 - no indexable legacy redirect targets
@@ -352,6 +380,7 @@ Required governance:
 Schema must be centralized and intentional.
 
 Core schema use cases:
+
 - LocalBusiness
 - Service
 - BreadcrumbList
@@ -359,6 +388,7 @@ Core schema use cases:
 - BlogPosting / Article for blog/problem content when relevant
 
 Rules:
+
 - avoid schema duplication
 - avoid conflicting helpers
 - match visible content
@@ -371,6 +401,7 @@ Rules:
 Every indexable route family must have its own metadata strategy.
 
 Required:
+
 - title
 - description
 - canonical
@@ -378,11 +409,13 @@ Required:
 - OG where appropriate
 
 Route families must not accidentally inherit:
+
 - homepage canonical
 - irrelevant default metadata
 - wrong query intent
 
 Paid landing pages:
+
 - must be `noindex,nofollow`
 - must be excluded from sitemap
 - must not be organic canonical owners
@@ -394,6 +427,7 @@ Paid landing pages:
 District pages are a controlled growth layer.
 
 They must not be mass-published without:
+
 - district data depth
 - local differentiation
 - parent page relation
@@ -407,6 +441,7 @@ But the architecture must be reusable for national district rollout later.
 ### District UI Presentation Rule (Active — March 2026)
 
 On city hub (`/{city}`) and city/service (`/{city}/{service}`) pages:
+
 - ALL districts for the city are shown in ONE unified grid block
 - Title: "Hizmet Verdiğimiz İlçeler"
 - NO visible prioritization, NO "Öncelikli ilçe" or "Diğer hizmet bölgeleri" labels
@@ -428,6 +463,7 @@ Deprecated component: `src/components/service-page/ServiceDistricts.tsx`
 Problem pages form the issue-intent layer.
 
 A problem page should include:
+
 - symptom definition
 - likely causes
 - safe checks
@@ -444,6 +480,7 @@ This layer will be critical in months 4-18 for scaling long-tail intent.
 Future marketplace modules should plug into the existing taxonomy.
 
 The architecture must be compatible with:
+
 - installer service types
 - installer city coverage
 - installer district coverage
@@ -453,6 +490,7 @@ The architecture must be compatible with:
 - billing models
 
 This requires clean:
+
 - city taxonomy
 - district taxonomy
 - service taxonomy
@@ -464,18 +502,23 @@ This requires clean:
 ## 15. 24-MONTH PHASE ALIGNMENT
 
 ### Months 1-3
+
 Technical SEO cleanup, ownership protection, lead integrity.
 
 ### Months 4-6
+
 Istanbul district depth, problem pages, initial economics.
 
 ### Months 7-12
+
 18-city growth, service-cluster expansion, routing discipline.
 
 ### Months 13-18
+
 National district data model, problem SEO expansion, early installer operations.
 
 ### Months 19-24
+
 Marketplace-ready routing, installer layer, national city backbone.
 
 ---
@@ -495,6 +538,7 @@ Marketplace-ready routing, installer layer, national city backbone.
 ## 17. SUCCESS DEFINITION
 
 A healthy architecture is one where:
+
 - Istanbul wins early
 - the national system scales cleanly
 - organic and paid systems stay strategically separate
