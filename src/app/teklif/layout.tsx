@@ -6,7 +6,11 @@ import { siteConfig } from "@/data/site-config";
 export const metadata: Metadata = {
   robots: {
     index: false,
-    follow: true,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
   },
 };
 

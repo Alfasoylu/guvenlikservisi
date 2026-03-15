@@ -1,252 +1,220 @@
 # SCHEMA MAP
+guvenlikservisi.com
 
-## 1. Kisa yonetici ozeti
+Purpose:
+Define which schema types belong to which page systems under the 24-month national growth plan.
 
-Repo icinde schema mimarisi uc katmana dagiliyor:
+Schema must support:
+- organic search understanding
+- local-commercial clarity
+- service intent clarity
+- breadcrumb structure
+- FAQ extraction where appropriate
+- future marketplace extensibility
 
-- `src/lib/schema.ts`: tekrar kullanilan JSON-LD util'leri
-- sayfa icinde inline tanimlanan JSON-LD objeleri
-- `FAQSection`, `ServicePageTemplate`, `LandingPageTemplate` gibi component/template seviyesinde dolayli schema uretimi
+Schema must not be:
+- duplicated carelessly
+- contradictory
+- fake
+- disconnected from visible content
 
-Kodda gorunen mevcut durum:
+---
 
-- Static service sayfalari (`ServicePageTemplate` kullananlar) en tutarli grup: `LocalBusiness + Service + BreadcrumbList + AggregateRating + FAQPage`
-- Programmatic SEO rotalari (`/[city]`, `/[city]/[service]`) schema uretiyor ama `Service` schema kullanmiyor; servis niyetli sayfalar `LocalBusiness` ile temsil ediliyor
-- `LandingPageTemplate` kullanan bircok `/teklif/*` sayfasi yalnizca `FAQPage` uretiyor; servis/breadcrumb/business schema yok
-- `bakim-servis-uzaktan-izleme` ve `/teklif/alarm` gibi uzun landing sayfalarinda gorunur FAQ olmasina ragmen kodda `FAQPage` schema yok
-- `istanbul-guvenlik-sistemi-kurulumu` sayfasinda ayni FAQ icerigi iki farkli yoldan schema'ya donusturuluyor: `generateFAQSchema(...)` ve `FAQSection`
-- URL standardi daginik: `siteConfig.url` non-`www`, bazi inline schema ve metadata alanlari `www`
-- Kod tabaninda yaygin encoding bozulmasi var; schema string'lerine de yansiyor
+## 1. GLOBAL RULES
 
-## 2. Schema ureten dosyalar listesi
+Use schema only when:
+- it matches visible page content
+- it supports the actual page intent
+- URLs are normalized to canonical outputs
 
-### Global ve ortak ureticiler
+Avoid:
+- duplicate schema representing the same thing twice
+- fake review or rating claims
+- FAQ schema without visible FAQs
+- service pages represented only as generic business pages when service schema is clearly appropriate
 
-- `src/lib/schema.ts`
-- `src/components/sections/FAQSection.tsx`
-- `src/components/templates/ServicePageTemplate.tsx`
-- `src/components/templates/LandingPageTemplate.tsx`
+---
 
-### Route seviyesinde schema ureten dosyalar
+## 2. ROOT PAGE
 
-- `src/app/page.tsx`
-- `src/app/alarm-sistemi-kurulumu/page.tsx`
-- `src/app/apartman-site-guvenlik-sistemi/page.tsx`
-- `src/app/bakim-servis-uzaktan-izleme/page.tsx`
-- `src/app/blog/page.tsx`
-- `src/app/blog/[slug]/page.tsx`
-- `src/app/fabrika-depo-guvenlik-sistemi/page.tsx`
-- `src/app/hakkimizda/page.tsx`
-- `src/app/iletisim/page.tsx`
-- `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx`
-- `src/app/isyeri-guvenlik-sistemi/page.tsx`
-- `src/app/kamera-sistemi-kurulumu/page.tsx`
-- `src/app/kartli-gecis-ve-turnike-sistemi/page.tsx`
-- `src/app/paketler-ve-fiyatlandirma/page.tsx`
-- `src/app/teklif/alarm/page.tsx`
-- `src/app/teklif/apartman/page.tsx`
-- `src/app/teklif/istanbul-ip-kamera-montaji/page.tsx`
-- `src/app/teklif/isyeri/page.tsx`
-- `src/app/teklif/kamera/page.tsx`
-- `src/app/teklif/kamera/istanbul-ip-kamera-montaji/page.tsx`
-- `src/app/teklif/yangin/page.tsx`
-- `src/app/yangin-alarm-sistemi-kurulumu/page.tsx`
-- `src/app/[city]/page.tsx`
-- `src/app/[city]/[service]/page.tsx`
+Route:
+- `/`
 
-## 3. Her dosya icin schema haritasi
-
-| Route pattern | Source file | Schema type | Nasil uretildigi | Notlar |
-| --- | --- | --- | --- | --- |
-| `/` | `src/app/page.tsx` | `LocalBusiness`, `AggregateRating`, `FAQPage` | `generateLocalBusinessSchema()`, `generateAggregateRatingSchema()`, ayrica alttaki `FAQSection` icinden `FAQPage` | Home sayfasinda breadcrumb yok. FAQ schema sayfa dosyasinda degil component icinden geliyor. |
-| `/alarm-sistemi-kurulumu` | `src/app/alarm-sistemi-kurulumu/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | Sayfa `ServicePageTemplate` render ediyor; template bu dort schema'yi direkt basiyor, `FAQSection` de `FAQPage` ekliyor | En tutarli schema kalibi bu template'te. |
-| `/apartman-site-guvenlik-sistemi` | `src/app/apartman-site-guvenlik-sistemi/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Template tabanli. |
-| `/fabrika-depo-guvenlik-sistemi` | `src/app/fabrika-depo-guvenlik-sistemi/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Template tabanli. |
-| `/isyeri-guvenlik-sistemi` | `src/app/isyeri-guvenlik-sistemi/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Template tabanli. |
-| `/kamera-sistemi-kurulumu` | `src/app/kamera-sistemi-kurulumu/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Template tabanli. |
-| `/kartli-gecis-ve-turnike-sistemi` | `src/app/kartli-gecis-ve-turnike-sistemi/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Metadata/static route slug'i `kartli-gecis-ve-turnike-sistemi`; `services.ts` icindeki dinamik slug `kartli-gecis-sistemi-kurulumu`. Schema ve route sozlugu iki farkli naming kullaniyor. |
-| `/yangin-alarm-sistemi-kurulumu` | `src/app/yangin-alarm-sistemi-kurulumu/page.tsx` | `LocalBusiness`, `Service`, `BreadcrumbList`, `AggregateRating`, `FAQPage` | `ServicePageTemplate` | Template tabanli. |
-| `/bakim-servis-uzaktan-izleme` | `src/app/bakim-servis-uzaktan-izleme/page.tsx` | `Service` (`provider` icinde `Organization`, `areaServed` icinde `City`) | Sayfa icinde inline `jsonLd` objesi | Gorunur FAQ bolumu var ama `FAQPage` schema yok. Breadcrumb, LocalBusiness ve AggregateRating da yok. Canonical `www` kullaniyor. |
-| `/hakkimizda` | `src/app/hakkimizda/page.tsx` | `LocalBusiness`, `BreadcrumbList` | `generateLocalBusinessSchema()` ve `generateBreadcrumbSchema()` | `LocalBusiness` util'i her zaman ana domain `#localbusiness` varligini donuyor; sayfa canonical'i alt sayfa olsa da schema varligi kurumsal/home entity. |
-| `/iletisim` | `src/app/iletisim/page.tsx` | `LocalBusiness`, `BreadcrumbList` | `generateLocalBusinessSchema()` ve `generateBreadcrumbSchema()` | Hedef acikca contact page olmasina ragmen `ContactPage` schema yok; sadece genel `LocalBusiness` var. |
-| `/paketler-ve-fiyatlandirma` | `src/app/paketler-ve-fiyatlandirma/page.tsx` | `BreadcrumbList`, `FAQPage` | Breadcrumb sayfa icinde, `FAQPage` alttaki `FAQSection` icinden | Fiyat sayfasinda `Service`, `Offer` veya `Product` schema yok. |
-| `/blog` | `src/app/blog/page.tsx` | `BreadcrumbList` | `generateBreadcrumbSchema()` | Blog listing icin `CollectionPage` veya `Blog` schema yok. |
-| `/blog/[slug]` | `src/app/blog/[slug]/page.tsx` | `Article`, `BreadcrumbList`, `FAQPage` | `generateArticleSchema()`, `generateBreadcrumbSchema()`, eger `blogFaqMap[slug]` doluysa `FAQSection` icinden `FAQPage` | `blog-posts.ts` icindeki 4 slug'in tamaminda FAQ map'i var; pratikte mevcut blog detaylarinin hepsi `FAQPage` aliyor. |
-| `/istanbul-guvenlik-sistemi-kurulumu` | `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx` | `LocalBusiness`, `BreadcrumbList`, `FAQPage` | `generateLocalBusinessSchema()`, `generateBreadcrumbSchema()`, `generateFAQSchema()` ve ek olarak `FAQSection` | Ayni FAQ icerigi iki kez schema'ya donusuyor. Ayrica `next.config.ts` bu route'u `/istanbul` rotasina redirect ediyor. |
-| `/teklif/alarm` | `src/app/teklif/alarm/page.tsx` | `Service` (`provider` icinde `Organization`, `areaServed` icinde `City`) | Sayfa icinde inline `jsonLd` objesi | Sayfada FAQ icerigi var ama `FAQPage` schema yok. Breadcrumb ve LocalBusiness da yok. Canonical `www` kullaniyor. |
-| `/teklif/istanbul-ip-kamera-montaji` | `src/app/teklif/istanbul-ip-kamera-montaji/page.tsx` | `Service`, `FAQPage`, `BreadcrumbList`, `Product` + `AggregateRating`, `LocalBusiness` (Service provider altinda) | Tum schema'lar sayfa icinde inline tanimli | En zengin teklif sayfasi bu. Ancak servis sayfasinda puanlama `Product` uzerinden veriliyor; metadata ve breadcrumb URL'leri `www` kullaniyor. |
-| `/teklif/apartman` | `src/app/teklif/apartman/page.tsx` | `FAQPage` | Sayfa `LandingPageTemplate` render ediyor; template alttaki `FAQSection` ile schema basiyor | Hizmet, breadcrumb veya business schema yok. |
-| `/teklif/isyeri` | `src/app/teklif/isyeri/page.tsx` | `FAQPage` | `LandingPageTemplate` | Yalnizca FAQ schema var. |
-| `/teklif/kamera` | `src/app/teklif/kamera/page.tsx` | `FAQPage` | `LandingPageTemplate` | Yalnizca FAQ schema var. |
-| `/teklif/kamera/istanbul-ip-kamera-montaji` | `src/app/teklif/kamera/istanbul-ip-kamera-montaji/page.tsx` | `FAQPage` | `LandingPageTemplate` | Ayrica metadata da yok; schema coverage yalnizca FAQ ile sinirli. |
-| `/teklif/yangin` | `src/app/teklif/yangin/page.tsx` | `FAQPage` | `LandingPageTemplate` | Yalnizca FAQ schema var. |
-| `/[city]` | `src/app/[city]/page.tsx` | `BreadcrumbList`, `FAQPage`, `LocalBusiness` | Tum schema'lar sayfa icinde inline tanimli | `LocalBusiness.address.addressLocality` her sehirde `siteConfig.city` yani Istanbul. Route Ankara olsa da adres Istanbul merkez kaliyor. |
-| `/[city]/[service]` | `src/app/[city]/[service]/page.tsx` | `FAQPage`, `BreadcrumbList`, `LocalBusiness` | Tum schema'lar sayfa icinde inline tanimli | Servis niyetli sayfa olmasina ragmen `Service` schema yok. `LocalBusiness` yine Istanbul adresini tasiyor. |
-
-## 4. Global schema util ve yardimci dosyalar
-
-### `src/lib/schema.ts`
-
-SEO amacli ortak JSON-LD util katmani burada:
-
-- `generateLocalBusinessSchema()`
-  - `@type: LocalBusiness`
-  - `@id: ${siteConfig.url}#localbusiness`
-  - `areaServed`: `cities.ts` icindeki tum sehirler
-  - `address`: merkez adres
-  - `openingHoursSpecification`: hafta ici + cumartesi
-- `generateServiceSchema({ name, description, url })`
-  - `@type: Service`
-  - `provider`: `LocalBusiness` referansi
-  - `areaServed`: tum sehirler
-- `generateFAQSchema(items)`
-  - `@type: FAQPage`
-- `generateBreadcrumbSchema(items)`
-  - `@type: BreadcrumbList`
-  - `item` URL'lerini `absoluteUrl(...)` ile absolute'a ceviriyor
-- `generateArticleSchema(...)`
-  - `@type: Article`
-  - `author` ve `publisher` nested `Organization`
-  - `mainEntityOfPage` ve `image` absolute URL
-- `generateAggregateRatingSchema()`
-  - `@type: LocalBusiness`
-  - `aggregateRating` nested
-- `schemaToString(schema)`
-  - Kullanilan bir helper gorunmuyor
-
-### `src/components/sections/FAQSection.tsx`
-
-- UI component olmasina ragmen her kullanimda `FAQPage` schema basiyor
-- Bu nedenle schema coverage'ini yalnizca sayfa dosyasina bakarak cikarmak yaniltici olur
-- `LandingPageTemplate`, `ServicePageTemplate`, home, blog detail, paketler ve `istanbul-guvenlik-sistemi-kurulumu` bu yolla `FAQPage` aliyor
-
-### `src/components/templates/ServicePageTemplate.tsx`
-
-Bu template asagidaki schema setini sabit olarak uretiyor:
-
+Preferred schema:
 - `LocalBusiness`
+- `FAQPage` if visible FAQ exists
+- optional `BreadcrumbList` only if visible breadcrumb structure exists
+
+Role:
+Brand-level business understanding.
+
+---
+
+## 3. NATIONAL SERVICE HUB PAGES
+
+Routes:
+- `/kamera-sistemi-kurulumu`
+- `/alarm-sistemi-kurulumu`
+- etc.
+
+Preferred schema:
+- `Service`
+- `LocalBusiness`
+- `BreadcrumbList`
+- `FAQPage` when visible FAQ exists
+
+Role:
+National service authority.
+
+Rule:
+Service hubs should clearly look like service pages in schema.
+
+---
+
+## 4. CITY HUB PAGES
+
+Pattern:
+- `/{city}`
+
+Preferred schema:
+- `LocalBusiness`
+- `BreadcrumbList`
+- `FAQPage` when visible FAQ exists
+
+Optional:
+- localized service-area signals in business/service description if implemented safely
+
+Role:
+Local authority hub.
+
+---
+
+## 5. CITY + SERVICE MONEY PAGES
+
+Pattern:
+- `/{city}/{service}`
+
+Preferred schema:
+- `Service`
+- `LocalBusiness`
+- `BreadcrumbList`
+- `FAQPage` when visible FAQ exists
+
+This is a critical rule:
+City/service pages are service-intent money pages and should not rely on `LocalBusiness` alone if the implementation can support clear `Service` schema.
+
+Role:
+Primary organic local-commercial service pages.
+
+---
+
+## 6. DISTRICT + SERVICE PAGES
+
+Pattern:
+- `/{city}/{district}/{service}`
+
+Preferred schema:
+- `Service`
+- `LocalBusiness`
+- `BreadcrumbList`
+- `FAQPage` when visible FAQ exists
+
+Role:
+Hyperlocal support pages.
+
+Rule:
+Do not overcomplicate district schema.
+Keep it clean and aligned with canonical page intent.
+
+---
+
+## 7. PROBLEM PAGES
+
+Pattern:
+- `/sorun/{problem}`
+
+Preferred schema:
+- `FAQPage` when visible question/answer content exists
+- `Article` or `BlogPosting` when the page is structured as a diagnostic article
+- `BreadcrumbList`
+
+Role:
+Problem-intent explanatory pages that route into service pages.
+
+Rule:
+Do not force service schema onto pure problem pages unless the page is truly structured as a service page.
+
+---
+
+## 8. BLOG PAGES
+
+Routes:
+- `/blog/{slug}`
+
+Preferred schema:
+- `BlogPosting` or `Article`
+- `BreadcrumbList`
+- `FAQPage` only when visible FAQ exists
+
+Role:
+Informational support layer.
+
+---
+
+## 9. PAID LANDING PAGES `/teklif/*`
+
+Preferred schema:
+- minimal and only when it supports visible conversion-page content honestly
+- often `FAQPage` if a real FAQ is present
+- optional `LocalBusiness` if truly appropriate and not misleading
+
+Rules:
+- do not overbuild schema on paid landing pages
+- they are not organic authority assets
+- no fake breadth or irrelevant markup
+
+---
+
+## 10. FUTURE MARKETPLACE PAGES
+
+### Installer profile pages
+Potential future schema:
+- `LocalBusiness`
+- `Organization`
 - `Service`
 - `BreadcrumbList`
-- `AggregateRating`
-- `FAQPage` (`FAQSection` uzerinden)
 
-Bu template'i kullanan route dosyalari:
+### Directory pages
+Potential future schema:
+- `CollectionPage`
+- `BreadcrumbList`
 
-- `src/app/alarm-sistemi-kurulumu/page.tsx`
-- `src/app/apartman-site-guvenlik-sistemi/page.tsx`
-- `src/app/fabrika-depo-guvenlik-sistemi/page.tsx`
-- `src/app/isyeri-guvenlik-sistemi/page.tsx`
-- `src/app/kamera-sistemi-kurulumu/page.tsx`
-- `src/app/kartli-gecis-ve-turnike-sistemi/page.tsx`
-- `src/app/yangin-alarm-sistemi-kurulumu/page.tsx`
+These should be added only when the marketplace layer is real.
 
-### `src/components/templates/LandingPageTemplate.tsx`
+---
 
-Bu template yalnizca alttaki `FAQSection` sebebiyle `FAQPage` uretir.
+## 11. REQUIRED CLEANUP DIRECTION
 
-Bu template'i kullanan route dosyalari:
+The long-term goal should be:
+- one clear schema helper layer
+- one predictable mapping by route family
+- no duplicate schema systems drifting apart
+- no unsafe aggregate rating defaults
 
-- `src/app/teklif/apartman/page.tsx`
-- `src/app/teklif/isyeri/page.tsx`
-- `src/app/teklif/kamera/page.tsx`
-- `src/app/teklif/kamera/istanbul-ip-kamera-montaji/page.tsx`
-- `src/app/teklif/yangin/page.tsx`
+---
 
-### `src/data/site-config.ts`
+## 12. 24-MONTH PLAN ALIGNMENT
 
-Schema URL, telefon, e-posta, adres, `ogImage` ve merkez sehir bilgisi burada tutuluyor. Non-`www` temel domain burada tanimli:
+### Months 1-3
+Normalize schema for existing money pages and eliminate inconsistency.
 
-- `url: "https://guvenlikservisi.com"`
+### Months 4-6
+Bring district and problem page schema into a consistent model.
 
-### `src/data/cities.ts` ve `src/data/services.ts`
+### Months 7-12
+Scale city/service and city hub schema across the 18-city layer.
 
-- `cities.ts`: `areaServed`, dynamic route static params ve city isimleri icin kaynak
-- `services.ts`: dynamic `service` slug ve isimleri icin kaynak
+### Months 13-24
+Keep schema clean while national district expansion and marketplace foundations are added.
 
-### `src/lib/lead-schema.ts`
-
-- Isim olarak `schema` geciyor ama SEO JSON-LD ile ilgili degil
-- API lead veri standardi/normalizasyonu icin kullaniliyor
-
-## 5. Eksikler ve riskler
-
-### Kritik eksikler
-
-- `src/app/[city]/[service]/page.tsx` servis niyetli olmasina ragmen `Service` schema uretmiyor
-- `src/app/teklif/apartman/page.tsx`, `src/app/teklif/isyeri/page.tsx`, `src/app/teklif/kamera/page.tsx`, `src/app/teklif/kamera/istanbul-ip-kamera-montaji/page.tsx`, `src/app/teklif/yangin/page.tsx` yalnizca `FAQPage` ile sinirli
-- `src/app/bakim-servis-uzaktan-izleme/page.tsx` ve `src/app/teklif/alarm/page.tsx` gorunur FAQ bloklari barindirmasina ragmen `FAQPage` schema uretmiyor
-- `/blog` listing sayfasinda `Blog` veya `CollectionPage` schema yok
-- `/iletisim` sayfasinda `ContactPage` schema yok
-- `/paketler-ve-fiyatlandirma` sayfasinda `Offer`, `Product` veya fiyat semantiklerini anlatan daha uygun bir schema yok
-
-### Tutarsizliklar
-
-- `siteConfig.url` non-`www`, ama `bakim-servis-uzaktan-izleme`, `/teklif/alarm`, `/teklif/istanbul-ip-kamera-montaji` gibi sayfalarda inline schema ve metadata URL'leri `www`
-- `src/app/[city]/page.tsx` ve `src/app/[city]/[service]/page.tsx` icindeki `LocalBusiness.address` her durumda Istanbul merkez adresini kullaniyor
-- `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx` schema URL'si kendi route'unu gosterirken `next.config.ts` ayni route'u `/istanbul` rotasina yonlendiriyor
-- `src/app/kartli-gecis-ve-turnike-sistemi/page.tsx` ile `src/data/services.ts` ayni hizmet icin farkli slug sozlugu kullaniyor
-
-### Tekrarlar
-
-- `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx` icinde FAQ iki farkli kanaldan uretiliyor:
-  - `generateFAQSchema(faqItems)`
-  - `FAQSection`
-- `LocalBusiness` + `AggregateRating` bazi sayfalarda ayni `@id` ile iki ayri script olarak donuyor; bu kismen kabul edilebilir ama daginik mimariyi artiriyor
-
-### Yapisal riskler
-
-- Schema mantigi tek yerde toplanmamis; bir kisim util, bir kisim template, bir kisim sayfa icinde inline
-- Bu daginiklik ayni route grubunda bile farkli schema kalitesine yol aciyor
-- Encoding bozulmasi (`Güvenlik`, `İstanbul` vb.) schema text alanlarina da yansiyor
-- Kod tabaninda top-level `Organization`, `WebSite`, `WebPage`, `CollectionPage`, `ContactPage` gibi tamamlayici schema tipleri yok
-
-## 6. Oncelikli duzeltmeler
-
-1. `src/app/[city]/[service]/page.tsx` icin `Service` schema eklenmeli; `LocalBusiness` tek basina birakilmamali.
-2. `LandingPageTemplate` tabanli `/teklif/*` sayfalara en azindan `Service + BreadcrumbList + LocalBusiness` katmani eklenmeli.
-3. `src/app/bakim-servis-uzaktan-izleme/page.tsx` ve `src/app/teklif/alarm/page.tsx` icin `FAQPage` schema eklenmeli; gorunen FAQ ile JSON-LD hizalanmali.
-4. `src/app/istanbul-guvenlik-sistemi-kurulumu/page.tsx` icindeki cift FAQ schema kaldirilmali; tek kaynak secilmeli.
-5. URL standardi tek domaine cekilmeli; `schema.ts`, inline schema'lar ve metadata ayni `siteConfig.url` standardini kullanmali.
-6. Dynamic city ve city/service sayfalarinda Istanbul merkez adresi ile yerel sehir iddiasi arasindaki gerilim netlestirilmeli; gerekirse `areaServed` odakli model korunup `address` dili yeniden ele alinmali.
-7. `kartli-gecis` slug sozlugu static ve dynamic katmanda aynilastirilmali.
-8. Uzun vadede schema uretimi tek util/template katmanina tasinmali; inline JSON-LD daginikligi azaltilmali.
-
-## 7. Kisa audit ozeti
-
-### Schema bulunan sayfa gruplari
-
-- static pages
-  - Tam kapsamli: ana service landing'leri (`ServicePageTemplate`)
-  - Kismi kapsamli: `hakkimizda`, `iletisim`, `paketler-ve-fiyatlandirma`, `bakim-servis-uzaktan-izleme`
-- `/blog`
-  - `BreadcrumbList`
-- `/blog/[slug]`
-  - `Article + BreadcrumbList + FAQPage`
-- `/teklif/*`
-  - karmasik
-  - `teklif/alarm`: yalniz `Service`
-  - `teklif/istanbul-ip-kamera-montaji`: zengin schema seti
-  - diger teklif landing'leri: yalniz `FAQPage`
-- `/[city]`
-  - `BreadcrumbList + FAQPage + LocalBusiness`
-- `/[city]/[service]`
-  - `BreadcrumbList + FAQPage + LocalBusiness`
-
-### Schema olmayan sayfa gruplari
-
-- `src/app/not-found.tsx`
-- `/api/*` route handler dosyalari
-  - `src/app/api/lead/route.ts`
-  - `src/app/api/quote/route.ts`
-
-Not:
-
-- Kullaniciya gorunen route gruplari icinde tamamen schemasiz ana sayfa grubu yok; asil sorun "hic schema olmamasi" degil, bazi gruplarda schema'nin asiri zayif kalmasi.
-
-### En kritik eksikler
-
-- Programmatic `/[city]/[service]` sayfalarinda `Service` schema olmamasi
-- Bircok `/teklif/*` sayfasinin yalnizca `FAQPage` ile kalmasi
-- `bakim-servis-uzaktan-izleme` ve `/teklif/alarm` sayfalarinda gorunur FAQ olmasina ragmen `FAQPage` eksigi
-- `www` / non-`www` URL daginikligi
-- `istanbul-guvenlik-sistemi-kurulumu` icin cift FAQ schema ve redirect uyusmazligi
+Schema must support scale, not create drift.

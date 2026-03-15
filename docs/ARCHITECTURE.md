@@ -1,124 +1,397 @@
-# GuvenlikServisi Architecture Notes
+# ARCHITECTURE
+guvenlikservisi.com
+
 Goal:
-Build the largest security systems lead generation platform in Turkey.
+Build Turkey’s leading security systems lead engine, then evolve it into a national security systems lead marketplace over 24 months.
 
-## Repo Özeti
+This document defines the architecture required to support:
 
-Teknoloji:
-- Next.js
-- React
-- TypeScript
-- Tailwind
-- Vercel dağıtımı
-- next-sitemap
-- nodemailer
-
-Site şu anda ağırlıklı olarak şu katmanlardan oluşuyor:
-1. Şehir ve hizmet sayfaları
-2. Landing / teklif sayfaları
-3. Blog içerikleri
-4. Lead API
-5. Sitemap / robots yapılandırması
+- organic lead generation
+- paid acquisition landing pages
+- national city/service expansion
+- district-level scale
+- problem-intent SEO capture
+- future installer onboarding
+- future lead routing and marketplace operations
 
 ---
 
-## Bugünkü Mimari
+## 1. STRATEGIC PRODUCT MODEL
 
-### İçerik Katmanı
-- `src/data/cities.ts`
-- `src/data/services.ts`
-- `src/data/site-config.ts`
+The platform evolves in 3 layers:
 
-### Sayfa Katmanı
-- `src/app/[city]/[service]/page.tsx`
-- `src/app/teklif/...`
-- blog ve diğer statik sayfalar
+### Layer 1 — Lead Engine
+Collect and convert inbound demand from SEO and Ads.
 
-### Lead Katmanı
-- `src/app/api/lead/route.ts`
-- form component'leri
-- Google Sheets webhook
+### Layer 2 — National Programmatic SEO Platform
+Scale city × service × district × problem pages without thin-content collapse.
 
----
+### Layer 3 — Lead Marketplace
+Allow installer firms to register, define coverage areas, and receive leads.
 
-## Mimari Güçlü Taraflar
-
-1. Şehir × hizmet statik üretim mantığı hazır.
-2. Landing page mantığı başlamış.
-3. GTM / GA kimlikleri config içinde mevcut.
-4. Lead API gerçek veri toplamaya başlamış.
-5. Google Sheets erken aşama için yeterli operasyon omurgası sunuyor.
+The architecture must support all 3 layers.
+It is acceptable to implement them in stages.
+It is not acceptable to block future marketplace evolution with short-term code decisions.
 
 ---
 
-## Mimari Zayıf Taraflar
+## 2. CORE PRODUCT PRINCIPLE
 
-1. Şehir verisi ile şehir açıklama / ilçe verisi tam senkron değil.
-2. Programmatic sayfalarda içerik varyasyonu sınırlı.
-3. Tracking olayları tam sistematik değil.
-4. Lead capture katmanında duplicate ve spam koruması eksik.
-5. `/teklif/` için robots/index stratejisi net değil.
-6. CRM operasyon katmanı hâlâ sheet disipliniyle yönetiliyor.
+Architecture = national
+Validation = Istanbul first
 
----
-
-## Mimari Kararlar
-
-### Karar 1 — Önce CRM hafif, sonra ağır
-Önce Sheets + disiplin.
-Sonra Supabase.
-
-### Karar 2 — Landing ayrı, SEO ayrı ama veri ortak
-Landing page içerikleri ads dönüşümü için optimize edilir.
-SEO sayfaları uzun kuyruk organik trafik için büyütülür.
-Ama ikisi de ortak veri modelini kullanır.
-
-### Karar 3 — Tek source of truth
-Görevler ve sistem notları repo içindeki `docs/` klasöründe tutulur.
-Docs dışarıda dağılmaz.
+This means:
+- data models must be designed for Turkey scale
+- route families must be designed for Turkey scale
+- content systems must be reusable nationally
+- Istanbul is the first deep market, not a one-off exception
 
 ---
 
-## Önerilen Docs Klasörü
+## 3. ROUTE LAYERS
 
-```txt
-docs/
-  BACKLOG.md
-  LEAD_ENGINE.md
-  SEO_STRATEGY.md
-  ARCHITECTURE.md
-```
+### A. Root and support
+- `/`
+- `/hakkimizda`
+- `/iletisim`
+- `/paketler-ve-fiyatlandirma`
 
-Opsiyonel ileri aşama dosyalar:
+### B. National service hubs
+- `/kamera-sistemi-kurulumu`
+- `/alarm-sistemi-kurulumu`
+- `/yangin-alarm-sistemi-kurulumu`
+- `/kartli-gecis-ve-turnike-sistemi`
+- `/apartman-site-guvenlik-sistemi`
+- `/isyeri-guvenlik-sistemi`
+- `/fabrika-depo-guvenlik-sistemi`
+- `/bakim-servis-uzaktan-izleme`
 
-```txt
-docs/
-  ADS_PLAN.md
-  CONTENT_MAP.md
-  SHEET_SCHEMA.md
-  SALES_SOP.md
-```
+Role:
+National authority + support + internal linking.
+
+### C. City hub pages
+- `/{city}`
+
+Role:
+Local authority hub + internal discovery node.
+
+### D. City + service pages
+- `/{city}/{service}`
+
+Role:
+Primary organic money pages.
+
+### E. District + service pages
+- `/{city}/{district}/{service}`
+
+Role:
+Hyperlocal support pages.
+
+### F. Problem pages
+- `/sorun/{problem}`
+
+Role:
+Problem-intent traffic capture and routing into money pages.
+
+### G. Blog
+- `/blog`
+- `/blog/{slug}`
+
+Role:
+Informational support and topical authority.
+
+### H. Paid landing pages
+- `/teklif/*`
+
+Role:
+Google Ads conversion pages only.
+Not part of the organic SEO architecture.
+
+### I. API routes
+- `/api/lead`
+- `/api/quote`
+
+Role:
+Lead intake and validation.
+
+### J. Future marketplace routes
+Examples:
+- `/firmalar`
+- `/firma-kayit`
+- `/firma/{slug}`
+- `/firma-paneli`
+- `/firma-paneli/leadler`
+- `/firma-paneli/bolgeler`
+- `/firma-paneli/hizmetler`
+
+Role:
+Installer onboarding, profile, routing, and monetization layer.
 
 ---
 
-## Teknik Borç Listesi
+## 4. DATA ARCHITECTURE
 
-- lead validation zayıf
-- webhook failure fallback görünürlüğü zayıf
-- event naming standardı eksik
-- landing page reuse pattern daha modüler olabilir
-- district page engine henüz yok
-- admin panel henüz yok
+The platform must be data-driven.
+
+Source-of-truth domains include:
+- cities
+- districts
+- services
+- segments
+- keywords
+- pain points
+- FAQ banks
+- trust elements
+- schema mappings
+- service hub definitions
+- problem library
+- future installer coverage data
+
+Preferred organization:
+- `src/data/*`
+- `src/data/seo/*`
+- related reusable helpers in `src/lib/*`
+
+Do not bury business taxonomy inside scattered page files.
 
 ---
 
-## Uygulama Sırası
+## 5. PAGE GENERATION PRINCIPLE
 
-1. Lead engine sıkılaştır
-2. Tracking düzgün çalışsın
-3. Landing CRO yükselt
-4. Kazanan landingleri çoğalt
-5. SEO motorunu büyüt
-6. Sonra marketplace'e geç
+Programmatic pages must render from structured data.
 
-Tersini yapmak zaman kaybı olur.
+Every scalable route family should be driven by:
+- route params
+- structured content data
+- metadata builder
+- schema builder
+- internal-link rules
+- CTA rules
+
+This is required for scaling to:
+- 81 cities
+- 970 districts
+- 20 services
+- 200+ problem pages
+
+---
+
+## 6. OWNERSHIP ARCHITECTURE
+
+One search job must have one primary owner URL.
+
+Examples:
+- national service intent -> national service hub
+- city + service commercial intent -> city/service page
+- district + service hyperlocal intent -> district/service page
+- problem intent -> problem page
+
+Canonical tags support ownership.
+They do not replace strategy.
+
+---
+
+## 7. LEAD CAPTURE ARCHITECTURE
+
+Lead intake must preserve:
+- form data
+- phone normalization
+- spam control
+- dedupe checks
+- route source
+- page source
+- UTM
+- gclid and click identifiers
+- future routing context
+
+Current preferred early-stage operating stack:
+- web form / call / WhatsApp
+- lead API
+- email notification
+- Google Sheets webhook / storage
+- manual sales follow-up
+
+Future evolution:
+- database-backed lead store
+- assignment logic
+- installer routing
+- admin workflow
+- billing / monetization signals
+
+---
+
+## 8. INTERNAL LINK ARCHITECTURE
+
+The site must operate as a graph, not isolated pages.
+
+Key link directions:
+- city hub -> city/service pages
+- city/service -> city hub
+- city/service -> relevant district/service pages
+- district/service -> parent city/service
+- national service hub -> important city/service pages
+- problem page -> relevant service pages
+- blog -> relevant money pages and problem pages
+
+Do not leak organic authority heavily into `/teklif/*`.
+
+---
+
+## 9. SEO GOVERNANCE ARCHITECTURE
+
+The technical SEO layer must stay aligned across:
+- metadata
+- canonical
+- sitemap
+- robots
+- redirect rules
+- internal links
+
+Required governance:
+- no duplicate organic winners
+- no paid landing pages in sitemap
+- no indexable legacy redirect targets
+- no stale checked-in sitemap artifacts
+- no domain inconsistency
+- no metadata inheritance accidents
+
+---
+
+## 10. SCHEMA ARCHITECTURE
+
+Schema must be centralized and intentional.
+
+Core schema use cases:
+- LocalBusiness
+- Service
+- BreadcrumbList
+- FAQPage
+- BlogPosting / Article for blog/problem content when relevant
+
+Rules:
+- avoid schema duplication
+- avoid conflicting helpers
+- match visible content
+- align schema URLs with canonical URLs
+
+---
+
+## 11. METADATA ARCHITECTURE
+
+Every indexable route family must have its own metadata strategy.
+
+Required:
+- title
+- description
+- canonical
+- robots
+- OG where appropriate
+
+Route families must not accidentally inherit:
+- homepage canonical
+- irrelevant default metadata
+- wrong query intent
+
+Paid landing pages:
+- must be `noindex,nofollow`
+- must be excluded from sitemap
+- must not be organic canonical owners
+
+---
+
+## 12. DISTRICT SCALE ARCHITECTURE
+
+District pages are a controlled growth layer.
+
+They must not be mass-published without:
+- district data depth
+- local differentiation
+- parent page relation
+- CTA logic
+- internal linking
+- quality threshold
+
+Istanbul can be the first deep district implementation.
+But the architecture must be reusable for national district rollout later.
+
+---
+
+## 13. PROBLEM SEO ARCHITECTURE
+
+Problem pages form the issue-intent layer.
+
+A problem page should include:
+- symptom definition
+- likely causes
+- safe checks
+- escalation point
+- CTA to relevant service
+- internal links to relevant city/service pages
+
+This layer will be critical in months 4-18 for scaling long-tail intent.
+
+---
+
+## 14. MARKETPLACE-READINESS ARCHITECTURE
+
+Future marketplace modules should plug into the existing taxonomy.
+
+The architecture must be compatible with:
+- installer service types
+- installer city coverage
+- installer district coverage
+- lead matching by service + location
+- partner quality scores
+- lead status tracking
+- billing models
+
+This requires clean:
+- city taxonomy
+- district taxonomy
+- service taxonomy
+- source attribution
+- lead context
+
+---
+
+## 15. 24-MONTH PHASE ALIGNMENT
+
+### Months 1-3
+Technical SEO cleanup, ownership protection, lead integrity.
+
+### Months 4-6
+Istanbul district depth, problem pages, initial economics.
+
+### Months 7-12
+18-city growth, service-cluster expansion, routing discipline.
+
+### Months 13-18
+National district data model, problem SEO expansion, early installer operations.
+
+### Months 19-24
+Marketplace-ready routing, installer layer, national city backbone.
+
+---
+
+## 16. WHAT THE ARCHITECTURE MUST AVOID
+
+- UI-first development without business value
+- hardcoded one-off city implementations
+- duplicate route families for the same intent
+- paid landing pages competing with organic pages
+- thin district page explosions
+- scattered SEO logic
+- marketplace dreams without lead-routing foundations
+
+---
+
+## 17. SUCCESS DEFINITION
+
+A healthy architecture is one where:
+- Istanbul wins early
+- the national system scales cleanly
+- organic and paid systems stay strategically separate
+- leads are attributed cleanly
+- future installer routing can be added without rewriting the whole product
+
+That is the architecture target for guvenlikservisi.com.

@@ -1,157 +1,197 @@
 # SITEMAP ENGINE
+guvenlikservisi.com
 
-## Ozet
+Purpose:
+Define what the sitemap engine must include and exclude under the 24-month growth plan.
 
-Bu repo artik sitemap'i `next-sitemap` ile degil, Next.js App Router metadata route'u olan `src/app/sitemap.ts` uzerinden uretiyor.
+The sitemap exists to help search engines discover the right organic pages.
+It must not become a dump of every route in the project.
 
-Uretim tipi:
+---
 
-- `export default function sitemap(): MetadataRoute.Sitemap`
+## 1. CORE PRINCIPLE
 
-Temel amac:
+Only include URLs that are:
+- intended for organic discovery
+- indexable
+- canonical winners
+- strong enough to justify crawl budget
 
-- Google botun tum SEO odakli landing ve programmatic route'lari kesfetmesini saglamak
-- `cities.ts` ve `services.ts` veri kaynaklarini kullanarak `/<city>` ve `/<city>/<service>` URL agini dinamik uretmek
-- checked-in `public/sitemap-0.xml` gibi stale artefaktlara bagimliligi bitirmek
+Exclude URLs that are:
+- paid-only landing pages
+- redirect-only routes
+- duplicate losers
+- APIs
+- temporary or non-indexable utility pages
 
-## Kaynaklar
+---
 
-Sitemap su veri kaynaklarini kullaniyor:
+## 2. INCLUDED ROUTE FAMILIES
 
-- `src/data/site-config.ts`
-  - temel domain: `siteConfig.url`
-- `src/data/blog-posts.ts`
-  - `/blog/[slug]` URL'leri
-- `src/data/cities.ts`
-  - `/<city>` URL'leri
-- `src/data/services.ts`
-  - `/<city>/<service>` kombinasyonlari
+The sitemap engine should include:
 
-Ayrica sitemap motoru icinde iki statik dizi var:
-
-- `staticServiceRoutes`
-- `teklifRoutes`
-
-Bunlar repo icindeki mevcut gercek route'lara gore tanimlandi.
-
-## Kapsanan URL gruplari
-
-### Ana URL'ler
-
+### Root and support
 - `/`
-- `/blog`
+- selected support pages that are organic assets
 
-Not:
-
-- Kullanici isteginde `/teklif` de geciyordu ancak repoda `src/app/teklif/page.tsx` olmadigi icin gercek bir `/teklif` route'u yok.
-- Bu nedenle sitemap'e 404 uretecek hayali bir URL eklenmedi.
-- Bunun yerine mevcut `/teklif/*` landing page'leri sitemap'e dahil edildi.
-
-### Static service pages
-
-Su route'lar sitemap'e dahil:
-
-- `/alarm-sistemi-kurulumu`
-- `/apartman-site-guvenlik-sistemi`
-- `/bakim-servis-uzaktan-izleme`
-- `/fabrika-depo-guvenlik-sistemi`
-- `/isyeri-guvenlik-sistemi`
+### National service hubs
 - `/kamera-sistemi-kurulumu`
-- `/kartli-gecis-ve-turnike-sistemi`
+- `/alarm-sistemi-kurulumu`
 - `/yangin-alarm-sistemi-kurulumu`
+- `/kartli-gecis-ve-turnike-sistemi`
+- `/apartman-site-guvenlik-sistemi`
+- `/isyeri-guvenlik-sistemi`
+- `/fabrika-depo-guvenlik-sistemi`
+- `/bakim-servis-uzaktan-izleme`
 
-Bilerek dahil edilmeyen route:
+### City hubs
+- `/{city}`
 
-- `/istanbul-guvenlik-sistemi-kurulumu`
+### City + service pages
+- `/{city}/{service}`
 
-Sebep:
+### Approved district + service pages
+- `/{city}/{district}/{service}`
 
-- `next.config.ts` bu URL'yi kalici olarak `/istanbul` rotasina yonlendiriyor
-- redirect veren URL'yi sitemap'e koymak yerine hedef canonical route'un sitemap'te olmasi daha dogru
+### Problem pages
+- `/sorun/{problem}`
 
-### Blog detay URL'leri
-
-`src/data/blog-posts.ts` icindeki her slug icin:
-
-- `/blog/[slug]`
-
-### Teklif landing page'leri
-
-- `/teklif/alarm`
-- `/teklif/apartman`
-- `/teklif/istanbul-ip-kamera-montaji`
-- `/teklif/isyeri`
-- `/teklif/kamera`
-- `/teklif/kamera/istanbul-ip-kamera-montaji`
-- `/teklif/yangin`
-
-### Programmatic city URL'leri
-
-`src/data/cities.ts` icindeki her sehir icin:
-
-- `/<city>`
-
-### Programmatic city + service URL'leri
-
-`src/data/cities.ts` x `src/data/services.ts`
-
-Uretilen kombinasyon:
-
-- `city count * service count`
-- mevcut repo verisine gore: `18 * 8 = 144` URL
-
-## Priority ve changefreq mantigi
-
-Sitemap'te kullanilan mantik:
-
-- `/`
-  - `priority: 1.0`
-  - `changeFrequency: daily`
+### Blog
 - `/blog`
-  - `priority: 0.8`
-  - `changeFrequency: weekly`
-- static service pages
-  - `priority: 0.85`
-  - `changeFrequency: weekly`
+- `/blog/{slug}`
+
+---
+
+## 3. EXCLUDED ROUTE FAMILIES
+
+The sitemap engine should exclude:
+
+### Paid landing pages
 - `/teklif/*`
-  - `priority: 0.85`
-  - `changeFrequency: weekly`
-- `/blog/[slug]`
-  - `priority: 0.75`
-  - `changeFrequency: monthly`
-  - `lastModified`: `updatedAt` varsa o, yoksa `publishedAt`
-- `/<city>`
-  - `priority: 0.7`
-  - `changeFrequency: weekly`
-- `/<city>/<service>`
-  - `priority: 0.9`
-  - `changeFrequency: weekly`
 
-## Eski sistem nasil devre disi birakildi?
+Reason:
+These are Google Ads landing pages, not organic SEO assets.
 
-Asagidaki degisiklikler yapildi:
+### API routes
+- `/api/*`
 
-- `src/app/sitemap.ts` eklendi
-- `package.json` icindeki build script su hale getirildi:
-  - eski: `next build && next-sitemap`
-  - yeni: `next build`
-- `next-sitemap.config.js` kaldirildi
-- stale artefaktlar kaldirildi:
-  - `public/sitemap.xml`
-  - `public/sitemap-0.xml`
+### Redirect-only or legacy loser URLs
+Any route that 301s or should not compete organically.
 
-Bu sayede sitemap artik checked-in XML dosyalarindan degil, Next.js tarafinda runtime/build-time metadata route'undan servis edilecek.
+### Experimental or non-indexable routes
+Any route not ready for organic discovery.
 
-## Beklenen sonuc
+---
 
-Yeni sitemap motoru su SEO yuzeyini kapsar:
+## 4. ISTANBUL POLICY
 
-- home
-- blog liste
-- blog detay yazilari
-- static service pages
-- teklif landing page'leri
-- city pages
-- city/service pages
+Istanbul is the first deep validation market.
 
-Boylece Google bot programmatic SEO agini sitemap uzerinden kesfedebilir.
+The sitemap must include:
+- `/istanbul`
+- canonical Istanbul service winners
+- approved Istanbul district/service pages
+
+The sitemap must not include:
+- duplicate Istanbul loser URLs
+- temporary overlapping static/local variants that are not canonical winners
+
+---
+
+## 5. DISTRICT POLICY
+
+District URLs should only be emitted if they are approved for indexing.
+
+Approval conditions:
+- local differentiation exists
+- parent page relation exists
+- metadata/canonical is correct
+- internal linking is in place
+- content quality threshold is met
+
+Do not auto-emit national district pages at scale before content readiness.
+
+---
+
+## 6. PROBLEM PAGE POLICY
+
+Problem pages should be included when:
+- they target unique problem intent
+- they are not near-duplicates
+- they route meaningfully into service pages
+
+This layer will become a major long-tail growth system between months 4 and 18.
+
+---
+
+## 7. BLOG POLICY
+
+Blog posts can be included when:
+- they are indexable
+- they are unique
+- they support topical authority and/or assisted conversion
+
+Blog should not dominate sitemap strategy over money pages.
+
+---
+
+## 8. PRIORITY / FREQUENCY LOGIC
+
+The engine may optionally assign relative priority or update frequency by route family.
+
+Recommended intent hierarchy:
+1. homepage
+2. primary city/service money pages
+3. city hubs
+4. national service hubs
+5. approved district/service pages
+6. problem pages
+7. blog pages
+
+Priority must support business value, not vanity.
+
+---
+
+## 9. DEDUPLICATION RULES
+
+The sitemap engine must:
+- dedupe URLs
+- emit normalized canonical host
+- emit normalized trailing-slash strategy
+- never output redirect losers
+- never output `/teklif/*`
+
+---
+
+## 10. GENERATION MODEL
+
+Preferred source inputs:
+- site config
+- service hub definitions
+- cities data
+- services data
+- approved district data
+- approved problem data
+- blog post data
+
+The engine must remain data-driven, not manually curated route by route.
+
+---
+
+## 11. 24-MONTH PLAN ALIGNMENT
+
+### Months 1-3
+Sitemap must reflect only true organic winners and exclude paid landers.
+
+### Months 4-6
+Controlled addition of Istanbul district pages and early problem pages.
+
+### Months 7-12
+Expansion across the 18-city layer.
+
+### Months 13-24
+Scaled national expansion with strict quality gates for district and problem route families.
+
+Sitemap growth must be controlled.
+Bigger sitemap is not success.
+Higher-value discoverable URLs are success.

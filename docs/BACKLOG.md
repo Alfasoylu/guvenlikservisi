@@ -72,15 +72,15 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 - [x] Hangi servisler sadece tek seferlik gelir üretir listele
 
 ## P0.3 Ölümcül Riskler
-- [ ] Thin content riski dokümante et
-- [ ] Duplicate content riski dokümante et
-- [ ] Crawl budget riski dokümante et
-- [ ] Index bloat riski dokümante et
-- [ ] Yanlış keyword seçimi riski dokümante et
-- [ ] Zayıf iç linkleme riski dokümante et
-- [ ] Düşük dönüşümlü trafik riski dokümante et
-- [ ] Spam / sahte lead riski dokümante et
-- [ ] Tek şablon spamı riski dokümante et
+- [x] Thin content riski dokümante et
+- [x] Duplicate content riski dokümante et
+- [x] Crawl budget riski dokümante et
+- [x] Index bloat riski dokümante et
+- [x] Yanlış keyword seçimi riski dokümante et
+- [x] Zayıf iç linkleme riski dokümante et
+- [x] Düşük dönüşümlü trafik riski dokümante et
+- [x] Spam / sahte lead riski dokümante et
+- [x] Tek şablon spamı riski dokümante et
 
 ---
 
@@ -231,7 +231,7 @@ Her ilçe için:
 - [x] canonical mantigini netlestir
 - [x] programmatic route guardrails ve valid route source utility kur
 - [ ] district page canonical kuralları yaz
-- [ ] benzer intent’li sayfalar için unique primary URL belirle
+- [~] benzer intent’li sayfalar için unique primary URL belirle
 - [ ] duplicate URL varyasyonlarını 301 ile topla
 
 ## P2.3 Route Önceliği
@@ -385,7 +385,7 @@ Her sayfa için:
 - [ ] district-service sitemap
 - [ ] blog sitemap
 - [ ] troubleshooting sitemap
-- [ ] noindex sayfaları sitemap dışına al
+- [x] noindex sayfaları sitemap dışına al
 - [ ] düşük kaliteli taslak URL’leri dışarıda tut
 
 ## P6.2 Crawl Budget Disiplini
@@ -831,3 +831,11 @@ Her yeni sayfada:
 
 - [x] programmatic image system / visual section / local asset mapping
 - [x] High-value commercial page visual expansion
+
+---
+
+## Durum Notu — 2026-03-15
+
+- `tamamlandı`: `docs/RISK_ANALYSIS.md` ile kritik SEO, crawl, duplicate, low-conversion ve spam riskleri source-of-truth seviyesinde dokümante edildi.
+- `kısmi`: Canonical ownership cleanup ilerledi; İstanbul city/service para sayfaları yeniden `/{city}/{service}` winner modeline taşındı, ancak kalan legacy slug aileleri ve district canonical governance henüz tam kapanmadı.
+- `kısmi`: Sitemap tarafında `/teklif/*` organik envanter dışında tutuluyor; sitemap index, parçalı sitemap ve düşük kaliteli route gate sistemi ise halen açık iş kalemi.
