@@ -63,9 +63,9 @@ const data: ServicePageData = {
 
   /* ── Hedef Kitle ── */
   targetAudience: {
-    title: "Bu Sayfa Kimler İçin?",
+    title: "Bu Hizmet Kime Uygun?",
     subtitle:
-      "Aşağıdaki roller ve durumlar sizin için geçerliyse, bu sayfadaki çözüm kurgusu doğrudan sizinle ilgili.",
+      "Aşağıdaki durumlardan biri sizin için geçerliyse, bu çözüm doğrudan sizinle ilgili.",
     items: [
       {
         title: "Apartman Yöneticileri",

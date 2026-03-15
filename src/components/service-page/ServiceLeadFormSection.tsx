@@ -88,7 +88,7 @@ const copyByIntent: Record<ServiceBusinessIntent, LeadFormCopy> = {
     bullets: [
       "Site, fabrika ve depo projeleri için kapsam netleştirme",
       "Bakım ve uzaktan izleme ihtimali olan kurumsal akış",
-      "Karar vericiye uygun keşif ve teklif planı",
+      "Yetkili kişiye özel keşif ve teklif planı",
     ],
     whatsappText: "Kurumsal proje için keşif ve teklif istiyorum.",
   },

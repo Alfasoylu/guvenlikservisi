@@ -45,13 +45,13 @@ export default function ServiceSegmentFit({
             <h3 className={h3CompactClass}>{item.name}</h3>
             <p className={bodyTextClass}>{item.summary}</p>
             <p className={`${bodyTextSmallClass} mt-3`}>
-              <strong>Karar verici:</strong> {item.decisionMakerLabel}
+              <strong>Muhatap:</strong> {item.decisionMakerLabel}
             </p>
             <p className={`${bodyTextSmallClass} mt-2`}>
-              <strong>Güven beklentisi:</strong> {item.trustAngle}
+              <strong>Beklenti:</strong> {item.trustAngle}
             </p>
             <p className={`${bodyTextSmallClass} mt-2`}>
-              <strong>Teklif dili:</strong> {item.ctaAngle}
+              <strong>Yaklaşım:</strong> {item.ctaAngle}
             </p>
             {item.commonServices.length > 0 ? (
               <p className={`${bodyTextSmallClass} mt-2`}>
