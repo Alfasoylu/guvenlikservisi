@@ -1,202 +1,268 @@
-# Copilot Instructions — guvenlikservisi.com
+# COPILOT INSTRUCTIONS
+guvenlikservisi.com
 
 ## Project Purpose
 
-This repository powers **guvenlikservisi.com**, a security systems lead generation platform in Turkey.
+This repository powers guvenlikservisi.com, a national security systems lead engine that will evolve into a Turkey-wide installer lead marketplace.
 
-The goal of the system is to generate leads for:
+The product mission is:
 
-* IP camera installation
-* security camera systems
-* alarm systems
-* fire alarm systems
-* access control systems
-* security system maintenance
+1. capture organic and paid demand for security system services
+2. convert that demand into qualified leads
+3. scale city × service × district × problem route families safely
+4. later allow installer firms to register and receive leads
 
-Primary objective:
+This is not a brochure site.
+This is not just an Istanbul installer site.
+This is not a UI playground.
 
-**Generate installation leads from Google Ads and SEO traffic.**
-
----
-
-# Technology Stack
-
-Framework: Next.js (App Router)
-Language: TypeScript
-UI: React
-Styling: TailwindCSS
-Hosting: Vercel
+This is a lead-generation and future marketplace infrastructure project.
 
 ---
 
-# Site Architecture
+## Strategic Model
 
-The project contains three main page systems.
+Architecture = national
+Validation = Istanbul first
 
----
-
-# 1 — Landing Pages (Conversion Pages)
-
-Location:
-
-/teklif/*
-
-Example:
-
-/teklif/istanbul-ip-kamera-montaji
-
-Purpose:
-
-High-conversion landing pages used for Google Ads.
-
-Landing pages must contain:
-
-Hero section
-Problem explanation
-Solution explanation
-Trust elements
-Pricing explanation
-FAQ section
-Lead form
-Phone click CTA
-WhatsApp click CTA
-
-Goal:
-
-**Convert visitors into installation leads.**
+That means:
+- build for Turkey scale
+- test deepest in Istanbul
+- keep route/data/content systems reusable nationally
 
 ---
 
-# 2 — Programmatic SEO Pages
+## Current Business Goal
 
-Structure:
+Short-term:
+Generate qualified leads for:
+- camera system installation
+- alarm system installation
+- fire alarm system installation
+- access control / card access systems
+- maintenance / technical service / remote monitoring
 
-/[city]/[service]
+Mid-term:
+Scale high-intent organic lead pages across major cities and districts.
 
+Long-term:
+Allow installer firms to register, define coverage areas, and receive leads.
+
+---
+
+## Route Systems
+
+### 1. National service hubs
 Examples:
+- `/kamera-sistemi-kurulumu`
+- `/alarm-sistemi-kurulumu`
+- `/yangin-alarm-sistemi-kurulumu`
+- `/kartli-gecis-ve-turnike-sistemi`
 
-/istanbul/kamera-sistemi-kurulumu
-/ankara/kamera-sistemi-kurulumu
+Role:
+National authority pages.
 
-Purpose:
+### 2. City pages
+Pattern:
+- `/{city}`
 
-Capture long-tail SEO traffic.
+Role:
+City hub pages.
 
-These pages must include:
+### 3. City + service pages
+Pattern:
+- `/{city}/{service}`
 
-H1 with city + service keyword
-Detailed service explanation
-Installation process
-Price estimation
-FAQ section
-Internal links
-Lead CTA
+Role:
+Primary organic money pages.
 
----
+### 4. District + service pages
+Pattern:
+- `/{city}/{district}/{service}`
 
-# 3 — Core Service Pages
+Role:
+Hyperlocal support pages.
 
-Examples:
+### 5. Problem pages
+Pattern:
+- `/sorun/{problem}`
 
-/kamera-sistemi-kurulumu
-/alarm-sistemi-kurulumu
-/yangin-alarm-sistemi-kurulumu
+Role:
+Problem-intent capture pages.
 
-Purpose:
+### 6. Blog
+Pattern:
+- `/blog/*`
 
-Main authority pages for services.
+Role:
+Informational support.
 
----
+### 7. Paid landing pages
+Pattern:
+- `/teklif/*`
 
-# SEO Rules (Critical)
+Role:
+Google Ads conversion pages only.
 
-Copilot must NEVER:
+### 8. API
+- `/api/lead`
+- `/api/quote`
 
-remove metadata
-remove canonical URLs
-remove schema markup
-remove internal links
-
-Copilot must ALWAYS preserve SEO structure.
-
----
-
-# Schema Requirements
-
-Service pages should include structured data.
-
-Use:
-
-LocalBusiness
-Service
-FAQPage
-BreadcrumbList
-
-schema markup.
+Role:
+Lead intake.
 
 ---
 
-# Lead System
-
-Lead submissions happen through:
-
-/api/lead
-
-Leads are sent to:
-
-Google Sheets webhook.
-
-Important rule:
-
-Never break the lead API.
-
-Never remove form submission logic.
-
----
-
-# Routing Rules
-
-The project uses Next.js App Router.
+## Critical Routing Rules
 
 Copilot must:
-
-Never rename routes
-Never change folder structure
-Never modify routing logic
-
----
-
-# Code Standards
-
-Preferred code style:
-
-TypeScript
-Functional React components
-Reusable components
-TailwindCSS styling
-
-Avoid unnecessary complexity.
+- never break routing
+- never rename route families casually
+- never introduce duplicate route systems for the same intent
+- never create one-off Istanbul-only architecture that cannot scale nationally
+- never let `/teklif/*` compete with organic route families
 
 ---
 
-# Page Generation Rules
+## Organic vs Paid Separation
 
-When generating new pages include:
+This rule is critical.
 
-SEO title
-Meta description
-Canonical URL
-FAQ section
-Lead call-to-action
+`/teklif/*` pages are:
+- Google Ads landing pages
+- not part of organic SEO growth
+- not canonical winners
+- not in sitemap
+- `noindex,nofollow`
+
+Copilot must:
+- keep `/teklif/*` strategically separate from organic route architecture
+- avoid pushing internal organic authority toward `/teklif/*`
+- preserve attribution and conversion quality for these pages
+
+Do not treat `/teklif/*` like SEO money pages.
 
 ---
 
-# Development Goal
+## SEO Rules
 
-All development work must improve:
+Copilot must NEVER:
+- remove metadata
+- remove canonical URLs
+- remove schema markup
+- remove internal links
+- leave duplicate query ownership unresolved
+- create thin district pages from string swaps
+- create random decorative UI-only sections that do not improve SEO or conversion
 
-SEO traffic
-lead conversion
-site authority
+Copilot must ALWAYS:
+- preserve SEO structure
+- reinforce one-owner-per-query logic
+- favor data-driven page generation
+- align metadata, schema, sitemap, robots, redirects, and internal links
+- protect Istanbul canonical winners while keeping the system national
 
-Never generate generic placeholder content.
+---
+
+## Query Ownership Logic
+
+Use this mental model:
+
+- national service intent -> national service hub
+- city + service intent -> city/service page
+- district + service intent -> district/service page
+- problem intent -> problem page
+
+Do not let multiple pages compete for the same search job.
+
+---
+
+## Lead System Rules
+
+Lead submissions happen through:
+- `/api/lead`
+- `/api/quote`
+
+Leads are sent to early-stage operational systems such as email and Google Sheets.
+
+Important:
+- never break lead API logic
+- never remove attribution fields
+- never remove validation / anti-spam / dedupe without a strong replacement
+- preserve page source and routing context for future marketplace routing
+
+---
+
+## Metadata Requirements
+
+All indexable route families must have:
+- title
+- description
+- canonical
+- robots
+- Open Graph where appropriate
+
+Metadata must be:
+- route-aware
+- intent-aware
+- scalable
+- consistent with ownership strategy
+
+Do not let dynamic pages accidentally canonicalize to the wrong route family.
+
+---
+
+## Schema Requirements
+
+Preferred schema types:
+- LocalBusiness
+- Service
+- BreadcrumbList
+- FAQPage
+- BlogPosting / Article where relevant
+
+Rules:
+- no duplicate schema objects for the same visible content
+- no fake review/rating claims
+- keep URLs normalized and aligned with canonical
+
+---
+
+## Internal Link Requirements
+
+Internal linking should reinforce:
+- city hub -> city/service
+- city/service -> district/service
+- problem -> service
+- blog -> money pages
+- service hubs -> city/service pages
+
+Do not create orphan pages.
+Do not feed organic authority heavily into `/teklif/*`.
+
+---
+
+## Data Architecture Rules
+
+Copilot should prefer structured data in:
+- `src/data/*`
+- `src/data/seo/*`
+
+Important:
+- do not hardcode business taxonomy in scattered JSX
+- use reusable content/data models where possible
+- write code that can support 81 cities, 970 districts, and 20 services
+
+---
+
+## Development Goal
+
+All development work must improve one or more of the following:
+- organic traffic quality
+- lead conversion quality
+- local-commercial ownership
+- scalable national architecture
+- future marketplace readiness
+
+Never optimize for cosmetics first.
+Optimize for growth infrastructure first.

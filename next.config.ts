@@ -13,25 +13,25 @@ const nextConfig: NextConfig = {
       permanent: true,
     }));
 
-    const istanbulPrimaryMoneyPageRedirects = [
+    const legacyIstanbulMoneyPageRedirects = [
       {
-        source: "/istanbul/kamera-sistemi-kurulumu",
-        destination: "/istanbul-kamera-sistemi-kurulumu",
+        source: "/istanbul-kamera-sistemi-kurulumu",
+        destination: "/istanbul/kamera-sistemi-kurulumu",
         permanent: true,
       },
       {
-        source: "/istanbul/alarm-sistemi-kurulumu",
-        destination: "/istanbul-alarm-sistemi",
+        source: "/istanbul-alarm-sistemi",
+        destination: "/istanbul/alarm-sistemi-kurulumu",
         permanent: true,
       },
       {
-        source: "/istanbul/yangin-alarm-sistemi-kurulumu",
-        destination: "/istanbul-yangin-alarm-sistemi",
+        source: "/istanbul-yangin-alarm-sistemi",
+        destination: "/istanbul/yangin-alarm-sistemi-kurulumu",
         permanent: true,
       },
       {
-        source: "/istanbul/kartli-gecis-sistemi-kurulumu",
-        destination: "/istanbul-kartli-gecis-sistemi",
+        source: "/istanbul-kartli-gecis-sistemi",
+        destination: "/istanbul/kartli-gecis-sistemi-kurulumu",
         permanent: true,
       },
     ];
@@ -81,7 +81,7 @@ const nextConfig: NextConfig = {
     ];
 
     return [
-      ...istanbulPrimaryMoneyPageRedirects,
+      ...legacyIstanbulMoneyPageRedirects,
       ...legacyCityRedirects,
       ...legacyServiceRedirects,
     ];

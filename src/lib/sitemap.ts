@@ -79,5 +79,14 @@ export function buildSitemapEntries(lastModified = new Date()): MetadataRoute.Si
     }))
   );
 
-  return entries;
+  const seen = new Set<string>();
+
+  return entries.filter((entry) => {
+    if (seen.has(entry.url)) {
+      return false;
+    }
+
+    seen.add(entry.url);
+    return true;
+  });
 }

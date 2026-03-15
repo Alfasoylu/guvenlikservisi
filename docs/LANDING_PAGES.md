@@ -1,144 +1,100 @@
-/istanbul/kamera-sistemi-kurulumu
-/istanbul/alarm-sistemi-kurulumu
-/istanbul/yangin-alarm-sistemi-kurulumu
-/istanbul/kartli-gecis-sistemi-kurulumu
-/istanbul/apartman-site-guvenlik-sistemi
-/istanbul/isyeri-guvenlik-sistemi
-/istanbul/fabrika-depo-guvenlik-sistemi
-/istanbul/bakim-servis-uzaktan-izleme
-/ankara/kamera-sistemi-kurulumu
-/ankara/alarm-sistemi-kurulumu
-/ankara/yangin-alarm-sistemi-kurulumu
-/ankara/kartli-gecis-sistemi-kurulumu
-/ankara/apartman-site-guvenlik-sistemi
-/ankara/isyeri-guvenlik-sistemi
-/ankara/fabrika-depo-guvenlik-sistemi
-/ankara/bakim-servis-uzaktan-izleme
-/izmir/kamera-sistemi-kurulumu
-/izmir/alarm-sistemi-kurulumu
-/izmir/yangin-alarm-sistemi-kurulumu
-/izmir/kartli-gecis-sistemi-kurulumu
-/izmir/apartman-site-guvenlik-sistemi
-/izmir/isyeri-guvenlik-sistemi
-/izmir/fabrika-depo-guvenlik-sistemi
-/izmir/bakim-servis-uzaktan-izleme
-/bursa/kamera-sistemi-kurulumu
-/bursa/alarm-sistemi-kurulumu
-/bursa/yangin-alarm-sistemi-kurulumu
-/bursa/kartli-gecis-sistemi-kurulumu
-/bursa/apartman-site-guvenlik-sistemi
-/bursa/isyeri-guvenlik-sistemi
-/bursa/fabrika-depo-guvenlik-sistemi
-/bursa/bakim-servis-uzaktan-izleme
-/kocaeli/kamera-sistemi-kurulumu
-/kocaeli/alarm-sistemi-kurulumu
-/kocaeli/yangin-alarm-sistemi-kurulumu
-/kocaeli/kartli-gecis-sistemi-kurulumu
-/kocaeli/apartman-site-guvenlik-sistemi
-/kocaeli/isyeri-guvenlik-sistemi
-/kocaeli/fabrika-depo-guvenlik-sistemi
-/kocaeli/bakim-servis-uzaktan-izleme
-/antalya/kamera-sistemi-kurulumu
-/antalya/alarm-sistemi-kurulumu
-/antalya/yangin-alarm-sistemi-kurulumu
-/antalya/kartli-gecis-sistemi-kurulumu
-/antalya/apartman-site-guvenlik-sistemi
-/antalya/isyeri-guvenlik-sistemi
-/antalya/fabrika-depo-guvenlik-sistemi
-/antalya/bakim-servis-uzaktan-izleme
-/tekirdag/kamera-sistemi-kurulumu
-/tekirdag/alarm-sistemi-kurulumu
-/tekirdag/yangin-alarm-sistemi-kurulumu
-/tekirdag/kartli-gecis-sistemi-kurulumu
-/tekirdag/apartman-site-guvenlik-sistemi
-/tekirdag/isyeri-guvenlik-sistemi
-/tekirdag/fabrika-depo-guvenlik-sistemi
-/tekirdag/bakim-servis-uzaktan-izleme
-/sakarya/kamera-sistemi-kurulumu
-/sakarya/alarm-sistemi-kurulumu
-/sakarya/yangin-alarm-sistemi-kurulumu
-/sakarya/kartli-gecis-sistemi-kurulumu
-/sakarya/apartman-site-guvenlik-sistemi
-/sakarya/isyeri-guvenlik-sistemi
-/sakarya/fabrika-depo-guvenlik-sistemi
-/sakarya/bakim-servis-uzaktan-izleme
-/balikesir/kamera-sistemi-kurulumu
-/balikesir/alarm-sistemi-kurulumu
-/balikesir/yangin-alarm-sistemi-kurulumu
-/balikesir/kartli-gecis-sistemi-kurulumu
-/balikesir/apartman-site-guvenlik-sistemi
-/balikesir/isyeri-guvenlik-sistemi
-/balikesir/fabrika-depo-guvenlik-sistemi
-/balikesir/bakim-servis-uzaktan-izleme
-/adana/kamera-sistemi-kurulumu
-/adana/alarm-sistemi-kurulumu
-/adana/yangin-alarm-sistemi-kurulumu
-/adana/kartli-gecis-sistemi-kurulumu
-/adana/apartman-site-guvenlik-sistemi
-/adana/isyeri-guvenlik-sistemi
-/adana/fabrika-depo-guvenlik-sistemi
-/adana/bakim-servis-uzaktan-izleme
-/konya/kamera-sistemi-kurulumu
-/konya/alarm-sistemi-kurulumu
-/konya/yangin-alarm-sistemi-kurulumu
-/konya/kartli-gecis-sistemi-kurulumu
-/konya/apartman-site-guvenlik-sistemi
-/konya/isyeri-guvenlik-sistemi
-/konya/fabrika-depo-guvenlik-sistemi
-/konya/bakim-servis-uzaktan-izleme
-/gaziantep/kamera-sistemi-kurulumu
-/gaziantep/alarm-sistemi-kurulumu
-/gaziantep/yangin-alarm-sistemi-kurulumu
-/gaziantep/kartli-gecis-sistemi-kurulumu
-/gaziantep/apartman-site-guvenlik-sistemi
-/gaziantep/isyeri-guvenlik-sistemi
-/gaziantep/fabrika-depo-guvenlik-sistemi
-/gaziantep/bakim-servis-uzaktan-izleme
-/kayseri/kamera-sistemi-kurulumu
-/kayseri/alarm-sistemi-kurulumu
-/kayseri/yangin-alarm-sistemi-kurulumu
-/kayseri/kartli-gecis-sistemi-kurulumu
-/kayseri/apartman-site-guvenlik-sistemi
-/kayseri/isyeri-guvenlik-sistemi
-/kayseri/fabrika-depo-guvenlik-sistemi
-/kayseri/bakim-servis-uzaktan-izleme
-/eskisehir/kamera-sistemi-kurulumu
-/eskisehir/alarm-sistemi-kurulumu
-/eskisehir/yangin-alarm-sistemi-kurulumu
-/eskisehir/kartli-gecis-sistemi-kurulumu
-/eskisehir/apartman-site-guvenlik-sistemi
-/eskisehir/isyeri-guvenlik-sistemi
-/eskisehir/fabrika-depo-guvenlik-sistemi
-/eskisehir/bakim-servis-uzaktan-izleme
-/mersin/kamera-sistemi-kurulumu
-/mersin/alarm-sistemi-kurulumu
-/mersin/yangin-alarm-sistemi-kurulumu
-/mersin/kartli-gecis-sistemi-kurulumu
-/mersin/apartman-site-guvenlik-sistemi
-/mersin/isyeri-guvenlik-sistemi
-/mersin/fabrika-depo-guvenlik-sistemi
-/mersin/bakim-servis-uzaktan-izleme
-/yalova/kamera-sistemi-kurulumu
-/yalova/alarm-sistemi-kurulumu
-/yalova/yangin-alarm-sistemi-kurulumu
-/yalova/kartli-gecis-sistemi-kurulumu
-/yalova/apartman-site-guvenlik-sistemi
-/yalova/isyeri-guvenlik-sistemi
-/yalova/fabrika-depo-guvenlik-sistemi
-/yalova/bakim-servis-uzaktan-izleme
-/edirne/kamera-sistemi-kurulumu
-/edirne/alarm-sistemi-kurulumu
-/edirne/yangin-alarm-sistemi-kurulumu
-/edirne/kartli-gecis-sistemi-kurulumu
-/edirne/apartman-site-guvenlik-sistemi
-/edirne/isyeri-guvenlik-sistemi
-/edirne/fabrika-depo-guvenlik-sistemi
-/edirne/bakim-servis-uzaktan-izleme
-/kirklareli/kamera-sistemi-kurulumu
-/kirklareli/alarm-sistemi-kurulumu
-/kirklareli/yangin-alarm-sistemi-kurulumu
-/kirklareli/kartli-gecis-sistemi-kurulumu
-/kirklareli/apartman-site-guvenlik-sistemi
-/kirklareli/isyeri-guvenlik-sistemi
-/kirklareli/fabrika-depo-guvenlik-sistemi
-/kirklareli/bakim-servis-uzaktan-izleme
+# LANDING PAGES
+guvenlikservisi.com
+
+Purpose:
+Define the paid acquisition landing-page layer and keep it separate from the organic SEO system.
+
+This document replaces the stale raw route dump that previously lived here.
+
+---
+
+## 1. STRATEGIC ROLE
+
+`/teklif/*` is the paid conversion layer.
+
+It exists for:
+- Google Ads landing experiences
+- message-match with campaigns
+- form completion
+- phone click
+- WhatsApp click
+- attribution capture
+
+It does not exist to own organic query clusters.
+
+---
+
+## 2. REQUIRED RULES
+
+All `/teklif/*` pages must:
+- be treated as Google Ads landing pages
+- stay outside the organic sitemap
+- use `noindex,nofollow`
+- avoid canonical conflict with organic money pages
+- preserve `gclid`, `utm_*`, `page_url`, and `form_source`
+- prioritize conversion clarity over SEO expansion
+
+All `/teklif/*` pages must not:
+- be canonical winners for national, city, or district service queries
+- receive heavy organic internal-link authority
+- create duplicate ownership against `/{city}/{service}` or core service hubs
+
+---
+
+## 3. CURRENT PAID LANDING ROUTES
+
+Current active `/teklif/*` routes in repo:
+- `/teklif/alarm`
+- `/teklif/apartman`
+- `/teklif/istanbul-ip-kamera-montaji`
+- `/teklif/isyeri`
+- `/teklif/kamera`
+- `/teklif/kamera/istanbul-ip-kamera-montaji`
+- `/teklif/yangin`
+
+Status notes:
+- `tamamlandı`: `/teklif` layout now applies `noindex,nofollow`.
+- `tamamlandı`: `/teklif/*` stays out of the App Router sitemap.
+- `kısmi`: `/teklif/kamera/istanbul-ip-kamera-montaji` remains a duplicate-risk paid route and should be consolidated or retired in a later cleanup pass.
+
+---
+
+## 4. ORGANIC / PAID SEPARATION
+
+Organic winners:
+- national service hubs
+- `/{city}`
+- `/{city}/{service}`
+- approved `/{city}/{district}/{service}`
+- `/sorun/{problem}`
+
+Paid winners:
+- only the relevant `/teklif/*` landing for its ad campaign
+
+If a campaign needs a city-specific paid experience, the landing page may mirror intent,
+but it must not compete for canonical ownership with the organic city/service page.
+
+---
+
+## 5. TRACKING REQUIREMENTS
+
+Every landing page submission path should preserve:
+- `page_url`
+- `form_source`
+- `utm_source`
+- `utm_medium`
+- `utm_campaign`
+- `utm_term`
+- `gclid`
+
+Recommended form source conventions:
+- `landing_page`
+- campaign-specific form sources where custom forms exist
+
+---
+
+## 6. NEXT CLEANUP ITEMS
+
+- Consolidate overlapping `/teklif/*` variants that target the same paid search job.
+- Audit all landing-page CTAs to ensure attribution survives call, WhatsApp, and form actions.
+- Keep future landing additions documented here instead of reintroducing raw route dumps.

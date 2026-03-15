@@ -14,13 +14,9 @@ export const staticPagePaths = [
   "/fabrika-depo-guvenlik-sistemi",
   "/hakkimizda",
   "/iletisim",
-  "/istanbul-alarm-sistemi",
   "/istanbul-ip-kamera-montaji",
   "/istanbul-kamera-bakim-servisi",
-  "/istanbul-kamera-sistemi-kurulumu",
   "/istanbul-kamera-teknik-servis",
-  "/istanbul-kartli-gecis-sistemi",
-  "/istanbul-yangin-alarm-sistemi",
   "/isyeri-guvenlik-sistemi",
   "/kamera-ariza-servisi",
   "/kamera-sistemi-bakim-sozlesmesi",
@@ -39,13 +35,6 @@ export const teklifPaths = [
   "/teklif/kamera",
   "/teklif/yangin",
 ] as const;
-
-const cityServicePrimaryPathOverrides: Record<string, string> = {
-  "istanbul/kamera-sistemi-kurulumu": "/istanbul-kamera-sistemi-kurulumu",
-  "istanbul/alarm-sistemi-kurulumu": "/istanbul-alarm-sistemi",
-  "istanbul/yangin-alarm-sistemi-kurulumu": "/istanbul-yangin-alarm-sistemi",
-  "istanbul/kartli-gecis-sistemi-kurulumu": "/istanbul-kartli-gecis-sistemi",
-};
 
 const citySlugSet = new Set(cities.map((city) => city.slug));
 const serviceSlugSet = new Set(services.map((service) => service.slug));
@@ -104,10 +93,7 @@ export function getPrimaryCityServicePath(citySlug: string, serviceSlug: string)
     return null;
   }
 
-  return (
-    cityServicePrimaryPathOverrides[`${citySlug}/${serviceSlug}`] ??
-    getCityServicePath(citySlug, serviceSlug)
-  );
+  return getCityServicePath(citySlug, serviceSlug);
 }
 
 export function getCityCanonicalUrl(citySlug: string) {

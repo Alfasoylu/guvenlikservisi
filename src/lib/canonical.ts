@@ -8,6 +8,10 @@ import {
 } from "@/lib/routes";
 
 const legacyCanonicalPathMap: Record<string, string> = {
+  "/istanbul-kamera-sistemi-kurulumu": "/istanbul/kamera-sistemi-kurulumu",
+  "/istanbul-alarm-sistemi": "/istanbul/alarm-sistemi-kurulumu",
+  "/istanbul-yangin-alarm-sistemi": "/istanbul/yangin-alarm-sistemi-kurulumu",
+  "/istanbul-kartli-gecis-sistemi": "/istanbul/kartli-gecis-sistemi-kurulumu",
   "/teklif/kamera/istanbul-ip-kamera-montaji":
     "/teklif/istanbul-ip-kamera-montaji",
   "/hizmetler/guvenlik-kamera-kurulumu": "/kamera-sistemi-kurulumu",
