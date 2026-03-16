@@ -313,6 +313,7 @@ export default function QuoteForm({
       const result = (await response.json().catch(() => null)) as {
         success?: boolean;
         message?: string;
+        lead_id?: string;
       } | null;
 
       if (!response.ok) {
@@ -335,15 +336,34 @@ export default function QuoteForm({
         event_category: "lead",
         event_label: form.service_type || defaultService || "genel-teklif",
         value: 1,
+        lead_id: result?.lead_id,
         session_id: attribution.session_id,
         landing_page_path: attribution.landing_page_path,
         landing_page_type: attribution.landing_page_type,
+      });
+
+      pushAnalyticsEvent("quote_request", {
+        page_path: effectiveTrackingContext?.page_path || pathname || "",
+        page_type: effectivePageTemplate,
+        city: effectiveTrackingContext?.city || "",
+        service: effectiveTrackingContext?.service || "",
+        lead_channel: "form",
+        form_source: effectiveFormSource,
+        service_type: form.service_type || defaultService || "",
+        intent_type: intentType,
+        page_template: effectivePageTemplate,
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
+        value: 1,
       });
 
       pushAnalyticsEvent("lead_form_success", {
         page_path: effectiveTrackingContext?.page_path || pathname || "",
         form_source: effectiveFormSource,
         service_type: form.service_type || defaultService || "",
+        lead_id: result?.lead_id,
         session_id: attribution.session_id,
       });
 

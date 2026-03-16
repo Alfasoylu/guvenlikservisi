@@ -90,6 +90,14 @@ function buildEmailHtml(lead: LeadRecord): string {
 <tr><td><b>Mesaj</b></td><td>${valueOrDash(lead.message)}</td></tr>
 <tr><td><b>Sayfa</b></td><td>${valueOrDash(lead.page_url)}</td></tr>
 <tr><td><b>Form Kaynağı</b></td><td>${valueOrDash(lead.form_source)}</td></tr>
+<tr><td><b>UTM Source</b></td><td>${valueOrDash(lead.utm_source)}</td></tr>
+<tr><td><b>UTM Medium</b></td><td>${valueOrDash(lead.utm_medium)}</td></tr>
+<tr><td><b>UTM Campaign</b></td><td>${valueOrDash(lead.utm_campaign)}</td></tr>
+<tr><td><b>UTM Term</b></td><td>${valueOrDash(lead.utm_term)}</td></tr>
+<tr><td><b>GCLID</b></td><td>${valueOrDash(lead.gclid)}</td></tr>
+<tr><td><b>Call Status</b></td><td>${valueOrDash(lead.call_status)}</td></tr>
+<tr><td><b>Lead Status</b></td><td>${valueOrDash(lead.lead_status)}</td></tr>
+<tr><td><b>Assigned To</b></td><td>${valueOrDash(lead.assigned_to)}</td></tr>
 <tr><td><b>Notlar</b></td><td>${valueOrDash(lead.notes)}</td></tr>
 </table>
 </div>

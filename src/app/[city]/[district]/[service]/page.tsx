@@ -28,6 +28,7 @@ import { getSeoServiceBySlug } from "@/data/seo/services";
 import { siteConfig } from "@/data/site-config";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import { getDistrictServiceStaticParams } from "@/lib/routes";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -64,19 +65,11 @@ export async function generateMetadata({
       ? rawDesc
       : rawDesc.slice(0, 155).replace(/\s+\S*$/, "") + "…";
 
-  return {
+  return buildSeoMetadata({
     title,
     description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
-      siteName: siteConfig.name,
-      locale: "tr_TR",
-      type: "website",
-    },
-  };
+    canonical: canonicalUrl,
+  });
 }
 
 // ---------------------------------------------------------------------------

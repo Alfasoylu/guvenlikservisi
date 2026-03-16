@@ -7,15 +7,16 @@ import CTASection from "@/components/sections/CTASection";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/hakkimizda");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Hakkımızda | Güvenlik Servisi",
   description:
     "Güvenlik kamera sistemleri, alarm sistemleri ve geçiş kontrol çözümlerinde profesyonel keşif, doğru ürün seçimi ve anahtar teslim kurulum hizmeti sunuyoruz.",
-  alternates: { canonical: canonicalUrl },
-};
+  canonical: canonicalUrl,
+});
 
 const guvenKartlari = [
   {

@@ -135,10 +135,14 @@ export default function MaintenanceQuoteForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+        lead_id?: string;
+      } | null;
 
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Form gönderilemedi");
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || "Form gönderilemedi");
       }
 
       setSuccessMessage(
@@ -151,6 +155,23 @@ export default function MaintenanceQuoteForm() {
         lead_channel: "form",
         service_type: "bakim-servis",
         event_category: "lead",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
+        value: 1,
+      });
+
+      pushAnalyticsEvent("quote_request", {
+        page_path: "/bakim-servis-uzaktan-izleme",
+        page_type: attribution.page_type || "site_page",
+        form_source: "maintenance_contract_page",
+        lead_channel: "form",
+        service_type: "bakim-servis",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
         value: 1,
       });
 
@@ -158,6 +179,8 @@ export default function MaintenanceQuoteForm() {
         page_path: "/bakim-servis-uzaktan-izleme",
         form_source: "maintenance_contract_page",
         service_type: "bakim-servis",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
       });
 
       setForm(initialState);

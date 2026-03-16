@@ -211,6 +211,7 @@ export default function QuickLeadForm({
       const result = (await response.json().catch(() => null)) as {
         success?: boolean;
         message?: string;
+        lead_id?: string;
       } | null;
 
       if (!response.ok) {
@@ -226,6 +227,10 @@ export default function QuickLeadForm({
         form_source: formSource,
         service_type: form.service_type || defaultService || "",
         event_category: "lead",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
         value: 1,
       });
 
@@ -233,6 +238,8 @@ export default function QuickLeadForm({
         page_path: pathname || "",
         form_source: formSource,
         service_type: form.service_type || defaultService || "",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
       });
 
       setForm(buildInitialForm(defaultService, defaultDistrict));

@@ -40,13 +40,11 @@ export async function checkDuplicateLead(
       };
     }
 
-    const fingerprint = buildDuplicateLeadFingerprint(input);
     const query = new URLSearchParams({
       action: "check_duplicate",
-      phone: fingerprint.phone,
-      service_type: fingerprint.serviceType,
-      page_path: fingerprint.pagePath,
-      message_hash: fingerprint.messageHash,
+      // Google Apps Script duplicate endpoint currently matches by phone only.
+      // Keep the external contract minimal so the live sheet flow stays stable.
+      phone: buildDuplicateLeadFingerprint(input).phone,
     });
     const url = `${scriptUrl}?${query.toString()}`;
 

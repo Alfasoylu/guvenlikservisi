@@ -42,7 +42,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Güvenlik Sistemi Kurulumu | Kamera, Alarm ve Geçiş Sistemleri",
     description: siteConfig.description,
-    url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "tr_TR",
     type: "website",

@@ -202,6 +202,7 @@ export default function IstanbulServiceQuoteForm({
       const result = (await res.json().catch(() => null)) as {
         success?: boolean;
         message?: string;
+        lead_id?: string;
       } | null;
 
       if (!res.ok || !result?.success) {
@@ -217,6 +218,7 @@ export default function IstanbulServiceQuoteForm({
         district: String(formData.get("district") || ""),
         event_category: "lead",
         value: 1,
+        lead_id: result?.lead_id,
         session_id: attribution.session_id,
         landing_page_path: attribution.landing_page_path,
         landing_page_type: attribution.landing_page_type,
@@ -227,6 +229,7 @@ export default function IstanbulServiceQuoteForm({
         page_type: attribution.page_type,
         form_source: formSource,
         service_type: serviceType,
+        lead_id: result?.lead_id,
         session_id: attribution.session_id,
       });
 

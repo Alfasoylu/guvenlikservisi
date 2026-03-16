@@ -6,15 +6,16 @@ import { Container } from "@/components/ui/Container";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/paketler-ve-fiyatlandirma");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Güvenlik Sistemi Paketleri ve Fiyatlandırma",
   description:
     "Kamera sistemi, alarm sistemi ve güvenlik çözümleri için başlangıç, standart ve premium paket seçenekleri. Ücretsiz keşif sonrası net teklif alın.",
-  alternates: { canonical: canonicalUrl },
-};
+  canonical: canonicalUrl,
+});
 
 const paketler = [
   {

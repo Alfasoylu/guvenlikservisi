@@ -58,6 +58,7 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 - [x] Repo içindeki tüm route’ların tam envanterini çıkar
 - [x] Tüm mevcut landing page URL listesini oluştur
 - [x] Tüm mevcut metadata mantığını tek dosyada haritala
+- [x] Root fallback metadata davranışını route-level ownership ile daralt
 - [x] Tüm schema üreten util’leri haritala
 - [x] `robots`, `sitemap`, canonical, noindex kontrol tablosu oluştur
 - [x] Hangi sayfalar para getirir, hangileri sadece trafik getirir ayrımını yap
@@ -342,7 +343,7 @@ Her sayfa için:
 - [x] Open Graph description
 - [x] canonical — tüm route family'lerde self-canonical aktif
 - [x] robots kuralı — /teklif/\* noindex, diğerleri index
-- [ ] alternates yapısı
+- [x] alternates yapısı (`buildSeoMetadata` canonical ile birlikte `tr-TR` ve `x-default` alternates üretiyor; organic winner route family'leri helper'a hizalandı)
 
 ## P4.2 Title Şablonları
 
@@ -489,7 +490,7 @@ Her sayfa için:
 
 ## P8.2 Lead Kalite Koruması
 
-- [ ] duplicate lead kontrolünü merkezi hale getir (kısmen tamamlandı: local duplicate key artık phone + service_type + page_path + message fingerprint ile merkezileşti; Google Sheets duplicate check çağrısı da aynı sinyalleri taşımaya başladı. Ancak Apps Script tarafında bu fingerprint ile kalıcı suppress/lookup henüz garanti değil)
+- [~] duplicate lead kontrolünü merkezi hale getir (kısmen tamamlandı: uygulama tarafında local duplicate key `phone + service_type + page_path + message fingerprint` ile çalışıyor. Harici Google Sheets Apps Script duplicate kontrolü ise canlı sözleşmede `phone` bazlı çalışıyor; sistem stabil. Ancak tek merkezli, fingerprint-aware kalıcı suppress/lookup henüz dış tarafta yok)
 - [x] telefon normalize et
 - [ ] sahte telefon tespit et
 - [ ] spam keyword blacklist oluştur
@@ -501,8 +502,8 @@ Her sayfa için:
 
 ## P8.3 CRM Operasyonu
 
-- [ ] Google Sheets kolon standardını sabitle
-- [ ] lead status pipeline kur
+- [x] Google Sheets kolon standardını sabitle (`lead_id, timestamp, form_source, page_url, service_type, city, district, name, phone, email, location_type, camera_count, message, utm_source, utm_medium, utm_campaign, utm_term, gclid, call_status, lead_status, assigned_to, notes` sırası canlı Sheet/App Script sözleşmesiyle doğrulandı; `src/lib/lead-schema.ts` ve `docs/SHEET_SCHEMA.md` buna hizalı)
+- [~] lead status pipeline kur (`/api/lead/ops` ile `lead_id` bazlı ops update sözleşmesi eklendi; Apps Script tarafında `action=update_lead` writeback handler bağlanınca canlı pipeline tamamlanacak)
 - [ ] ilk arama zamanı alanı ekle
 - [ ] lead owner alanı ekle
 - [ ] teklif verildi alanı ekle
@@ -750,7 +751,7 @@ Her sayfa için:
 - [x] form_submit
 - [x] whatsapp_click
 - [x] phone_click
-- [ ] quote_request
+- [x] quote_request
 - [ ] scroll_depth
 - [ ] city_page_view
 - [ ] district_page_view
@@ -830,7 +831,7 @@ Her yeni sayfada:
 - [ ] 20 ana servis veri modelini tamamla
 - [ ] 81 şehir veri modelini tamamla
 - [ ] district engine temelini kur
-- [ ] metadata generator’ı merkezi hale getir
+- [x] metadata generator’ı merkezi hale getir (`buildSeoMetadata` helper'ı static service/support, city, district/service, blog, problem ve service hub route family'lerinde aktif; page-local metadata objeleri route katmanında temizlendi)
 - [ ] schema generator’ı merkezi hale getir
 
 ## Sprint 2 — Para Sayfaları

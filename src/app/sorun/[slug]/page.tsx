@@ -7,6 +7,7 @@ import {
 } from "@/data/seo/problem-pages";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import { siteConfig } from "@/data/site-config";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,19 +27,17 @@ export async function generateMetadata({
 
   const canonicalUrl = getCanonicalUrlForKnownPath(`/sorun/${slug}`);
 
-  return {
+  return buildSeoMetadata({
     title: page.title,
     description: page.metaDescription,
-    alternates: { canonical: canonicalUrl },
+    canonical: canonicalUrl,
+    type: "article",
     openGraph: {
       title: page.primaryIssue,
       description: page.metaDescription,
-      url: canonicalUrl,
       siteName: siteConfig.name,
-      locale: "tr_TR",
-      type: "article",
     },
-  };
+  });
 }
 
 export default async function ProblemPage({ params }: PageProps) {

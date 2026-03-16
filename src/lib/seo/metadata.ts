@@ -8,6 +8,7 @@ export interface SeoMetadataInput {
   robots?: Metadata["robots"];
   keywords?: Metadata["keywords"];
   type?: "website" | "article";
+  openGraph?: Metadata["openGraph"];
 }
 
 export function buildSeoMetadata({
@@ -17,6 +18,7 @@ export function buildSeoMetadata({
   robots,
   keywords,
   type = "website",
+  openGraph,
 }: SeoMetadataInput): Metadata {
   return {
     title,
@@ -25,6 +27,10 @@ export function buildSeoMetadata({
     alternates: canonical
       ? {
           canonical,
+          languages: {
+            "tr-TR": canonical,
+            "x-default": canonical,
+          },
         }
       : undefined,
     robots,
@@ -35,6 +41,7 @@ export function buildSeoMetadata({
       siteName: siteConfig.name,
       locale: "tr_TR",
       type,
+      ...(openGraph || {}),
     },
   };
 }

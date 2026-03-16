@@ -16,15 +16,16 @@ import {
   generateLocalBusinessSchema,
   generateBreadcrumbSchema,
 } from "@/lib/schema";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/iletisim");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "İletişim | Güvenlik Servisi",
   description:
     "Ücretsiz keşif ve hızlı teklif için Güvenlik Servisi ile iletişime geçin. Telefon, WhatsApp, e-posta ve adres bilgilerimiz burada.",
-  alternates: { canonical: canonicalUrl },
-};
+  canonical: canonicalUrl,
+});
 
 export default function IletisimSayfasi() {
   const lbSchema = generateLocalBusinessSchema();

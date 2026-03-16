@@ -104,6 +104,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       const result = (await res.json().catch(() => null)) as {
         success?: boolean;
         message?: string;
+        lead_id?: string;
       } | null;
 
       if (!res.ok || !result?.success) {
@@ -116,6 +117,10 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         lead_channel: "form",
         service_type: "kamera",
         event_category: "lead",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
         value: 1,
       });
 
@@ -123,6 +128,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
         page_path: "/teklif/istanbul-ip-kamera-montaji",
         form_source: "istanbul_ip_kamera",
         service_type: "kamera",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
       });
 
       setFormSuccess(

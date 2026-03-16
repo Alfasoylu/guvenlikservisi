@@ -19,6 +19,7 @@ import {
 } from "@/data/blog-posts";
 import { getProgrammaticFaq } from "@/data/seo/programmatic-posts";
 import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -41,22 +42,19 @@ export async function generateMetadata({
 
   const canonicalUrl = getCanonicalBlogUrl(slug);
 
-  return {
+  return buildSeoMetadata({
     title: `${post.title} | Blog`,
     description: post.excerpt,
-    alternates: { canonical: canonicalUrl },
+    canonical: canonicalUrl,
+    type: "article",
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: canonicalUrl,
-      siteName: "Guvenlik Servisi",
-      locale: "tr_TR",
-      type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt || post.publishedAt,
       images: post.image ? [post.image] : [],
     },
-  };
+  });
 }
 
 const blogFaqMap: Record<string, { question: string; answer: string }[]> = {

@@ -5,14 +5,15 @@ import ServicePageTemplate, {
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
 import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/kamera-sistemi-kurulumu");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Kamera Sistemi Kurulumu | Keşif, Montaj ve Uzaktan İzleme",
   description:
     "İşyeri, apartman, depo ve fabrika için profesyonel IP kamera sistemi kurulumu. Ücretsiz keşif, kör nokta analizi, kayıt planlaması ve anahtar teslim montaj.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: "Kamera Sistemi Kurulumu | Keşif, Montaj ve Uzaktan İzleme",
     description:
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-};
+});
 
 const data: ServicePageData = {
   slug: "kamera-sistemi-kurulumu",
