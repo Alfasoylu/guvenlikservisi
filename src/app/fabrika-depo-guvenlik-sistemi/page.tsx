@@ -26,6 +26,12 @@ export const metadata: Metadata = buildSeoMetadata({
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/images/diagrams/fabrika-depo-guvenlik-kamera-sistemi-yerlesim-plani.webp",
+        alt: "Fabrika ve depo guvenlik kamera sistemi yerleşim planı",
+      },
+    ],
   },
 });
 
@@ -698,11 +704,11 @@ const data: ServicePageData = {
   },
   trustImages: {
     afterHero: {
-      src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+      src: "/images/diagrams/Fabrika-guvenlik-sistemi-yerlesimi-kamera-ve-alarm-sensor-diyagrami.webp",
       alt: "Fabrika güvenlik kamera sistemleri",
     },
     beforeFaq: {
-      src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-1374x1470px.jpg",
+      src: "/images/diagrams/ajax-alarm-sistemi-fabrika-kurulum-yerlesimi.webp",
       alt: "Fabrika güvenlik kamera sistemi kurulumu",
     },
     beforeCta: {

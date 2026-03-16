@@ -15,3 +15,4 @@ Uygulanan kurallar:
 - Her sayfa image klasöründeki mevcut görsellerle desteklendi.
 - Problem route metadata katmanına Open Graph ve Twitter image desteği eklendi.
 - İç link motorunda ilgili service cluster'larına yeni problem linkleri bağlandı.
+- Blog detay sayfalarına tag bazlı "İlgili Problem Sayfaları" bloğu eklenerek yeni `/sorun/*` URL'lerine ek organik giriş açıldı.

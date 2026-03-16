@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import ServicePageTemplate, {
   ServicePageData,
@@ -23,6 +23,12 @@ export const metadata: Metadata = buildSeoMetadata({
     siteName: "Güvenlik Servisi",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/images/diagrams/isyeri-kamera-sistemi-yerlesim-plani.webp",
+        alt: "İşyeri kamera sistemi yerleşim planı",
+      },
+    ],
   },
 });
 
@@ -239,7 +245,7 @@ const data: ServicePageData = {
       },
     ],
     image: {
-      src: "/images/services/bakim-servis/guvenlik-sistemi-teknik-servis-ekip-isyeri-kamera-montaji.jpg",
+      src: "/images/diagrams/isyeri-kamera-sistemi-yerlesim-plani.webp",
       alt: "İşyeri güvenlik kamera montajı",
     },
   },

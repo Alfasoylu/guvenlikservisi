@@ -321,6 +321,24 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
         description:
           "NVR veya HDD kaynaklı kayıt sorunlarını tespit edip çözmek için inceleyin.",
       },
+      {
+        href: "/sorun/kamera-bulanik-gosteriyor",
+        label: "Kamera Bulanık Gösteriyor",
+        description:
+          "Lens, fokus ve dış ortam kaynaklı görüntü kalitesi sorunlarını ilgili rehberden değerlendirin.",
+      },
+      {
+        href: "/sorun/kamera-gece-gorusu-calismiyor",
+        label: "Kamera Gece Görüşü Çalışmıyor",
+        description:
+          "IR LED, aydınlatma ve gece izleme sorunlarında hızlı teşhis için bu sayfaya geçin.",
+      },
+      {
+        href: "/sorun/kamera-hareket-kaydi-calismiyor",
+        label: "Kamera Hareket Kaydı Çalışmıyor",
+        description:
+          "Motion detection, olay kaydı ve bildirim akışı sorunlarını ayrıştırmak için rehberi inceleyin.",
+      },
     ];
   }
 
@@ -338,6 +356,12 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
         description:
           "Alarm sisteminizde sahada müdahale gerektiren sorunlar için teknik servis talebi oluşturun.",
       },
+      {
+        href: "/sorun/yangin-alarm-paneli-uyari-veriyor",
+        label: "Yangın Alarm Paneli Uyarı Veriyor",
+        description:
+          "Panel, dedektör ve hat arızası kaynaklı uyarılarda ilgili problem sayfasını inceleyin.",
+      },
     ];
   }
 
@@ -347,6 +371,12 @@ function getProblemLinks(serviceSlug: string): DistrictSupportLink[] {
       label: "Kartlı Geçiş Çalışmıyor",
       description:
         "Kapı açılmıyor, kart okumuyor veya turnike arızası mı var? Çözüm bilgilerini inceleyin.",
+    },
+    {
+      href: "/sorun/kart-okuyucu-kapi-acmiyor",
+      label: "Kart Okuyucu Kapıyı Açmıyor",
+      description:
+        "Kart tanımlı olsa bile kapı açılmıyorsa kilit, röle ve yetki zincirini bu rehberle ayırın.",
     },
     {
       href: "/istanbul/guvenlik-sistemi-teknik-servis",
