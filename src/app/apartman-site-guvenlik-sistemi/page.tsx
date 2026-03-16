@@ -5,17 +5,18 @@ import ServicePageTemplate, {
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
 import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/apartman-site-guvenlik-sistemi",
 );
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title:
     "Apartman ve Site Güvenlik Sistemi Kurulumu | Kamera, Geçiş Kontrol, Yangın Alarm – Tek Elden",
   description:
     "Site ve apartman yönetimleri için komple güvenlik çözümü: giriş kamera, otopark izleme, kartlı geçiş, interkom ve yangın alarm. Tek sözleşme, tek muhatap. Ücretsiz keşif için hemen arayın.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: "Apartman ve Site Güvenlik Sistemi | Komple Çözüm, Tek Muhatap",
     description:
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-};
+});
 
 const data: ServicePageData = {
   slug: "apartman-site-guvenlik-sistemi",

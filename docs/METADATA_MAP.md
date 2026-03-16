@@ -19,10 +19,12 @@ This file is a living source of truth, not a stale one-time audit snapshot.
 - Legacy `/istanbul-ip-kamera-montaji`, `/istanbul-kamera-bakim-servisi`, and `/istanbul-kamera-teknik-servis` URLs now redirect and canonicalize to the `/{city}/{service}` winner model.
 
 ### `kısmi`
-- Root layout still defines a global homepage canonical; this is safe for pages with explicit canonical but remains risky if a new page ships without route-level metadata.
-- Some static service/support pages still use page-local metadata instead of a fully centralized metadata factory.
+- Root layout still provides fallback title/description/Open Graph defaults; this is safe for pages with explicit route metadata but remains risky if a new page ships without route-level ownership.
 - Legacy static Istanbul pages still exist in repo as redirect losers and should eventually be retired or reduced.
 - The remaining legacy Istanbul loser pages now use redirect-only implementations instead of serving duplicate content.
+
+### `tamamlandı`
+- `buildSeoMetadata` now centralizes canonical, Open Graph, and `alternates.languages` (`tr-TR`, `x-default`) across static service/support, city, district/service, blog, problem, and service-hub route families.
 
 ### open issues
 - legacy redirect families still exist in repo and should continue shrinking as one-off exceptions are retired.
@@ -66,6 +68,7 @@ Governance note:
 - self-canonical homepage winner
 - indexable
 - organic root authority page
+- generated via centralized metadata helper
 
 ### National service hubs
 Examples:
@@ -78,12 +81,26 @@ Rules:
 - self-canonical
 - indexable
 - own national service intent
+- generated via centralized metadata helper
+
+### Service hubs
+Examples:
+- `/kamera-ariza-servisi`
+- `/kamera-sistemi-bakim-sozlesmesi`
+- `/kartli-gecis-sistemi-kurulumu`
+- `/uzaktan-kamera-izleme`
+
+Rules:
+- self-canonical
+- indexable
+- route-family metadata now generated via centralized metadata helper
 
 ### City hub pages `/{city}`
 Rules:
 - self-canonical
 - indexable
 - own city-level discovery / hub intent
+- generated via centralized metadata helper
 
 ### City + service pages `/{city}/{service}`
 Rules:
@@ -91,22 +108,26 @@ Rules:
 - indexable
 - own local commercial service intent
 - Istanbul city/service pages are canonical winners for Istanbul local commercial queries
+- generated via centralized metadata helper
 
 ### District + service pages `/{city}/{district}/{service}`
 Rules:
 - self-canonical only if approved/indexable
 - must not inherit city-page canonical
 - must stay aligned with district readiness gates
+- generated via centralized metadata helper
 
 ### Problem pages `/sorun/{problem}`
 Rules:
 - self-canonical
 - indexable when unique and commercially bridgeable
+- generated via centralized metadata helper
 
 ### Blog `/blog/*`
 Rules:
 - `/blog` self-canonical hub
 - `/blog/{slug}` self-canonical article
+- generated via centralized metadata helper
 
 ### Paid landings `/teklif/*`
 Rules:
@@ -148,9 +169,23 @@ must all align with this same host strategy.
 
 ---
 
-## 6. NEXT PRIORITY
+## 6. ALTERNATES GOVERNANCE
+
+Current centralized helper behavior:
+- when a canonical exists, metadata emits:
+  - `canonical`
+  - `languages.tr-TR`
+  - `languages.x-default`
+
+Governance note:
+- this is active where `buildSeoMetadata` is used
+- route-family migration is complete; new organic pages should use the same helper to avoid drift
+
+---
+
+## 7. NEXT PRIORITY
 
 The next metadata-governance cleanup should focus on:
 - removing remaining slug ownership splits
-- reducing reliance on root fallback canonical behavior
-- continuing to move static/legacy exceptions toward centralized route-family rules
+- reducing reliance on root fallback metadata behavior
+- keeping new routes on the centralized metadata helper instead of reintroducing page-local exceptions

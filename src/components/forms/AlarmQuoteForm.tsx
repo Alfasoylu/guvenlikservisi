@@ -109,10 +109,14 @@ export default function AlarmQuoteForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+        lead_id?: string;
+      } | null;
 
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Form gönderilemedi");
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || "Form gönderilemedi");
       }
 
       pushAnalyticsEvent("submit_lead_form", {
@@ -121,6 +125,23 @@ export default function AlarmQuoteForm() {
         lead_channel: "form",
         service_type: "alarm",
         event_category: "lead",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
+        value: 1,
+      });
+
+      pushAnalyticsEvent("quote_request", {
+        page_path: "/teklif/alarm",
+        page_type: attribution.page_type || "landing_page",
+        form_source: "alarm_landing_page",
+        lead_channel: "form",
+        service_type: "alarm",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
+        landing_page_path: attribution.landing_page_path,
+        landing_page_type: attribution.landing_page_type,
         value: 1,
       });
 
@@ -128,10 +149,12 @@ export default function AlarmQuoteForm() {
         page_path: "/teklif/alarm",
         form_source: "alarm_landing_page",
         service_type: "alarm",
+        lead_id: result?.lead_id,
+        session_id: attribution.session_id,
       });
 
       setSuccessMessage(
-        result.message ||
+        result?.message ||
           "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
       );
       setForm(initialState);

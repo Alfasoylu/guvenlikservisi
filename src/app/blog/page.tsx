@@ -5,15 +5,16 @@ import { Clock3, ArrowRight, CalendarDays, BookOpen } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { getAllBlogPosts, getFeaturedBlogPosts } from "@/data/blog-posts";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/blog");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Blog | Güvenlik Sistemi Rehberleri",
   description:
     "Güvenlik kamerası, alarm sistemi, yangın alarmı, fiyatlar ve kurulum süreçleri hakkında uzman rehberleri ve pratik bilgiler.",
-  alternates: { canonical: canonicalUrl },
-};
+  canonical: canonicalUrl,
+});
 
 export default function BlogListeSayfasi() {
   const breadcrumb = generateBreadcrumbSchema([

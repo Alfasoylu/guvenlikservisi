@@ -19,7 +19,7 @@ import {
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
-  "https://script.google.com/macros/s/AKfycbwj7IR_6byOdSuRKc-lZsErBpmbcRvKe23Fhxthk8aiKav1uV_PHSXH65f2H05-SXuOWQ/exec";
+  "https://script.google.com/macros/s/AKfycbyOr9uQgbiVImn0QXrfnSP1VIw7fsGxieaGAn3RpO1xXjsRa7FF8sbMFSMLG8_xb0kNhg/exec";
 
 const NOTIFICATION_EMAIL =
   process.env.LEAD_NOTIFICATION_EMAIL || "info@guvenlikservisi.com";
@@ -90,6 +90,14 @@ function buildEmailHtml(lead: LeadRecord): string {
 <tr><td><b>Mesaj</b></td><td>${valueOrDash(lead.message)}</td></tr>
 <tr><td><b>Sayfa</b></td><td>${valueOrDash(lead.page_url)}</td></tr>
 <tr><td><b>Form Kaynağı</b></td><td>${valueOrDash(lead.form_source)}</td></tr>
+<tr><td><b>UTM Source</b></td><td>${valueOrDash(lead.utm_source)}</td></tr>
+<tr><td><b>UTM Medium</b></td><td>${valueOrDash(lead.utm_medium)}</td></tr>
+<tr><td><b>UTM Campaign</b></td><td>${valueOrDash(lead.utm_campaign)}</td></tr>
+<tr><td><b>UTM Term</b></td><td>${valueOrDash(lead.utm_term)}</td></tr>
+<tr><td><b>GCLID</b></td><td>${valueOrDash(lead.gclid)}</td></tr>
+<tr><td><b>Call Status</b></td><td>${valueOrDash(lead.call_status)}</td></tr>
+<tr><td><b>Lead Status</b></td><td>${valueOrDash(lead.lead_status)}</td></tr>
+<tr><td><b>Assigned To</b></td><td>${valueOrDash(lead.assigned_to)}</td></tr>
 <tr><td><b>Notlar</b></td><td>${valueOrDash(lead.notes)}</td></tr>
 </table>
 </div>

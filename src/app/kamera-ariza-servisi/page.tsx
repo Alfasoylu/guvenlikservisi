@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceHubTemplate from "@/components/templates/ServiceHubTemplate";
 import { getServiceHubPageConfig } from "@/data/service-hub-pages";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const serviceSlug = "kamera-ariza-servisi";
 const pageConfig = getServiceHubPageConfig(serviceSlug);
@@ -12,19 +13,16 @@ if (!pageConfig) {
 
 const canonicalUrl = getCanonicalUrlForKnownPath(`/${serviceSlug}`);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: pageConfig.metadataTitle,
   description: pageConfig.metadataDescription,
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: pageConfig.openGraphTitle || pageConfig.metadataTitle,
-    description: pageConfig.openGraphDescription || pageConfig.metadataDescription,
-    url: canonicalUrl,
-    siteName: "Güvenlik Servisi",
-    locale: "tr_TR",
-    type: "website",
+    description:
+      pageConfig.openGraphDescription || pageConfig.metadataDescription,
   },
-};
+});
 
 export default function KameraArizaServisiPage() {
   return (

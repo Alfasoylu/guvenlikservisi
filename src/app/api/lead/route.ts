@@ -19,7 +19,7 @@ import {
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
-  "https://script.google.com/macros/s/AKfycbwj7IR_6byOdSuRKc-lZsErBpmbcRvKe23Fhxthk8aiKav1uV_PHSXH65f2H05-SXuOWQ/exec";
+  "https://script.google.com/macros/s/AKfycbyOr9uQgbiVImn0QXrfnSP1VIw7fsGxieaGAn3RpO1xXjsRa7FF8sbMFSMLG8_xb0kNhg/exec";
 
 const NOTIFICATION_EMAIL =
   process.env.LEAD_NOTIFICATION_EMAIL || "info@guvenlikservisi.com";

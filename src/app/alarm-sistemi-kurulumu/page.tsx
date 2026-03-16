@@ -5,14 +5,15 @@ import ServicePageTemplate, {
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
 import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/alarm-sistemi-kurulumu");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Alarm Sistemi Kurulumu | Hırsız Alarm ve İzleme Merkezi Bağlantısı",
   description:
     "Ev ve işyeri için hırsız alarm sistemi kurulumu. Kablosuz ve kablolu seçenekler, GSM+internet çift bağlantı, izleme merkezi entegrasyonu. Keşif ve montaj.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: "Alarm Sistemi Kurulumu | Hırsız Alarm ve İzleme Merkezi Bağlantısı",
     description:
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-};
+});
 
 const data: ServicePageData = {
   slug: "alarm-sistemi-kurulumu",

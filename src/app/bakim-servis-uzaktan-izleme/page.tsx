@@ -10,12 +10,13 @@ import TrustSignals from "@/components/sections/TrustSignals";
 import FinalCTA from "@/components/sections/FinalCTA";
 import FAQSection from "@/components/sections/FAQSection";
 import { BadgeCheck, Clock3, MapPin, ShieldCheck, Wrench } from "lucide-react";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/bakim-servis-uzaktan-izleme",
 );
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title:
     "Güvenlik Sistemi Bakım, Servis ve Uzaktan İzleme | Site ve Fabrika İçin Aylık Bakım Sözleşmesi",
   description:
@@ -37,9 +38,7 @@ export const metadata: Metadata = {
     "fabrika kamera bakım",
     "bakım servis uzaktan izleme",
   ],
-  alternates: {
-    canonical: canonicalUrl,
-  },
+  canonical: canonicalUrl,
   openGraph: {
     title:
       "Güvenlik Sistemi Bakım, Servis ve Uzaktan İzleme | Aylık Bakım Sözleşmesi",
@@ -68,7 +67,7 @@ export const metadata: Metadata = {
       `${siteConfig.url}/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg`,
     ],
   },
-};
+});
 
 const provinces = cities.map((city) => city.name);
 

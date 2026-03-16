@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
 import {
   Shield,
@@ -31,22 +32,18 @@ import {
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın ve Geçiş Sistemleri",
   description:
     "Profesyonel güvenlik kamera sistemi kurulumu, alarm sistemi kurulumu, yangın alarm ve kartlı geçiş çözümleri. Ücretsiz keşif, hızlı teklif ve anahtar teslim montaj.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title:
       "Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın ve Geçiş Sistemleri",
     description:
       "Kamera sistemi, alarm sistemi, yangın alarmı ve kartlı geçiş kurulumu için profesyonel keşif ve anahtar teslim montaj hizmeti.",
-    url: canonicalUrl,
-    siteName: "Güvenlik Servisi",
-    locale: "tr_TR",
-    type: "website",
   },
-};
+});
 
 const hizmetler = [
   {

@@ -5,16 +5,17 @@ import ServicePageTemplate, {
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
 import { topCityHubLinks } from "@/data/internal-links";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/yangin-alarm-sistemi-kurulumu",
 );
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title: "Yangın Alarm Sistemi Kurulumu | TS EN 54 Uyumlu Proje ve Montaj",
   description:
     "Yasal zorunluluğa uygun yangın alarm sistemi kurulumu. Duman dedektörü, ihbar butonu, siren, adreslenebilir panel. Resmi proje, test belgesi ve sertifika dahil.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: "Yangın Alarm Sistemi Kurulumu | TS EN 54 Uyumlu Proje ve Montaj",
     description:
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-};
+});
 
 const data: ServicePageData = {
   slug: "yangin-alarm-sistemi-kurulumu",

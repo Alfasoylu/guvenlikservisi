@@ -5,15 +5,16 @@ import ServicePageTemplate, {
 } from "@/components/templates/ServicePageTemplate";
 import { cities } from "@/data/cities";
 import { serviceProblemLinks, topCityHubLinks } from "@/data/internal-links";
+import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/isyeri-guvenlik-sistemi");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildSeoMetadata({
   title:
     "İşyeri Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın – Tek Elden Çözüm",
   description:
     "Mağaza, ofis, restoran ve otel için kamera, hırsız alarm ve yangın alarm sistemi tek elden. Mesai otomasyonu, mobil izleme, bakım sözleşmesi. Hemen arayın, aynı gün dönüş.",
-  alternates: { canonical: canonicalUrl },
+  canonical: canonicalUrl,
   openGraph: {
     title: "İşyeri Güvenlik Sistemi | Kamera, Alarm, Yangın – Tek Sözleşme",
     description:
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
-};
+});
 
 const data: ServicePageData = {
   slug: "isyeri-guvenlik-sistemi",
