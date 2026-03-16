@@ -196,6 +196,9 @@ Regular audit should verify:
 - no stale sitemap outputs
 - no district-page explosion without quality controls
 
+Status note:
+- `scripts/check-seo-governance.mjs` now enforces the build artifact checks for sitemap host normalization, `/teklif/*` exclusion, legacy Istanbul loser exclusion, and baseline `robots.txt` lines.
+
 ---
 
 ## 13. 24-MONTH PLAN ALIGNMENT

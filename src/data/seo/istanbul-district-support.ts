@@ -223,13 +223,13 @@ function getSupportLinks(serviceSlug: string): DistrictSupportLink[] {
           "İstanbul genelinde kamera sistemi kurulum hizmetlerimizin detaylarını inceleyin.",
       },
       {
-        href: "/istanbul-kamera-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "İstanbul Kamera Teknik Servis",
         description:
           "Mevcut kamera sisteminizde arıza veya performans sorunu varsa teknik destek alın.",
       },
       {
-        href: "/istanbul-kamera-bakim-servisi",
+        href: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
         label: "İstanbul Kamera Bakım Servisi",
         description:
           "Kamera sisteminizin kesintisiz çalışması için periyodik bakım hizmetimiz.",

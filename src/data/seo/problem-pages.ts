@@ -101,7 +101,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
-            { href: "/istanbul-kamera-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
             { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
             { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
         ],
@@ -189,7 +189,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
-            { href: "/istanbul-kamera-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
             { href: "/uzaktan-kamera-izleme", label: "Uzaktan Kamera İzleme" },
             { href: "/bakim-servis-uzaktan-izleme", label: "Bakım ve Uzaktan İzleme" },
         ],
@@ -277,7 +277,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
-            { href: "/istanbul-kamera-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
             { href: "/kamera-sistemi-bakim-sozlesmesi", label: "Kamera Bakım Sözleşmesi" },
         ],
         relatedProblemLinks: [
@@ -448,7 +448,7 @@ export const problemPages: ProblemPageData[] = [
         ],
         relatedServiceLinks: [
             { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
-            { href: "/istanbul-kamera-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
             { href: "/kamera-sistemi-bakim-sozlesmesi", label: "Kamera Bakım Sözleşmesi" },
         ],
         relatedProblemLinks: [

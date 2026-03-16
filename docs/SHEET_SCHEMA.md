@@ -151,6 +151,7 @@ Durum Notu:
 - API tarafı yeni kayıtları varsayılan olarak `call_status=aranmadi` ve `lead_status=yeni` ile açar.
 - Sheet operasyonu olgunlaştıkça bu alanlar satış sürecinin gerçek pipeline'ı için kullanılmalıdır.
 - Repo tarafında artık opsiyonel `/api/lead/ops` writeback sözleşmesi vardır. Bu sözleşme `lead_id` bazlı `call_status`, `lead_status`, `assigned_to` ve `notes_append` güncellemesi gönderebilir.
+- Mevcut tercih: `first_call_at` ve `last_action_at` için yeni kolon açılmayacak; operasyon geçmişi şimdilik `notes` içindeki tag'lerle tutulacak.
 - `first_call_at` ve `last_action_at` gibi ek operasyon zaman damgaları yeni kolona zorlanmaz; güvenli geri uyumluluk için `notes` alanına tag olarak (`first_call_at:*`, `last_action_at:*`) eklenebilir.
 
 ---
@@ -175,6 +176,12 @@ Durum Notu:
 - duplicate check sonuçları
 
 Bu nedenle Apps Script veya Sheet tarafında `notes` alanı kesilmemeli, truncate edilmemeli ve ayrı kolona parçalanacaksa stratejik notlar korunmalıdır.
+
+Önerilen operasyon tag formatı:
+- `first_call_at:2026-03-16T11:50:30+03:00`
+- `last_action_at:2026-03-16T11:52:00+03:00`
+- `test_type:ops_smoke_update`
+- `direct_script_check:ok`
 
 ---
 
