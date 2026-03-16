@@ -43,6 +43,24 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       description:
         "Mobil izleme çalışmıyorsa uygulama, modem ve uzaktan erişim tarafını buradan kontrol edin.",
     },
+    {
+      href: "/sorun/kamera-bulanik-gosteriyor",
+      label: "Kamera bulanık gösteriyor",
+      description:
+        "Lens kirlenmesi, netlik ayarı ve düşük ışık kaynaklı görüntü kalitesi sorunlarında bu rehberle başlayın.",
+    },
+    {
+      href: "/sorun/kamera-gece-gorusu-calismiyor",
+      label: "Kamera gece görüşü çalışmıyor",
+      description:
+        "IR LED, düşük ışık ve dış ortam kaynaklı gece izleme sorunlarını ilgili problem sayfasından değerlendirin.",
+    },
+    {
+      href: "/sorun/kamera-hareket-kaydi-calismiyor",
+      label: "Hareket kaydı çalışmıyor",
+      description:
+        "Motion detection, kayıt planı ve uyarı ayarları çalışmıyorsa ilk kontrol adımlarını burada bulun.",
+    },
   ],
   "alarm-sistemi-kurulumu": [
     {
@@ -50,6 +68,14 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       label: "Alarm sistemi arızaları",
       description:
         "Yanlış alarm, sensör hatası ve panel sorunlarında ilgili arıza rehberine geçin.",
+    },
+  ],
+  "yangin-alarm-sistemi-kurulumu": [
+    {
+      href: "/sorun/yangin-alarm-paneli-uyari-veriyor",
+      label: "Yangın alarm paneli uyarı veriyor",
+      description:
+        "Panel arızası, hat kopukluğu ve dedektör kaynaklı yangın alarm sorunlarını ilgili rehberden değerlendirin.",
     },
   ],
   "apartman-site-guvenlik-sistemi": [
@@ -143,6 +169,12 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       description:
         "Uzaktan izleme tarafındaki modem, uygulama ve P2P sorunlarını önce burada ayrıştırın.",
     },
+    {
+      href: "/sorun/kamera-hareket-kaydi-calismiyor",
+      label: "Hareket kaydı çalışmıyor",
+      description:
+        "Bakım ihtiyacının motion detection, olay kaydı veya alarm kuralı kaynaklı olup olmadığını bu sayfadan ayırın.",
+    },
   ],
   "kamera-ariza-servisi": [
     {
@@ -169,6 +201,18 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       description:
         "Disk uyarı, format ve kayıt cihazı hatalarında ilgili sorun sayfasına geçin.",
     },
+    {
+      href: "/sorun/kamera-bulanik-gosteriyor",
+      label: "Kamera bulanık gösteriyor",
+      description:
+        "Lens, fokus, cam koruma ve aydınlatma kaynaklı görüntü bozulmalarında ilgili arıza rehberini inceleyin.",
+    },
+    {
+      href: "/sorun/kamera-gece-gorusu-calismiyor",
+      label: "Kamera gece görüşü çalışmıyor",
+      description:
+        "IR aydınlatma ve düşük ışık sorunları sahada müdahale gerektiriyorsa bu sayfadan devam edin.",
+    },
   ],
   "kamera-sistemi-bakim-sozlesmesi": [
     {
@@ -188,6 +232,12 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       label: "Kamera offline sorunu",
       description:
         "Bakım planı ihtiyacının ağ ve ulaşım sorunlarıyla ilgili olup olmadığını buradan ayırın.",
+    },
+    {
+      href: "/sorun/kamera-bulanik-gosteriyor",
+      label: "Kamera bulanık gösteriyor",
+      description:
+        "Periyodik bakım gereksinimi en sık lens kirlenmesi, fokus kayması ve dış ortam etkilerinde görünür hale gelir.",
     },
   ],
   "uzaktan-kamera-izleme": [
@@ -210,6 +260,12 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
       label: "Kartlı geçiş sistemi çalışmıyor",
       description:
         "Okuyucu, kilit, kontrol ünitesi ve turnike arızalarında sorun sayfasından ilerleyin.",
+    },
+    {
+      href: "/sorun/kart-okuyucu-kapi-acmiyor",
+      label: "Kart okuyucu kapıyı açmıyor",
+      description:
+        "Okuyucu tepki veriyor ama kapı açılmıyorsa kilit, röle ve yetki kontrolünü bu sayfadan ayırın.",
     },
   ],
 };

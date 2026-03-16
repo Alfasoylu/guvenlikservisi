@@ -20,6 +20,11 @@ export interface ProblemPageData {
     whatsappMessage: string;
     heroCtaLabel: string;
     defaultService: string;
+    image?: {
+        src: string;
+        alt: string;
+        caption?: string;
+    };
 }
 
 export const problemPages: ProblemPageData[] = [
@@ -648,6 +653,464 @@ export const problemPages: ProblemPageData[] = [
             "Merhaba, alarm sistemimde arıza var. Teknik servis desteği almak istiyorum.",
         heroCtaLabel: "Alarm arıza desteği alın",
         defaultService: "alarm",
+    },
+    {
+        slug: "kamera-bulanik-gosteriyor",
+        title: "Güvenlik Kamerası Bulanık Gösteriyor | Netlik ve Lens Sorunları",
+        metaDescription:
+            "Güvenlik kamerası bulanık mı gösteriyor? Lens kirlenmesi, fokus kayması, ışık ve montaj kaynaklı nedenleri öğrenin, teknik servis desteği alın.",
+        primaryIssue: "Güvenlik Kamerası Bulanık Gösteriyor",
+        urgencyLevel: "orta",
+        affectedSystems: ["IP kamera", "analog kamera", "lens", "kamera housing", "NVR"],
+        symptoms: [
+            "Canlı görüntüde netlik kaybı ve puslu görünüm",
+            "Plaka veya yüz detayları seçilemiyor",
+            "Gece görüntüsü gündüze göre çok daha bulanık",
+            "Kameranın bir bölgesi net, diğer bölgesi flu görünüyor",
+            "Yağmur veya nem sonrası görüntü bozuluyor",
+            "Zoom yapıldığında görüntü daha da dağınık görünüyor",
+        ],
+        likelyCauses: [
+            "Lens yüzeyinde toz, kir, yağmur izi veya buharlaşma",
+            "Manuel fokus ayarının kayması veya lens mekanizması arızası",
+            "Kamera camı veya dome kapağında çizik ve matlaşma",
+            "Düşük çözünürlük veya yanlış stream ayarı",
+            "Yetersiz aydınlatma nedeniyle gece netlik kaybı",
+            "Titreşimli montaj yüzünden kameranın mikro hareket yapması",
+            "Yanlış kamera açısı veya fazla zoom kullanımı",
+        ],
+        quickChecks: [
+            "Lens ve koruyucu camı mikrofiber bez ile nazikçe temizleyin.",
+            "Kamera ayağında sallanma veya gevşeme olup olmadığını kontrol edin.",
+            "NVR veya uygulama üzerinden çözünürlük ve stream kalitesini gözden geçirin.",
+            "Gündüz ve gece görüntüsünü ayrı ayrı karşılaştırın; sorun sadece gecedeyse IR veya ışık problemi olabilir.",
+            "Dome kapaklı kamerada iç kısımda buğulanma olup olmadığını kontrol edin.",
+            "Varyfokal lens varsa fokus ve zoom ayarlarının değişip değişmediğini kontrol edin.",
+        ],
+        whenToCallService: [
+            "Temizlik sonrası görüntü hâlâ netleşmiyorsa",
+            "Lens veya dome kapakta fiziksel hasar varsa",
+            "Kamera montajı titreşimli zeminde ise ve yeniden sabitleme gerekiyorsa",
+            "Netlik kaybı tüm kayıt kalitesini etkiliyorsa",
+            "Gece ve gündüz farklı fokus problemi yaşanıyorsa",
+            "IR yansıması veya housing içi nem problemi varsa",
+        ],
+        whatHappensIfIgnored: [
+            "Yüz, araç ve olay detayları delil niteliğini kaybeder",
+            "Yanlış güvenlik hissi oluşur; kamera çalışıyor görünür ama işe yaramaz",
+            "Gece saatlerinde kritik alanlar izlenemez hale gelir",
+            "Lens veya housing içindeki nem uzun vadede donanım hasarına dönüşebilir",
+        ],
+        remoteVsOnsite: {
+            remoteHelp:
+                "Çözünürlük, stream ve bazı görüntü işleme ayarları uzaktan kontrol edilebilir. Sorun yazılım kaynaklıysa uzaktan iyileştirme yapılabilir.",
+            onsiteRequired:
+                "Lens temizliği, fokus ayarı, dome kapağı değişimi, kamera sabitleme ve fiziksel inceleme için sahada müdahale gerekir.",
+        },
+        faq: [
+            {
+                question: "Bulanık görüntü her zaman kamera arızası mı demektir?",
+                answer:
+                    "Hayır. Çoğu durumda lens kirlenmesi, fokus kayması veya yanlış aydınlatma nedeniyle oluşur. Donanım arızası daha sonra değerlendirilir.",
+            },
+            {
+                question: "Gece daha bulanık göstermesi normal mi?",
+                answer:
+                    "Kısmen olabilir ancak aşırı netlik kaybı normal değildir. IR aydınlatma, dome yansıması veya düşük ışık ayarları kontrol edilmelidir.",
+            },
+            {
+                question: "Temizlik yapınca garanti bozulur mu?",
+                answer:
+                    "Dış yüzeyin doğru şekilde temizlenmesi garanti dışı bırakmaz. Kamerayı sökme veya lensi açma işlemi uzman ekip tarafından yapılmalıdır.",
+            },
+        ],
+        relatedServiceLinks: [
+            { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/kamera-sistemi-bakim-sozlesmesi", label: "Kamera Bakım Sözleşmesi" },
+            { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+        ],
+        relatedProblemLinks: [
+            { href: "/sorun/kamera-goruntu-gelmiyor", label: "Kamera Görüntü Gelmiyor" },
+            { href: "/sorun/kamera-gece-gorusu-calismiyor", label: "Kamera Gece Görüşü Çalışmıyor" },
+            { href: "/sorun/kamera-offline", label: "Kamera Offline Sorunu" },
+        ],
+        whatsappMessage:
+            "Merhaba, güvenlik kameram bulanık gösteriyor. Teknik destek almak istiyorum.",
+        heroCtaLabel: "Netlik sorunu için destek alın",
+        defaultService: "kamera",
+        image: {
+            src: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+            alt: "Teknisyen güvenlik kamera görüntü kalitesini ve netlik ayarlarını kontrol ediyor",
+            caption:
+                "Bulanık görüntü şikayetlerinde lens, fokus, housing ve kayıt ayarları birlikte kontrol edilir.",
+        },
+    },
+    {
+        slug: "kamera-gece-gorusu-calismiyor",
+        title: "Kamera Gece Görüşü Çalışmıyor | IR ve Düşük Işık Sorunları",
+        metaDescription:
+            "Kamera gece görüşü çalışmıyor mu? IR LED, düşük ışık, yansıma ve montaj kaynaklı nedenleri inceleyin, hızlı teknik destek alın.",
+        primaryIssue: "Kamera Gece Görüşü Çalışmıyor",
+        urgencyLevel: "yüksek",
+        affectedSystems: ["IP kamera", "IR LED", "dış ortam kamera", "housing", "NVR"],
+        symptoms: [
+            "Gündüz görüntü var ama gece ekran çok karanlık",
+            "Kamera gece siyah ekran veya morumsu görüntü veriyor",
+            "IR ışık açılıyor gibi görünüyor ancak alan aydınlanmıyor",
+            "Yakın nesneler parlak, uzak alan tamamen karanlık görünüyor",
+            "Kamera önünde beyaz yansıma veya sis efekti oluşuyor",
+            "Sadece belirli saatlerde gece kalitesi ciddi düşüyor",
+        ],
+        likelyCauses: [
+            "IR LED arızası veya zayıflaması",
+            "Kamera önündeki koruyucu camda kir, buğu veya örümcek ağı olması",
+            "IR yansımasına neden olan yanlış montaj açısı",
+            "Harici aydınlatma eksikliği veya ters ışık problemi",
+            "Gece-gündüz filtresi (ICR) arızası",
+            "Dış ortam housing içinde nem oluşması",
+            "Yanlış pozlama veya düşük ışık ayarları",
+        ],
+        quickChecks: [
+            "Gece saatinde kamera önündeki cam veya dome yüzeyini kontrol edin.",
+            "IR LED'lerin aktif olup olmadığını telefondan veya yakından mor ışık yansımasıyla gözlemleyin.",
+            "Kamera önünde ağaç dalı, tabela veya duvar gibi IR yansıması yapan bir engel olup olmadığını kontrol edin.",
+            "Kayıt cihazı veya uygulama menüsünden day/night ve exposure ayarlarını gözden geçirin.",
+            "Kameranın yakınında sonradan eklenen bir projektör veya ters ışık kaynağı olup olmadığını kontrol edin.",
+            "Aynı bölgede başka bir kamera varsa gece görüntüsünü karşılaştırın.",
+        ],
+        whenToCallService: [
+            "IR LED çalışmıyor veya zayıf kalıyorsa",
+            "Kamera housing içinde nem ve buğu oluşmuşsa",
+            "ICR filtresi takılı kalmış veya mekanik ses çıkarıyorsa",
+            "Gece görüntüsü kritik giriş veya çevre hattını kullanılamaz hale getiriyorsa",
+            "Montaj açısı değiştirilmeden sorun çözülemiyorsa",
+            "Kamera modeli bulunduğu alan için yetersiz kalıyorsa",
+        ],
+        whatHappensIfIgnored: [
+            "Gece saatlerinde çevre güvenliği ciddi biçimde zayıflar",
+            "Plaka, yüz ve olay detayı alınamaz",
+            "Dış ortam tehditleri en riskli saatlerde görünmez hale gelir",
+            "Nem ve dış ortam etkileri kameranın daha büyük arızalara gitmesine yol açabilir",
+        ],
+        remoteVsOnsite: {
+            remoteHelp:
+                "Bazı gece modu, pozlama ve görüntü profili ayarları uzaktan optimize edilebilir. Ancak donanım arızası uzaktan çözülemez.",
+            onsiteRequired:
+                "IR LED kontrolü, kamera temizliği, montaj açısı düzeltmesi ve nem kaynaklı sorunların çözümü için sahada müdahale gerekir.",
+        },
+        faq: [
+            {
+                question: "Gece görüşü neden birden bozulur?",
+                answer:
+                    "En sık nedenler kirlenen dome kapak, bozulan IR LED, değişen ortam ışığı veya housing içine giren nemdir.",
+            },
+            {
+                question: "IR LED çalışıp yine de görüntü kötü olabilir mi?",
+                answer:
+                    "Evet. IR yansıması, yanlış açı ve kirli koruyucu cam nedeniyle LED aktif olsa bile görüntü kullanılamaz hale gelebilir.",
+            },
+            {
+                question: "Bu sorun bakım eksikliğinden kaynaklanabilir mi?",
+                answer:
+                    "Evet. Dış ortam kameralarında periyodik temizlik ve açı kontrolü yapılmazsa gece performansı hızlı düşer.",
+            },
+        ],
+        relatedServiceLinks: [
+            { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
+            { href: "/kamera-sistemi-bakim-sozlesmesi", label: "Kamera Bakım Sözleşmesi" },
+            { href: "/istanbul/guvenlik-sistemi-teknik-servis", label: "İstanbul Kamera Teknik Servis" },
+            { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+        ],
+        relatedProblemLinks: [
+            { href: "/sorun/kamera-bulanik-gosteriyor", label: "Kamera Bulanık Gösteriyor" },
+            { href: "/sorun/kamera-goruntu-gelmiyor", label: "Kamera Görüntü Gelmiyor" },
+            { href: "/sorun/kayit-yapilmiyor", label: "Kayıt Yapılmıyor Sorunu" },
+        ],
+        whatsappMessage:
+            "Merhaba, kameramın gece görüşü çalışmıyor. Teknik destek almak istiyorum.",
+        heroCtaLabel: "Gece görüşü desteği alın",
+        defaultService: "kamera",
+        image: {
+            src: "/images/landing/ip-kamera-gece-gorus.png",
+            alt: "Gece görüş modunda çalışan dış ortam IP güvenlik kamerası",
+            caption:
+                "Gece görüşü sorunlarında IR aydınlatma, kamera açısı ve dış ortam koşulları birlikte değerlendirilmelidir.",
+        },
+    },
+    {
+        slug: "kamera-hareket-kaydi-calismiyor",
+        title: "Kamera Hareket Kaydı Çalışmıyor | Motion Detection Sorunları",
+        metaDescription:
+            "Güvenlik kamerasında hareket kaydı çalışmıyor mu? Motion detection, kayıt planı ve alarm kuralları için çözüm adımlarını inceleyin.",
+        primaryIssue: "Kamera Hareket Kaydı Çalışmıyor",
+        urgencyLevel: "yüksek",
+        affectedSystems: ["NVR", "DVR", "IP kamera", "motion detection", "mobil bildirim"],
+        symptoms: [
+            "Kamera sürekli kayıt alıyor ama hareket kaydı oluşturmuyor",
+            "Hareket anında kayıt veya olay etiketi görünmüyor",
+            "Mobil uygulamaya hareket bildirimi gelmiyor",
+            "Bazı kameralarda motion çalışıyor, bazılarında çalışmıyor",
+            "Belirli saatlerde olay kaydı hiç oluşmuyor",
+            "NVR arayüzünde motion detection açık görünmesine rağmen kayıt tetiklenmiyor",
+        ],
+        likelyCauses: [
+            "Motion detection alanı yanlış çizilmiş veya pasif bırakılmış",
+            "Kayıt planında olay kaydı saatleri tanımlı değil",
+            "Kamera ve NVR arasında olay entegrasyonu eksik",
+            "Hareket hassasiyeti çok düşük ya da çok yüksek ayarlanmış",
+            "Firmware veya uygulama güncellemesi sonrası kural kaybı",
+            "Bildirim veya e-posta aksiyonu açık ama kayıt aksiyonu kapalı",
+            "HDD veya kayıt cihazı sorunu nedeniyle olay kaydı yazılamıyor",
+        ],
+        quickChecks: [
+            "NVR menüsünden motion detection bölgesinin doğru alanı kapsadığını kontrol edin.",
+            "Kayıt planında event veya motion kayıt saatlerinin aktif olup olmadığını kontrol edin.",
+            "Hareket hassasiyetini orta seviyeye çekip kısa test yapın.",
+            "Mobil bildirim açık olsa bile kayıt aksiyonunun ayrıca seçili olduğundan emin olun.",
+            "Kamera saat ve zaman dilimi ayarlarının doğru olduğunu kontrol edin.",
+            "Deneme amaçlı hareket oluşturup olay listesine düşüp düşmediğini test edin.",
+        ],
+        whenToCallService: [
+            "Tüm motion ayarları doğru görünmesine rağmen olay kaydı oluşmuyorsa",
+            "Bazı kamera modelleri NVR ile uyumsuz çalışıyorsa",
+            "Firmware güncellemesi sonrası motion kuralları bozulduysa",
+            "Bildirim ve olay kaydı birlikte yönetilemiyorsa",
+            "Sistem çok sık yanlış tetikleme yapıyor veya hiç tetiklemiyorsa",
+            "Olay kaydı operasyonel takip için kritikse",
+        ],
+        whatHappensIfIgnored: [
+            "Gerekli anları hızlı bulmak zorlaşır, olay inceleme süresi uzar",
+            "Depolama gereksiz sürekli kayıtla dolar",
+            "Bildirim akışı bozulduğu için anlık müdahale fırsatı kaçabilir",
+            "Personel, depo veya çevre güvenliği için kritik olaylar gözden kaçabilir",
+        ],
+        remoteVsOnsite: {
+            remoteHelp:
+                "Motion alanı, hassasiyet, olay kaydı planı ve bildirim aksiyonları çoğu zaman uzaktan düzenlenebilir.",
+            onsiteRequired:
+                "Yanlış kamera açısı, sahada yoğun ışık değişimi veya model uyumsuzluğu gibi durumlarda yerinde inceleme gerekir.",
+        },
+        faq: [
+            {
+                question: "Motion detection açık olduğu halde neden kayıt almıyor?",
+                answer:
+                    "Çünkü motion tespiti ile motion kaydı farklı ayarlardır. Olay tetiklense bile kayıt aksiyonu kapalı olabilir.",
+            },
+            {
+                question: "Bu sorun uzaktan çözülebilir mi?",
+                answer:
+                    "Çoğu durumda evet. NVR arayüzüne erişim varsa ayarlar ve kural zinciri uzaktan kontrol edilebilir.",
+            },
+            {
+                question: "Sürekli kayıt varken motion kaydı neden önemli?",
+                answer:
+                    "Olayları hızlı filtrelemek, bildirim üretmek ve gereksiz kayıt yükünü azaltmak için motion senaryoları kritiktir.",
+            },
+        ],
+        relatedServiceLinks: [
+            { href: "/uzaktan-kamera-izleme", label: "Uzaktan Kamera İzleme" },
+            { href: "/kamera-sistemi-bakim-sozlesmesi", label: "Kamera Bakım Sözleşmesi" },
+            { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+            { href: "/kamera-ariza-servisi", label: "Kamera Arıza Servisi" },
+        ],
+        relatedProblemLinks: [
+            { href: "/sorun/kayit-yapilmiyor", label: "Kayıt Yapılmıyor Sorunu" },
+            { href: "/sorun/telefondan-izleme-sorunu", label: "Telefondan İzleme Sorunu" },
+            { href: "/sorun/hdd-kayit-cihazi-sorunlari", label: "HDD / Kayıt Cihazı Sorunları" },
+        ],
+        whatsappMessage:
+            "Merhaba, güvenlik kameramda hareket kaydı çalışmıyor. Teknik destek almak istiyorum.",
+        heroCtaLabel: "Hareket kaydı desteği alın",
+        defaultService: "kamera",
+        image: {
+            src: "/images/services/bakim-servis/guvenlik-kamera-sistemi-izleme-merkezi.jpg",
+            alt: "Güvenlik kamera sistemi ekranlarında olay ve hareket kayıtları izleniyor",
+            caption:
+                "Hareket kaydı sorunlarında olay kuralları, bildirimler ve kayıt planı birlikte test edilir.",
+        },
+    },
+    {
+        slug: "kart-okuyucu-kapi-acmiyor",
+        title: "Kart Okuyucu Kapıyı Açmıyor | Geçiş Kontrol Arızası",
+        metaDescription:
+            "Kart okutuluyor ama kapı açılmıyor mu? Kart okuyucu, kilit, röle ve yetki problemleri için çözüm adımlarını inceleyin.",
+        primaryIssue: "Kart Okuyucu Kapıyı Açmıyor",
+        urgencyLevel: "yüksek",
+        affectedSystems: ["kart okuyucu", "elektrikli kilit", "manyetik kilit", "kontrol ünitesi", "kapı butonu"],
+        symptoms: [
+            "Kart okutulduğunda ses geliyor ama kapı açılmıyor",
+            "Okuyucu yeşil ışık veriyor ancak kilit serbest kalmıyor",
+            "Kapı bazen açılıyor, bazen açılmıyor",
+            "İçeriden çıkış butonu da düzensiz çalışıyor",
+            "Yazılımda yetki var görünüyor ama geçiş gerçekleşmiyor",
+            "Turnike veya kapı kilidi fiziksel olarak takılı kalıyor",
+        ],
+        likelyCauses: [
+            "Elektrikli veya manyetik kilit arızası",
+            "Kilit besleme voltajının yetersiz kalması",
+            "Kontrol ünitesi röle çıkışında sorun olması",
+            "Kart yetkisi tanımlı olsa da zaman planının engellemesi",
+            "Kapı dili, karşılık veya menteşe ayarında mekanik sıkışma",
+            "Okuyucu ile panel arasındaki kablolama sorunu",
+            "Yangın butonu veya exit butonu hattında kopukluk",
+        ],
+        quickChecks: [
+            "Aynı kartı farklı bir kapıda deneyin; sorun karta mı kapıya mı özel kontrol edin.",
+            "Kapıyı içeriden açan buton çalışıyor mu test edin.",
+            "Okuyucuda onay sesi ve ışığı olup olmadığını gözlemleyin.",
+            "Kapı kilidi üzerinde fiziksel sıkışma, yamulma veya karşılık kaçıklığı var mı kontrol edin.",
+            "Yazılım üzerinden kartın yetki saatlerini ve kapı ilişkisini kontrol edin.",
+            "Elektrik kesintisi veya zayıf adaptör şüphesi varsa besleme hattını kontrol edin.",
+        ],
+        whenToCallService: [
+            "Okuyucu tepki verdiği halde kapı hiç açılmıyorsa",
+            "Kilit mekanizması ses yapıyor ama bırakmıyorsa",
+            "Kapı mekanik olarak sürtüyor veya karşılık ayarı bozuksa",
+            "Röle, güç kaynağı veya panel arızası şüphesi varsa",
+            "Birden fazla geçiş noktasında aynı problem görülüyorsa",
+            "İşyeri veya site operasyonu bu arıza nedeniyle aksıyorsa",
+        ],
+        whatHappensIfIgnored: [
+            "Personel ve ziyaretçi geçişi aksar, operasyonel kayıp oluşur",
+            "Kapı zorlanırsa kilit ve menteşe hasarı büyüyebilir",
+            "Yetkisiz geçişleri yönetmek zorlaşır",
+            "Manuel çözüm kullanımı güvenlik disiplinini bozar",
+        ],
+        remoteVsOnsite: {
+            remoteHelp:
+                "Yetki, zaman planı ve bazı panel ayarları uzaktan kontrol edilebilir. Yazılımsal engeller uzaktan temizlenebilir.",
+            onsiteRequired:
+                "Kilit, röle, kapı ayarı, güç kaynağı ve kablo arızalarında sahada fiziksel müdahale gerekir.",
+        },
+        faq: [
+            {
+                question: "Kart okunup kapı açılmıyorsa sorun okuyucuda mıdır?",
+                answer:
+                    "Her zaman değil. Çoğu durumda sorun kilit, röle çıkışı, besleme hattı veya kapı mekanizmasında olur.",
+            },
+            {
+                question: "Kapı bazen açılıp bazen açılmıyorsa neyi gösterir?",
+                answer:
+                    "Bu durum genellikle zayıf besleme, mekanik sürtme veya gevşek bağlantı kaynaklı arızalara işaret eder.",
+            },
+            {
+                question: "Acil müdahale gerekir mi?",
+                answer:
+                    "Geçiş noktası yoğun kullanılıyorsa veya güvenlik kapısı açılmıyorsa evet, aynı gün müdahale önerilir.",
+            },
+        ],
+        relatedServiceLinks: [
+            { href: "/kartli-gecis-sistemi-kurulumu", label: "Kartlı Geçiş Sistemi Kurulumu" },
+            { href: "/istanbul/kartli-gecis-sistemi-kurulumu", label: "İstanbul Kartlı Geçiş Sistemi" },
+            { href: "/isyeri-guvenlik-sistemi", label: "İşyeri Güvenlik Sistemi" },
+            { href: "/apartman-site-guvenlik-sistemi", label: "Apartman ve Site Güvenlik Sistemi" },
+        ],
+        relatedProblemLinks: [
+            { href: "/sorun/kartli-gecis-calismiyor", label: "Kartlı Geçiş Sistemi Çalışmıyor" },
+            { href: "/sorun/alarm-arizalari", label: "Alarm Sistemi Arızaları" },
+        ],
+        whatsappMessage:
+            "Merhaba, kart okuyucu kapıyı açmıyor. Teknik servis desteği almak istiyorum.",
+        heroCtaLabel: "Kapı açılmama sorunu için destek alın",
+        defaultService: "kartli-gecis",
+        image: {
+            src: "/images/services/bakim-servis/kartli-gecis-sistemi-turnike-giris.jpg",
+            alt: "Kartlı geçiş sistemi giriş noktasında okuyucu ve kapı kilidi kullanımı",
+            caption:
+                "Kart okuyucu onay verse bile kapı açılmıyorsa kilit, röle ve yetki zinciri birlikte incelenmelidir.",
+        },
+    },
+    {
+        slug: "yangin-alarm-paneli-uyari-veriyor",
+        title: "Yangın Alarm Paneli Uyarı Veriyor | Dedektör ve Hat Arızaları",
+        metaDescription:
+            "Yangın alarm paneli sürekli uyarı mı veriyor? Dedektör, hat kopukluğu, batarya ve panel arızaları için çözüm adımlarını inceleyin.",
+        primaryIssue: "Yangın Alarm Paneli Uyarı Veriyor",
+        urgencyLevel: "yüksek",
+        affectedSystems: ["yangın alarm paneli", "duman dedektörü", "siren hattı", "yangın butonu", "akü"],
+        symptoms: [
+            "Panel sürekli arıza veya fault uyarısı veriyor",
+            "Dedektör bölgesi hata olarak görünüyor",
+            "Panel bip sesi kesilmiyor",
+            "Siren hattı veya loop hattı arızası uyarısı çıkıyor",
+            "Elektrik kesintisi sonrası batarya uyarısı geliyor",
+            "Sistem normal görünse de panel ekranında hata kodu kalıyor",
+        ],
+        likelyCauses: [
+            "Dedektör arızası veya kirlenmesi",
+            "Loop hattında kopukluk, kısa devre veya gevşek bağlantı",
+            "Panel aküsünün zayıflaması veya ömrünü tamamlaması",
+            "Siren hattı direnci veya sonlandırma problemi",
+            "Yangın butonunun kırılması veya tetikte kalması",
+            "Panel kartında iletişim veya besleme arızası",
+            "Periyodik bakım yapılmadığı için biriken toz ve çevresel etkiler",
+        ],
+        quickChecks: [
+            "Panel ekranındaki hata kodunu ve etkilenen bölgeyi not edin.",
+            "Uyarının elektrik kesintisi, tadilat veya temizlik sonrası başlayıp başlamadığını kontrol edin.",
+            "Dedektörlerin bulunduğu bölgede toz, boya veya fiziksel müdahale olup olmadığını inceleyin.",
+            "Panel akü uyarısı varsa elektrik kesintisi sonrası voltajın normale dönüp dönmediğini gözlemleyin.",
+            "Susturma yapıldıktan sonra uyarının ne kadar sürede tekrarlandığını not alın.",
+            "Yangın butonlarından birinin fiziksel olarak basılı kalmadığını kontrol edin.",
+        ],
+        whenToCallService: [
+            "Panel sürekli arıza veriyor ve kod anlamı net değilse",
+            "Loop veya siren hattı arızası görünüyorsa",
+            "Akü, dedektör veya panel kartı değişimi gerekiyorsa",
+            "Gerçek alarm ile arıza uyarısı birbirine karışıyorsa",
+            "Tesis güvenliği veya yasal uygunluk riske giriyorsa",
+            "Bakım kayıtları eksik ve sistem uzun süredir kontrol edilmediyse",
+        ],
+        whatHappensIfIgnored: [
+            "Gerçek yangın anında sistemin doğru tepki verme ihtimali düşer",
+            "Sahte arıza alışkanlığı oluşur, ekipler gerçek riski ciddiye almayabilir",
+            "Yasal denetimlerde uygunsuzluk ortaya çıkabilir",
+            "Panel akü ve hat arızaları büyüyerek daha maliyetli müdahalelere dönüşebilir",
+        ],
+        remoteVsOnsite: {
+            remoteHelp:
+                "Bazı panel logları ve hata yorumları uzaktan değerlendirilebilir. Ancak yangın alarm sistemlerinde uzaktan teşhis tek başına yeterli değildir.",
+            onsiteRequired:
+                "Dedektör, akü, hat ve panel kontrolleri için yerinde ölçüm ve test yapılmalıdır. Yangın sistemlerinde sahada doğrulama esastır.",
+        },
+        faq: [
+            {
+                question: "Yangın alarm paneli arıza veriyorsa sistem tamamen devre dışı mı kalır?",
+                answer:
+                    "Her zaman tamamen durmaz ancak koruma seviyesi düşer. Arıza türüne göre bazı dedektörler veya bildirim hatları çalışmayabilir.",
+            },
+            {
+                question: "Panel uyarısını susturmak sorunu çözer mi?",
+                answer:
+                    "Hayır. Susturma sadece sesi geçici olarak keser. Alttaki arıza sebebi çözülmedikçe panel yeniden uyarı verir.",
+            },
+            {
+                question: "Yangın alarm sisteminde bakım zorunlu mu?",
+                answer:
+                    "Evet. Periyodik bakım hem güvenlik hem de mevzuat açısından kritik önemdedir. Dedektör, akü ve hat testleri düzenli yapılmalıdır.",
+            },
+        ],
+        relatedServiceLinks: [
+            { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
+            { href: "/alarm-sistemi-kurulumu", label: "Alarm Sistemi Kurulumu" },
+            { href: "/fabrika-depo-guvenlik-sistemi", label: "Fabrika ve Depo Güvenlik Sistemi" },
+            { href: "/bakim-servis-uzaktan-izleme", label: "Bakım, Servis ve Uzaktan İzleme" },
+        ],
+        relatedProblemLinks: [
+            { href: "/sorun/alarm-arizalari", label: "Alarm Sistemi Arızaları" },
+            { href: "/sorun/kartli-gecis-calismiyor", label: "Kartlı Geçiş Çalışmıyor" },
+        ],
+        whatsappMessage:
+            "Merhaba, yangın alarm panelim sürekli uyarı veriyor. Teknik destek almak istiyorum.",
+        heroCtaLabel: "Yangın alarm desteği alın",
+        defaultService: "alarm",
+        image: {
+            src: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+            alt: "Teknisyen yangın alarm paneli üzerinde hata ve uyarı kontrolleri yapıyor",
+            caption:
+                "Yangın alarm paneli uyarılarında panel logu, dedektör hattı ve akü durumu birlikte kontrol edilmelidir.",
+        },
     },
 ];
 
