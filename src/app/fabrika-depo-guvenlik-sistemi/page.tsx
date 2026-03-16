@@ -256,8 +256,8 @@ const data: ServicePageData = {
       },
     ],
     image: {
-      src: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
-      alt: "Fabrika güvenlik kamera sistemi bakım servisi",
+      src: "/images/diagrams/Fabrika-guvenlik-sistemi-yerlesimi-kamera-ve-alarm-sensor-diyagrami",
+      alt: "Fabrika güvenlik sistemi yerleşimi – kamera ve alarm sensör diyagramı",
     },
   },
 

@@ -9,6 +9,7 @@ export interface SeoMetadataInput {
   keywords?: Metadata["keywords"];
   type?: "website" | "article";
   openGraph?: Metadata["openGraph"];
+  twitter?: Metadata["twitter"];
 }
 
 export function buildSeoMetadata({
@@ -19,6 +20,7 @@ export function buildSeoMetadata({
   keywords,
   type = "website",
   openGraph,
+  twitter,
 }: SeoMetadataInput): Metadata {
   return {
     title,
@@ -43,6 +45,7 @@ export function buildSeoMetadata({
       type,
       ...(openGraph || {}),
     },
+    twitter,
   };
 }
 
