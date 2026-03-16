@@ -176,6 +176,9 @@ Preferred source inputs:
 
 The engine must remain data-driven, not manually curated route by route.
 
+Status note:
+- Build-time governance is now backed by `scripts/check-seo-governance.mjs`, which fails if `/teklif/*`, duplicate Istanbul loser URLs, duplicate URLs, or mixed-host outputs leak into the generated sitemap artifact.
+
 ---
 
 ## 11. 24-MONTH PLAN ALIGNMENT

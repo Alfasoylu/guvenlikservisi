@@ -256,8 +256,8 @@ const data: ServicePageData = {
       },
     ],
     image: {
-      src: "/images/diagrams/Fabrika-guvenlik-sistemi-yerlesimi-kamera-ve-alarm-sensor-diyagrami",
-      alt: "Fabrika güvenlik sistemi yerleşimi – kamera ve alarm sensör diyagramı",
+      src: "/images/diagrams/fabrika-depo-guvenlik-kamera-sistemi-yerlesim-plani.webp",
+      alt: "Fabrika ve depo güvenlik sistemi kamera ve alarm yerleşim diyagramı",
     },
   },
 

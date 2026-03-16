@@ -55,7 +55,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
       "Kullanıcılar fiyat, teknik kapsam ve montaj farklarını anlamadan form bırakmıyor. Bu yüzden karar destek linkleri money page'in parçası olmalı.",
     decisionLinks: [
       {
-        href: "/istanbul-ip-kamera-montaji",
+        href: "/istanbul/kamera-sistemi-kurulumu",
         label: "Istanbul IP kamera montajı",
         description: "IP kamera odaklı montaj senaryolarını ve mobil izleme beklentisini derinleştirir.",
       },
@@ -65,12 +65,12 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Karar aşamasındaki kullanıcıya bütçe aralığı ve kapsam mantığını gösterir.",
       },
       {
-        href: "/istanbul-kamera-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Istanbul kamera teknik servis",
         description: "Yeni kurulum kadar satış sonrası müdahale kapasitesini de görünür hale getirir.",
       },
       {
-        href: "/istanbul-kamera-bakim-servisi",
+        href: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
         label: "Istanbul kamera bakım servisi",
         description: "Sistemin teslim sonrası sürdürülebilirliğini anlatır ve recurring gelir katmanını destekler.",
       },
@@ -287,7 +287,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Ağ ve cihaz erişim problemlerini servis ihtiyacına bağlar.",
       },
       {
-        href: "/istanbul-kamera-bakim-servisi",
+        href: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
         label: "Istanbul kamera bakım servisi",
         description: "Tekrarlayan arızaların bakım katmanına taşınmasını sağlar.",
       },
@@ -338,7 +338,7 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Recurring hizmet katmanını daha geniş iş modeliyle destekler.",
       },
       {
-        href: "/istanbul-kamera-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Istanbul kamera teknik servis",
         description: "Reaktif servis ile planlı bakım arasındaki farkı görünür kılar.",
       },
@@ -399,12 +399,12 @@ export const istanbulMoneySupportData: Record<string, IstanbulMoneySupportData> 
         description: "Teknik beklentiyi doğrudan fiyat kararına bağlar.",
       },
       {
-        href: "/istanbul-kamera-teknik-servis",
+        href: "/istanbul/guvenlik-sistemi-teknik-servis",
         label: "Istanbul kamera teknik servis",
         description: "Satış sonrası destek kapasitesini görünür kılar.",
       },
       {
-        href: "/istanbul-kamera-bakim-servisi",
+        href: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
         label: "Istanbul kamera bakım servisi",
         description: "IP tabanlı sistemlerin operasyonel sürekliliği için bakım katmanını öne çıkarır.",
       },

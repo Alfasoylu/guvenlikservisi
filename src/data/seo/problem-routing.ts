@@ -116,13 +116,13 @@ function getServiceLinks(data: ProblemPageData): RoutingLink[] {
 
   return [
     {
-      href: "/istanbul-kamera-teknik-servis",
+      href: "/istanbul/guvenlik-sistemi-teknik-servis",
       label: "İstanbul Kamera Teknik Servis",
       description:
         "Kamera, NVR, HDD ve bağlantı problemleri için en hızlı İstanbul servis yoludur.",
     },
     {
-      href: "/istanbul-kamera-bakim-servisi",
+      href: "/istanbul/kamera-sistemi-bakim-sozlesmesi",
       label: "İstanbul Kamera Bakım Servisi",
       description:
         "Tekrarlayan kamera sorunlarını periyodik kontrol ve bakım gelirine bağlar.",

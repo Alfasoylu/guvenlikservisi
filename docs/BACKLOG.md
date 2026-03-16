@@ -430,6 +430,7 @@ Her sayfa için:
 - [ ] noindex karar matrisi oluştur
 - [ ] parametreli URL üretimini engelle
 - [x] duplicate canonical hatalarını yakala
+- [x] sitemap / robots governance check script'i ekle (`scripts/check-seo-governance.mjs` build artifact üzerinden `/teklif/*`, legacy İstanbul loser URL'leri, mixed host ve temel robots satırlarını denetliyor)
 - [ ] yetim sayfaları tespit et
 - [ ] 404 ve soft 404 listesini izle
 
@@ -503,8 +504,8 @@ Her sayfa için:
 ## P8.3 CRM Operasyonu
 
 - [x] Google Sheets kolon standardını sabitle (`lead_id, timestamp, form_source, page_url, service_type, city, district, name, phone, email, location_type, camera_count, message, utm_source, utm_medium, utm_campaign, utm_term, gclid, call_status, lead_status, assigned_to, notes` sırası canlı Sheet/App Script sözleşmesiyle doğrulandı; `src/lib/lead-schema.ts` ve `docs/SHEET_SCHEMA.md` buna hizalı)
-- [~] lead status pipeline kur (`/api/lead/ops` ile `lead_id` bazlı ops update sözleşmesi eklendi; Apps Script tarafında `action=update_lead` writeback handler bağlanınca canlı pipeline tamamlanacak)
-- [ ] ilk arama zamanı alanı ekle
+- [~] lead status pipeline kur (`/api/lead/ops` ile `lead_id` bazlı ops update sözleşmesi eklendi; Apps Script tarafındaki `action=update_lead` handler bağlandı ve ilk smoke test başarıyla geçti. Ayrı kolonlu SLA raporlaması henüz yok; `first_call_at` / `last_action_at` şimdilik `notes` tag'leriyle taşınıyor)
+- [~] ilk arama zamanı alanı ekle (`first_call_at` şu an bilinçli olarak ayrı kolon yerine `notes` tag'i içinde taşınıyor; ayrı kolon ancak raporlama ihtiyacı netleşirse açılmalı)
 - [ ] lead owner alanı ekle
 - [ ] teklif verildi alanı ekle
 - [ ] keşif tarihi alanı ekle
@@ -849,6 +850,7 @@ Her yeni sayfada:
 - [ ] Ankara / İzmir tüm ilçeler
 - [ ] Bursa / Kocaeli / Antalya tüm ilçeler
 - [x] internal linking engine aktif et
+- [x] organic internal link katmanında legacy İstanbul loser URL’leri winner money page’lere hizala (`problem-pages`, `problem-routing`, `istanbul-trust-layer`, `istanbul-district-support`, `istanbul-money-pages` içindeki `/istanbul-kamera-teknik-servis`, `/istanbul-kamera-bakim-servisi`, `/istanbul-ip-kamera-montaji` linkleri doğrudan winner URL’lere çevrildi)
 - [ ] district sitemap oluştur
 
 ## Sprint 4 — Arıza ve Rehber Katmanı
@@ -919,3 +921,4 @@ Her yeni sayfada:
 - `tamamlandı`: `turnike` kelimesi slug değiştirilmeden kartlı geçiş cluster’ında daha görünür hale getirildi; service taxonomy, hub metadata ve city/service başlık sinyalleri yüksek bütçeli turnike intentini daha net taşıyor.
 - `tamamlandı`: Kartlı geçiş cluster’ında `turnike`, `PDKS`, plaza/ofis ve fabrika/depo alt-intentleri shared content, package ve CTA katmanında güçlendirildi; daha yüksek bütçeli kurumsal lead sinyali yalnız slug düzeyinde değil içerik düzeyinde de işlendi.
 - `kısmi`: Sitemap tarafında `/teklif/*` organik envanter dışında tutuluyor; sitemap index, parçalı sitemap ve düşük kaliteli route gate sistemi ise halen açık iş kalemi.
+- `tamamlandı`: `scripts/check-seo-governance.mjs` ile build sonrası sitemap/robots zincirinde `/teklif/*`, legacy İstanbul loser URL'leri ve mixed host kaçakları otomatik fail ediliyor.
