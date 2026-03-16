@@ -100,7 +100,7 @@ function getTrackingProps(
   serviceSlug: string,
   intentType: ServiceBusinessIntent,
   ctaSlot: string,
-  leadChannel: "phone" | "whatsapp"
+  leadChannel: "phone" | "whatsapp",
 ) {
   return {
     "data-page-path": pagePath,
@@ -140,7 +140,10 @@ export default function ServiceLeadFormSection({
             </p>
             <ul className="mt-5 space-y-3">
               {copy.bullets.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-700">
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm leading-7 text-slate-700"
+                >
                   <span className="mt-2 inline-block h-2 w-2 rounded-full bg-emerald-600" />
                   <span>{item}</span>
                 </li>
@@ -156,14 +159,14 @@ export default function ServiceLeadFormSection({
                   serviceSlug,
                   intentType,
                   "embedded-form-phone",
-                  "phone"
+                  "phone",
                 )}
               >
                 {siteConfig.phone}
               </a>
               <a
                 href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                  `${cityName} ${serviceName} için ${copy.whatsappText}`
+                  `${cityName} ${serviceName} için ${copy.whatsappText}`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -174,7 +177,7 @@ export default function ServiceLeadFormSection({
                   serviceSlug,
                   intentType,
                   "embedded-form-whatsapp",
-                  "whatsapp"
+                  "whatsapp",
                 )}
               >
                 WhatsApp ile yazın
@@ -197,7 +200,10 @@ export default function ServiceLeadFormSection({
               service: serviceSlug,
               page_template: "city_service",
             }}
-            extraNotes={[`city_name:${cityName}`, `service_name:${serviceName}`]}
+            extraNotes={[
+              `city_name:${cityName}`,
+              `service_name:${serviceName}`,
+            ]}
           />
         </div>
       </div>

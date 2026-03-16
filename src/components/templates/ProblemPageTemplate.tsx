@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -127,6 +128,30 @@ export default function ProblemPageTemplate({
           </div>
         </Container>
       </section>
+
+      {data.image && (
+        <section className="bg-white py-10">
+          <Container>
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-gray-200 bg-surface shadow-sm">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={data.image.src}
+                  alt={data.image.alt}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                />
+              </div>
+              {data.image.caption && (
+                <p className="px-6 py-4 text-sm leading-6 text-text-light">
+                  {data.image.caption}
+                </p>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Symptoms — "Neler yaşanıyor?" */}
       <section className="bg-white py-16">

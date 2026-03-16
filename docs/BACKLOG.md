@@ -419,6 +419,7 @@ Her sayfa için:
 - [x] service sitemap — staticPagePaths ile aktif
 - [x] city-service sitemap — getAllPrimaryCityServicePaths ile aktif
 - [x] district-service sitemap — getAllDistrictServicePaths ile aktif
+- [x] district/service sitemap emit'ini approved-only gate'e bağla (`getApprovedDistrictServiceParams()` ile yalnızca açıkça onaylanan İstanbul district × service kombinasyonları static params + sitemap katmanına giriyor)
 - [x] blog sitemap — getAllBlogPosts ile aktif
 - [x] troubleshooting sitemap — getAllProblemPaths ile aktif
 - [x] noindex sayfaları sitemap dışına al — /teklif/\* hariç
@@ -431,6 +432,7 @@ Her sayfa için:
 - [ ] parametreli URL üretimini engelle
 - [x] duplicate canonical hatalarını yakala
 - [x] sitemap / robots governance check script'i ekle (`scripts/check-seo-governance.mjs` build artifact üzerinden `/teklif/*`, legacy İstanbul loser URL'leri, mixed host ve temel robots satırlarını denetliyor)
+- [x] legacy loser URL sızıntısını organic source layer'da sıfırla (`scripts/check-seo-governance.mjs` artık `problem-pages`, `problem-routing`, `istanbul-trust-layer`, `istanbul-district-support`, `istanbul-money-pages` dosyalarında legacy İstanbul loser referanslarını fail ediyor; yalnızca `routes.ts` ve `canonical.ts` içinde izinli)
 - [ ] yetim sayfaları tespit et
 - [ ] 404 ve soft 404 listesini izle
 

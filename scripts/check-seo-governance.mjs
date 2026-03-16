@@ -12,6 +12,22 @@ const blockedSitemapFragments = [
   "/istanbul-kamera-bakim-servisi",
   "/istanbul-kamera-teknik-servis",
 ];
+const legacyLoserPaths = blockedSitemapFragments.filter((fragment) =>
+  fragment.startsWith("/istanbul-"),
+);
+const sourceFilesToAudit = [
+  path.join(workspaceRoot, "src", "data", "seo", "problem-pages.ts"),
+  path.join(workspaceRoot, "src", "data", "seo", "problem-routing.ts"),
+  path.join(workspaceRoot, "src", "data", "seo", "istanbul-trust-layer.ts"),
+  path.join(workspaceRoot, "src", "data", "seo", "istanbul-district-support.ts"),
+  path.join(workspaceRoot, "src", "data", "seo", "istanbul-money-pages.ts"),
+  path.join(workspaceRoot, "src", "lib", "routes.ts"),
+  path.join(workspaceRoot, "src", "lib", "canonical.ts"),
+];
+const allowedLegacyLoserFiles = new Set([
+  path.join(workspaceRoot, "src", "lib", "routes.ts"),
+  path.join(workspaceRoot, "src", "lib", "canonical.ts"),
+]);
 
 function fail(message) {
   console.error(`SEO governance check failed: ${message}`);
@@ -21,6 +37,14 @@ function fail(message) {
 function requireFile(filePath, label) {
   if (!fs.existsSync(filePath)) {
     fail(`${label} artifact not found at ${filePath}. Run \`npm run build\` first.`);
+  }
+
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function readTextFile(filePath) {
+  if (!fs.existsSync(filePath)) {
+    fail(`expected source file not found: ${filePath}`);
   }
 
   return fs.readFileSync(filePath, "utf8");
@@ -53,6 +77,22 @@ for (const fragment of blockedSitemapFragments) {
   const leakedUrl = sitemapUrls.find((url) => url.includes(fragment));
   if (leakedUrl) {
     fail(`blocked URL leaked into sitemap: ${leakedUrl}`);
+  }
+}
+
+for (const filePath of sourceFilesToAudit) {
+  const contents = readTextFile(filePath);
+
+  for (const legacyLoserPath of legacyLoserPaths) {
+    if (!contents.includes(legacyLoserPath)) {
+      continue;
+    }
+
+    if (allowedLegacyLoserFiles.has(filePath)) {
+      continue;
+    }
+
+    fail(`legacy Istanbul loser leaked into organic source layer: ${filePath}`);
   }
 }
 

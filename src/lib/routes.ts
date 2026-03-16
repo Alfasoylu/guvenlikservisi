@@ -1,7 +1,7 @@
 import { getAllBlogPosts } from "@/data/blog-posts";
 import { cities } from "@/data/cities";
 import { services } from "@/data/services";
-import { getAllDistrictServiceParams } from "@/data/seo/istanbul-district-content";
+import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { getAllProblemSlugs } from "@/data/seo/problem-pages";
 import { siteConfig } from "@/data/site-config";
 
@@ -46,7 +46,7 @@ const staticPathSet = new Set<string>([
 const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
 const sorunPathSet = new Set(getAllProblemSlugs().map((slug) => `/sorun/${slug}`));
 
-const districtServiceParams = getAllDistrictServiceParams();
+const districtServiceParams = getApprovedDistrictServiceParams();
 const districtServicePathSet = new Set(
   districtServiceParams.map((p) => `/${p.city}/${p.district}/${p.service}`),
 );

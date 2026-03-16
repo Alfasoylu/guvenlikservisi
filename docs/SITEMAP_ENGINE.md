@@ -178,6 +178,7 @@ The engine must remain data-driven, not manually curated route by route.
 
 Status note:
 - Build-time governance is now backed by `scripts/check-seo-governance.mjs`, which fails if `/teklif/*`, duplicate Istanbul loser URLs, duplicate URLs, or mixed-host outputs leak into the generated sitemap artifact.
+- District/service sitemap emission now uses an explicit approved-only gate (`getApprovedDistrictServiceParams`) rather than treating every content-ready combo as automatically indexable.
 
 ---
 

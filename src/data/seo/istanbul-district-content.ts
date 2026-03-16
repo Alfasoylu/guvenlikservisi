@@ -871,6 +871,22 @@ export const districtPilotServiceSlugs = [
 export type DistrictPilotServiceSlug =
   (typeof districtPilotServiceSlugs)[number];
 
+/**
+ * District/service combos explicitly approved for indexing and sitemap emission.
+ * Content readiness alone is not enough to become an organic winner.
+ */
+export const approvedDistrictServicePairs = Object.freeze(
+  Object.values(istanbulDistrictProfiles).flatMap((profile) =>
+    districtPilotServiceSlugs
+      .filter((serviceSlug) => Boolean(profile.services[serviceSlug]))
+      .map((serviceSlug) => ({
+        city: "istanbul" as const,
+        district: profile.slug,
+        service: serviceSlug,
+      })),
+  ),
+);
+
 export function getDistrictProfile(
   districtSlug: string,
 ): DistrictProfile | undefined {
@@ -1053,4 +1069,8 @@ export function getAllDistrictServiceParams() {
       service: serviceSlug,
     })),
   );
+}
+
+export function getApprovedDistrictServiceParams() {
+  return [...approvedDistrictServicePairs];
 }

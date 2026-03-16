@@ -36,7 +36,23 @@ export async function generateMetadata({
       title: page.primaryIssue,
       description: page.metaDescription,
       siteName: siteConfig.name,
+      images: page.image
+        ? [
+            {
+              url: `${siteConfig.url}${page.image.src}`,
+              alt: page.image.alt,
+            },
+          ]
+        : undefined,
     },
+    twitter: page.image
+      ? {
+          card: "summary_large_image",
+          title: page.title,
+          description: page.metaDescription,
+          images: [`${siteConfig.url}${page.image.src}`],
+        }
+      : undefined,
   });
 }
 

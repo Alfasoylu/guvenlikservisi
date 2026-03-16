@@ -225,6 +225,11 @@ interface RelatedService {
   label: string;
 }
 
+interface RelatedProblem {
+  href: string;
+  label: string;
+}
+
 const tagToServiceLinks: Record<string, RelatedService[]> = {
   kamera: [
     { href: "/kamera-sistemi-kurulumu", label: "Kamera Sistemi Kurulumu" },
@@ -302,6 +307,63 @@ const tagToServiceLinks: Record<string, RelatedService[]> = {
   ],
 };
 
+const tagToProblemLinks: Record<string, RelatedProblem[]> = {
+  kamera: [
+    { href: "/sorun/kamera-goruntu-gelmiyor", label: "Kamera Görüntü Gelmiyor" },
+    { href: "/sorun/kamera-offline", label: "Kamera Offline Sorunu" },
+    { href: "/sorun/kamera-bulanik-gosteriyor", label: "Kamera Bulanık Gösteriyor" },
+    {
+      href: "/sorun/kamera-gece-gorusu-calismiyor",
+      label: "Kamera Gece Görüşü Çalışmıyor",
+    },
+    {
+      href: "/sorun/kamera-hareket-kaydi-calismiyor",
+      label: "Kamera Hareket Kaydı Çalışmıyor",
+    },
+  ],
+  alarm: [
+    { href: "/sorun/alarm-arizalari", label: "Alarm Sistemi Arızaları" },
+  ],
+  yangın: [
+    {
+      href: "/sorun/yangin-alarm-paneli-uyari-veriyor",
+      label: "Yangın Alarm Paneli Uyarı Veriyor",
+    },
+  ],
+  bakım: [
+    { href: "/sorun/kayit-yapilmiyor", label: "Kayıt Yapılmıyor Sorunu" },
+    {
+      href: "/sorun/hdd-kayit-cihazi-sorunlari",
+      label: "HDD ve Kayıt Cihazı Sorunları",
+    },
+  ],
+  apartman: [
+    { href: "/sorun/kamera-bulanik-gosteriyor", label: "Kamera Bulanık Gösteriyor" },
+  ],
+  işyeri: [
+    {
+      href: "/sorun/kart-okuyucu-kapi-acmiyor",
+      label: "Kart Okuyucu Kapıyı Açmıyor",
+    },
+  ],
+  fabrika: [
+    {
+      href: "/sorun/yangin-alarm-paneli-uyari-veriyor",
+      label: "Yangın Alarm Paneli Uyarı Veriyor",
+    },
+  ],
+  "kartlı geçiş": [
+    {
+      href: "/sorun/kart-okuyucu-kapi-acmiyor",
+      label: "Kart Okuyucu Kapıyı Açmıyor",
+    },
+    {
+      href: "/sorun/kartli-gecis-calismiyor",
+      label: "Kartlı Geçiş Sistemi Çalışmıyor",
+    },
+  ],
+};
+
 function getRelatedServiceLinks(tags: string[]): RelatedService[] {
   const seen = new Set<string>();
   const result: RelatedService[] = [];
@@ -332,6 +394,27 @@ function getRelatedServiceLinks(tags: string[]): RelatedService[] {
   }
 
   return result.slice(0, 6);
+}
+
+function getRelatedProblemLinks(tags: string[]): RelatedProblem[] {
+  const seen = new Set<string>();
+  const result: RelatedProblem[] = [];
+
+  for (const tag of tags) {
+    const normalizedTag = tag.toLowerCase();
+    for (const [key, links] of Object.entries(tagToProblemLinks)) {
+      if (normalizedTag.includes(key) || key.includes(normalizedTag)) {
+        for (const link of links) {
+          if (!seen.has(link.href)) {
+            seen.add(link.href);
+            result.push(link);
+          }
+        }
+      }
+    }
+  }
+
+  return result.slice(0, 5);
 }
 
 function renderInlineFormatting(text: string) {
@@ -459,6 +542,7 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
   const faqItems = blogFaqMap[slug] || getProgrammaticFaq(slug);
   const relatedPosts = getRelatedBlogPosts(slug, 3);
   const serviceLinks = getRelatedServiceLinks(post.tags);
+  const problemLinks = getRelatedProblemLinks(post.tags);
 
   return (
     <>
@@ -576,6 +660,39 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
                   key={link.href}
                   href={link.href}
                   className="group flex items-center justify-between rounded-xl border border-gray-200 bg-surface px-5 py-4 text-sm font-medium text-primary transition hover:border-accent hover:bg-white hover:shadow-sm"
+                >
+                  {link.label}
+                  <ChevronRight
+                    size={16}
+                    className="shrink-0 text-text-light transition group-hover:text-accent"
+                  />
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {problemLinks.length > 0 && (
+        <section className="border-t border-gray-100 bg-surface py-16">
+          <Container>
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-accent">
+              <ShieldCheck size={14} />
+              Sorun rehberleri
+            </div>
+            <h2 className="mb-2 text-2xl font-bold text-primary">
+              İlgili Problem Sayfaları
+            </h2>
+            <p className="mb-8 text-sm text-text-light">
+              Bu konuyla bağlantılı arıza ve sorun rehberlerinden hızlı teşhis
+              adımlarına ulaşabilirsiniz:
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {problemLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm font-medium text-primary transition hover:border-accent hover:shadow-sm"
                 >
                   {link.label}
                   <ChevronRight

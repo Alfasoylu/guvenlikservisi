@@ -55,7 +55,8 @@ export default function ServiceSegmentFit({
             </p>
             {item.commonServices.length > 0 ? (
               <p className={`${bodyTextSmallClass} mt-2`}>
-                <strong>Yakın ihtiyaçlar:</strong> {item.commonServices.join(", ")}
+                <strong>Yakın ihtiyaçlar:</strong>{" "}
+                {item.commonServices.join(", ")}
               </p>
             ) : null}
           </article>
