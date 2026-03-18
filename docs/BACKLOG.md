@@ -414,7 +414,7 @@ Her sayfa için:
 - [ ] şehirler hub
 - [ ] ilçeler hub
 - [ ] sektör çözümleri hub
-- [ ] arıza rehberi hub
+- [x] arıza rehberi hub — /sorun/page.tsx aktif; 12 problem sayfası 4 kategoride gruplandı, sitemap'e eklendi, BreadcrumbList + FAQPage schema aktif
 
 ---
 

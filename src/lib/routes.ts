@@ -20,6 +20,7 @@ export const staticPagePaths = [
   "/kamera-sistemi-kurulumu",
   "/kartli-gecis-sistemi-kurulumu",
   "/paketler-ve-fiyatlandirma",
+  "/sorun",
   "/uzaktan-kamera-izleme",
   "/yangin-alarm-sistemi-kurulumu",
 ] as const;

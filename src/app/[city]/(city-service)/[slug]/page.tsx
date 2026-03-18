@@ -2458,7 +2458,7 @@ export default async function ServicePage({ params }: PageProps) {
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
             <a
-              href="#teklif-formu"
+              href={showEmbeddedLeadForm ? "#teklif-formu" : "#teklif"}
               className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-500"
             >
               Teklif Al

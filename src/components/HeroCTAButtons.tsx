@@ -10,6 +10,7 @@ interface HeroCTAButtonsProps {
   phoneDisplay: string;
   waHref: string;
   pagePath: string;
+  formHref?: string;
   formSource?: string;
   serviceType?: string;
   pageType?: string;
@@ -21,6 +22,7 @@ export default function HeroCTAButtons({
   phoneDisplay,
   waHref,
   pagePath,
+  formHref = "#teklif-formu",
   formSource = "",
   serviceType = "",
   pageType = "",
@@ -30,7 +32,7 @@ export default function HeroCTAButtons({
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <a
-        href="#teklif-formu"
+        href={formHref}
         onClick={() =>
           pushAnalyticsEvent("click_cta_primary", {
             page_path: pagePath,

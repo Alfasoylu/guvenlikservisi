@@ -124,6 +124,7 @@ export default function ProblemPageTemplate({
               phoneDisplay={siteConfig.phone}
               waHref={waHref}
               pagePath={pagePath}
+              formHref="#quote-form"
             />
           </div>
         </Container>
