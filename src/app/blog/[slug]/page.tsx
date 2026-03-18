@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Clock3,
@@ -487,6 +488,33 @@ function renderContent(content: string) {
     }
 
     flushList(String(i));
+
+    // Inline image: ![alt](src) or ![alt](src "Caption")
+    if (trimmed.startsWith("![")) {
+      const imgMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)"]+?)(?:\s+"([^"]+)")?\)$/);
+      if (imgMatch) {
+        const [, alt, src, caption] = imgMatch;
+        elements.push(
+          <figure key={i} className="my-8">
+            <div className="relative w-full overflow-hidden rounded-xl">
+              <Image
+                src={src}
+                alt={alt}
+                width={900}
+                height={506}
+                className="w-full h-auto rounded-xl object-cover"
+              />
+            </div>
+            {caption && (
+              <figcaption className="mt-2 text-center text-xs leading-5 text-text-light italic">
+                {caption}
+              </figcaption>
+            )}
+          </figure>,
+        );
+        return;
+      }
+    }
 
     if (trimmed.startsWith("## ")) {
       elements.push(
