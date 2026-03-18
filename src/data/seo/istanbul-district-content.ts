@@ -4,7 +4,15 @@
  *
  * This data ensures each district page has unique H1 angles, intro copy,
  * FAQ items, commercial profiles, and CTA wording — preventing thin content.
+ *
+ * Also serves as the unified district registry: Tekirdağ profiles are
+ * imported and merged here so that getDistrictProfile() and
+ * getApprovedDistrictServiceParams() cover all supported cities.
  */
+import {
+  tekirdagDistrictProfiles,
+  getApprovedTekirdagDistrictServiceParams,
+} from "./tekirdag-district-content";
 
 export interface DistrictServiceContent {
   /** Unique H1 title for this district × service combo */
@@ -887,17 +895,23 @@ export const approvedDistrictServicePairs = Object.freeze(
   ),
 );
 
+/** Unified profile lookup across all supported cities (Istanbul + Tekirdağ) */
+const allDistrictProfiles: Record<string, DistrictProfile> = {
+  ...istanbulDistrictProfiles,
+  ...tekirdagDistrictProfiles,
+};
+
 export function getDistrictProfile(
   districtSlug: string,
 ): DistrictProfile | undefined {
-  return istanbulDistrictProfiles[districtSlug];
+  return allDistrictProfiles[districtSlug];
 }
 
 export function getDistrictServiceContent(
   districtSlug: string,
   serviceSlug: string,
 ): DistrictServiceContent | undefined {
-  return istanbulDistrictProfiles[districtSlug]?.services[serviceSlug];
+  return allDistrictProfiles[districtSlug]?.services[serviceSlug];
 }
 
 // ---------------------------------------------------------------------------
@@ -1072,5 +1086,8 @@ export function getAllDistrictServiceParams() {
 }
 
 export function getApprovedDistrictServiceParams() {
-  return [...approvedDistrictServicePairs];
+  return [
+    ...approvedDistrictServicePairs,
+    ...getApprovedTekirdagDistrictServiceParams(),
+  ];
 }

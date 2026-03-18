@@ -25,6 +25,7 @@ import {
 import { getIstanbulDistrictSupportContent } from "@/data/seo/istanbul-district-support";
 import { getSeoDistrictBySlug } from "@/data/seo/districts";
 import { getSeoServiceBySlug } from "@/data/seo/services";
+import { getSeoCityBySlug } from "@/data/seo/cities";
 import { siteConfig } from "@/data/site-config";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import { getDistrictServiceStaticParams } from "@/lib/routes";
@@ -80,14 +81,6 @@ export async function generateMetadata({
 
 // ---------------------------------------------------------------------------
 
-const trustItems: TrustItem[] = [
-  { icon: Clock3, label: "Aynı Gün Keşif" },
-  { icon: MapPin, label: "İstanbul Geneli Hizmet" },
-  { icon: ShieldCheck, label: "Garantili Kurulum" },
-  { icon: BadgeCheck, label: "Uzman Teknik Ekip" },
-  { icon: Wrench, label: "Ücretsiz Keşif" },
-];
-
 export default async function DistrictServicePage({ params }: PageProps) {
   const { city, slug: district, service } = await params;
 
@@ -95,31 +88,41 @@ export default async function DistrictServicePage({ params }: PageProps) {
   const content = getDistrictServiceContent(district, service);
   const seoService = getSeoServiceBySlug(service);
   const seoDistrict = getSeoDistrictBySlug(city, district);
+  const seoCity = getSeoCityBySlug(city);
   const serviceLvl = getServiceLevelContent(service);
 
-  if (!profile || !content || !seoService || !seoDistrict) {
+  if (!profile || !content || !seoService || !seoDistrict || !seoCity) {
     notFound();
   }
 
+  const cityName = seoCity.name;
+
+  const trustItems: TrustItem[] = [
+    { icon: Clock3, label: "Aynı Gün Keşif" },
+    { icon: MapPin, label: `${cityName} Geneli Hizmet` },
+    { icon: ShieldCheck, label: "Garantili Kurulum" },
+    { icon: BadgeCheck, label: "Uzman Teknik Ekip" },
+    { icon: Wrench, label: "Ücretsiz Keşif" },
+  ];
   const pagePath = `/${city}/${district}/${service}`;
   const canonicalUrl = getCanonicalUrlForKnownPath(pagePath);
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
   const waHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(content.whatsappMessage)}`;
 
-  // --- Parent Istanbul money page mapping ---
+  // --- Parent city money page mapping ---
   const istanbulMoneyPageMap: Record<string, { href: string; label: string }> =
     {
       "kamera-sistemi-kurulumu": {
-        href: "/istanbul/kamera-sistemi-kurulumu",
-        label: "İstanbul Kamera Sistemi Kurulumu",
+        href: `/${city}/kamera-sistemi-kurulumu`,
+        label: `${cityName} Kamera Sistemi Kurulumu`,
       },
       "alarm-sistemi-kurulumu": {
-        href: "/istanbul/alarm-sistemi-kurulumu",
-        label: "İstanbul Alarm Sistemi",
+        href: `/${city}/alarm-sistemi-kurulumu`,
+        label: `${cityName} Alarm Sistemi`,
       },
       "kartli-gecis-sistemi-kurulumu": {
-        href: "/istanbul/kartli-gecis-sistemi-kurulumu",
-        label: "İstanbul Kartlı Geçiş Sistemi",
+        href: `/${city}/kartli-gecis-sistemi-kurulumu`,
+        label: `${cityName} Kartlı Geçiş Sistemi`,
       },
     };
 
@@ -161,14 +164,14 @@ export default async function DistrictServicePage({ params }: PageProps) {
     areaServed: {
       "@type": "AdministrativeArea",
       name: profile.name,
-      containedInPlace: { "@type": "City", name: "İstanbul" },
+      containedInPlace: { "@type": "City", name: cityName },
     },
     provider: {
       "@type": "LocalBusiness",
       name: siteConfig.name,
       telephone: siteConfig.phone,
       url: canonicalUrl,
-      areaServed: `${profile.name}, İstanbul`,
+      areaServed: `${profile.name}, ${cityName}`,
     },
   };
 
@@ -182,7 +185,7 @@ export default async function DistrictServicePage({ params }: PageProps) {
     areaServed: {
       "@type": "AdministrativeArea",
       name: profile.name,
-      containedInPlace: { "@type": "City", name: "İstanbul" },
+      containedInPlace: { "@type": "City", name: cityName },
     },
     address: {
       "@type": "PostalAddress",
@@ -215,8 +218,8 @@ export default async function DistrictServicePage({ params }: PageProps) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "İstanbul",
-        item: `${siteConfig.url}/istanbul`,
+        name: cityName,
+        item: `${siteConfig.url}/${city}`,
       },
       ...(parentLink
         ? [
