@@ -7,6 +7,7 @@ import ServiceVisualSection from "@/components/ServiceVisualSection";
 import { buildCityFaqItems } from "@/data/seo/faq-bank";
 import { getSeoCityBySlug } from "@/data/seo/cities";
 import { getDistrictsByCitySlug } from "@/data/seo/districts";
+import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import {
@@ -79,11 +80,37 @@ export default async function CityPage({ params }: PageProps) {
 
   const faqItems = buildCityFaqItems(city.name);
   const cityVisuals = getCityPageVisuals(city.slug);
-  const cityDistricts = getDistrictsByCitySlug(city.slug).map((d) => ({
-    name: d.name,
-    slug: d.slug,
-    citySlug: d.citySlug,
-  }));
+  // Build a lookup: "citySlug:districtSlug" → first approved service slug
+  // Priority order: kamera → alarm → kartli-gecis (pilot service order)
+  const districtServicePriorityOrder = [
+    "kamera-sistemi-kurulumu",
+    "alarm-sistemi-kurulumu",
+    "kartli-gecis-sistemi-kurulumu",
+  ];
+  const approvedPairs = getApprovedDistrictServiceParams();
+  const districtPrimaryServiceMap = new Map<string, string>();
+  for (const slug of districtServicePriorityOrder) {
+    for (const pair of approvedPairs) {
+      const key = `${pair.city}:${pair.district}`;
+      if (pair.service === slug && !districtPrimaryServiceMap.has(key)) {
+        districtPrimaryServiceMap.set(key, pair.service);
+      }
+    }
+  }
+
+  const cityDistricts = getDistrictsByCitySlug(city.slug).map((d) => {
+    const primaryService = districtPrimaryServiceMap.get(
+      `${d.citySlug}:${d.slug}`,
+    );
+    return {
+      name: d.name,
+      slug: d.slug,
+      citySlug: d.citySlug,
+      href: primaryService
+        ? `/${d.citySlug}/${d.slug}/${primaryService}`
+        : undefined,
+    };
+  });
   const cityServiceLinks = sortServicesByBusinessPriority(services).flatMap(
     (service) => {
       const href = getPrimaryCityServicePath(city.slug, service.slug);
@@ -302,7 +329,11 @@ export default async function CityPage({ params }: PageProps) {
         </div>
       </section>
 
-      <CityDistrictGridSection cityName={city.name} districts={cityDistricts} />
+      <CityDistrictGridSection
+        cityName={city.name}
+        districts={cityDistricts}
+        enableLinks={cityDistricts.some((d) => !!d.href)}
+      />
 
       <section style={{ marginBottom: "50px" }}>
         <h2
