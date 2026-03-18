@@ -312,6 +312,206 @@ export const serviceContent: Record<string, SeoServiceContent> = {
     metadataIntent: "yangın alarm bakım sözleşmesi",
     metadataTargets: ["otel", "ofis", "depo"],
   },
+  "guvenlik-sistemi-bakim-sozlesmesi": {
+    heroIntro:
+      "Kamera, alarm ve geçiş kontrol altyapıları için güvenlik sistemi bakım sözleşmesi hizmeti sunuyoruz. Periyodik kontrol, kayıt sürekliliği ve cihaz sağlığı takibi ile plansız servis riskini azaltmayı hedefliyoruz.",
+    localContext:
+      "{city} içinde yoğun kullanılan tesislerde kayıt kaybı, panel hatası ve uzaktan erişim kopmalarını arıza büyümeden önce görünür hale getiren bir bakım disiplini kuruyoruz.",
+    benefits: [
+      "Kayıt sürekliliğini ve cihaz sağlığını düzenli kontrol eder.",
+      "Plansız arıza ve tekrar eden servis maliyetini azaltır.",
+      "Bakım planını raporlama disiplini ve servis önceliğiyle birlikte netleştirir.",
+    ],
+    process: [
+      "Mevcut sistem envanteri ve ilk saha kontrolü",
+      "Kayıt, panel, disk ve bağlantı testleri",
+      "Riskli başlıkların raporlanması ve düzeltme planı",
+      "Periyodik kontrol takviminin netleştirilmesi",
+    ],
+    statsTitle: "Güvenlik sistemi bakımında amaç sadece arıza geldikten sonra müdahale etmek değildir",
+    statsDescription:
+      "{city} içinde güvenlik sistemi bakım sözleşmelerinde odağımız, kayıt sürekliliğini ve cihaz sağlığını bozulmadan koruyan planlı servis disiplinidir.",
+    ctaTitle: "{city} için bakım planı ve saha keşfi talep edin",
+    ctaDescription:
+      "{city} içindeki mevcut güvenlik altyapınız için kontrol periyodunu, sözleşme kapsamını ve servis önceliğini birlikte netleştirelim.",
+    metadataIntent: "güvenlik sistemi bakım sözleşmesi",
+    metadataTargets: ["site", "fabrika", "depo"],
+  },
+  "site-kamera-sistemi-bakim": {
+    heroIntro:
+      "Site kamera sistemi bakım hizmeti ile ortak alan, otopark, giriş ve çevre hattındaki kamera altyapısını düzenli kontrol ediyoruz. Amaç, kayıt kaybını ve yönetim şikayetlerini arıza büyümeden önlemektir.",
+    localContext:
+      "{city} içinde yoğun bloklu site projelerinde uzaktan izleme erişimi, ortak alan görüntü kalitesi ve kayıt süresi yönetim kararında kritik rol oynar.",
+    benefits: [
+      "Ortak alan kameralarında görüntü ve kayıt sürekliliğini korur.",
+      "Site yönetimi için daha öngörülebilir bakım ve servis akışı kurar.",
+      "Disk, NVR ve kamera açılarındaki sorunları erken yakalar.",
+    ],
+    process: [
+      "Site kamera envanterinin çıkarılması",
+      "Ortak alan, otopark ve giriş kameralarının test edilmesi",
+      "Kayıt cihazı, disk ve uzaktan izleme kontrolleri",
+      "Yönetim odaklı periyodik bakım planının oluşturulması",
+    ],
+    statsTitle: "Site kamera bakımında süreklilik ve yönetim görünürlüğü birlikte ele alınmalıdır",
+    statsDescription:
+      "{city} içinde site kamera sistemi bakım taleplerinde odağımız, ortak alan güvenliğini koruyan planlı kontrol ve kayıt disiplini kurmaktır.",
+    ctaTitle: "{city} için siteye özel bakım planı talep edin",
+    ctaDescription:
+      "{city} içindeki siteniz için kontrol periyodunu, ortak alan kapsamını ve yönetim raporlama beklentisini birlikte netleştirelim.",
+    metadataIntent: "site kamera sistemi bakım hizmeti",
+    metadataTargets: ["site yönetimi", "otopark", "ortak alan"],
+  },
+  "fabrika-guvenlik-sistemi-bakim": {
+    heroIntro:
+      "Fabrika güvenlik sistemi bakım hizmeti ile üretim, sevkiyat ve çevre hattı altyapısını planlı şekilde kontrol ediyoruz. Hedefimiz, vardiyalı sahalarda kayıt kaybı ve plansız servis duruşunu azaltmaktır.",
+    localContext:
+      "{city} içinde sanayi ve üretim alanlarında çevre görünürlüğü, gece takibi ve kayıt cihazlarının stabil çalışması operasyon sürekliliği için kritik önemdedir.",
+    benefits: [
+      "Üretim sahasında kayıt ve görüntü sürekliliğini korur.",
+      "Disk, NVR ve saha ekipmanındaki zayıflıkları erken yakalar.",
+      "Vardiyalı çalışan tesislerde plansız servis duruşunu ve tekrar eden müdahaleleri azaltır.",
+    ],
+    process: [
+      "Saha envanteri ve kritik nokta analizi",
+      "Kayıt, çevre hattı ve gece görüşü testleri",
+      "Riskli cihazlar ve bağlantı noktalarının raporlanması",
+      "Periyodik fabrika bakım takviminin oluşturulması",
+    ],
+    statsTitle: "Fabrika bakımında esas konu sistemin çalışması değil, sürekli çalışmasıdır",
+    statsDescription:
+      "{city} içinde fabrika güvenlik sistemi bakım planlarında çevre hattı, sevkiyat alanları ve kayıt cihazları aynı operasyon zinciri içinde ele alınır.",
+    ctaTitle: "{city} için fabrika bakım planı ve keşif talep edin",
+    ctaDescription:
+      "{city} içindeki tesisiniz için kontrol sıklığını, servis kapsamını ve kayıt sürekliliği ihtiyacını birlikte planlayalım.",
+    metadataIntent: "fabrika güvenlik sistemi bakım hizmeti",
+    metadataTargets: ["fabrika", "üretim tesisi", "sevkiyat alanı"],
+  },
+  "nvr-bakim-servisi": {
+    heroIntro:
+      "NVR bakım servisi ile kayıt cihazı, HDD, kamera akışları ve uzaktan erişim altyapısını teknik olarak kontrol ediyoruz. Kayıt yok, cihaz kamerayı görmüyor veya uzaktan bağlantı kopuyor gibi sorunlarda hızlı teşhis odaklı ilerliyoruz.",
+    localContext:
+      "{city} içinde çok kameralı yapılarda NVR sağlığı bozulduğunda kayıt bütünüyle riske girdiği için cihaz, disk ve ağ tarafını birlikte ele almak gerekir.",
+    benefits: [
+      "NVR, HDD ve kayıt ayarlarındaki sorunları birbirinden ayırır.",
+      "Kayıt kaybı ve uzaktan erişim problemlerine hızlı teşhis sunar.",
+      "Bakım ile tekrar eden cihaz arızası riskini azaltır.",
+    ],
+    process: [
+      "NVR semptomlarının ön değerlendirmesi",
+      "Disk, kayıt ayarı ve kamera akışı testleri",
+      "Ağ, switch ve uzaktan erişim kontrolleri",
+      "Kalıcı düzeltme ve sonraki bakım adımlarının netleştirilmesi",
+    ],
+    statsTitle: "NVR bakımında doğru teşhis kayıt sürekliliği için kritik basamaktır",
+    statsDescription:
+      "{city} içinde NVR bakım servisi verirken disk, kayıt modu, kamera akışları ve uzaktan erişim tarafını tek tek test ederek kayıt güvenliğini geri kazandırıyoruz.",
+    ctaTitle: "{city} için arıza tespiti ve NVR servis talebi oluşturun",
+    ctaDescription:
+      "{city} içindeki kayıt cihazınızda yaşadığınız belirtileri paylaşın; arıza tespiti, saha müdahalesi ve gerekirse bakım planı adımlarını birlikte netleştirelim.",
+    metadataIntent: "NVR bakım ve teknik servis",
+    metadataTargets: ["NVR cihazı", "kayıt cihazı", "uzaktan erişim"],
+  },
+  "depo-guvenlik-sistemi-kurulumu": {
+    heroIntro:
+      "Depo güvenlik sistemi kurulumu ile yükleme alanları, raf koridorları, sevkiyat noktalarını ve çevre hattını birlikte planlıyoruz. Hedef, stok hareketini daha net izlemek ve gece saatlerinde kayıt sürekliliğini korumaktır.",
+    localContext:
+      "{city} içinde lojistik akışı olan depolarda kamera yerleştirimi sadece girişleri değil, yükleme boşaltma ve kritik stok alanlarını da kapsayacak şekilde tasarlanmalıdır.",
+    benefits: [
+      "Yükleme alanları ve raf koridorlarında görünürlüğü artırır.",
+      "Gece takibi ve uzun kayıt süresi ihtiyacına göre ölçeklenir.",
+      "Sevkiyat ve stok akışını destekleyen merkezi izleme ve kayıt kurgusu sunar.",
+    ],
+    process: [
+      "Depo saha keşfi ve kritik alan analizi",
+      "Kamera, NVR ve kayıt süresi planlaması",
+      "Montaj, ağ ve uzaktan izleme kurgusu",
+      "Test, teslim ve operasyon akışının doğrulanması",
+    ],
+    statsTitle: "Depo projelerinde doğru görüntü alanı kadar kayıt disiplini de önemlidir",
+    statsDescription:
+      "{city} içinde depo güvenlik sistemi kurulumunda yükleme noktalarını, koridorları ve gece takibini aynı proje akışı içinde planlıyoruz.",
+    ctaTitle: "{city} için deponuza uygun keşif ve teklif alın",
+    ctaDescription:
+      "{city} içindeki deponuz için kamera kapsamını, kayıt süresini ve uzaktan izleme ihtiyacını birlikte belirleyelim.",
+    metadataIntent: "depo güvenlik sistemi kurulumu",
+    metadataTargets: ["depo", "lojistik alan", "sevkiyat noktası"],
+  },
+  "plaza-guvenlik-sistemi-kurulumu": {
+    heroIntro:
+      "Plaza güvenlik sistemi kurulumu ile lobi, ofis katları, ziyaretçi akışı ve kontrollü geçiş noktalarını kurumsal düzende planlıyoruz. Kamera, alarm ve erişim başlıklarını tek proje disiplini içinde topluyoruz.",
+    localContext:
+      "{city} içinde çok kiracılı plaza yapılarında profesyonel giriş deneyimi, kesintisiz çalışma ve kurumsal raporlama beklentisi güvenlik mimarisini doğrudan etkiler.",
+    benefits: [
+      "Lobi, ofis ve kontrollü geçiş alanlarını birlikte planlar.",
+      "Kurumsal raporlama, ziyaretçi akışı ve servis sürekliliği beklentisine uyum sağlar.",
+      "Kamera, alarm ve geçiş kontrolünü tek proje akışına bağlar.",
+    ],
+    process: [
+      "Plaza kullanımı ve ziyaretçi akışı analizi",
+      "Lobi, kat ve kontrollü alan güvenlik planlaması",
+      "Montaj, entegrasyon ve saha testleri",
+      "Kullanım senaryoları ve servis planının teslimi",
+    ],
+    statsTitle: "Plaza projelerinde güvenlik kadar profesyonel operasyon akışı da belirleyicidir",
+    statsDescription:
+      "{city} içinde plaza güvenlik sistemi kurulumunda giriş düzeni, ofis katı geçişleri ve servis sürekliliğini birlikte ele alıyoruz.",
+    ctaTitle: "{city} için plaza projenize uygun keşif ve teklif alın",
+    ctaDescription:
+      "{city} içindeki plaza veya kurumsal ofis projeniz için giriş, izleme ve servis beklentisini birlikte planlayalım.",
+    metadataIntent: "plaza güvenlik sistemi kurulumu",
+    metadataTargets: ["plaza", "kurumsal ofis", "lobi"],
+  },
+  "avm-guvenlik-sistemi-cozumleri": {
+    heroIntro:
+      "AVM güvenlik sistemi çözümleri ile kamera, yangın alarm, erişim ve servis sürekliliğini aynı operasyon dilinde planlıyoruz. Yoğun insan trafiği olan yapılarda tek cihaz değil, sürekli çalışan ve raporlanabilir bir güvenlik yapısı kuruyoruz.",
+    localContext:
+      "{city} içinde yoğun ziyaretçi akışı olan AVM projelerinde servis kesintisi, yangın uyumu ve çok noktalı görüntüleme beklentisi birlikte ele alınmalıdır.",
+    benefits: [
+      "Çok girişli ve yoğun trafikli yapılarda merkezi görünürlük sağlar.",
+      "Kamera, yangın alarm ve erişim tarafını aynı operasyon kurgusuna bağlar.",
+      "Periyodik test ve servis sürekliliği için uygun zemin oluşturur.",
+    ],
+    process: [
+      "AVM operasyonu ve kritik alan analizi",
+      "Çok bileşenli güvenlik mimarisinin planlanması",
+      "Kurulum ve saha testlerinin etaplı yürütülmesi",
+      "Servis sürekliliği ve bakım beklentisinin netleştirilmesi",
+    ],
+    statsTitle: "AVM projelerinde güvenlik çözümleri kurulum kadar süreklilik ister",
+    statsDescription:
+      "{city} içinde AVM güvenlik sistemi çözümleri planlarken insan trafiği, teknik uyum ve çok bileşenli operasyon ihtiyacını birlikte değerlendiriyoruz.",
+    ctaTitle: "{city} için AVM projenize uygun keşif ve teklif alın",
+    ctaDescription:
+      "{city} içindeki AVM veya büyük ticari merkez projeniz için izleme, yangın ve servis sürekliliği ihtiyacını birlikte netleştirelim.",
+    metadataIntent: "AVM güvenlik sistemi çözümleri",
+    metadataTargets: ["AVM", "ticari merkez", "yoğun ziyaretçi alanı"],
+  },
+  "alarm-sistemi-bakim": {
+    heroIntro:
+      "Alarm sistemi bakım hizmeti ile panel, sensör, siren, haberleşme ve batarya tarafını düzenli kontrol ediyoruz. Hedef, alarm altyapısının sadece kurulu değil gerçekten çalışır durumda kalmasıdır.",
+    localContext:
+      "{city} içinde kapanış sonrası koruma beklentisi olan işletmelerde alarm bakımı; yanlış alarm, haberleşme hatası ve panel arızasını büyümeden önler.",
+    benefits: [
+      "Panel, sensör ve siren tarafındaki zayıflıkları erken yakalar.",
+      "Haberleşme ve batarya kaynaklı arıza riskini azaltır.",
+      "Düzensiz kontrol yüzünden oluşan servis tekrarlarını düşürür.",
+    ],
+    process: [
+      "Alarm altyapısının ilk saha kontrolü",
+      "Panel, sensör ve siren testlerinin yapılması",
+      "Haberleşme ve batarya sağlığının ölçülmesi",
+      "Periyodik alarm bakım planının netleştirilmesi",
+    ],
+    statsTitle: "Alarm bakımında asıl kritik konu acil durumda sistemin tepki verebilmesidir",
+    statsDescription:
+      "{city} içinde alarm sistemi bakımında panel, dedektör, siren ve haberleşme katmanlarını birlikte test ederek koruma sürekliliğini hedefliyoruz.",
+    ctaTitle: "{city} için alarm bakım planı ve keşif talep edin",
+    ctaDescription:
+      "{city} içindeki alarm altyapınız için kontrol periyodunu, test kapsamını ve servis beklentisini birlikte netleştirelim.",
+    metadataIntent: "alarm sistemi bakım hizmeti",
+    metadataTargets: ["alarm paneli", "işyeri", "mağaza"],
+  },
   "uzaktan-kamera-izleme": {
     heroIntro:
       "{city} içinde mevcut veya yeni kurulan kamera sistemleri için uzaktan izleme hizmeti sunuyoruz. Mobil erişim, merkezi izleme ekranları ve kayıt takibini operasyon ihtiyaçlarına göre planlıyoruz.",

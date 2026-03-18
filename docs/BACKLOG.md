@@ -924,3 +924,9 @@ Her yeni sayfada:
 - `tamamlandı`: Kartlı geçiş cluster’ında `turnike`, `PDKS`, plaza/ofis ve fabrika/depo alt-intentleri shared content, package ve CTA katmanında güçlendirildi; daha yüksek bütçeli kurumsal lead sinyali yalnız slug düzeyinde değil içerik düzeyinde de işlendi.
 - `kısmi`: Sitemap tarafında `/teklif/*` organik envanter dışında tutuluyor; sitemap index, parçalı sitemap ve düşük kaliteli route gate sistemi ise halen açık iş kalemi.
 - `tamamlandı`: `scripts/check-seo-governance.mjs` ile build sonrası sitemap/robots zincirinde `/teklif/*`, legacy İstanbul loser URL'leri ve mixed host kaçakları otomatik fail ediliyor.
+- `tamamlandı`: Ana sayfadaki uydurma `AggregateRating` schema kaldırıldı; schema katmanı "uydurma review / rating kullanma" kuralı ile yeniden hizalandı.
+
+## Durum Notu — 2026-03-18
+
+- `tamamlandı`: 20 hedef organik para sayfası mevcut `/{city}/{service}` winner modeli içinde açıldı; yeni route family açılmadı ve `/teklif/*` ownership katmanına dokunulmadı.
+- `tamamlandı`: Yeni bakım, teknik servis ve B2B kurulum intentleri service dictionary'e veri odaklı eklendi; city availability gate ile yalnızca hedef şehirlerde winner URL, static params ve sitemap girişi üretiliyor.

@@ -156,23 +156,6 @@ export function generateArticleSchema({
 }
 
 // ─── 6. AggregateRating ─────────────────────────────────────────────────────
-export function generateAggregateRatingSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${siteConfig.url}#localbusiness`,
-    name: siteConfig.name,
-    url: siteConfig.url,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "127",
-      bestRating: "5",
-      worstRating: "1",
-    },
-  };
-}
-
 // ─── Yardımcı ───────────────────────────────────────────────────────────────
 export function schemaToString(schema: object): string {
   return JSON.stringify(schema);

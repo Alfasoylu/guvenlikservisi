@@ -36,19 +36,25 @@ export const dynamicParams = false;
 interface PageProps {
   params: Promise<{
     city: string;
-    district: string;
+    slug: string;
     service: string;
   }>;
 }
 
 export async function generateStaticParams() {
-  return getDistrictServiceStaticParams();
+  return getDistrictServiceStaticParams().map(
+    ({ city, district, service }) => ({
+      city,
+      slug: district,
+      service,
+    }),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { city, district, service } = await params;
+  const { city, slug: district, service } = await params;
 
   const profile = getDistrictProfile(district);
   const content = getDistrictServiceContent(district, service);
@@ -83,7 +89,7 @@ const trustItems: TrustItem[] = [
 ];
 
 export default async function DistrictServicePage({ params }: PageProps) {
-  const { city, district, service } = await params;
+  const { city, slug: district, service } = await params;
 
   const profile = getDistrictProfile(district);
   const content = getDistrictServiceContent(district, service);
@@ -261,7 +267,7 @@ export default async function DistrictServicePage({ params }: PageProps) {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:py-20">
           <div>
             <div className="mb-5 flex flex-wrap gap-2 text-sm font-semibold">

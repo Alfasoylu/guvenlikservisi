@@ -12,6 +12,7 @@ export interface ServiceRouteRecord {
   slug: string;
   name: string;
   shortDescription: string;
+  availableCitySlugs?: string[];
 }
 
 export type ServiceBusinessIntent =
@@ -138,6 +139,62 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
       "Periyodik test, dedektör kontrolü ve panel sürekliliği için yangın alarm bakım hizmeti.",
   },
   {
+    slug: "guvenlik-sistemi-bakim-sozlesmesi",
+    name: "Güvenlik Sistemi Bakım Sözleşmesi",
+    shortDescription:
+      "Kamera, alarm ve geçiş kontrol altyapıları için periyodik kontrol, kayıt sürekliliği ve sözleşmeli bakım hizmeti.",
+    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+  },
+  {
+    slug: "site-kamera-sistemi-bakim",
+    name: "Site Kamera Sistemi Bakımı",
+    shortDescription:
+      "Site yönetimleri için ortak alan kamera altyapısında periyodik kontrol, kayıt takibi ve arıza önleyici bakım hizmeti.",
+    availableCitySlugs: ["istanbul"],
+  },
+  {
+    slug: "fabrika-guvenlik-sistemi-bakim",
+    name: "Fabrika Güvenlik Sistemi Bakımı",
+    shortDescription:
+      "Üretim tesisi ve fabrika altyapıları için kayıt sürekliliği, saha kontrolü ve periyodik bakım hizmeti.",
+    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+  },
+  {
+    slug: "nvr-bakim-servisi",
+    name: "NVR Bakım Servisi",
+    shortDescription:
+      "NVR cihazı, disk sağlığı, kayıt sürekliliği, uzaktan erişim ve ağ sorunları için bakım ve teknik servis desteği.",
+    availableCitySlugs: ["istanbul"],
+  },
+  {
+    slug: "depo-guvenlik-sistemi-kurulumu",
+    name: "Depo Güvenlik Sistemi Kurulumu",
+    shortDescription:
+      "Yükleme alanları, stok hareketi ve gece izleme ihtiyacı olan depolar için güvenlik sistemi kurulumu.",
+    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+  },
+  {
+    slug: "plaza-guvenlik-sistemi-kurulumu",
+    name: "Plaza Güvenlik Sistemi Kurulumu",
+    shortDescription:
+      "Kurumsal ofis, lobi ve geçiş noktaları için kamera, alarm ve erişim disiplinini birlikte kurgulayan plaza güvenlik sistemi kurulumu.",
+    availableCitySlugs: ["istanbul"],
+  },
+  {
+    slug: "avm-guvenlik-sistemi-cozumleri",
+    name: "AVM Güvenlik Sistemi Çözümleri",
+    shortDescription:
+      "AVM ve büyük ticari merkezler için kamera, yangın alarm, erişim ve servis sürekliliğini kapsayan güvenlik çözümleri.",
+    availableCitySlugs: ["istanbul"],
+  },
+  {
+    slug: "alarm-sistemi-bakim",
+    name: "Alarm Sistemi Bakımı",
+    shortDescription:
+      "Panel, sensör, siren, haberleşme ve batarya kontrolleriyle alarm altyapısını sürekli çalışır tutan bakım hizmeti.",
+    availableCitySlugs: ["istanbul"],
+  },
+  {
     slug: "uzaktan-kamera-izleme",
     name: "Uzaktan Kamera İzleme",
     shortDescription: "Merkezi izleme, mobil erişim ve operasyon takibi için uzaktan kamera izleme hizmeti.",
@@ -157,6 +214,14 @@ const businessIntentByServiceSlug: Record<string, ServiceBusinessIntent> = {
   "guvenlik-sistemi-teknik-servis": "technical-service",
   "kamera-ariza-servisi": "fault-repair",
   "yangin-alarm-bakim-sozlesmesi": "maintenance",
+  "guvenlik-sistemi-bakim-sozlesmesi": "maintenance",
+  "site-kamera-sistemi-bakim": "maintenance",
+  "fabrika-guvenlik-sistemi-bakim": "maintenance",
+  "nvr-bakim-servisi": "technical-service",
+  "depo-guvenlik-sistemi-kurulumu": "solution",
+  "plaza-guvenlik-sistemi-kurulumu": "solution",
+  "avm-guvenlik-sistemi-cozumleri": "solution",
+  "alarm-sistemi-bakim": "maintenance",
   "uzaktan-kamera-izleme": "monitoring",
 };
 
@@ -173,6 +238,14 @@ const revenueModelByServiceSlug: Record<string, ServiceRevenueModel> = {
   "guvenlik-sistemi-teknik-servis": "one-time",
   "kamera-ariza-servisi": "one-time",
   "yangin-alarm-bakim-sozlesmesi": "recurring",
+  "guvenlik-sistemi-bakim-sozlesmesi": "recurring",
+  "site-kamera-sistemi-bakim": "recurring",
+  "fabrika-guvenlik-sistemi-bakim": "recurring",
+  "nvr-bakim-servisi": "hybrid",
+  "depo-guvenlik-sistemi-kurulumu": "hybrid",
+  "plaza-guvenlik-sistemi-kurulumu": "hybrid",
+  "avm-guvenlik-sistemi-cozumleri": "hybrid",
+  "alarm-sistemi-bakim": "recurring",
   "uzaktan-kamera-izleme": "recurring",
 };
 
@@ -189,6 +262,14 @@ const recurringRevenuePotentialByServiceSlug: Record<string, ServiceRecurringPot
   "guvenlik-sistemi-teknik-servis": "medium",
   "kamera-ariza-servisi": "medium",
   "yangin-alarm-bakim-sozlesmesi": "high",
+  "guvenlik-sistemi-bakim-sozlesmesi": "high",
+  "site-kamera-sistemi-bakim": "high",
+  "fabrika-guvenlik-sistemi-bakim": "high",
+  "nvr-bakim-servisi": "high",
+  "depo-guvenlik-sistemi-kurulumu": "high",
+  "plaza-guvenlik-sistemi-kurulumu": "high",
+  "avm-guvenlik-sistemi-cozumleri": "high",
+  "alarm-sistemi-bakim": "high",
   "uzaktan-kamera-izleme": "high",
 };
 
@@ -205,6 +286,14 @@ const leadPriorityByServiceSlug: Record<string, ServiceLeadPriority> = {
   "guvenlik-sistemi-teknik-servis": "high",
   "kamera-ariza-servisi": "urgent",
   "yangin-alarm-bakim-sozlesmesi": "strategic",
+  "guvenlik-sistemi-bakim-sozlesmesi": "strategic",
+  "site-kamera-sistemi-bakim": "strategic",
+  "fabrika-guvenlik-sistemi-bakim": "strategic",
+  "nvr-bakim-servisi": "high",
+  "depo-guvenlik-sistemi-kurulumu": "strategic",
+  "plaza-guvenlik-sistemi-kurulumu": "strategic",
+  "avm-guvenlik-sistemi-cozumleri": "strategic",
+  "alarm-sistemi-bakim": "high",
   "uzaktan-kamera-izleme": "strategic",
 };
 
@@ -221,6 +310,14 @@ const businessPriorityScoreByServiceSlug: Record<string, 1 | 2 | 3 | 4 | 5> = {
   "guvenlik-sistemi-teknik-servis": 4,
   "kamera-ariza-servisi": 5,
   "yangin-alarm-bakim-sozlesmesi": 5,
+  "guvenlik-sistemi-bakim-sozlesmesi": 5,
+  "site-kamera-sistemi-bakim": 5,
+  "fabrika-guvenlik-sistemi-bakim": 5,
+  "nvr-bakim-servisi": 4,
+  "depo-guvenlik-sistemi-kurulumu": 5,
+  "plaza-guvenlik-sistemi-kurulumu": 5,
+  "avm-guvenlik-sistemi-cozumleri": 5,
+  "alarm-sistemi-bakim": 4,
   "uzaktan-kamera-izleme": 5,
 };
 
@@ -237,6 +334,14 @@ const ctaStyleByServiceSlug: Record<string, SeoCtaStyle> = {
   "guvenlik-sistemi-teknik-servis": "technical-service",
   "kamera-ariza-servisi": "technical-service",
   "yangin-alarm-bakim-sozlesmesi": "maintenance",
+  "guvenlik-sistemi-bakim-sozlesmesi": "maintenance",
+  "site-kamera-sistemi-bakim": "maintenance",
+  "fabrika-guvenlik-sistemi-bakim": "maintenance",
+  "nvr-bakim-servisi": "technical-service",
+  "depo-guvenlik-sistemi-kurulumu": "assessment",
+  "plaza-guvenlik-sistemi-kurulumu": "assessment",
+  "avm-guvenlik-sistemi-cozumleri": "assessment",
+  "alarm-sistemi-bakim": "maintenance",
   "uzaktan-kamera-izleme": "assessment",
 };
 
@@ -253,6 +358,14 @@ const targetSegmentSlugsByServiceSlug: Record<string, HighLtvSegmentSlug[]> = {
   "guvenlik-sistemi-teknik-servis": ["site-yonetimi", "fabrika", "plaza-ofis"],
   "kamera-ariza-servisi": ["depo", "zincir-magaza", "site-yonetimi"],
   "yangin-alarm-bakim-sozlesmesi": ["avm", "fabrika", "plaza-ofis"],
+  "guvenlik-sistemi-bakim-sozlesmesi": ["site-yonetimi", "fabrika", "depo"],
+  "site-kamera-sistemi-bakim": ["site-yonetimi"],
+  "fabrika-guvenlik-sistemi-bakim": ["fabrika"],
+  "nvr-bakim-servisi": ["site-yonetimi", "fabrika", "depo"],
+  "depo-guvenlik-sistemi-kurulumu": ["depo"],
+  "plaza-guvenlik-sistemi-kurulumu": ["plaza-ofis"],
+  "avm-guvenlik-sistemi-cozumleri": ["avm"],
+  "alarm-sistemi-bakim": ["zincir-magaza", "plaza-ofis", "site-yonetimi"],
   "uzaktan-kamera-izleme": ["site-yonetimi", "fabrika", "zincir-magaza"],
 };
 
@@ -329,6 +442,54 @@ const priorityLinkSlugsByServiceSlug: Record<string, string[]> = {
     "guvenlik-sistemi-teknik-servis",
     "kartli-gecis-sistemi-kurulumu",
   ],
+  "guvenlik-sistemi-bakim-sozlesmesi": [
+    "guvenlik-sistemi-teknik-servis",
+    "kamera-sistemi-bakim-sozlesmesi",
+    "yangin-alarm-bakim-sozlesmesi",
+    "bakim-servis-uzaktan-izleme",
+  ],
+  "site-kamera-sistemi-bakim": [
+    "apartman-site-guvenlik-sistemi",
+    "kamera-sistemi-bakim-sozlesmesi",
+    "uzaktan-kamera-izleme",
+    "guvenlik-sistemi-bakim-sozlesmesi",
+  ],
+  "fabrika-guvenlik-sistemi-bakim": [
+    "fabrika-depo-guvenlik-sistemi",
+    "guvenlik-sistemi-bakim-sozlesmesi",
+    "uzaktan-kamera-izleme",
+    "guvenlik-sistemi-teknik-servis",
+  ],
+  "nvr-bakim-servisi": [
+    "guvenlik-sistemi-teknik-servis",
+    "kamera-ariza-servisi",
+    "kamera-sistemi-bakim-sozlesmesi",
+    "bakim-servis-uzaktan-izleme",
+  ],
+  "depo-guvenlik-sistemi-kurulumu": [
+    "fabrika-depo-guvenlik-sistemi",
+    "kamera-sistemi-kurulumu",
+    "guvenlik-sistemi-bakim-sozlesmesi",
+    "kamera-sistemi-bakim-sozlesmesi",
+  ],
+  "plaza-guvenlik-sistemi-kurulumu": [
+    "kartli-gecis-sistemi-kurulumu",
+    "isyeri-guvenlik-sistemi",
+    "guvenlik-sistemi-teknik-servis",
+    "bakim-servis-uzaktan-izleme",
+  ],
+  "avm-guvenlik-sistemi-cozumleri": [
+    "yangin-alarm-sistemi-kurulumu",
+    "yangin-alarm-bakim-sozlesmesi",
+    "kartli-gecis-sistemi-kurulumu",
+    "guvenlik-sistemi-bakim-sozlesmesi",
+  ],
+  "alarm-sistemi-bakim": [
+    "alarm-sistemi-kurulumu",
+    "guvenlik-sistemi-teknik-servis",
+    "yangin-alarm-bakim-sozlesmesi",
+    "bakim-servis-uzaktan-izleme",
+  ],
   "uzaktan-kamera-izleme": [
     "bakim-servis-uzaktan-izleme",
     "kamera-sistemi-bakim-sozlesmesi",
@@ -350,6 +511,14 @@ const keywordThemeTagsByServiceSlug: Record<string, string[]> = {
   "guvenlik-sistemi-teknik-servis": ["teknik-servis", "saha-mudahalesi", "teshis"],
   "kamera-ariza-servisi": ["ariza", "acil", "no-image", "kayit-problemi"],
   "yangin-alarm-bakim-sozlesmesi": ["yangin-alarm", "bakim-sozlesmesi", "test", "uyumluluk"],
+  "guvenlik-sistemi-bakim-sozlesmesi": ["guvenlik-sistemi-bakim", "periyodik-kontrol", "sozlesme", "sureklilik"],
+  "site-kamera-sistemi-bakim": ["site-kamera-bakim", "ortak-alan", "yonetim", "periyodik-kontrol"],
+  "fabrika-guvenlik-sistemi-bakim": ["fabrika-bakim", "operasyon-surekliligi", "vardiya", "kayit-guvenligi"],
+  "nvr-bakim-servisi": ["nvr", "kayit-cihazi", "disk-sagligi", "uzaktan-erisim"],
+  "depo-guvenlik-sistemi-kurulumu": ["depo", "lojistik", "stok-guvenligi", "kurulum"],
+  "plaza-guvenlik-sistemi-kurulumu": ["plaza", "ofis", "gecis-kontrol", "kurumsal"],
+  "avm-guvenlik-sistemi-cozumleri": ["avm", "ticari-merkez", "cok-bilesenli", "kurumsal-cozum"],
+  "alarm-sistemi-bakim": ["alarm-bakim", "panel-kontrol", "siren", "haberlesme"],
   "uzaktan-kamera-izleme": ["uzaktan-izleme", "merkezi-takip", "sureklilik"],
 };
 
@@ -434,6 +603,7 @@ const businessGuidanceByIntent: Record<ServiceBusinessIntent, ServiceBusinessGui
 
 const leadValueOverrides: Record<string, "high" | "medium"> = {
   "apartman-site-guvenlik-sistemi": "medium",
+  "site-kamera-sistemi-bakim": "medium",
   "uzaktan-kamera-izleme": "medium",
 };
 
@@ -491,10 +661,11 @@ export const seoServices: SeoService[] = serviceRouteRecords.map((service) => {
   };
 });
 
-export const services: ServiceRouteRecord[] = seoServices.map(({ slug, name, shortDescription }) => ({
+export const services: ServiceRouteRecord[] = seoServices.map(({ slug, name, shortDescription, availableCitySlugs }) => ({
   slug,
   name,
   shortDescription,
+  availableCitySlugs,
 }));
 
 function resolveSeoService(serviceOrSlug: string | SeoService) {
@@ -511,6 +682,10 @@ export function getSeoServiceBySlug(serviceSlug: string) {
 
 export function getServiceRouteRecord(serviceSlug: string) {
   return services.find((service) => service.slug === serviceSlug);
+}
+
+export function getAvailableCitySlugsForService(serviceSlug: string) {
+  return getSeoServiceBySlug(serviceSlug)?.availableCitySlugs ?? null;
 }
 
 export function getServiceBusinessIntent(serviceOrSlug: string | SeoService) {

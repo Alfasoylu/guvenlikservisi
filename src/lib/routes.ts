@@ -1,6 +1,6 @@
 import { getAllBlogPosts } from "@/data/blog-posts";
 import { cities } from "@/data/cities";
-import { services } from "@/data/services";
+import { getAvailableCitySlugsForService, services } from "@/data/services";
 import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { getAllProblemSlugs } from "@/data/seo/problem-pages";
 import { siteConfig } from "@/data/site-config";
@@ -72,6 +72,15 @@ export function isValidServiceSlug(serviceSlug: string) {
   return serviceSlugSet.has(serviceSlug);
 }
 
+export function isServiceAvailableInCity(citySlug: string, serviceSlug: string) {
+  if (!isValidCitySlug(citySlug) || !isValidServiceSlug(serviceSlug)) {
+    return false;
+  }
+
+  const availableCitySlugs = getAvailableCitySlugsForService(serviceSlug);
+  return !availableCitySlugs || availableCitySlugs.includes(citySlug);
+}
+
 export function getCityPath(citySlug: string) {
   if (!isValidCitySlug(citySlug)) {
     return null;
@@ -81,7 +90,7 @@ export function getCityPath(citySlug: string) {
 }
 
 export function getCityServicePath(citySlug: string, serviceSlug: string) {
-  if (!isValidCitySlug(citySlug) || !isValidServiceSlug(serviceSlug)) {
+  if (!isServiceAvailableInCity(citySlug, serviceSlug)) {
     return null;
   }
 
@@ -89,7 +98,7 @@ export function getCityServicePath(citySlug: string, serviceSlug: string) {
 }
 
 export function getPrimaryCityServicePath(citySlug: string, serviceSlug: string) {
-  if (!isValidCitySlug(citySlug) || !isValidServiceSlug(serviceSlug)) {
+  if (!isServiceAvailableInCity(citySlug, serviceSlug)) {
     return null;
   }
 
@@ -161,10 +170,16 @@ export function getCityStaticParams() {
 
 export function getCityServiceStaticParams() {
   return cities.flatMap((city) =>
-    services.map((service) => ({
-      city: city.slug,
-      service: service.slug,
-    })),
+    services.flatMap((service) => {
+      if (!isServiceAvailableInCity(city.slug, service.slug)) {
+        return [];
+      }
+
+      return {
+        city: city.slug,
+        service: service.slug,
+      };
+    }),
   );
 }
 
@@ -241,8 +256,7 @@ export function isValidCityServicePath(path: string) {
 
   return (
     segments.length === 2 &&
-    isValidCitySlug(segments[0]) &&
-    isValidServiceSlug(segments[1])
+    isServiceAvailableInCity(segments[0], segments[1])
   );
 }
 

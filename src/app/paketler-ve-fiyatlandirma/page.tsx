@@ -169,7 +169,7 @@ export default function PaketlerSayfasi() {
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] text-white py-16 md:py-20">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] text-white py-16 md:py-20">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">

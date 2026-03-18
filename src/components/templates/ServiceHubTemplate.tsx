@@ -378,7 +378,7 @@ export default function ServiceHubTemplate({ data }: ServiceHubTemplateProps) {
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="max-w-3xl">

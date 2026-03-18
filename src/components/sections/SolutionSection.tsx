@@ -33,7 +33,9 @@ export default function SolutionSection({
             <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-5">
               {title}
             </h2>
-            <p className="text-text-light leading-relaxed mb-6">{description}</p>
+            <p className="text-text-light leading-relaxed mb-6">
+              {description}
+            </p>
             <ul className="space-y-3">
               {features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -51,7 +53,7 @@ export default function SolutionSection({
           <div className="flex-1 w-full">
             <div
               aria-label={imageAlt}
-              className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-accent/30"
+              className="aspect-[4/3] bg-linear-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-accent/30"
             >
               <div className="text-center text-accent/60">
                 <div className="text-5xl mb-3">📷</div>

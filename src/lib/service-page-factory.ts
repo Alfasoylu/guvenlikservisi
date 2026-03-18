@@ -172,6 +172,95 @@ function formatNaturalList(items: string[]) {
   return `${items.slice(0, -1).join(", ")} ve ${items[items.length - 1]}`;
 }
 
+/**
+ * Single source of truth for intent labels used in metadata titles.
+ * Each business intent maps to exactly one Turkish label.
+ * "installation" is intentionally absent — installation service names already contain their intent.
+ */
+const INTENT_LABELS: Partial<Record<string, string>> = {
+  maintenance: "Periyodik Bakım",
+  monitoring: "Uzaktan İzleme",
+  "technical-service": "Teknik Servis",
+  "fault-repair": "Arıza Tespiti ve Onarım",
+  solution: "Keşif ve Projelendirme",
+};
+
+/**
+ * Normalized service names with intent-overlapping words removed.
+ * Only services whose `name` would produce duplicate words when combined
+ * with INTENT_LABELS are listed here. Unlisted services use `service.name` as-is.
+ */
+const METADATA_CLEAN_NAMES: Record<string, string> = {
+  // solution — shorten for title length
+  "apartman-site-guvenlik-sistemi": "Site Güvenlik Sistemi",
+  "fabrika-depo-guvenlik-sistemi": "Fabrika Güvenlik Sistemi",
+  "depo-guvenlik-sistemi-kurulumu": "Depo Güvenlik Sistemi",
+  "plaza-guvenlik-sistemi-kurulumu": "Plaza Güvenlik Sistemi",
+  "avm-guvenlik-sistemi-cozumleri": "AVM Güvenlik Sistemi",
+  // maintenance — strip bakım/sözleşmesi/bakımı
+  "bakim-servis-uzaktan-izleme": "Güvenlik Sistemi",
+  "kamera-sistemi-bakim-sozlesmesi": "Kamera Sistemi",
+  "yangin-alarm-bakim-sozlesmesi": "Yangın Alarm Sistemi",
+  "guvenlik-sistemi-bakim-sozlesmesi": "Güvenlik Sistemi",
+  "site-kamera-sistemi-bakim": "Site Kamera Sistemi",
+  "fabrika-guvenlik-sistemi-bakim": "Fabrika Güvenlik Sistemi",
+  "alarm-sistemi-bakim": "Alarm Sistemi",
+  // technical-service — strip teknik servis / servisi
+  "guvenlik-sistemi-teknik-servis": "Güvenlik Sistemi",
+  "nvr-bakim-servisi": "NVR Kayıt Cihazı",
+  // fault-repair — strip arıza
+  "kamera-ariza-servisi": "Kamera Sistemi",
+  // monitoring — strip uzaktan / izleme
+  "uzaktan-kamera-izleme": "Kamera Sistemi",
+};
+
+function getCleanName(service: ServiceRecord): string {
+  return METADATA_CLEAN_NAMES[service.slug] ?? service.name;
+}
+
+function assertNoDuplicateWords(text: string, context: string): void {
+  const words = text.split(/\s+/);
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].toLocaleLowerCase("tr-TR") === words[i - 1].toLocaleLowerCase("tr-TR")) {
+      throw new Error(
+        `[metadata] Ardışık tekrar eden kelime tespit edildi: "${words[i]}" — ${context}\nTam metin: "${text}"`
+      );
+    }
+  }
+}
+
+function buildMetadataTitle(city: CityRecord, service: ServiceRecord, businessIntent?: string): string {
+  const cleanName = getCleanName(service);
+  const intentLabel = businessIntent ? INTENT_LABELS[businessIntent] : undefined;
+
+  const title = intentLabel
+    ? `${city.name} ${cleanName} ${intentLabel}`
+    : `${city.name} ${service.name}`;
+
+  assertNoDuplicateWords(title, `title — ${service.slug}`);
+  return title;
+}
+
+function buildMetaDescription(
+  city: CityRecord,
+  service: ServiceRecord,
+  metadataIntent: string | undefined,
+  metadataTargets: string[],
+  segmentText: string,
+  businessMetaAngle: string,
+  districtCoverage: string | undefined,
+): string {
+  const intent = metadataIntent || service.name.toLocaleLowerCase("tr-TR");
+  const targetText = formatNaturalList(metadataTargets.slice(0, 3));
+
+  const description = districtCoverage
+    ? `${city.name} içinde ${targetText} için ${intent} sunuyoruz. ${segmentText}${businessMetaAngle} ${districtCoverage} Ücretsiz keşif ve hızlı teklif alın.`
+    : `${city.name} içinde ${intent} sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
+
+  assertNoDuplicateWords(description, `description — ${service.slug}`);
+  return description;
+}
+
 function getSortedDistricts(citySlug: string) {
   const turkishCollator = new Intl.Collator("tr");
   return [...(cityContent[citySlug]?.districts || [])].sort((a, b) => turkishCollator.compare(a, b));
@@ -391,16 +480,21 @@ export function getServicePageFactoryData(
   const ctaImage = mapServiceImage(city, service, imageEntry.cta);
 
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
-  const metadataTargetText = formatNaturalList(metadataTargets);
   const fallbackUseCases = servicePainPoints.slice(0, 4).map((painPoint) => painPoint.painStatement);
   const primarySegmentLabels = primarySegments
     .slice(0, 2)
     .map((segment) => segment.searchLabels[0] ?? segment.name.toLocaleLowerCase("tr-TR"));
   const segmentText = primarySegmentLabels.length > 0 ? `${formatNaturalList(primarySegmentLabels)} gibi öncelikli projelerde ` : "";
   const businessMetaAngle = businessModel?.businessGuidance.metaAngle ?? "Profesyonel keşif ve hızlı teklif akışı ile süreci netleştiriyoruz.";
-  const metaDescription = cityDetails
-    ? `${city.name} içinde ${metadataTargetText} için ${serviceDetails?.metadataIntent || service.name.toLowerCase()} hizmeti sunuyoruz. ${segmentText}${businessMetaAngle} ${cityDetails.metadataDistrictCoverage} Ücretsiz keşif ve hızlı teklif alın.`
-    : `${city.name} içinde ${service.name.toLowerCase()} hizmeti sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
+  const finalMetaDescription = buildMetaDescription(
+    city,
+    service,
+    serviceDetails?.metadataIntent,
+    metadataTargets,
+    segmentText,
+    businessMetaAngle,
+    cityDetails?.metadataDistrictCoverage,
+  );
   const localCoverageSchemaArea =
     primaryDistricts.length > 0
       ? `${city.name} ve ${formatNaturalList(primaryDistricts.slice(0, 3).map((district) => district.name))}`
@@ -438,6 +532,14 @@ export function getServicePageFactoryData(
       ? `${city.name} ${service.name} için acil destek almak istiyorum.`
       : `${city.name} ${service.name} için bilgi, keşif ve fiyat almak istiyorum.`;
 
+  const primaryCtaLabel =
+    businessModel?.businessIntent === "maintenance"
+      ? "Bakım planı talep edin"
+      : businessModel?.businessIntent === "technical-service" ||
+        businessModel?.businessIntent === "fault-repair"
+        ? "Servis talebi oluşturun"
+        : "Keşif ve teklif alın";
+
   const stats: ServiceStatItem[] = [
     { label: "Tamamlanan Proje", value: siteConfig.stats.projects },
     { label: "Sektör Deneyimi", value: siteConfig.stats.experience },
@@ -465,8 +567,8 @@ export function getServicePageFactoryData(
 
   return {
     meta: {
-      title: `${service.name} ${city.name} | Profesyonel Montaj ve Ücretsiz Keşif`,
-      description: metaDescription,
+      title: buildMetadataTitle(city, service, businessModel?.businessIntent),
+      description: finalMetaDescription,
     },
     hero: {
       cityDescription: cityDetails?.intro || `${city.name} içinde profesyonel güvenlik sistemi kurulumu yapıyoruz.`,
@@ -564,7 +666,7 @@ export function getServicePageFactoryData(
         city,
         service
       ),
-      primaryLabel: "Hemen Ara",
+      primaryLabel: primaryCtaLabel,
       secondaryLabel: "İletişim Sayfasına Git",
       whatsappLabel: "WhatsApp ile Yazın",
       whatsappHref: `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,

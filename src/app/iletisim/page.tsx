@@ -57,7 +57,7 @@ export default function IletisimSayfasi() {
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
         <Container>
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">

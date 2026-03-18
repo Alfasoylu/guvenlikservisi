@@ -18,7 +18,7 @@ export default function WhyIntegratedSection({
   items,
 }: WhyIntegratedSectionProps) {
   return (
-    <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
+    <section className="bg-linear-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
       <Container>
         <div className="mb-10 max-w-3xl">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/90">

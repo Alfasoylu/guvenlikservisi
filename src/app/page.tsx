@@ -27,7 +27,6 @@ import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import {
   generateLocalBusinessSchema,
-  generateAggregateRatingSchema,
 } from "@/lib/schema";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/");
@@ -167,17 +166,12 @@ const testimonials = [
 
 export default function AnaSayfa() {
   const lbSchema = generateLocalBusinessSchema();
-  const ratingSchema = generateAggregateRatingSchema();
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(lbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
       />
 
       <HeroSection
