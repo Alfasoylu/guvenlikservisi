@@ -13,7 +13,7 @@ interface ServiceUseCasesProps {
   title: string;
   description: string;
   localContext?: string;
-  items: string[];
+  items: { title: string; description: string }[];
   supportImages?: ServicePageImage[];
   useCaseImages?: ServicePageImage[];
 }
@@ -30,7 +30,9 @@ export default function ServiceUseCases({
     <section className={sectionClass}>
       <h2 className={sectionTitleClass}>{title}</h2>
       <p className={sectionIntroClass}>{description}</p>
-      {localContext ? <p className={sectionIntroClass}>{localContext}</p> : null}
+      {localContext ? (
+        <p className={sectionIntroClass}>{localContext}</p>
+      ) : null}
 
       {supportImages.length > 0 ? (
         <div className="mt-6">
@@ -40,8 +42,11 @@ export default function ServiceUseCases({
 
       <div className={gridClass}>
         {items.map((item) => (
-          <div key={item} className={softCardClass}>
-            <div className={useCaseTextClass}>{item}</div>
+          <div key={item.title} className={softCardClass}>
+            <div className={useCaseTextClass}>{item.title}</div>
+            {item.description ? (
+              <p className="mt-1 text-sm text-gray-600">{item.description}</p>
+            ) : null}
           </div>
         ))}
       </div>

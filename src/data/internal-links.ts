@@ -269,3 +269,98 @@ export const serviceProblemLinks: Record<string, ContextualLinkData[]> = {
     },
   ],
 };
+
+/**
+ * Segment-based service cross-links.
+ * Each segment maps to the most relevant services for that customer type.
+ */
+export const serviceSegmentLinks: Record<string, ContextualLinkData[]> = {
+  "site-yonetimi": [
+    {
+      href: "/apartman-site-guvenlik-sistemi",
+      label: "Apartman ve site güvenlik sistemi",
+      description: "Ortak alan, otopark ve blok girişleri için kamera ve alarm kurulumu.",
+    },
+    {
+      href: "/kamera-sistemi-kurulumu",
+      label: "Kamera sistemi kurulumu",
+      description: "Site genelinde IP kamera montajı ve kayıt cihazı yapılandırması.",
+    },
+    {
+      href: "/kartli-gecis-ve-turnike-sistemi",
+      label: "Kartlı geçiş ve turnike sistemi",
+      description: "Blok girişi, otopark bariyeri ve ortak alan geçiş kontrolü.",
+    },
+    {
+      href: "/bakim-servis-uzaktan-izleme",
+      label: "Bakım, servis ve uzaktan izleme",
+      description: "Sitelerdeki mevcut güvenlik altyapısı için periyodik bakım ve uzaktan izleme.",
+    },
+  ],
+  "fabrika": [
+    {
+      href: "/fabrika-depo-guvenlik-sistemi",
+      label: "Fabrika ve depo güvenlik sistemi",
+      description: "Sanayi tesisleri için çevre güvenliği, sevkiyat ve üretim izleme kurulumu.",
+    },
+    {
+      href: "/uzaktan-kamera-izleme",
+      label: "Uzaktan kamera izleme",
+      description: "Üretim ve depo alanlarının merkezi izleme sistemi ile 7/24 takibi.",
+    },
+    {
+      href: "/kartli-gecis-ve-turnike-sistemi",
+      label: "Kartlı geçiş ve turnike sistemi",
+      description: "Vardiya giriş-çıkış kontrolü, turnike ve kapı yetkilendirmesi.",
+    },
+    {
+      href: "/yangin-alarm-sistemi-kurulumu",
+      label: "Yangın alarm sistemi kurulumu",
+      description: "Fabrika ve üretim alanları için dedektör, panel ve siren sistemi.",
+    },
+  ],
+  "depo-lojistik": [
+    {
+      href: "/fabrika-depo-guvenlik-sistemi",
+      label: "Depo güvenlik sistemi kurulumu",
+      description: "Sevkiyat noktası, raf alanı ve çevre güvenliği için profesyonel güvenlik çözümü.",
+    },
+    {
+      href: "/kamera-sistemi-kurulumu",
+      label: "Kamera sistemi kurulumu",
+      description: "Depo içi ve dış alan izleme için IP kamera montajı ve NVR yapılandırması.",
+    },
+    {
+      href: "/alarm-sistemi-kurulumu",
+      label: "Alarm sistemi kurulumu",
+      description: "Mesai dışı güvenlik için hareket sensörü ve siren destekli alarm altyapısı.",
+    },
+    {
+      href: "/uzaktan-kamera-izleme",
+      label: "Uzaktan kamera izleme",
+      description: "Depo ve sevkiyat alanının merkezi izleme ile uzaktan takibi.",
+    },
+  ],
+  "magaza-avm": [
+    {
+      href: "/isyeri-guvenlik-sistemi",
+      label: "İşyeri güvenlik sistemi",
+      description: "Mağaza, kasa ve depo alanı için kamera ve alarm entegrasyonu.",
+    },
+    {
+      href: "/kamera-sistemi-kurulumu",
+      label: "Kamera sistemi kurulumu",
+      description: "Satış alanı, kasa noktası ve arka depo için IP kamera sistemi.",
+    },
+    {
+      href: "/alarm-sistemi-kurulumu",
+      label: "Alarm sistemi kurulumu",
+      description: "Mağaza ve AVM alanları için hırsızlık önleme ve erken uyarı sistemi.",
+    },
+    {
+      href: "/kartli-gecis-sistemi-kurulumu",
+      label: "Kartlı geçiş sistemi kurulumu",
+      description: "Personel giriş kontrolü ve yetkili alan sınırlandırması.",
+    },
+  ],
+};

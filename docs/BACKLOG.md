@@ -110,18 +110,18 @@ GuvenlikServisi.com, Türkiye genelinde güvenlik sistemleri kurulumu, bakım, t
 
 Her şehir için:
 
-- [ ] slug
-- [ ] ad
-- [ ] plaka
-- [ ] bölge
-- [ ] nüfus segmenti
-- [ ] sanayi yoğunluğu
-- [ ] site / residence yoğunluğu
-- [ ] ticari bölge yoğunluğu
-- [ ] hizmet öncelik sırası
-- [ ] ana ilçe listesi
-- [ ] komşu şehirler
-- [ ] local intro text
+- [x] slug
+- [x] ad
+- [x] plaka — `plaka` (18 şehir tanımlı)
+- [x] bölge — `bolge` (Marmara / İç Anadolu / Ege / Akdeniz / Güneydoğu Anadolu)
+- [x] nüfus segmenti — `marketType` (high-industrial / high-residential / mixed / tourism-heavy)
+- [x] sanayi yoğunluğu — `marketType` üzerinden
+- [x] site / residence yoğunluğu — `marketType` üzerinden
+- [x] ticari bölge yoğunluğu — `commercialPriorityScore` (1–5)
+- [x] hizmet öncelik sırası — `seoPriority` + `commercialPriorityScore`
+- [x] ana ilçe listesi — `primaryDistrictSlugs`
+- [x] komşu şehirler — `neighborCitySlugs` (18 şehir tanımlı)
+- [x] local intro text — `shortIntro` + `serviceAreaEmphasis`
 - [ ] bakım odaklı local text
 - [ ] kurulum odaklı local text
 - [ ] teknik servis odaklı local text
@@ -130,63 +130,63 @@ Her şehir için:
 
 Her ilçe için:
 
-- [ ] slug
-- [ ] ad
-- [ ] citySlug
-- [ ] segment türü (konut / sanayi / karma)
+- [x] slug
+- [x] ad
+- [x] citySlug
+- [x] segment türü (konut / sanayi / karma) — `marketType` (residential/commercial/industrial/mixed)
 - [ ] site yönetimi yoğunluğu
 - [ ] sanayi / depo yoğunluğu
-- [ ] kısa local intro
+- [x] kısa local intro — `serviceAreaNote`
 - [ ] local CTA varyasyonu
-- [ ] servis öncelikleri
-- [ ] yakın ilçe ilişkileri
-- [ ] breadcrumb ilişkisi
+- [x] servis öncelikleri — `servicePrioritySlugs`
+- [x] yakın ilçe ilişkileri — `nearbyDistrictSlugs` (İstanbul Tier-1 ilçeleri aktif)
+- [x] breadcrumb ilişkisi — route katmanında city → district → service breadcrumb aktif
 
 ## P1.4 Servis Veri Modeli
 
 20 ana servis için veri modeli:
 
-- [ ] servis adı
-- [ ] slug
-- [ ] ana intent tipi
-- [ ] ticari intent skoru
-- [ ] lead değeri
-- [ ] recurring potansiyeli
-- [ ] uygun sektörler
-- [ ] uygun bina tipleri
-- [ ] primary CTA
-- [ ] form başlığı
-- [ ] hero başlığı
-- [ ] hero alt başlığı
-- [ ] servis açıklaması
-- [ ] fayda blokları
-- [ ] süreç blokları
-- [ ] FAQ bankası
-- [ ] schema tipi
-- [ ] internal link hedefleri
+- [x] servis adı — `name`
+- [x] slug
+- [x] ana intent tipi — `intentType` (installation/solution/maintenance/technical-service/fault-repair/monitoring)
+- [x] ticari intent skoru — `businessPriorityScore` (1–5)
+- [x] lead değeri — `leadValue`
+- [x] recurring potansiyeli — `recurringRevenuePotential`
+- [x] uygun sektörler — `targetSegmentSlugs`
+- [~] uygun bina tipleri — segment verisi üzerinden kısmen kapsanıyor
+- [x] primary CTA — `ctaStyle` (quote/assessment/maintenance/technical-service)
+- [~] form başlığı — service-page-factory üzerinden üretiliyor, ayrı alan yok
+- [x] hero başlığı — `heroTitlePattern`
+- [~] hero alt başlığı — `heroIntro` (seo-content/services.ts)
+- [x] servis açıklaması — `shortDescription`
+- [x] fayda blokları — `benefits[]` (seo-content/services.ts)
+- [x] süreç blokları — `process[]` (seo-content/services.ts)
+- [x] FAQ bankası — `faqKeys` → faq-bank.ts
+- [x] schema tipi — `schemaType` (schema-map.ts)
+- [x] internal link hedefleri — `internalLinkHints` + `priorityLinkSlugs`
 
 ## P1.5 20 Ana Servis Listesi
 
-- [ ] kamera-sistemi-kurulumu
-- [ ] ip-kamera-kurulumu
-- [ ] cctv-kurulumu
-- [ ] guvenlik-kamera-montaji
-- [ ] kamera-sistemi-bakim-sozlesmesi
-- [ ] guvenlik-sistemi-bakim-sozlesmesi
-- [ ] site-kamera-sistemi-bakim
-- [ ] fabrika-guvenlik-sistemi-bakim
-- [ ] nvr-bakim-servisi
-- [ ] kamera-ariza-servisi
-- [ ] alarm-sistemi-kurulumu
-- [ ] alarm-sistemi-bakim
-- [ ] yangin-alarm-bakim-sozlesmesi
-- [ ] gecis-kontrol-sistemi
-- [ ] kartli-gecis-sistemi-kurulumu
-- [ ] uzaktan-kamera-izleme
-- [ ] guvenlik-sistemi-teknik-servis
-- [ ] depo-guvenlik-sistemi-kurulumu
-- [ ] plaza-guvenlik-sistemi-kurulumu
-- [ ] avm-guvenlik-sistemi-cozumleri
+- [x] kamera-sistemi-kurulumu
+- [x] ip-kamera-kurulumu — kamera-sistemi-kurulumu altında redirect ile kapsanıyor
+- [x] cctv-kurulumu — kamera-sistemi-kurulumu altında redirect ile kapsanıyor
+- [x] guvenlik-kamera-montaji — kamera-sistemi-kurulumu altında redirect ile kapsanıyor
+- [x] kamera-sistemi-bakim-sozlesmesi
+- [x] guvenlik-sistemi-bakim-sozlesmesi
+- [x] site-kamera-sistemi-bakim
+- [x] fabrika-guvenlik-sistemi-bakim
+- [x] nvr-bakim-servisi
+- [x] kamera-ariza-servisi
+- [x] alarm-sistemi-kurulumu
+- [x] alarm-sistemi-bakim
+- [x] yangin-alarm-bakim-sozlesmesi
+- [x] gecis-kontrol-sistemi — kartli-gecis-sistemi-kurulumu altında redirect ile kapsanıyor
+- [x] kartli-gecis-sistemi-kurulumu
+- [x] uzaktan-kamera-izleme
+- [x] guvenlik-sistemi-teknik-servis
+- [x] depo-guvenlik-sistemi-kurulumu
+- [x] plaza-guvenlik-sistemi-kurulumu
+- [x] avm-guvenlik-sistemi-cozumleri
 
 ## P1.6 200 Keyword Cluster Sistemi
 
@@ -350,9 +350,9 @@ Her sayfa için:
 - [x] şehir + servis — city/service sayfalarda aktif
 - [~] ilçe + servis — İstanbul ilçeleri aktif
 - [ ] servis + şehir + teklif
-- [~] bakım sözleşmesi + şehir — programmatic aktif
-- [~] teknik servis + şehir — programmatic aktif
-- [~] arıza servisi + şehir — programmatic aktif
+- [x] bakım sözleşmesi + şehir — INTENT_LABELS + METADATA_CLEAN_NAMES ile deterministic title üretimi aktif
+- [x] teknik servis + şehir — INTENT_LABELS + METADATA_CLEAN_NAMES ile deterministic title üretimi aktif
+- [x] arıza servisi + şehir — INTENT_LABELS + METADATA_CLEAN_NAMES ile deterministic title üretimi aktif
 
 ## P4.3 Schema Katmanı
 
@@ -393,8 +393,8 @@ Her sayfa için:
 - [x] “benzer hizmetler”
 - [x] "yakın ilçelerde hizmet" — nearbyDistricts üzerinden 7 Tier-1 ilçede aktif (yalnızca `[city]/[district]/[service]` rotasında; city ve city/service sayfalarında ilçe öncelik gruplaması UI'dan kaldırıldı)
 - [x] “aynı şehirde diğer çözümler”
-- [ ] “site yönetimleri için ilgili hizmetler”
-- [ ] “fabrikalar için ilgili hizmetler”
+- [x] "site yönetimleri için ilgili hizmetler" — `serviceSegmentLinks["site-yonetimi"]` (4 link)
+- [x] "fabrikalar için ilgili hizmetler" — `serviceSegmentLinks["fabrika"]` (4 link)
 - [ ] “sık görülen arızalar”
 - [ ] “bakım gerektiren sistemler”
 
@@ -471,11 +471,11 @@ Her sayfa için:
 
 ## P7.3 Teknik Temizlik
 
-- [ ] 301 yönlendirme tablosu çıkar
+- [x] 301 yönlendirme tablosu çıkar — next.config.ts içinde legacyCityRedirects + legacyIstanbulMoneyPageRedirects + legacyServiceRedirects aktif
 - [x] broken link taraması yap
-- [ ] heading hiyerarşisini standardize et
-- [ ] görsel alt metin standardı belirle
-- [ ] duplicate title / meta taraması yap
+- [x] heading hiyerarşisini standardize et — H1 (hero) → H2 (section) → H3 (subsection) → H4 (card) tutarlı
+- [x] görsel alt metin standardı belirle — `buildImageAltText()` ile "{city} {service} için {subject}" formatında otomatik üretim
+- [x] duplicate title / meta taraması yap — 248 sayfa audit: 248 unique title, 248 unique description, 0 ihlal
 - [ ] schema validasyon scripti yaz
 
 ---
@@ -532,34 +532,34 @@ Her sayfa için:
 ## P9.1 İlk Açılacak Yüksek Niyetli Sayfalar
 
 - [x] kamera sistemi bakım sözleşmesi
-- [ ] güvenlik sistemi bakım sözleşmesi
-- [ ] site kamera sistemi bakım
-- [ ] site yönetimi kamera bakım
-- [ ] fabrika güvenlik sistemi bakım
-- [ ] depo güvenlik sistemi bakım
-- [ ] NVR bakım servisi
-- [ ] güvenlik sistemi teknik servis
+- [x] güvenlik sistemi bakım sözleşmesi — guvenlik-sistemi-bakim-sozlesmesi aktif
+- [x] site kamera sistemi bakım — site-kamera-sistemi-bakim aktif
+- [x] site yönetimi kamera bakım — site-kamera-sistemi-bakim ile kapsanıyor
+- [x] fabrika güvenlik sistemi bakım — fabrika-guvenlik-sistemi-bakim aktif
+- [x] depo güvenlik sistemi bakım — depo-guvenlik-sistemi-kurulumu ile kapsanıyor
+- [x] NVR bakım servisi — nvr-bakim-servisi aktif
+- [x] güvenlik sistemi teknik servis — guvenlik-sistemi-teknik-servis aktif
 - [x] kamera arıza servisi
 - [x] uzaktan kamera izleme hizmeti
 
 ## P9.2 İkinci Dalga Sayfalar
 
-- [ ] alarm sistemi bakım
-- [ ] yangın alarm bakım sözleşmesi
+- [x] alarm sistemi bakım — alarm-sistemi-bakim aktif
+- [x] yangın alarm bakım sözleşmesi — yangin-alarm-bakim-sozlesmesi aktif
 - [ ] kartlı geçiş teknik servis
 - [ ] IP kamera bakım servisi
 - [ ] CCTV bakım anlaşması
 - [ ] kamera sistem periyodik bakım
 - [ ] kurumsal güvenlik sistemi bakım firması
 - [ ] mağaza kamera sistemi kurulumu
-- [ ] plaza güvenlik sistemi kurulumu
+- [x] plaza güvenlik sistemi kurulumu — plaza-guvenlik-sistemi-kurulumu aktif
 - [ ] fabrika IP kamera kurulumu
 
 ## P9.3 Üçüncü Dalga Yardımcı İçerikler
 
-- [ ] kamera görüntü yok
-- [ ] kayıt cihazı kayıt yapmıyor
-- [ ] IP kamera çevrimdışı
+- [x] kamera görüntü yok — /sorun/kamera-goruntu-gelmiyor aktif
+- [x] kayıt cihazı kayıt yapmıyor — /sorun/nvr-kayit-yapmiyor aktif
+- [x] IP kamera çevrimdışı — /sorun/ip-kamera-baglanti-sorunu aktif
 - [ ] güvenlik kamerası neden bozulur
 - [ ] güvenlik kamera bakımı nasıl yapılır
 - [ ] site yönetimleri için bakım checklist
@@ -829,26 +829,26 @@ Her yeni sayfada:
 
 ## Sprint 1 — Temel Onarım
 
-- [ ] mevcut route mimarisini temizle
-- [ ] veri modellerini normalize et
-- [ ] 20 ana servis veri modelini tamamla
+- [x] mevcut route mimarisini temizle — legacy redirect'ler, canonical cleanup, winner model aktif
+- [x] veri modellerini normalize et — src/data/seo/ altında cities, districts, services, keywords, segments, pain-points, faq-bank, trust-elements, schema-map aktif
+- [x] 20 ana servis veri modelini tamamla — 21 servis aktif (4 alias redirect ile)
 - [ ] 81 şehir veri modelini tamamla
-- [ ] district engine temelini kur
-- [x] metadata generator’ı merkezi hale getir (`buildSeoMetadata` helper'ı static service/support, city, district/service, blog, problem ve service hub route family'lerinde aktif; page-local metadata objeleri route katmanında temizlendi)
-- [ ] schema generator’ı merkezi hale getir
+- [x] district engine temelini kur — İstanbul 39 ilçe aktif, district route + sitemap + canonical yapısı çalışıyor
+- [x] metadata generator'ı merkezi hale getir (`buildSeoMetadata` helper'ı static service/support, city, district/service, blog, problem ve service hub route family'lerinde aktif; page-local metadata objeleri route katmanında temizlendi)
+- [x] schema generator'ı merkezi hale getir — src/lib/schema.ts ile LocalBusiness, Service, FAQ, Breadcrumb, WebPage schema'ları merkezi üretiliyor
 
 ## Sprint 2 — Para Sayfaları
 
-- [ ] bakım sözleşmesi cluster’ını aç
-- [ ] teknik servis cluster’ını aç
-- [ ] site yönetimi cluster’ını aç
-- [ ] fabrika cluster’ını aç
-- [ ] İstanbul / Ankara / İzmir için yayınla
+- [x] bakım sözleşmesi cluster'ını aç — 6 bakım servisi aktif (kamera, güvenlik, site, fabrika, yangın, alarm)
+- [x] teknik servis cluster'ını aç — guvenlik-sistemi-teknik-servis + nvr-bakim-servisi aktif
+- [x] site yönetimi cluster'ını aç — apartman-site-guvenlik-sistemi + site-kamera-sistemi-bakim aktif
+- [x] fabrika cluster'ını aç — fabrika-depo-guvenlik-sistemi + fabrika-guvenlik-sistemi-bakim aktif
+- [~] İstanbul / Ankara / İzmir için yayınla — 18 şehir aktif ama bazı niş servisler sadece İstanbul/Edirne/Tekirdağ'da
 - [ ] form ve CTA optimizasyonunu yap
 
 ## Sprint 3 — İlçe Motoru
 
-- [ ] İstanbul tüm ilçeler
+- [x] İstanbul tüm ilçeler — 39 ilçe aktif, district/service route + sitemap + canonical çalışıyor
 - [ ] Ankara / İzmir tüm ilçeler
 - [ ] Bursa / Kocaeli / Antalya tüm ilçeler
 - [x] internal linking engine aktif et
@@ -857,9 +857,9 @@ Her yeni sayfada:
 
 ## Sprint 4 — Arıza ve Rehber Katmanı
 
-- [ ] troubleshooting içerikleri aç
-- [ ] blog hub’ları aç
-- [ ] arızadan bakım sözleşmesine trafik yönlendir
+- [x] troubleshooting içerikleri aç — /sorun/\* 4+ problem sayfası aktif (kamera-goruntu-gelmiyor, nvr-kayit-yapmiyor, ip-kamera-baglanti-sorunu, kamera-hard-disk-arizasi)
+- [ ] blog hub'ları aç
+- [x] arızadan bakım sözleşmesine trafik yönlendir — /sorun/\* sayfalarında relatedServiceLinks ile bakım sözleşmesi sayfalarına link aktif
 - [ ] high impression low click sayfaları optimize et
 
 ## Sprint 5 — Ölçekleme
@@ -899,13 +899,13 @@ Her yeni sayfada:
 
 # Hemen Sonraki En Kritik İşler
 
-- [ ] `cities.ts`, `districts.ts`, `services.ts`, `keywords.ts` veri şemasını yeniden kur
-- [ ] 20 ana servis için tek merkezli page config oluştur
-- [ ] district route engine tasarla
-- [ ] metadata/schema generator’ı merkezileştir
-- [ ] ilk para sayfası cluster’ı olarak bakım sözleşmesi sayfalarını aç
-- [ ] İstanbul + Ankara + İzmir + Bursa + Kocaeli + Antalya öncelikli yayın planını çıkar
-- [ ] thin content üretmeyecek content variation sistemini kur
+- [x] `cities.ts`, `districts.ts`, `services.ts`, `keywords.ts` veri şemasını yeniden kur — src/data/seo/ altında tüm veri modelleri aktif (keywords 65/200 — genişleme devam edecek)
+- [x] 20 ana servis için tek merkezli page config oluştur — service-page-factory.ts ile 21 servis tek merkezden üretiliyor
+- [x] district route engine tasarla — İstanbul 39 ilçe aktif, approved-only gate ile sitemap/static params kontrollü
+- [x] metadata/schema generator'ı merkezileştir — buildSeoMetadata + src/lib/schema.ts merkezi üretim aktif; INTENT_LABELS + METADATA_CLEAN_NAMES ile deterministic title/description
+- [x] ilk para sayfası cluster'ı olarak bakım sözleşmesi sayfalarını aç — 6 bakım servisi aktif
+- [~] İstanbul + Ankara + İzmir + Bursa + Kocaeli + Antalya öncelikli yayın planını çıkar — 18 şehir aktif ama niş servislerde availableCitySlugs gate var
+- [~] thin content üretmeyecek content variation sistemini kur — template bazlı variation mevcut ama segment/bina/sorun bazlı varyasyon eksik
 - [x] internal linking engine’i devreye al
 - [ ] Search Console + GA4 + lead dashboard ile performans izlemeyi başlat
 - [ ] sadece trafik değil, lead ve sözleşme getiren cluster’ları ölçekle

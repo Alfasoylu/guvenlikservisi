@@ -170,7 +170,7 @@ function buildDefaultServiceSpecificContent(
     trustElementsByIntent[seoService?.trustElementKey ?? "installation"];
   const useCases =
     pageContent.useCases.items.length > 0
-      ? pageContent.useCases.items
+      ? pageContent.useCases.items.map((item) => item.title)
       : [
           `${city.name} içinde ${service.name.toLocaleLowerCase("tr-TR")} ihtiyacı olan projeler`,
           `${city.name} içinde mevcut sistemin iyileştirilmesi gereken alanlar`,
