@@ -181,7 +181,7 @@ export default function IletisimSayfasi() {
                 <div className="overflow-hidden rounded-2xl border border-gray-200">
                   <iframe
                     title="Güvenlik Servisi Konum"
-                    src="https://www.google.com/maps?q=Perpa%20Ticaret%20Merkezi%20A%20Blok%20Kat%208%20No%20758%20Sisli%20Istanbul&z=16&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24077.919701793635!2d28.87241187431639!3d41.03094469999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb11ec800561%3A0x6b5d0032174a861b!2sG%C3%BCvenlik%20Servisi%20Kurulum%20ve%20Bak%C4%B1m%20Hizmeti!5e0!3m2!1str!2str!4v1773871523675!5m2!1str!2str"
                     width="100%"
                     height="320"
                     loading="lazy"
