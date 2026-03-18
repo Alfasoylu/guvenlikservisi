@@ -56,7 +56,7 @@ export const dynamicParams = false;
 interface PageProps {
   params: Promise<{
     city: string;
-    service: string;
+    slug: string;
   }>;
 }
 
@@ -1977,13 +1977,16 @@ const serviceContentMap: Record<string, ServiceSpecificContent> = {
 };
 
 export function generateStaticParams() {
-  return getCityServiceStaticParams();
+  return getCityServiceStaticParams().map(({ city, service }) => ({
+    city,
+    slug: service,
+  }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { city: citySlug, service: serviceSlug } = await params;
+  const { city: citySlug, slug: serviceSlug } = await params;
 
   const city = cities.find((c) => c.slug === citySlug);
   const service = services.find((s) => s.slug === serviceSlug);
@@ -2016,7 +2019,7 @@ export async function generateMetadata({
 }
 
 export default async function ServicePage({ params }: PageProps) {
-  const { city: citySlug, service: serviceSlug } = await params;
+  const { city: citySlug, slug: serviceSlug } = await params;
 
   const city = cities.find((c) => c.slug === citySlug);
   const service = services.find((s) => s.slug === serviceSlug);

@@ -101,7 +101,7 @@ export default function RootLayout({
           </Script>
         )}
       </head>
-      <body className="bg-white text-text antialiased [font-family:Inter,ui-sans-serif,system-ui,sans-serif]">
+      <body className="bg-white text-text antialiased font-[Inter,ui-sans-serif,system-ui,sans-serif]">
         {GTM_ID && (
           <noscript>
             <iframe

@@ -92,7 +92,7 @@ export default function ProblemPageTemplate({
       </div>
 
       {/* Hero — Problem-intent */}
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-20">
         <Container>
           <div className="max-w-3xl">
             <div className="mb-4 flex flex-wrap items-center gap-3">
@@ -133,7 +133,7 @@ export default function ProblemPageTemplate({
         <section className="bg-white py-10">
           <Container>
             <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-gray-200 bg-surface shadow-sm">
-              <div className="relative aspect-[16/9] w-full">
+              <div className="relative aspect-video w-full">
                 <Image
                   src={data.image.src}
                   alt={data.image.alt}

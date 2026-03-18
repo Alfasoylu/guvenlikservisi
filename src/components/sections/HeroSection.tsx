@@ -31,7 +31,7 @@ export default function HeroSection({
   ctaLabel = "Ücretsiz Keşif ve Teklif Al",
   ctaHref = "#quote-form",
   stats = defaultStats,
-  bgClass = "bg-gradient-to-br from-primary to-[#1A3A5C]",
+  bgClass = "bg-linear-to-br from-primary to-[#1A3A5C]",
   imageSrc,
   imageAlt = "",
   imagePriority = false,
@@ -84,7 +84,7 @@ export default function HeroSection({
 
           {imageSrc ? (
             <div className="relative hidden overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl lg:block">
-              <div className="absolute inset-0 z-10 bg-gradient-to-tr from-slate-950/30 via-transparent to-slate-950/10" />
+              <div className="absolute inset-0 z-10 bg-linear-to-tr from-slate-950/30 via-transparent to-slate-950/10" />
               <Image
                 src={imageSrc}
                 alt={imageAlt}

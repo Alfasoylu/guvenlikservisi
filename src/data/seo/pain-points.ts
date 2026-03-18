@@ -207,6 +207,14 @@ export const painPointSlugsByServiceSlug: Record<string, PainPointSlug[]> = {
   "guvenlik-sistemi-teknik-servis": ["goruntu-yok", "poe-ag-kararsizligi", "erisim-kontrol-entegrasyonu"],
   "kamera-ariza-servisi": ["goruntu-yok", "kayit-yok", "kamera-offline", "nvr-hdd-arizasi"],
   "yangin-alarm-bakim-sozlesmesi": ["bakim-yapilmayan-sistem", "sla-ve-servis-surekliligi"],
+  "guvenlik-sistemi-bakim-sozlesmesi": ["bakim-yapilmayan-sistem", "kayit-yok", "sla-ve-servis-surekliligi"],
+  "site-kamera-sistemi-bakim": ["ortak-alan-guvenligi", "bakim-yapilmayan-sistem", "yonetim-onay-sureci"],
+  "fabrika-guvenlik-sistemi-bakim": ["stok-kaybi-ve-gece-takibi", "bakim-yapilmayan-sistem", "sla-ve-servis-surekliligi"],
+  "nvr-bakim-servisi": ["nvr-hdd-arizasi", "kayit-yok", "uzaktan-erisim-sorunu"],
+  "depo-guvenlik-sistemi-kurulumu": ["stok-kaybi-ve-gece-takibi", "kor-nokta-riski", "poe-ag-kararsizligi"],
+  "plaza-guvenlik-sistemi-kurulumu": ["erisim-kontrol-entegrasyonu", "sla-ve-servis-surekliligi", "yonetim-onay-sureci"],
+  "avm-guvenlik-sistemi-cozumleri": ["sla-ve-servis-surekliligi", "erisim-kontrol-entegrasyonu", "bakim-yapilmayan-sistem"],
+  "alarm-sistemi-bakim": ["bakim-yapilmayan-sistem", "uzaktan-erisim-sorunu", "sla-ve-servis-surekliligi"],
   "uzaktan-kamera-izleme": ["uzaktan-erisim-sorunu", "cok-lokasyonlu-standart", "sla-ve-servis-surekliligi"],
 };
 

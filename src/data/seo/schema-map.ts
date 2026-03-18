@@ -28,6 +28,14 @@ export const schemaTypeByServiceSlug: Record<string, SeoSchemaType> = {
   "guvenlik-sistemi-teknik-servis": "Service",
   "kamera-ariza-servisi": "Service",
   "yangin-alarm-bakim-sozlesmesi": "Service",
+  "guvenlik-sistemi-bakim-sozlesmesi": "Service",
+  "site-kamera-sistemi-bakim": "Service",
+  "fabrika-guvenlik-sistemi-bakim": "Service",
+  "nvr-bakim-servisi": "Service",
+  "depo-guvenlik-sistemi-kurulumu": "Service",
+  "plaza-guvenlik-sistemi-kurulumu": "Service",
+  "avm-guvenlik-sistemi-cozumleri": "Service",
+  "alarm-sistemi-bakim": "Service",
   "uzaktan-kamera-izleme": "Service",
 };
 

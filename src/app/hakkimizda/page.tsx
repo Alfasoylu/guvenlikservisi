@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import { getCanonicalUrlForKnownPath } from "@/lib/canonical";
 import Link from "next/link";
-import { Shield, CheckCircle, BadgeCheck, Clock3, Wrench, PhoneCall } from "lucide-react";
+import {
+  Shield,
+  CheckCircle,
+  BadgeCheck,
+  Clock3,
+  Wrench,
+  PhoneCall,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import CTASection from "@/components/sections/CTASection";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
-import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateLocalBusinessSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/schema";
 import { buildSeoMetadata } from "@/lib/seo/metadata";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/hakkimizda");
@@ -99,7 +109,7 @@ export default function HakkimizdaSayfasi() {
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] text-white py-16 md:py-20">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] text-white py-16 md:py-20">
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div>
@@ -108,27 +118,41 @@ export default function HakkimizdaSayfasi() {
                 Güvenlik sistemlerinde profesyonel yaklaşım
               </div>
 
-              <h1 className="mb-4 text-3xl sm:text-4xl font-bold leading-tight">Hakkımızda</h1>
+              <h1 className="mb-4 text-3xl sm:text-4xl font-bold leading-tight">
+                Hakkımızda
+              </h1>
 
               <p className="max-w-2xl text-lg leading-relaxed text-white/80">
-                {siteConfig.stats.experience} sektör deneyimi ve {siteConfig.stats.projects} tamamlanan
-                proje ile güvenlik kamera sistemleri, alarm sistemleri, yangın alarmı ve geçiş
-                kontrol çözümlerinde profesyonel kurulum hizmeti sunuyoruz.
+                {siteConfig.stats.experience} sektör deneyimi ve{" "}
+                {siteConfig.stats.projects} tamamlanan proje ile güvenlik kamera
+                sistemleri, alarm sistemleri, yangın alarmı ve geçiş kontrol
+                çözümlerinde profesyonel kurulum hizmeti sunuyoruz.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: siteConfig.stats.projects, label: "Tamamlanan Proje" },
-                { value: siteConfig.stats.experience, label: "Sektör Deneyimi" },
-                { value: siteConfig.stats.satisfaction, label: "Müşteri Memnuniyeti" },
-                { value: `${siteConfig.serviceCityCount} Şehir`, label: "Hizmet Bölgesi" },
+                {
+                  value: siteConfig.stats.experience,
+                  label: "Sektör Deneyimi",
+                },
+                {
+                  value: siteConfig.stats.satisfaction,
+                  label: "Müşteri Memnuniyeti",
+                },
+                {
+                  value: `${siteConfig.serviceCityCount} Şehir`,
+                  label: "Hizmet Bölgesi",
+                },
               ].map((stat, i) => (
                 <div
                   key={i}
                   className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-sm"
                 >
-                  <div className="mb-1 text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="mb-1 text-3xl font-bold text-white">
+                    {stat.value}
+                  </div>
                   <div className="text-sm text-white/75">{stat.label}</div>
                 </div>
               ))}
@@ -141,31 +165,37 @@ export default function HakkimizdaSayfasi() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="mb-5 text-2xl font-bold text-primary">Biz Nasıl Çalışıyoruz?</h2>
+              <h2 className="mb-5 text-2xl font-bold text-primary">
+                Biz Nasıl Çalışıyoruz?
+              </h2>
 
               <div className="space-y-4 text-text-light leading-8">
                 <p>
-                  Güvenlik Servisi olarak yıllardır güvenlik sistemleri alanında çalışıyoruz.
-                  Konut, işyeri, mağaza, depo, fabrika ve site projelerinde ihtiyaca göre sistem
-                  kuruyoruz.
+                  Güvenlik Servisi olarak yıllardır güvenlik sistemleri alanında
+                  çalışıyoruz. Konut, işyeri, mağaza, depo, fabrika ve site
+                  projelerinde ihtiyaca göre sistem kuruyoruz.
                 </p>
 
                 <p>
-                  Amacımız sadece cihaz satmak değil, gerçekten işe yarayan ve uzun vadede sorun
-                  çıkarmayan sistem kurmak. Bu yüzden keşif, planlama ve doğru ürün seçimi bizim
-                  için montaj kadar önemlidir.
+                  Amacımız sadece cihaz satmak değil, gerçekten işe yarayan ve
+                  uzun vadede sorun çıkarmayan sistem kurmak. Bu yüzden keşif,
+                  planlama ve doğru ürün seçimi bizim için montaj kadar
+                  önemlidir.
                 </p>
 
                 <p>
-                  Güvenlik kamerası, alarm sistemi, yangın alarm sistemi, kartlı geçiş ve bakım
-                  hizmetlerinde gereksiz ürün değil, doğru çözüm öneriyoruz. Bu yaklaşım hem
-                  maliyeti kontrol eder hem de kullanım verimini artırır.
+                  Güvenlik kamerası, alarm sistemi, yangın alarm sistemi, kartlı
+                  geçiş ve bakım hizmetlerinde gereksiz ürün değil, doğru çözüm
+                  öneriyoruz. Bu yaklaşım hem maliyeti kontrol eder hem de
+                  kullanım verimini artırır.
                 </p>
               </div>
             </div>
 
             <div className="rounded-3xl border border-gray-200 bg-surface p-6">
-              <h3 className="mb-5 text-xl font-bold text-primary">İş Yapış Disiplinimiz</h3>
+              <h3 className="mb-5 text-xl font-bold text-primary">
+                İş Yapış Disiplinimiz
+              </h3>
 
               <div className="space-y-4">
                 {surecMaddeleri.map((item) => (
@@ -175,9 +205,13 @@ export default function HakkimizdaSayfasi() {
                   >
                     <div className="mb-2 flex items-center gap-2">
                       {item.icon}
-                      <span className="font-semibold text-primary">{item.title}</span>
+                      <span className="font-semibold text-primary">
+                        {item.title}
+                      </span>
                     </div>
-                    <p className="text-sm leading-7 text-text-light">{item.desc}</p>
+                    <p className="text-sm leading-7 text-text-light">
+                      {item.desc}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -188,8 +222,8 @@ export default function HakkimizdaSayfasi() {
                   <span className="font-semibold">Hızlı teklif almak için</span>
                 </div>
                 <p className="text-sm leading-7 text-text-light">
-                  Alan tipi, şehir ve temel ihtiyacınızı iletin. Size uygun sistemi birlikte
-                  netleştirelim.
+                  Alan tipi, şehir ve temel ihtiyacınızı iletin. Size uygun
+                  sistemi birlikte netleştirelim.
                 </p>
               </div>
             </div>
@@ -205,7 +239,10 @@ export default function HakkimizdaSayfasi() {
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {guvenKartlari.map((item, i) => (
-              <div key={i} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div
+                key={i}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
                 <div className="mb-3 text-3xl">{item.icon}</div>
                 <h3 className="mb-2 font-bold text-primary">{item.title}</h3>
                 <p className="text-sm leading-7 text-text-light">{item.desc}</p>
@@ -218,10 +255,12 @@ export default function HakkimizdaSayfasi() {
       <section className="bg-white py-16">
         <Container>
           <div className="mb-8 text-center">
-            <h2 className="mb-3 text-2xl font-bold text-primary">Hizmet Verdiğimiz Şehirler</h2>
+            <h2 className="mb-3 text-2xl font-bold text-primary">
+              Hizmet Verdiğimiz Şehirler
+            </h2>
             <p className="mx-auto max-w-3xl text-sm leading-7 text-text-light">
-              Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet veriyoruz. Gerçekten
-              operasyonumuz olan bölgeleri gösteriyoruz.
+              Şu anda aktif olarak {siteConfig.serviceCityCount} şehirde hizmet
+              veriyoruz. Gerçekten operasyonumuz olan bölgeleri gösteriyoruz.
             </p>
           </div>
 

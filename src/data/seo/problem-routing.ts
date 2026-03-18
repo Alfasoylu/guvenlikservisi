@@ -45,9 +45,9 @@ function getTriageCards(data: ProblemPageData): RoutingCard[] {
   if (data.defaultService === "alarm") {
     return [
       {
-        title: "Yanlis Alarm Riski",
+        title: "Yanlış Alarm Riski",
         description:
-          "Sik tekrar eden panel veya sensor sorunlari kullaniciyi hizli teknik servis kararina iter.",
+          "Sık tekrar eden panel veya sensör sorunları kullanıcıyı hızlı teknik servis kararına iter.",
       },
       ...common.slice(1),
     ];
@@ -56,9 +56,9 @@ function getTriageCards(data: ProblemPageData): RoutingCard[] {
   if (data.defaultService === "kartli-gecis") {
     return [
       {
-        title: "Operasyon Durmasi",
+        title: "Operasyon Durması",
         description:
-          "Kapi acilmama veya turnike arizasi bina operasyonunu durdurdugu icin acil talep olusturur.",
+          "Kapı açılmama veya turnike arızası bina operasyonunu durdurduğu için acil talep oluşturur.",
       },
       ...common.slice(1),
     ];

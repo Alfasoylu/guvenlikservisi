@@ -8,8 +8,7 @@ import { siteConfig } from "@/data/site-config";
 const canonicalUrl = getCanonicalUrlForKnownPath("/teklif/alarm");
 
 export const metadata: Metadata = {
-  title:
-    "İstanbul Alarm Sistemi Kurulumu | Ajax ve Hikvision Alarm Montajı",
+  title: "İstanbul Alarm Sistemi Kurulumu | Ajax ve Hikvision Alarm Montajı",
   description:
     "İstanbul içi aynı gün alarm sistemi kurulumu. Ajax ve Hikvision marka kablolu ve kablosuz alarm sistemleri, ev, ofis, dükkan ve depo için profesyonel montaj, mobil uygulama kontrolü ve 2 yıl garanti.",
   keywords: [
@@ -204,7 +203,7 @@ export default function AlarmLandingPage() {
       />
 
       <main className="bg-white text-slate-900">
-        <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
+        <section className="relative overflow-hidden border-b border-slate-200 bg-linear-to-b from-slate-50 to-white">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:px-6 md:py-20 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="mb-5 flex flex-wrap gap-3">
@@ -393,8 +392,8 @@ export default function AlarmLandingPage() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
                 Alarm kurulu mu, kapalı mı, hangi bölgede hareket algılandı,
-                hangi kapı açıldı; bunları uygulama üzerinden görebilirsiniz.
-                Bu özellik ev kullanıcılarında konfor, işyeri sahiplerinde ise
+                hangi kapı açıldı; bunları uygulama üzerinden görebilirsiniz. Bu
+                özellik ev kullanıcılarında konfor, işyeri sahiplerinde ise
                 operasyonel kontrol sağlar.
               </p>
 

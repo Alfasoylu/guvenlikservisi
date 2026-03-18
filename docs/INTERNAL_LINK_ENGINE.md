@@ -1,55 +1,55 @@
 # INTERNAL LINK ENGINE
 
-## Kisa ozet
+## Kısa özet
 
-Bu degisiklikle programmatic SEO agi icin city hub ve city/service sayfalari arasina yeni bir internal linking katmani eklendi.
+Bu değişiklikle programmatic SEO ağı için city hub ve city/service sayfaları arasına yeni bir internal linking katmanı eklendi.
 
 Ana hedefler:
 
-- `/<city>` sayfalarindan `/<city>/<service>` sayfalarina daha guclu ve intent odakli link vermek
-- `/<city>/<service>` sayfalarindan ayni sehirdeki diger hizmet sayfalarina linklemek
-- `/<city>/<service>` sayfalarindan ayni hizmetin diger sehir varyasyonlarina yatay link vermek
-- city/service aginin crawl kesfini ve otorite dagilimini guclendirmek
+- `/<city>` sayfalarından `/<city>/<service>` sayfalarına daha güçlü ve intent odaklı link vermek
+- `/<city>/<service>` sayfalarından aynı şehirdeki diğer hizmet sayfalarına linklemek
+- `/<city>/<service>` sayfalarından aynı hizmetin diğer şehir varyasyonlarına yatay link vermek
+- city/service ağının crawl keşfini ve otorite dağılımını güçlendirmek
 
 ## Hangi sayfalara ne eklendi?
 
 ### `src/app/[city]/page.tsx`
 
-Eklenen/gelistirilen mantik:
+Eklenen/geliştirilen mantık:
 
-- mevcut service grid daha acik intent tasiyan bir blok haline getirildi
-- her kart gercek `/<city>/<service>` route'una baglaniyor
-- anchor text yapisi:
+- mevcut service grid daha açık intent taşıyan bir blok haline getirildi
+- her kart gerçek `/<city>/<service>` route'una bağlanıyor
+- anchor text yapısı:
   - `{city.name} {service.name}`
-- kart aciklamalari da sehir + hizmet kombinasyonunu tekrarliyor
+- kart açıklamaları da şehir + hizmet kombinasyonunu tekrarlıyor
 
-Sonuc:
+Sonuç:
 
-- city hub sayfasi artik tum city/service alt sayfalarina daha belirgin ve daha zengin icerikli ic link veriyor
+- city hub sayfası artık tüm city/service alt sayfalarına daha belirgin ve daha zengin içerikli iç link veriyor
 
 ### `src/app/[city]/[service]/page.tsx`
 
 Eklenen yeni bloklar:
 
-1. Sehir hub geri link bloku
-   - ornek anchor: `{city.name} guvenlik sistemleri sayfasina don`
+1. Şehir hub geri link bloğu
+   - örnek anchor: `{city.name} güvenlik sistemleri sayfasına dön`
    - hedef: `/<city>`
 
-2. Ayni sehirde ilgili diger hizmetler
-   - mevcut sehirdeki diger tum servis sayfalarina link veriyor
-   - anchor yapisi:
+2. Aynı şehirde ilgili diğer hizmetler
+   - mevcut şehirdeki diğer tüm servis sayfalarına link veriyor
+   - anchor yapısı:
      - `{city.name} {otherService.name}`
 
-3. Ayni hizmetin diger sehir sayfalari
-   - mevcut sehir haric diger sehirlerden en fazla 12 link gosteriyor
-   - anchor yapisi:
+3. Aynı hizmetin diğer şehir sayfaları
+   - mevcut şehir hariç diğer şehirlerden en fazla 12 link gösteriyor
+   - anchor yapısı:
      - `{otherCity.name} {service.name}`
 
-Sonuc:
+Sonuç:
 
-- her city/service sayfasi hem dikey olarak city hub'a, hem yatay olarak ayni hizmetin diger sehirlerine, hem de ayni sehirdeki diger hizmetlere baglanmis oldu
+- her city/service sayfası hem dikey olarak city hub'a, hem yatay olarak aynı hizmetin diğer şehirlerine, hem de aynı şehirdeki diğer hizmetlere bağlanmış oldu
 
-## Internal link mantigi
+## Internal link mantığı
 
 ### Link tipi 1: City hub -> city/service
 
@@ -57,63 +57,63 @@ Kaynak:
 
 - `src/data/services.ts`
 
-Uretim:
+Üretim:
 
-- mevcut sehir slug'i ile tum service slug'lari birlestiriliyor
-- her link `/${city.slug}/${service.slug}` formatinda uretiliyor
+- mevcut şehir slug'ı ile tüm service slug'ları birleştiriliyor
+- her link `/${city.slug}/${service.slug}` formatında üretiliyor
 
-Amac:
+Amaç:
 
-- sehir sayfasini merkezi hub haline getirmek
-- botun city seviyesinden tum servis alt sayfalarina kolay inmesini saglamak
+- şehir sayfasını merkezi hub haline getirmek
+- botun city seviyesinden tüm servis alt sayfalarına kolay inmesini sağlamak
 
-### Link tipi 2: City/service -> city hub geri baglantisi
+### Link tipi 2: City/service -> city hub geri bağlantısı
 
 Kaynak:
 
 - aktif route parametresi `city.slug`
 
-Uretim:
+Üretim:
 
 - tek net geri link: `/${city.slug}`
 
-Amac:
+Amaç:
 
-- city/service sayfalarini yalniz birer leaf page olmaktan cikarmak
-- botun ve kullanicinin sehir hub'a donmesini kolaylastirmak
+- city/service sayfalarını yalnız birer leaf page olmaktan çıkarmak
+- botun ve kullanıcının şehir hub'a dönmesini kolaylaştırmak
 
-### Link tipi 3: City/service -> ayni sehirde diger servisler
+### Link tipi 3: City/service -> aynı şehirde diğer servisler
 
 Kaynak:
 
 - `src/data/services.ts`
 
-Uretim:
+Üretim:
 
-- aktif service slug'i haric tum service'ler filtreleniyor
+- aktif service slug'ı hariç tüm service'ler filtreleniyor
 - hedef format: `/${city.slug}/${otherService.slug}`
 
-Amac:
+Amaç:
 
-- ayni sehir altindaki servis cluster'ini birbirine baglamak
-- internal relevance ve topic adjacency sinyalini guclendirmek
+- aynı şehir altındaki servis cluster'ını birbirine bağlamak
+- internal relevance ve topic adjacency sinyalini güçlendirmek
 
-### Link tipi 4: City/service -> ayni hizmetin diger sehirleri
+### Link tipi 4: City/service -> aynı hizmetin diğer şehirleri
 
 Kaynak:
 
 - `src/data/cities.ts`
 
-Uretim:
+Üretim:
 
-- aktif city haric diger sehirler filtreleniyor
-- ilk 12 sehir gosteriliyor
+- aktif city hariç diğer şehirler filtreleniyor
+- ilk 12 şehir gösteriliyor
 - hedef format: `/${otherCity.slug}/${service.slug}`
 
-Amac:
+Amaç:
 
-- ayni service cluster'i icinde yatay crawl patikasi acmak
-- botun ayni hizmetin tum sehir varyasyonlarini daha hizli kesfetmesini saglamak
+- aynı service cluster'ı içinde yatay crawl patikası açmak
+- botun aynı hizmetin tüm şehir varyasyonlarını daha hızlı keşfetmesini sağlamak
 
 ## Reusable component
 
@@ -121,164 +121,164 @@ Eklenen ortak component:
 
 - `src/components/InternalLinkSection.tsx`
 
-Ne yapiyor:
+Ne yapıyor:
 
-- baslik
-- aciklama
-- kart/grid yapisi
-- gercek `Link` nesneleri
+- başlık
+- açıklama
+- kart/grid yapısı
+- gerçek `Link` nesneleri
 
-Nerede kullaniliyor:
+Nerede kullanılıyor:
 
 - `src/app/[city]/page.tsx`
 - `src/app/[city]/[service]/page.tsx`
 
-Bu abstraction amacli minimal tutuldu; gereksiz state veya ekstra prop karmasasi eklenmedi.
+Bu abstraction amaçlı minimal tutuldu; gereksiz state veya ekstra prop karmaşası eklenmedi.
 
-## Crawl faydasi
+## Crawl faydası
 
-Bu katmanin beklenen SEO etkileri:
+Bu katmanın beklenen SEO etkileri:
 
-- city hub sayfalari, alt servis sayfalarinin daha guclu kesif noktasi haline gelir
-- city/service sayfalari artik tek yonlu degil, cok yonlu ic link dugumleri olur
-- ayni service cluster'i sehirler arasinda baglandigi icin bot yeni sehir varyasyonlarini daha hizli bulur
-- ayni sehirdeki servis cluster'i birbirine baglandigi icin crawl depth azalir
-- anchor text'ler generic degil, dogrudan city + service intent tasidigi icin anlamsal sinyal guclenir
+- city hub sayfaları, alt servis sayfalarının daha güçlü keşif noktası haline gelir
+- city/service sayfaları artık tek yönlü değil, çok yönlü iç link düğümleri olur
+- aynı service cluster'ı şehirler arasında bağlandığı için bot yeni şehir varyasyonlarını daha hızlı bulur
+- aynı şehirdeki servis cluster'ı birbirine bağlandığı için crawl depth azalır
+- anchor text'ler generic değil, doğrudan city + service intent taşıdığı için anlamsal sinyal güçlenir
 
 ## Hangi link tipleri eklendi?
 
 - city hub -> city/service
 - city/service -> city hub
-- city/service -> ayni sehirde diger servisler
-- city/service -> ayni hizmetin diger sehirleri
-- blog -> ilgili hizmet sayfalari (yapisal section)
-- blog -> ilgili city/service para sayfalari (yapisal section)
-- blog -> ilgili hizmet sayfalari (inline content linkleri)
-- /sorun/\* -> ilgili hizmet sayfalari (relatedServiceLinks)
-- national service hub -> city/service para sayfalari (yapisal cityServiceLinks section)
+- city/service -> aynı şehirde diğer servisler
+- city/service -> aynı hizmetin diğer şehirleri
+- blog -> ilgili hizmet sayfaları (yapısal section)
+- blog -> ilgili city/service para sayfaları (yapısal section)
+- blog -> ilgili hizmet sayfaları (inline content linkleri)
+- /sorun/\* -> ilgili hizmet sayfaları (relatedServiceLinks)
+- national service hub -> city/service para sayfaları (yapısal cityServiceLinks section)
 
-## Blog -> Para Sayfalari Link Katmani
+## Blog -> Para Sayfaları Link Katmanı
 
-### Eklenen mantik
+### Eklenen mantık
 
-`src/app/blog/[slug]/page.tsx` dosyasina "Ilgili Hizmetlerimiz" adli yapisal bir section eklendi.
+`src/app/blog/[slug]/page.tsx` dosyasına "İlgili Hizmetlerimiz" adlı yapısal bir section eklendi.
 
 Bu section:
 
-- blog yazisinin `tags` alanini kullanarak ilgili hizmet sayfalarini belirler
-- tag-to-service mapping ile national service hub ve Istanbul city/service para sayfalarina link verir
-- maksimum 6 link gosterir, dedup edilmis
-- hicbir tag eslesmezse fallback olarak kamera, alarm ve bakim sayfalarini gosterir
-- makale CTA'si ile FAQ arasina yerlestirilmistir
+- blog yazısının `tags` alanını kullanarak ilgili hizmet sayfalarını belirler
+- tag-to-service mapping ile national service hub ve Istanbul city/service para sayfalarına link verir
+- maksimum 6 link gösterir, dedup edilmiş
+- hiçbir tag eşleşmezse fallback olarak kamera, alarm ve bakım sayfalarını gösterir
+- makale CTA'sı ile FAQ arasına yerleştirilmiştir
 
-### Link tipi: Blog -> national service hubs + city/service para sayfalari
+### Link tipi: Blog -> national service hubs + city/service para sayfaları
 
 Kaynak:
 
-- blog post `tags` alani
+- blog post `tags` alanı
 
-Uretim:
+Üretim:
 
-- tag bazli eslestirme ile hedef servis URL'leri secilir
-- ornek: `kamera` tag'i -> `/kamera-sistemi-kurulumu` + `/istanbul/kamera-sistemi-kurulumu`
+- tag bazlı eşleştirme ile hedef servis URL'leri seçilir
+- örnek: `kamera` tag'i -> `/kamera-sistemi-kurulumu` + `/istanbul/kamera-sistemi-kurulumu`
 
-Amac:
+Amaç:
 
-- bilgilendirici icerikten ticari sayfalara otorite akisi saglamak
-- blog okuyucularini donusum sayfasina yonlendirmek
-- crawl kesfini bilgilendirici -> ticari yonde guclendirmek
+- bilgilendirici içerikten ticari sayfalara otorite akışı sağlamak
+- blog okuyucularını dönüşüm sayfasına yönlendirmek
+- crawl keşfini bilgilendirici -> ticari yönde güçlendirmek
 
-## National Service Hub -> City/Service Link Katmani
+## National Service Hub -> City/Service Link Katmanı
 
-### Eklenen mantik
+### Eklenen mantık
 
-`ServicePageTemplate` kullanan 6 ulusal hub sayfasina `cityServiceLinks` alani eklendi.
+`ServicePageTemplate` kullanan 6 ulusal hub sayfasına `cityServiceLinks` alanı eklendi.
 `ServiceHubTemplate` kullanan 4 sayfada zaten `cityLinksSection` mevcuttu.
-`bakim-servis-uzaktan-izleme` custom sayfasinda zaten hardcoded city/service linkleri vardi.
+`bakim-servis-uzaktan-izleme` custom sayfasında zaten hardcoded city/service linkleri vardı.
 
-Toplam 11 ulusal hub sayfasi artik ilgili city/service para sayfalarina yapisal link veriyor.
+Toplam 11 ulusal hub sayfası artık ilgili city/service para sayfalarına yapısal link veriyor.
 
 ### Etkilenen sayfalar (ServicePageTemplate — yeni eklenen)
 
-- `/kamera-sistemi-kurulumu` -> 18 sehir icin `/{city}/kamera-sistemi-kurulumu`
-- `/alarm-sistemi-kurulumu` -> 18 sehir icin `/{city}/alarm-sistemi-kurulumu`
-- `/yangin-alarm-sistemi-kurulumu` -> 18 sehir icin `/{city}/yangin-alarm-sistemi-kurulumu`
-- `/apartman-site-guvenlik-sistemi` -> 18 sehir icin `/{city}/apartman-site-guvenlik-sistemi`
-- `/isyeri-guvenlik-sistemi` -> 18 sehir icin `/{city}/isyeri-guvenlik-sistemi`
-- `/fabrika-depo-guvenlik-sistemi` -> 18 sehir icin `/{city}/fabrika-depo-guvenlik-sistemi`
+- `/kamera-sistemi-kurulumu` -> 18 şehir için `/{city}/kamera-sistemi-kurulumu`
+- `/alarm-sistemi-kurulumu` -> 18 şehir için `/{city}/alarm-sistemi-kurulumu`
+- `/yangin-alarm-sistemi-kurulumu` -> 18 şehir için `/{city}/yangin-alarm-sistemi-kurulumu`
+- `/apartman-site-guvenlik-sistemi` -> 18 şehir için `/{city}/apartman-site-guvenlik-sistemi`
+- `/isyeri-guvenlik-sistemi` -> 18 şehir için `/{city}/isyeri-guvenlik-sistemi`
+- `/fabrika-depo-guvenlik-sistemi` -> 18 şehir için `/{city}/fabrika-depo-guvenlik-sistemi`
 
-### Render mantigi
+### Render mantığı
 
-- `cityServiceLinks` alani doluysa, generic "Hizmet Verdigimiz Sehirler" gridi yerine
-  servis-spesifik kart tabli link blogu render edilir
-- Her kart: MapPin icon + "Sehir hizmet sayfasi" badge + sehir/servis label + description + CTA
-- Grid layout: 3 sutun (md ekranlar)
+- `cityServiceLinks` alanı doluysa, generic "Hizmet Verdiğimiz Şehirler" gridi yerine
+  servis-spesifik kart tablı link bloğu render edilir
+- Her kart: MapPin icon + "Şehir hizmet sayfası" badge + şehir/servis label + description + CTA
+- Grid layout: 3 sütun (md ekranlar)
 
-### Link tipi: National hub -> city/service para sayfalari
+### Link tipi: National hub -> city/service para sayfaları
 
 Kaynak:
 
 - `cities` array'i (`@/data/cities`)
 
-Uretim:
+Üretim:
 
-- `cities.map()` ile 18 sehir x 1 servis = 18 link uretilir
+- `cities.map()` ile 18 şehir x 1 servis = 18 link üretilir
 - hedef format: `/${city.slug}/${service-slug}`
 - anchor text: `{city.name} {service.name}`
 
-Amac:
+Amaç:
 
-- ulusal hub sayfalarindan sehir bazli para sayfalarina otorite akisi saglamak
-- crawl kesfini ulusal -> yerel yonde guclendirmek
-- kullaniciyi dogru sehir sayfasina hizli yonlendirmek
+- ulusal hub sayfalarından şehir bazlı para sayfalarına otorite akışı sağlamak
+- crawl keşfini ulusal -> yerel yönde güçlendirmek
+- kullanıcıyı doğru şehir sayfasına hızlı yönlendirmek
 
-## Sonraki gelistirme firsatlari
+## Sonraki geliştirme fırsatları
 
-- sehir bazli populerlik veya ticari oncelige gore diger sehir linklerini dinamik siralamak
-- link bloklarina sayfa tipine gore farkli schema veya nav semantigi eklemek
-- ileride link secimini Search Console / analytics verisiyle agirliklandirmak
+- şehir bazlı popülerlik veya ticari önceliğe göre diğer şehir linklerini dinamik sıralamak
+- link bloklarına sayfa tipine göre farklı schema veya nav semantiği eklemek
+- ileride link seçimini Search Console / analytics verisiyle ağırlıklandırmak
 
 ---
 
-## Top Service Page -> Problem / City Hub Katmani
+## Top Service Page -> Problem / City Hub Katmanı
 
-### Eklenen mantik
+### Eklenen mantık
 
-Ulusal service page ve service hub sayfalarina iki yeni ic link katmani eklendi:
+Ulusal service page ve service hub sayfalarına iki yeni iç link katmanı eklendi:
 
-- ilgili problem-intent sayfalarina yonlendiren `problemLinks` / `problemLinksSection`
-- one cikan sehir hub sayfalarina yonlendiren `cityHubLinks` / `cityHubLinksSection`
+- ilgili problem-intent sayfalarına yönlendiren `problemLinks` / `problemLinksSection`
+- öne çıkan şehir hub sayfalarına yönlendiren `cityHubLinks` / `cityHubLinksSection`
 
-Bu katman, ozellikle en yuksek ticari deger tasiyan ulusal servis sayfalarinda
-bilgilendirici sorun niyeti ile sehir hub navigasyonunu ayni template uzerinden
-guclendirmek icin eklendi.
+Bu katman, özellikle en yüksek ticari değer taşıyan ulusal servis sayfalarında
+bilgilendirici sorun niyeti ile şehir hub navigasyonunu aynı template üzerinden
+güçlendirmek için eklendi.
 
 ### Etkilenen sayfa aileleri
 
-- `ServicePageTemplate` kullanan ulusal servis sayfalari
+- `ServicePageTemplate` kullanan ulusal servis sayfaları
   - kamera kurulumu
   - alarm kurulumu
-  - apartman/site guvenligi
-  - isyeri guvenligi
-  - fabrika/depo guvenligi
-  - yangin alarm kurulumu
-- `ServiceHubTemplate` kullanan servis hub sayfalari
-  - kamera ariza servisi
-  - kamera bakim sozlesmesi
+  - apartman/site güvenliği
+  - işyeri güvenliği
+  - fabrika/depo güvenliği
+  - yangın alarm kurulumu
+- `ServiceHubTemplate` kullanan servis hub sayfaları
+  - kamera arıza servisi
+  - kamera bakım sözleşmesi
   - uzaktan kamera izleme
-  - kartli gecis sistemi kurulumu
+  - kartlı geçiş sistemi kurulumu
 - custom money page
   - `bakim-servis-uzaktan-izleme`
 
 ### Custom page notu
 
-`bakim-servis-uzaktan-izleme` paylasilan template kullanmadigi icin ayni mantik
-sayfa icinde manuel olarak uygulandi:
+`bakim-servis-uzaktan-izleme` paylaşılan template kullanmadığı için aynı mantık
+sayfa içinde manuel olarak uygulandı:
 
-- il listesi plain text chip yerine gercek `/<city>` city hub linklerine cevrildi
-- ilgili `/sorun/*` sayfalarina ayri bir blok eklendi
+- il listesi plain text chip yerine gerçek `/<city>` city hub linklerine çevrildi
+- ilgili `/sorun/*` sayfalarına ayrı bir blok eklendi
 - mevcut ilgili hizmet ve city/service linkleri korundu
-- ek olarak one cikan city hub linkleri eklendi
+- ek olarak öne çıkan city hub linkleri eklendi
 
 ### Link tipi: Service -> Problem Page
 
@@ -286,16 +286,16 @@ Kaynak:
 
 - `src/data/internal-links.ts`
 
-Uretim:
+Üretim:
 
-- servis slug'ina gore ilgili `/sorun/*` URL'leri gruplanir
-- template tarafinda ayri bir "sorun sayfalari" blogu olarak render edilir
+- servis slug'ına göre ilgili `/sorun/*` URL'leri gruplanır
+- template tarafında ayrı bir "sorun sayfaları" bloğu olarak render edilir
 
-Amac:
+Amaç:
 
-- ticari servis sayfasindan problem-intent cluster'ina gecis vermek
-- kullanicinin "kurulum mu lazim, yoksa mevcut sistem arizali mi?" ayrimini hizlandirmak
-- servis cluster'i ile sorun cluster'i arasindaki ic link agini guclendirmek
+- ticari servis sayfasından problem-intent cluster'ına geçiş vermek
+- kullanıcının "kurulum mu lazım, yoksa mevcut sistem arızalı mı?" ayrımını hızlandırmak
+- servis cluster'ı ile sorun cluster'ı arasındaki iç link ağını güçlendirmek
 
 ### Link tipi: Service -> City Hub
 
@@ -303,16 +303,16 @@ Kaynak:
 
 - `src/data/internal-links.ts`
 
-Uretim:
+Üretim:
 
-- one cikan 5 sehir hub URL'si (`/<city>`) secilir
-- servis sayfalarinda ikincil konum navigasyonu olarak render edilir
+- öne çıkan 5 şehir hub URL'si (`/<city>`) seçilir
+- servis sayfalarında ikincil konum navigasyonu olarak render edilir
 
-Amac:
+Amaç:
 
-- ulusal servis sayfasindan sehir hub'lara dogrudan gecis vermek
-- kullanicinin sehir bazli genel hizmet cluster'ina inmesini kolaylastirmak
-- city hub -> city/service ve service -> city hub arasinda daha tutarli bir iki yonlu bag kurmak
+- ulusal servis sayfasından şehir hub'lara doğrudan geçiş vermek
+- kullanıcının şehir bazlı genel hizmet cluster'ına inmesini kolaylaştırmak
+- city hub -> city/service ve service -> city hub arasında daha tutarlı bir iki yönlü bağ kurmak
 
 ---
 
@@ -330,7 +330,7 @@ Bakım, servis ve teknik destek ailesi sayfaları arasına karşılıklı çapra
 - `/uzaktan-kamera-izleme` (ServiceHubTemplate)
 - `/kamera-sistemi-kurulumu` (ServicePageTemplate — install→maintain zinciri)
 
-### Yapılan degisiklikler
+### Yapılan değişiklikler
 
 1. **`/bakim-servis-uzaktan-izleme`**: "Bakım ve Servis Kararını Destekleyen İlgili Sayfalar" bölümü
    eklendi — 4 sibling sayfaya (arıza servisi, bakım sözleşmesi, uzaktan izleme, kamera kurulumu)
@@ -340,7 +340,7 @@ Bakım, servis ve teknik destek ailesi sayfaları arasına karşılıklı çapra
    `uzaktan-kamera-izleme`): `relatedPages` array'lerine `/kamera-sistemi-kurulumu` eklendi —
    install→maintain zinciri tamamlandı
 
-### Cross-link matrisi (guncel)
+### Cross-link matrisi (güncel)
 
 | FROM / TO                       | bakim-servis | bakim-sozlesmesi | uzaktan-izleme | ariza-servisi | kamera-kurulumu |
 | ------------------------------- | :----------: | :--------------: | :------------: | :-----------: | :-------------: |
@@ -355,12 +355,12 @@ Toplam: 16 yeni çapraz link (4 × 4 yön)
 
 ## İlçe Komşu Link Katmanı
 
-### Eklenen mantik
+### Eklenen mantık
 
 Istanbul ilçe/servis sayfalarında (`/istanbul/{district}/{service}`) zaten mevcut olan
 `nearbyDistricts` komşu link altyapısı, 4 yeni Tier-1 ilçe profili eklenerek genişletildi.
 
-### Mevcut altyapi
+### Mevcut altyapı
 
 `[city]/[district]/[service]/page.tsx` zaten iki tür iç link render ediyor:
 
@@ -380,7 +380,7 @@ Istanbul ilçe/servis sayfalarında (`/istanbul/{district}/{service}`) zaten mev
 | Başakşehir | arnavutköy, esenyurt, bağcılar, sultangazi, avcılar |
 | Pendik     | kartal, tuzla, sultanbeyli, sancaktepe, maltepe     |
 
-### Artik calisan reciprocal linkler
+### Artık çalışan reciprocal linkler
 
 - Kadıköy ↔ Ataşehir (önceden de vardı)
 - Beşiktaş ↔ Şişli (yeni)

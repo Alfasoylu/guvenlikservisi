@@ -48,7 +48,6 @@ import {
   generateLocalBusinessSchema,
   generateServiceSchema,
   generateBreadcrumbSchema,
-  generateAggregateRatingSchema,
 } from "@/lib/schema";
 
 interface RelatedPage {
@@ -257,8 +256,6 @@ export default function ServicePageTemplate({
     { name: "Ana Sayfa", url: "/" },
     { name: data.title, url: `/${data.slug}` },
   ]);
-  const ratingSchema = generateAggregateRatingSchema();
-
   const trustItems = data.heroTrustItems || defaultTrustItems;
   const advantages = data.heroAdvantages || defaultAdvantages;
   const heroBadge = data.heroBadge || "Profesyonel kurulum • Hızlı teklif";
@@ -289,11 +286,6 @@ export default function ServicePageTemplate({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
-      />
-
       <div className="border-b border-gray-100 bg-surface py-3">
         <Container>
           <nav className="flex items-center gap-2 text-sm text-text-light">
@@ -306,7 +298,7 @@ export default function ServicePageTemplate({
         </Container>
       </div>
 
-      <section className="bg-gradient-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-24">
+      <section className="bg-linear-to-br from-primary to-[#1A3A5C] py-16 text-white md:py-24">
         <Container>
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="max-w-3xl">

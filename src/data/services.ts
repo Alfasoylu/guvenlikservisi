@@ -1,5 +1,6 @@
 export {
   getBusinessModelForService,
+  getAvailableCitySlugsForService,
   getLeadPriorityForService,
   getRevenueModelForService,
   getSeoServiceBySlug,
