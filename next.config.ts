@@ -51,6 +51,25 @@ const nextConfig: NextConfig = {
       },
     ];
 
+    // eski problem sayfa slug'ları (yeniden adlandırıldı)
+    const legacyProblemPageRedirects = [
+      {
+        source: "/sorun/nvr-kayit-yapmiyor",
+        destination: "/sorun/kayit-yapilmiyor",
+        permanent: true,
+      },
+      {
+        source: "/sorun/ip-kamera-baglanti-sorunu",
+        destination: "/sorun/kamera-offline",
+        permanent: true,
+      },
+      {
+        source: "/sorun/kamera-hard-disk-arizasi",
+        destination: "/sorun/hdd-kayit-cihazi-sorunlari",
+        permanent: true,
+      },
+    ];
+
     // eski hizmet url formatı
     const legacyServiceRedirects = [
       {
@@ -99,6 +118,7 @@ const nextConfig: NextConfig = {
       ...legacyIstanbulMoneyPageRedirects,
       ...legacyCityRedirects,
       ...legacyServiceRedirects,
+      ...legacyProblemPageRedirects,
     ];
   },
 };

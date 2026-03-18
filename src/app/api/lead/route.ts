@@ -203,7 +203,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const lead = buildLeadRecord(safeRawBody, "istanbul_ip_kamera");
+    const lead = buildLeadRecord(safeRawBody, "website_form");
     const clientFingerprint = getClientFingerprint(req, lead.phone);
     const throttle = checkSubmissionThrottle({
       clientKey: clientFingerprint.clientKey,

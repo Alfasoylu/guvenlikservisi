@@ -27,6 +27,7 @@ import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 import {
   generateLocalBusinessSchema,
+  generateOrganizationSchema,
 } from "@/lib/schema";
 
 const canonicalUrl = getCanonicalUrlForKnownPath("/");
@@ -166,12 +167,17 @@ const testimonials = [
 
 export default function AnaSayfa() {
   const lbSchema = generateLocalBusinessSchema();
+  const orgSchema = generateOrganizationSchema();
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(lbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
       />
 
       <HeroSection

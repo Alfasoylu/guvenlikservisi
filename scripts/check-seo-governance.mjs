@@ -15,14 +15,19 @@ const blockedSitemapFragments = [
 const legacyLoserPaths = blockedSitemapFragments.filter((fragment) =>
   fragment.startsWith("/istanbul-"),
 );
+const problemPagesPath = path.join(workspaceRoot, "src", "data", "seo", "problem-pages.ts");
 const sourceFilesToAudit = [
-  path.join(workspaceRoot, "src", "data", "seo", "problem-pages.ts"),
+  problemPagesPath,
   path.join(workspaceRoot, "src", "data", "seo", "problem-routing.ts"),
   path.join(workspaceRoot, "src", "data", "seo", "istanbul-trust-layer.ts"),
   path.join(workspaceRoot, "src", "data", "seo", "istanbul-district-support.ts"),
   path.join(workspaceRoot, "src", "data", "seo", "istanbul-money-pages.ts"),
   path.join(workspaceRoot, "src", "lib", "routes.ts"),
   path.join(workspaceRoot, "src", "lib", "canonical.ts"),
+];
+const problemSlugRefFilesToAudit = [
+  path.join(workspaceRoot, "src", "data", "internal-links.ts"),
+  path.join(workspaceRoot, "src", "app", "blog", "[slug]", "page.tsx"),
 ];
 const allowedLegacyLoserFiles = new Set([
   path.join(workspaceRoot, "src", "lib", "routes.ts"),
@@ -96,6 +101,37 @@ for (const filePath of sourceFilesToAudit) {
   }
 }
 
+// Problem slug registry — extract active slugs from problem-pages.ts
+const problemPagesContent = readTextFile(problemPagesPath);
+const activeProblemSlugs = [...problemPagesContent.matchAll(/slug:\s*["']([^"']+)["']/g)]
+  .map((m) => m[1])
+  .filter((slug) => slug !== "string"); // exclude TypeScript type annotation
+
+// Verify sitemap /sorun/* URLs use only active slugs
+for (const url of sitemapUrls) {
+  const match = url.match(/\/sorun\/([^/?#]+)/);
+  if (match) {
+    const slug = match[1];
+    if (!activeProblemSlugs.includes(slug)) {
+      fail(`/sorun/ URL in sitemap uses unknown or retired slug: ${url}`);
+    }
+  }
+}
+
+// Verify /sorun/ href references in source files use only active slugs
+for (const filePath of problemSlugRefFilesToAudit) {
+  if (!fs.existsSync(filePath)) continue;
+  const contents = fs.readFileSync(filePath, "utf8");
+  const refs = [...contents.matchAll(/\/sorun\/([a-z0-9-]+)/g)].map((m) => m[1]);
+  for (const ref of refs) {
+    if (!activeProblemSlugs.includes(ref)) {
+      fail(
+        `stale /sorun/ slug reference in ${path.basename(filePath)}: /sorun/${ref} — add a redirect or update the reference`,
+      );
+    }
+  }
+}
+
 const requiredRobotsLines = [
   "User-Agent: *",
   "Allow: /",
@@ -113,5 +149,5 @@ for (const line of requiredRobotsLines) {
 }
 
 console.log(
-  `SEO governance check passed: ${sitemapUrls.length} sitemap URLs verified, no /teklif/* or legacy loser leaks found.`,
+  `SEO governance check passed: ${sitemapUrls.length} sitemap URLs verified, no /teklif/* or legacy loser leaks found, ${activeProblemSlugs.length} active problem slugs validated.`,
 );
