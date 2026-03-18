@@ -71,7 +71,10 @@ export interface ServicePageFactoryResult {
     title: string;
     description: string;
     localContext: string;
-    items: string[];
+    items: {
+      title: string;
+      description: string;
+    }[];
   };
   packages: {
     title: string;
@@ -198,10 +201,10 @@ const METADATA_CLEAN_NAMES: Record<string, string> = {
   "plaza-guvenlik-sistemi-kurulumu": "Plaza Güvenlik Sistemi",
   "avm-guvenlik-sistemi-cozumleri": "AVM Güvenlik Sistemi",
   // maintenance — strip bakım/sözleşmesi/bakımı
-  "bakim-servis-uzaktan-izleme": "Güvenlik Sistemi",
+  "bakim-servis-uzaktan-izleme": "Güvenlik Sistemi Servis",
   "kamera-sistemi-bakim-sozlesmesi": "Kamera Sistemi",
   "yangin-alarm-bakim-sozlesmesi": "Yangın Alarm Sistemi",
-  "guvenlik-sistemi-bakim-sozlesmesi": "Güvenlik Sistemi",
+  "guvenlik-sistemi-bakim-sozlesmesi": "Güvenlik Sistemi Sözleşmeli",
   "site-kamera-sistemi-bakim": "Site Kamera Sistemi",
   "fabrika-guvenlik-sistemi-bakim": "Fabrika Güvenlik Sistemi",
   "alarm-sistemi-bakim": "Alarm Sistemi",
@@ -246,17 +249,31 @@ function buildMetaDescription(
   service: ServiceRecord,
   metadataIntent: string | undefined,
   metadataTargets: string[],
-  segmentText: string,
-  businessMetaAngle: string,
-  districtCoverage: string | undefined,
 ): string {
   const intent = metadataIntent || service.name.toLocaleLowerCase("tr-TR");
-  const targetText = formatNaturalList(metadataTargets.slice(0, 3));
+  const ctaShort = "Ücretsiz keşif ve hızlı teklif alın.";
+  const ctaLong = "Profesyonel ekip, ücretsiz keşif ve hızlı teklif için hemen arayın.";
 
-  const description = districtCoverage
-    ? `${city.name} içinde ${targetText} için ${intent} sunuyoruz. ${segmentText}${businessMetaAngle} ${districtCoverage} Ücretsiz keşif ve hızlı teklif alın.`
-    : `${city.name} içinde ${intent} sunuyoruz. Ücretsiz keşif ve hızlı teklif alın.`;
+  // Try with 3 targets first, fall back to 2 if description exceeds 160 chars
+  for (const count of [3, 2]) {
+    const targets = metadataTargets.slice(0, count);
+    if (targets.length === 0) break;
+    const targetText = formatNaturalList(targets);
+    const base = `${city.name} içinde ${targetText} için ${intent} sunuyoruz. `;
+    // Prefer the longer CTA when it fits under 160 chars
+    const withLong = base + ctaLong;
+    if (withLong.length <= 160) {
+      assertNoDuplicateWords(withLong, `description — ${service.slug}`);
+      return withLong;
+    }
+    const withShort = base + ctaShort;
+    if (withShort.length <= 160) {
+      assertNoDuplicateWords(withShort, `description — ${service.slug}`);
+      return withShort;
+    }
+  }
 
+  const description = `${city.name} içinde ${intent} sunuyoruz. ${ctaShort}`;
   assertNoDuplicateWords(description, `description — ${service.slug}`);
   return description;
 }
@@ -461,7 +478,10 @@ export function getServicePageFactoryData(
   const benefits = serviceDetails?.benefits.map((item) => fillTemplate(item, city, service)) || [];
   const process = serviceDetails?.process.map((item) => fillTemplate(item, city, service)) || [];
   const useCases =
-    serviceUseCases?.items.map((item) => fillTemplate(item, city, service)) || [];
+    serviceUseCases?.items.map((item) => ({
+      title: fillTemplate(item.title, city, service),
+      description: fillTemplate(item.description, city, service),
+    })) || [];
   const faqItems =
     serviceFaqItems.map((item) => ({
       question: fillTemplate(item.question, city, service),
@@ -480,20 +500,15 @@ export function getServicePageFactoryData(
   const ctaImage = mapServiceImage(city, service, imageEntry.cta);
 
   const metadataTargets = serviceDetails?.metadataTargets.slice(0, 3) || [];
-  const fallbackUseCases = servicePainPoints.slice(0, 4).map((painPoint) => painPoint.painStatement);
-  const primarySegmentLabels = primarySegments
-    .slice(0, 2)
-    .map((segment) => segment.searchLabels[0] ?? segment.name.toLocaleLowerCase("tr-TR"));
-  const segmentText = primarySegmentLabels.length > 0 ? `${formatNaturalList(primarySegmentLabels)} gibi öncelikli projelerde ` : "";
-  const businessMetaAngle = businessModel?.businessGuidance.metaAngle ?? "Profesyonel keşif ve hızlı teklif akışı ile süreci netleştiriyoruz.";
+  const fallbackUseCases = servicePainPoints.slice(0, 4).map((painPoint) => ({
+    title: painPoint.painStatement,
+    description: painPoint.businessImpact,
+  }));
   const finalMetaDescription = buildMetaDescription(
     city,
     service,
     serviceDetails?.metadataIntent,
     metadataTargets,
-    segmentText,
-    businessMetaAngle,
-    cityDetails?.metadataDistrictCoverage,
   );
   const localCoverageSchemaArea =
     primaryDistricts.length > 0

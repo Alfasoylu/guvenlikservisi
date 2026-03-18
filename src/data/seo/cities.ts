@@ -6,6 +6,9 @@ export interface CityRouteRecord {
   name: string;
 }
 
+export type CityRegion = "Marmara" | "İç Anadolu" | "Ege" | "Akdeniz" | "Güneydoğu Anadolu";
+export type CityMarketType = "high-industrial" | "high-residential" | "mixed" | "tourism-heavy";
+
 export interface SeoCity extends CityRouteRecord {
   locative: string;
   shortIntro: string;
@@ -20,6 +23,10 @@ export interface SeoCity extends CityRouteRecord {
   districtCount: number;
   districtsNote?: string;
   metadataDistrictCoverage?: string;
+  plaka: number;
+  bolge: CityRegion;
+  neighborCitySlugs: string[];
+  marketType: CityMarketType;
 }
 
 const cityRouteRecords: CityRouteRecord[] = [
@@ -63,6 +70,51 @@ const cityServiceAreasBySlug: Record<string, string[]> = {
   yalova: ["Villalar", "Yazlıklar", "Apartmanlar", "Dükkanlar", "Ofisler", "Siteler"],
   edirne: ["Konutlar", "İşletmeler", "Apartmanlar", "Depolar", "Mağazalar", "Bahçeli alanlar"],
   kirklareli: ["Çiftlikler", "Depolar", "Apartmanlar", "İşyerleri", "Açık alanlar", "Mağazalar"],
+};
+
+const plakaBySlug: Record<string, number> = {
+  istanbul: 34, ankara: 6, izmir: 35, bursa: 16, kocaeli: 41,
+  antalya: 7, tekirdag: 59, sakarya: 54, balikesir: 10, adana: 1,
+  konya: 42, gaziantep: 27, kayseri: 38, eskisehir: 26, mersin: 33,
+  yalova: 77, edirne: 22, kirklareli: 39,
+};
+
+const bolgeBySlug: Record<string, CityRegion> = {
+  istanbul: "Marmara", ankara: "İç Anadolu", izmir: "Ege", bursa: "Marmara",
+  kocaeli: "Marmara", antalya: "Akdeniz", tekirdag: "Marmara", sakarya: "Marmara",
+  balikesir: "Marmara", adana: "Akdeniz", konya: "İç Anadolu", gaziantep: "Güneydoğu Anadolu",
+  kayseri: "İç Anadolu", eskisehir: "İç Anadolu", mersin: "Akdeniz", yalova: "Marmara",
+  edirne: "Marmara", kirklareli: "Marmara",
+};
+
+const neighborsBySlug: Record<string, string[]> = {
+  istanbul: ["kocaeli", "tekirdag", "yalova"],
+  ankara: ["eskisehir", "konya", "kayseri"],
+  izmir: ["balikesir"],
+  bursa: ["kocaeli", "yalova", "balikesir", "eskisehir"],
+  kocaeli: ["istanbul", "sakarya", "bursa", "yalova"],
+  antalya: ["mersin"],
+  tekirdag: ["istanbul", "edirne", "kirklareli"],
+  sakarya: ["kocaeli"],
+  balikesir: ["bursa", "izmir"],
+  adana: ["mersin", "gaziantep"],
+  konya: ["ankara", "antalya", "mersin", "kayseri", "eskisehir"],
+  gaziantep: ["adana", "kayseri"],
+  kayseri: ["ankara", "konya"],
+  eskisehir: ["ankara", "bursa"],
+  mersin: ["adana", "antalya", "konya"],
+  yalova: ["istanbul", "bursa", "kocaeli"],
+  edirne: ["tekirdag", "kirklareli"],
+  kirklareli: ["edirne", "tekirdag"],
+};
+
+const marketTypeBySlug: Record<string, CityMarketType> = {
+  istanbul: "mixed", ankara: "mixed", izmir: "mixed", bursa: "high-industrial",
+  kocaeli: "high-industrial", antalya: "tourism-heavy", tekirdag: "high-industrial",
+  sakarya: "high-industrial", balikesir: "mixed", adana: "mixed",
+  konya: "mixed", gaziantep: "high-industrial", kayseri: "high-industrial",
+  eskisehir: "high-residential", mersin: "mixed", yalova: "high-residential",
+  edirne: "high-residential", kirklareli: "high-residential",
 };
 
 const highPriorityCitySlugs = new Set([
@@ -128,6 +180,10 @@ export const seoCities: SeoCity[] = cityRouteRecords.map((city) => {
     districtCount: cityDistricts.length,
     districtsNote: citySeoContent?.districtsNote,
     metadataDistrictCoverage: citySeoContent?.metadataDistrictCoverage,
+    plaka: plakaBySlug[city.slug] ?? 0,
+    bolge: bolgeBySlug[city.slug] ?? "Marmara",
+    neighborCitySlugs: (neighborsBySlug[city.slug] ?? []).filter((s) => cityRouteRecords.some((c) => c.slug === s)),
+    marketType: marketTypeBySlug[city.slug] ?? "mixed",
   };
 });
 
