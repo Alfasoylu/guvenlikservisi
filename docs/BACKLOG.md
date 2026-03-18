@@ -320,10 +320,18 @@ Her programmatic sayfada aşağıdaki bloklar bulunmalı:
 
 ## P3.5 Yardımcı İçerik Katmanı
 
-- [x] "kamera görüntü yok" içerikleri — /sorun/kamera-goruntu-gelmiyor
-- [x] "NVR kayıt yapmıyor" içerikleri — /sorun/nvr-kayit-yapmiyor
-- [x] "IP kamera offline" içerikleri — /sorun/ip-kamera-baglanti-sorunu
-- [x] "hard disk arızası" içerikleri — /sorun/kamera-hard-disk-arizasi
+- [x] “kamera görüntü yok” içerikleri — /sorun/kamera-goruntu-gelmiyor
+- [x] “kamera offline” içerikleri — /sorun/kamera-offline (eski slug: ip-kamera-baglanti-sorunu → 301 aktif)
+- [x] “kayıt yapılmıyor” içerikleri — /sorun/kayit-yapilmiyor (eski slug: nvr-kayit-yapmiyor → 301 aktif)
+- [x] “telefondan izleme sorunu” içerikleri — /sorun/telefondan-izleme-sorunu
+- [x] “HDD ve kayıt cihazı sorunları” içerikleri — /sorun/hdd-kayit-cihazi-sorunlari (eski slug: kamera-hard-disk-arizasi → 301 aktif)
+- [x] “kartlı geçiş çalışmıyor” içerikleri — /sorun/kartli-gecis-calismiyor
+- [x] “alarm sistemi arızaları” içerikleri — /sorun/alarm-arizalari
+- [x] “kamera bulanık görüntü” içerikleri — /sorun/kamera-bulanik-gosteriyor
+- [x] “kamera gece görüşü çalışmıyor” içerikleri — /sorun/kamera-gece-gorusu-calismiyor
+- [x] “kamera hareket kaydı çalışmıyor” içerikleri — /sorun/kamera-hareket-kaydi-calismiyor
+- [x] “kart okuyucu kapı açmıyor” içerikleri — /sorun/kart-okuyucu-kapi-acmiyor
+- [x] “yangın alarm paneli uyarı veriyor” içerikleri — /sorun/yangin-alarm-paneli-uyari-veriyor
 - [ ] “kamera bakım neden gerekli” içerikleri
 - [ ] “site yönetimi güvenlik checklist” içerikleri
 - [ ] “fabrika güvenlik kamera bakım planı” içerikleri
@@ -360,7 +368,7 @@ Her sayfa için:
 - [x] Service — city/service ve national hub sayfalarda aktif
 - [x] FAQPage — city, city/service, blog, /sorun/\* sayfalarında aktif
 - [x] BreadcrumbList — tüm sayfaların schema verisinde aktif
-- [ ] Organization
+- [x] Organization — homepage'de `generateOrganizationSchema()` aktif; `@id: #organization`, logo, telephone, email, contactPoint (TR/Turkish)
 - [x] WebPage — city ve city/service sayfalarında aktif
 - [x] Product benzeri yanlış schema kullanımını engelle
 - [x] review / rating uydurma schema eklemeyi yasakla
@@ -558,8 +566,17 @@ Her sayfa için:
 ## P9.3 Üçüncü Dalga Yardımcı İçerikler
 
 - [x] kamera görüntü yok — /sorun/kamera-goruntu-gelmiyor aktif
-- [x] kayıt cihazı kayıt yapmıyor — /sorun/nvr-kayit-yapmiyor aktif
-- [x] IP kamera çevrimdışı — /sorun/ip-kamera-baglanti-sorunu aktif
+- [x] kamera offline — /sorun/kamera-offline aktif (eski: nvr-kayit-yapmiyor → 301)
+- [x] kayıt yapılmıyor — /sorun/kayit-yapilmiyor aktif (eski: ip-kamera-baglanti-sorunu → 301)
+- [x] telefondan izleme sorunu — /sorun/telefondan-izleme-sorunu aktif
+- [x] HDD ve kayıt cihazı sorunları — /sorun/hdd-kayit-cihazi-sorunlari aktif (eski: kamera-hard-disk-arizasi → 301)
+- [x] kartlı geçiş çalışmıyor — /sorun/kartli-gecis-calismiyor aktif
+- [x] alarm sistemi arızaları — /sorun/alarm-arizalari aktif
+- [x] kamera bulanık görüntü — /sorun/kamera-bulanik-gosteriyor aktif
+- [x] kamera gece görüşü çalışmıyor — /sorun/kamera-gece-gorusu-calismiyor aktif
+- [x] kamera hareket kaydı çalışmıyor — /sorun/kamera-hareket-kaydi-calismiyor aktif
+- [x] kart okuyucu kapı açmıyor — /sorun/kart-okuyucu-kapi-acmiyor aktif
+- [x] yangın alarm paneli uyarı veriyor — /sorun/yangin-alarm-paneli-uyari-veriyor aktif
 - [ ] güvenlik kamerası neden bozulur
 - [ ] güvenlik kamera bakımı nasıl yapılır
 - [ ] site yönetimleri için bakım checklist
@@ -857,7 +874,7 @@ Her yeni sayfada:
 
 ## Sprint 4 — Arıza ve Rehber Katmanı
 
-- [x] troubleshooting içerikleri aç — /sorun/\* 4+ problem sayfası aktif (kamera-goruntu-gelmiyor, nvr-kayit-yapmiyor, ip-kamera-baglanti-sorunu, kamera-hard-disk-arizasi)
+- [x] troubleshooting içerikleri aç — /sorun/\* 12 problem sayfası aktif (kamera-goruntu-gelmiyor, kamera-offline, kayit-yapilmiyor, telefondan-izleme-sorunu, hdd-kayit-cihazi-sorunlari, kartli-gecis-calismiyor, alarm-arizalari, kamera-bulanik-gosteriyor, kamera-gece-gorusu-calismiyor, kamera-hareket-kaydi-calismiyor, kart-okuyucu-kapi-acmiyor, yangin-alarm-paneli-uyari-veriyor); eski 3 slug için 301 redirect eklendi
 - [ ] blog hub'ları aç
 - [x] arızadan bakım sözleşmesine trafik yönlendir — /sorun/\* sayfalarında relatedServiceLinks ile bakım sözleşmesi sayfalarına link aktif
 - [ ] high impression low click sayfaları optimize et
@@ -930,3 +947,11 @@ Her yeni sayfada:
 
 - `tamamlandı`: 20 hedef organik para sayfası mevcut `/{city}/{service}` winner modeli içinde açıldı; yeni route family açılmadı ve `/teklif/*` ownership katmanına dokunulmadı.
 - `tamamlandı`: Yeni bakım, teknik servis ve B2B kurulum intentleri service dictionary'e veri odaklı eklendi; city availability gate ile yalnızca hedef şehirlerde winner URL, static params ve sitemap girişi üretiliyor.
+
+## Durum Notu — 2026-03-19
+
+- `tamamlandı`: P0 redirect fix — eski 3 problem slug'ı (`nvr-kayit-yapmiyor`, `ip-kamera-baglanti-sorunu`, `kamera-hard-disk-arizasi`) için `next.config.ts`'e 301 redirect eklendi; bu sayfalar aktif olarak `kayit-yapilmiyor`, `kamera-offline`, `hdd-kayit-cihazi-sorunlari` slug'larına taşınmış ama redirect kaydı yoktu.
+- `tamamlandı`: BACKLOG.md problem sayfaları bölümü güncellendi; 4 eski slug referansı yerine 12 aktif problem slug'ı `[x]` olarak işaretlendi; Sprint 4 satırı gerçek durumu yansıtacak şekilde düzeltildi.
+- `tamamlandı`: `scripts/check-seo-governance.mjs` problem slug registry denetimiyle genişletildi; artık sitemap'teki `/sorun/*` URL'leri ve `internal-links.ts` + `blog/[slug]/page.tsx` içindeki `/sorun/` referansları `problem-pages.ts` kayıt defterine karşı doğrulanıyor — eski slug kullanımı build'i fail eder.
+- `tamamlandı`: Lead attribution temizliği — `FORM_SOURCES` listesine `website_form` ve `maintenance_contract_page` eklendi; legacy kaynaklar `// Legacy` grubu altına taşındı; `normalizeFormSource`'a `maintenance_contract` rule eklendi; API route fallback `"istanbul_ip_kamera"` → `"website_form"` olarak düzeltildi.
+- `tamamlandı`: P4.3 Organization schema eklendi — `src/lib/schema.ts`'e `generateOrganizationSchema()` fonksiyonu eklendi; homepage'de `LocalBusiness` ile birlikte emit ediliyor; `@id: #organization`, logo, contactPoint (TR/Turkish) içeriyor.

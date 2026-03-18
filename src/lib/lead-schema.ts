@@ -31,7 +31,18 @@ export const LEAD_STATUSES = [
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
 
 export const FORM_SOURCES = [
+  // Generic organic sources
+  "website_form",
   "quote_form",
+  "maintenance_contract_page",
+  "landing_page",
+  "landing_quote_form",
+  "alarm_landing_page",
+  // Direct contact
+  "whatsapp",
+  "phone_call",
+  "manual",
+  // Legacy paid / Istanbul-specific sources (kept for historical records)
   "istanbul_ip_kamera",
   "istanbul_kamera_kurulum",
   "istanbul_kamera_bakim",
@@ -40,12 +51,6 @@ export const FORM_SOURCES = [
   "istanbul_yangin_alarm",
   "istanbul_kartli_gecis",
   "istanbul_lead_form",
-  "landing_page",
-  "landing_quote_form",
-  "alarm_landing_page",
-  "whatsapp",
-  "phone_call",
-  "manual",
 ] as const;
 
 export type FormSource = (typeof FORM_SOURCES)[number] | string;
@@ -327,6 +332,7 @@ function normalizeFormSource(
   if (value.includes("whatsapp")) return "whatsapp";
   if (value.includes("phone")) return "phone_call";
   if (value.includes("manual")) return "manual";
+  if (value.includes("maintenance_contract")) return "maintenance_contract_page";
   if (value.includes("alarm_landing_page")) return "alarm_landing_page";
   if (value.includes("landing_quote_form")) return "landing_quote_form";
   if (value.includes("istanbul_kamera_teknik_servis"))

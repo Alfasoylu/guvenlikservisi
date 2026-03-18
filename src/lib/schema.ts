@@ -47,7 +47,31 @@ export function generateLocalBusinessSchema() {
   };
 }
 
-// ─── 2. Service ─────────────────────────────────────────────────────────────
+// ─── 2. Organization ─────────────────────────────────────────────────────────
+export function generateOrganizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteConfig.url}#organization`,
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl(siteConfig.ogImage),
+    },
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.phone,
+      contactType: "customer service",
+      areaServed: "TR",
+      availableLanguage: "Turkish",
+    },
+  };
+}
+
+// ─── 3. Service ─────────────────────────────────────────────────────────────
 interface ServiceSchemaInput {
   name: string;
   description: string;
@@ -80,7 +104,7 @@ export function generateServiceSchema({
   };
 }
 
-// ─── 3. FAQ ─────────────────────────────────────────────────────────────────
+// ─── 4. FAQ ─────────────────────────────────────────────────────────────────
 export function generateFAQSchema(items: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -96,7 +120,7 @@ export function generateFAQSchema(items: { question: string; answer: string }[])
   };
 }
 
-// ─── 4. Breadcrumb ──────────────────────────────────────────────────────────
+// ─── 5. Breadcrumb ──────────────────────────────────────────────────────────
 export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -110,7 +134,7 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
   };
 }
 
-// ─── 5. Article (Blog) ──────────────────────────────────────────────────────
+// ─── 6. Article (Blog) ──────────────────────────────────────────────────────
 interface ArticleSchemaInput {
   title: string;
   description: string;
@@ -155,7 +179,7 @@ export function generateArticleSchema({
   };
 }
 
-// ─── 6. AggregateRating ─────────────────────────────────────────────────────
+// ─── 7. AggregateRating ─────────────────────────────────────────────────────
 // ─── Yardımcı ───────────────────────────────────────────────────────────────
 export function schemaToString(schema: object): string {
   return JSON.stringify(schema);
