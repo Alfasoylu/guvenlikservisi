@@ -1278,6 +1278,502 @@ Ev güvenlik kamera sistemi doğru planlandığında bütçe dostu ve son derece
 
 [İstanbul kamera sistemi kurulumu](/istanbul/kamera-sistemi-kurulumu) sayfası İstanbul'daki konut projeleri için detaylı bilgi sunar.`,
   },
+
+  // ─── TİCARİ INTENT BLOG YAZILARI ─────────────────────────────────────────
+
+  {
+    slug: "fabrika-guvenlik-sistemi-bakim-plani",
+    title: "Fabrika Güvenlik Sistemi Bakım Planı: Endüstriyel Tesisler İçin Kapsamlı Rehber",
+    excerpt:
+      "Fabrikanızdaki güvenlik kamera sistemi, alarm ve erişim kontrolünü ne sıklıkta bakıma almanız gerekiyor? Endüstriyel tesislere özel periyodik bakım planı ve checklist rehberi.",
+    publishedAt: "2026-03-12",
+    updatedAt: "2026-03-19",
+    readTime: 10,
+    category: "Teknik Rehber",
+    tags: ["fabrika", "bakım sözleşmesi", "güvenlik sistemi", "endüstriyel", "kamera bakım"],
+    image: "/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg",
+    featured: true,
+    content: `## Fabrika Güvenlik Sistemi Bakım Planı
+
+Bir fabrikada güvenlik sistemi kurmak, sürecin yalnızca ilk adımıdır. Asıl güvenliği sağlayan şey; sistemi aktif, güncel ve doğru çalışır hâlde tutan periyodik bakım planıdır. Endüstriyel ortamlarda toz, nem, titreşim ve elektrik dalgalanmaları güvenlik ekipmanlarını diğer mekânlara kıyasla çok daha hızlı aşındırır.
+
+Bu rehberde fabrika ortamına özel bakım planını, kontrol sıklıklarını ve dikkat edilmesi gereken kritik noktaları ele alıyoruz.
+
+![Fabrika güvenlik kamera sistemi periyodik bakım servisi](/images/services/bakim-servis/fabrika-guvenlik-kamera-bakim-servisi.jpg "Fabrika ortamında kamera sistemi periyodik bakım")
+
+## Fabrikada Güvenlik Sistemleri Neden Daha Hızlı Bozulur?
+
+Fabrika ortamı güvenlik ekipmanları için özellikle zorlu bir çevredir:
+
+- **Toz ve partikül** — Tekstil, kimya ve metal fabrikalarında hava sürekli toz barındırır. Kamera lensleri kirlenir, fanlar tıkanır, konektörler korozyona uğrar.
+- **Nem ve ısı değişimi** — Gece-gündüz sıcaklık farkı kablo yalıtımını zorlar, kamera muhafazalarına nem sızmasına neden olur.
+- **Titreşim** — Ağır makine titreşimi kamera montaj vidalarını gevşetir, kablo bağlantılarını zayıflatır.
+- **Elektrik dalgalanmaları** — Endüstriyel makineler şebekeye ani yük bindirerek kayıt cihazlarına zarar verir.
+
+Bu koşullar altında standart bakım dönemleri yetmez. Fabrika güvenlik sistemleri için daha sık ve daha kapsamlı bakım programı şarttır.
+
+## Kamera Sistemi Bakım Planı
+
+### Aylık Kontroller
+
+- Kamera görüntüsü canlı takibi — her kameradan net görüntü geliyor mu?
+- Lens temizliği — toz birikimi var mı?
+- Kayıt cihazı (NVR) disk doluluk oranı kontrolü
+- Uzaktan erişim testi — mobil ve masaüstü bağlantısı çalışıyor mu?
+
+### 3 Ayda Bir Kontroller
+
+- Kamera açıları ve montaj vidaları — titreşim kaynaklı kaymalar
+- IP67/IP66 muhafaza contaları — nem sızıntısı belirtisi
+- PoE switch port kontrolleri — güç besleme kararlılığı
+- Hareket algılama ve bölge ayarları doğrulaması
+
+### Yıllık Kapsamlı Bakım
+
+- Tüm kablo bağlantıları ve güzergah kontrolü
+- NVR soğutma fanı ve filtre temizliği
+- Sabit disk sağlık raporu (SMART testi)
+- Firmware ve yazılım güncellemeleri
+- Dış ortam kameralarında muhafaza ve contaların yenilenmesi
+
+![Fabrika ve depo güvenlik kamera sistemi yerleşim planı](/images/diagrams/fabrika-depo-guvenlik-kamera-sistemi-yerlesim-plani.webp "Fabrika güvenlik kamera sistemi optimal yerleşim planı diyagramı")
+
+## NVR Kayıt Cihazı Bakımı — En Kritik Adım
+
+Fabrika güvenlik sisteminin beyni NVR'dir. Kameralar mükemmel çalışsa bile NVR bozulursa hiçbir kayıt korunamaz.
+
+![NVR kayıt cihazı bakım ve harddisk kontrolü](/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg "NVR kayıt cihazı harddisk durumu kontrolü ve bakım")
+
+NVR bakımında yapılması gerekenler:
+
+- **Disk sağlık kontrolü** — Fabrika ortamında sabit diskler ömür standardının altında çalışır. SMART test ile disk ömrü tahmin edilmeli ve önceden değiştirilmelidir.
+- **Soğutma fanı temizliği** — Tıkanan fan NVR'nin aşırı ısınmasına, otomatik kapanmasına ve disk arızasına yol açar.
+- **Güç kaynağı kontrolü** — UPS varsa test; yoksa eklenmesi önerilir.
+- **Kayıt düzeni doğrulama** — Kayıt süresi, çözünürlük ve hareket kaydı ayarları fabrika gereksinimlerine göre güncellenir.
+
+## Alarm ve Sensör Bakım Planı
+
+Fabrikadaki alarm sistemi kameralara eşlik etmeli, özellikle dışarıdan izlenmesi zor noktalarda çevre güvenliğini tamamlamalıdır.
+
+### PIR Hareket Sensörleri
+
+- 3 ayda bir hassasiyet testi
+- Lens kirliliği kontrolü (toz birikimi hassasiyeti düşürür)
+- Montaj açısı ve yükseklik doğrulama
+
+### Kapı/Pencere Kontakları
+
+- Aylık manyetik temas testi
+- Conta erozyonu kontrolü (dış ortam kontakları)
+
+### Merkezi Panel Bakımı
+
+- Yıllık batarya değişimi (yedek güç süresi doğrulama)
+- Sinyal iletim testi (tüm sensörlerden panel'e)
+- GSM/İnternet iletişim testi
+
+## Fabrika İçin Bakım Sözleşmesi Avantajları
+
+Fabrikalar için bakım sözleşmesi ile tek seferlik çağrı arasındaki fark sadece maliyet değildir:
+
+- **Önleyici bakım** — Arızalar olmadan önce tespit edilir; üretim aksatmaz.
+- **Öncelikli müdahale** — Sözleşmeli müşterilere acil arızalarda 4 saat içi müdahale garantisi.
+- **Belgelenmiş bakım geçmişi** — Sigorta, ISO denetimi ve iş güvenliği belgesi için gereklidir.
+- **Sabit yıllık maliyet** — Beklenmedik büyük arıza maliyetlerinin önüne geçer.
+
+[Fabrika güvenlik sistemi bakım sözleşmesi](/istanbul/fabrika-guvenlik-sistemi-bakim) sayfamızdan endüstriyel tesisleriniz için bakım planı ve teklif alabilirsiniz.
+
+## Fabrika Güvenlik Kamera Sistemi Yerleşim Planı
+
+Bakım kadar önemli olan diğer konu, başlangıçta kameraların doğru yerleştirilmesidir. Yanlış yerleştirilen kameralar ne kadar sık bakım yapılırsa yapılsın kör noktaları kapatamaz.
+
+![Fabrika güvenlik sistemi kamera ve alarm sensör yerleşim diyagramı](/images/diagrams/Fabrika-guvenlik-sistemi-yerlesimi-kamera-ve-alarm-sensor-diyagrami.webp "Fabrika güvenlik sistemi kamera ve alarm sensör optimal yerleşim diyagramı")
+
+Endüstriyel tesislerde kamera yerleşim öncelikleri:
+
+- Ana fabrika girişi ve bariyer/turnike noktaları
+- Üretim hattı başı ve sonu
+- Hammadde ve mamul depolama alanları
+- Yükleme-boşaltma rampaları
+- Sunucu odası ve elektrik panosu çevresi
+- Tesis çevre duvarı ve dış alan
+
+## Kaç Ayda Bir Profesyonel Bakım?
+
+Fabrika tipi ve ortamına göre önerilen bakım sıklıkları:
+
+| Fabrika Tipi | Önerilen Bakım Sıklığı |
+|---|---|
+| Tekstil / Konfeksiyon | Her 3 ayda bir |
+| Kimya / Boya | Her 3 ayda bir |
+| Metal / Çelik | Her 6 ayda bir |
+| Gıda / İçecek | Her 3 ayda bir |
+| Lojistik Depo | Her 6 ayda bir |
+| Genel Sanayi | Her 6 ayda bir |
+
+## Sonuç
+
+Fabrika güvenlik sistemi bakımı ihmal edildiğinde sistem çalışıyor görünse de kritik anlarda işe yaramaz hâle gelebilir. Periyodik bakım; olası kamera arızaları, disk kayıpları veya sensör hatalarını üretimi aksatmadan önler.
+
+[Kamera sistemi bakım sözleşmesi](/istanbul/kamera-sistemi-bakim-sozlesmesi) ile fabrikanız için yıllık güvenlik altyapısı sigortası edinin.`,
+  },
+
+  {
+    slug: "kamera-sistemi-bakim-sozlesmesi-neden-gerekli",
+    title: "Kamera Sistemi Bakım Sözleşmesi Neden Gerekli? 7 Kritik Neden",
+    excerpt:
+      "Güvenlik kamera sisteminizi kurdunuz, peki bakımını kim yapıyor? Bakım sözleşmesi olmayan sistemler neden başarısız olur? İşte 7 somut neden ve bakım planı rehberi.",
+    publishedAt: "2026-03-14",
+    updatedAt: "2026-03-19",
+    readTime: 9,
+    category: "Bakım ve Servis",
+    tags: ["bakım sözleşmesi", "kamera bakım", "güvenlik sistemi", "periyodik bakım", "NVR"],
+    image: "/images/services/bakim-servis/kamera-sistemi-periyodik-bakim-servisi.jpg",
+    featured: true,
+    content: `## Kamera Sistemi Bakım Sözleşmesi Neden Gerekli?
+
+Güvenlik kamera sistemi kuran çoğu işletme ve site yönetimi, kurulumdan sonra sistemi kendi başına bırakır. "Görüntü geliyor, sistem çalışıyor" algısı ile aylarca, hatta yıllarca hiçbir kontrol yapılmaz. Ta ki olay anında görüntü bulunamaz, disk dolu nedeniyle kayıt yapılmamış olduğu anlaşılır ya da kameralar arızalı çıkana kadar.
+
+Bu senaryoyu yaşamamak için kamera sistemi bakım sözleşmesi kurulumla aynı anda planlanmalıdır.
+
+![Kamera sistemi periyodik bakım hizmeti — teknisyen kamera kontrolü yapıyor](/images/services/bakim-servis/kamera-sistemi-periyodik-bakim-servisi.jpg "Profesyonel kamera sistemi periyodik bakım ve kontrol")
+
+## 1. Diskler Dolunca Kayıt Durur — Kimse Fark Etmez
+
+Güvenlik kamera sistemlerinin en sık yaşanan ve en sessiz arızası budur. NVR üzerindeki sabit disk kapasitesi dolduğunda sistem üzerine yazmaya devam eder; eski kayıtları siler ve en kötü senaryoda kayıt tamamen durabilir.
+
+Bakım sözleşmesi olmayan sistemlerde disk doluluk oranı kimse tarafından takip edilmez. Sonuç: tam ihtiyaç duyulan anda görüntü yok.
+
+**Bakım planında ne yapılır?**
+
+- Aylık disk doluluk kontrolü
+- Kayıt süresi optimizasyonu (gereksiz yüksek çözünürlük düşürülür)
+- Gerektiğinde disk kapasitesi artırımı önerisi
+
+## 2. Kamera Lensleri Kirlenir, Görüntü Kalitesi Düşer
+
+Özellikle dış ortam kameralarında lens kirliliği, ağ bağlantısı üzerinden monitörden fark edilmesi zor bir problemdir. Görüntü "geliyor" ama net değil; gece görüşü beklenen kaliteyi vermiyor.
+
+Periyodik fiziksel bakımda her kameranın lensı temizlenir, yoğuşma varsa muhafaza incelenir ve nokta testi ile görüntü kalitesi doğrulanır.
+
+![Güvenlik kamera sistemi kontrol ve izleme — teknisyen ekran karşısında](/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg "Güvenlik kamera sistemi kontrol ve kayıt doğrulama")
+
+## 3. NVR'daki Yazılım Açıkları Güvenlik Riski Oluşturur
+
+IP kamera sistemleri ağa bağlıdır. Firmware güncellemesi yapılmamış NVR ve kameralar siber saldırılara açık hâle gelir. Özellikle kurumsal ağa bağlı sistemlerde bu risk hem güvenlik sisteminizi hem şirket ağınızı tehdit eder.
+
+Bakım planı kapsamında yazılım ve firmware güncellemeleri düzenli olarak yapılır, açık portlar kapatılır.
+
+## 4. Harddisk Arızaları Sessiz Gerçekleşir
+
+NVR içindeki sabit diskler 7/24 çalışır. Ortalama ömrü 3-5 yıl olan bu diskler, zamanla sağlık puanı düşer ve bir gün tamamen çöker. Çökmeden önce uyarı vermeyebilir.
+
+![NVR kayıt cihazı harddisk bakım ve sağlık testi](/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg "NVR harddisk SMART testi ve bakım kontrolü")
+
+SMART (Self-Monitoring Analysis and Reporting Technology) testi ile diskin ömrü tahmin edilebilir. Bakım planı kapsamında yılda en az bir kez SMART testi yapılır; kritik eşiğe ulaşan diskler arızalanmadan değiştirilir.
+
+## 5. Kamera Açıları Kayar, Kör Nokta Oluşur
+
+Titreşim, rüzgar veya dışarıdan müdahale ile kamera açıları zaman içinde kayar. Ekranda görüntü geliyor ama artık istenen noktayı değil, duvarı ya da tavanı gösteriyor olabilir.
+
+Yerinde bakımda her kameranın görüş alanı kontrol edilir, kayma tespit edildiğinde yeniden konumlandırılır ve sabitlenir.
+
+## 6. Alarm Entegrasyonu ve Hareket Algılama Bozulur
+
+Hareket tetiklemeli kayıt sistemi yanlış ayarlanmış veya bozulmuş hassasiyet nedeniyle gereksiz tetikleniyor ya da hiç tetiklenmiyorsa ciddi güvenlik açığı oluşur. Bakım planında hareket algılama bölgeleri ve hassasiyetler test edilir, ihtiyaca göre yeniden ayarlanır.
+
+## 7. Bakımsız Sistem Sigorta Taleplerinde Geçersiz Sayılabilir
+
+Hırsızlık, yangın veya hasar durumunda sigorta şirketi kamera sistemi kaydı talep edebilir. Bakımsız sistemde ya kayıt yoktur, ya görüntü kalitesi yetersizdir, ya da disk arızalıdır. Bu durumda sigorta tazminatı reddedilebilir.
+
+Düzenli bakım yapıldığını gösteren servis kayıtları sigorta süreçlerinde önemli bir belge işlevi görür.
+
+## Bakım Sözleşmesi Ne Kapsar?
+
+Kapsamlı bir kamera sistemi bakım sözleşmesi şunları içermelidir:
+
+- **Periyodik ziyaret** — 3 veya 6 ayda bir yerinde fiziksel kontrol
+- **Uzaktan izleme** — Sistem durumu uzaktan takibi ve anlık uyarılar
+- **Acil müdahale garantisi** — Arıza bildiriminden itibaren müdahale süresi (örneğin: 4 saat içi)
+- **Yedek parça dahil seçenekler** — Arıza için yedek parça maliyetini kapsayan paketler
+- **Raporlama** — Her bakım sonrası yazılı durum raporu
+
+[Kamera sistemi bakım sözleşmesi](/istanbul/kamera-sistemi-bakim-sozlesmesi) sayfamızdan işletmenize özel yıllık bakım planı ve fiyat teklifi alabilirsiniz.
+
+## Bakım Sözleşmesi Olmadan Yaşanan Gerçek Maliyetler
+
+Bakım sözleşmesinin yıllık maliyeti, tek bir disk değişiminin veya acil müdahalenin maliyetiyle karşılaştırıldığında çok daha ekonomiktir:
+
+| Beklenmedik Maliyet | Ortalama Tutar |
+|---|---|
+| Acil NVR arızası müdahalesi | 2.500 - 8.000 TL |
+| Harddisk değişimi (acil) | 3.000 - 6.000 TL |
+| Kamera muhafaza değişimi (hasar) | 1.500 - 4.000 TL |
+| Firmware kaynaklı veri kaybı kurtarma | Kurtarılamayabilir |
+
+Bakım sözleşmesi bu maliyetlerin büyük bölümünü önler ve tümünü öngörülebilir hale getirir.
+
+![Güvenlik sistemi bakım teknisyen ekip — periyodik ziyaret](/images/services/bakim-servis/guvenlik-sistemi-bakim-teknisyen-ekip.jpg "Güvenlik sistemi periyodik bakım teknisyen ekibi")
+
+## Sonuç
+
+Kamera sistemi bakım sözleşmesi bir lüks değil, sisteminizin sürekli güvenilir çalışmasının temelidir. Özellikle fabrika, site yönetimi, mağaza ve depo gibi güvenlik kamerasına gerçekten ihtiyaç duyulan yerlerde bakımsız sistem, sistem olmaktan farksızdır.
+
+[Bakım ve servis hizmetleri](/bakim-servis-uzaktan-izleme) sayfamızdan bakım paketi seçeneklerini inceleyin ve ücretsiz keşif randevusu alın.`,
+  },
+
+  {
+    slug: "site-yonetimi-icin-guvenlik-sistemi-rehberi",
+    title: "Site Yönetimleri İçin Güvenlik Sistemi Rehberi 2026",
+    excerpt:
+      "Apartman ve konut sitesi yöneticileri için güvenlik kamera sistemi, interkom ve bakım sözleşmesi rehberi. Hangi sistemler gerekli, nasıl planlanır, maliyetler neler?",
+    publishedAt: "2026-03-16",
+    updatedAt: "2026-03-19",
+    readTime: 11,
+    category: "Teknik Rehber",
+    tags: ["site yönetimi", "apartman", "kamera bakım", "güvenlik sistemi", "bakım sözleşmesi"],
+    image: "/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg",
+    featured: true,
+    content: `## Site Yönetimleri İçin Güvenlik Sistemi Rehberi 2026
+
+Konut sitesi ve apartman yönetimleri, güvenlik sistemini hem sakinlerin huzuru hem de ortak alan güvenliği için kurar. Ancak sistemi doğru planlamak, yalnızca birkaç kamera takmaktan çok daha kapsamlı bir süreçtir. Bu rehberde site yöneticilerinin bilmesi gereken her şeyi ele alıyoruz.
+
+![Apartman ve site kamera sistemi periyodik bakım hizmeti](/images/services/bakim-servis/site-kamera-sistemi-periyodik-bakim.jpg "Konut sitesi kamera sistemi yerinde periyodik bakım")
+
+## Site Güvenlik Sisteminin Temel Bileşenleri
+
+### 1. Giriş Noktası Kamera ve İnterkom Sistemi
+
+Site ana girişi, araç bariyeri ve yaya kapıları sitenin en kritik kontrol noktalarıdır. Bu noktalarda:
+
+- **Full HD veya 4K giriş kamerası** — plaka ve yüz tanıma kalitesinde görüntü
+- **Video interkom sistemi** — daire içinden görüntülü ziyaretçi karşılama
+- **Araç plaka tanıma (LPR)** — yetkili araçlar için otomatik bariyer açma
+- **Hareket tetiklemeli kayıt** — gece saatlerinde güç tasarrufu ile sürekli kayıt
+
+### 2. Otopark Kamera Sistemi
+
+Otopark alanları; araç hasarı, hırsızlık ve güvensiz ortam şikayetlerinin en çok yaşandığı noktalardır.
+
+- Otopark girişinde yüksek çözünürlüklü kamera (plaka okuma)
+- Otopark içi her katı kapsayan geniş açılı kameralar
+- Gece görüşü zorunlu — otopark aydınlatması genellikle yetersizdir
+
+### 3. Ortak Alan ve Asansör Kameraları
+
+Merdiven boşlukları, asansör içleri ve ortak koridorlar sakinler için sık şikayet noktasıdır. Bu alanlarda dome kameralar tercih edilir; caydırıcı etkisi yüksektir.
+
+### 4. Çevre Güvenlik Sistemi
+
+Sitenin dış çevresi; duvar, tel örgü veya çit boyunca kamera ve sensör ile donatılmalıdır. Özellikle büyük parselli sitelerde:
+
+- Uzun mesafe bullet veya PTZ kameralar
+- PIR hareket sensörlü dış çevre alarmı
+- Gece görüşlü termal veya IR kameralar
+
+## Site Güvenlik Sistemi Bakım Planı
+
+Sistem kurulduktan sonra bakım ihmal edilirse sakinler şikayetleri artırır, arıza zamanında fark edilmez ve yönetim kurulu hem sakinlerden hem sigorta şirketinden zor durumda kalır.
+
+![Site yönetimi güvenlik merkezi izleme ekranı](/images/services/bakim-servis/site-yonetimi-guvenlik-merkezi-izleme-ekrani.jpg "Site yönetimi merkezi güvenlik kamera izleme ekranı ve kontrol noktası")
+
+### Aylık Kontroller (Yönetim tarafından yapılabilir)
+
+- NVR ekranından tüm kameralara bakış — kayıt geliyor mu?
+- Disk doluluk göstergesi kontrolü
+- Bariyer ve interkom çalışırlık testi
+
+### 3 Ayda Bir (Profesyonel servis)
+
+- Tüm kamera görüntü kalitesi ve açı testi
+- Giriş kamerası lens temizliği
+- NVR fan ve bağlantı kontrolü
+- İnterkom ses/görüntü kalibrasyonu
+
+### Yıllık (Kapsamlı bakım)
+
+- Kablo güzergah kontrolü ve yenileme gereken noktaların tespiti
+- Disk sağlık raporu ve gerekirse değişim
+- Firmware güncellemeleri
+- Otopark zemine montajlı sensör ve dedektör testi
+
+## Site Güvenlik Sistemi Kaç Kamera Gerektirir?
+
+Site büyüklüğüne ve yapı tipine göre kamera sayısı değişir:
+
+| Site Türü | Minimum Kamera Sayısı |
+|---|---|
+| 20 daireli küçük site | 6 - 10 kamera |
+| 50 daireli orta site | 12 - 20 kamera |
+| 100+ daireli büyük site | 20 - 40 kamera |
+| Kapalı otoparklı site | +4 - 8 ek kamera |
+| Yüzme havuzlu site | +2 - 4 ek kamera |
+
+## Site Yönetiminin En Çok Yaptığı Hatalar
+
+### Hata 1: Sadece Giriş Kamerası Koymak
+
+Site girişine 2-3 kamera koymak ve geri kalanını boş bırakmak en yaygın hatadır. Otopark, merdiven boşlukları ve çevre güvenlik olmadan sakinler yine de güvende hissetmez.
+
+### Hata 2: Bakım Sözleşmesi Yapmamak
+
+Kurulumdan 6 ay sonra kameraların yarısı çalışmıyor, diskler dolu, görüntü kalitesi düşmüş. Bu tablo yönetim değişikliği dönemlerinde çok sık görülür.
+
+### Hata 3: Sistemi Kapora'ya Göre Seçmek
+
+En ucuz teklifi almak kısa vadede cazip görünür. Ancak düşük kaliteli kameralar 1 yılda değiştirilmek zorunda kalınabilir. Toplam sahip olma maliyeti hesaplanırken garanti süresi ve yedek parça bulunabilirliği de değerlendirilmelidir.
+
+![Apartman yöneticisi kamera montaj sonrası memnuniyeti](/images/services/bakim-servis/apartman-yonetimi-kamera-montaj-memnuniyeti.jpg "Apartman site yöneticisi güvenlik kamera sistemi kurulum sonrası")
+
+## Site Yönetimi İçin Bakım Sözleşmesi
+
+Apartman ve konut sitelerinde sakin memnuniyeti doğrudan güvenlik sisteminin güvenilirliğine bağlıdır. Bakım sözleşmesi:
+
+- **Yönetim kurulunu yasal riskten korur** — Bakım ihmalinden doğan zararlar için yasal sorumluluk doğabilir.
+- **Sigorta taleplerinde belge sağlar** — Hırsızlık veya hasar sonrası sigorta süreçlerinde bakım geçmişi belgelenmiş olur.
+- **Sakin şikayetlerini azaltır** — Düzenli bakımlı sistem daha az arıza, daha az şikayet demektir.
+- **Bütçe planlamasını kolaylaştırır** — Yıllık bakım maliyeti öngörülebilir; ani büyük masraf olmaz.
+
+[Site kamera sistemi bakım sözleşmesi](/istanbul/site-kamera-sistemi-bakim) sayfamızdan sitenize özel bakım planı teklifi alabilirsiniz.
+
+## Yasal Zorunluluklar
+
+**KVKK uyarısı:** Kamera sistemleri kişisel veri işler. Sitenizde kamera olduğunu belirten uyarı levhaları asılmalı, kamera görüntülerine erişim yetkisi sınırlandırılmalı ve kayıtlar zorunlu süre dışında silinmelidir.
+
+**Kat Mülkiyeti Kanunu:** Ortak alan güvenlik sistemi için kat malikleri kurulu kararı ve bütçe onayı gerekir. Karar alınmadan yapılan harcamalar yönetici sorumluluğu doğurabilir.
+
+## Sonuç
+
+Site yönetimi için güvenlik sistemi; doğru ekipman seçimi, kapsamlı yerleşim planı ve düzenli bakım sözleşmesiyle birlikte ele alındığında hem sakin memnuniyetini artırır hem yönetim risklerini azaltır.
+
+[Apartman ve site güvenlik sistemi](/istanbul/apartman-site-guvenlik-sistemi) sayfamızdan ücretsiz keşif ve teklif talep edebilirsiniz.`,
+  },
+
+  {
+    slug: "yangin-alarm-bakim-sozlesmesi-neden-onemli",
+    title: "Yangın Alarm Sistemi Bakım Sözleşmesi Neden Önemli? Denetim ve Yasal Yükümlülükler",
+    excerpt:
+      "Yangın alarm sistemi kurmak yeterli değil — periyodik bakım ve zorunlu yıllık test olmadan sisteminiz hem yasal uyumsuz hem de işlevsiz hale gelir. Kapsamlı rehber.",
+    publishedAt: "2026-03-18",
+    updatedAt: "2026-03-19",
+    readTime: 10,
+    category: "Yasal Rehber",
+    tags: ["yangın alarm", "bakım sözleşmesi", "yasal zorunluluk", "itfaiye denetimi", "yangın güvenliği"],
+    image: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+    featured: true,
+    content: `## Yangın Alarm Sistemi Bakım Sözleşmesi Neden Önemli?
+
+Yangın alarm sistemi kurmak, yasal yükümlülüğü yerine getirmenin yalnızca ilk adımıdır. Türkiye'deki yangın güvenliği mevzuatı yalnızca sistemi kurmayı değil, sistemi sürekli çalışır hâlde tutmayı da zorunlu kılar. Bakım sözleşmesi olmayan yangın alarm sistemleri itfaiye denetiminde başarısız olur, sigorta taleplerinde geçersiz sayılabilir ve gerçek yangın anında istenildiği gibi çalışmayabilir.
+
+![Yangın alarm paneli kontrol sistemi — periyodik bakım ve test](/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg "Yangın alarm kontrol paneli periyodik test ve bakım")
+
+## Yasal Zorunluluk: Binaların Yangından Korunması Hakkında Yönetmelik
+
+Türkiye'de yangın alarm sistemleri "Binaların Yangından Korunması Hakkında Yönetmelik" (BYKHY) kapsamında düzenlenmektedir. Bu yönetmeliğe göre:
+
+- Yangın alarm sistemi bulunan yapılarda **yıllık periyodik bakım** zorunludur.
+- Bakım ve testler **yetkili servis** tarafından yapılmalı ve belgelenmelidir.
+- Denetim sırasında bakım kayıtları ibraz edilemezse idari yaptırım uygulanır.
+- Yangın çıkması durumunda bakım ihmali **kusur payı** olarak değerlendirilebilir.
+
+Bu yükümlülükler; oteller, fabrikalar, siteler, AVM'ler, hastaneler, okullar ve kamuya açık 50 kişiyi aşan tüm binalar için geçerlidir.
+
+## İtfaiye Denetimi: Önceden Haber Vermez
+
+İtfaiye denetimleri programsız gerçekleştirilir. Denetimde kontrol edilen başlıca konular:
+
+- Yangın alarm paneli çalışıyor mu?
+- Dedektörler aktif ve hassasiyetleri doğru mu?
+- Manuel butonlar işlevsel mi?
+- Siren ve ışıklı uyarı cihazları çalışıyor mu?
+- Bakım kayıt defteri mevcut ve güncel mi?
+- Son bakım tarihi 12 ayı aşmış mı?
+
+Herhangi birinde başarısızlık; **işletmenin mühürlenmesine**, **para cezasına** veya işletme izninin geçici olarak askıya alınmasına neden olabilir.
+
+## Yangın Alarm Sistemi Neden Bakımsız Kalınca Bozulur?
+
+### Dedektör Kirlenmesi
+
+Duman dedektörleri zamanla toz, nem ve partikül birikimi nedeniyle hassasiyetini kaybeder. Gerçek duman alarmı vermeyebilir ya da sürekli yanlış alarm üretir.
+
+![Yangın alarm dedektörü ve acil buton bakımı ve kontrolü](/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg "Yangın alarm duman dedektörü ve acil buton periyodik test")
+
+### Panel Bataryası
+
+Yangın alarm paneli elektrik kesildiğinde yedek batarya ile çalışır. Bakımsız sistemlerde batarya ömrü biter; elektrik kesildiği anda sistem devre dışı kalır. Bu en kritik anlarda en büyük güvenlik açığıdır.
+
+### Kablo Bütünlüğü
+
+Yangın alarm sistemleri genellikle "açık devre" mantığıyla çalışır — kablo koptuğunda panel hata verir. Ancak bazı arızalar sessiz kalabilir. Yıllık kablo bütünlüğü testi bu tür açıkları tespit eder.
+
+### Manuel Yangın Butonu Hasarı
+
+Yangın butonları (break glass) darbe, vandalizm veya kazayla hasar görebilir. Görsel olarak sağlam görünen bir butonun iç mekanizması çalışmıyor olabilir. Test olmadan bu bilinemez.
+
+## Periyodik Bakım Kapsamı
+
+Kapsamlı bir yangın alarm sistemi bakım sözleşmesi şunları içermelidir:
+
+**6 Ayda Bir Yapılan Kontroller:**
+
+- Tüm dedektörlerin hassasiyet testi (duman enjeksiyonu ile)
+- Manuel yangın butonları işlevsellik testi
+- Siren ve flaşör çalışma testi
+- Panel voltaj ve batarya kontrolü
+
+**Yıllık Kapsamlı Bakım:**
+
+- Panel tam tanılama testi
+- Tüm kablo yolları ve bağlantı kontrolleri
+- Yedek batarya kapasitesi ölçümü ve gerekirse değişim
+- Üretici önerisine göre eski dedektörlerin değişimi
+- Bakım tutanağı ve servis raporu düzenlenmesi
+
+![Yangın alarm sistemi kurulumu ve devreye alma](/images/services/bakim-servis/yangin-alarm-sistemi-kurulum.jpg "Profesyonel yangın alarm sistemi kurulumu ve devreye alma süreci")
+
+## Bakım Sözleşmesi Olmadan Sigorta Riski
+
+Yangın durumunda sigorta şirketi hasar tazminatı öncesinde:
+
+- Yangın alarm sisteminin kurulu olup olmadığını
+- Sisteme bakım yaptırılıp yaptırılmadığını
+- En son bakım tarihini ve kapsamını
+
+sorgular. Bakım belgesi yoksa ya da son bakım 12 ayı aşmışsa sigorta **tazminatı kısmen veya tamamen reddedebilir**.
+
+Bakım sözleşmesi bu belgeli güvenceyi sağlar; her bakımda imzalı servis raporu teslim edilir.
+
+## Fabrika, Depo ve Üretim Tesisleri İçin Özel Durum
+
+Fabrika ortamında yangın alarm sistemi ek risklerle karşı karşıyadır:
+
+- Üretim kaynaklı toz ve buhar yanlış alarmları artırır — hassasiyet ayarı kritiktir
+- Sanayi tipi ısı dedektörleri genel amaçlı duman dedektörlerine göre farklı bakım gerektiriri
+- Gaz/kimyasal depolama alanlarında özel dedektör tipleri kullanılır
+- Acil tahliye yolu aydınlatması ve yangın kapıları ayrı bakım kapsamına girer
+
+[Fabrika ve depo yangın alarm bakım sözleşmesi](/istanbul/yangin-alarm-bakim-sozlesmesi) sayfamızdan endüstriyel tesislerinize özel bakım teklifi alabilirsiniz.
+
+## Yangın Alarm Bakım Sözleşmesi Maliyeti
+
+Yıllık bakım sözleşmesi maliyeti sisteminizin büyüklüğüne göre değişir ancak şu perspektifle değerlendirin: Bir denetimde mühürleme kararı ve ceza tek başına yıllık bakım maliyetinin çok üstünde olabilir. Yangın hasarı ya da hayati kayıp ise parasal karşılığı olmayan bir sonuçtur.
+
+| Tesis Tipi | Yaklaşık Yıllık Bakım |
+|---|---|
+| Küçük işyeri (1-10 dedektör) | Bakım kapsamına göre belirlenir |
+| Orta ölçekli ofis / mağaza | Keşif sonrası teklif |
+| Fabrika / büyük depo | Özel fiyatlandırma |
+| AVM / otel | Kurumsal anlaşma |
+
+## Sonuç
+
+Yangın alarm sistemi bakım sözleşmesi, "kurallar gereği" değil, gerçekten yangın anında sisteminizin çalışması için zorunludur. Dedektör testi yapmayan, batarya değiştirmeyen ve bakım tutanağı düzenlemeyen bir sistem; yasal açıdan da, güvenlik açısından da değersizdir.
+
+[Yangın alarm sistemi bakım sözleşmesi](/istanbul/yangin-alarm-bakim-sozlesmesi) için bugün keşif randevusu alın; denetim öncesi sisteminizi güvence altına alın.
+
+[Yangın alarm sistemi kurulumu](/teklif/istanbul-yangin-alarm-sistemi-kurulumu) sayfamızdan kurulum teklifi de alabilirsiniz.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import CustomerReviewsSection from "@/components/sections/CustomerReviewsSection";
+import ProjectGallerySection from "@/components/sections/ProjectGallerySection";
+import DistrictCoverageProofSection from "@/components/sections/DistrictCoverageProofSection";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import CityHubSection from "@/components/service-page/CityHubSection";
 import ServiceCommercialHighlights from "@/components/service-page/ServiceCommercialHighlights";
@@ -26,6 +29,13 @@ import {
 } from "@/data/seo/keywords";
 import { getSeoServiceBySlug } from "@/data/seo/services";
 import { trustElementsByIntent } from "@/data/seo/trust-elements";
+import {
+  istanbulServiceReviews,
+  istanbulServiceGallery,
+  istanbulDistrictProofList,
+  istanbulTotalProjects,
+} from "@/data/seo/istanbul-social-proof";
+import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import { getCityServicePageVisuals } from "@/lib/page-images";
@@ -2317,6 +2327,23 @@ export default async function ServicePage({ params }: PageProps) {
   };
   const trustImages = serviceTrustImageMap[service.slug];
 
+  // ── Sosyal kanıt verileri (yalnızca İstanbul sayfaları için aktif) ──
+  const isIstanbul = city.slug === "istanbul";
+  const socialProofReviews = isIstanbul
+    ? (istanbulServiceReviews[service.slug] ?? [])
+    : [];
+  const socialProofGallery = isIstanbul
+    ? (istanbulServiceGallery[service.slug] ?? [])
+    : [];
+  // İlçe kanıtı için onaylanmış district-service çiftlerinden linked slug seti
+  const linkedDistrictSlugsForProof: Set<string> = isIstanbul
+    ? new Set(
+        getApprovedDistrictServiceParams()
+          .filter((p) => p.city === "istanbul" && p.service === service.slug)
+          .map((p) => p.district),
+      )
+    : new Set();
+
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraRelatedService
     ? pageContent.faq.items
@@ -2588,6 +2615,15 @@ export default async function ServicePage({ params }: PageProps) {
         </section>
       ) : null}
 
+      {/* ── Proje Galerisi (İstanbul: 12-16 gerçek proje görseli) ── */}
+      {socialProofGallery.length > 0 ? (
+        <ProjectGallerySection
+          items={socialProofGallery}
+          totalProjects={istanbulTotalProjects}
+          title={`${city.name} ${service.name} — Tamamlanan Projelerden Görseller`}
+        />
+      ) : null}
+
       <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
           <div className="mx-auto max-w-4xl text-center">
@@ -2775,6 +2811,14 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* ── Müşteri Yorumları (İstanbul: 6 doğrulanmış yorum) ── */}
+      {socialProofReviews.length > 0 ? (
+        <CustomerReviewsSection
+          reviews={socialProofReviews}
+          title={`${city.name} ${service.name} Müşterileri Ne Diyor?`}
+        />
+      ) : null}
+
       <ServiceCommercialHighlights
         title={pageContent.commercial.title}
         description={pageContent.commercial.description}
@@ -2791,6 +2835,17 @@ export default async function ServicePage({ params }: PageProps) {
         description={pageContent.stats.description}
         items={pageContent.stats.items}
       />
+
+      {/* ── İlçe Kanıtı (İstanbul: 39 ilçe, proje sayıları) ── */}
+      {isIstanbul ? (
+        <DistrictCoverageProofSection
+          districts={istanbulDistrictProofList}
+          totalProjects={istanbulTotalProjects}
+          serviceSlug={service.slug}
+          citySlug={city.slug}
+          linkedDistrictSlugs={linkedDistrictSlugsForProof}
+        />
+      ) : null}
 
       <ServicePainPoints
         title={pageContent.painPoints.title}
