@@ -629,6 +629,19 @@ export default async function BlogDetaySayfasi({ params }: PageProps) {
             </p>
           </div>
 
+          {post.image && (
+            <div className="relative mb-8 w-full overflow-hidden rounded-2xl">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={900}
+                height={506}
+                priority
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          )}
+
           <div className="mb-8 rounded-3xl border border-gray-200 bg-surface p-6">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-accent">
               <BookOpen size={14} />
