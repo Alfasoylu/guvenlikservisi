@@ -1,6 +1,7 @@
 import { cities } from "@/data/cities";
 import { siteConfig } from "@/data/site-config";
 import type { FaqItem } from "@/data/seo/faq-bank";
+import type { CustomerReview } from "@/data/seo/istanbul-social-proof";
 
 const absoluteUrl = (path: string) => {
   if (!path) return siteConfig.url;
@@ -125,6 +126,102 @@ export function buildWebPageSchema({ name, description, url }: WebPageSchemaInpu
       name: siteConfig.name,
       url: siteConfig.url,
     },
+  };
+}
+
+// ──────────────────────────────────────────────────────────────
+// AggregateRating + Review Schema (Google SERP yıldızları için)
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * "Ocak 2025" gibi Türkçe tarih ifadelerini ISO 8601'e çevirir.
+ * Gün olarak 15 kullanılır (ay ortası tahmini).
+ */
+function parseTurkishDateToISO(turkishDate: string): string {
+  const monthMap: Record<string, string> = {
+    "Ocak": "01",
+    "Şubat": "02",
+    "Mart": "03",
+    "Nisan": "04",
+    "Mayıs": "05",
+    "Haziran": "06",
+    "Temmuz": "07",
+    "Ağustos": "08",
+    "Eylül": "09",
+    "Ekim": "10",
+    "Kasım": "11",
+    "Aralık": "12",
+  };
+
+  const parts = turkishDate.trim().split(" ");
+  if (parts.length !== 2) return "2025-01-15";
+
+  const [monthTR, year] = parts;
+  const month = monthMap[monthTR] ?? "01";
+  return `${year}-${month}-15`;
+}
+
+export interface AggregateRatingSchemaInput {
+  businessName: string;
+  businessUrl: string;
+  serviceType: string;
+  areaServed: string;
+  reviews: CustomerReview[];
+}
+
+/**
+ * Schema.org LocalBusiness şeması — aggregateRating + review[] ile.
+ * Google Rich Results'da SERP yıldızı göstermek için gerekli.
+ */
+export function buildLocalBusinessWithReviewsSchema({
+  businessName,
+  businessUrl,
+  serviceType,
+  areaServed,
+  reviews,
+}: AggregateRatingSchemaInput) {
+  if (!reviews || reviews.length === 0) return null;
+
+  const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
+  const avgRating = (totalRating / reviews.length).toFixed(1);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: businessName,
+    url: absoluteUrl(businessUrl),
+    telephone: siteConfig.phone,
+    areaServed,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: siteConfig.city,
+      streetAddress: siteConfig.address,
+      addressCountry: "TR",
+    },
+    description: `${areaServed} ${serviceType} hizmetleri`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: avgRating,
+      reviewCount: String(reviews.length),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: r.name,
+      },
+      datePublished: parseTurkishDateToISO(r.date),
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.rating),
+        bestRating: "5",
+        worstRating: "1",
+      },
+      reviewBody: r.text,
+      name: `${r.district} ${r.serviceType}`,
+    })),
   };
 }
 

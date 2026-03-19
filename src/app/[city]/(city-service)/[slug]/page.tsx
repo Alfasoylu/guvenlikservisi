@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import CustomerReviewsSection from "@/components/sections/CustomerReviewsSection";
 import ProjectGallerySection from "@/components/sections/ProjectGallerySection";
 import DistrictCoverageProofSection from "@/components/sections/DistrictCoverageProofSection";
+import ServicePricingTiersSection from "@/components/sections/ServicePricingTiersSection";
+import ProjectStoriesSection from "@/components/sections/ProjectStoriesSection";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import CityHubSection from "@/components/service-page/CityHubSection";
 import ServiceCommercialHighlights from "@/components/service-page/ServiceCommercialHighlights";
@@ -36,6 +38,8 @@ import {
   istanbulTotalProjects,
 } from "@/data/seo/istanbul-social-proof";
 import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
+import { istanbulServicePricing } from "@/data/seo/istanbul-pricing";
+import { istanbulCaseStudies } from "@/data/seo/istanbul-case-studies";
 import { services } from "@/data/services";
 import { siteConfig } from "@/data/site-config";
 import { getCityServicePageVisuals } from "@/lib/page-images";
@@ -55,6 +59,7 @@ import {
   buildBreadcrumbSchema,
   buildFaqSchema,
   buildLocalBusinessSchema,
+  buildLocalBusinessWithReviewsSchema,
   buildServiceSchema,
   buildWebPageSchema,
 } from "@/lib/seo/schema";
@@ -2344,6 +2349,14 @@ export default async function ServicePage({ params }: PageProps) {
       )
     : new Set();
 
+  // ── Fiyat kademeleri & proje hikayeleri (yalnızca İstanbul) ──
+  const servicePricing = isIstanbul
+    ? (istanbulServicePricing[service.slug] ?? null)
+    : null;
+  const caseStudies = isIstanbul
+    ? (istanbulCaseStudies[service.slug] ?? [])
+    : [];
+
   const cameraTopicPattern = /\b(kamera|ip kamera|cctv|nvr|dvr|kayıt)\b/i;
   const baseFaqItems = isCameraRelatedService
     ? pageContent.faq.items
@@ -2421,6 +2434,18 @@ export default async function ServicePage({ params }: PageProps) {
     url: canonical,
   });
 
+  // AggregateRating + Review schema — yalnızca İstanbul sayfaları, yorum varsa
+  const reviewSchema =
+    isIstanbul && socialProofReviews.length > 0
+      ? buildLocalBusinessWithReviewsSchema({
+          businessName: `${city.name} ${service.name} - Güvenlik Servisi`,
+          businessUrl: canonical,
+          serviceType: service.name,
+          areaServed: pageContent.localCoverage.schemaAreaServed,
+          reviews: socialProofReviews,
+        })
+      : null;
+
   return (
     <main className={pageShellClass}>
       <script
@@ -2445,6 +2470,12 @@ export default async function ServicePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
+      {reviewSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        />
+      ) : null}
 
       {isCameraService ? (
         <ServiceHero
@@ -2819,6 +2850,11 @@ export default async function ServicePage({ params }: PageProps) {
         />
       ) : null}
 
+      {/* ── Fiyat Kademeleri (İstanbul: 3-tier kapsam karşılaştırması) ── */}
+      {servicePricing ? (
+        <ServicePricingTiersSection pricing={servicePricing} />
+      ) : null}
+
       <ServiceCommercialHighlights
         title={pageContent.commercial.title}
         description={pageContent.commercial.description}
@@ -2844,6 +2880,14 @@ export default async function ServicePage({ params }: PageProps) {
           serviceSlug={service.slug}
           citySlug={city.slug}
           linkedDistrictSlugs={linkedDistrictSlugsForProof}
+        />
+      ) : null}
+
+      {/* ── Proje Hikayeleri (İstanbul: mini vaka çalışmaları) ── */}
+      {caseStudies.length > 0 ? (
+        <ProjectStoriesSection
+          stories={caseStudies}
+          title={`${city.name} ${service.name} — Gerçek Proje Hikayeleri`}
         />
       ) : null}
 
