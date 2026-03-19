@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 8,
     category: "Fiyatlar ve Rehber",
     tags: ["kamera", "fiyat", "montaj", "güvenlik kamerası"],
-    image: "/images/blog/kamera-fiyat-2026.jpg",
+    image: "/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-2650x1470px.jpg",
     featured: true,
     content: `## Güvenlik Kamerası Montaj Ücreti 2026
 
@@ -68,6 +68,8 @@ Bir güvenlik kamerası sistemi sadece kameradan ibaret değildir. Sağlıklı �
 | Sabit Disk (2TB) | 1.500 - 3.000 TL |
 | Kablo ve Bağlantı | 500 - 3.000 TL |
 | Montaj İşçiliği | 500 - 1.500 TL / kamera |
+
+![NVR kayıt cihazı ve sabit disk bakım kontrolü](/images/services/bakim-servis/nvr-kayit-cihazi-bakim-kontrol-harddisk-testi.jpg "NVR kayıt cihazı ve sabit disk — sistemin kritik bileşenleri")
 
 ## Paket Fiyat Örnekleri
 
@@ -114,7 +116,7 @@ Doğru fiyat almak için ürünleri tek tek toplamak yerine ihtiyaç analizi yap
     readTime: 6,
     category: "Teknik Rehber",
     tags: ["kamera", "işyeri", "kamera sayısı", "rehber"],
-    image: "/images/blog/isyeri-kamera-sayisi.jpg",
+    image: "/images/diagrams/isyeri-kamera-sistemi-yerlesim-plani.webp",
     featured: true,
     content: `## İşyerine Kaç Kamera Lazım?
 
@@ -174,6 +176,8 @@ Geniş açılı kamera ile daha az kamera kullanılabilir. Ancak detay ihtiyacı
 - dış cephe
 - yükleme boşaltma alanları
 
+![İşyeri kamera sistemi yerleşim planı](/images/diagrams/isyeri-kamera-sistemi-yerlesim-plani.webp "İşyeri kamera yerleşim planı — kör nokta analizi ve kapsama alanı")
+
 ## Neden Ezbere Kamera Sayısı Vermek Yanlıştır?
 
 Her işyerinin yapısı farklıdır. Kolonlar, raf sistemleri, aynalı yüzeyler, ışık farkları ve kör noktalar teorik hesabı bozar. Bu nedenle keşif yapılmadan verilen rakam çoğu zaman eksik veya gereksiz maliyetli olur.
@@ -196,7 +200,7 @@ Amaç fazla kamera satmak değil, doğru yerlere doğru sayıda kamera koymaktı
     readTime: 7,
     category: "Fiyatlar ve Rehber",
     tags: ["alarm", "fiyat", "kurulum", "hırsız alarmı"],
-    image: "/images/blog/alarm-sistemi-fiyat-2026.jpg",
+    image: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png",
     content: `## Alarm Sistemi Fiyatları 2026
 
 Alarm sistemi fiyatı; panel, sensör sayısı, kablolu veya kablosuz tercih, siren yapısı ve haberleşme modülüne göre değişir. Hazır yapılar için kablosuz sistemler avantajlı olabilirken, yeni yapıda kablolu sistem daha verimli olabilir.
@@ -230,6 +234,8 @@ Alarm sistemi fiyatı; panel, sensör sayısı, kablolu veya kablosuz tercih, si
 | Montaj işçiliği | Daha yüksek | Daha düşük |
 | Sonradan müdahale | Zor | Kolay |
 | Hazır yapı için uygunluk | Orta | Yüksek |
+
+![İşyeri Ajax alarm kurulum servisi — kablosuz sensör montajı](/images/landing/isyeri-ajax-alarm-kurulum-servisi.png "İşyeri alarm kurulumu — kablosuz Ajax sistemi montajı")
 
 ## Örnek Paketler
 
@@ -269,7 +275,7 @@ Alarm ve kamera sistemi birlikte planlanırsa hem altyapı hem işçilik daha ve
     readTime: 9,
     category: "Yasal Rehber",
     tags: ["yangın", "yasal", "zorunluluk", "yangın alarmı"],
-    image: "/images/blog/yangin-alarm-zorunlu-mu.jpg",
+    image: "/images/yangin-alarm/yangin-alarm-sistemi-kurulumu-istanbul-hero.webp",
     content: `## Yangın Alarm Sistemi Zorunlu mu?
 
 Birçok işletme ve bina yöneticisi için kısa cevap şudur: **Evet, birçok yapı tipi için zorunludur.** Ancak zorunluluğun kapsamı binanın kullanım şekline ve büyüklüğüne göre değişebilir.
@@ -339,6 +345,7 @@ Yangın sistemleri “sonra bakarız” denecek alanlardan biri değildir. Özel
       "kamera karşılaştırma",
       "güvenlik kamerası",
     ],
+    image: "/images/landing/ip-kamera-kurulum-detay.webp",
     featured: true,
     content: `## IP Kamera mı Analog Kamera mı?
 
@@ -416,6 +423,8 @@ IP kameralar görüntüyü dijital olarak işler ve ağ (Ethernet veya Wi-Fi) ü
 | Kablo mesafesi | 300m | 100m (extender ile artırılabilir) |
 | Başlangıç maliyeti | Düşük | Orta-Yüksek |
 
+![IP kamera kurulum detayı — PoE switch ve NVR bağlantısı](/images/landing/ip-kamera-kurulum-detay.webp "IP kamera kurulumunda PoE switch ve NVR bağlantısı")
+
 ## Hangi Durumda Analog Kamera Tercih Edilmeli?
 
 - Bütçe çok sınırlı ve detaylı görüntüye gerek yoksa
@@ -482,6 +491,7 @@ Doğru seçim için alanınızın keşif edilmesi, ihtiyacınızın analiz edilm
     readTime: 10,
     category: "Teknik Rehber",
     tags: ["apartman", "kamera", "site güvenlik", "apartman kamera"],
+    image: "/images/services/bakim-servis/apartman-kamera-montaji-teknisyen-istanbul.jpg",
     featured: false,
     content: `## Apartman Kamera Sistemi Kurulumu
 
@@ -627,6 +637,7 @@ Apartman kamera sistemi kurulumu doğru planlandığında hem güvenliği artır
     readTime: 8,
     category: "Teknik Rehber",
     tags: ["kamera", "kayıt süresi", "depolama", "NVR", "sabit disk"],
+    image: "/images/services/bakim-servis/nvr-kayit-cihazi-bakim-harddisk-kontrol.jpg",
     featured: false,
     content: `## Kamera Sistemi Kaç Gün Kayıt Yapar?
 
@@ -789,6 +800,7 @@ Doğru kayıt süresi hesaplaması için alanınızın keşif edilmesi ve ihtiya
     readTime: 8,
     category: "Teknik Rehber",
     tags: ["gece görüş", "IR kamera", "starlight", "güvenlik kamerası"],
+    image: "/images/landing/ip-kamera-gece-gorus.png",
     featured: false,
     content: `## Gece Görüşlü Kamera Nasıl Çalışır?
 
@@ -937,6 +949,7 @@ Profesyonel keşif sırasında gece aydınlatma testi yapılması en sağlıklı
     readTime: 9,
     category: "Teknik Rehber",
     tags: ["kamera yerleşim", "montaj", "kamera konumu", "güvenlik kamerası"],
+    image: "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
     featured: false,
     content: `## Kamera Sistemi Nereye Takılır?
 
@@ -1108,6 +1121,7 @@ Doğru noktaya konulmuş az sayıda kamera, yanlış yerlere konulmuş çok say�
     readTime: 10,
     category: "Teknik Rehber",
     tags: ["ev güvenlik", "konut kamera", "ev kamerası", "güvenlik sistemi"],
+    image: "/images/landing/ic-ortam-goruntu-demo.webp",
     featured: false,
     content: `## Ev Güvenlik Kamera Sistemi Rehberi
 
