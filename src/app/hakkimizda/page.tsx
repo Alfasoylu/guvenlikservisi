@@ -8,6 +8,16 @@ import {
   Clock3,
   Wrench,
   PhoneCall,
+  Target,
+  Briefcase,
+  Headphones,
+  FileText,
+  Award,
+  Building2,
+  Factory,
+  Store,
+  Home,
+  ChevronDown,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import CTASection from "@/components/sections/CTASection";
@@ -30,34 +40,34 @@ export const metadata: Metadata = buildSeoMetadata({
 
 const guvenKartlari = [
   {
-    icon: "🎯",
-    title: "Uzmanlık",
-    desc: "Genel elektrik işi değil, doğrudan güvenlik sistemleri odaklı çalışıyoruz.",
+    icon: Target,
+    title: "Odak: Yalnızca Güvenlik Sistemleri",
+    desc: "Genel elektrik veya bina altyapısı değil, doğrudan güvenlik sistemleri odaklı çalışıyoruz. Uzmanlık alanı dar tutulunca kalite artar.",
   },
   {
-    icon: "🔧",
+    icon: Wrench,
     title: "Anahtar Teslim Kurulum",
-    desc: "Keşif, ürün seçimi, montaj, uygulama kurulumu ve temel kullanıcı eğitimi dahil ilerliyoruz.",
+    desc: "Keşif, ürün seçimi, montaj, uygulama kurulumu ve temel kullanıcı eğitimi tek süreçte tamamlanır. Birden fazla firma koordinasyonu yok.",
   },
   {
-    icon: "✅",
+    icon: BadgeCheck,
     title: "Doğru Ürün Seçimi",
-    desc: "Alan büyüklüğüne, risk noktasına ve izleme ihtiyacına göre uygun sistemi belirliyoruz.",
+    desc: "Alan büyüklüğüne, kör nokta riskine ve izleme ihtiyacına göre uygun sistemi belirliyoruz. Fazla ekipman önermek yerine verimli çözüm kuruyoruz.",
   },
   {
-    icon: "📞",
-    title: "Satış Sonrası Destek",
-    desc: "Kurulumdan sonra teknik destek ve bakım ihtiyaçlarında ulaşılabilir oluyoruz.",
+    icon: Headphones,
+    title: "Satış Sonrası Ulaşılabilirlik",
+    desc: "Kurulumdan sonra teknik destek ve bakım ihtiyaçlarında ulaşılabilir oluyoruz. Kurulum kapandı teslim bitti yaklaşımıyla çalışmıyoruz.",
   },
   {
-    icon: "💰",
+    icon: FileText,
     title: "Şeffaf Teklif",
-    desc: "Keşif sonrası net teklif veriyoruz. Sonradan sürpriz maliyet çıkarma mantığıyla çalışmıyoruz.",
+    desc: "Keşif sonrası net, yazılı teklif veriyoruz. Sonradan sürpriz maliyet çıkarma veya bileşen eksiltme mantığıyla çalışmıyoruz.",
   },
   {
-    icon: "🏆",
-    title: "Saha Tecrübesi",
-    desc: "Farklı alanlarda yaptığımız uygulamalar sayesinde teorik değil, pratik çözümler sunuyoruz.",
+    icon: Award,
+    title: "Saha Pratiği",
+    desc: "Farklı alan tiplerinde edindiğimiz proje deneyimi sayesinde her mekanın kendine özgü zorluğunu önceden görüp planlıyoruz.",
   },
 ];
 
@@ -238,15 +248,114 @@ export default function HakkimizdaSayfasi() {
           </h2>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {guvenKartlari.map((item, i) => (
+            {guvenKartlari.map((item) => (
               <div
-                key={i}
+                key={item.title}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
               >
-                <div className="mb-3 text-3xl">{item.icon}</div>
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/8">
+                  <item.icon size={20} className="text-primary" />
+                </div>
                 <h3 className="mb-2 font-bold text-primary">{item.title}</h3>
                 <p className="text-sm leading-7 text-text-light">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* KİMLER İÇİN ÇALIŞIYORUZ */}
+      <section className="bg-primary py-16">
+        <Container>
+          <h2 className="mb-2 text-center text-2xl font-bold text-white">
+            Kimler İçin Çalışıyoruz?
+          </h2>
+          <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-7 text-white/70">
+            Konuttan fabrikalara kadar farklı alan tiplerinde sistem kuruyoruz. Her segmentin ihtiyacı birbirinden farklıdır; buna göre planlama yapıyoruz.
+          </p>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Building2,
+                title: "Site ve Apartman Yönetimleri",
+                desc: "Ortak alan kameraları, geçiş kontrol ve periyodik bakım sözleşmesiyle yönetim yükünü azaltıyoruz.",
+                href: "/apartman-site-guvenlik-sistemi",
+              },
+              {
+                icon: Factory,
+                title: "Fabrika ve Depolar",
+                desc: "Geniş saha, çevre hattı ve 7/24 kayıt sürekliliği gerektiren tesisler için ölçeklenebilir çözümler kuruyoruz.",
+                href: "/fabrika-depo-guvenlik-sistemi",
+              },
+              {
+                icon: Store,
+                title: "İşyeri ve Mağazalar",
+                desc: "Kasa güvenliği, stok takibi ve personel giriş kontrolü için operasyonu aksatmayan sistemler kuruyoruz.",
+                href: "/isyeri-guvenlik-sistemi",
+              },
+              {
+                icon: Home,
+                title: "Konut ve Villalar",
+                desc: "Ev ve villa projelerinde giriş kamerası, alarm ve dış alan izlemeyi sade ama etkili şekilde kuruyoruz.",
+                href: "/kamera-sistemi-kurulumu",
+              },
+            ].map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group rounded-2xl border border-white/10 bg-white/8 p-6 transition hover:bg-white/15"
+              >
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
+                  <item.icon size={20} className="text-white" />
+                </div>
+                <h3 className="mb-2 font-bold text-white">{item.title}</h3>
+                <p className="text-sm leading-7 text-white/65">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SIKÇA SORULAN SORULAR */}
+      <section className="bg-surface py-16">
+        <Container>
+          <h2 className="mb-10 text-center text-2xl font-bold text-primary">
+            Hakkımızda Sık Sorulan Sorular
+          </h2>
+          <div className="mx-auto max-w-3xl space-y-4">
+            {[
+              {
+                q: "Sadece İstanbul'da mı hizmet veriyorsunuz?",
+                a: `Hayır. İstanbul merkezli olsak da Ankara, İzmir, Bursa, Kocaeli, Tekirdağ, Edirne ve diğer şehirlere de hizmet götürüyoruz. Şu anda ${siteConfig.serviceCityCount} şehirde aktif projerimiz bulunuyor. Hizmet bölgesi sürekli genişliyor.`,
+              },
+              {
+                q: "Hem kurulum hem bakım yapıyor musunuz?",
+                a: "Evet. Yalnızca kurulum yapıp ayrılmıyoruz. Kurulum sonrasında periyodik bakım sözleşmesi, teknik servis ve arıza müdahalesi de sunuyoruz. Tek firma ile keşiften bakıma kadar yürütmek müşterilerimize hem zaman hem koordinasyon kolaylığı sağlıyor.",
+              },
+              {
+                q: "Birden fazla şubem var, hepsini siz yönetebilir misiniz?",
+                a: "Evet. Zincir mağaza ve çok lokasyonlu yapılarda standart ekipman seçimi, merkezi izleme altyapısı ve ortak servis disiplini ile tüm şubeleri aynı kalite standartlarında tutuyoruz. Her şubeyi ayrı firma ile koordine etmenin getirdiği yükü ortadan kaldırıyoruz.",
+              },
+              {
+                q: "Kurulum için asgari alan büyüklüğü veya kamera sayısı var mı?",
+                a: "Hayır. 2 kameralı konut projesinden 50+ kameralı sanayi tesisine kadar farklı ölçeklerde çalışıyoruz. Önemli olan doğru planlama; kamera sayısından bağımsız olarak her projede ücretsiz keşif yapıp ihtiyaca göre teklif sunuyoruz.",
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-2xl border border-gray-200 bg-white"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-semibold text-primary">
+                  {item.q}
+                  <ChevronDown
+                    size={18}
+                    className="shrink-0 text-primary/50 transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="border-t border-gray-100 px-6 py-4 text-sm leading-7 text-text-light">
+                  {item.a}
+                </p>
+              </details>
             ))}
           </div>
         </Container>

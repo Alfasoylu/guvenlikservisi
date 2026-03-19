@@ -216,6 +216,9 @@ export const painPointSlugsByServiceSlug: Record<string, PainPointSlug[]> = {
   "avm-guvenlik-sistemi-cozumleri": ["sla-ve-servis-surekliligi", "erisim-kontrol-entegrasyonu", "bakim-yapilmayan-sistem"],
   "alarm-sistemi-bakim": ["bakim-yapilmayan-sistem", "uzaktan-erisim-sorunu", "sla-ve-servis-surekliligi"],
   "uzaktan-kamera-izleme": ["uzaktan-erisim-sorunu", "cok-lokasyonlu-standart", "sla-ve-servis-surekliligi"],
+  "kartli-gecis-teknik-servis": ["erisim-kontrol-entegrasyonu", "sla-ve-servis-surekliligi"],
+  "magaza-kamera-sistemi-kurulumu": ["kor-nokta-riski", "cok-lokasyonlu-standart"],
+  "ip-kamera-bakim-servisi": ["bakim-yapilmayan-sistem", "kayit-yok", "poe-ag-kararsizligi"],
 };
 
 export function getPainPointBySlug(painPointSlug: string) {
