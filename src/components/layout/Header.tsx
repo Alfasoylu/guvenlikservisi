@@ -116,10 +116,10 @@ export default function Header() {
               <Image
                 src="/images/guvenlikservisi-logo.png"
                 alt="Güvenlik Servisi Logo"
-                width={160}
-                height={48}
+                width={200}
+                height={60}
                 priority
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
             </Link>
 

@@ -54,9 +54,9 @@ export default function MobileMenu({
             <Image
               src="/images/guvenlikservisi-logo.png"
               alt="Güvenlik Servisi Logo"
-              width={140}
-              height={42}
-              className="h-9 w-auto"
+              width={160}
+              height={48}
+              className="h-11 w-auto"
             />
           </Link>
           <button
