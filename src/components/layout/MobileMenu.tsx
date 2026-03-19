@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { X, Phone, ChevronDown, Shield } from "lucide-react";
+import { X, Phone, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 
 interface MobileMenuProps {
@@ -49,13 +50,14 @@ export default function MobileMenu({
       <div className="fixed top-0 left-0 bottom-0 w-80 max-w-full bg-white z-50 lg:hidden flex flex-col shadow-2xl">
         {/* Üst kısım */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-          <Link
-            href="/"
-            onClick={onClose}
-            className="flex items-center gap-2 font-bold text-primary"
-          >
-            <Shield size={24} className="text-accent" />
-            <span>Güvenlik Servisi</span>
+          <Link href="/" onClick={onClose} aria-label="Güvenlik Servisi Ana Sayfa">
+            <Image
+              src="/images/guvenlikservisi-logo.png"
+              alt="Güvenlik Servisi Logo"
+              width={140}
+              height={42}
+              className="h-9 w-auto"
+            />
           </Link>
           <button
             onClick={onClose}

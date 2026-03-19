@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, Shield, ChevronDown, Menu } from "lucide-react";
+import { Phone, ChevronDown, Menu } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import MobileMenu from "./MobileMenu";
 
@@ -111,15 +112,15 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-bold text-primary"
-            >
-              <Shield size={28} className="text-accent" />
-              <span className="text-lg leading-tight">
-                Güvenlik<br />
-                <span className="text-accent text-sm font-semibold">Servisi</span>
-              </span>
+            <Link href="/" aria-label="Güvenlik Servisi Ana Sayfa">
+              <Image
+                src="/images/guvenlikservisi-logo.png"
+                alt="Güvenlik Servisi Logo"
+                width={160}
+                height={48}
+                priority
+                className="h-10 w-auto"
+              />
             </Link>
 
             {/* Masaüstü navigasyon */}

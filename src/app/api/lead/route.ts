@@ -196,7 +196,7 @@ export async function POST(req: NextRequest) {
   if (getHoneypotValue(safeRawBody as Record<string, unknown>)) {
     logLeadWarning("honeypot_blocked", {
       page_url: safeRawBody.page_url || safeRawBody.page || "",
-      form_source: safeRawBody.form_source || "istanbul_ip_kamera",
+      form_source: safeRawBody.form_source || "website_form",
     });
 
     return createQuietSuccessResponse();
@@ -346,7 +346,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     logLeadError("lead_api_fatal", {
       page_url: safeRawBody.page_url || safeRawBody.page || "",
-      form_source: safeRawBody.form_source || "istanbul_ip_kamera",
+      form_source: safeRawBody.form_source || "website_form",
     }, error);
 
     return NextResponse.json(

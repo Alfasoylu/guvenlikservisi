@@ -299,6 +299,7 @@ export default async function DistrictServicePage({ params }: PageProps) {
             pagePath={pagePath}
             formSource={`istanbul_${district}_${service.replace(/-/g, "_")}`}
             serviceType={service}
+            cityName={cityName}
             title={`${profile.locative} Ücretsiz Keşif ve Teklif`}
             subtitle={`${profile.name} bölgesinde ${seoService.name.toLocaleLowerCase("tr-TR")} ihtiyacınızı belirtin.`}
             submitLabel={`${profile.name} İçin Teklif Al`}

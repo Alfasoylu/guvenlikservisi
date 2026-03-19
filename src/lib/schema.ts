@@ -57,7 +57,7 @@ export function generateOrganizationSchema() {
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
-      url: absoluteUrl(siteConfig.ogImage),
+      url: absoluteUrl("/images/guvenlikservisi-logo.png"),
     },
     telephone: siteConfig.phone,
     email: siteConfig.email,

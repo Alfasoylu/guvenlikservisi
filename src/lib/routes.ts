@@ -19,12 +19,15 @@ export const staticPagePaths = [
   "/kamera-sistemi-bakim-sozlesmesi",
   "/kamera-sistemi-kurulumu",
   "/kartli-gecis-sistemi-kurulumu",
-  "/kartli-gecis-ve-turnike-sistemi",
   "/paketler-ve-fiyatlandirma",
   "/sorun",
   "/uzaktan-kamera-izleme",
   "/yangin-alarm-sistemi-kurulumu",
-  // İstanbul şehir-özel landing sayfaları
+] as const;
+
+// Redirect-only legacy pages — NOT in sitemap, kept for route validation only
+export const legacyRedirectPaths = [
+  "/kartli-gecis-ve-turnike-sistemi",
   "/istanbul-alarm-sistemi",
   "/istanbul-ip-kamera-montaji",
   "/istanbul-kamera-bakim-servisi",
@@ -49,6 +52,7 @@ const serviceSlugSet = new Set(services.map((service) => service.slug));
 const staticPathSet = new Set<string>([
   ...rootPaths,
   ...staticPagePaths,
+  ...legacyRedirectPaths,
   ...teklifPaths,
 ]);
 const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
@@ -242,6 +246,7 @@ export function getAllKnownAppPaths() {
   return [
     ...rootPaths,
     ...staticPagePaths,
+    ...legacyRedirectPaths,
     ...teklifPaths,
     ...getAllBlogPaths(),
     ...getAllProblemPaths(),

@@ -139,9 +139,22 @@ const waveOneMoneyPages = new Set([
   "/istanbul/bakim-servis-uzaktan-izleme",
   "/istanbul/apartman-site-guvenlik-sistemi",
   "/istanbul/fabrika-depo-guvenlik-sistemi",
+  "/istanbul/depo-guvenlik-sistemi-kurulumu",
+  "/istanbul/plaza-guvenlik-sistemi-kurulumu",
+  "/istanbul/avm-guvenlik-sistemi-cozumleri",
+  "/istanbul/isyeri-guvenlik-sistemi",
+  "/istanbul/alarm-sistemi-kurulumu",
+  "/istanbul/yangin-alarm-sistemi-kurulumu",
+  "/istanbul/kartli-gecis-sistemi-kurulumu",
   "/ankara/kamera-sistemi-kurulumu",
   "/ankara/kamera-ariza-servisi",
+  "/ankara/alarm-sistemi-kurulumu",
+  "/izmir/kamera-sistemi-kurulumu",
+  "/izmir/alarm-sistemi-kurulumu",
   "/kocaeli/fabrika-depo-guvenlik-sistemi",
+  "/kocaeli/depo-guvenlik-sistemi-kurulumu",
+  "/bursa/fabrika-depo-guvenlik-sistemi",
+  "/bursa/depo-guvenlik-sistemi-kurulumu",
 ]);
 
 function getEmbeddedQuoteServiceType(serviceSlug: string) {
@@ -150,11 +163,31 @@ function getEmbeddedQuoteServiceType(serviceSlug: string) {
     case "kamera-ariza-servisi":
       return "kamera";
     case "bakim-servis-uzaktan-izleme":
+    case "kamera-sistemi-bakim-sozlesmesi":
+    case "guvenlik-sistemi-bakim-sozlesmesi":
+    case "site-kamera-sistemi-bakim":
+    case "fabrika-guvenlik-sistemi-bakim":
+    case "nvr-bakim-servisi":
+    case "yangin-alarm-bakim-sozlesmesi":
+    case "guvenlik-sistemi-teknik-servis":
+    case "uzaktan-kamera-izleme":
       return "bakim-servis";
+    case "alarm-sistemi-bakim":
+    case "alarm-sistemi-kurulumu":
+      return "alarm";
     case "apartman-site-guvenlik-sistemi":
       return "apartman-site";
     case "fabrika-depo-guvenlik-sistemi":
+    case "depo-guvenlik-sistemi-kurulumu":
+    case "plaza-guvenlik-sistemi-kurulumu":
+    case "avm-guvenlik-sistemi-cozumleri":
       return "fabrika-depo";
+    case "yangin-alarm-sistemi-kurulumu":
+      return "yangin";
+    case "kartli-gecis-sistemi-kurulumu":
+      return "kartli-gecis";
+    case "isyeri-guvenlik-sistemi":
+      return "isyeri";
     default:
       return "";
   }
@@ -2068,8 +2101,13 @@ export default async function ServicePage({ params }: PageProps) {
   const heroDecisionIntro = `${city.name} içinde ${serviceSpecificContent.heroIntro}`;
   const pagePath = `/${city.slug}/${service.slug}`;
   const embeddedFormServiceType = getEmbeddedQuoteServiceType(service.slug);
+  const isMaintenanceIntent =
+    seoService?.businessIntent === "maintenance" ||
+    seoService?.businessIntent === "technical-service" ||
+    seoService?.businessIntent === "monitoring";
   const showEmbeddedLeadForm =
-    Boolean(embeddedFormServiceType) && waveOneMoneyPages.has(pagePath);
+    Boolean(embeddedFormServiceType) &&
+    (isMaintenanceIntent || waveOneMoneyPages.has(pagePath));
   const leadTrackingBase = {
     "data-page-path": pagePath,
     "data-city": city.slug,

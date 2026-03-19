@@ -71,6 +71,7 @@ interface IstanbulServiceQuoteFormProps {
   pagePath: string;
   formSource: string;
   serviceType: string;
+  cityName?: string;
   title?: string;
   subtitle?: string;
   submitLabel?: string;
@@ -82,6 +83,7 @@ export default function IstanbulServiceQuoteForm({
   pagePath,
   formSource,
   serviceType,
+  cityName = "İstanbul",
   title = "Ücretsiz Keşif ve Teklif Alın",
   subtitle = "Formu doldurun, sizi hızlıca arayalım.",
   submitLabel = "Teklif Talebi Gönder",
@@ -158,7 +160,7 @@ export default function IstanbulServiceQuoteForm({
     const payload = {
       name,
       phone,
-      city: "İstanbul",
+      city: cityName,
       service_type: serviceType,
       district: String(formData.get("district") || ""),
       placeType: String(formData.get("placeType") || ""),
@@ -288,7 +290,7 @@ export default function IstanbulServiceQuoteForm({
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
                   2
                 </span>
-                İstanbul&apos;da ücretsiz keşif randevusu
+                {cityName}&apos;da ücretsiz keşif randevusu
               </li>
               <li className="flex items-start gap-2">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white">
