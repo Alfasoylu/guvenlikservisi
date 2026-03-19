@@ -199,6 +199,27 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
     name: "Uzaktan Kamera İzleme",
     shortDescription: "Merkezi izleme, mobil erişim ve operasyon takibi için uzaktan kamera izleme hizmeti.",
   },
+  {
+    slug: "kartli-gecis-teknik-servis",
+    name: "Kartlı Geçiş Teknik Servis",
+    shortDescription:
+      "Çalışmayan kart okuyucu, kapı kontrolcüsü ve turnike sistemleri için hızlı teknik servis ve saha müdahale desteği.",
+    availableCitySlugs: ["istanbul", "ankara", "izmir"],
+  },
+  {
+    slug: "magaza-kamera-sistemi-kurulumu",
+    name: "Mağaza Kamera Sistemi Kurulumu",
+    shortDescription:
+      "Tek mağaza ve çok şubeli zincir yapılar için kasa, satış alanı ve depo odaklı kamera sistemi kurulumu.",
+    availableCitySlugs: ["istanbul", "ankara", "izmir", "bursa"],
+  },
+  {
+    slug: "ip-kamera-bakim-servisi",
+    name: "IP Kamera Bakım Servisi",
+    shortDescription:
+      "IP kamera altyapısı için bağlantı, kayıt, PoE ve görüntü kalitesi kontrolleri içeren periyodik bakım servisi.",
+    availableCitySlugs: ["istanbul", "ankara", "izmir"],
+  },
 ];
 
 const businessIntentByServiceSlug: Record<string, ServiceBusinessIntent> = {
@@ -223,6 +244,9 @@ const businessIntentByServiceSlug: Record<string, ServiceBusinessIntent> = {
   "avm-guvenlik-sistemi-cozumleri": "solution",
   "alarm-sistemi-bakim": "maintenance",
   "uzaktan-kamera-izleme": "monitoring",
+  "kartli-gecis-teknik-servis": "technical-service",
+  "magaza-kamera-sistemi-kurulumu": "installation",
+  "ip-kamera-bakim-servisi": "maintenance",
 };
 
 const revenueModelByServiceSlug: Record<string, ServiceRevenueModel> = {
@@ -247,6 +271,9 @@ const revenueModelByServiceSlug: Record<string, ServiceRevenueModel> = {
   "avm-guvenlik-sistemi-cozumleri": "hybrid",
   "alarm-sistemi-bakim": "recurring",
   "uzaktan-kamera-izleme": "recurring",
+  "kartli-gecis-teknik-servis": "hybrid",
+  "magaza-kamera-sistemi-kurulumu": "one-time",
+  "ip-kamera-bakim-servisi": "recurring",
 };
 
 const recurringRevenuePotentialByServiceSlug: Record<string, ServiceRecurringPotential> = {
@@ -271,6 +298,9 @@ const recurringRevenuePotentialByServiceSlug: Record<string, ServiceRecurringPot
   "avm-guvenlik-sistemi-cozumleri": "high",
   "alarm-sistemi-bakim": "high",
   "uzaktan-kamera-izleme": "high",
+  "kartli-gecis-teknik-servis": "high",
+  "magaza-kamera-sistemi-kurulumu": "medium",
+  "ip-kamera-bakim-servisi": "high",
 };
 
 const leadPriorityByServiceSlug: Record<string, ServiceLeadPriority> = {
@@ -295,6 +325,9 @@ const leadPriorityByServiceSlug: Record<string, ServiceLeadPriority> = {
   "avm-guvenlik-sistemi-cozumleri": "strategic",
   "alarm-sistemi-bakim": "high",
   "uzaktan-kamera-izleme": "strategic",
+  "kartli-gecis-teknik-servis": "high",
+  "magaza-kamera-sistemi-kurulumu": "high",
+  "ip-kamera-bakim-servisi": "strategic",
 };
 
 const businessPriorityScoreByServiceSlug: Record<string, 1 | 2 | 3 | 4 | 5> = {
@@ -319,6 +352,9 @@ const businessPriorityScoreByServiceSlug: Record<string, 1 | 2 | 3 | 4 | 5> = {
   "avm-guvenlik-sistemi-cozumleri": 5,
   "alarm-sistemi-bakim": 4,
   "uzaktan-kamera-izleme": 5,
+  "kartli-gecis-teknik-servis": 4,
+  "magaza-kamera-sistemi-kurulumu": 4,
+  "ip-kamera-bakim-servisi": 5,
 };
 
 const ctaStyleByServiceSlug: Record<string, SeoCtaStyle> = {
@@ -343,6 +379,9 @@ const ctaStyleByServiceSlug: Record<string, SeoCtaStyle> = {
   "avm-guvenlik-sistemi-cozumleri": "assessment",
   "alarm-sistemi-bakim": "maintenance",
   "uzaktan-kamera-izleme": "assessment",
+  "kartli-gecis-teknik-servis": "technical-service",
+  "magaza-kamera-sistemi-kurulumu": "quote",
+  "ip-kamera-bakim-servisi": "maintenance",
 };
 
 const targetSegmentSlugsByServiceSlug: Record<string, HighLtvSegmentSlug[]> = {
@@ -367,6 +406,9 @@ const targetSegmentSlugsByServiceSlug: Record<string, HighLtvSegmentSlug[]> = {
   "avm-guvenlik-sistemi-cozumleri": ["avm"],
   "alarm-sistemi-bakim": ["zincir-magaza", "plaza-ofis", "site-yonetimi"],
   "uzaktan-kamera-izleme": ["site-yonetimi", "fabrika", "zincir-magaza"],
+  "kartli-gecis-teknik-servis": ["plaza-ofis", "fabrika", "depo"],
+  "magaza-kamera-sistemi-kurulumu": ["zincir-magaza", "plaza-ofis"],
+  "ip-kamera-bakim-servisi": ["site-yonetimi", "depo", "zincir-magaza"],
 };
 
 const priorityLinkSlugsByServiceSlug: Record<string, string[]> = {
@@ -496,6 +538,24 @@ const priorityLinkSlugsByServiceSlug: Record<string, string[]> = {
     "fabrika-depo-guvenlik-sistemi",
     "apartman-site-guvenlik-sistemi",
   ],
+  "kartli-gecis-teknik-servis": [
+    "kartli-gecis-sistemi-kurulumu",
+    "guvenlik-sistemi-teknik-servis",
+    "guvenlik-sistemi-bakim-sozlesmesi",
+    "bakim-servis-uzaktan-izleme",
+  ],
+  "magaza-kamera-sistemi-kurulumu": [
+    "kamera-sistemi-kurulumu",
+    "kamera-sistemi-bakim-sozlesmesi",
+    "isyeri-guvenlik-sistemi",
+    "uzaktan-kamera-izleme",
+  ],
+  "ip-kamera-bakim-servisi": [
+    "kamera-sistemi-bakim-sozlesmesi",
+    "nvr-bakim-servisi",
+    "guvenlik-sistemi-teknik-servis",
+    "kamera-ariza-servisi",
+  ],
 };
 
 const keywordThemeTagsByServiceSlug: Record<string, string[]> = {
@@ -520,6 +580,9 @@ const keywordThemeTagsByServiceSlug: Record<string, string[]> = {
   "avm-guvenlik-sistemi-cozumleri": ["avm", "ticari-merkez", "cok-bilesenli", "kurumsal-cozum"],
   "alarm-sistemi-bakim": ["alarm-bakim", "panel-kontrol", "siren", "haberlesme"],
   "uzaktan-kamera-izleme": ["uzaktan-izleme", "merkezi-takip", "sureklilik"],
+  "kartli-gecis-teknik-servis": ["kartli-gecis", "teknik-servis", "kart-okuyucu", "erisim-kontrol"],
+  "magaza-kamera-sistemi-kurulumu": ["magaza", "zincir-magaza", "kasa-guvenligi", "kurulum"],
+  "ip-kamera-bakim-servisi": ["ip-kamera", "bakim", "poe", "kayit-surekliligi"],
 };
 
 const faqKeysByServiceSlug: Record<string, FaqCollectionKey[]> = Object.fromEntries(

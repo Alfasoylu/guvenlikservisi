@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Shield, Phone, Mail, MapPin, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { cities } from "@/data/cities";
 
@@ -27,9 +28,14 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Link href="/" className="mb-4 inline-flex items-center gap-2 font-bold text-white">
-              <Shield size={28} className="text-accent" />
-              <span className="text-xl">Güvenlik Servisi</span>
+            <Link href="/" className="mb-4 inline-block" aria-label="Güvenlik Servisi Ana Sayfa">
+              <Image
+                src="/images/guvenlikservisi-logo.png"
+                alt="Güvenlik Servisi Logo"
+                width={160}
+                height={48}
+                className="h-11 w-auto brightness-0 invert"
+              />
             </Link>
 
             <p className="mb-6 max-w-sm text-sm leading-7 text-gray-300">

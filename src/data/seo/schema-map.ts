@@ -37,6 +37,9 @@ export const schemaTypeByServiceSlug: Record<string, SeoSchemaType> = {
   "avm-guvenlik-sistemi-cozumleri": "Service",
   "alarm-sistemi-bakim": "Service",
   "uzaktan-kamera-izleme": "Service",
+  "kartli-gecis-teknik-servis": "Service",
+  "magaza-kamera-sistemi-kurulumu": "Service",
+  "ip-kamera-bakim-servisi": "Service",
 };
 
 export const allowedSchemasByPageIntent: Record<SeoPageIntent, SeoSchemaName[]> = {

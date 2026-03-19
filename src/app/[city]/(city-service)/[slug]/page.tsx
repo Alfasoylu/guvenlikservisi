@@ -155,6 +155,10 @@ const waveOneMoneyPages = new Set([
   "/kocaeli/depo-guvenlik-sistemi-kurulumu",
   "/bursa/fabrika-depo-guvenlik-sistemi",
   "/bursa/depo-guvenlik-sistemi-kurulumu",
+  "/istanbul/magaza-kamera-sistemi-kurulumu",
+  "/ankara/magaza-kamera-sistemi-kurulumu",
+  "/izmir/magaza-kamera-sistemi-kurulumu",
+  "/bursa/magaza-kamera-sistemi-kurulumu",
 ]);
 
 function getEmbeddedQuoteServiceType(serviceSlug: string) {
@@ -185,9 +189,13 @@ function getEmbeddedQuoteServiceType(serviceSlug: string) {
     case "yangin-alarm-sistemi-kurulumu":
       return "yangin";
     case "kartli-gecis-sistemi-kurulumu":
+    case "kartli-gecis-teknik-servis":
       return "kartli-gecis";
     case "isyeri-guvenlik-sistemi":
+    case "magaza-kamera-sistemi-kurulumu":
       return "isyeri";
+    case "ip-kamera-bakim-servisi":
+      return "bakim-servis";
     default:
       return "";
   }

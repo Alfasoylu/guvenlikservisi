@@ -414,6 +414,66 @@ export const faqContent: Record<string, SeoFaqContent> = {
       },
     ],
   },
+  "kartli-gecis-teknik-servis": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde kartlı geçiş teknik servisi yapıyor musunuz?",
+        answer:
+          "Evet. {city} içinde tüm marka ve model kartlı geçiş sistemleri için teknik servis ve saha müdahale desteği sunuyoruz. Kart okuyucu arızası, kontrol kartı sorunu, kapı kilit mekanizması arızası, turnike mekanik ve elektronik sorunları, kablo ve bağlantı problemleri servis kapsamında yer alır. Hem yerinde hem de uzaktan ön teşhis seçeneklerimiz mevcuttur.",
+      },
+      {
+        question: "Kart okuyucu okuma yapmıyor; en sık neden kaynaklanır?",
+        answer:
+          "Kart okuyucu arızalarının en yaygın nedenleri okuyucu anten bozulması, kontrol kartı iletişim sorunu, güç kaynağı kararsızlığı ve kablo kopması olarak sıralanır. Bunların yanı sıra kart tanımlama yazılımındaki yapılandırma hatası veya firmware uyumsuzluğu da okuma sorununa yol açabilir. Teşhis olmadan sadece kart okuyucu değişimi her zaman kalıcı çözüm sağlamaz.",
+      },
+      {
+        question: "Teknik servis sonrası bakım sözleşmesi gerekir mi?",
+        answer:
+          "Kartlı geçiş sistemleri günlük yoğun kullanımdan dolayı mekanik ve elektronik parçaların zamanla yıpranmasına maruz kalır. Teknik servis, anlık sorunu çözse de periyodik kontrol olmadan yeni arızalar kaçınılmaz olabilir. Bakım sözleşmesiyle kontrol kartı, okuyucu, kilit mekanizması ve yazılım katmanları düzenli denetimden geçirilir ve plansız duruş riski azaltılır.",
+      },
+    ],
+  },
+  "magaza-kamera-sistemi-kurulumu": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde mağaza kamera sistemi kurulumu yapıyor musunuz?",
+        answer:
+          "Evet. {city} içinde tek mağaza ve çok şubeli zincir yapılar için kamera sistemi kurulumu yapıyoruz. Kasa bölgesi, satış alanı, müşteri girişi ve depo/stok alanlarını kapsayan, mağaza tipine özel kamera yerleşim planı oluşturuyoruz. Kurulum süresini ve operasyonel aksama riskini minimize edecek şekilde planlama yapıyoruz.",
+      },
+      {
+        question: "Zincir mağazalarda tüm şubeler aynı sistemde yönetilebilir mi?",
+        answer:
+          "Evet. Standart ekipman seçimi ve merkezi izleme altyapısıyla tüm şube kameralarına tek platform üzerinden erişilebilir. Her şubenin kamera akışını ayrı ayrı izleyebilir, kayıtlara uzaktan ulaşabilirsiniz. Şubeler arası farklı cihaz modellerinin yarattığı yönetim karmaşasını önlemek için kurulumda ekipman standardizasyonu öneriyoruz.",
+      },
+      {
+        question: "Kasa noktası için özel kamera tipi gerekiyor mu?",
+        answer:
+          "Kasa bölgesinde yüzü net kaydeden yüksek çözünürlüklü kamera ve geniş açı lens kombinasyonu tercih edilir. Ödeme alanı üst açıdan görüntülendiğinde hem kasiyeri hem de müşteriyi aynı karede tutmak mümkündür. Aydınlatma durumuna göre WDR (geniş dinamik aralık) özellikli kamera öneriyoruz; böylece güneş ışığı veya parlaklık farkından kaynaklanan görüntü kaybı önlenir.",
+      },
+    ],
+  },
+  "ip-kamera-bakim-servisi": {
+    title: "Sık Sorulan Sorular",
+    items: [
+      {
+        question: "{city} içinde IP kamera bakım servisi veriyoor musunuz?",
+        answer:
+          "Evet. {city} içinde PoE tabanlı ve ağ üzerinden çalışan IP kamera sistemleri için periyodik bakım ve teknik servis desteği sunuyoruz. PoE switch kontrolü, kamera bağlantı testi, kayıt akışı doğrulaması, disk sağlığı takibi ve görüntü kalitesi denetimi bakım kapsamında yer alır. Tek ziyarette tüm altyapıyı sistematik olarak inceliyoruz.",
+      },
+      {
+        question: "IP kamera bakımı analog sisteme göre neden farklı yaklaşım gerektirir?",
+        answer:
+          "IP kamera sistemlerinde kamera, PoE switch, ağ altyapısı ve NVR katmanları birbirinden bağımsız çalışır. Bir katmandaki sorun diğerini etkileyebilir; örneğin PoE switch portundaki güç düşümü kamerayı çevrimdışı bırakır ama görünürde kamera arızası gibi gözükür. Bu nedenle bakımda her katman ayrı ayrı test edilmeli ve ağ sağlık raporu çıkarılmalıdır.",
+      },
+      {
+        question: "IP kamera bakımı ne sıklıkta yapılmalıdır?",
+        answer:
+          "Yoğun kullanımın olduğu ticari ve sanayi alanlarda yılda en az 2 bakım önerilir. Dış ortam ve zorlu koşullarda çalışan kameralar için ilkbahar ve sonbahar bakımı (temizlik, lens kontrolü, bağlantı sıkıştırma) standart uygulamadır. Kritik altyapılarda veya uzun kayıt süresi gerektiren sistemlerde çeyrek dönemlik kontrol planlanması riski önemli ölçüde azaltır.",
+      },
+    ],
+  },
   "uzaktan-kamera-izleme": {
     title: "Sık Sorulan Sorular",
     items: [

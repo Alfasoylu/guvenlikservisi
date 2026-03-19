@@ -555,10 +555,11 @@ Her sayfa için:
 
 - [x] alarm sistemi bakım — alarm-sistemi-bakim aktif
 - [x] yangın alarm bakım sözleşmesi — yangin-alarm-bakim-sozlesmesi aktif
-- [ ] kartlı geçiş teknik servis
-- [ ] IP kamera bakım servisi
-- [ ] CCTV bakım anlaşması
-- [ ] kamera sistem periyodik bakım
+- [x] kartlı geçiş teknik servis — kartli-gecis-teknik-servis aktif (istanbul/ankara/izmir)
+- [x] IP kamera bakım servisi — ip-kamera-bakim-servisi aktif (istanbul/ankara/izmir)
+- [x] mağaza kamera sistemi kurulumu — magaza-kamera-sistemi-kurulumu aktif (istanbul/ankara/izmir/bursa)
+- [ ] CCTV bakım anlaşması — kamera-sistemi-bakim-sozlesmesi redirect ile kapsanıyor
+- [ ] kamera sistem periyodik bakım — kamera-sistemi-bakim-sozlesmesi redirect ile kapsanıyor
 - [ ] kurumsal güvenlik sistemi bakım firması
 - [ ] mağaza kamera sistemi kurulumu
 - [x] plaza güvenlik sistemi kurulumu — plaza-guvenlik-sistemi-kurulumu aktif
@@ -959,4 +960,5 @@ Her yeni sayfada:
 - `tamamlandı`: API route log-context fallback düzeltildi — `src/app/api/lead/route.ts` honeypot ve fatal catch log satırlarındaki `"istanbul_ip_kamera"` → `"website_form"` olarak güncellendi.
 - `tamamlandı`: P0 sitemap temizliği — 8 adet redirect-only legacy sayfa (`/kartli-gecis-ve-turnike-sistemi` + 7 legacy istanbul-*) `staticPagePaths`'ten çıkarıldı, ayrı `legacyRedirectPaths` dizisine taşındı; bunlar artık sitemap'e emit edilmiyor. Route validasyonu için `staticPathSet` ve `getAllKnownAppPaths()` güncellendi. `scripts/check-seo-governance.mjs` içindeki `blockedSitemapFragments` eksik 5 legacy path ile tamamlandı (önceden 3/8 yakalanıyordu, artık 8/8).
 - `tamamlandı`: Sprint 2 city expansion — 5 yüksek öncelikli servis için Tier 1 şehir kapsaması genişletildi; 14 yeni city/service para sayfası eklendi: `guvenlik-sistemi-bakim-sozlesmesi` (+ankara, izmir, bursa, kocaeli), `alarm-sistemi-bakim` (+ankara, izmir, bursa, kocaeli), `fabrika-guvenlik-sistemi-bakim` (+kocaeli, bursa), `depo-guvenlik-sistemi-kurulumu` (+kocaeli, bursa), `nvr-bakim-servisi` (+ankara, izmir). İçerik şablonları city-agnostic; Tier 1 şehir marketType ve ticari yoğunluğu doğrulıandı.
+- `tamamlandı`: P9.2 İkinci dalga para sayfaları — 3 yeni servis eklendi: `kartli-gecis-teknik-servis` (istanbul/ankara/izmir, technical-service intent), `magaza-kamera-sistemi-kurulumu` (istanbul/ankara/izmir/bursa, installation), `ip-kamera-bakim-servisi` (istanbul/ankara/izmir, maintenance). Tüm veri katmanları (services.ts, schema-map, pain-points, seo-content/services, seo-content/faq), form mapping (`getEmbeddedQuoteServiceType`) ve waveOneMoneyPages güncellendi. TypeScript build hatasız.
 - `tamamlandı`: P8.1 Form kapsama genişlemesi — maintenance/technical-service/monitoring intent'li tüm city/service sayfalarına (yaklaşık 100 sayfa) inline lead form eklendi; `getEmbeddedQuoteServiceType` tüm servis slug'larını kapsayacak şekilde genişletildi; `showEmbeddedLeadForm` bakım intent'i için `waveOneMoneyPages` gate'ini aşacak şekilde güncellendi; `waveOneMoneyPages` kurulum/çözüm tipi yüksek öncelikli sayfalar (+13 yeni giriş) ile genişletildi.

@@ -512,6 +512,81 @@ export const serviceContent: Record<string, SeoServiceContent> = {
     metadataIntent: "alarm sistemi bakım hizmeti",
     metadataTargets: ["alarm paneli", "işyeri", "mağaza"],
   },
+  "kartli-gecis-teknik-servis": {
+    heroIntro:
+      "{city} içinde çalışmayan kartlı geçiş, kart okuyucu ve turnike sistemleri için teknik servis desteği veriyoruz. Panel, kontrol kartı, biyometrik okuyucu ve kapı kilit mekanizmalarındaki arızaları sahada teşhis edip hızlı müdahale planlıyoruz.",
+    localContext:
+      "{city} içinde plaza, ofis katı ve fabrika girişlerinde erişim kontrol kesintisi hem operasyonu hem güvenliği etkiler; bu nedenle hızlı teşhis ve kalıcı çözüme odaklanıyoruz.",
+    benefits: [
+      "Kart okuyucu, kontrol kartı ve kapı kilit arızalarını hızla tespit eder.",
+      "Turnike ve bariyer mekanizmalarındaki mekanik ve elektronik sorunları çözer.",
+      "Erişim kesintisini en kısa sürede gidererek operasyonu yeniden devreye alır.",
+    ],
+    process: [
+      "Arıza belirtilerinin ön değerlendirmesi",
+      "Panel, okuyucu ve kapı kilit kontrolü",
+      "Gerekli yedek parça veya konfigürasyon müdahalesi",
+      "Test, doğrulama ve kullanıcı bilgilendirmesi",
+    ],
+    statsTitle: "Kartlı geçiş servisinde doğru teşhis kalıcı çözümün temelidir",
+    statsDescription:
+      "{city} içinde kartlı geçiş teknik servis taleplerinde okuyucu, panel ve kilit katmanlarını bağımsız test ederek gerçek arıza kaynağını netleştiriyoruz.",
+    ctaTitle: "{city} kartlı geçiş teknik servis desteği alın",
+    ctaDescription:
+      "{city} içindeki kartlı geçiş veya turnike sisteminizde yaşanan arıza için belirtileri paylaşın; uygun servis planını birlikte belirleyelim.",
+    metadataIntent: "kartlı geçiş teknik servis",
+    metadataTargets: ["plaza", "ofis", "fabrika"],
+  },
+  "magaza-kamera-sistemi-kurulumu": {
+    heroIntro:
+      "{city} içinde tek mağaza ve çok şubeli zincir yapılar için kamera sistemi kurulumu yapıyoruz. Kasa noktası, satış alanı, depo erişimi ve mağaza girişini kapsayan yerleşim planını sahaya özel hazırlıyoruz.",
+    localContext:
+      "{city} içinde mağaza güvenliğinde kasa görüntüsü, müşteri hareketliliği ve depo takibi en kritik kamera noktalarıdır; bu alanları doğru lens ve açıyla kurguluyoruz.",
+    benefits: [
+      "Kasa, giriş ve stok alanını kayıt altına alan yerleşim planı oluşturur.",
+      "Zincir yapılarda şube standardı ve merkezi izleme imkânı sağlar.",
+      "Mağaza operasyonunu aksatmayan hızlı montaj ile devreye alınır.",
+    ],
+    process: [
+      "Kasa, giriş ve depo noktalarının keşfi",
+      "Mağaza tipine uygun kamera seçimi ve yerleşim planı",
+      "Operasyonu aksatmayan montaj ve kablolama",
+      "Uzaktan izleme ve çok şube erişimi kurulumu",
+    ],
+    statsTitle: "Mağaza kamera kurulumunda kasa ve giriş odaklı planlama kritiktir",
+    statsDescription:
+      "{city} içinde mağaza kamera sistemi kurarken kayıp, hırsızlık riski ve operasyon akışını birlikte değerlendirip kör nokta bırakmayan bir plan hazırlıyoruz.",
+    ctaTitle: "{city} mağaza kamera sistemi için ücretsiz keşif alın",
+    ctaDescription:
+      "{city} içindeki mağazanız veya şubeleriniz için kamera sayısını, kasa odaklı yerleşimi ve çok şube erişim yapısını birlikte planlayalım.",
+    metadataIntent: "mağaza kamera sistemi kurulumu",
+    metadataTargets: ["mağaza", "zincir mağaza", "işyeri"],
+  },
+  "ip-kamera-bakim-servisi": {
+    heroIntro:
+      "{city} içinde kurulu IP kamera sistemleri için bakım servisi sunuyoruz. PoE bağlantı sağlığı, kayıt akışı, görüntü kalitesi, uzaktan erişim ve disk durumunu periyodik kontrollerle izleyerek sistemin sorunsuz çalışmasını destekliyoruz.",
+    localContext:
+      "{city} içinde çok kameralı IP altyapılarda PoE switch kararsızlığı, kayıt kesintisi ve bant genişliği sorunları arıza öncesinde düzenli bakımla önlenebilir.",
+    benefits: [
+      "PoE hat, switch ve kamera bağlantı sağlığını düzenli olarak kontrol eder.",
+      "Kayıt akışı, disk kapasitesi ve NVR performansını izleyerek kesinti riskini azaltır.",
+      "Görüntü kalitesi ve lens temizliğini periyodik bakım sürecine dahil eder.",
+    ],
+    process: [
+      "IP kamera ve NVR envanter çıkarımı",
+      "PoE, switch ve ağ bağlantı testleri",
+      "Kayıt akışı, disk SMART ve görüntü kalitesi kontrolleri",
+      "Bakım raporu ve planlı kontrol takvimi teslimi",
+    ],
+    statsTitle: "IP kamera bakımında ağ ve kayıt katmanı birlikte kontrol edilmelidir",
+    statsDescription:
+      "{city} içinde IP kamera bakım servisinde kamera, PoE switch, NVR ve kayıt akışını bütüncül test ederek gerçek zayıflıkları belgeliyoruz.",
+    ctaTitle: "{city} IP kamera bakım servisi için teklif alın",
+    ctaDescription:
+      "{city} içindeki IP kamera altyapınız için bakım kapsamını, kontrol sıklığını ve PoE altyapı durumunu birlikte netleştirelim.",
+    metadataIntent: "IP kamera bakım servisi",
+    metadataTargets: ["site", "depo", "mağaza"],
+  },
   "uzaktan-kamera-izleme": {
     heroIntro:
       "{city} içinde mevcut veya yeni kurulan kamera sistemleri için uzaktan izleme hizmeti sunuyoruz. Mobil erişim, merkezi izleme ekranları ve kayıt takibini operasyon ihtiyaçlarına göre planlıyoruz.",
