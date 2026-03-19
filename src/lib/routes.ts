@@ -19,10 +19,19 @@ export const staticPagePaths = [
   "/kamera-sistemi-bakim-sozlesmesi",
   "/kamera-sistemi-kurulumu",
   "/kartli-gecis-sistemi-kurulumu",
+  "/kartli-gecis-ve-turnike-sistemi",
   "/paketler-ve-fiyatlandirma",
   "/sorun",
   "/uzaktan-kamera-izleme",
   "/yangin-alarm-sistemi-kurulumu",
+  // İstanbul şehir-özel landing sayfaları
+  "/istanbul-alarm-sistemi",
+  "/istanbul-ip-kamera-montaji",
+  "/istanbul-kamera-bakim-servisi",
+  "/istanbul-kamera-sistemi-kurulumu",
+  "/istanbul-kamera-teknik-servis",
+  "/istanbul-kartli-gecis-sistemi",
+  "/istanbul-yangin-alarm-sistemi",
 ] as const;
 
 export const teklifPaths = [
@@ -41,9 +50,6 @@ const staticPathSet = new Set<string>([
   ...rootPaths,
   ...staticPagePaths,
   ...teklifPaths,
-  "/istanbul-ip-kamera-montaji",
-  "/istanbul-kamera-bakim-servisi",
-  "/istanbul-kamera-teknik-servis",
 ]);
 const blogPathSet = new Set(getAllBlogPosts().map((post) => `/blog/${post.slug}`));
 const sorunPathSet = new Set(getAllProblemSlugs().map((slug) => `/sorun/${slug}`));
