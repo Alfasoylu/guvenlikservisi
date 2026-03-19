@@ -161,6 +161,93 @@ const kadikoy: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Kadıköy Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Bağdat Caddesi'nin işyeri ve konutlara Kadıköy'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Kadıköy'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi mağazaları, Kozyatağı iş merkezleri, Moda ve Fikirtepe bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Kadıköy'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Kadıköy'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Kadıköy'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Kadıköy'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Kadıköy'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Kadıköy Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Bağdat Caddesi'nin apartmanlarından Kozyatağı konut sitelerine — Kadıköy'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Kadıköy'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi mağazaları, Kozyatağı iş merkezleri, Moda ve Fikirtepe bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Kadıköy Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Kadıköy'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Kadıköy'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Kadıköy apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Kadıköy'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Kadıköy'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Kadıköy Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Kadıköy'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Kadıköy'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi mağazaları, Kozyatağı iş merkezleri, Moda ve Fikirtepe bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Kadıköy'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Kadıköy'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Kadıköy'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Kadıköy'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Kadıköy müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Kadıköy'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -275,6 +362,93 @@ const besiktas: DistrictProfile = {
             "Maslak'taki çok kiralık ofiste kat bazlı erişim kısıtlaması yapılabilir mi?",
           answer:
             "Evet. Giriş-çıkış logları, zaman bazlı erişim kısıtlamaları ve personel bazlı raporlar kat bazında ayrı yönetilebilir.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Beşiktaş Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Levent'nin villa ve rezidanslara Beşiktaş'ta yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Beşiktaş'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Levent-Maslak ofis aksı, Etiler villaları, Bebek sahili bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Beşiktaş'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Beşiktaş'ta yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Beşiktaş'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Beşiktaş'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Beşiktaş'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Beşiktaş Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Levent'nin apartmanlarından Maslak konut sitelerine — Beşiktaş'ta kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Beşiktaş'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Levent-Maslak ofis aksı, Etiler villaları, Bebek sahili bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Beşiktaş Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Beşiktaş'ta apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Beşiktaş'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Beşiktaş apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Beşiktaş'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Beşiktaş'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Beşiktaş Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Beşiktaş'ta kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Beşiktaş'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Levent-Maslak ofis aksı, Etiler villaları, Bebek sahili bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Beşiktaş'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Beşiktaş'ta kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Beşiktaş'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Beşiktaş'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Beşiktaş müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Beşiktaş'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -396,6 +570,93 @@ const atasehir: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Ataşehir Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Ataşehir Plaza'nın işyeri ve konutlara Ataşehir'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Ataşehir'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataşehir Plaza iş merkezleri, büyük konut siteleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Ataşehir'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Ataşehir'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Ataşehir'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Ataşehir'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Ataşehir'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Ataşehir Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Ataşehir Plaza'nın apartmanlarından Küçükbakkalköy konut sitelerine — Ataşehir'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Ataşehir'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataşehir Plaza iş merkezleri, büyük konut siteleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Ataşehir Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Ataşehir'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Ataşehir'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Ataşehir apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Ataşehir'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Ataşehir'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Ataşehir Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Ataşehir'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Ataşehir'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataşehir Plaza iş merkezleri, büyük konut siteleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Ataşehir'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Ataşehir'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Ataşehir'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Ataşehir'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Ataşehir müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Ataşehir'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -507,6 +768,93 @@ const sisli: DistrictProfile = {
           question: "Esentepe'deki ofisime ziyaretçi yönetimi nasıl kurulur?",
           answer:
             "Geçici kart, QR kod veya uzaktan kapı açma seçenekleriyle ziyaretçi girişleri düzenlenir; tüm giriş logları raporlanır.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Şişli Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Nişantaşı'nın villa ve rezidanslara Şişli'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Şişli'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Nişantaşı butik mağazaları, Mecidiyeköy iş merkezleri, Harbiye bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Şişli'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Şişli'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Şişli'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Şişli'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Şişli'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Şişli Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Nişantaşı'nın apartmanlarından Mecidiyeköy konut sitelerine — Şişli'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Şişli'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Nişantaşı butik mağazaları, Mecidiyeköy iş merkezleri, Harbiye bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Şişli Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Şişli'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Şişli'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Şişli apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Şişli'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Şişli'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Şişli Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Şişli'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Şişli'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Nişantaşı butik mağazaları, Mecidiyeköy iş merkezleri, Harbiye bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Şişli'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Şişli'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Şişli'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Şişli'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Şişli müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Şişli'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -624,6 +972,93 @@ const umraniye: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Ümraniye Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Dudullu OSB'nun fabrika ve depolara Ümraniye'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Dudullu OSB, büyük konut projeleri, Alemdağ Caddesi ticaret aksı bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Ümraniye'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Ümraniye'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Ümraniye'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Ümraniye'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Ümraniye'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Ümraniye Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Dudullu OSB'nun apartmanlarından Alemdağ Caddesi konut sitelerine — Ümraniye'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Dudullu OSB, büyük konut projeleri, Alemdağ Caddesi ticaret aksı bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Ümraniye Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Ümraniye'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Ümraniye'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Ümraniye apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Ümraniye'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Ümraniye'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Ümraniye Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Ümraniye'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Ümraniye'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Dudullu OSB, büyük konut projeleri, Alemdağ Caddesi ticaret aksı bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Ümraniye'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Ümraniye'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Ümraniye'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Ümraniye'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Ümraniye müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Ümraniye'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -735,6 +1170,93 @@ const basaksehir: DistrictProfile = {
           question: "Bahçeşehir'deki villa sitesine turnike sistemi kurulabilir mi?",
           answer:
             "Evet. Site ana girişine turnike, araç girişine bariyer ve otopark alanına ANPR plaka okuma sistemi entegre edilebilir.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Başakşehir Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Olimpiyat Stadyumu'nun işyeri ve konutlara Başakşehir'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Olimpiyat Stadyumu çevresi, İkitelli OSB yakını, yeni konut projeleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Başakşehir'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Başakşehir'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Başakşehir'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Başakşehir'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Başakşehir'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Başakşehir Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Olimpiyat Stadyumu'nun apartmanlarından Kayaşehir konut sitelerine — Başakşehir'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Olimpiyat Stadyumu çevresi, İkitelli OSB yakını, yeni konut projeleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Başakşehir Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Başakşehir'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Başakşehir'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Başakşehir apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Başakşehir'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Başakşehir'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Başakşehir Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Başakşehir'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Başakşehir'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Olimpiyat Stadyumu çevresi, İkitelli OSB yakını, yeni konut projeleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Başakşehir'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Başakşehir'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Başakşehir'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Başakşehir'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Başakşehir müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Başakşehir'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -852,6 +1374,93 @@ const pendik: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Pendik Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Sabiha Gökçen'nin işyeri ve konutlara Pendik'te yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Pendik'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sabiha Gökçen Havalimanı, Kurtköy iş merkezleri, Yenişehir lojistik bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Pendik'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Pendik'te yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Pendik'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Pendik'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Pendik'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Pendik Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Sabiha Gökçen'nin apartmanlarından Kurtköy konut sitelerine — Pendik'te kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Pendik'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sabiha Gökçen Havalimanı, Kurtköy iş merkezleri, Yenişehir lojistik bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Pendik Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Pendik'te apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Pendik'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Pendik apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Pendik'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Pendik'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Pendik Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Pendik'te kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Pendik'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sabiha Gökçen Havalimanı, Kurtköy iş merkezleri, Yenişehir lojistik bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Pendik'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Pendik'te kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Pendik'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Pendik'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Pendik müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Pendik'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -965,6 +1574,93 @@ const zeytinburnu: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Zeytinburnu Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Kazlıçeşme'nin fabrika ve depolara Zeytinburnu'nda yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Zeytinburnu'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kazlıçeşme deri sanayisi, Kennedy Caddesi ticaret, Yeşiltepe konut bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Zeytinburnu'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Zeytinburnu'nda yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Zeytinburnu'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Zeytinburnu'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Zeytinburnu'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Zeytinburnu Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Kazlıçeşme'nin apartmanlarından Kennedy Caddesi konut sitelerine — Zeytinburnu'nda kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Zeytinburnu'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kazlıçeşme deri sanayisi, Kennedy Caddesi ticaret, Yeşiltepe konut bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Zeytinburnu Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Zeytinburnu'nda apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Zeytinburnu'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Zeytinburnu apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Zeytinburnu'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Zeytinburnu'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Zeytinburnu Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Zeytinburnu'nda kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Zeytinburnu'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kazlıçeşme deri sanayisi, Kennedy Caddesi ticaret, Yeşiltepe konut bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Zeytinburnu'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Zeytinburnu'nda kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Zeytinburnu'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Zeytinburnu'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Zeytinburnu müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Zeytinburnu'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -1072,6 +1768,93 @@ const bakirkoy: DistrictProfile = {
           question: "Bakırköy'de kartlı geçiş sistemi personel devam takibi yapabilir mi?",
           answer:
             "Evet. Giriş-çıkış logları üzerinden otomatik mesai raporu oluşturan yönetim yazılımı entegre edilebilir.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Bakırköy Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Ataköy'nün işyeri ve konutlara Bakırköy'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Bakırköy'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataköy siteleri, İncirli ticaret aksı, Carousel AVM çevresi bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Bakırköy'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Bakırköy'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Bakırköy'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Bakırköy'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Bakırköy'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Bakırköy Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Ataköy'nün apartmanlarından İncirli konut sitelerine — Bakırköy'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Bakırköy'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataköy siteleri, İncirli ticaret aksı, Carousel AVM çevresi bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Bakırköy Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Bakırköy'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Bakırköy'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Bakırköy apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Bakırköy'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Bakırköy'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Bakırköy Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Bakırköy'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Bakırköy'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ataköy siteleri, İncirli ticaret aksı, Carousel AVM çevresi bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Bakırköy'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Bakırköy'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Bakırköy'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Bakırköy'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Bakırköy müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Bakırköy'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -1185,6 +1968,93 @@ const fatih: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Fatih Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Laleli'nin otel ve turizm tesislerine Fatih'te yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Fatih'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Laleli toptancı dükkanları, Aksaray ticaret merkezi, turizm otelleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Fatih'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Fatih'te yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Fatih'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Fatih'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Fatih'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Fatih Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Laleli'nin apartmanlarından Aksaray konut sitelerine — Fatih'te kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Fatih'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Laleli toptancı dükkanları, Aksaray ticaret merkezi, turizm otelleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Fatih Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Fatih'te apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Fatih'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Fatih apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Fatih'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Fatih'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Fatih Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Fatih'te kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Fatih'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Laleli toptancı dükkanları, Aksaray ticaret merkezi, turizm otelleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Fatih'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Fatih'te kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Fatih'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Fatih'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Fatih müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Fatih'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -1292,6 +2162,93 @@ const avcilar: DistrictProfile = {
           question: "Avcılar'da kartlı geçiş sistemi mesai takibi yapabilir mi?",
           answer:
             "Evet. Giriş-çıkış loglarından otomatik devam raporu oluşturan yazılım entegrasyonu mevcuttur.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Avcılar Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Ambarlı'nın işyeri ve konutlara Avcılar'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Avcılar'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ambarlı liman ve depoları, E-5 ticaret aksı, Cihangir konut siteleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Avcılar'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Avcılar'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Avcılar'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Avcılar'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Avcılar'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Avcılar Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Ambarlı'nın apartmanlarından E-5 konut sitelerine — Avcılar'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Avcılar'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ambarlı liman ve depoları, E-5 ticaret aksı, Cihangir konut siteleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Avcılar Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Avcılar'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Avcılar'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Avcılar apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Avcılar'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Avcılar'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Avcılar Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Avcılar'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Avcılar'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Ambarlı liman ve depoları, E-5 ticaret aksı, Cihangir konut siteleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Avcılar'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Avcılar'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Avcılar'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Avcılar'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Avcılar müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Avcılar'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -1404,6 +2361,93 @@ const arnavutkoy: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Arnavutköy Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Hadımköy'nün fabrika ve depolara Arnavutköy'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Arnavutköy'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hadımköy sanayi bölgesi, Bolluca lojistik, İstanbul Havalimanı yakını bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Arnavutköy'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Arnavutköy'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Arnavutköy'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Arnavutköy'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Arnavutköy'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Arnavutköy Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Hadımköy'nün apartmanlarından Bolluca konut sitelerine — Arnavutköy'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Arnavutköy'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hadımköy sanayi bölgesi, Bolluca lojistik, İstanbul Havalimanı yakını bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Arnavutköy Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Arnavutköy'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Arnavutköy'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Arnavutköy apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Arnavutköy'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Arnavutköy'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Arnavutköy Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Arnavutköy'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Arnavutköy'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hadımköy sanayi bölgesi, Bolluca lojistik, İstanbul Havalimanı yakını bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Arnavutköy'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Arnavutköy'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Arnavutköy'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Arnavutköy'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Arnavutköy müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Arnavutköy'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -1510,6 +2554,93 @@ const bayrampasa: DistrictProfile = {
           question: "Bayrampaşa'da kartlı geçiş sistemi hırsızlık önlemeye katkı sağlar mı?",
           answer:
             "Evet. Yetkisiz bölge erişimini engeller; alarm sistemiyle entegre edildiğinde anında müdahale imkânı sağlar.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Bayrampaşa Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Vatan Caddesi'nin toptancı dükkan ve depolarına Bayrampaşa'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Bayrampaşa'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük toptan ticaret kompleksleri, Vatan Caddesi iş merkezleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Bayrampaşa'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Bayrampaşa'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Bayrampaşa'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Bayrampaşa'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Bayrampaşa'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Bayrampaşa Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Vatan Caddesi'nin apartmanlarından Toptan ticaret kompleksleri konut sitelerine — Bayrampaşa'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Bayrampaşa'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük toptan ticaret kompleksleri, Vatan Caddesi iş merkezleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Bayrampaşa Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Bayrampaşa'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Bayrampaşa'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Bayrampaşa apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Bayrampaşa'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Bayrampaşa'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Bayrampaşa Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Bayrampaşa'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Bayrampaşa'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük toptan ticaret kompleksleri, Vatan Caddesi iş merkezleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Bayrampaşa'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Bayrampaşa'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Bayrampaşa'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Bayrampaşa'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Bayrampaşa müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Bayrampaşa'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -1620,6 +2751,93 @@ const gungoren: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Güngören Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Merter'nin işyeri ve konutlara Güngören'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Güngören'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Merter tekstil showroomları, yoğun konut dokusu, küçük atölyeler bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Güngören'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Güngören'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Güngören'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Güngören'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Güngören'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Güngören Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Merter'nin apartmanlarından Güngören Merkez konut sitelerine — Güngören'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Güngören'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Merter tekstil showroomları, yoğun konut dokusu, küçük atölyeler bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Güngören Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Güngören'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Güngören'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Güngören apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Güngören'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Güngören'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Güngören Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Güngören'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Güngören'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Merter tekstil showroomları, yoğun konut dokusu, küçük atölyeler bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Güngören'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Güngören'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Güngören'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Güngören'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Güngören müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Güngören'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -1726,6 +2944,93 @@ const bahcelievler: DistrictProfile = {
           question: "Bahçelievler'de kartlı geçiş sistemi personel takibi yapabiliyor mu?",
           answer:
             "Evet. Giriş-çıkış loglarından otomatik mesai raporu oluşturan yazılım entegrasyonu mevcuttur.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Bahçelievler Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Yenibosna'nın işyeri ve konutlara Bahçelievler'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Bahçelievler'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "E-5 üzerindeki yoğun ticaret aksı, Yenibosna, Şirinevler bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Bahçelievler'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Bahçelievler'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Bahçelievler'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Bahçelievler'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Bahçelievler'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Bahçelievler Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Yenibosna'nın apartmanlarından Şirinevler konut sitelerine — Bahçelievler'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Bahçelievler'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "E-5 üzerindeki yoğun ticaret aksı, Yenibosna, Şirinevler bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Bahçelievler Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Bahçelievler'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Bahçelievler'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Bahçelievler apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Bahçelievler'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Bahçelievler'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Bahçelievler Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Bahçelievler'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Bahçelievler'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "E-5 üzerindeki yoğun ticaret aksı, Yenibosna, Şirinevler bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Bahçelievler'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Bahçelievler'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Bahçelievler'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Bahçelievler'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Bahçelievler müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Bahçelievler'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -1843,6 +3148,93 @@ const maltepe: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Maltepe Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Küçükyalı'nın işyeri ve konutlara Maltepe'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Maltepe'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi uzantısı, Küçükyalı sahil, Cevizli konut siteleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Maltepe'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Maltepe'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Maltepe'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Maltepe'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Maltepe'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Maltepe Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Küçükyalı'nın apartmanlarından Cevizli konut sitelerine — Maltepe'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Maltepe'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi uzantısı, Küçükyalı sahil, Cevizli konut siteleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Maltepe Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Maltepe'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Maltepe'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Maltepe apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Maltepe'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Maltepe'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Maltepe Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Maltepe'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Maltepe'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Bağdat Caddesi uzantısı, Küçükyalı sahil, Cevizli konut siteleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Maltepe'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Maltepe'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Maltepe'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Maltepe'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Maltepe müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Maltepe'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -1949,6 +3341,93 @@ const kartal: DistrictProfile = {
           question: "Kartal'da plaka tanıma sistemli araç giriş kontrolü kurulabilir mi?",
           answer:
             "Evet. Plaka tanıma kamerası entegreli araç erişim kontrol sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Kartal Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Kartal OSB'nun fabrika ve depolara Kartal'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Kartal'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kartal OSB fabrikaları, Dragos prestijli rezidanslar, Yakacık bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Kartal'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Kartal'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Kartal'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Kartal'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Kartal'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Kartal Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Kartal OSB'nun apartmanlarından Dragos konut sitelerine — Kartal'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Kartal'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kartal OSB fabrikaları, Dragos prestijli rezidanslar, Yakacık bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Kartal Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Kartal'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Kartal'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Kartal apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Kartal'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Kartal'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Kartal Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Kartal'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Kartal'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Kartal OSB fabrikaları, Dragos prestijli rezidanslar, Yakacık bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Kartal'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Kartal'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Kartal'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Kartal'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Kartal müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Kartal'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -2061,6 +3540,93 @@ const kucukcekmece: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Küçükçekmece Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "İkitelli OSB'nun fabrika ve depolara Küçükçekmece'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Küçükçekmece'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İkitelli OSB, Halkalı ticaret, Atakent konut siteleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Küçükçekmece'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Küçükçekmece'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Küçükçekmece'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Küçükçekmece'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Küçükçekmece'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Küçükçekmece Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "İkitelli OSB'nun apartmanlarından Halkalı konut sitelerine — Küçükçekmece'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Küçükçekmece'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İkitelli OSB, Halkalı ticaret, Atakent konut siteleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Küçükçekmece Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Küçükçekmece'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Küçükçekmece'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Küçükçekmece apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Küçükçekmece'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Küçükçekmece'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Küçükçekmece Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Küçükçekmece'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Küçükçekmece'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "İkitelli OSB, Halkalı ticaret, Atakent konut siteleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Küçükçekmece'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Küçükçekmece'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Küçükçekmece'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Küçükçekmece'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Küçükçekmece müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Küçükçekmece'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -2167,6 +3733,93 @@ const beylikduzu: DistrictProfile = {
           question: "Beylikdüzü'nde kartlı geçiş sistemi personel devam takibi yapabilir mi?",
           answer:
             "Evet. Giriş-çıkış loglarından otomatik mesai raporu oluşturan yazılım entegrasyonu mevcuttur.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Beylikdüzü Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Adnan Kahveci Bulvarı'nın işyeri ve konutlara Beylikdüzü'nde yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Beylikdüzü'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Modern rezidans projeleri, Adnan Kahveci Bulvarı ticaret aksı bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Beylikdüzü'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Beylikdüzü'nde yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Beylikdüzü'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Beylikdüzü'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Beylikdüzü'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Beylikdüzü Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Adnan Kahveci Bulvarı'nın apartmanlarından Beylikdüzü OSB konut sitelerine — Beylikdüzü'nde kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Beylikdüzü'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Modern rezidans projeleri, Adnan Kahveci Bulvarı ticaret aksı bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Beylikdüzü Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Beylikdüzü'nde apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Beylikdüzü'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Beylikdüzü apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Beylikdüzü'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Beylikdüzü'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Beylikdüzü Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Beylikdüzü'nde kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Beylikdüzü'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Modern rezidans projeleri, Adnan Kahveci Bulvarı ticaret aksı bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Beylikdüzü'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Beylikdüzü'nde kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Beylikdüzü'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Beylikdüzü'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Beylikdüzü müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Beylikdüzü'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -2279,6 +3932,93 @@ const esenyurt: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Esenyurt Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Esenyurt Bulvarı'nın işyeri ve konutlara Esenyurt'ta yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Esenyurt'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul'un en kalabalık ilçesi, Haramidere sanayi, büyük konut siteleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Esenyurt'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Esenyurt'ta yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Esenyurt'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Esenyurt'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Esenyurt'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Esenyurt Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Esenyurt Bulvarı'nın apartmanlarından Haramidere konut sitelerine — Esenyurt'ta kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Esenyurt'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul'un en kalabalık ilçesi, Haramidere sanayi, büyük konut siteleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Esenyurt Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Esenyurt'ta apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Esenyurt'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Esenyurt apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Esenyurt'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Esenyurt'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Esenyurt Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Esenyurt'ta kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Esenyurt'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul'un en kalabalık ilçesi, Haramidere sanayi, büyük konut siteleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Esenyurt'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Esenyurt'ta kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Esenyurt'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Esenyurt'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Esenyurt müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Esenyurt'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -2385,6 +4125,93 @@ const bagcilar: DistrictProfile = {
           question: "Bağcılar'da kartlı geçiş sistemi personel takibi yapabiliyor mu?",
           answer:
             "Evet. Giriş-çıkış loglarından otomatik mesai raporu oluşturan yazılım entegrasyonu mevcuttur.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Bağcılar Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Güneşli'nin fabrika ve depolara Bağcılar'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Bağcılar'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Güneşli plaza iş merkezleri, Mahmutbey sanayi bölgesi bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Bağcılar'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Bağcılar'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Bağcılar'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Bağcılar'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Bağcılar'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Bağcılar Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Güneşli'nin apartmanlarından Mahmutbey konut sitelerine — Bağcılar'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Bağcılar'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Güneşli plaza iş merkezleri, Mahmutbey sanayi bölgesi bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Bağcılar Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Bağcılar'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Bağcılar'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Bağcılar apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Bağcılar'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Bağcılar'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Bağcılar Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Bağcılar'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Bağcılar'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Güneşli plaza iş merkezleri, Mahmutbey sanayi bölgesi bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Bağcılar'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Bağcılar'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Bağcılar'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Bağcılar'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Bağcılar müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Bağcılar'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -2497,6 +4324,93 @@ const kagithane: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Kağıthane Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Çağlayan'nın işyeri ve konutlara Kağıthane'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Kağıthane'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çağlayan adliye çevresi, gelişen ofis kuleleri, Seyrantepe bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Kağıthane'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Kağıthane'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Kağıthane'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Kağıthane'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Kağıthane'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Kağıthane Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Çağlayan'nın apartmanlarından Seyrantepe konut sitelerine — Kağıthane'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Kağıthane'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çağlayan adliye çevresi, gelişen ofis kuleleri, Seyrantepe bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Kağıthane Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Kağıthane'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Kağıthane'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Kağıthane apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Kağıthane'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Kağıthane'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Kağıthane Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Kağıthane'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Kağıthane'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çağlayan adliye çevresi, gelişen ofis kuleleri, Seyrantepe bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Kağıthane'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Kağıthane'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Kağıthane'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Kağıthane'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Kağıthane müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Kağıthane'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -2604,6 +4518,93 @@ const beyoglu: DistrictProfile = {
           question: "Beyoğlu'nda kartlı geçiş sistemi ziyaretçi yönetimini destekler mi?",
           answer:
             "Evet. Geçici kart veya QR kod ile ziyaretçi erişimi tanımlanabilir; giriş-çıkış logları raporlanır.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Beyoğlu Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "İstiklal Caddesi'nin otel ve turizm tesislerine Beyoğlu'nda yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Beyoğlu'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstiklal Caddesi turizm aksı, Galata butik otelleri, Karaköy bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Beyoğlu'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Beyoğlu'nda yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Beyoğlu'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Beyoğlu'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Beyoğlu'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Beyoğlu Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "İstiklal Caddesi'nin apartmanlarından Galata konut sitelerine — Beyoğlu'nda kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Beyoğlu'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstiklal Caddesi turizm aksı, Galata butik otelleri, Karaköy bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Beyoğlu Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Beyoğlu'nda apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Beyoğlu'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Beyoğlu apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Beyoğlu'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Beyoğlu'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Beyoğlu Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Beyoğlu'nda kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Beyoğlu'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstiklal Caddesi turizm aksı, Galata butik otelleri, Karaköy bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Beyoğlu'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Beyoğlu'nda kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Beyoğlu'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Beyoğlu'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Beyoğlu müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Beyoğlu'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -2721,6 +4722,93 @@ const sultangazi: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Sultangazi Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Sultangazi Merkez'nin işyeri ve konutlara Sultangazi'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Sultangazi'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Yoğun konut mahalleleri, sanayi siteleri, Cebeci bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Sultangazi'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Sultangazi'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Sultangazi'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Sultangazi'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Sultangazi'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Sultangazi Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Sultangazi Merkez'nin apartmanlarından Cebeci konut sitelerine — Sultangazi'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Sultangazi'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Yoğun konut mahalleleri, sanayi siteleri, Cebeci bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Sultangazi Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Sultangazi'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Sultangazi'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Sultangazi apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Sultangazi'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Sultangazi'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Sultangazi Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Sultangazi'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Sultangazi'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Yoğun konut mahalleleri, sanayi siteleri, Cebeci bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Sultangazi'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Sultangazi'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Sultangazi'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Sultangazi'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Sultangazi müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Sultangazi'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -2830,6 +4918,93 @@ const gaziosmanpasa: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Gaziosmanpaşa Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Karadeniz Caddesi'nin toptancı dükkan ve depolarına Gaziosmanpaşa'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Gaziosmanpaşa'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük çarşılar, Karadeniz Caddesi ticaret, yoğun konut bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Gaziosmanpaşa'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Gaziosmanpaşa'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Gaziosmanpaşa'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Gaziosmanpaşa'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Gaziosmanpaşa'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Gaziosmanpaşa Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Karadeniz Caddesi'nin apartmanlarından Bağlarbaşı konut sitelerine — Gaziosmanpaşa'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Gaziosmanpaşa'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük çarşılar, Karadeniz Caddesi ticaret, yoğun konut bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Gaziosmanpaşa Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Gaziosmanpaşa'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Gaziosmanpaşa'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Gaziosmanpaşa apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Gaziosmanpaşa'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Gaziosmanpaşa'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Gaziosmanpaşa Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Gaziosmanpaşa'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Gaziosmanpaşa'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyük çarşılar, Karadeniz Caddesi ticaret, yoğun konut bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Gaziosmanpaşa'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Gaziosmanpaşa'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Gaziosmanpaşa'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Gaziosmanpaşa'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Gaziosmanpaşa müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Gaziosmanpaşa'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -2936,6 +5111,93 @@ const eyupsultan: DistrictProfile = {
           question: "Eyüpsultan'da kartlı geçiş yönetimi nasıl yapılır?",
           answer:
             "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Eyüpsultan Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Alibeyköy'nün villa ve rezidanslara Eyüpsultan'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Eyüpsultan'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alibeyköy konut siteleri, Göktürk villa bölgesi, Haliç kıyısı bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Eyüpsultan'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Eyüpsultan'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Eyüpsultan'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Eyüpsultan'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Eyüpsultan'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Eyüpsultan Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Alibeyköy'nün apartmanlarından Göktürk konut sitelerine — Eyüpsultan'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Eyüpsultan'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alibeyköy konut siteleri, Göktürk villa bölgesi, Haliç kıyısı bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Eyüpsultan Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Eyüpsultan'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Eyüpsultan'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Eyüpsultan apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Eyüpsultan'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Eyüpsultan'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Eyüpsultan Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Eyüpsultan'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Eyüpsultan'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alibeyköy konut siteleri, Göktürk villa bölgesi, Haliç kıyısı bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Eyüpsultan'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Eyüpsultan'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Eyüpsultan'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Eyüpsultan'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Eyüpsultan müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Eyüpsultan'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -3049,6 +5311,93 @@ const sariyer: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Sarıyer Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Maslak'nın villa ve rezidanslara Sarıyer'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Sarıyer'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Maslak kurumsal ofisler, Tarabya ve Yeniköy Boğaz villaları bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Sarıyer'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Sarıyer'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Sarıyer'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Sarıyer'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Sarıyer'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Sarıyer Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Maslak'nın apartmanlarından Tarabya konut sitelerine — Sarıyer'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Sarıyer'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Maslak kurumsal ofisler, Tarabya ve Yeniköy Boğaz villaları bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Sarıyer Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Sarıyer'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Sarıyer'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Sarıyer apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Sarıyer'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Sarıyer'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Sarıyer Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Sarıyer'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Sarıyer'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Maslak kurumsal ofisler, Tarabya ve Yeniköy Boğaz villaları bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Sarıyer'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Sarıyer'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Sarıyer'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Sarıyer'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Sarıyer müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Sarıyer'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3159,6 +5508,93 @@ const uskudar: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Üsküdar Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Çamlıca'nın villa ve rezidanslara Üsküdar'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Üsküdar'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çamlıca prestijli konutlar, Altunizade iş merkezleri, Beylerbeyi bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Üsküdar'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Üsküdar'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Üsküdar'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Üsküdar'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Üsküdar'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Üsküdar Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Çamlıca'nın apartmanlarından Altunizade konut sitelerine — Üsküdar'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Üsküdar'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çamlıca prestijli konutlar, Altunizade iş merkezleri, Beylerbeyi bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Üsküdar Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Üsküdar'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Üsküdar'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Üsküdar apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Üsküdar'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Üsküdar'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Üsküdar Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Üsküdar'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Üsküdar'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Çamlıca prestijli konutlar, Altunizade iş merkezleri, Beylerbeyi bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Üsküdar'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Üsküdar'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Üsküdar'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Üsküdar'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Üsküdar müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Üsküdar'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3264,6 +5700,93 @@ const sultanbeyli: DistrictProfile = {
           question: "Sultanbeyli'de kartlı geçiş sistemi yönetimi nasıl yapılır?",
           answer:
             "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Sultanbeyli Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Sultanbeyli Merkez'nin işyeri ve konutlara Sultanbeyli'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Sultanbeyli'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut mahalleleri, sanayi siteleri, Samandıra bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Sultanbeyli'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Sultanbeyli'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Sultanbeyli'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Sultanbeyli'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Sultanbeyli'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Sultanbeyli Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Sultanbeyli Merkez'nin apartmanlarından Samandıra konut sitelerine — Sultanbeyli'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Sultanbeyli'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut mahalleleri, sanayi siteleri, Samandıra bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Sultanbeyli Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Sultanbeyli'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Sultanbeyli'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Sultanbeyli apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Sultanbeyli'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Sultanbeyli'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Sultanbeyli Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Sultanbeyli'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Sultanbeyli'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut mahalleleri, sanayi siteleri, Samandıra bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Sultanbeyli'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Sultanbeyli'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Sultanbeyli'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Sultanbeyli'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Sultanbeyli müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Sultanbeyli'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -3376,6 +5899,93 @@ const tuzla: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Tuzla Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Tuzla OSB'nun fabrika ve depolara Tuzla'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Tuzla'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Tuzla OSB, tersaneler bölgesi, İçmeler konut projeleri bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Tuzla'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Tuzla'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Tuzla'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Tuzla'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Tuzla'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Tuzla Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Tuzla OSB'nun apartmanlarından Tersaneler Bölgesi konut sitelerine — Tuzla'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Tuzla'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Tuzla OSB, tersaneler bölgesi, İçmeler konut projeleri bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Tuzla Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Tuzla'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Tuzla'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Tuzla apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Tuzla'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Tuzla'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Tuzla Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Tuzla'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Tuzla'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Tuzla OSB, tersaneler bölgesi, İçmeler konut projeleri bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Tuzla'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Tuzla'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Tuzla'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Tuzla'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Tuzla müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Tuzla'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3437,6 +6047,93 @@ const beykoz: DistrictProfile = {
         { question: "Beykoz'da kartlı geçiş sistemi ziyaretçi yönetimini destekler mi?", answer: "Evet. Geçici kart veya QR kod ile ziyaretçi erişimi tanımlanabilir; giriş logları raporlanır." },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Beykoz Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Kavacık'nın villa ve rezidanslara Beykoz'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Beykoz'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Boğaz kıyısı villaları, Kavacık iş alanları, Polonezköy orman bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Beykoz'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Beykoz'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Beykoz'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Beykoz'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Beykoz'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Beykoz Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Kavacık'nın apartmanlarından Kanlıca konut sitelerine — Beykoz'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Beykoz'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Boğaz kıyısı villaları, Kavacık iş alanları, Polonezköy orman bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Beykoz Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Beykoz'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Beykoz'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Beykoz apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Beykoz'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Beykoz'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Beykoz Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Beykoz'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Beykoz'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Boğaz kıyısı villaları, Kavacık iş alanları, Polonezköy orman bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Beykoz'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Beykoz'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Beykoz'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Beykoz'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Beykoz müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Beykoz'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3492,6 +6189,93 @@ const sancaktepe: DistrictProfile = {
         { question: "Sancaktepe'deki siteye araç bariyeri + kartlı giriş kurulabilir mi?", answer: "Evet. Araç bariyeri ve yaya girişi için kartlı okuyucu entegreli komple sistem sunulmaktadır." },
         { question: "Sancaktepe OSB'deki fabrikama kartlı geçiş nasıl kurulur?", answer: "Ana giriş, vardiya kapıları ve bölüm erişimleri keşif sonrası belirlenerek okuyucu ve kontrol paneli planı hazırlanır." },
         { question: "Sancaktepe'de kartlı geçiş yönetimi nasıl yapılır?", answer: "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir." },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Sancaktepe Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Sancaktepe OSB'nun fabrika ve depolara Sancaktepe'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Sancaktepe'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut projeleri, Sancaktepe OSB, Samandıra bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Sancaktepe'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Sancaktepe'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Sancaktepe'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Sancaktepe'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Sancaktepe'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Sancaktepe Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Sancaktepe OSB'nun apartmanlarından Samandıra konut sitelerine — Sancaktepe'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Sancaktepe'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut projeleri, Sancaktepe OSB, Samandıra bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Sancaktepe Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Sancaktepe'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Sancaktepe'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Sancaktepe apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Sancaktepe'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Sancaktepe'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Sancaktepe Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Sancaktepe'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Sancaktepe'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Hızla büyüyen konut projeleri, Sancaktepe OSB, Samandıra bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Sancaktepe'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Sancaktepe'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Sancaktepe'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Sancaktepe'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Sancaktepe müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Sancaktepe'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
       ],
     },
   },
@@ -3551,6 +6335,93 @@ const cekmekoy: DistrictProfile = {
         { question: "Çekmeköy'de kartlı geçiş yönetimi nasıl yapılır?", answer: "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir." },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Çekmeköy Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Taşdelen'nin villa ve rezidanslara Çekmeköy'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Çekmeköy'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Taşdelen villa toplulukları, Hamidiye konut projeleri, orman kenarı bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Çekmeköy'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Çekmeköy'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Çekmeköy'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Çekmeköy'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Çekmeköy'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Çekmeköy Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Taşdelen'nin apartmanlarından Hamidiye konut sitelerine — Çekmeköy'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Çekmeköy'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Taşdelen villa toplulukları, Hamidiye konut projeleri, orman kenarı bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Çekmeköy Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Çekmeköy'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Çekmeköy'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Çekmeköy apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Çekmeköy'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Çekmeköy'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Çekmeköy Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Çekmeköy'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Çekmeköy'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Taşdelen villa toplulukları, Hamidiye konut projeleri, orman kenarı bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Çekmeköy'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Çekmeköy'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Çekmeköy'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Çekmeköy'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Çekmeköy müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Çekmeköy'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3608,6 +6479,93 @@ const esenler: DistrictProfile = {
         { question: "Esenler'de kartlı geçiş yönetimi nasıl yapılır?", answer: "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir." },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Esenler Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Büyük Otogar'nın işyeri ve konutlara Esenler'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Esenler'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul Büyük Otogar çevresi, yoğun ticaret, kalabalık konut bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Esenler'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Esenler'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Esenler'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Esenler'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Esenler'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Esenler Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Büyük Otogar'nın apartmanlarından Esenler Merkez konut sitelerine — Esenler'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Esenler'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul Büyük Otogar çevresi, yoğun ticaret, kalabalık konut bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Esenler Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Esenler'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Esenler'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Esenler apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Esenler'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Esenler'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Esenler Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Esenler'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Esenler'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "İstanbul Büyük Otogar çevresi, yoğun ticaret, kalabalık konut bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Esenler'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Esenler'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Esenler'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Esenler'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Esenler müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Esenler'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3663,6 +6621,93 @@ const buyukcekmece: DistrictProfile = {
         { question: "Büyükçekmece'deki villa topluluğuna kartlı geçiş sistemi kurulabilir mi?", answer: "Evet. Ana giriş kapısına bariyer entegreli kartlı geçiş ve misafir yönetim sistemi kurulmaktadır." },
         { question: "Büyükçekmece'deki siteye araç bariyeri + kartlı giriş kurulabilir mi?", answer: "Evet. Araç bariyeri ve yaya girişi için kartlı okuyucu entegreli komple sistem sunulmaktadır." },
         { question: "Büyükçekmece'de kartlı geçiş yönetimi nasıl yapılır?", answer: "Web tabanlı yönetim paneli üzerinden kart tanımlama, silme ve erişim raporları anlık olarak yönetilebilir." },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Büyükçekmece Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Alkent'nin villa ve rezidanslara Büyükçekmece'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Büyükçekmece'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alkent villa toplulukları, Kumburgaz sahil tesisleri, Mimaroba bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Büyükçekmece'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Büyükçekmece'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Büyükçekmece'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Büyükçekmece'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Büyükçekmece'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Büyükçekmece Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Alkent'nin apartmanlarından Kumburgaz konut sitelerine — Büyükçekmece'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Büyükçekmece'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alkent villa toplulukları, Kumburgaz sahil tesisleri, Mimaroba bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Büyükçekmece Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Büyükçekmece'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Büyükçekmece'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Büyükçekmece apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Büyükçekmece'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Büyükçekmece'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Büyükçekmece Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Büyükçekmece'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Büyükçekmece'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Alkent villa toplulukları, Kumburgaz sahil tesisleri, Mimaroba bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Büyükçekmece'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Büyükçekmece'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Büyükçekmece'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Büyükçekmece'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Büyükçekmece müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Büyükçekmece'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
       ],
     },
   },
@@ -3761,6 +6806,93 @@ const adalar: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Adalar Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Büyükada'nın otel ve turizm tesislerine Adalar'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Adalar'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyükada tarihi köşkler, Heybeliada ve Burgazada butik oteller bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Adalar'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Adalar'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Adalar'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Adalar'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Adalar'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Adalar Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Büyükada'nın apartmanlarından Heybeliada konut sitelerine — Adalar'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Adalar'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyükada tarihi köşkler, Heybeliada ve Burgazada butik oteller bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Adalar Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Adalar'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Adalar'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Adalar apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Adalar'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Adalar'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Adalar Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Adalar'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Adalar'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Büyükada tarihi köşkler, Heybeliada ve Burgazada butik oteller bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Adalar'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Adalar'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Adalar'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Adalar'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Adalar müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Adalar'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -3851,6 +6983,93 @@ const sile: DistrictProfile = {
         {
           question: "Şile'de kartlı geçiş sistemi misafir yönetimini destekler mi?",
           answer: "Evet. Geçici kart veya QR kod ile misafir erişimi tanımlanabilir; giriş-çıkış logları raporlanır.",
+        },
+      ],
+    },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Şile Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Şile Sahili'nin otel ve turizm tesislerine Şile'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Şile'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Karadeniz sahil tatil tesisleri, yazlık villalar, Ağva doğa bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Şile'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Şile'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Şile'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Şile'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Şile'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Şile Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Şile Sahili'nin apartmanlarından Ağva konut sitelerine — Şile'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Şile'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Karadeniz sahil tatil tesisleri, yazlık villalar, Ağva doğa bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Şile Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Şile'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Şile'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Şile apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Şile'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Şile'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Şile Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Şile'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Şile'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Karadeniz sahil tatil tesisleri, yazlık villalar, Ağva doğa bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Şile'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Şile'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Şile'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Şile'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Şile müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Şile'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
         },
       ],
     },
@@ -3948,6 +7167,93 @@ const silivri: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Silivri Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Silivri Sahili'nin otel ve turizm tesislerine Silivri'de yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Silivri'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sahil yazlık bölgeleri, Selimpaşa sanayi, Silivri OSB bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Silivri'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Silivri'de yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Silivri'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Silivri'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Silivri'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Silivri Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Silivri Sahili'nin apartmanlarından Selimpaşa konut sitelerine — Silivri'de kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Silivri'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sahil yazlık bölgeleri, Selimpaşa sanayi, Silivri OSB bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Silivri Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Silivri'de apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Silivri'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Silivri apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Silivri'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Silivri'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Silivri Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Silivri'de kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Silivri'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Sahil yazlık bölgeleri, Selimpaşa sanayi, Silivri OSB bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Silivri'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Silivri'de kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Silivri'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Silivri'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Silivri müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Silivri'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -4042,6 +7348,93 @@ const catalca: DistrictProfile = {
         },
       ],
     },
+    "yangin-alarm-sistemi-kurulumu": {
+      heroTitle: "Çatalca Yangın Alarm Sistemi Kurulumu",
+      heroIntro:
+        "Çatalca Merkez'nin fabrika ve depolara Çatalca'da yangın alarm sistemi kurmak artık yasal zorunluluk. Duman ve ısı dedektörü, adresli panel, acil tahliye yönlendirme — belediye denetim desteğiyle komple kurulum.",
+      whatsappMessage:
+        "Merhaba, Çatalca'de yangın alarm sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Geniş orman ve tarım alanları, sanayi tesisleri, TEM güzergahı bölgesindeki yapılarda yangın alarm sistemi hem yasal zorunluluk hem sigorta geçerlilik şartıdır; eksikliği idari para cezasına yol açar.",
+      ctaTitle: "Çatalca'de Yangın Alarm Sistemi Kurun",
+      ctaSubtitle:
+        "İşyeriniz veya binanız için Çatalca'da yangın alarm keşfi ve teklif alın — belediye denetim desteği dahil.",
+      faqs: [
+        {
+          question: "Çatalca'deki işyerime yangın alarm sistemi zorunlu mu?",
+          answer:
+            "Evet. Ticari işletmeler, ofisler ve apartmanlar için yangın alarm sistemi yasal zorunluluktur; eksikliğinde idari para cezası ve sigorta geçersizliği riski oluşur.",
+        },
+        {
+          question: "Çatalca'de adresli yangın alarm sistemi ile konvansiyonel sistem arasındaki fark nedir?",
+          answer:
+            "Adresli sistemlerde her dedektör ayrı tanımlanır; alarm anında hangi noktada yangın olduğu panelde görüntülenir. Çok katlı ve büyük yapılar için adresli sistem zorunludur.",
+        },
+        {
+          question: "Çatalca'de yangın alarm sistemi kurulumu ne kadar sürer?",
+          answer:
+            "Küçük işletmeler için kurulum genellikle 1 günde, büyük çok katlı yapılar için 2-3 günde tamamlanır; kesin süre keşif sonrası belirlenir.",
+        },
+      ],
+    },
+    "apartman-site-guvenlik-sistemi": {
+      heroTitle: "Çatalca Apartman & Site Güvenlik Sistemi",
+      heroIntro:
+        "Çatalca Merkez'nin apartmanlarından Ferhatpaşa konut sitelerine — Çatalca'da kamera, görüntülü interkom, kartlı geçiş ve alarm tek entegre pakette. Site yönetimine özel fiyatlandırma.",
+      whatsappMessage:
+        "Merhaba, Çatalca'de apartman/site güvenlik sistemi kurulumu için bilgi almak istiyorum.",
+      commercialAngle:
+        "Geniş orman ve tarım alanları, sanayi tesisleri, TEM güzergahı bölgesindeki konut yönetimleri, tek tedarikçiden entegre güvenlik sistemi kurarak hem maliyet hem yönetim kolaylığı sağlıyor.",
+      ctaTitle: "Çatalca Apartmanınız İçin Entegre Güvenlik",
+      ctaSubtitle:
+        "Çatalca'da apartman veya siteniz için ücretsiz keşif alın; kamera, interkom ve kartlı geçiş dahil komple güvenlik planı hazırlayalım.",
+      faqs: [
+        {
+          question: "Çatalca'deki apartmanıma hangi güvenlik sistemleri önerilir?",
+          answer:
+            "Giriş kamerası, görüntülü interkom, hareket sensörlü aydınlatma ve kapı kilidi entegrasyonu Çatalca apartmanları için standart paket bileşenleridir.",
+        },
+        {
+          question: "Çatalca'de site yönetimi için merkezi güvenlik sistemi kurulabilir mi?",
+          answer:
+            "Evet. Güvenlik kulübesi monitörü, site geneli kamera ağı ve araç bariyer sistemi tek merkezden yönetilen entegre bir sistemle kurulabilir.",
+        },
+        {
+          question: "Çatalca'de eski apartmanlara modern güvenlik sistemi uygulanabilir mi?",
+          answer:
+            "Evet. Mevcut altyapıya göre kablosuz veya karma çözümlerle eski binalarda da modern güvenlik sistemi kurulmaktadır.",
+        },
+      ],
+    },
+    "bakim-servis-uzaktan-izleme": {
+      heroTitle: "Çatalca Güvenlik Sistemi Bakım & Servis",
+      heroIntro:
+        "Çatalca'da kurulu kamera, alarm ve kartlı geçiş sistemleriniz için yıllık bakım sözleşmesi ve 7/24 teknik servis. Arıza anında aynı gün müdahale, uzaktan izleme altyapısı dahil.",
+      whatsappMessage:
+        "Merhaba, Çatalca'deki güvenlik sistemimin bakım ve servisi için bilgi almak istiyorum.",
+      commercialAngle:
+        "Geniş orman ve tarım alanları, sanayi tesisleri, TEM güzergahı bölgesinin yoğun kullanım koşulları güvenlik sistemlerini hızlı yoruyor; düzenli bakım yapılmayan sistemler kritik anlarda devre dışı kalabiliyor.",
+      ctaTitle: "Çatalca'de Sisteminizi Her Zaman Aktif Tutun",
+      ctaSubtitle:
+        "Yıllık bakım sözleşmesiyle Çatalca'da kamera, alarm veya kartlı geçiş sisteminiz kesintisiz çalışır; arıza anında aynı gün müdahale garantisi.",
+      faqs: [
+        {
+          question: "Çatalca'de güvenlik kamerası bakımı ne sıklıkla yapılmalı?",
+          answer:
+            "Yılda en az bir kez periyodik bakım önerilir; yüksek trafik alanlarda 6 ayda bir bakım idealdir.",
+        },
+        {
+          question: "Çatalca'de kamera veya alarm arızasında ne kadar sürede müdahale edilir?",
+          answer:
+            "Bakım sözleşmesi kapsamındaki Çatalca müşterilerimizde aynı gün müdahale garantisi sunulmaktadır.",
+        },
+        {
+          question: "Başka firma tarafından kurulan sisteme Çatalca'de bakım yapılıyor mu?",
+          answer:
+            "Evet. Markadan bağımsız olarak mevcut kamera, alarm ve kartlı geçiş sistemleri için bakım ve servis hizmeti verilmektedir.",
+        },
+      ],
+    },
   },
 };
 
@@ -4101,6 +7494,9 @@ export const districtPilotServiceSlugs = [
   "kamera-sistemi-kurulumu",
   "alarm-sistemi-kurulumu",
   "kartli-gecis-sistemi-kurulumu",
+  "yangin-alarm-sistemi-kurulumu",
+  "apartman-site-guvenlik-sistemi",
+  "bakim-servis-uzaktan-izleme",
 ] as const;
 
 export type DistrictPilotServiceSlug =

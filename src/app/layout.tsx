@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/images/guvenlikservisi-logo-favicon.png",
+    shortcut: "/images/guvenlikservisi-logo-favicon.png",
+    apple: "/images/guvenlikservisi-logo-favicon.png",
   },
   verification: {
     google: "i5B6tYYGx0eggv9nie4ynlNytDsffEhyIfvVpkmA-K4",

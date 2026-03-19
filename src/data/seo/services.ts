@@ -143,7 +143,7 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
     name: "Güvenlik Sistemi Bakım Sözleşmesi",
     shortDescription:
       "Kamera, alarm ve geçiş kontrol altyapıları için periyodik kontrol, kayıt sürekliliği ve sözleşmeli bakım hizmeti.",
-    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+    availableCitySlugs: ["istanbul", "ankara", "izmir", "bursa", "kocaeli", "edirne", "tekirdag"],
   },
   {
     slug: "site-kamera-sistemi-bakim",
@@ -157,21 +157,21 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
     name: "Fabrika Güvenlik Sistemi Bakımı",
     shortDescription:
       "Üretim tesisi ve fabrika altyapıları için kayıt sürekliliği, saha kontrolü ve periyodik bakım hizmeti.",
-    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+    availableCitySlugs: ["istanbul", "kocaeli", "bursa", "edirne", "tekirdag"],
   },
   {
     slug: "nvr-bakim-servisi",
     name: "NVR Bakım Servisi",
     shortDescription:
       "NVR cihazı, disk sağlığı, kayıt sürekliliği, uzaktan erişim ve ağ sorunları için bakım ve teknik servis desteği.",
-    availableCitySlugs: ["istanbul"],
+    availableCitySlugs: ["istanbul", "ankara", "izmir"],
   },
   {
     slug: "depo-guvenlik-sistemi-kurulumu",
     name: "Depo Güvenlik Sistemi Kurulumu",
     shortDescription:
       "Yükleme alanları, stok hareketi ve gece izleme ihtiyacı olan depolar için güvenlik sistemi kurulumu.",
-    availableCitySlugs: ["istanbul", "edirne", "tekirdag"],
+    availableCitySlugs: ["istanbul", "kocaeli", "bursa", "edirne", "tekirdag"],
   },
   {
     slug: "plaza-guvenlik-sistemi-kurulumu",
@@ -192,7 +192,7 @@ const serviceRouteRecords: ServiceRouteRecord[] = [
     name: "Alarm Sistemi Bakımı",
     shortDescription:
       "Panel, sensör, siren, haberleşme ve batarya kontrolleriyle alarm altyapısını sürekli çalışır tutan bakım hizmeti.",
-    availableCitySlugs: ["istanbul"],
+    availableCitySlugs: ["istanbul", "ankara", "izmir", "bursa", "kocaeli"],
   },
   {
     slug: "uzaktan-kamera-izleme",

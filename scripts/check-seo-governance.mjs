@@ -8,9 +8,14 @@ const robotsPath = path.join(workspaceRoot, ".next", "server", "app", "robots.tx
 
 const blockedSitemapFragments = [
   "/teklif/",
+  "/kartli-gecis-ve-turnike-sistemi",
+  "/istanbul-alarm-sistemi",
   "/istanbul-ip-kamera-montaji",
   "/istanbul-kamera-bakim-servisi",
+  "/istanbul-kamera-sistemi-kurulumu",
   "/istanbul-kamera-teknik-servis",
+  "/istanbul-kartli-gecis-sistemi",
+  "/istanbul-yangin-alarm-sistemi",
 ];
 const legacyLoserPaths = blockedSitemapFragments.filter((fragment) =>
   fragment.startsWith("/istanbul-"),

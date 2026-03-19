@@ -439,8 +439,9 @@ Her sayfa için:
 - [ ] noindex karar matrisi oluştur
 - [ ] parametreli URL üretimini engelle
 - [x] duplicate canonical hatalarını yakala
-- [x] sitemap / robots governance check script'i ekle (`scripts/check-seo-governance.mjs` build artifact üzerinden `/teklif/*`, legacy İstanbul loser URL'leri, mixed host ve temel robots satırlarını denetliyor)
+- [x] sitemap / robots governance check script'i ekle (`scripts/check-seo-governance.mjs` build artifact üzerinden `/teklif/*`, legacy İstanbul loser URL'leri, mixed host ve temel robots satırlarını denetliyor; `blockedSitemapFragments` 8 legacy redirect path'i tam olarak kapsıyor)
 - [x] legacy loser URL sızıntısını organic source layer'da sıfırla (`scripts/check-seo-governance.mjs` artık `problem-pages`, `problem-routing`, `istanbul-trust-layer`, `istanbul-district-support`, `istanbul-money-pages` dosyalarında legacy İstanbul loser referanslarını fail ediyor; yalnızca `routes.ts` ve `canonical.ts` içinde izinli)
+- [x] redirect-only legacy sayfaları sitemap dışına al — 8 adet legacy redirect path `staticPagePaths`'ten `legacyRedirectPaths`'e taşındı; sitemap temiz
 - [ ] yetim sayfaları tespit et
 - [ ] 404 ve soft 404 listesini izle
 
@@ -492,7 +493,7 @@ Her sayfa için:
 
 ## P8.1 Form Standardizasyonu
 
-- [ ] tüm form component’lerini tek veri modeliyle hizala
+- [~] tüm form component’lerini tek veri modeliyle hizala — city/service sayfaları `ServiceLeadFormSection` + `QuoteForm` ile birleşik modele geçti; `IstanbulServiceQuoteForm` (district pages) ve `MaintenanceQuoteForm` (national hub) hâlâ ayrı; form tiplerinin tamamen birleştirilmesi ileri aşama
 - [x] şehir / ilçe / servis değerlerini otomatik doldur
 - [x] hidden field ile `page_url` zorunlu gönder
 - [x] hidden field ile `form_source` zorunlu gönder
@@ -860,7 +861,7 @@ Her yeni sayfada:
 - [x] teknik servis cluster'ını aç — guvenlik-sistemi-teknik-servis + nvr-bakim-servisi aktif
 - [x] site yönetimi cluster'ını aç — apartman-site-guvenlik-sistemi + site-kamera-sistemi-bakim aktif
 - [x] fabrika cluster'ını aç — fabrika-depo-guvenlik-sistemi + fabrika-guvenlik-sistemi-bakim aktif
-- [~] İstanbul / Ankara / İzmir için yayınla — 18 şehir aktif ama bazı niş servisler sadece İstanbul/Edirne/Tekirdağ'da
+- [~] İstanbul / Ankara / İzmir için yayınla — 18 şehir genel servisler için aktif; recurring gelir servisleri Tier 1 şehirlere genişletildi (guvenlik-sistemi-bakim-sozlesmesi, alarm-sistemi-bakim: +ankara/izmir/bursa/kocaeli; fabrika-bakim + depo-kurulumu: +kocaeli/bursa; nvr-bakim: +ankara/izmir). site-kamera-bakim, plaza, avm-guvenlik istanbul-only kalıyor.
 - [ ] form ve CTA optimizasyonunu yap
 
 ## Sprint 3 — İlçe Motoru
@@ -948,10 +949,14 @@ Her yeni sayfada:
 - `tamamlandı`: 20 hedef organik para sayfası mevcut `/{city}/{service}` winner modeli içinde açıldı; yeni route family açılmadı ve `/teklif/*` ownership katmanına dokunulmadı.
 - `tamamlandı`: Yeni bakım, teknik servis ve B2B kurulum intentleri service dictionary'e veri odaklı eklendi; city availability gate ile yalnızca hedef şehirlerde winner URL, static params ve sitemap girişi üretiliyor.
 
-## Durum Notu — 2026-03-19
+## Durum Notu — 2026-03-19 (devam)
 
 - `tamamlandı`: P0 redirect fix — eski 3 problem slug'ı (`nvr-kayit-yapmiyor`, `ip-kamera-baglanti-sorunu`, `kamera-hard-disk-arizasi`) için `next.config.ts`'e 301 redirect eklendi; bu sayfalar aktif olarak `kayit-yapilmiyor`, `kamera-offline`, `hdd-kayit-cihazi-sorunlari` slug'larına taşınmış ama redirect kaydı yoktu.
 - `tamamlandı`: BACKLOG.md problem sayfaları bölümü güncellendi; 4 eski slug referansı yerine 12 aktif problem slug'ı `[x]` olarak işaretlendi; Sprint 4 satırı gerçek durumu yansıtacak şekilde düzeltildi.
 - `tamamlandı`: `scripts/check-seo-governance.mjs` problem slug registry denetimiyle genişletildi; artık sitemap'teki `/sorun/*` URL'leri ve `internal-links.ts` + `blog/[slug]/page.tsx` içindeki `/sorun/` referansları `problem-pages.ts` kayıt defterine karşı doğrulanıyor — eski slug kullanımı build'i fail eder.
-- `tamamlandı`: Lead attribution temizliği — `FORM_SOURCES` listesine `website_form` ve `maintenance_contract_page` eklendi; legacy kaynaklar `// Legacy` grubu altına taşındı; `normalizeFormSource`'a `maintenance_contract` rule eklendi; API route fallback `"istanbul_ip_kamera"` → `"website_form"` olarak düzeltildi.
+- `tamamlandı`: Lead attribution temizliği — `FORM_SOURCES` listesine `website_form` ve `maintenance_contract_page` eklendi; legacy kaynaklar `// Legacy` grubu altına taşındı; `normalizeFormSource`'a `maintenance_contract` rule eklendi; API route log-context fallback `"istanbul_ip_kamera"` → `"website_form"` olarak düzeltildi (honeypot log satırı + fatal catch log satırı; `buildLeadRecord` zaten `"website_form"` kullanıyordu).
 - `tamamlandı`: P4.3 Organization schema eklendi — `src/lib/schema.ts`'e `generateOrganizationSchema()` fonksiyonu eklendi; homepage'de `LocalBusiness` ile birlikte emit ediliyor; `@id: #organization`, logo, contactPoint (TR/Turkish) içeriyor.
+- `tamamlandı`: API route log-context fallback düzeltildi — `src/app/api/lead/route.ts` honeypot ve fatal catch log satırlarındaki `"istanbul_ip_kamera"` → `"website_form"` olarak güncellendi.
+- `tamamlandı`: P0 sitemap temizliği — 8 adet redirect-only legacy sayfa (`/kartli-gecis-ve-turnike-sistemi` + 7 legacy istanbul-*) `staticPagePaths`'ten çıkarıldı, ayrı `legacyRedirectPaths` dizisine taşındı; bunlar artık sitemap'e emit edilmiyor. Route validasyonu için `staticPathSet` ve `getAllKnownAppPaths()` güncellendi. `scripts/check-seo-governance.mjs` içindeki `blockedSitemapFragments` eksik 5 legacy path ile tamamlandı (önceden 3/8 yakalanıyordu, artık 8/8).
+- `tamamlandı`: Sprint 2 city expansion — 5 yüksek öncelikli servis için Tier 1 şehir kapsaması genişletildi; 14 yeni city/service para sayfası eklendi: `guvenlik-sistemi-bakim-sozlesmesi` (+ankara, izmir, bursa, kocaeli), `alarm-sistemi-bakim` (+ankara, izmir, bursa, kocaeli), `fabrika-guvenlik-sistemi-bakim` (+kocaeli, bursa), `depo-guvenlik-sistemi-kurulumu` (+kocaeli, bursa), `nvr-bakim-servisi` (+ankara, izmir). İçerik şablonları city-agnostic; Tier 1 şehir marketType ve ticari yoğunluğu doğrulıandı.
+- `tamamlandı`: P8.1 Form kapsama genişlemesi — maintenance/technical-service/monitoring intent'li tüm city/service sayfalarına (yaklaşık 100 sayfa) inline lead form eklendi; `getEmbeddedQuoteServiceType` tüm servis slug'larını kapsayacak şekilde genişletildi; `showEmbeddedLeadForm` bakım intent'i için `waveOneMoneyPages` gate'ini aşacak şekilde güncellendi; `waveOneMoneyPages` kurulum/çözüm tipi yüksek öncelikli sayfalar (+13 yeni giriş) ile genişletildi.
