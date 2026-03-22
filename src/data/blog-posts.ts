@@ -2736,7 +2736,329 @@ NVR'a internet bağlantısı sağlandıktan sonra akıllı telefon uygulaması (
 
 [Kablosuz alarm sistemi rehberi](/blog/kablosuz-alarm-sistemi-rehberi) — kiracı mağazalar için ideal alarm çözümü.`,
   },
-];
+  // ── depo-kamera-sistemi ──────────────────────────────────────────────
+  {
+    slug: "depo-kamera-sistemi",
+    title: "Depo Kamera Sistemi: Doğru Kurulum ve Fiyat Rehberi (2026)",
+    excerpt:
+      "Deponuza kaç kamera gerekir, hangi model seçilmeli, fiyatlar ne kadar? Geniş alan ve gece görüşü gereksinimleriyle depo kamera sistemi kurulumunun tam rehberi.",
+    publishedAt: "2026-03-20",
+    readTime: 9,
+    tags: ["kamera", "depo", "kurulum"],
+    category: "Kurulum Rehberi",
+    image: "/images/services/bakim-servis/depo-kamera-montaji-dis-cephe.jpg",
+    content: `## Depo Kamera Sistemi Neden Farklı Gereksinimler Taşır?
+
+Depo ve antrepo alanları, ofis veya mağazadan çok farklı kamera kurulum ihtiyaçları doğurur. Yüksek tavan (5–12 m), uzun koridorlar, dar raflar arası geçişler ve geniş yükleme rampaları — standart bir iç mekan kamerasıyla bu alanı izlemek hem yetersiz hem verimsiz olur.
+
+Doğru **depo kamera sistemi** kurulumu üç temel problemi çözmelidir: hırsızlık/fire kaybı, iş kazası takibi ve sigorta gereksinimleri.
+
+---
+
+## Depo Kamera Sistemi Bileşenleri
+
+### 1. Kamera Türleri
+
+| Kamera Türü | Kullanım Yeri | Özellik |
+|-------------|---------------|---------|
+| Geniş açı dome (2K+) | Genel alan, raf arası | 180° görüş, vandal-proof |
+| PTZ (pan-tilt-zoom) | Büyük açık alan | Uzaktan yönlendirme, 30× zoom |
+| Bullet kamera | Giriş/çıkış kapıları | Uzun menzil, IR 50–80 m |
+| Plaka okuma (LPR) | Araç girişi, yükleme rampası | Karakter tanıma |
+
+Ortalama 500 m² depo için **6–10 kamera** yeterlidir; 1.000 m² üzeri depolarda **12–20 kamera** planlanmalıdır.
+
+### 2. NVR ve Depolama
+
+Depo kameralarında en az **30 günlük kayıt** tutulması önerilir — sigorta şirketleri ve işveren sorumluluk davaları için bu süre kritiktir. 8 kameralı bir sistemde:
+
+- 2K çözünürlük + H.265+ codec → günlük ~80 GB
+- 30 günlük kayıt → ~2,4 TB HDD (2 adet 2 TB önerilir, RAID-1 tercih)
+
+### 3. Gece Görüşü ve Aydınlatma
+
+Depolarda aydınlatma genellikle yetersizdir. **Starlight sensörlü kameralar** (F1.0 lens) düşük ışıkta renkli görüntü üretir. Tamamen karanlık alanlarda IR LED menzili 30–50 m olan kameralar seçilmelidir.
+
+![Depo kamera kurulumu dış cephe](/images/services/bakim-servis/depo-kamera-montaji-dis-cephe.jpg "Depo dış cephe kamera montajı")
+
+---
+
+## Depo Kamera Sistemi Fiyatları (2026)
+
+| Paket | Alan | Kamera Sayısı | Tahmini Fiyat |
+|-------|------|---------------|---------------|
+| Küçük depo | 200–400 m² | 4–6 kamera | 18.000–28.000 TL |
+| Orta depo | 400–1.000 m² | 8–12 kamera | 30.000–55.000 TL |
+| Büyük tesis | 1.000 m²+ | 16–32 kamera | 60.000 TL+ |
+
+Fiyatları etkileyen başlıca faktörler:
+- **Kablo altyapısı**: Mevcut kablo varsa maliyet düşer. Sıfır montajda kablo ve kanal maliyeti toplam maliyetin %20–30'unu oluşturabilir.
+- **Kamera modeli**: Entry-level 2K ile kurumsal 4K arasında 2–3 kat fiyat farkı oluşabilir.
+- **NVR kapasitesi**: 8 kanal yerine 16 kanal NVR seçmek ileride ekleme yapma esnekliği sağlar.
+
+---
+
+## Depo Kamera Sistemi Kurulumunda Dikkat Edilecekler
+
+### Tavan Yüksekliği ve Montaj Açısı
+5 m üzeri tavanlarda standart dome kamera yetersiz kalır. **Varifocal lens** (2.8–12 mm) kameralar kullanılmalı, montaj açısı raflar arası görüş boşluğu hesaplanarak ayarlanmalıdır.
+
+### IP67 ve IK10 Standartları
+Yükleme rampası veya soğuk hava deposu gibi nem ve toz yoğun ortamlarda IP67 (su geçirmezlik) ve IK10 (darbe dayanımı) sertifikalı kameralar şarttır.
+
+### Kör Nokta Analizi
+Montaj öncesi depo planı üzerinde kör nokta analizi yapılmalıdır. Özellikle **raf arkası ve kolon dibindeki** noktalar gözden kaçar; bu alanlara mini kamera veya fisheye kamera eklenmelidir.
+
+---
+
+## SSS
+
+**Depo kameralarına kaç günlük kayıt yeterli?**
+Sigorta şirketleri genellikle 30 gün ister. İş kazası davalarında 90 gün kayıt avantaj sağlar.
+
+**Depo dışı (park alanı, rampa) için ne tür kamera?**
+Bullet veya LPR (plaka okuma) kamera. IR menzili en az 40–50 m olmalı.
+
+**Depo kamera sistemi uzaktan izlenir mi?**
+Evet. Tüm modern NVR sistemleri mobil uygulama üzerinden canlı izleme ve kayıt erişimi sunar.
+
+**Soğuk hava deposuna özel kamera var mı?**
+Evet, -40°C çalışma sıcaklığına dayanıklı özel modeller mevcuttur. Standart kameralar soğuk depoda donabilir.
+
+**Depo kamera sistemini kim kurmalı?**
+Ruhsatlı güvenlik teknik servisi. Montaj kalitesi doğrudan sigorta tazminat sürecini etkiler.
+
+---
+
+[Fabrika kamera sistemi](/blog/fabrika-kamera-sistemi) kurulumunu planlıyorsanız tesis ölçekli kurulum rehberimize bakabilirsiniz.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan deponuza özel ücretsiz keşif ve teklif alabilirsiniz.
+
+[8 kameralı güvenlik sistemi fiyatı](/blog/8-kamerali-guvenlik-sistemi-fiyati) yazımız orta ölçekli depo bütçelemesi için referans teşkil eder.
+
+[Güvenlik kamerası bakım ve servis](/kamera-bakim-servisi) hizmetimiz depo sistemlerini de kapsamaktadır.`,
+  },
+  // ── fabrika-kamera-sistemi ───────────────────────────────────────────
+  {
+    slug: "fabrika-kamera-sistemi",
+    title: "Fabrika Kamera Sistemi: Üretim Tesisi Güvenlik Kamerası Rehberi",
+    excerpt:
+      "Fabrika ve üretim tesisi kamera sistemi nasıl kurulur? Üretim hattı, depo, yükleme alanı ve çevre güvenliği için doğru kamera seçimi, fiyatlar ve kurulum detayları.",
+    publishedAt: "2026-03-20",
+    readTime: 10,
+    tags: ["kamera", "fabrika", "kurulum"],
+    category: "Kurulum Rehberi",
+    image: "/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-2650x1470px.jpg",
+    content: `## Fabrika Kamera Sistemi Neden Kritiktir?
+
+Fabrika ve üretim tesisleri, kamera sistemi açısından en karmaşık kurulum ortamlarından birini oluşturur. Farklı alanların farklı ihtiyaçları vardır:
+
+- **Üretim hattı**: İş kazası takibi, üretim sürecini kayıt altına alma
+- **Ham madde/depo alanı**: Hırsızlık ve fire kontrolü
+- **Yükleme/boşaltma rampası**: Araç takibi, plaka okuma
+- **Çevre güvenliği**: Perimeter (çevre çiti) ihlal tespiti
+- **Ofis ve soyunma odaları**: Personel giriş/çıkış takibi
+
+Tüm bu alanlar tek bir NVR sistemi altında yönetilmeli, ancak her alan için uygun kamera modeli seçilmelidir.
+
+---
+
+## Fabrika Kamera Sistemi Bileşenleri
+
+### Üretim Hattı Kameraları
+
+Üretim ortamı; toz, titreşim, yüksek sıcaklık ve kimyasal buhar içerebilir. Bu nedenle **IP66/IP67 endüstriyel kameralar** kullanılmalıdır.
+
+Titreşimli makineler yakınında **anti-vibrasyon montaj braketleri** zorunludur — titreşim kameranın lens ve sensörüne zamanla zarar verir.
+
+### Çevre Güvenliği (Perimeter)
+
+Fabrika çevresinde **IR Bullet kameralar** tercih edilir. Gece görüş menzili en az 60–80 m olmalıdır. **AI destekli kameralar** insan/araç ayrımı yaparak gereksiz alarmleri filtreler — gece köpek veya kedinin geçmesi alarm tetiklememeli, sadece insanlar ve araçlar tetiklemelidir.
+
+![Fabrika kamera sistemi kurulumu](/images/services/bakim-servis/fabrika-guvenlik-kamera-sistemi-kurulum-2650x1470px.jpg "Fabrika güvenlik kamera sistemi kurulumu")
+
+### Plaka Tanıma (LPR)
+
+Araç girişi ve yükleme rampasına **LPR kamera** kurulması hem güvenlik hem lojistik yönetimi açısından fayda sağlar. Günde kaç araç girdiği, hangi saatlerde yükleme yapıldığı, yetkisiz araç girişi — tümü otomatik raporlanır.
+
+### NVR ve Merkezi İzleme
+
+Büyük fabrikalarda kamera sayısı 20–100+ olabilir. Bu ölçekte:
+
+- **32/64 kanallı NVR** veya **VMS (Video Management Software)** yazılımı
+- **RAID depolama** (veri kaybı riski sıfırlanır)
+- **Yedek güç (UPS)**: Elektrik kesintisinde sistemin çalışmaya devam etmesi
+- **Fiber altyapı**: Uzun mesafe kablo hatlarında Cat6 yerine fiber optik
+
+---
+
+## Fabrika Kamera Sistemi Fiyatları (2026)
+
+| Tesis Büyüklüğü | Kamera Sayısı | Tahmini Fiyat |
+|-----------------|---------------|---------------|
+| Küçük fabrika (500–1.500 m²) | 8–16 kamera | 35.000–70.000 TL |
+| Orta fabrika (1.500–5.000 m²) | 16–32 kamera | 70.000–150.000 TL |
+| Büyük tesis (5.000 m²+) | 32+ kamera | Teklif alın |
+
+Fabrika kamera sistemlerinde fiyatı en çok etkileyen faktörler:
+1. **Kablo altyapısı mesafesi**: Geniş tesislerde kablo maliyeti toplam bütçenin %30–40'ına çıkabilir
+2. **Endüstriyel sertifika gereksinimleri** (ATEX vb. patlayıcı ortam)
+3. **LPR ve AI analitik** eklentileri
+4. **Merkezi güvenlik odası** kurulumu
+
+---
+
+## Kurulum Süreci
+
+Fabrika kamera sistemi kurulumu genellikle **3–7 iş günü** sürer. Süreç:
+
+1. **Keşif ve planlama**: Tesis planı üzerinde kamera pozisyonları, kablo güzergahları
+2. **Altyapı hazırlığı**: Kablo kanalları, trunking, fiber geçişler
+3. **Kamera montajı ve kablo çekimi**
+4. **NVR yapılandırması ve kayıt ayarları**
+5. **Uzaktan erişim kurulumu** ve personel eğitimi
+6. **Test ve devreye alma belgesi**
+
+---
+
+## SSS
+
+**Fabrika kamera sistemi için bakım sözleşmesi şart mı?**
+Zorunlu değil, ancak 32+ kameralı tesislerde yıllık bakım olmadan sistem verimliliği zamanla düşer. Lens kirlenmesi, IR LED bozulması, HDD uyarıları gibi sorunları bakım ziyaretinde tespit etmek daha ekonomiktir.
+
+**Patlayıcı ve kimyasal ortamlarda kamera kurulabilir mi?**
+Evet, ATEX sertifikalı kameralar bu ortamlar için üretilmiştir. Standart kameralar bu ortamlarda tehlike oluşturabilir.
+
+**Fabrika kameralarını sigorta şirketine göstermek gerekiyor mu?**
+Bazı sanayi sigortaları kamera sistemi varlığını prim indirimi için belgeler. Kurulum sonrası teknik rapor hazırlıyoruz.
+
+**Gece vardiyasında kameralar nasıl çalışır?**
+Starlight sensörlü kameralar düşük ışıkta renkli görüntü üretir. Tamamen karanlık dış alanlarda IR aydınlatma devreye girer.
+
+**Mevcut kameralar yetersizse ne yapılır?**
+Sistemin tamamını değiştirmek yerine kritik noktalara ek kamera eklenebilir — mevcut NVR kapasite izin veriyorsa.
+
+---
+
+[Depo kamera sistemi](/blog/depo-kamera-sistemi) rehberimiz depo özelinde kurulum detaylarını açıklamaktadır.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan fabrikanıza özel keşif ve teklif alabilirsiniz.
+
+[Güvenlik kamerası bakım ve servis](/kamera-bakim-servisi) hizmetimizle tesisinizin kamera sistemini düzenli bakıma alabilirsiniz.
+
+[8 kameralı güvenlik sistemi fiyatı](/blog/8-kamerali-guvenlik-sistemi-fiyati) — orta ölçekli tesis bütçelemesi için başlangıç referansı.`,
+  },
+  // ── magaza-kamera-sistemi ────────────────────────────────────────────
+  {
+    slug: "magaza-kamera-sistemi",
+    title: "Mağaza Kamera Sistemi: Kurulum, Fiyat ve Doğru Kamera Seçimi (2026)",
+    excerpt:
+      "Mağazanıza kaç kamera lazım, hangi model seçilmeli? Kasa, giriş, depo ve deneme kabinleri için mağaza kamera sistemi kurulumunun eksiksiz rehberi.",
+    publishedAt: "2026-03-20",
+    readTime: 8,
+    tags: ["kamera", "mağaza", "kurulum"],
+    category: "Kurulum Rehberi",
+    image: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+    content: `## Mağaza Kamera Sistemi Neden Önemlidir?
+
+Perakende sektöründe kamera sistemi artık bir tercih değil, iş sürekliliğinin zorunlu bir parçasıdır. **Mağaza kamera sistemi** üç kritik işlevi yerine getirir:
+
+1. **Kayıp önleme**: Müşteri hırsızlığı (shoplifting) ve personel kaynaklı fire en büyük perakende kayıp kaynağıdır
+2. **Hukuki delil**: Müşteri şikayeti, kaza veya anlaşmazlık durumlarında kamera kaydı belirleyici delildir
+3. **Operasyon verimliliği**: Müşteri yoğunluğu analizi, kasa bekleme süreleri, personel performansı takibi
+
+---
+
+## Mağaza Kamera Sistemi: Kaç Kamera Gerekir?
+
+| Mağaza Büyüklüğü | Önerilen Kamera Sayısı | Kritik Noktalar |
+|------------------|------------------------|-----------------|
+| 50–150 m² (butik/küçük mağaza) | 3–5 kamera | Giriş, kasa, depo kapısı |
+| 150–400 m² (orta mağaza) | 6–10 kamera | Giriş, kasalar, raf alanları, depo |
+| 400–1.000 m² (büyük mağaza) | 12–20 kamera | Tüm bölgeler + deneme kabinleri çevresi |
+
+### Mutlaka Kamera Konulması Gereken Noktalar
+
+- **Giriş/çıkış kapısı**: Giren çıkan herkesi net yakalamak için 2K+ çözünürlük şart
+- **Kasa bölgesi**: Hem müşteri hem kasiyer tarafını gören çift açılı kurulum
+- **Yüksek değerli ürün rafları**: Elektronik, kozmetik, alkol gibi risk ürünleri
+- **Depo kapısı**: Personel stok erişimini izlemek için
+- **Çıkış koridoru**: İkinci kontrol noktası
+
+**Deneme kabinlerinin İÇİNE kamera konulamaz** — yasal yasak. Kabinlerin dışına, giriş-çıkış noktasına yönlendirilmiş kamera uygundur.
+
+---
+
+## Mağaza İçin Doğru Kamera Modeli
+
+### Dome Kamera (Tavan Montajı)
+Mağazalarda en yaygın tercih. Geniş açı lens (2.8–4 mm), 360° vandal-proof kasa, tavan montajı. **Müşteriler kameranın hangi yöne baktığını anlayamaz** — caydırıcılık artar.
+
+### Mini PTZ
+Büyük mağazalarda güvenlik görevlisinin gece takibi için kullanılır. Uzaktan yönlendirme ve zoom ile şüpheli takibi yapılabilir.
+
+### Gizli Kasa Kamerası
+Yüksek değerli ürün reyonuna yakın, küçük boyutlu kameralar. Personel veya müşteri tarafından fark edilmeden kayıt yapar.
+
+![Mağaza kamera montajı görünmez kablolama](/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg "Mağaza kamera kurulumu — gizli kablolama detayı")
+
+---
+
+## Mağaza Kamera Sistemi Fiyatları (2026)
+
+| Paket | Kamera Sayısı | Tahmini Fiyat |
+|-------|---------------|---------------|
+| Küçük mağaza | 3–5 kamera | 12.000–22.000 TL |
+| Orta mağaza | 6–10 kamera | 22.000–45.000 TL |
+| Büyük mağaza | 12–20 kamera | 50.000 TL+ |
+
+Fiyatı belirleyen faktörler:
+- **Kablo gizleme**: Açıkta kablo yerine trunking veya tavan arasına kablo geçirmek ek maliyet oluşturur ama estetik açıdan zorunludur
+- **Çözünürlük**: 2K ile 4K arasında yaklaşık 1,5–2 kat fiyat farkı
+- **Bulut kayıt**: Yerel NVR yerine bulut depolama seçilirse aylık abonelik maliyeti eklenmelidir
+
+---
+
+## Mağaza Kamera Sisteminde Öne Çıkan Özellikler
+
+### Hareket Algılama ve Anlık Bildirim
+Mağaza kapalıyken hareket algılandığında telefona anlık bildirim. Gece soygunlarında **ortalama 3–7 dakika içinde** alarm bildirimi kritik fark yaratır.
+
+### Uzaktan İzleme
+Uygulamadan canlı görüntü, kayıt erişimi, kamera odak ayarı. Çok şubeli mağazalar tüm şubeleri tek ekrandan izleyebilir.
+
+### Kasa Entegrasyonu
+POS sistemiyle kamera entegrasyonu: hangi kasiyerin hangi işlemi yaptığı kamera görüntüsüyle eşleştirilir. Kasa uyuşmazlıklarında en güvenilir delil yöntemidir.
+
+---
+
+## SSS
+
+**Mağazada kamera olduğunu müşterilere bildirmek gerekiyor mu?**
+Evet, KVKK kapsamında kamera bulunduğunu ve kayıt yapıldığını belirten tabela asılması zorunludur.
+
+**Mağaza kamera kayıtları ne kadar süre saklanmalı?**
+Yasal bir minimum yoktur, ancak sigorta şirketleri 30 gün önermektedir. Yüksek çalışma riski olan mağazalarda 60 gün tercih edilir.
+
+**Mağaza kameralarını kiracı kendisi kurabilir mi?**
+Evet, kira sözleşmesinde engel yoksa kiracı kendi kamera sistemini kurabilir. Kablosuz kamera seçeneği taşıma kolaylığı sağlar.
+
+**Kasa bölgesine kaç kamera lazım?**
+En az 2 kamera: biri kasiyeri, biri müşteriyi çekecek şekilde. Çift görüş hem hırsızlığı hem kasiyeri korur.
+
+**Mağaza kamera sistemi alarm sistemiyle entegre edilebilir mi?**
+Evet. Kapı veya pencere açıldığında hem alarm hem kamera kayıt sistemi devreye girer, telefona bildirim gelir.
+
+---
+
+[Mağaza güvenlik sistemi rehberi](/blog/magaza-guvenlik-sistemi-rehberi) alarm, yangın alarmı ve kartlı geçiş dahil komple mağaza güvenliğini anlatmaktadır.
+
+[İşyerine kaç kamera lazım?](/blog/isyerine-kac-kamera-lazim) yazımız kamera sayısı planlamasını matematiksel olarak açıklamaktadır.
+
+[4 kameralı güvenlik sistemi fiyatı](/blog/4-kamerali-guvenlik-sistemi-fiyati) — küçük mağaza bütçelemesi için referans.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan mağazanıza özel ücretsiz keşif ve teklif alabilirsiniz.`,
+  }];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return getAllBlogPosts().find((post) => post.slug === slug);

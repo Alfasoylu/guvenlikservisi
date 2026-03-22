@@ -113,6 +113,16 @@ const faqItems = [
     answer:
       "Evet. Kurumsal bakım hizmetinde en önemli fark rapordur. Yapılan kontroller, tespit edilen riskler, önerilen değişimler ve sonraki bakım planı dokümante edilir. Rapor olmayan bakım, profesyonel bakım değildir.",
   },
+  {
+    question: "Alarm sistemleri aylık ücret aralığı nedir?",
+    answer:
+      "Alarm sistemleri aylık ücret; sistem büyüklüğüne, kapsama ve bakım sıklığına göre değişir. Sadece alarm paneli ve sensör denetimini kapsayan küçük sözleşmeler 800–1.500 TL aralığında başlar. Yangın alarm sistemi periyodik kontrolü, kamera sistemi servis ve NVR bakımı da dahilse aylık ücret 2.000 TL ve üzerine çıkar. Aylık kamera denetimleri ayrı ücretlendirilebilir ya da kombine pakete dahil edilebilir. Net fiyat keşif sonrası netleşir.",
+  },
+  {
+    question: "Yangın alarm sistemi periyodik kontrolü ne sıklıkla yapılmalı?",
+    answer:
+      "İtfaiye Yönetmeliği uyarınca yangın algılama sistemleri periyodik bakımı yılda en az bir kez yapılmalı ve test raporu tutulmalıdır. Ancak büyük tesislerde (fabrika, hastane, AVM) yarı yıllık kontrol önerilir. Yangın tesisatı periyodik kontrol kapsamında her dedektör, ihbar butonu, siren ve panel bağımsız olarak test edilir; tarihli rapor düzenlenir. Raporlanmayan bakım itfaiye denetiminde geçerli sayılmaz.",
+  },
 ];
 
 const jsonLd = {
@@ -460,11 +470,13 @@ export default function BakimServisUzaktanIzlemePage() {
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
                   <h3 className="font-bold text-slate-900">
-                    Görüntü ve Lens Kalitesi
+                    Görüntü Kalitesi, Lens Temizliği ve PTZ Kontrol
                   </h3>
                   <p className="mt-2 text-slate-600">
-                    Kör açı, kirli lens, bozuk fokus, düşük gece performansı ve
-                    yön bozulması gibi problemler giderilir.
+                    Güvenlik kamera lens temizliği, kör açı düzeltmesi, bozuk
+                    fokus ve düşük gece performansı giderilir. PTZ kamera kontrol
+                    etme kapsamında dönüş mekanizması, zoom kalibrasyonu ve IR
+                    aydınlatma testi yapılır.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -487,6 +499,99 @@ export default function BakimServisUzaktanIzlemePage() {
                 height={1000}
                 className="h-auto w-full object-cover"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Aylık Kamera Denetimleri ve Yangın Tesisatı Periyodik Kontrol */}
+        <section className="border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
+            <SectionTitle
+              eyebrow="Periyodik Bakım Detayları"
+              title="Aylık Kamera Denetimleri ve Yangın Tesisatı Periyodik Kontrol"
+              description="Kamera sistemi servisi ve yangın algılama sistemleri periyodik bakımı ayrı teknik disiplinlerdir — ancak tek bakım sözleşmesi altında yönetilir."
+            />
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {/* Kamera */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-7">
+                <div className="mb-4 text-3xl">📷</div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Aylık Kamera Denetimleri ve Kamera Sistemi Servis
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">
+                  Kamera sistemi servis kapsamında periyodik saha ziyaretinde
+                  her kamera tek tek kontrol edilir. Aylık kamera denetimleri;
+                  görüntü kalitesi, gece görüş performansı, kayıt sürekliliği
+                  ve bağlantı sağlığını ölçer.
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    "Güvenlik kamera lens temizliği — toz, nem ve kirden kaynaklanan görüntü bozulması giderilir",
+                    "PTZ kamera kontrol etme — pan/tilt dönüş mekanizması, zoom kalibrasyonu ve IR LED testi",
+                    "Kör açı ve kamera yön kontrolü — montaj bozulması tespit ve düzeltme",
+                    "NVR kanal kontrolü — her kameranın kayıt aldığı doğrulanır, hata loglara bakılır",
+                    "Ağ bağlantısı ve uzaktan erişim testi — IP, port ve uygulama erişimi kontrol edilir",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
+                      <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Yangın */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-7">
+                <div className="mb-4 text-3xl">🔥</div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Yangın Tesisatı Periyodik Kontrol
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">
+                  Yangın alarm sistemi periyodik kontrolü yasal bir
+                  zorunluluktur: İtfaiye Yönetmeliği uyarınca yangın algılama
+                  sistemleri periyodik bakım ve test kaydına tabi tutulmalıdır.
+                  Yangın tesisatı periyodik kontrol hizmetimiz bu gerekliliği
+                  karşılar ve test raporu sunar.
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    "Duman ve ısı dedektörü fonksiyon testi — her dedektör tek tek tetiklenerek çalışma doğrulanır",
+                    "Yangın alarm paneli kontrol — loop hataları, zemin arızaları ve silahlı bölge durumu",
+                    "Manuel ihbar butonu ve siren testi — aktüasyon ve siren seviyesi ölçümü",
+                    "Batarya ve yedek güç kontrolü — panel bataryası ve şarj durumu",
+                    "Yangın tesisatı test raporu — yasal uyum için tarihli ve imzalı bakım kaydı",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
+                      <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+                  <strong>Yasal zorunluluk:</strong> Yangın alarm sistemi
+                  periyodik kontrolü yapılmayan ve test raporu bulunmayan
+                  işyerleri itfaiye denetiminde ceza riskiyle karşılaşır.
+                  Bakım sözleşmemiz bu riski ortadan kaldırır.
+                </div>
+              </div>
+            </div>
+
+            {/* Alarm sistemleri aylık ücret */}
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="text-lg font-bold text-slate-900">
+                Alarm Sistemleri Aylık Ücret: Ne Kadar Ödenebilir?
+              </h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Alarm sistemleri aylık ücret aralığı; sistemin büyüklüğüne,
+                kapsama ve bakım sıklığına göre değişir. Küçük işletmelerde
+                sadece alarm paneli ve sensör denetimi için aylık 800–1.500 TL
+                aralığında bir kamera sistemi servis bedeli oluşurken, yangın
+                alarm sistemi periyodik kontrolü de dahil olan kurumsal
+                sözleşmelerde bu tutar 2.000 TL ve üzerine çıkar. Yatırımın
+                karşılığı; arıza anında bakım önceliği, test raporu ve yasal
+                uyumdur.
+              </p>
             </div>
           </div>
         </section>
