@@ -26,6 +26,7 @@ import TrustSignals, {
 } from "@/components/sections/TrustSignals";
 import IstanbulCoverage from "@/components/sections/IstanbulCoverage";
 import FinalCTA from "@/components/sections/FinalCTA";
+import VideoAutoplaySection from "@/components/sections/VideoAutoplaySection";
 
 const canonicalUrl = getCanonicalUrlForKnownPath(
   "/teklif/istanbul-ip-kamera-montaji",
@@ -390,6 +391,17 @@ export default function IstanbulIpKameraMontajiPage() {
 
   return (
     <main className="bg-white text-slate-950">
+      {/* Announcement bar */}
+      <div className="bg-emerald-600 text-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-1 px-4 py-2.5 text-center text-sm font-semibold">
+          <span>💰 15.000 TL&#39;den başlayan fiyatlar</span>
+          <span className="hidden text-white/50 sm:inline">·</span>
+          <span>💳 Kredi kartına 3 taksit</span>
+          <span className="hidden text-white/50 sm:inline">·</span>
+          <span>🧾 Faturalı garantili kurulum</span>
+        </div>
+      </div>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -512,6 +524,8 @@ export default function IstanbulIpKameraMontajiPage() {
         }
         bgClass="border-b border-slate-200 bg-white"
       />
+
+      <VideoAutoplaySection />
 
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
@@ -737,80 +751,6 @@ export default function IstanbulIpKameraMontajiPage() {
                 >
                   WhatsApp
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div>
-              <span className="inline-flex rounded-full bg-slate-950 px-3 py-1 text-sm font-semibold text-white">
-                Akıllı algılama demoları
-              </span>
-              <h2 className="mt-4 text-3xl font-black leading-tight md:text-4xl">
-                İnsan ve Hareket Algılama ile Daha Anlamlı Güvenlik
-              </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600">
-                Modern IP kamera sistemleri sadece görüntü kaydetmez. Uygun
-                senaryolarda insan algılama, hareket analizi ve daha doğru
-                bildirim akışı sunarak yanlış alarm yükünü azaltır.
-              </p>
-
-              <div className="mt-6 space-y-3">
-                {[
-                  "İnsan algılama ile gereksiz bildirimleri azaltır",
-                  "Akıllı olay senaryoları ile daha verimli izleme sağlar",
-                  "Telefon uygulamasına daha anlamlı anlık uyarılar gönderir",
-                  "İşyeri, mağaza ve depo için daha kullanışlı güvenlik deneyimi sunar",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                    <span className="text-sm text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-6">
-              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-                <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
-                  Gerçek kurulum görüntüsü - İnsan algılama
-                </div>
-                <video
-                  className="w-full"
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="none"
-                >
-                  <source
-                    src="/videos/insan-algilama-demo-video.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-
-              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-                <div className="border-b border-slate-200 px-4 py-3 text-sm font-bold text-slate-800">
-                  Gerçek kurulum görüntüsü - Hareket halinde plaka netliği
-                </div>
-                <video
-                  className="w-full"
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="none"
-                >
-                  <source
-                    src="/videos/Hareketli-Arac-plaka-gorus-demosu.mp4"
-                    type="video/mp4"
-                  />
-                </video>
               </div>
             </div>
           </div>
