@@ -52,7 +52,7 @@ export default function TestimonialsSection({
           ))}
         </div>
         <p className="text-center text-xs text-gray-400 mt-6">
-          * Yorumlar gerçek müşterilerden alınmıştır. Gizlilik için soyadlar kısaltılmıştır.
+          Gizlilik nedeniyle soyadlar kısaltılmıştır.
         </p>
       </Container>
     </section>

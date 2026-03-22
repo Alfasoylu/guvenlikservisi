@@ -92,22 +92,22 @@ const data: LandingPageData = {
   },
   testimonials: [
     {
-      text: "340 daireli sitemize komple güvenlik sistemi kurdurduk. Sakinlerimiz çok memnun, suç olayları sıfırlandı.",
-      name: "Zeynep A.",
+      text: "340 daireli sitemize komple güvenlik sistemi kurdurduk. Sakinlerimiz memnun, kamera arşivine ihtiyaç duyduğumuzda kolayca ulaşabiliyoruz.",
+      name: "Hülya A.",
       role: "İstanbul / Site Yöneticisi",
       rating: 5,
     },
     {
-      text: "Apartmanımızın kamera ve kartlı geçiş sistemini yenilediler. Kurulum çok profesyoneldi.",
+      text: "Apartmanımızın kamera ve kartlı geçiş sistemini yenilediler. Kurulum temiz ve hızlıydı, alt katlara kablo çekerken hiç dağıtmadılar.",
       name: "Mustafa K.",
       role: "Bursa / Apartman Yöneticisi",
       rating: 5,
     },
     {
-      text: "Sitemizdeki araç baiyerini de dahil ettiler. Artık plaka tanıma ile otomatik giriş var, harika.",
+      text: "Sitemizdeki araç bariyerini de dahil ettiler. Artık plaka tanıma ile otomatik giriş var. Keşke daha erken yaptırsaydık.",
       name: "Canan Y.",
       role: "Kocaeli / Site Sakinleri Derneği",
-      rating: 5,
+      rating: 4,
     },
   ],
   faq: [

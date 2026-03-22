@@ -93,22 +93,22 @@ const data: LandingPageData = {
   },
   testimonials: [
     {
-      text: "Restoranımıza yangın alarm sistemi yaptırdık, belgelerle birlikte teslim ettiler. Belediye denetiminden sorunsuz geçtik.",
+      text: "Restoranımıza yangın alarm sistemi yaptırdık, belgelerle birlikte teslim ettiler. Belediye denetiminden sorunsuz geçtik. Teslimat takvimi tam tutturuldu.",
       name: "Ömer K.",
       role: "İstanbul / Restoran İşletmecisi",
       rating: 5,
     },
     {
-      text: "Fabrikamıza tam teşekküllü yangın alarm sistemi kurdular. Sigorta şirketi onayladı, prim düştü.",
+      text: "Fabrikamıza tam teşekküllü yangın alarm sistemi kurdular. Sigorta şirketi onayladı, yıllık primde ciddi indirim oldu.",
       name: "Selma B.",
       role: "Bursa / Fabrika Sahibi",
       rating: 5,
     },
     {
-      text: "Apartmanımızın yangın alarm sistemini yenilediler. Hem yasal hem de çok daha güvenli olduk.",
+      text: "Apartmanımızın yangın alarm sistemini yenilediler. Eski sistem zaten çalışmıyordu, şimdiki çok daha güvenilir. Fiyat da makuldü.",
       name: "İbrahim Y.",
       role: "Kocaeli / Site Yöneticisi",
-      rating: 5,
+      rating: 4,
     },
   ],
   faq: [

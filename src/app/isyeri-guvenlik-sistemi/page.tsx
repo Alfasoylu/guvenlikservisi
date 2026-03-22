@@ -11,9 +11,9 @@ const canonicalUrl = getCanonicalUrlForKnownPath("/isyeri-guvenlik-sistemi");
 
 export const metadata: Metadata = buildSeoMetadata({
   title:
-    "İşyeri Güvenlik Sistemi Kurulumu | Kamera, Alarm, Yangın – Tek Elden Çözüm",
+    "İşyeri Güvenlik Sistemi | Mağaza Kamera, Dükkan Alarm, Yangın – Tek Elden",
   description:
-    "Mağaza, ofis, restoran ve otel için kamera, hırsız alarm ve yangın alarm sistemi tek elden. Mesai otomasyonu, mobil izleme, bakım sözleşmesi. Hemen arayın, aynı gün dönüş.",
+    "Ofis, Cafe, Hotel, Mağaza kamera sistemi, dükkan alarm sistemi, işyeri yangın alarm ve gaz dedektörü tek elden kurulum. Kartlı geçiş, kapı güvenlik, duman dedektörü. Aynı gün dönüş, ücretsiz keşif.",
   canonical: canonicalUrl,
   openGraph: {
     title: "İşyeri Güvenlik Sistemi | Kamera, Alarm, Yangın – Tek Sözleşme",
@@ -38,7 +38,7 @@ const data: ServicePageData = {
   subtitle:
     "Mağaza, ofis, restoran veya oteliniz için kamera, hırsız alarm ve yangın alarm sistemlerini tek elden kuruyor, çalışma saatlerinize göre otomatik yapılandırıyoruz. Mesai biter, alarm devreye girer.",
   description:
-    "İşyeri güvenliği hem yasal bir zorunluluk hem de iş sürekliliğinin temel bileşenidir. Bir mağazada hırsızlık kaygısı, bir restoranda yangın riski, bir ofiste veri odası güvenliği — her işyeri farklı bir sorunla karşı karşıyadır.\n\nKamera, hırsız alarm ve yangın alarm sistemlerinin ayrı zamanlarda farklı firmalardan kurulması entegrasyon sorunu yaratır. Alarm paneli ile kamera kaydı eşleşmez, arıza olduğunda kimi arayacağınız belirsizleşir.\n\nBiz tüm bileşenleri tek projede planlıyor, mesai programınıza göre otomatik alarm zamanlaması yapıyor ve mobil uygulama ile uzaktan erişim sağlıyoruz. Sigorta ve ruhsat belgelerinizi hazırlıyoruz.",
+    "İşyeri güvenliği hem yasal bir zorunluluk hem de iş sürekliliğinin temel bileşenidir. Bir mağazada hırsızlık ve stok kaybı riski, bir restoranda mutfak yangın riski, bir ofiste veri odası güvenliği, bir depoda yetkisiz erişim — her işyeri farklı bir sorunla karşı karşıyadır.\n\nMağaza kamera sistemi, dükkan alarm sistemi, işyeri yangın alarm sistemi ve kapı güvenlik sistemleri gibi bileşenlerin ayrı firmalardan kurulması entegrasyon sorunu yaratır. Alarm paneli ile kamera kaydı eşleşmez; arıza olduğunda muhatap bulunamaz.\n\nBiz tüm bileşenleri tek projede planlıyor, mesai programınıza göre otomatik alarm zamanlaması yapıyor ve mobil uygulama ile uzaktan erişim sağlıyoruz. Mağaza güvenlik sistemleri ve işyeri alarm sistemleri konusunda sigorta ve ruhsat belgelerinizi de hazırlıyoruz.",
   heroBadge: "Kamera • Alarm • Yangın • Mesai otomasyonu",
   heroTrustItems: [
     "Kamera, hırsız alarm ve yangın alarm tek projede kurulur",
@@ -139,7 +139,12 @@ const data: ServicePageData = {
       {
         title: "Yangın Riski ve Müdahale Gecikmesi",
         description:
-          "Özellikle mutfaklı işletmelerde (restoran, kafe) yangın alarm olmadan risk algılanamıyor. Gece saatlerinde küçük bir kıvılcım büyük hasara dönüşüyor.",
+          "Özellikle mutfaklı işletmelerde (restoran, kafe) yangın alarmı ve duman dedektörü olmadan risk algılanamıyor. Gaz dedektörü ve yangın alarm butonu eksikliği gece saatlerinde küçük bir kıvılcımı büyük hasara dönüştürebilir.",
+      },
+      {
+        title: "Kapı ve Pencere Güvenliği Açıkları",
+        description:
+          "Kapı güvenlik sistemleri olmayan işyerlerinde cam kırma veya kilit zorlama çok hızlı gerçekleşir. Vitrin ve servis kapısı her gece risk altındadır. Manyetik kontakt ve kapı sensörü bu açığı kapatır.",
       },
       {
         title: "Arka Kapı ve Personel Zafiyeti",
@@ -158,23 +163,27 @@ const data: ServicePageData = {
   authorityTitle:
     "Neden Güvenlik Bileşenlerini Tek Elden Kurmak İşyeriniz İçin Önemlidir?",
   authorityBody: [
-    "İşyerlerinde kamera, alarm ve yangın alarm ayrı zamanlarda farklı firmalardan kurulduğunda entegrasyon sorunları kaçınılmazdır. Alarm paneli ile kamera kaydı eşleşmez, arıza sorumluluğu belirsizleşir, bakım takvimleri farklılaşır.",
-    "Tek projede kurulan sistemler aynı altyapıyı paylaşır, koordineli çalışır ve bakım/arıza süreçlerinde tek muhatap avantajı sağlar. Mesai otomasyonu, mobil bildirimler ve alarm-kamera eşlemesi entegre sistemle mümkündür.",
-    "Sigorta şirketleri ve ruhsat makamları tüm bileşenlerin uyumlu çalıştığını gösteren belge talep eder. Tek projede kurulan sistem bu belgelendirmeyi otomatik olarak karşılar.",
+    "İşyerlerinde mağaza kamera sistemi, işyeri alarm sistemi ve yangın alarm sistemleri ayrı zamanlarda farklı firmalardan kurulduğunda entegrasyon sorunları kaçınılmazdır. Alarm paneli ile kamera kaydı eşleşmez, arıza sorumluluğu belirsizleşir, bakım takvimleri farklılaşır.",
+    "Tek projede kurulan mağaza güvenlik sistemleri aynı altyapıyı paylaşır, koordineli çalışır ve bakım/arıza süreçlerinde tek muhatap avantajı sağlar. Mesai otomasyonu, mobil bildirimler ve alarm-kamera eşlemesi entegre sistemle mümkündür.",
+    "Sigorta şirketleri ve ruhsat makamları tüm bileşenlerin uyumlu çalıştığını gösteren belge talep eder. Özellikle yangın algılama sistemleri, duman dedektörü ve yangın paneli bileşenlerinin belgelendirmesi tek projede otomatik olarak karşılanır.",
+    "Restoran ve kafe gibi mutfaklı işletmelerde gaz dedektörü ve yangın alarm butonu zorunluluktur. Mağaza ve depolar için ise mağaza ürün koruma sistemleri, kartlı geçiş sistemi ve kapı güvenlik sistemleri bütüncül bir güvenlik altyapısı oluşturur.",
   ],
   authorityNote: {
     title: "İşletmeniz için hızlı teklif almak isterseniz",
     body: "İşyeri tipinizi (mağaza, ofis, restoran vb.), tahmini metrekerenizi ve öncelikli güvenlik sorununuzu paylaşın. Aynı gün dönüş yapıyoruz.",
   },
   features: [
-    "Yüksek çözünürlüklü kamera sistemi (Full HD / 4K)",
-    "Hırsız alarm ve hareket sensörleri (mesai otomasyonlu)",
-    "Yangın alarm sistemi (belgelendirme ve sigorta raporu dahil)",
-    "Kartlı geçiş sistemi (isteğe bağlı personel kontrolü)",
-    "Mesai saatine göre otomatik alarm programlama",
+    "Mağaza kamera sistemi ve depo kamera sistemi (Full HD / 4K IP kamera)",
+    "İşyeri alarm sistemi — dükkan alarm ve mağaza alarm dahil (mesai otomasyonlu)",
+    "Yangın algılama sistemleri: duman dedektörü, yangın dedektörü ve ısı sensörü",
+    "Yangın paneli ve yangın alarm butonu (konvansiyonel veya adresli sistem)",
+    "Gaz dedektörü ve gaz alarm cihazı (mutfaklı işletmeler için)",
+    "Kartlı geçiş sistemi (personel giriş-çıkış kontrolü ve zaman puantajı)",
+    "Kapı güvenlik sistemleri — manyetik kontakt, kapı sensörü ve bariyer",
+    "Mağaza ürün koruma sistemleri (depo ve raf alanı izleme)",
     "Mobil uygulama ile canlı izleme ve alarm kontrol",
-    "Tek sözleşme, tek muhatap, tek destek hattı",
-    "Yıllık bakım sözleşmesi seçeneği",
+    "Tek sözleşme, tek muhatap — sigorta ve ruhsat belgelendirme dahil",
+    "Yıllık bakım sözleşmesi seçeneği (yangın alarm testi dahil)",
   ],
 
   /* ── Alan Bazlı Çözümler ── */
@@ -240,7 +249,17 @@ const data: ServicePageData = {
         features: [
           "Geniş açılı salon kameraları",
           "Gece görüş desteği",
-          "Yangın dedektörleri",
+          "Duman dedektörü ve yangın dedektörü",
+        ],
+      },
+      {
+        area: "Mutfak ve Servis Alanı",
+        description:
+          "Restoran, kafe ve mutfaklı işletmelerin en kritik yangın riski bölgesi. Gaz kaçağı ve yangın algılama zorunludur.",
+        features: [
+          "Gaz dedektörü ve gaz alarm cihazı",
+          "Yangın paneli bağlantılı duman sensörü",
+          "Yangın alarm butonu (hızlı ihbar)",
         ],
       },
     ],
@@ -543,9 +562,34 @@ const data: ServicePageData = {
           "Periyodik bakım, arıza servisi ve izleme merkezi aboneliği.",
       },
       {
-        href: "/paketler-ve-fiyatlandirma",
-        label: "Paketler ve Fiyatlandırma",
-        description: "İşyeri tipine göre örnek paketler ve fiyat aralıkları.",
+        href: "/blog/duman-dedektoru-rehberi",
+        label: "Duman Dedektörü Rehberi",
+        description:
+          "İyonizasyon ve fotoelektrik duman dedektörü farkları, montaj noktaları, bakım ve fiyatlar.",
+      },
+      {
+        href: "/blog/gaz-dedektoru-rehberi",
+        label: "Gaz Dedektörü ve Gaz Alarm Cihazı",
+        description:
+          "Doğalgaz ve LPG dedektörü seçimi, montaj konumu, solenoid vana entegrasyonu ve yasal zorunluluklar.",
+      },
+      {
+        href: "/blog/kablosuz-alarm-sistemi-rehberi",
+        label: "Kablosuz Alarm Sistemi Rehberi",
+        description:
+          "Ajax ve DSC ile kablosuz dükkan alarm sistemi kurulumu, fiyatlar ve kurulum süreci.",
+      },
+      {
+        href: "/blog/4-kamerali-guvenlik-sistemi-fiyati",
+        label: "4 Kameralı Güvenlik Sistemi Fiyatı",
+        description:
+          "Küçük mağaza ve dükkan için 4 kameralı sistem paket fiyatları ve mekan önerileri.",
+      },
+      {
+        href: "/blog/8-kamerali-guvenlik-sistemi-fiyati",
+        label: "8 Kameralı Güvenlik Sistemi Fiyatı",
+        description:
+          "Orta boy mağaza, depo ve site için 8 kameralı sistem paket fiyatları.",
       },
     ],
   },
@@ -577,6 +621,19 @@ const data: ServicePageData = {
       href: "/yangin-alarm-sistemi-kurulumu",
     },
   ],
+
+  /* ── Yangın + Gaz Ekosistemi Açıklama Bloğu ── */
+  authorityBeforeFaq: {
+    title: "İşyerinde Yangın Güvenlik Sistemleri: Hangi Bileşenler Gerekli?",
+    description:
+      "Yangın algılama sistemleri tek bir cihazdan ibaret değildir. Kapsamlı bir yangın güvenlik sistemi şu bileşenlerden oluşur:\n\n**Duman Dedektörü / Yangın Dedektörü:** Havadaki duman partiküllerini algılayan sensörler. Ofis, mağaza ve koridorlara yerleştirilir. Fotoelektrik model yavaş tüten yangınlarda çok etkilidir.\n\n**Duman Sensörü ve Isı Dedektörü:** Mutfak ve kase odaları gibi alanlarda standart duman sensörü yerine ısı dedektörü tercih edilir. Sahte alarm riskini minimize eder.\n\n**Yangın Paneli:** Konvansiyonel yangın alarm sistemi veya adresli sistemin beyin merkezidir. Hangi bölgede alarm verildiğini gösterir, siren ve bildirim sistemini yönetir.\n\n**Yangın Alarm Butonu (Manuel Call Point):** Yangını gören kişinin anında alarm tetikleyebildiği kırmızı buton. Çıkış yolları ve koridorlara yerleştirilir.\n\n**Gaz Dedektörü / Gaz Alarm Cihazı:** Restoran, kafe ve mutfaklı işletmelerde doğalgaz veya LPG kaçağını önceden algılar. Solenoid vana ile birleştiğinde gaz hattını otomatik keser.\n\nTüm bu bileşenler sigorta uyumlu tek bir yangın güvenlik sistemi çerçevesinde kurulur. Yangın alarm sistemi fiyatları kapsama ve mekan büyüklüğüne göre keşif sonrası netleştirilir.",
+    links: [
+      { href: "/yangin-alarm-sistemi-kurulumu", label: "Yangın Alarm Sistemi Kurulumu" },
+      { href: "/blog/duman-dedektoru-rehberi", label: "Duman Dedektörü Rehberi" },
+      { href: "/blog/gaz-dedektoru-rehberi", label: "Gaz Dedektörü Rehberi" },
+      { href: "/blog/yangin-alarm-sistemi-zorunlu-mu", label: "Yangın Alarm Sistemi Zorunlu mu?" },
+    ],
+  },
 
   /* ── FAQ — Ticari ve İtiraz Giderici ── */
   faq: [
@@ -630,7 +687,57 @@ const data: ServicePageData = {
       answer:
         "Evet. Haftalık çalışma programına göre alarm zamanlaması yapılır. Kapanışta otomatik devreye girer, açılışta devre dışı kalır. Unutma riski sıfırlanır.",
     },
+    {
+      question: "Mağaza için kaç kamera yeterli?",
+      answer:
+        "Küçük bir dükkan veya butik mağaza için 4-6 kamera (giriş, kasa, depo, müşteri alanı) genellikle yeterlidir. Orta boy mağazalarda 8-12 kamera önerilir. Mağaza kamera sistemi planı keşifle netleştirilir; mekanın yapısına, raf düzenine ve kör noktalarına göre yerleşim belirlenir.",
+    },
+    {
+      question: "Mağaza alarm sistemi kablosuz olabilir mi?",
+      answer:
+        "Evet, kiracı durumundaki mağaza ve dükkan alarm sistemi kurulumlarında kablosuz (Ajax gibi) sistemler tercih edilir. Kablo çekme ve sıva hasarı olmadan kısa sürede kurulur. Mevcut yapıda kiralık işyeri için ideal çözümdür.",
+    },
+    {
+      question: "İşyerinde gaz dedektörü zorunlu mu?",
+      answer:
+        "Doğalgaz veya LPG kullanan restoran, kafe ve sanayi mutfaklarında gaz dedektörü ve gaz alarm cihazı zorunludur. EPDK lisanslı dağıtım şirketleri yeni tesisatlarda gaz alarmı belgesi istemektedir. 6331 sayılı İSG Kanunu kapsamında da tehlikeli maddelerle çalışılan ortamlarda algılama sistemi zorunludur.",
+    },
+    {
+      question: "Konvansiyonel ve adresli yangın alarm sistemi farkı nedir?",
+      answer:
+        "Konvansiyonel yangın alarm sistemi, dedektörleri bölgelere (zone) göre gruplar; hangi bölgede alarm verdiği anlaşılır ama hangi cihaz olduğu bilinmez. Küçük-orta işletmeler için ekonomik tercih. Adresli sistemde ise her dedektörün benzersiz adresi vardır, yangın panelinden tam konum tespit edilir. Büyük AVM, otel ve fabrikalarda tercih edilir.",
+    },
+    {
+      question: "Yangın alarm sistemi fiyatları neye göre değişir?",
+      answer:
+        "Yangın alarm sistemi fiyatları; mekan büyüklüğü, duman dedektörü ve ısı dedektörü sayısı, konvansiyonel veya adresli sistem tercihi, yangın paneli kapasitesi ve belgelendirme kapsamına göre değişir. Küçük işletmelerde 10.000-20.000 TL, orta ölçekli işletmelerde 25.000-60.000 TL arası bütçe planlanabilir. Net fiyat keşif sonrası verilir.",
+    },
+    {
+      question: "Kartlı geçiş sistemi işyerinde ne sağlar?",
+      answer:
+        "Kartlı geçiş sistemi, personelin hangi alana ne zaman girip çıktığını kayıt altına alır. Depo, sunucu odası ve kasa gibi kısıtlı alanlara yetkisiz erişimi engeller. Zaman puantajı entegrasyonu ile bordro hesaplamasına da katkı sağlar. İşyeri alarmı ile entegre çalışınca mesai dışı yetkisiz geçiş anında alarm üretir.",
+    },
+    {
+      question: "Kapı güvenlik sistemleri işyerini nasıl korur?",
+      answer:
+        "Kapı güvenlik sistemleri mağaza, dükkan ve deponun birincil savunma hattıdır. Manyetik kontakt (kapı açılma sensörü), cam kırılma dedektörü ve giriş kamerası kombinasyonuyla hem caydırıcılık hem de olay kaydı sağlanır. Alarm paneline bağlandığında kapı açılması anında bildirim verir; gece saatlerinde izinsiz giriş sıfırlanır.",
+    },
   ],
+
+  /* ── Mağaza / Depo Keyword Bloğu ── */
+  authorityAfterFaq: {
+    title: "Mağaza, Dükkan ve Depo için Güvenlik Sistemi Seçimi",
+    description:
+      "Mağaza kamera sistemi ve mağaza alarm sistemi seçiminde mekan büyüklüğü, ürün değeri ve kasa yapısı belirleyicidir. Küçük bir dükkan alarm sistemi 4-6 sensör ve kablosuz panelden oluşabilirken, büyük bir mağaza güvenlik sistemi 12-20 kamera, çok bölgeli alarm paneli ve kartlı geçiş sistemi gerektirebilir.\n\nDepo kamera sistemi kurarken kör nokta analizi kritiktir. Raf arkaları, yükleme rampası ve kapı önleri en sık gözetim altında bırakılan noktalardır. İşyeri kamera sistemleri planlanırken mağaza ürün koruma sistemleri de göz önünde bulundurulmalı — elektronik etiket, raf sensörü ve çıkış kapısı kamera kombinasyonu kayıp oranını ciddi ölçüde düşürür.\n\nKapı güvenlik sistemleri ise mağaza ve depoların en temel savunma hattıdır. Manyetik kontakt, cam kırılma sensörü ve giriş kamerası birlikte çalıştığında hem caydırıcılık hem de olay kaydı sağlanır. Kartlı geçiş sistemi ile personel giriş-çıkışları da kayıt altına alınır.",
+    links: [
+      { href: "/kamera-sistemi-kurulumu", label: "Güvenlik Kamera Sistemi Kurulumu" },
+      { href: "/alarm-sistemi-kurulumu", label: "Hırsız Alarm Sistemi Kurulumu" },
+      { href: "/kartli-gecis-sistemi-kurulumu", label: "Kartlı Geçiş Sistemi Kurulumu" },
+      { href: "/blog/4-kamerali-guvenlik-sistemi-fiyati", label: "4 Kameralı Sistem Fiyatı" },
+      { href: "/blog/8-kamerali-guvenlik-sistemi-fiyati", label: "8 Kameralı Sistem Fiyatı" },
+      { href: "/blog/kablosuz-alarm-sistemi-rehberi", label: "Kablosuz Alarm Sistemi Rehberi" },
+    ],
+  },
 
   /* ── CTA ve Final ── */
   finalCtaTitle: "İşyeriniz İçin Güvenlik Sistemi Teklifi Alın",

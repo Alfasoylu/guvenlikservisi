@@ -90,19 +90,19 @@ const data: LandingPageData = {
   },
   testimonials: [
     {
-      text: "Mağazamıza kamera + alarm sistemi kurdurduk. Artık her yerden canlı izleyebiliyorum, çok rahatım.",
+      text: "Mağazamıza kamera + alarm sistemi kurdurduk. Artık her yerden canlı izleyebiliyorum. Kasadan sonra kör nokta kalmadı.",
       name: "Tuğba S.",
       role: "İstanbul / Mağaza Sahibi",
       rating: 5,
     },
     {
-      text: "Restoranımıza hem yangın alarmı hem kamera sistemi yaptırdılar. Tek sözleşme çok pratik.",
+      text: "Restoranımıza hem yangın alarmı hem kamera sistemi yaptırdılar. Ayrı firmalarla uğraşmak yerine tek sözleşme çok pratik oldu.",
       name: "Ali R.",
       role: "Bursa / Restoran İşletmecisi",
-      rating: 5,
+      rating: 4,
     },
     {
-      text: "Ofisimizin güvenlik sistemini komple yenilediler. Kartlı geçiş çok profesyonel görünüm sağladı.",
+      text: "Ofisimizin güvenlik sistemini komple yenilediler. Kartlı geçiş hem görünüm hem de personel takibi açısından çok iyi.",
       name: "Nilgün T.",
       role: "Kocaeli / Ofis Müdürü",
       rating: 5,
