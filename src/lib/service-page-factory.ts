@@ -5,6 +5,7 @@ import type { FaqCollectionKey } from "@/data/seo/faq-bank";
 import { getFaqItemsByKeys } from "@/data/seo/faq-bank";
 import { getSeoCityBySlug } from "@/data/seo/cities";
 import { getDistrictsByCitySlug, getPrimaryDistrictsByCitySlug } from "@/data/seo/districts";
+import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
 import { getPainPointsBySlugs } from "@/data/seo/pain-points";
 import { getTrustElement } from "@/data/seo/trust-elements";
 import { cityContent } from "@/data/seo-content/cities";
@@ -132,6 +133,7 @@ export interface ServicePageFactoryResult {
       name: string;
       slug: string;
       citySlug: string;
+      href?: string;
     }[];
   };
   cta: {
@@ -665,14 +667,28 @@ export function getServicePageFactoryData(
       description: `${city.name} genelinde keşif, kurulum, montaj ve teknik servis desteği verdiğimiz ilçeler aşağıdadır.`,
       note: cityDetails?.districtsNote ?? seoCity?.serviceAreaEmphasis,
       schemaAreaServed: localCoverageSchemaArea,
-      districts: districts.map((districtName) => {
-        const districtRecord = allCityDistricts.find((d) => d.name === districtName);
-        return {
-          name: districtName,
-          slug: districtRecord?.slug ?? districtName.toLocaleLowerCase("tr-TR").replace(/\s+/g, "-"),
-          citySlug: city.slug,
-        };
-      }),
+      districts: (() => {
+        const approvedSet = new Set(
+          getApprovedDistrictServiceParams()
+            .filter((p) => p.city === city.slug && p.service === service.slug)
+            .map((p) => p.district),
+        );
+        return districts.map((districtName) => {
+          const districtRecord = allCityDistricts.find((d) => d.name === districtName);
+          const slug =
+            districtRecord?.slug ??
+            districtName.toLocaleLowerCase("tr-TR").replace(/\s+/g, "-");
+          const hasApprovedPage = approvedSet.has(slug);
+          return {
+            name: districtName,
+            slug,
+            citySlug: city.slug,
+            href: hasApprovedPage
+              ? `/${city.slug}/${slug}/${service.slug}`
+              : undefined,
+          };
+        });
+      })(),
     },
     cta: {
       title: fillTemplate(serviceDetails?.ctaTitle || `${city.name} için teklif alın`, city, service),

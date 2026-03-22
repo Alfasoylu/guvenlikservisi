@@ -3088,6 +3088,7 @@ export default async function ServicePage({ params }: PageProps) {
         districts={pageContent.localCoverage.districts}
         title={pageContent.localCoverage.title}
         subtitle={pageContent.localCoverage.description}
+        enableLinks={pageContent.localCoverage.districts.some((d) => !!d.href)}
       />
 
       <section className="border-y border-slate-200 bg-white">
