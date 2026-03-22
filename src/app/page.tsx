@@ -152,16 +152,16 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: "Sitemize kamera ve geçiş sistemi kuruldu. Keşif aşamasından montaja kadar süreç net ve profesyoneldi.",
+    text: "Sitemize kamera ve geçiş sistemi kuruldu. Keşif aşamasından montaja kadar süreç net ve profesyoneldi. Küçük bir detay için tekrar aradım, anında dönüş yaptılar.",
     name: "Fatma K.",
     role: "Bursa / Site Yönetimi",
     rating: 5,
   },
   {
-    text: "Depo alanımız için kurulan sistemle kör noktalar kapandı. Ekibin saha tecrübesi fark yaratıyor.",
+    text: "Depo alanımız için kurulan sistemle kör noktalar kapandı. Ekibin saha tecrübesi fark yaratıyor. Fiyat-performans açısından da beklentimi karşıladı.",
     name: "Mehmet S.",
     role: "Kocaeli / Depo İşletmesi",
-    rating: 5,
+    rating: 4,
   },
 ];
 

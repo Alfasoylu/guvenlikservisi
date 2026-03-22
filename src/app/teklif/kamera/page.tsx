@@ -90,20 +90,20 @@ const data: LandingPageData = {
   },
   testimonials: [
     {
-      text: "Ofisimize 8 kamera taktırdık, çok memnunuz. Ekip profesyonel, iş temiz ve hızlıydı.",
-      name: "Ahmet Y.",
-      role: "İstanbul / E-ticaret Şirketi",
+      text: "Ofisimize 8 kamera taktırdık. Ekip sabah geldi, öğleden önce sistem çalışır haldeydi. Kablo kanalları da çok düzgün çıktı.",
+      name: "Serkan O.",
+      role: "İstanbul / Yazılım Şirketi",
       rating: 5,
     },
     {
-      text: "Sitemize 16 kamera + kartlı geçiş sistemi kurdular. Uzaktan izleme çok işe yarıyor.",
-      name: "Fatma K.",
+      text: "Sitemize 16 kamera + kartlı geçiş sistemi kurdular. Uzaktan izleme çok işe yarıyor. Sadece ilk hafta küçük bir ayar gerekmişti, hemen geldiler.",
+      name: "Reyhan D.",
       role: "Bursa / Site Yöneticisi",
-      rating: 5,
+      rating: 4,
     },
     {
-      text: "Fabrikamıza komple güvenlik sistemi kurdular. Bakım sözleşmesi de yaptık, çok rahatız.",
-      name: "Mehmet S.",
+      text: "Fabrikamıza komple güvenlik sistemi kurdular. Bakım sözleşmesi de yaptık, yıllık bir kez gelip kontrol ediyorlar, çok rahatız.",
+      name: "Ercan B.",
       role: "Kocaeli / Fabrika Müdürü",
       rating: 5,
     },

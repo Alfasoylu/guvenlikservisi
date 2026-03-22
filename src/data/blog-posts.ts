@@ -1788,6 +1788,954 @@ Yangın alarm sistemi bakım sözleşmesi, "kurallar gereği" değil, gerçekten
 
 [Yangın alarm sistemi kurulumu](/teklif/istanbul-yangin-alarm-sistemi-kurulumu) sayfamızdan kurulum teklifi de alabilirsiniz.`,
   },
+  {
+    slug: "duman-dedektoru-rehberi",
+    title: "Duman Dedektörü Nedir, Nasıl Çalışır? Tam Rehber 2026",
+    excerpt:
+      "Duman dedektörü türleri, çalışma prensipleri, montaj noktaları, bakım gereksinimleri ve doğru seçim rehberi. İyonizasyon ve fotoelektrik arasındaki fark nedir?",
+    publishedAt: "2026-03-22",
+    readTime: 10,
+    category: "Teknik Rehber",
+    tags: ["duman dedektörü", "yangın algılama", "duman sensörü", "yangın alarm"],
+    image: "/images/services/bakim-servis/yangin-alarm-dedektor-ve-acil-butonu.jpg",
+    featured: true,
+    content: `## Duman Dedektörü Nedir?
+
+Duman dedektörü, havada yanan madde partiküllerini algılayarak yangın çıkmadan önce veya yangının ilk anında uyarı veren bir algılama cihazıdır. Yangın alarm sisteminin beyni olan kontrol paneliyle bağlantılı çalışır; duman eşiği aşıldığında siren devreye girer ve gerekirse itfaiye veya izleme merkezine bildirim yapılır.
+
+Modern binalarda yasal zorunluluk kapsamında kullanılan duman dedektörü, doğru tipte seçildiğinde ve doğru konuma monte edildiğinde yangın kayıplarını ciddi ölçüde azaltır.
+
+## Duman Dedektörü Türleri
+
+### İyonizasyon (İonizasyon) Duman Dedektörü
+
+İyonizasyon dedektörler, içindeki küçük radyoaktif madde sayesinde iki elektrot arasında sürekli bir iyon akımı oluşturur. Duman partikülleri bu akımı bozduğunda alarm tetiklenir.
+
+**Avantajları:**
+- Alev alan, hızlı yayılan yangınlarda çok hızlı tepki verir
+- Düşük maliyetli
+
+**Dezavantajları:**
+- Yavaş, tüten yangınlarda geç tepki verebilir
+- Radyoaktif element içerdiğinden özel imha gerektirir
+
+### Fotoelektrik (Optik) Duman Dedektörü
+
+Fotoelektrik dedektörler, algılama odasına gönderilen ışık huzmesinin duman partikülleri tarafından kırılması prensibine dayanır.
+
+**Avantajları:**
+- Yavaş ve tüten yangınlarda çok etkili (bina içi döşeme yangınları, mobilya yangınları)
+- Mutfak veya banyoya yakın konumlarda sahte alarm oranı daha düşük
+- Bakım ömrü genellikle daha uzun
+
+### Çift Sensörlü (Multi-Criteria) Dedektör
+
+Her iki teknolojiyi tek cihazda birleştirir. Hem hızlı alevli hem yavaş tüten yangınlara karşı dengeli koruma sağlar. Yeni yapılarda ve kritik alanlarda tercih edilir.
+
+### Işın Tipi (Beam) Duman Dedektörü
+
+Geniş açık alanlarda (fabrika holü, depo, spor salonu) iki nokta arasında gönderilen ışın huzmesi ile çalışır. 100 metreye kadar mesafeyi tek cihazla kapsar.
+
+## Duman Dedektörü ile Isı Dedektörü Arasındaki Fark
+
+| Özellik | Duman Dedektörü | Isı Dedektörü |
+|---------|----------------|---------------|
+| Algılama prensibi | Duman partikülü | Sıcaklık artışı |
+| Erken uyarı | Çok erken | Geç (alevli yangın gerekir) |
+| Uygun mekan | Yatak odası, ofis, koridor | Mutfak, garaj, kazan dairesi |
+| Sahte alarm riski | Orta | Düşük |
+| Tüten yangın | Çok etkili | Yetersiz |
+
+Mutfakta duman dedektörü takılması önerilmez çünkü pişirme sırasında sürekli sahte alarm verir. Bu alanlarda ısı dedektörü tercih edilmelidir.
+
+## Duman Dedektörü Nereye Takılmalı?
+
+### Zorunlu Montaj Noktaları
+
+- **Her kat koridoru:** Yangının tüm kata yayılmadan önce algılanması için
+- **Yatak odaları:** Gece saatlerinde erken uyarı kritik önem taşır
+- **Merdiven boşlukları:** Duman yukarı çıktığından buradaki dedektör çok kritiktir
+- **Asma tavan alanları:** Elektrik tesisatı yangınları için
+
+### Montaj Yüksekliği ve Konumu
+
+- Tabandan en az **2,3 metre**, tavandan ise **30-60 cm** aşağıya monte edilmemelidir
+- Tavan montajında duvara olan mesafe en az **50 cm** olmalıdır
+- Hava akımının yoğun olduğu noktalar (klima çıkışı, kapı önü) tercih edilmemelidir
+
+### Mekan Tipine Göre Dedektör Aralığı
+
+| Mekan | Dedektör başına kapsama alanı |
+|-------|-------------------------------|
+| Ofis / Konut | 60 m² |
+| Yüksek tavanlı mekan (>4m) | 40 m² |
+| Depo / Fabrika | 80-100 m² (ışın tipi) |
+
+## Kaç Duman Dedektörü Gerekir?
+
+- **Konut:** Her oda için en az 1, merdiven başı için +1
+- **Ofis:** 60 m²'de bir, açık ofis planında 80 m²'de bir
+- **Otel / yurt:** Her oda için 1 adet
+- **Fabrika / depo:** Tavan yüksekliğine göre hesaplanır, genellikle ışın tipi kullanılır
+
+## Duman Dedektörü Bakımı
+
+1. **3-6 ayda bir:** Test butonuyla alarm testi
+2. **6 ayda bir:** Temizlik (basınçlı hava veya yumuşak fırça ile)
+3. **Yılda bir:** Hassasiyet kalibrasyonu (yetkili servis tarafından)
+4. **10 yılda bir:** Cihaz değişimi (optik sensörün ömrü)
+
+## Adresli ve Konvansiyonel Sistem Farkı
+
+**Konvansiyonel sistem:** Dedektörler bölgelere (zone) ayrılır, hangi bölgede alarm verdiği anlaşılır ama hangi cihaz olduğu bilinmez.
+
+**Adresli sistem:** Her dedektörün benzersiz adresi vardır. Panel, tam olarak hangi odada, hangi cihazın alarm verdiğini gösterir. Kritik binalarda (hastane, okul, AVM, fabrika) adresli sistem zorunludur.
+
+## Duman Dedektörü Fiyatları
+
+| Tip | Fiyat Aralığı |
+|-----|---------------|
+| Konvansiyonel fotoelektrik | 300 - 600 TL |
+| Konvansiyonel iyonizasyon | 200 - 450 TL |
+| Adresli fotoelektrik | 600 - 1.500 TL |
+| Çift sensörlü (multi-criteria) | 800 - 2.000 TL |
+| Işın tipi (beam) | 5.000 - 20.000 TL |
+
+## Sık Sorulan Sorular
+
+**Duman dedektörü neden sürekli çalıyor?**
+Mutfak dumanı, sigara, buharlı ütü, yüksek nem veya toz birikimi en sık sahte alarm nedenlerindendir. Cihaz kirli ya da yanlış konuma monte edilmişse tekrar eden yanlış alarmlar verir.
+
+**Duman dedektörü ne kadar sürede alarm verir?**
+Fotoelektrik modeller yavaş tüten yangınlarda 30-60 saniye içinde, iyonizasyon modeller hızlı alevli yangınlarda 15-30 saniye içinde alarm üretir.
+
+**Duman dedektörü zorunlu mu?**
+Yönetmelik kapsamındaki yapılarda (AVM, otel, fabrika, okul, sağlık tesisi) zorunludur. Konutlarda sigorta şartları ve güvenlik açısından kuvvetle tavsiye edilir.
+
+**Bataryası olan dedektör mü yoksa kablolu mu tercih edilmeli?**
+Yeni yapılarda kablolu (220V + yedek batarya) tercih edilir. Mevcut yapılarda kablo çekmek güçse bataryalı model kullanılabilir.
+
+[Yangın alarm sistemi kurulumu](/yangin-alarm-sistemi-kurulumu) sayfamızdan ücretsiz keşif ve sistem tasarımı talebi bırakabilirsiniz.
+
+[Yangın alarm bakım sözleşmesi](/blog/yangin-alarm-bakim-sozlesmesi-neden-onemli) hakkındaki yazımız da dedektör bakımını detaylandırmaktadır.`,
+  },
+  {
+    slug: "gaz-dedektoru-rehberi",
+    title: "Gaz Dedektörü Nedir, Nasıl Çalışır? Doğalgaz ve LPG Alarm Rehberi",
+    excerpt:
+      "Gaz dedektörü türleri, doğalgaz ve LPG alarmı farkları, montaj noktaları, alarm eşikleri ve doğru cihaz seçimi rehberi. Mutfak, kazan dairesi ve sanayi için.",
+    publishedAt: "2026-03-22",
+    readTime: 9,
+    category: "Teknik Rehber",
+    tags: ["gaz dedektörü", "doğalgaz alarmı", "LPG", "gaz alarm cihazı", "yangın alarm"],
+    image: "/images/services/bakim-servis/yangin-alarm-paneli-kontrol-sistemi.jpg",
+    featured: false,
+    content: `## Gaz Dedektörü Nedir?
+
+Gaz dedektörü, havadaki tehlikeli gaz konsantrasyonunu sürekli izleyen ve belirlenen eşiği aştığında sesli/görsel uyarı veren bir güvenlik cihazıdır. Doğalgaz (metan), LPG (propan-bütan), CO (karbon monoksit) ve diğer yanıcı/zehirli gazları algılayarak yangın, patlama veya zehirlenme riskini önceden haber verir.
+
+Türkiye'de doğalgaz aboneliği olan konut ve işyerlerinin büyük çoğunluğu için gaz dedektörü zorunlu hale getirilmiştir. BOTAŞ bağlantılı dağıtım şirketleri yeni tesisatlarda gaz alarmı şartı aramaktadır.
+
+## Gaz Dedektörü Türleri
+
+### Doğalgaz (Metan - CH₄) Dedektörü
+
+Doğalgaz metan tabanlıdır ve havadan hafif olduğundan yukarıya doğru birikir. Bu nedenle dedektör **tavana yakın** monte edilmelidir.
+
+Kullanım alanları: konut mutfakları, kazan daireleri, restoran mutfakları, endüstriyel gaz hatları.
+
+### LPG Dedektörü (Propan / Bütan)
+
+LPG havadan ağır olduğundan yerde birikir. Tüplü sistem kullanan ortamlarda dedektör **yerden 30-50 cm** yüksekliğe monte edilir.
+
+Kullanım alanları: tüplü ocak kullanan mutfaklar, tüp depoları, LPG dolum istasyonları.
+
+### CO (Karbon Monoksit) Dedektörü
+
+CO renksiz ve kokusuz bir gazdır; yanmayı tamamlamamış yakıt sonucu oluşur. Kazan dairesi, şömine ve garaj gibi alanlarda kritik önem taşır. Ayrı bir CO dedektörü veya kombine cihaz kullanılmalıdır.
+
+### Kombine Dedektör
+
+Tek cihazda hem yanıcı gaz hem CO algılaması yapar. Konut kullanımı için en pratik seçenektir.
+
+### Sabit Sanayi Tipi Gaz Dedektörü
+
+Fabrika, boya atölyesi ve kimya tesisi gibi alanlarda kullanılır. Kontrol paneliyle entegre çalışır.
+
+## Gaz Dedektörü Montaj Noktaları
+
+### Doğalgaz İçin
+
+- Tavandan **30 cm** aşağıda veya daha yukarıda
+- Ocaktan **1-3 metre** uzakta (ocak yakınında ısı ve buhar sahte alarm üretir)
+- Kazan dairesinde kazanın yakınında fakat üzerinde
+
+### LPG İçin
+
+- Yerden **30-50 cm** yükseklikte
+- Tüpün veya ocağın bulunduğu odada
+
+### CO İçin
+
+- Kazan dairesinde nefes hizasında (yaklaşık 150 cm)
+- Uyku odalarının yakınında
+
+## Alarm Eşikleri — % LEL Nedir?
+
+LEL (Lower Explosive Limit) yanıcı gazın havada tutuşma için gereken minimum konsantrasyondur.
+
+| Gaz | LEL | Alarm Eşiği |
+|-----|-----|-------------|
+| Metan (doğalgaz) | %5 | %10-20 LEL |
+| Propan (LPG) | %2,1 | %10-20 LEL |
+| CO | — | 50-100 ppm |
+
+## Solenoid Vana Entegrasyonu
+
+Gaz dedektörü solenoid vana ile bağlandığında gaz kaçağı algılandığında hattı otomatik olarak kapatır. Özellikle restoran, toplu mutfak ve endüstriyel tesislerde zorunlu standart haline gelmektedir.
+
+## Gaz Dedektörü Bakımı
+
+| Bakım İşlemi | Sıklık |
+|---|---|
+| Alarm testi | Ayda 1 |
+| Sensör temizliği | 6 ayda 1 |
+| Kalibrasyon | Yılda 1 |
+| Sensör değişimi | 3-5 yılda 1 |
+
+## Gaz Dedektörü Fiyatları 2026
+
+| Tip | Fiyat Aralığı |
+|-----|---------------|
+| Konut tipi doğalgaz dedektörü | 400 - 900 TL |
+| Konut tipi LPG dedektörü | 400 - 900 TL |
+| Kombine (gaz + CO) dedektör | 700 - 1.500 TL |
+| Solenoid vana (1/2") | 500 - 1.200 TL |
+| Adresli sanayi tipi dedektör | 2.000 - 8.000 TL |
+| Montaj işçiliği | 500 - 1.000 TL |
+
+## Yasal Zorunluluklar
+
+- Yeni binalarda gaz alarmı zorunludur; EPDK lisanslı dağıtım şirketleri yeni bağlantılarda gaz alarmı belgesi istemektedir
+- 6331 sayılı İSG Kanunu kapsamında tehlikeli maddelerle çalışılan ortamlarda gaz algılama zorunludur
+- Kimya, boya, tekstil gibi sektörlerde ATEX sınıflandırması yapılmalıdır
+
+## Sık Sorulan Sorular
+
+**Gaz dedektörü sahte alarm verirse ne yapılır?**
+Ortamı havalandırın. Alarm devam ediyorsa gaz vanasını kapatın, elektrik anahtarlarına dokunmayın ve binayı terk edin. Sürekli sahte alarm cihazın kirlendiğine veya ömrünün dolduğuna işaret eder.
+
+**Doğalgaz dedektörü tavana mı, duvara mı takılır?**
+Doğalgaz için tavana yakın duvara (tavandan 30 cm aşağıya kadar) takılır. LPG için yerden 30-50 cm yükseklikte duvara monte edilir.
+
+**Gaz dedektörü ne kadar süre çalışır?**
+Konut tipi cihazların standart ömrü 5-7 yıldır. Sanayi tipi cihazlarda sensör 3 yılda bir değiştirilmelidir.
+
+**Her odaya gaz dedektörü gerekir mi?**
+Sadece gaz kullanan odaya (mutfak, kazan dairesi) takılması yeterlidir. CO için ise yatak odaları yakınına ek dedektör önerilir.
+
+[Yangın alarm sistemi kurulumu](/yangin-alarm-sistemi-kurulumu) sayfamızdan gaz algılama entegrasyonu hakkında ücretsiz keşif talep edebilirsiniz.
+
+[Duman dedektörü rehberi](/blog/duman-dedektoru-rehberi) yazımızla yangın algılama sistemini tamamlayın.`,
+  },
+  {
+    slug: "4-kamerali-guvenlik-sistemi-fiyati",
+    title: "4 Kameralı Güvenlik Sistemi Fiyatı 2026 | Paket ve Kurulum",
+    excerpt:
+      "4 kameralı güvenlik kamerası sisteminin 2026 yılı fiyatları, paket bileşenleri, kurulum maliyeti ve mekan tiplerine göre sistem önerileri.",
+    publishedAt: "2026-03-22",
+    readTime: 7,
+    category: "Fiyatlar ve Rehber",
+    tags: ["4 kameralı sistem", "güvenlik kamerası fiyatı", "kamera sistemi fiyatı", "montaj ücreti"],
+    image: "/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg",
+    featured: false,
+    content: `## 4 Kameralı Güvenlik Sistemi Fiyatı 2026
+
+4 kameralı güvenlik sistemi, hem konut hem küçük işyerleri için en çok tercih edilen paket boyutudur. 2026 yılında toplam bütçe **18.000 TL ile 45.000 TL** arasında değişmektedir.
+
+## 4 Kameralı Sistemin Bileşenleri
+
+| Bileşen | Adet | Fiyat Aralığı |
+|---------|------|---------------|
+| IP Kamera (4MP) | 4 | 4 × 1.200-3.000 TL |
+| 4/8 Kanal NVR | 1 | 3.000 - 8.000 TL |
+| Sabit Disk (2-4 TB) | 1 | 1.500 - 3.500 TL |
+| PoE Switch (8 port) | 1 | 800 - 2.000 TL |
+| Kablo ve bağlantı malzemesi | — | 600 - 2.500 TL |
+| Montaj işçiliği | — | 1.500 - 4.000 TL |
+
+## Pakete Göre Fiyat Tablosu
+
+### Giriş Seviyesi Paket — 18.000 - 25.000 TL
+- 4 × 2MP (1080p) dome veya bullet kamera
+- 4 kanal NVR, 2 TB sabit disk
+- Standart montaj, 7-15 gün kayıt süresi
+
+**Uygun olduğu durumlar:** Küçük daire, dükkan veya yazıhane
+
+### Orta Seviye Paket — 25.000 - 35.000 TL
+- 4 × 4MP kamera (2 iç, 2 dış mekan)
+- 8 kanal NVR, 4 TB sabit disk
+- Gece görüş 30-50 m, 20-30 gün kayıt süresi
+
+**Uygun olduğu durumlar:** Dış cepheli konut, butik mağaza, küçük ofis
+
+### Üst Seviye Paket — 35.000 - 45.000 TL
+- 4 × 4K (8MP) kamera
+- 8 kanal 4K NVR, 6-8 TB sabit disk
+- Gece renkli görüntü, 30-45 gün kayıt süresi
+
+**Uygun olduğu durumlar:** Plaka okuma gereken giriş, kuyumcu/eczane, villa
+
+## Mekan Tipine Göre 4 Kameralı Sistem Önerileri
+
+### Konut / Daire
+- Kamera 1-2: Dış kapı ve apartman girişi (bullet, gece görüşlü)
+- Kamera 3: Otopark veya bahçe girişi
+- Kamera 4: Balkon veya arka bahçe
+
+### Küçük İşyeri / Dükkan
+- Kamera 1: Ana giriş kapısı
+- Kamera 2: Kasa bölgesi
+- Kamera 3: Satış alanı genel görünüm
+- Kamera 4: Depo veya arka çıkış
+
+### Apartman (Ortak Alan)
+- Kamera 1: Bina ana girişi
+- Kamera 2: Otopark girişi
+- Kamera 3: Asansör önü
+- Kamera 4: Arka bahçe veya çöp alanı
+
+## 4 Kameralı Sistem Kaç Gün Kayıt Yapar?
+
+| Disk | 1080p sürekli | 4MP hareket tetiklemeli |
+|------|--------------|------------------------|
+| 2 TB | 7-10 gün | 15-20 gün |
+| 4 TB | 14-20 gün | 30-40 gün |
+| 6 TB | 21-30 gün | 45-60 gün |
+
+## Sık Sorulan Sorular
+
+**4 kanallı mı yoksa 8 kanallı NVR mi alınmalı?**
+8 kanallı NVR tercih edilmesi önerilir. Fiyat farkı küçüktür (500-1.000 TL) ama sistem büyütüldüğünde NVR değiştirme maliyetinden kurtulunur.
+
+**4 kameralı sistem wifi ile kurulabilir mi?**
+Küçük alanlarda mümkündür; ancak profesyonel kurulumda kablolu (PoE) sistem tercih edilir. WiFi sistemler bant genişliği sorunu ve bağlantı kesilmesi riskleri barındırır.
+
+**Mobil izleme nasıl yapılır?**
+NVR'a internet bağlantısı yapıldıktan sonra üretici uygulaması (Hikvision iVMS, Dahua DMSS vb.) ile akıllı telefon ve tabletlerden canlı izleme yapılabilir.
+
+[Kamera sistemi kurulumu](/kamera-sistemi-kurulumu) sayfamızdan ücretsiz keşif ve fiyat teklifi alabilirsiniz.
+
+[8 kameralı güvenlik sistemi fiyatı](/blog/8-kamerali-guvenlik-sistemi-fiyati) yazımızda daha büyük sistem maliyetlerini karşılaştırabilirsiniz.`,
+  },
+  {
+    slug: "8-kamerali-guvenlik-sistemi-fiyati",
+    title: "8 Kameralı Güvenlik Sistemi Fiyatı 2026 | Paket ve Kurulum",
+    excerpt:
+      "8 kameralı güvenlik kamerası sisteminin 2026 yılı fiyatları, paket bileşenleri, kurulum maliyeti ve büyük ölçekli mekan önerileri.",
+    publishedAt: "2026-03-22",
+    readTime: 7,
+    category: "Fiyatlar ve Rehber",
+    tags: ["8 kameralı sistem", "güvenlik kamerası fiyatı", "kamera sistemi fiyatı", "montaj ücreti"],
+    image: "/images/services/bakim-servis/uzaktan-izleme-merkezi-ekranlari.jpg",
+    featured: false,
+    content: `## 8 Kameralı Güvenlik Sistemi Fiyatı 2026
+
+8 kameralı güvenlik sistemi, orta büyüklükteki işyerleri, apartmanlar, küçük fabrikalar ve büyük konutlar için en yaygın kullanılan paket boyutudur. 2026 yılında toplam bütçe **30.000 TL ile 75.000 TL** arasında değişmektedir.
+
+## 8 Kameralı Sistemin Bileşenleri
+
+| Bileşen | Adet | Fiyat Aralığı |
+|---------|------|---------------|
+| IP Kamera (4MP) | 8 | 8 × 1.200-3.500 TL |
+| 8/16 Kanal NVR | 1 | 5.000 - 15.000 TL |
+| Sabit Disk (4-8 TB) | 1-2 | 3.000 - 7.000 TL |
+| PoE Switch (8-16 port) | 1 | 1.200 - 3.500 TL |
+| Kablo ve bağlantı | — | 1.500 - 5.000 TL |
+| Montaj işçiliği | — | 3.000 - 7.000 TL |
+
+## Pakete Göre Fiyat Tablosu
+
+### Giriş Seviyesi Paket — 30.000 - 42.000 TL
+- 8 × 2MP (1080p) kamera, 8 kanal NVR, 4 TB disk
+- 14-20 gün kayıt süresi
+
+**Uygun olduğu durumlar:** Büyük dükkan, küçük restoran, orta boy ofis
+
+### Orta Seviye Paket — 42.000 - 58.000 TL
+- 8 × 4MP kamera, 16 kanal NVR, 6-8 TB disk
+- Gece görüş 30-60 m, 25-35 gün kayıt süresi
+
+**Uygun olduğu durumlar:** Fabrika avlusu, büyük mağaza, apartman (giriş + otopark + asansörler)
+
+### Üst Seviye Paket — 58.000 - 75.000 TL
+- 8 × 4K kamera, 16 kanal 4K NVR, 8-12 TB disk (RAID)
+- Renkli gece görüş, PTZ kamera dahil, 40-60 gün kayıt
+
+**Uygun olduğu durumlar:** Banka şubesi, hastane, yüksek güvenlikli depo
+
+## 4 Kameralı ve 8 Kameralı Sistem Karşılaştırması
+
+| Özellik | 4 Kameralı | 8 Kameralı |
+|---------|-----------|-----------|
+| Başlangıç fiyatı | ~18.000 TL | ~30.000 TL |
+| Kapsama alanı | ~200-400 m² | ~400-900 m² |
+| NVR kanalı (önerilen) | 8 | 16 |
+| Büyüme esnekliği | Sınırlı | Yüksek |
+
+## Mekan Tipine Göre 8 Kameralı Sistem Planı
+
+### Orta Boy Mağaza (200-400 m²)
+- 2 × Giriş/çıkış dış cephe, 2 × Satış alanı genel
+- 1 × Kasa bölgesi, 1 × Depo girişi
+- 1 × Arka çıkış, 1 × Dış cephe / park alanı
+
+### Apartman veya Site
+- 2 × Bina ana giriş, 2 × Otopark girişi
+- 1 × Asansör önü, 1 × Ortak kat koridoru
+- 1 × Arka çıkış / çöp alanı, 1 × Çocuk parkı / yeşil alan
+
+### Küçük Fabrika veya Depo
+- 2 × Ana giriş (plaka okuma dahil), 2 × Üretim/depo alanı
+- 1 × Yükleme rampası, 1 × Ofis girişi
+- 1 × Dış cephe çevre, 1 × Güvenlik/sunucu odası
+
+## Sık Sorulan Sorular
+
+**8 kameralı sistem için internet şart mı?**
+Kayıt ve yerel izleme için internet şart değildir. Uzaktan mobil erişim için minimum 10 Mbps upload önerilir.
+
+**8 kameralı sistem kaç gün kayıt yapar?**
+4MP ve 8 TB disk ile 30-45 gün; hareket tetiklemeli kayıt bu süreyi 2 katına çıkarır.
+
+**NVR kanal sayısı ne olmalı?**
+16 kanallı NVR tercih edilmesi önerilir. İleride 2-4 kamera ekleme ihtiyacında NVR değiştirme maliyetinden tasarruf sağlanır.
+
+[Kamera sistemi kurulumu](/kamera-sistemi-kurulumu) sayfamızdan 8 kameralı sistem için ücretsiz keşif talebi bırakabilirsiniz.
+
+[4 kameralı güvenlik sistemi fiyatı](/blog/4-kamerali-guvenlik-sistemi-fiyati) ile karşılaştırma yaparak doğru paket boyutunu seçebilirsiniz.`,
+  },
+  {
+    slug: "kablosuz-alarm-sistemi-rehberi",
+    title: "Kablosuz Alarm Sistemi Rehberi 2026 | Seçim, Kurulum ve Fiyatlar",
+    excerpt:
+      "Kablosuz alarm sistemi nedir, nasıl çalışır? Kablolu sistemle karşılaştırma, Ajax ve DSC gibi markalar, kurulum süreci ve 2026 fiyatları.",
+    publishedAt: "2026-03-22",
+    readTime: 9,
+    category: "Teknik Rehber",
+    tags: ["kablosuz alarm sistemi", "Ajax alarm", "ev alarm sistemi", "alarm sistemi kurulumu"],
+    image: "/images/landing/telefondan-kablosuz-alarm-kontrol-app.webp",
+    featured: false,
+    content: `## Kablosuz Alarm Sistemi Nedir?
+
+Kablosuz alarm sistemi, sensörler ile kontrol paneli arasındaki iletişimi kablo yerine radyo frekansı (RF) üzerinden sağlayan bir hırsız alarm çözümüdür. Sensörler kendi batarya enerjisiyle çalışır; kontrol paneliyle şifreli, iki yönlü radyo frekansıyla haberleşir.
+
+Özellikle mevcut yapılarda kablo çekmeden profesyonel güvenlik sistemi kurulumunu mümkün kılar. Montaj süresi kablolu sisteme kıyasla %60-70 daha kısa olabilir.
+
+## Kablosuz ve Kablolu Alarm Sistemi Karşılaştırması
+
+| Özellik | Kablosuz | Kablolu |
+|---------|----------|---------|
+| Kurulum süresi | 2-4 saat | 1-2 gün |
+| Kablo hasarı | Yok | Sıva, duvar açma |
+| Batarya gerekliliği | Evet (sensörler) | Hayır |
+| Kiracı için uygunluk | Çok uygun | Zor |
+| Başlangıç maliyeti | Orta-Yüksek | Düşük-Orta |
+| Güvenilirlik | Yüksek (AES-256) | Çok yüksek |
+
+Modern sistemlerde jamming (frekans bloklama) girişimi otomatik olarak algılanır ve alarm üretir.
+
+## Öne Çıkan Kablosuz Alarm Markaları
+
+### Ajax Systems
+Türkiye pazarında en hızlı büyüyen marka. 868 MHz Jeweller protokolü, 7 yıla kadar batarya ömrü, mobil uygulama ile tam izleme. EN 50131 Grade 2 sertifikalı.
+
+### DSC PowerSeries NEO
+Hibrit mimari ile mevcut sistemlere kablosuz sensör eklenebilir. Büyük ofis ve çok katlı binalarda tercih edilir.
+
+### Texecom Premier Elite
+EN Grade 3 sertifikası ile banka şubesi, mücevher mağazası ve kritik altyapı için uygundur.
+
+## Kablosuz Alarm Sistemi Bileşenleri ve Fiyatları
+
+| Bileşen | Fiyat |
+|---------|-------|
+| Hub (Kontrol Paneli) | 3.000 - 8.000 TL |
+| PIR Hareket Sensörü | 600 - 1.500 TL / adet |
+| Manyetik Kapı-Pencere Sensörü | 400 - 900 TL / adet |
+| Cam Kırılma Sensörü | 800 - 1.800 TL / adet |
+| Dış Siren | 1.200 - 3.000 TL |
+
+## Sistem Fiyatları 2026
+
+### Temel Konut Paketi — 12.000 - 18.000 TL
+Hub + 2 PIR + 4 manyetik sensör + 1 siren + kurulum
+
+### Orta Seviye Konut/Ofis Paketi — 20.000 - 30.000 TL
+Hub + 4 PIR + 6 manyetik + 1 cam kırılma + iç + dış siren
+
+### İşyeri Paketi — 28.000 - 42.000 TL
+Hub + 6 PIR + 8 manyetik + 2 siren + tuş takımı + izleme merkezi entegrasyonu
+
+## Kurulum Süreci
+
+1. **Keşif:** Sensör noktaları ve sinyal kalitesi test edilir
+2. **Montaj:** Panel sabitlenir, sensörler vida veya bantla yerleştirilir
+3. **Eşleştirme:** Her sensör panele tanıtılır, zon isimleri atanır
+4. **Test:** Tüm sensörler ve siren test edilir
+5. **Uygulama:** Mobil uygulama kurulur, kullanıcı eğitimi verilir
+
+Kablosuz sistem kurulumu ortalama **3-6 saat** içinde tamamlanır.
+
+## Sık Sorulan Sorular
+
+**Kablosuz alarm sistemi hacklenebilir mi?**
+Modern sistemler AES-256 şifreleme kullanır. Jamming girişimi algılanır ve alarm verir. Pratik saldırı riski kablolu sistemlerle karşılaştırılabilir düzeydedir.
+
+**Elektrik kesilirse çalışır mı?**
+Evet. Hub cihazında 12-36 saatlik yedek batarya bulunur. Sensörler kendi bataryasıyla çalıştığından sistem tam fonksiyonunu korur.
+
+**Kira evine kablosuz alarm taktırılır mı?**
+En uygun seçenek budur. Duvar delme gerekmez; taşınırken sistem sökülerek yeni adrese taşınabilir.
+
+**7/24 izleme merkezi olmadan kullanılır mı?**
+Kullanılır. Mobil uygulama üzerinden alarm bildirimleri alınır. İzleme merkezi ise alarm anında profesyonel müdahaleyi garanti altına alır.
+
+[Alarm sistemi kurulumu](/alarm-sistemi-kurulumu) sayfamızdan kablosuz alarm için ücretsiz keşif talebi bırakabilirsiniz.
+
+[Alarm sistemi fiyatları 2026](/blog/alarm-sistemi-fiyatlari-2026) yazımızda kablolu ve kablosuz paket fiyatlarını karşılaştırabilirsiniz.`,
+  },
+
+  {
+    slug: "isyeri-alarm-sistemi-secimi",
+    title: "İşyeri Alarm Sistemi Seçimi: Dükkan, Mağaza ve Ofis İçin Rehber 2026",
+    excerpt:
+      "İşyeri alarm sistemi nasıl seçilir? Dükkan alarm sistemi, mağaza alarm sistemi ve ofis alarm kurulumu için doğru sistem tipi, bileşenler ve 2026 fiyat rehberi.",
+    publishedAt: "2026-03-22",
+    readTime: 9,
+    category: "Teknik Rehber",
+    tags: ["işyeri alarm sistemi", "dükkan alarm sistemi", "mağaza alarm sistemi", "işyeri alarm sistemleri"],
+    image: "/images/landing/isyeri-ajax-alarm-kurulum-servisi.png",
+    featured: false,
+    content: `## İşyeri Alarm Sistemi Nedir ve Neden Gereklidir?
+
+İşyeri alarm sistemi, dükkan, mağaza, ofis ve depo gibi ticari mekânları mesai dışı yetkisiz girişe, hırsızlığa ve vandalizme karşı koruyan elektronik güvenlik sistemidir. Hareket sensörleri, kapı-pencere kontaktları, cam kırılma dedektörleri ve merkezi alarm panelinden oluşur; alarm tetiklendiğinde sesli uyarı verir ve mobil bildirim gönderir.
+
+Türkiye'de küçük işletmelerdeki hırsızlık vakalarının büyük çoğunluğu gece veya hafta sonu kapanış saatlerinde yaşanır. Çalışan alarm sistemi olan işyerlerinde bu risk %60-80 oranında azalmaktadır.
+
+## İşyeri Tiplerine Göre Alarm Sistemi Seçimi
+
+### Dükkan Alarm Sistemi
+
+Tek mekânlı dükkanlar için temel dükkan alarm sistemi şu bileşenleri içerir:
+
+- **Kontrol paneli:** Küçük format, 4-8 bölge kapasiteli
+- **Kapı kontaktı:** Vitrin kapısı ve arka servis kapısı için
+- **PIR hareket sensörü:** İç alan genel izleme
+- **Cam kırılma sensörü:** Vitrin güvenliği
+- **İç ve dış siren:** Sesli caydırıcılık
+
+Küçük dükkan için tahmini maliyet: **8.000 - 14.000 TL**. Kablosuz Ajax sistemi ile kablo hasarı olmadan 2-3 saatte kurulum tamamlanır.
+
+### Mağaza Alarm Sistemi
+
+Mağaza alarm sistemi dükkan sistemine göre daha fazla bölge ve sensör içerir. Orta boy bir mağazada (100-300 m²):
+
+- 2-4 PIR hareket sensörü (satış reyonları, giriş, depo)
+- 4-8 manyetik kapı-pencere kontaktı
+- Kasa alarmı (panik butonu)
+- Hareket algılama entegrasyonlu kamera sistemi bağlantısı
+- Çok bölgeli alarm paneli (depo ayrı bölge, satış alanı ayrı bölge)
+
+**Mağaza alarm sistemi avantajı:** Her bölge ayrı ayrı izlenir. Depo alanı gün içinde alarm devredeyken satış alanı açık kalabilir. Personel, kendi yetkisi olmayan bölgeye girdiğinde alarm tetiklenir.
+
+Orta boy mağaza için tahmini maliyet: **15.000 - 28.000 TL**
+
+### Ofis Alarm Sistemi
+
+Ofislerde işyeri alarm sistemi ağırlıklı olarak mesai dışı koruma ve kritik alan güvenliği için kullanılır:
+
+- Sunucu odası / IT odası ayrı bölge
+- Resepsiyon ve giriş alanı
+- Yönetici ofisleri ve belge arşivi
+- Kat koridorları ve asansör önü
+
+Ofislerde kartlı geçiş sistemi ile alarm entegrasyonu sık tercih edilir. Yetkisiz kart ile giriş denemesi alarm bölgesini otomatik devreye alır.
+
+### Restoran ve Kafe Alarm Sistemi
+
+Mutfaklı işletmelerde hırsız alarmına ek olarak:
+- Yangın alarm sistemi entegrasyonu zorunludur
+- Gaz dedektörü bağlantısı kritik önem taşır
+- Mesai bitiminde mutfak ve kasa ayrı bölgelerle izlenir
+
+## Kablolu mu Kablosuz mu?
+
+| Özellik | Kablolu | Kablosuz |
+|---------|---------|----------|
+| Kurulum süresi | 1-2 gün | 2-6 saat |
+| Kiracı işyeri için | Uygun değil | Çok uygun |
+| Fiyat | Düşük-Orta | Orta-Yüksek |
+| Güvenilirlik | Çok yüksek | Yüksek (şifreli RF) |
+| Genişleme | Kablo gerektirir | Kolayca eklenebilir |
+| Bakım | Düşük | Batarya takibi |
+
+Kiracı konumundaki dükkan ve mağazalar için kablosuz işyeri alarm sistemi tercih edilmelidir; taşınırken sökülerek yeni yere kurulabilir.
+
+## İşyeri Alarm Sisteminde Mesai Otomasyonu
+
+Profesyonel işyeri alarm sistemlerinin en önemli özelliklerinden biri mesai saati otomasyonudur:
+
+- Haftalık çalışma programına göre programlanır
+- Kapanış saatinde otomatik devreye girer
+- Açılış saatinde otomatik devre dışı kalır
+- Farklı çalışanlar için farklı yetkili saat aralıkları tanımlanabilir
+- Alarm kurulmadan kapanış yapıldığında uyarı bildirimi gönderilir
+
+Bu özellik "alarm kuruldu mu?" endişesini tamamen ortadan kaldırır.
+
+## 7/24 İzleme Merkezi Bağlantısı
+
+İşyeri alarm sistemine izleme merkezi aboneliği eklenmesi:
+
+- Alarm tetiklendiğinde yetkili kişi aranır, doğrulama yapılır
+- Teyit edilmiş ihbarda güvenlik veya jandarma yönlendirilir
+- Yanlış alarm filtrelenerek gereksiz ihbar azaltılır
+- Aylık abonelik maliyeti: 300-600 TL
+
+Özellikle gece saatleri uzun süre kapalı kalan işyerleri (gastronomi, hizmet sektörü) için 7/24 izleme merkezi bağlantısı önerilir.
+
+## İşyeri Alarm Sistemi Fiyatları 2026
+
+| İşyeri Tipi | Sistem | Tahmini Maliyet |
+|------------|--------|-----------------|
+| Küçük dükkan (50 m² altı) | 4 sensör + panel + siren | 8.000 - 14.000 TL |
+| Orta mağaza (100-300 m²) | 6-10 sensör + çok bölge | 15.000 - 28.000 TL |
+| Büyük mağaza / depo | 10+ sensör + izleme | 30.000 - 50.000 TL |
+| Ofis (100-200 m²) | Bölge alarm + kartlı geçiş | 20.000 - 40.000 TL |
+
+## Sık Sorulan Sorular
+
+**İşyeri alarm sistemi kaç bölgeden oluşmalı?**
+Her ayrı güvenlik riski taşıyan alan ayrı bir bölge olmalıdır. Minimum önerim: giriş kapısı, satış alanı, depo ve kasa her biri ayrı bölge. Bu sayede bölge bazlı izleme ve zaman programlaması yapılabilir.
+
+**Mağaza alarm sistemi günde kaç kez çalıştırılmalı?**
+Standart kullanımda işyeri alarm sistemi günde bir kez kurulup bir kez açılır. Ara giriş gereken durumlarda (kargo teslim, temizlik) geçici yetkili kod veya zaman aralığı tanımlanabilir.
+
+**Yanlış alarm durumunda ne olur?**
+İzleme merkezi bağlantısı olmayan sistemlerde siren çalar ve mobil bildirim gelir. İzleme merkezi bağlantılı sistemlerde önce yetkili kişi aranır; teyit edilemezse güvenlik yönlendirilir.
+
+**Mevcut kamera sistemiyle entegre olabilir mi?**
+Evet. Alarm tetiklendiğinde ilgili kameranın kaydı otomatik işaretlenir. Modern NVR sistemleri alarm girişi üzerinden bu entegrasyonu destekler.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan işyerinize özel komple teklif alabilirsiniz.
+
+[Kablosuz alarm sistemi rehberi](/blog/kablosuz-alarm-sistemi-rehberi) yazımızda Ajax ve DSC sistemleri detaylıca karşılaştırılmaktadır.
+
+[Alarm sistemi fiyatları 2026](/blog/alarm-sistemi-fiyatlari-2026) yazımız bütçe planlaması için faydalıdır.`,
+  },
+  {
+    slug: "yangin-alarm-sistemi-fiyatlari-2026",
+    title: "Yangın Alarm Sistemi Fiyatları 2026 | Kurulum ve Bileşen Maliyetleri",
+    excerpt:
+      "Yangın alarm sistemi fiyatları 2026 yılı güncel bilgileri. Duman dedektörü, yangın paneli, yangın alarm butonu ve tam sistem kurulum maliyetleri mekan tipine göre.",
+    publishedAt: "2026-03-22",
+    readTime: 8,
+    category: "Fiyatlar ve Rehber",
+    tags: ["yangın alarm sistemi fiyatları", "yangın alarm fiyatı", "duman dedektörü fiyatı", "yangın paneli"],
+    image: "/images/services/bakim-servis/yangin-alarm-sistemi-urun-cesitleri-panel-buton-duman-dedektor-2816x1312pixel.png",
+    featured: false,
+    content: `## Yangın Alarm Sistemi Fiyatları 2026
+
+Yangın alarm sistemi fiyatı; mekan büyüklüğü, duman dedektörü ve ısı dedektörü sayısı, yangın paneli kapasitesi, konvansiyonel veya adresli sistem tercihi ve belgelendirme kapsamına göre değişir.
+
+2026 yılında tam kurulum (panel + dedektörler + butonlar + siren + belgelendirme) maliyetleri:
+- **Küçük mekan (50-150 m²):** 10.000 - 18.000 TL
+- **Orta mekan (150-500 m²):** 18.000 - 45.000 TL
+- **Büyük tesis (500 m² üzeri):** 45.000 TL+ (keşif sonrası teklif)
+
+## Yangın Alarm Sistemi Bileşenleri ve Fiyatları
+
+### Yangın Paneli
+
+Yangın paneli, tüm yangın algılama sisteminin merkez cihazıdır. Dedektör sinyallerini toplar, değerlendirir ve siren/bildirim çıkışlarını yönetir.
+
+| Panel Tipi | Kapasite | Fiyat |
+|-----------|---------|-------|
+| Konvansiyonel (2 bölge) | Küçük mekan | 1.500 - 3.000 TL |
+| Konvansiyonel (4-8 bölge) | Orta mekan | 3.000 - 7.000 TL |
+| Adresli yangın paneli | Büyük tesis | 8.000 - 30.000 TL |
+
+### Duman Dedektörü
+
+Duman dedektörü, yangının en erken aşamasında (görünür alev oluşmadan) havadaki duman partiküllerini algılar.
+
+| Tip | Fiyat |
+|-----|-------|
+| Konvansiyonel fotoelektrik | 300 - 600 TL |
+| Konvansiyonel iyonizasyon | 200 - 450 TL |
+| Adresli fotoelektrik | 600 - 1.500 TL |
+| Çift sensörlü (multi-criteria) | 800 - 2.000 TL |
+
+### Isı Dedektörü
+
+Mutfak, garaj ve yüksek toz oranı olan ortamlarda duman sensörü yerine ısı dedektörü kullanılır. Sahte alarm riskini minimize eder.
+
+- Sabit sıcaklık dedektörü: **250 - 500 TL**
+- Hız artışlı (rate-of-rise) dedektör: **400 - 800 TL**
+
+### Yangın Alarm Butonu (Manuel Call Point)
+
+Yangını gören kişinin camı kırarak anında alarm tetikleyebildiği kırmızı cihaz. Çıkış yolları, koridor köşeleri ve merdiven boşluklarına yerleştirilir.
+
+- Konvansiyonel yangın alarm butonu: **200 - 400 TL**
+- Adresli yangın alarm butonu: **350 - 700 TL**
+
+### Yangın Sireni ve Flaşörü
+
+- İç siren (oda tipi): **300 - 600 TL**
+- Kombinasyon sireni + flaşör: **500 - 1.000 TL**
+- Dış uyarı cihazı: **400 - 800 TL**
+
+## Konvansiyonel ve Adresli Sistem Maliyet Karşılaştırması
+
+| Özellik | Konvansiyonel | Adresli |
+|---------|--------------|---------|
+| Başlangıç maliyeti | Düşük | Yüksek |
+| Küçük mekan uygunluğu | İdeal | Gereksiz |
+| Büyük tesis uygunluğu | Yetersiz | Zorunlu |
+| Hata tespiti | Bölge bazlı | Cihaz bazlı |
+| Belgelendirme güçlüğü | Basit | Daha detaylı |
+| Bakım maliyeti | Düşük | Orta |
+
+**Hangi sistem seçilmeli?**
+- 500 m² altı tek katlı mekanlar → Konvansiyonel yangın alarm sistemi
+- 500 m² üzeri veya çok katlı → Adresli sistem
+- Otel, hastane, AVM → Adresli sistem zorunlu
+
+## Mekan Tipine Göre Yangın Alarm Sistemi Fiyatı
+
+### Restoran ve Kafe (50-150 m²)
+Mutfak ısı dedektörü + salon duman dedektörü + yangın alarm butonu + panel + siren + **gaz dedektörü** (zorunlu)
+
+**Tahmini maliyet: 12.000 - 20.000 TL**
+
+### Mağaza veya Ofis (150-300 m²)
+3-6 duman dedektörü + 2 yangın alarm butonu + yangın paneli + siren + belgelendirme
+
+**Tahmini maliyet: 15.000 - 28.000 TL**
+
+### İşyeri ve Depo (300-800 m²)
+8-15 dedektör + çok bölgeli panel + birden fazla buton + çoklu siren
+
+**Tahmini maliyet: 25.000 - 50.000 TL**
+
+### Fabrika ve Büyük Tesis (800 m²+)
+Adresli sistem + ışın tipi dedektör + yangın ihbar merkezi bağlantısı + zorunlu belgelendirme
+
+**Tahmini maliyet: 50.000 TL+ (keşif sonrası)**
+
+## Yangın Alarm Sistemi Fiyatını Etkileyen Faktörler
+
+1. **Mekan büyüklüğü:** Dedektör sayısını doğrudan belirler. TS EN 54 standardına göre her 60 m² için 1 duman dedektörü hesaplanır.
+
+2. **Tavan yüksekliği:** 4 metreden yüksek tavanlarda kapsama alanı düşer, daha fazla dedektör gerekir.
+
+3. **Sistem tipi:** Adresli sistem konvansiyonele göre 2-3 kat daha pahalıdır ama büyük tesislerde zorunludur.
+
+4. **Kablo altyapısı:** Yangın alarm kablosu (FRH tipi, yanmaya dayanıklı) standart kabloya göre daha pahalıdır.
+
+5. **Belgelendirme:** Yangın projesi, test raporu, sertifika ve sigorta belgesi zorunlu kapsamdadır. Bu belgeler ayrıca maliyete yansır.
+
+6. **Gaz dedektörü:** Mutfaklı işletmelerde gaz alarm cihazı zorunlu ek maliyet oluşturur (1.500-3.000 TL dahil).
+
+## Yangın Alarm Sistemi Belgelendirme Maliyeti
+
+Yasal zorunluluk kapsamında teslim edilmesi gereken belgeler:
+- Yangın algılama sistemi projesi (mühendis imzalı)
+- Cihaz yerleşim planı
+- Sistem test raporu
+- Yetkili servis sertifikası
+- Sigorta uyum belgesi
+
+Belgelendirme maliyeti: **2.000 - 5.000 TL** (kurulum fiyatına dahil edilmesi önerilir)
+
+## Yıllık Bakım Maliyeti
+
+Yangın alarm sistemi yılda bir kez bakıma alınması zorunludur:
+- Dedektör testi ve temizliği
+- Yangın alarm butonu testi
+- Panel akü kontrolü
+- Test raporu düzenlenmesi
+
+Yıllık bakım ücreti: **1.500 - 4.000 TL** (cihaz sayısına ve mekan büyüklüğüne göre)
+
+## Sık Sorulan Sorular
+
+**Yangın alarm sistemi zorunlu mu?**
+Yönetmelik kapsamındaki işletmeler için zorunludur: otel, yurt, hastane, okul, AVM, restoran (50 kişi üzeri), fabrika, depo ve büyük ofis binaları. Tam liste için [Yangın Alarm Sistemi Zorunlu mu?](/blog/yangin-alarm-sistemi-zorunlu-mu) yazımızı inceleyin.
+
+**Fiyat almadan önce keşif gerekli mi?**
+Evet. Mekan yapısı, tavan yüksekliği, mevcut altyapı ve yasal gerekliliklere göre fiyat değişir. Keşifsiz verilen fiyat gerçekçi olmaz.
+
+**Sigorta şirketi için hangi belgeler gerekli?**
+Yangın alarm sistemi kurulum projesi, test raporu ve yetkili servis sertifikası sigorta şirketleri tarafından istenen standart belgelerdir.
+
+**Yangın paneli ne kadar sürede değiştirilmeli?**
+Konvansiyonel yangın panelinin standart ömrü 10-15 yıldır. Akü her 3-5 yılda bir değiştirilmelidir.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan yangın alarm dahil komple kurulum teklifi alabilirsiniz.
+
+[Yangın alarm sistemi kurulumu](/yangin-alarm-sistemi-kurulumu) sayfamızda yasal zorunluluklar ve sistem seçenekleri detaylandırılmaktadır.
+
+[Duman dedektörü rehberi](/blog/duman-dedektoru-rehberi) yazımızda dedektör türleri ve montaj noktaları anlatılmaktadır.
+
+[Gaz dedektörü rehberi](/blog/gaz-dedektoru-rehberi) — mutfaklı işletmeler için gaz alarm cihazı seçimi.`,
+  },
+  {
+    slug: "magaza-guvenlik-sistemi-rehberi",
+    title: "Mağaza Güvenlik Sistemi Rehberi 2026 | Kamera, Alarm ve Ürün Koruma",
+    excerpt:
+      "Mağaza güvenlik sistemi nasıl kurulur? Mağaza kamera sistemi, mağaza alarm sistemi, depo kamera, ürün koruma ve kapı güvenlik sistemleri için kapsamlı rehber.",
+    publishedAt: "2026-03-22",
+    readTime: 10,
+    category: "Teknik Rehber",
+    tags: ["mağaza güvenlik sistemi", "mağaza kamera sistemi", "mağaza alarm sistemi", "mağaza ürün koruma sistemleri", "depo kamera sistemi"],
+    image: "/images/services/bakim-servis/market-kamera-montaji-gorunmez-kablolama-demosu.jpg",
+    featured: false,
+    content: `## Mağaza Güvenlik Sistemi Nedir?
+
+Mağaza güvenlik sistemi; kamera, alarm, kapı güvenlik ve ürün koruma bileşenlerini bir araya getirerek perakende işletmeleri hırsızlık, stok kaybı, vandalizm ve yetkisiz girişe karşı koruyan bütüncül bir güvenlik altyapısıdır.
+
+Türkiye'de perakende kayıplarının %40-60'ı iç hırsızlıktan (personel veya kasadan müşteriyle suç ortaklığı) kaynaklanmaktadır. Bu nedenle mağaza güvenlik sistemi yalnızca dış tehditleri değil, iç riskleri de kapsamalıdır.
+
+## Mağaza Kamera Sistemi
+
+Mağaza kamera sistemi, perakende güvenliğinin temel bileşenidir. Doğru yerleştirilmiş bir kamera sistemi hem caydırıcılık sağlar hem de olay sonrası görüntü kanıtı sunar.
+
+### Kritik Kamera Noktaları
+
+**Giriş / Çıkış:**
+Gelen ve giden her kişiyi kayıt altına alır. Yüz tanıma destekli modeller ile kara listeye alınan kişileri algılayabilir. En az 4MP çözünürlük önerilir.
+
+**Kasa Bölgesi:**
+İç hırsızlığın en sık yaşandığı alan. Kasiyerin ellerini ve para işlemini net gösteren dar açılı, yüksek çözünürlüklü kamera. Kasa kamerası kaçınılmazdır.
+
+**Raf Arası ve Satış Alanı:**
+Geniş açılı dome kameralar veya birden fazla kamera kombinasyonu ile raf aralarındaki kör noktalar kapatılır.
+
+**Depo Kamera Sistemi:**
+Depo girişi ve iç alan izleme. Stok çıkışı ve yetkisiz depo girişi bu kameralarla tespit edilir. Depo kamera sistemi, personel hareketinin kayıt altına alınmasında kritik rol oynar.
+
+**Vitrin Önü / Dış Cephe:**
+Gece saatlerinde cam kırma veya etiket sıyırma girişimlerini tespit eder. Gece görüşlü bullet kamera tercih edilir.
+
+### Mağaza için Kamera Sayısı Önerileri
+
+| Mağaza Büyüklüğü | Minimum Kamera |
+|-----------------|----------------|
+| 50 m² altı (büfe, bayi) | 3-4 kamera |
+| 50-150 m² (butik, küçük mağaza) | 4-6 kamera |
+| 150-400 m² (orta mağaza) | 6-12 kamera |
+| 400 m²+ (büyük mağaza) | 12+ kamera |
+
+## Mağaza Alarm Sistemi
+
+Mağaza alarm sistemi mesai saati dışında işletmenin birincil savunma hattıdır. Bileşenler:
+
+### Kapı Güvenlik Sistemleri
+
+Kapı güvenlik sistemleri mağaza güvenliğinin ilk halkasıdır:
+- **Manyetik kapı kontaktı:** Vitrin kapısı ve arka servis kapısı için. Kapı açıldığında alarm tetikler.
+- **Cam kırılma sensörü:** Cam kırılma sesini 6-9 metreye kadar algılar. Vitrin güvenliği için zorunlu.
+- **Kapı titreşim sensörü:** Kapıya fiziksel darbe uygulandığında uyarı verir.
+
+### Hareket Algılama
+
+- PIR (kızılötesi) hareket sensörü: İç alan ve depo için
+- Dual-tech sensör: Dış mekân ve yüksek trafik alanları için (sahte alarm oranı düşük)
+
+### Mağaza Alarm Otomasyonu
+
+Mağaza alarm sistemi mesai saatine göre programlanır:
+- Kapanış saatinde otomatik devreye girer
+- Farklı alanlar (depo, satış, kasa) farklı zaman dilimlerinde aktive edilir
+- Taşıma/kargo girişi için geçici devre dışı bırakma özelliği
+
+## Mağaza Ürün Koruma Sistemleri
+
+Mağaza ürün koruma sistemleri kamera ve alarmdan bağımsız bir katman olarak çalışır:
+
+### Elektronik Ürün Güvenliği (EAS)
+
+- **Yumuşak etiket (soft label):** Kitap, kozmetik, giyim gibi ürünlere yapıştırılır. Kasada devre dışı bırakılır.
+- **Sert etiket (hard tag):** Giyim ve değerli ürünler için. Özel alıcı olmadan çıkarılamaz.
+- **Kapı anteni:** Kasadan geçmeden etiketli ürün çıkışında alarm üretir.
+
+### Akıllı Raf Sistemleri (Opsiyonel)
+
+- Raf ağırlık sensörü: Ürün alındığında kayıt üretir
+- Fiyat etiketi görüntüleme ile stok takibi entegrasyonu
+
+### Güvenlik Personeli ile Kombinasyon
+
+Kamera + alarm + EAS sistemi güvenlik personelinin yokluğunda bile etkili koruma sağlar. Günümüzde küçük-orta mağazalar personel yerine teknoloji yatırımını tercih etmektedir.
+
+## Kartlı Geçiş Sistemi — Depo Erişim Kontrolü
+
+Mağaza depo ve personel girişlerinde kartlı geçiş sistemi stok kaybını önleyen kritik bileşendir:
+
+- Yalnızca yetkili personel depoya girebilir
+- Giriş-çıkış log kaydı tutulur (saat + kimlik)
+- Vardiya bazlı erişim kısıtlaması yapılabilir
+- Kamera sistemi ile entegre: yetkisiz kart girişiminde kamera kaydı başlatılır
+
+## Mekan Planlaması — Kör Nokta Analizi
+
+Mağaza güvenlik sistemi kurulumunun en kritik adımı kör nokta analizidir:
+
+1. Raf düzeninden oluşan görüş engellerinin tespiti
+2. Köşe dönüşleri ve giriş/çıkış ara alanları
+3. Soyunma kabini önleri
+4. Depo kapısı ve arka çıkış
+5. Asansör önü (varsa)
+
+Bu noktalar tespit edilmeden kurulan sistem boşluk bırakır ve gerçek olayları kayıt edemez.
+
+## Mağaza Güvenlik Sistemi Fiyatları 2026
+
+| Paket | Kapsam | Maliyet |
+|-------|--------|---------|
+| Temel Dükkan Paketi | 4 kamera + alarm | 15.000 - 22.000 TL |
+| Orta Mağaza Paketi | 8 kamera + alarm + kartlı geçiş | 30.000 - 50.000 TL |
+| Büyük Mağaza | 12+ kamera + alarm + EAS + kartlı geçiş | 55.000 TL+ |
+
+## Sık Sorulan Sorular
+
+**Mağaza kamera kayıtları kaç gün tutulmalı?**
+Perakende işletmeler için minimum 30 gün önerilir. Hırsızlık vakalarında olay tespiti çoğu zaman olaydan 1-3 hafta sonra yapılmaktadır. 7 günlük kayıt çoğu durumda yetersiz kalır.
+
+**Mağaza alarmı yanlış çalışırsa ne olur?**
+Sahte alarm hem iş akışını bozar hem de komşu işletmeleri rahatsız eder. Doğru sensör yerleşimi ve kalibrasyon ile sahte alarm oranı minimuma indirilir. PIR sensörlerin ısıtma/klima çıkışlarına yakın konumlandırılmaması kritik önem taşır.
+
+**Depo kamera sistemi ile satış alanı kamerası ayrı yönetilir mi?**
+Evet. Modern NVR sistemlerinde her kamera ayrı kanal üzerinden yönetilir. Depo kameralarına erişim kısıtlı tutulabilir; yalnızca yöneticiler depo kayıtlarını izleyebilir.
+
+**Mağaza ürün koruma sistemi kamera ile entegre olabilir mi?**
+Evet. EAS kapı anteni alarm verdiğinde ilgili kamera bölümü otomatik olarak kaydedilir ve alarm işaretlenir. Olay anında hırsız görüntüsü hazır olur.
+
+**İşyeri kamera sistemi uzaktan izleme nasıl yapılır?**
+NVR'a internet bağlantısı sağlandıktan sonra akıllı telefon uygulaması (Hikvision iVMS, Dahua DMSS vb.) aracılığıyla mağazanın canlı görüntüsüne her yerden erişilir. Hareket algılandığında anlık bildirim gönderilir.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan mağazanıza özel komple teklif alabilirsiniz.
+
+[İşyerine kaç kamera lazım?](/blog/isyerine-kac-kamera-lazim) yazımız kamera sayısı planlamasını detaylandırmaktadır.
+
+[4 kameralı güvenlik sistemi fiyatı](/blog/4-kamerali-guvenlik-sistemi-fiyati) ve [8 kameralı güvenlik sistemi fiyatı](/blog/8-kamerali-guvenlik-sistemi-fiyati) yazılarımız bütçe planlaması için faydalıdır.
+
+[Kablosuz alarm sistemi rehberi](/blog/kablosuz-alarm-sistemi-rehberi) — kiracı mağazalar için ideal alarm çözümü.`,
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
