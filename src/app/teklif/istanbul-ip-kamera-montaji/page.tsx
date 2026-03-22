@@ -428,9 +428,9 @@ export default function IstanbulIpKameraMontajiPage() {
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.18),_transparent_32%),linear-gradient(120deg,rgba(2,6,23,0.98),rgba(15,23,42,0.9),rgba(3,7,18,0.95))]" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 md:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:py-20">
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-8 md:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:py-12">
           <div>
-            <div className="mb-5 flex flex-wrap gap-2 text-sm font-semibold text-slate-100">
+            <div className="mb-4 flex flex-wrap gap-2 text-sm font-semibold text-slate-100">
               <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur">
                 İstanbul içi hızlı keşif
               </span>
@@ -451,13 +451,13 @@ export default function IstanbulIpKameraMontajiPage() {
               keşif
             </p>
 
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200">
+            <p className="mt-3 max-w-2xl text-lg leading-7 text-slate-200">
               İstanbul genelinde doğru kamera yerleşimi, net gece görüşü, kayıt
               altyapısı ve telefondan canlı izleme kurulumu ile sistemi
               kullanıma hazır teslim ediyoruz.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#teklif-formu"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-6 py-4 text-base font-bold text-white transition hover:bg-emerald-400"
@@ -484,22 +484,22 @@ export default function IstanbulIpKameraMontajiPage() {
               </a>
             </div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">500+</div>
-                <div className="mt-1 text-sm text-slate-300">
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-black">500+</div>
+                <div className="mt-0.5 text-sm text-slate-300">
                   Tamamlanan proje
                 </div>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">12+ Yıl</div>
-                <div className="mt-1 text-sm text-slate-300">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-black">12+ Yıl</div>
+                <div className="mt-0.5 text-sm text-slate-300">
                   Saha tecrübesi
                 </div>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div className="text-3xl font-black">7/24</div>
-                <div className="mt-1 text-sm text-slate-300">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <div className="text-2xl font-black">7/24</div>
+                <div className="mt-0.5 text-sm text-slate-300">
                   Uzaktan erişim altyapısı
                 </div>
               </div>
