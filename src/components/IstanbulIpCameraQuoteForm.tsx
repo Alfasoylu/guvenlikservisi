@@ -13,9 +13,23 @@ import { pushAnalyticsEvent } from "@/lib/analytics";
 
 type Props = {
   districts: string[];
+  formSource?: string;
+  pagePath?: string;
+  whatsappText?: string;
 };
 
-export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
+export default function IstanbulIpCameraQuoteForm({
+  districts,
+  formSource,
+  pagePath,
+  whatsappText,
+}: Props) {
+  const _analyticsSource = formSource ?? "istanbul_ip_kamera";
+  const _apiSource = formSource ?? "istanbul_ip_kamera_landing";
+  const _pagePath = pagePath ?? "/teklif/istanbul-ip-kamera-montaji";
+  const _whatsappText =
+    whatsappText ??
+    "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum.";
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState("");
   const [formError, setFormError] = useState("");
@@ -25,16 +39,14 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
   const attribution = useLandingAttribution();
 
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, "")}`;
-  const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    "Merhaba, İstanbul IP kamera montajı için bilgi ve fiyat almak istiyorum.",
-  )}`;
+  const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(_whatsappText)}`;
 
   function trackFormView() {
     if (hasTrackedView.current) return;
     hasTrackedView.current = true;
     pushAnalyticsEvent("view_lead_form", {
-      page_path: "/teklif/istanbul-ip-kamera-montaji",
-      form_source: "istanbul_ip_kamera",
+      page_path: _pagePath,
+      form_source: _analyticsSource,
       lead_channel: "form",
     });
   }
@@ -78,7 +90,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       page: attribution.page_url || window.location.href,
       page_url: attribution.page_url || window.location.href,
       page_type: attribution.page_type || "landing_page",
-      form_source: "istanbul_ip_kamera_landing",
+      form_source: _apiSource,
       utm_source: attribution.utm_source,
       utm_medium: attribution.utm_medium,
       utm_campaign: attribution.utm_campaign,
@@ -112,8 +124,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       }
 
       pushAnalyticsEvent("submit_lead_form", {
-        page_path: "/teklif/istanbul-ip-kamera-montaji",
-        form_source: "istanbul_ip_kamera",
+        page_path: _pagePath,
+        form_source: _analyticsSource,
         lead_channel: "form",
         service_type: "kamera",
         event_category: "lead",
@@ -125,8 +137,8 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
       });
 
       pushAnalyticsEvent("lead_form_success", {
-        page_path: "/teklif/istanbul-ip-kamera-montaji",
-        form_source: "istanbul_ip_kamera",
+        page_path: _pagePath,
+        form_source: _analyticsSource,
         service_type: "kamera",
         lead_id: result?.lead_id,
         session_id: attribution.session_id,
@@ -395,7 +407,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
                 href={phoneHref}
                 onClick={() =>
                   pushAnalyticsEvent("click_call", {
-                    page_path: "/teklif/istanbul-ip-kamera-montaji",
+                    page_path: _pagePath,
                     lead_channel: "phone",
                     cta_slot: "form_success",
                   })
@@ -411,7 +423,7 @@ export default function IstanbulIpCameraQuoteForm({ districts }: Props) {
                 rel="noopener noreferrer"
                 onClick={() =>
                   pushAnalyticsEvent("click_whatsapp", {
-                    page_path: "/teklif/istanbul-ip-kamera-montaji",
+                    page_path: _pagePath,
                     lead_channel: "whatsapp",
                     cta_slot: "form_success",
                   })

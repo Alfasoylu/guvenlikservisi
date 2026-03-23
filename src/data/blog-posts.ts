@@ -3058,6 +3058,219 @@ Evet. Kapı veya pencere açıldığında hem alarm hem kamera kayıt sistemi de
 [4 kameralı güvenlik sistemi fiyatı](/blog/4-kamerali-guvenlik-sistemi-fiyati) — küçük mağaza bütçelemesi için referans.
 
 [İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan mağazanıza özel ücretsiz keşif ve teklif alabilirsiniz.`,
+  },
+  {
+    slug: "istanbul-isyeri-guvenlik-kamerasi-kurulumu",
+    title:
+      "İstanbul İşyeri Güvenlik Kamerası Kurulumu: Fiyat, Kamera Sayısı ve Doğru Sistem Seçimi",
+    excerpt:
+      "İstanbul'daki işyeri sahipleri için güvenlik kamerası kurulumu rehberi: mağaza, ofis, depo ve kafe için kamera sayısı, sistem seçimi ve 2026 güncel fiyatlar.",
+    publishedAt: "2026-03-23",
+    readTime: 10,
+    category: "Rehber ve Fiyat",
+    tags: [
+      "istanbul",
+      "işyeri",
+      "kamera kurulum",
+      "güvenlik sistemi",
+      "ip kamera",
+      "fiyat",
+    ],
+    image:
+      "/images/services/bakim-servis/guvenlik-kamera-montaj-ekibi-isyeri-montaj-dis-mekan.jpg",
+    featured: false,
+    content: `## İstanbul'da İşyeri Güvenlik Kamerası Kurulumu
+
+İstanbul'da işyeri sahibi olmak, güvenlik konusunda ciddi sorumluluklar getirir. Yüksek kira, yoğun müşteri trafiği ve kentsel hırsızlık riskleri bir arada düşünüldüğünde güvenlik kamerası artık bir lüks değil, işletme altyapısının zorunlu bir parçasıdır.
+
+Bu rehberde İstanbul'daki mağaza, ofis, kafe, depo ve küçük-orta ölçekli işletmeler için doğru kamera sistemi nasıl seçilir, kaç kamera gerekir ve toplam maliyet ne olur — tüm bunları ayrıntılı olarak ele alıyoruz.
+
+## İstanbul'daki İşyerleri Hangi Güvenlik Sorunlarıyla Karşılaşıyor?
+
+İstanbul'un yoğun kentsel yapısı, işyeri güvenliğini daha karmaşık hale getirir:
+
+- **Kapı hırsızlığı ve kasa bölgesi riskleri** — perakende ve kafe gibi nakit yoğun işletmelerde yaygındır
+- **Personel izleme ihtiyacı** — büyük vardiyalı ekiplerde iç güvenlik ve performans takibi
+- **Gece mesai sonrası boş işyeri koruması** — AVM dışı bağımsız dükkânlarda kritik önem taşır
+- **Otopark ve depo alanlarında kör nokta sorunu** — sık karşılaşılan ama çözülebilir bir problem
+
+Kurulum öncesi bu risk noktaları belirlenmeden hazırlanan sistem, gerçek ihtiyacı karşılamayabilir.
+
+## İşyeri Tipine Göre Kamera Sistemi Seçimi
+
+### Mağaza ve Perakende
+
+Mağazalarda en kritik noktalar kasa, giriş kapısı ve vitrin önüdür. Kasaya yakın konumlanan geniş açılı dome kamera hem müşteri hareketini hem de personel alanını tek çerçevede kapsar.
+
+**Önerilen konfigürasyon (50-100 m² mağaza):**
+- Giriş kapısı: 1 adet bullet kamera (yüz detayı için 4MP+)
+- Kasa alanı: 1-2 adet dome kamera
+- Depo/arka bölüm: 1 adet dome kamera
+- **Toplam: 3-4 kamera, 4 kanallı NVR**
+
+### Ofis ve İş Merkezi
+
+Ofislerde kamera sistemi hem güvenlik hem de çalışma disiplini açısından değer üretir. Lobi, toplantı odası girişi, sunucu odası ve arka çıkış öncelikli noktalardır.
+
+**Önerilen konfigürasyon (10-20 kişilik ofis):**
+- Lobi ve resepsiyon: 1-2 adet dome kamera
+- Koridor ve çıkışlar: 2-3 adet kamera
+- Sunucu odası veya arşiv: 1 adet kamera
+- **Toplam: 4-6 kamera, 8 kanallı NVR**
+
+### Kafe ve Restoran
+
+Kafe ve restoranlarda hem iç mekan hem de giriş bölümü izlenmelidir. Kasanın net görünmesi ve çalışan alanının kayıt altında olması önemlidir.
+
+**Önerilen konfigürasyon:**
+- Giriş kapısı: 1 adet yüz tanıma açılı kamera
+- Kasa ve ödeme noktası: 1 adet yakın alan dome kamera
+- Genel salon: 1-2 adet geniş açılı kamera
+- Mutfak girişi veya servis alanı: 1 adet kamera
+- **Toplam: 4-5 kamera, 4-8 kanallı NVR**
+
+### Depo ve Lojistik
+
+Depolar büyük alan, yüksek tavan ve gece güvenliği açısından özel bir planlama gerektirir. PTZ kameralar ve geniş açılı fisheye kameralar büyük depo alanlarında etkilidir.
+
+**Önerilen konfigürasyon (500 m² depo):**
+- Giriş kapısı ve yükleme rampaları: 2-3 adet bullet kamera
+- Depo içi: 2-4 adet fisheye veya geniş açılı dome kamera
+- Güvenlik kafesi / kasa alanı: 1 adet yakın alan kamera
+- Dış çevre: 2-3 adet dış mekan bullet kamera
+- **Toplam: 7-11 kamera, 8-16 kanallı NVR**
+
+![Profesyonel kamera sistemi kurulum ve monitor kontrolü](/images/services/bakim-servis/kamera-sistem-kontrol-monitor-teknisyen.jpg "İstanbul işyeri kamera kurulumu sonrası sistem testi ve monitor kontrolü")
+
+## İstanbul'da İşyeri Kamera Kurulumu Fiyatları 2026
+
+| İşyeri Tipi | Kamera Sayısı | Tahmini Fiyat |
+|-------------|---------------|---------------|
+| Küçük mağaza / büfe | 2-3 kamera | 10.000 – 18.000 TL |
+| Orta boy mağaza | 4-6 kamera | 18.000 – 32.000 TL |
+| Kafe / restoran | 4-5 kamera | 16.000 – 28.000 TL |
+| Ofis (10-20 kişi) | 4-8 kamera | 20.000 – 40.000 TL |
+| Küçük depo | 6-10 kamera | 28.000 – 55.000 TL |
+| Büyük depo / fabrika | 10+ kamera | Keşif sonrası özel teklif |
+
+**Bu fiyatlara dahil olanlar:** Kamera, NVR kayıt cihazı, sabit disk, kablo tesisatı, montaj işçiliği ve 1 yıl garanti.
+
+**Fiyatı etkileyen unsurlar:**
+- Kablo mesafesi ve bina yapısı (asma tavan, beton duvar, yüksek tavan)
+- Seçilen kamera çözünürlüğü (2MP, 4MP, 8MP/4K)
+- Uzaktan izleme ve mobil uygulama entegrasyonu
+- Ek özellikler: plaka tanıma, insan algılama, ses kaydı
+
+---
+
+**İstanbul'daki işyeriniz için ücretsiz keşif ve net fiyat teklifi almak ister misiniz?**
+
+[İstanbul IP Kamera Montajı — Ücretsiz Keşif Talebi →](/teklif/istanbul-ip-kamera-montaji)
+
+Sayfamızda paket fiyatlar, kurulum süreci ve tüm teknik detaylar yer almaktadır.
+
+---
+
+## Kamera Sayısı Nasıl Doğru Belirlenir?
+
+Kamera sayısını belirlerken yalnızca metrekareye bakmak yanıltıcıdır. Doğru hesaplama şu adımlarla yapılır:
+
+### 1. Giriş ve Çıkış Noktalarını Sayın
+
+Her giriş kapısı, servis kapısı ve acil çıkış noktası için en az 1 kamera planlanmalıdır. Büyük işyerlerinde bu sayı 3-5'e ulaşabilir.
+
+### 2. Kör Noktaları Belirleyin
+
+Rafların arkası, köşe noktalar, asma tavan aralıkları ve kapalı depo koridorları kör nokta oluşturur. Her kör nokta için ek kamera gerekir.
+
+### 3. Kritik Alanları Önceliklendirin
+
+Kasa, para kasası, sunucu odası, arşiv ve ürün deposu en kritik alanlardır. Bu noktalar kesinlikle kamera kapsamında olmalıdır.
+
+### 4. Personel Sayısı ve Vardiya Düzenini Değerlendirin
+
+Büyük ekiplerle çalışan işyerlerinde ortak alan kameraları hem güvenlik hem de operasyonel izleme sağlar.
+
+Kesin kamera sayısı ve yerleşim planı ancak yerinde keşif sonrası netleşir. Uzaktan yapılan hesaplamalar kör nokta ve kablo güzergahı konularında yanıltıcı olabilir.
+
+## İstanbul'a Özel Dikkat Edilmesi Gereken Noktalar
+
+### Kat Yönetimi ve Bina İzni
+
+AVM'lerdeki mağazalar ve iş merkezlerindeki ofisler için kamera kurulumu öncesinde bina veya site yönetiminden onay alınması gerekebilir. Özellikle dış cephe kamerası ve ortak alan kamerası için bu adım önemlidir.
+
+### İnternet Altyapısı
+
+Uzaktan izleme için güvenilir internet bağlantısı şarttır. Fiber altyapısının olmadığı İstanbul'un bazı eski sanayi bölgelerinde alternatif çözüm olarak 4G/LTE yönlendirici kullanılabilir.
+
+### Enerji Güvencesi
+
+İstanbul'un yoğun iş bölgelerinde anlık elektrik kesintileri yaşanabilir. UPS veya kesintisiz güç kaynağı ile desteklenen sistemler kayıt sürekliliğini garanti altına alır.
+
+### KVKK Uyumu
+
+İşyerinde kamera kullanan işletmeler Kişisel Verilerin Korunması Kanunu kapsamında çalışan ve müşterileri bilgilendirmek zorundadır. Kamera uyarı levhası zorunludur.
+
+![İç mekan kamera ve alarm sistemi kurulumu](/images/services/bakim-servis/ic-mekan-kamera-ve-alarm-kurulum-servisi.jpg "İstanbul işyeri iç mekan kamera ve alarm sistemi kurulumu")
+
+## Kurulum Süreci Nasıl İşler?
+
+### 1. Ücretsiz Keşif
+
+Ekibimiz işyerinizi ziyaret ederek risk noktalarını, kablo güzergahını ve kamera pozisyonlarını belirler. Bu adımda size yerleşim planı ve net fiyat teklifi sunulur.
+
+### 2. Ürün Seçimi ve Onay
+
+Keşif sonrasında ihtiyacınıza uygun kamera modelleri, NVR kapasitesi ve disk boyutu önerilir. Onayınızın ardından kurulum günü planlanır.
+
+### 3. Kurulum
+
+Kurulum süresi işyeri büyüklüğüne göre genellikle 1-2 gün arasındadır. Kablo tesisatı, montaj, NVR programlama ve mobil uygulama kurulumu bu süreçte tamamlanır.
+
+### 4. Test ve Eğitim
+
+Kurulum tamamlandıktan sonra tüm kameralar test edilir. Kayıt kalitesi, hareket algılama ve mobil izleme uygulaması yerinde gösterilir.
+
+### 5. Garanti ve Bakım
+
+Kurulumun ardından 1 yıl parça ve işçilik garantisi verilir. İsteğe bağlı yıllık bakım sözleşmesiyle sistem düzenli kontrol altında tutulur.
+
+---
+
+**İstanbul'daki işyeriniz için hızlı teklif almak ister misiniz?**
+
+[İstanbul IP Kamera Montajı Sayfasına Git →](/teklif/istanbul-ip-kamera-montaji)
+
+Sayfamızda paket seçenekleri, örnek fiyatlar ve kredi kartıyla taksit imkânı hakkında detaylı bilgi bulabilirsiniz. Formu doldurarak ücretsiz keşif randevusu oluşturabilirsiniz.
+
+---
+
+## Sık Sorulan Sorular
+
+**İstanbul'da işyeri kamera kurulumu ne kadar sürer?**
+Küçük ve orta ölçekli işyerlerinde kurulum genellikle 1 iş günü içinde tamamlanır. Büyük depo veya çok katlı yapılarda 2-3 gün gerekebilir.
+
+**Kamera sistemini telefonumdan izleyebilir miyim?**
+Evet. NVR'a bağlı tüm kameralar mobil uygulama üzerinden gerçek zamanlı izlenebilir, hareket bildirimi alınabilir ve kayıtlar geri izlenebilir.
+
+**Kaç günlük kayıt tutulur?**
+2TB disk ile 4 kameralı sistem ortalama 15-20 gün kayıt tutar. Daha uzun saklama için büyük disk veya bulut yedekleme eklenebilir.
+
+**Kurulum sırasında işyerini kapatmam gerekiyor mu?**
+Küçük işyerlerinde kurulum büyük ölçüde işyeri açıkken yapılabilir. Yoğun kablolama gerektiren durumlarda mesai sonrası kurulum tercih edilebilir.
+
+**Mevcut analog kamera sistemini IP'ye yükseltmek mümkün mü?**
+Evet. Mevcut kablo altyapısı uygunsa analog kameralar IP kameralarla değiştirilerek sistem kolayca yükseltilebilir.
+
+## Sonuç
+
+İstanbul'da işyeri güvenlik kamerası kurulumu, doğru planlama yapıldığında yatırımın karşılığını hızla veren bir güvenlik altyapısıdır. Hırsızlık caydırıcılığı, sigorta avantajı, personel yönetimi ve uzaktan izleme gibi faydalar düşünüldüğünde sistem maliyeti genellikle birkaç ay içinde kendini amorti eder.
+
+Doğru kamera sayısı ve yerleşim planı için mutlaka profesyonel keşif yaptırılmasını öneriyoruz. Uzaktan hazırlanan teklifler kör nokta, kablo güzergahı ve bina koşulları nedeniyle gerçeği yansıtmayabilir.
+
+[İşyeri güvenlik sistemi](/isyeri-guvenlik-sistemi) sayfamızdan alarm entegrasyonu ve ek güvenlik çözümleri hakkında bilgi alabilirsiniz.
+
+[İstanbul kamera sistemi kurulumu](/istanbul/kamera-sistemi-kurulumu) sayfası İstanbul'daki projelerimiz ve ilçe bazlı hizmet kapsamımız için detaylı bilgi sunar.`,
   }];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
