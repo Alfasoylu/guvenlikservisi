@@ -5,6 +5,7 @@ import InternalLinkSection from "@/components/InternalLinkSection";
 import CityDistrictGridSection from "@/components/service-page/CityDistrictGridSection";
 import ServiceVisualSection from "@/components/ServiceVisualSection";
 import { buildCityFaqItems } from "@/data/seo/faq-bank";
+import { getMarketProfileContent } from "@/data/seo/city-market-content";
 import { getSeoCityBySlug } from "@/data/seo/cities";
 import { getDistrictsByCitySlug } from "@/data/seo/districts";
 import { getApprovedDistrictServiceParams } from "@/data/seo/istanbul-district-content";
@@ -78,7 +79,14 @@ export default async function CityPage({ params }: PageProps) {
 
   if (!cityPath || !canonical) notFound();
 
-  const faqItems = buildCityFaqItems(city.name);
+  const marketProfile = getMarketProfileContent(city.marketType);
+  const faqItems = [
+    ...buildCityFaqItems(city.name),
+    {
+      question: marketProfile.faqQuestion,
+      answer: marketProfile.faqAnswer,
+    },
+  ];
   const cityVisuals = getCityPageVisuals(city.slug);
   // Build a lookup: "citySlug:districtSlug" → first approved service slug
   // Priority order: kamera → alarm → kartli-gecis (pilot service order)
@@ -259,7 +267,7 @@ export default async function CityPage({ params }: PageProps) {
           { label: "Tamamlanan Proje", value: "500+" },
           { label: "Sektör Deneyimi", value: "12 Yıl" },
           { label: "Memnuniyet", value: "%100" },
-          { label: "Hızlı Teklif", value: "Aynı Gün" },
+          { label: `${city.name} Hizmet İlçesi`, value: `${city.districtCount}` },
         ].map((item) => (
           <div
             key={item.label}
@@ -290,6 +298,68 @@ export default async function CityPage({ params }: PageProps) {
         description={`${city.name} bölgesindeki kurulum çalışmalarından görseller; keşif süreci, montaj uygulaması ve sistem bileşen akışını birlikte aktarmaktadır.`}
         items={cityVisuals}
       />
+
+      {/* Pazar Profili — marketType bazlı özgün içerik */}
+      <section style={{ marginBottom: "50px" }}>
+        <h2
+          style={{ fontSize: "32px", color: "#0F2B46", marginBottom: "16px" }}
+        >
+          {marketProfile.title}
+        </h2>
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.8,
+            color: "#374151",
+            marginBottom: "20px",
+            maxWidth: "900px",
+          }}
+        >
+          {marketProfile.summary}
+        </p>
+        <ul
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "12px",
+            padding: 0,
+            margin: 0,
+            listStyle: "none",
+          }}
+        >
+          {marketProfile.bullets.map((bullet) => (
+            <li
+              key={bullet}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+                background: "#F8FAFB",
+                border: "1px solid #e5e7eb",
+                borderRadius: "12px",
+                padding: "14px 16px",
+                fontSize: "15px",
+                color: "#1f2937",
+                lineHeight: 1.6,
+              }}
+            >
+              <span
+                style={{
+                  color: "#34A853",
+                  fontWeight: 700,
+                  fontSize: "18px",
+                  lineHeight: 1,
+                  flexShrink: 0,
+                  marginTop: "2px",
+                }}
+              >
+                ✓
+              </span>
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <InternalLinkSection
         title={`${city.name} için hizmet sayfaları`}
@@ -329,6 +399,20 @@ export default async function CityPage({ params }: PageProps) {
         </div>
       </section>
 
+      {city.districtsNote && (
+        <p
+          style={{
+            fontSize: "16px",
+            lineHeight: 1.75,
+            color: "#555",
+            marginBottom: "12px",
+            maxWidth: "860px",
+          }}
+        >
+          {city.districtsNote}
+        </p>
+      )}
+
       <CityDistrictGridSection
         cityName={city.name}
         districts={cityDistricts}
@@ -356,13 +440,86 @@ export default async function CityPage({ params }: PageProps) {
           çalışıyor gibi görünür ama olay anında işe yaramaz.
         </p>
 
-        <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#374151" }}>
+        <p
+          style={{
+            fontSize: "18px",
+            lineHeight: 1.8,
+            marginBottom: "18px",
+            color: "#374151",
+          }}
+        >
           Biz keşif aşamasında giriş-çıkış noktalarını, izlenecek kritik
           alanları, kayıt beklentisini ve uzaktan erişim ihtiyacını netleştirip
           ona göre sistem öneriyoruz. Bu sayede kurulum sonrasında sistem
           gerçekten işe yarar; kör nokta kalmaz, kayıt süresi yeterli olur.
         </p>
+
+        <p
+          style={{
+            fontSize: "17px",
+            lineHeight: 1.8,
+            color: "#374151",
+            background: "#F8FAFB",
+            border: "1px solid #e5e7eb",
+            borderRadius: "12px",
+            padding: "18px 22px",
+          }}
+        >
+          <strong style={{ color: "#0F2B46" }}>{city.name} için not: </strong>
+          {marketProfile.summary}
+        </p>
       </section>
+
+      {/* Komşu Şehirler — cross-linking */}
+      {city.neighborCitySlugs.length > 0 && (
+        <section style={{ marginBottom: "50px" }}>
+          <h2
+            style={{
+              fontSize: "26px",
+              color: "#0F2B46",
+              marginBottom: "12px",
+            }}
+          >
+            {city.bolge} Bölgesinde Diğer Hizmet İllerimiz
+          </h2>
+          <p
+            style={{
+              fontSize: "16px",
+              color: "#555",
+              marginBottom: "16px",
+              lineHeight: 1.7,
+            }}
+          >
+            {city.name} dışında {city.bolge} bölgesindeki komşu illerde de
+            kurulum ve servis hizmeti sunuyoruz.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            {city.neighborCitySlugs.map((slug) => {
+              const neighbor = getSeoCityBySlug(slug);
+              if (!neighbor) return null;
+              return (
+                <Link
+                  key={slug}
+                  href={`/${slug}`}
+                  style={{
+                    display: "inline-block",
+                    padding: "10px 18px",
+                    borderRadius: "10px",
+                    border: "1px solid #e5e7eb",
+                    background: "#fff",
+                    color: "#0F2B46",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    fontSize: "15px",
+                  }}
+                >
+                  {neighbor.name} Güvenlik Sistemleri →
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section style={{ marginBottom: "50px" }}>
         <h2
