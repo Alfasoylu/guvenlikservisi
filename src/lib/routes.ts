@@ -41,6 +41,8 @@ export const teklifPaths = [
   "/teklif/alarm",
   "/teklif/apartman",
   "/teklif/istanbul-ip-kamera-montaji",
+  "/teklif/istanbul-isyeri-ip-kamera-montaji",
+  "/teklif/istanbul-apartman-site-ip-kamera-montaji",
   "/teklif/istanbul-yangin-alarm-sistemi-kurulumu",
   "/teklif/isyeri",
   "/teklif/kamera",
