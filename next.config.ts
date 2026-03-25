@@ -51,6 +51,15 @@ const nextConfig: NextConfig = {
       },
     ];
 
+    // eski kartlı geçiş slug'u (yeniden adlandırıldı)
+    const legacyKartliGecisRedirects = [
+      {
+        source: "/kartli-gecis-ve-turnike-sistemi",
+        destination: "/kartli-gecis-sistemi-kurulumu",
+        permanent: true,
+      },
+    ];
+
     // eski problem sayfa slug'ları (yeniden adlandırıldı)
     const legacyProblemPageRedirects = [
       {
@@ -119,6 +128,7 @@ const nextConfig: NextConfig = {
       ...legacyCityRedirects,
       ...legacyServiceRedirects,
       ...legacyProblemPageRedirects,
+      ...legacyKartliGecisRedirects,
     ];
   },
 };
