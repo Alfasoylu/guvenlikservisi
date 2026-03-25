@@ -287,7 +287,7 @@ export const serviceSegmentLinks: Record<string, ContextualLinkData[]> = {
       description: "Site genelinde IP kamera montajı ve kayıt cihazı yapılandırması.",
     },
     {
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
       label: "Kartlı geçiş ve turnike sistemi",
       description: "Blok girişi, otopark bariyeri ve ortak alan geçiş kontrolü.",
     },
@@ -309,7 +309,7 @@ export const serviceSegmentLinks: Record<string, ContextualLinkData[]> = {
       description: "Üretim ve depo alanlarının merkezi izleme sistemi ile 7/24 takibi.",
     },
     {
-      href: "/kartli-gecis-ve-turnike-sistemi",
+      href: "/kartli-gecis-sistemi-kurulumu",
       label: "Kartlı geçiş ve turnike sistemi",
       description: "Vardiya giriş-çıkış kontrolü, turnike ve kapı yetkilendirmesi.",
     },
