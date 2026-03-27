@@ -174,21 +174,18 @@ export default function IletisimSayfasi() {
                   Yerimizi Haritada Görün
                 </h3>
                 <p className="mb-4 text-sm leading-7 text-text-light">
-                  Perpa merkezli çalışıyoruz. Görüşme, keşif planlama ve yer
-                  tespiti için haritayı kullanabilirsiniz.
+                  Yeni adresimize ulaşmak, görüşme planlamak ve keşif noktası
+                  teyidi yapmak için Google Maps yönlendirmesini kullanabilirsiniz.
                 </p>
 
-                <div className="overflow-hidden rounded-2xl border border-gray-200">
-                  <iframe
-                    title="Güvenlik Servisi Konum"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24077.919701793635!2d28.87241187431639!3d41.03094469999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb11ec800561%3A0x6b5d0032174a861b!2sG%C3%BCvenlik%20Servisi%20Kurulum%20ve%20Bak%C4%B1m%20Hizmeti!5e0!3m2!1str!2str!4v1773871523675!5m2!1str!2str"
-                    width="100%"
-                    height="320"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full"
-                  />
-                </div>
+                <a
+                  href={siteConfig.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center rounded-2xl border border-gray-200 bg-surface px-6 py-10 text-center font-semibold text-primary transition-colors hover:border-accent hover:text-accent"
+                >
+                  Google Maps'te yol tarifi al
+                </a>
               </div>
             </div>
 
