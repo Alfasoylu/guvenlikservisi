@@ -9,7 +9,8 @@ export const siteConfig = {
   email: "info@guvenlikservisi.com",
 
   address:
-    "Perpa Ticaret Merkezi A Blok Kat:8 No:758 Okmeydanı Şişli İstanbul Türkiye",
+    "Soylu Elektronik Topkapı Ticaret Merkezi, 2. Kısım No 4, Maltepe Mahallesi, 34010 Zeytinburnu/İstanbul",
+  mapUrl: "https://share.google/pNdQv3DnmAnbBatVb",
 
   city: "İstanbul",
 

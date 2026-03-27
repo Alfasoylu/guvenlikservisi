@@ -76,6 +76,7 @@ export function buildLocalBusinessSchema({
     url: absoluteUrl(url),
     telephone: siteConfig.phone,
     areaServed,
+    hasMap: siteConfig.mapUrl,
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.city,
@@ -192,6 +193,7 @@ export function buildLocalBusinessWithReviewsSchema({
     url: absoluteUrl(businessUrl),
     telephone: siteConfig.phone,
     areaServed,
+    hasMap: siteConfig.mapUrl,
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.city,
@@ -235,6 +237,7 @@ export function buildGlobalLocalBusinessSchema() {
     telephone: siteConfig.phone,
     email: siteConfig.email,
     image: absoluteUrl(siteConfig.ogImage),
+    hasMap: siteConfig.mapUrl,
     description: siteConfig.description,
     areaServed: cities.map((city) => ({
       "@type": "City",

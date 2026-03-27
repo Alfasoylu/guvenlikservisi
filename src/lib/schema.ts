@@ -18,6 +18,7 @@ export function generateLocalBusinessSchema() {
     telephone: siteConfig.phone,
     email: siteConfig.email,
     image: absoluteUrl(siteConfig.ogImage),
+    hasMap: siteConfig.mapUrl,
     priceRange: "₺₺",
     description: siteConfig.description,
     address: {
